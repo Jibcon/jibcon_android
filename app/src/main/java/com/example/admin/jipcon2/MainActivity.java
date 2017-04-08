@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity
     String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};//사이드바 임시 메뉴 껍데기
     GlobalApplication app;
 
+    // branch test
     // 변경 conflict!! 마스터브렌치에는 아까 변경한사항이 없는상태.
     private class pagerAdapter extends FragmentStatePagerAdapter{
         public pagerAdapter(android.support.v4.app.FragmentManager fm){
