@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity
     ViewPager vp;
     String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};//사이드바 임시 메뉴 껍데기
     GlobalApplication app;
-
+    // chanjoo branch test
     // 변경
     private class pagerAdapter extends FragmentStatePagerAdapter{
         public pagerAdapter(android.support.v4.app.FragmentManager fm){
