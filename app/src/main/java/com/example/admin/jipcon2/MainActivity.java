@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     GlobalApplication app;
 
     // 변경
+    // branch test
     private class pagerAdapter extends FragmentStatePagerAdapter{
         public pagerAdapter(android.support.v4.app.FragmentManager fm){
             super(fm);
