@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+
+        android:id="@+id/ImgViewDiviceItem"
+        android:src="@drawable/printer"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="140dp" />
+
+    <!--<Button-->
+        <!--android:id="@+id/BtnDeviceItem"-->
+        <!--android:background="@drawable/threedots"-->
+        <!--android:layout_width="60dp"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_alignBottom="@+id/ImgViewDiviceItem"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true" />-->
+</RelativeLayout>

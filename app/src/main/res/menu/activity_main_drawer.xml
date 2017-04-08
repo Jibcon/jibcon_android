@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/aboutjipcon"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="about jipcon" />
+        <item
+            android:id="@+id/asking"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="문의" />
+        <item
+            android:id="@+id/alramsetting"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="알림설정" />
+        <item
+            android:id="@+id/goout"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="외출" />
+        <item
+            android:id="@+id/connected"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="연결된 디바이스" />
+    </group>
+
+    <!--<item android:title="Communicate">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:id="@+id/nav_share"-->
+                <!--android:icon="@drawable/ic_menu_share"-->
+                <!--android:title="Share" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_send"-->
+                <!--android:icon="@drawable/ic_menu_send"-->
+                <!--android:title="Send" />-->
+        <!--</menu>-->
+    <!--</item>-->
+
+</menu>
