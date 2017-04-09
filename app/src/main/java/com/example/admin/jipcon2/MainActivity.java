@@ -24,16 +24,11 @@ import com.example.admin.jipcon2.Conshop.MarketMenuActivity;
 import com.example.admin.jipcon2.Device.DeviceMenuActivity;
 import com.example.admin.jipcon2.Usermenu.UserMenuActivity;
 
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ViewPager vp;
     String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};//사이드바 임시 메뉴 껍데기
     GlobalApplication app;
-
-    // chanjoo branch test
-    // 변경
-
 
 
     private class pagerAdapter extends FragmentStatePagerAdapter{
@@ -90,6 +85,7 @@ public class MainActivity extends AppCompatActivity
         ImageButton btn3 = (ImageButton) findViewById(R.id.btn3); // 마켓 버튼
         ImageButton btn4 = (ImageButton) findViewById(R.id.btn4); // 사용자 버튼
 
+        vp.setOffscreenPageLimit(3);
         vp.setAdapter(new pagerAdapter(getSupportFragmentManager()));
         vp.setCurrentItem(0); // 첫 뷰페이저로는 기기 목록이 나오도록 설정.
 
@@ -101,6 +97,7 @@ public class MainActivity extends AppCompatActivity
         btn3.setTag(2);
         btn4.setOnClickListener(movePageListener);
         btn4.setTag(3);
+
         /* ↑뷰 페이저(액티비티 슬라이드)↑ */
     }
 
