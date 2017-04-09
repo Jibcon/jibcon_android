@@ -24,6 +24,7 @@ import com.example.admin.jipcon2.Conshop.MarketMenuActivity;
 import com.example.admin.jipcon2.Device.DeviceMenuActivity;
 import com.example.admin.jipcon2.Usermenu.UserMenuActivity;
 
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ViewPager vp;
