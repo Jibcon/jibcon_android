@@ -7,8 +7,10 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/jibcon_android.iml" filepath="$PROJECT_DIR$/jibcon_android.iml" />
       <module fileurl="file://$PROJECT_DIR$/jibcon_android.iml" filepath="$PROJECT_DIR$/jibcon_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jibcon_android_real.iml" filepath="$PROJECT_DIR$/jibcon_android_real.iml" />
       <module fileurl="file://$PROJECT_DIR$/jibcon_android_real.iml" filepath="$PROJECT_DIR$/jibcon_android_real.iml" />
     </modules>
   </component>
