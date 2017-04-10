@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.example.admin.jipcon2.MainActivity;
+import com.example.admin.jipcon2.Login.LoginActivity;
 import com.example.admin.jipcon2.R;
 
 /**
@@ -28,7 +28,7 @@ public class Tutorial4 extends android.support.v4.app.Fragment{
         toMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MainActivity.class);
+                Intent intent = new Intent(getContext(), LoginActivity.class);
                 startActivity(intent);
                 getActivity().finish();
             }

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Jipcon2</string>
-
+    <string name="kakao_app_key">5f3bef1055a6ec1522826c857597c705</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="facebook_app_id">440498979632151</string>
     <string name="action_settings">Settings</string>
 </resources>

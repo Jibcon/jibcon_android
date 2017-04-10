@@ -2,19 +2,28 @@ package com.example.admin.jipcon2.Splash;
 
 // 매니페스트 파일에서 메인 엑티비티에 걸려있는? <intent-filter>를 IntroActivity에 넣어줌.
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.example.admin.jipcon2.Device.DeviceItem;
 import com.example.admin.jipcon2.GlobalApplication;
 import com.example.admin.jipcon2.R;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+
+import static com.kakao.util.helper.Utility.getPackageInfo;
 
 public class IntroActivity extends AppCompatActivity {
     private Handler handler;
@@ -36,7 +45,8 @@ public class IntroActivity extends AppCompatActivity {
     };
     private  void itemSetup()
     {
-     //Global Application 에 담을 정보 초기 setup;
+
+        //Global Application 에 담을 정보 초기 setup;
         application = (GlobalApplication)getApplicationContext();
         deviceItemArrayList = new ArrayList<>();
         ArrayList<Bitmap> arr= new ArrayList<>();
@@ -80,10 +90,16 @@ public class IntroActivity extends AppCompatActivity {
         //액션바 없애기
         hideActionBar();
         itemSetup();
+        getKeyHash(getApplicationContext());
         handler.postDelayed(runnable, 1500);
 
     }
+    private  void checkUserLogin()
+    {
+        //getShared
+        //이미 로그인된 유저먼 MainActivity로 redirect!
 
+    }
     //액션바 없애기
     private void hideActionBar(){
         ActionBar actionBar = getSupportActionBar();
@@ -101,5 +117,27 @@ public class IntroActivity extends AppCompatActivity {
     public void onBackPressed(){
         super.onBackPressed();
         handler.removeCallbacks(runnable);
+    }
+
+
+    public static String getKeyHash(Context context)
+    {
+        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
+        if (packageInfo == null)
+            return null;
+        for (Signature signature : packageInfo.signatures) {
+            try {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String hashKey= android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
+                //카카오톡 안드로이드 플랫폼 키해시에 들어갈 키 정보 알아내기
+                Log.d("testing",hashKey);
+
+                return android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
+            } catch (NoSuchAlgorithmException e) {
+                Log.d("testing", "Unable to get MessageDigest. signature=" + signature, e);
+            }
+        }
+        return null;
     }
 }

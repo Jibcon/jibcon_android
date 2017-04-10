@@ -12,6 +12,15 @@ public class DeviceInfo {
 
     String DeviceArr;
     String DeviceType;
+    String DeviceCom;//기기 회사
+
+    public String getDeviceCom() {
+        return DeviceCom;
+    }
+
+    public void setDeviceCom(String deviceCom) {
+        DeviceCom = deviceCom;
+    }
 
     public String getDeviceArr() {
         return DeviceArr;
