@@ -42,6 +42,7 @@ public class IntroActivity extends AppCompatActivity {
         ArrayList<Bitmap> arr= new ArrayList<>();
         ArrayList<String> strarr= new ArrayList<>();
         DeviceItem item;
+
         BitmapDrawable drawable1 = (BitmapDrawable) getResources().getDrawable(R.drawable.airconditioner);
         Bitmap bitmap1 = drawable1.getBitmap();
         BitmapDrawable drawable2 = (BitmapDrawable) getResources().getDrawable(R.drawable.lightbulb);

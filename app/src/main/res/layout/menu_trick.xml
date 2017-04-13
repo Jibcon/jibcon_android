@@ -1,12 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TRICK ACTIVITY"/>
+    <!-- Edited by ChanJoo 20170413 -->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.admin.jipcon2.Cheatkey">
+
+    <!-- 상단 메뉴 버튼 -->
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:paddingTop="9dp"
+        android:paddingBottom="5dp">
+        <!--Active-->
+        <Button
+            android:id="@+id/btn_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="Active"/>
+        <!--Passive-->
+        <Button
+            android:id="@+id/btn_passive"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:paddingBottom="3dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="Passive"/>
+
+    </LinearLayout>
+
+    <!-- ViewPager -->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_cheatkey"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout">
+    </android.support.v4.view.ViewPager>
+
+    </LinearLayout>
 
 </RelativeLayout>
