@@ -39,7 +39,7 @@ public class GlobalApplication extends Application{
     public void onCreate() {
         super.onCreate();
         deviceItemArrayList = new ArrayList<>();
-        username="TestUser";
+        username="Test User";
         userEmail="Jipcon@Jipcon.com";
     }
 

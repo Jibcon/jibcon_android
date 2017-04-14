@@ -10,11 +10,10 @@ import android.widget.GridView;
  */
 public class myGridView extends GridView {
     boolean expanded = false;
+
     public myGridView(Context context) {
         super(context);
     }
-
-
 
     public myGridView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -26,6 +25,7 @@ public class myGridView extends GridView {
 
     public boolean isExpanded()
     {return expanded;}
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
@@ -33,7 +33,6 @@ public class myGridView extends GridView {
         super.onMeasure(widthMeasureSpec, expandSpec);
         ViewGroup.LayoutParams param = getLayoutParams();
         param.height=getMeasuredHeight();
-
 
     }
     public void setExpanded(boolean expanded)

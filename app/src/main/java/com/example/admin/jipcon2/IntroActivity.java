@@ -37,9 +37,9 @@ public class IntroActivity extends AppCompatActivity {
         ArrayList<Bitmap> arr= new ArrayList<>();
         ArrayList<String> strarr= new ArrayList<>();
         DeviceItem item;
-        BitmapDrawable drawable1 = (BitmapDrawable) getResources().getDrawable(R.drawable.airconditioner);
+        BitmapDrawable drawable1 = (BitmapDrawable) getResources().getDrawable(R.drawable.bulb);
         Bitmap bitmap1 = drawable1.getBitmap();
-        BitmapDrawable drawable2 = (BitmapDrawable) getResources().getDrawable(R.drawable.lightbulb);
+        BitmapDrawable drawable2 = (BitmapDrawable) getResources().getDrawable(R.drawable.option);
         Bitmap bitmap2 = drawable2.getBitmap();
         BitmapDrawable drawable3 = (BitmapDrawable) getResources().getDrawable(R.drawable.fan);
         Bitmap bitmap3 = drawable3.getBitmap();

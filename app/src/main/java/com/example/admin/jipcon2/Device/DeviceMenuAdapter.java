@@ -35,7 +35,9 @@ public class DeviceMenuAdapter extends BaseAdapter{
 
     public DeviceMenuAdapter(Context mContext) {
         this.context=mContext;
+
         inflater=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         app=(GlobalApplication)mContext.getApplicationContext();
     }
 
@@ -46,7 +48,6 @@ public class DeviceMenuAdapter extends BaseAdapter{
 
     @Override
     public Object getItem(int position) {
-
         return app.getDeviceItemArrayList().get(position);
     }
 
@@ -59,15 +60,14 @@ public class DeviceMenuAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView==null)
             Log.d("DeviceMenu","DeviceMenuNull");
+
         convertView= inflater.inflate(R.layout.device_item, parent, false);
 
         ImageView imageView = (ImageView)convertView.findViewById(R.id.ImgViewDiviceItem);
         imageView.setImageBitmap(app.getDeviceItemArrayList().get(position).getImage());
 
-
         //Button button = (Button)convertView.findViewById(R.id.BtnDeviceItem);
         notifyDataSetChanged();
-
 
         return convertView;
     }
