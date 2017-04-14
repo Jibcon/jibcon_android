@@ -10,11 +10,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.admin.jipcon2.R;
 
 import java.util.ArrayList;
+
+/**
+ * Created by ChanJoo on 2017-04-14.
+ */
 
 public class TrickActive extends android.support.v4.app.Fragment{
     GridView gridView=null;
@@ -30,21 +35,21 @@ public class TrickActive extends android.support.v4.app.Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
-        BitmapDrawable drawable1 = (BitmapDrawable) getResources().getDrawable(R.drawable.bulb);
+        BitmapDrawable drawable1 = (BitmapDrawable) getResources().getDrawable(R.drawable.sample_0);
         Bitmap img0 = drawable1.getBitmap();
-        BitmapDrawable drawable2 = (BitmapDrawable) getResources().getDrawable(R.drawable.fan);
+        BitmapDrawable drawable2 = (BitmapDrawable) getResources().getDrawable(R.drawable.sample_1);
         Bitmap img1 = drawable2.getBitmap();
-        BitmapDrawable drawable3 = (BitmapDrawable) getResources().getDrawable(R.drawable.bulb);
+        BitmapDrawable drawable3 = (BitmapDrawable) getResources().getDrawable(R.drawable.sample_2);
         Bitmap img2 = drawable3.getBitmap();
-        BitmapDrawable drawable4 = (BitmapDrawable) getResources().getDrawable(R.drawable.bulb);
+        BitmapDrawable drawable4 = (BitmapDrawable) getResources().getDrawable(R.drawable.sample_3);
         Bitmap img3 = drawable4.getBitmap();
-        BitmapDrawable drawable5 = (BitmapDrawable) getResources().getDrawable(R.drawable.fan);
+        BitmapDrawable drawable5 = (BitmapDrawable) getResources().getDrawable(R.drawable.sample_4);
         Bitmap img4 = drawable5.getBitmap();
-        BitmapDrawable drawable6 = (BitmapDrawable) getResources().getDrawable(R.drawable.option);
+        BitmapDrawable drawable6 = (BitmapDrawable) getResources().getDrawable(R.drawable.sample_5);
         Bitmap img5 = drawable6.getBitmap();
-        BitmapDrawable drawable7 = (BitmapDrawable) getResources().getDrawable(R.drawable.fan);
+        BitmapDrawable drawable7 = (BitmapDrawable) getResources().getDrawable(R.drawable.sample_6);
         Bitmap img6 = drawable7.getBitmap();
-        BitmapDrawable drawable8 = (BitmapDrawable) getResources().getDrawable(R.drawable.bulb);
+        BitmapDrawable drawable8 = (BitmapDrawable) getResources().getDrawable(R.drawable.sample_7);
         Bitmap img7 = drawable8.getBitmap();
 
         picArr.add(img0);
@@ -99,7 +104,7 @@ public class TrickActive extends android.support.v4.app.Fragment{
         public View getView(int position, View convertView, ViewGroup parent) {
             if(convertView==null)
             {
-                convertView = inflater.inflate(R.layout.cheatkey_active_gv,parent,false);
+                convertView = inflater.inflate(R.layout.cheatkey_active_item,parent,false);
             }
             ImageView imageView = (ImageView) convertView.findViewById(R.id.itemImageView);
 
