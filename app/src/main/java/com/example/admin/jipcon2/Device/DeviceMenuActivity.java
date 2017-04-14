@@ -42,6 +42,7 @@ public class DeviceMenuActivity extends Fragment {
 
         RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.menu_divice, container, false);
 
+        //layout.getGravity();
         View root = inflater.inflate(R.layout.menu_divice,container,false);
 
 

@@ -25,7 +25,7 @@
                 android:layout_height="?attr/actionBarSize"
                 >
                 <TextView
-                    android:text="JIPCON"
+                    android:text="JIBCON"
                     android:id="@+id/topLogo"
                     android:padding="8dp"
                     android:layout_width="80dp"

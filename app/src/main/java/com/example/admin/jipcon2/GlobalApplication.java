@@ -5,6 +5,7 @@ import android.app.Application;
 
 import com.example.admin.jipcon2.Device.DeviceItem;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -24,6 +25,15 @@ public class GlobalApplication extends Application{
     ArrayList<DeviceItem> deviceItemArrayList;//device 메뉴 아이템들의 리스트
     String username;
     String userEmail;
+    URL userProfileImage;
+
+    public URL getUserProfileImage() {
+        return userProfileImage;
+    }
+
+    public void setUserProfileImage(URL userProfileImage) {
+        this.userProfileImage = userProfileImage;
+    }
 
     public String getUsername() {
         return username;
@@ -63,7 +73,7 @@ public class GlobalApplication extends Application{
         deviceItemArrayList = new ArrayList<>();
         username="TestUser";
         userEmail="Jipcon@Jipcon.com";
-        //KakaoSDK.init(new KaKaoSDKAdpater());
+//        KakaoSDK.init(new KaKaoSDKAdpater());
         //카톡로그인
 
     }
