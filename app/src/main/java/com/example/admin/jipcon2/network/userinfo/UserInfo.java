@@ -11,32 +11,65 @@ public class UserInfo {
 //            -UserToken : 로그인시 생성되는 토큰 저장
 //    -UserImgProfile : 유저 프로필 이미지
 //    -UserEmailProfile : 유저 이메일
+//
+//    String userToken;
+//    String UserImgProfile;
+//    String UserEmailProfile;
+//    String email;
+//
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+//
+//    public String getUserToken() {
+//        return userToken;
+//    }
+//
+//    public void setUserToken(String userToken) {
+//        this.userToken = userToken;
+//    }
+//
+//    public String getUserImgProfile() {
+//        return UserImgProfile;
+//    }
+//
+//    public void setUserImgProfile(String userImgProfile) {
+//        UserImgProfile = userImgProfile;
+//    }
+//
+//    public String getUserEmailProfile() {
+//        return UserEmailProfile;
+//    }
+//
+//    public void setUserEmailProfile(String userEmailProfile) {
+//        UserEmailProfile = userEmailProfile;
+//    }
 
-    String userToken;
-    String UserImgProfile;
-    String UserEmailProfile;
+    String type;
+    String token;
 
-    public String getUserToken() {
-        return userToken;
+    public UserInfo(String type, String token) {
+        this.type = type;
+        this.token = token;
     }
 
-    public void setUserToken(String userToken) {
-        this.userToken = userToken;
+    public String getType() {
+        return type;
     }
 
-    public String getUserImgProfile() {
-        return UserImgProfile;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public void setUserImgProfile(String userImgProfile) {
-        UserImgProfile = userImgProfile;
+    public String getToken() {
+        return token;
     }
 
-    public String getUserEmailProfile() {
-        return UserEmailProfile;
-    }
-
-    public void setUserEmailProfile(String userEmailProfile) {
-        UserEmailProfile = userEmailProfile;
+    public void setToken(String token) {
+        this.token = token;
     }
 }

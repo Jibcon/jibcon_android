@@ -14,20 +14,40 @@ public class HouseInfo {
 //    -HouseLocation : 집콘 만들기 할 때 생성되는 주소
 //    -HouseName : 집콘 이름
 //    -HouseUsers : UserInfo의 ArrayList 한 공간의 사용자 그룹
-
-
-    String spacetype;
+//    -Houseintro: 집콘 소개
+;
     String HouseType;
     String HouseName;
+    String HouseIntro;
+    String HouseLocation;
+    String userName;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getHouseLocation() {
+        return HouseLocation;
+    }
+
+    public void setHouseLocation(String houseLocation) {
+        HouseLocation = houseLocation;
+    }
+
+    public String getHouseIntro() {
+
+        return HouseIntro;
+    }
+
+    public void setHouseIntro(String houseIntro) {
+        HouseIntro = houseIntro;
+    }
+
     ArrayList<UserInfo> HouseUsers;
-
-    public String getSpacetype() {
-        return spacetype;
-    }
-
-    public void setSpacetype(String spacetype) {
-        this.spacetype = spacetype;
-    }
 
     public String getHouseType() {
         return HouseType;
