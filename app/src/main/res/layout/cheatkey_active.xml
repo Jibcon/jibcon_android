@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:horizontalSpacing="10dp"
         android:verticalSpacing="10dp"
-        android:numColumns="3"
+        android:numColumns="2"
         >
     </GridView>
 
