@@ -94,15 +94,6 @@ private CallbackManager callbackManager = null;
             }).executeAsync();
 
 
-            //Log.d("profilecheck","getname() :"+profile.getName());
-            //Log.d("profilecheck","getfirstname() :"+profile.getFirstName());
-            //Log.d("profilecheck","getLinkUri() :"+profile.getLinkUri());
-            //Log.d("profilecheck","getId() :"+profile.getId());
-            //Log.d("profilecheck","getLastName() :"+profile.getLastName());
-            //서버로 전송
-
-
-//            Toast.makeText(getApplicationContext(),profile.getName()+" 님 환영합니다",Toast.LENGTH_SHORT).show();
             final String userTokenFacebook;
             userTokenFacebook=loginResult.getAccessToken().getUserId();
             UserInfo userInfo=new UserInfo("facebook",userTokenFacebook);

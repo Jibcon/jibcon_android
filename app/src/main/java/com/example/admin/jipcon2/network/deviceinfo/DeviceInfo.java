@@ -10,7 +10,7 @@ public class DeviceInfo {
 //    -Devicetype : ex) 디바이스의 종류/ 선풍기 에어컨 전구 등등
 //    res파일에 디바이스별 아이콘 저장 -> 디바이스 타입에 따라 맞는 아이콘 선택
 
-    String DeviceArr;
+    String DeviceAddr;
     String DeviceType;
     String DeviceCom;//기기 회사
 
@@ -22,12 +22,12 @@ public class DeviceInfo {
         DeviceCom = deviceCom;
     }
 
-    public String getDeviceArr() {
-        return DeviceArr;
+    public String getDeviceAddr() {
+        return DeviceAddr;
     }
 
-    public void setDeviceArr(String deviceArr) {
-        DeviceArr = deviceArr;
+    public void setDeviceAddr(String deviceAddr) {
+        DeviceAddr = deviceAddr;
     }
 
     public String getDeviceType() {

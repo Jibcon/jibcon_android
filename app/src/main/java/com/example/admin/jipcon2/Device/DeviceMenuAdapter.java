@@ -1,6 +1,8 @@
 package com.example.admin.jipcon2.Device;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,8 +64,34 @@ public class DeviceMenuAdapter extends BaseAdapter {
         convertView= inflater.inflate(R.layout.device_item, parent, false);
 
         ImageView imageView = (ImageView)convertView.findViewById(R.id.ImgViewDiviceItem);
-        imageView.setImageBitmap(app.getDeviceItemArrayList().get(position).getImage());
+        //imageView.setImageBitmap(app.getDeviceItemArrayList().get(position).getImage());
+        switch (deviceItems.get(position).deviceType)
+        {
+            //0 : 에어컨
+            //1 : 전구
+            //2 : 선풍기
+            //3 : 냉장고
 
+            case 0:   BitmapDrawable drawable1 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.airconditioner);
+            Bitmap bitmap1 = drawable1.getBitmap();
+              imageView.setImageBitmap(bitmap1);
+                break;
+            case 1:
+                BitmapDrawable drawable2 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.lightbulb);
+                Bitmap bitmap2 = drawable2.getBitmap();
+                imageView.setImageBitmap(bitmap2);
+                break;
+            case 2:
+                BitmapDrawable drawable3 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.fan);
+                Bitmap bitmap3 = drawable3.getBitmap();
+                imageView.setImageBitmap(bitmap3);
+                break;
+            case 3:
+                BitmapDrawable drawable4 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.refrigerator);
+                Bitmap bitmap4 = drawable4.getBitmap();
+                imageView.setImageBitmap(bitmap4);
+                break;
+        }
 
         //Button button = (Button)convertView.findViewById(R.id.BtnDeviceItem);
         //notifyDataSetChanged();
