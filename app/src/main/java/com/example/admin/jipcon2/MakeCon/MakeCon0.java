@@ -33,7 +33,7 @@ public class MakeCon0 extends AppCompatActivity implements HouseInfoListener {
         houseInfo.setHouseType(this.housetype);
         houseInfo.setUserName(this.username);
 
-        //서버로 집콘 정보 보내기
+        // TODO: 2017-04-1 서버로 집콘 정보 보내기
     }
 
     @Override

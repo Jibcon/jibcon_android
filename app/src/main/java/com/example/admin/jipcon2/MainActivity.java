@@ -1,9 +1,9 @@
 package com.example.admin.jipcon2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.GravityCompat;
@@ -19,10 +19,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.admin.jipcon2.Cheatkey.TrickMenuActivity;
 import com.example.admin.jipcon2.Conshop.MarketMenuActivity;
+import com.example.admin.jipcon2.Device.AddDevice.AddDeviceActivity;
 import com.example.admin.jipcon2.Device.DeviceMenuActivity;
 import com.example.admin.jipcon2.Usermenu.UserMenuActivity;
 
@@ -128,8 +130,13 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                Toast.makeText(getApplication().getApplicationContext(),"장치 추가",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), AddDeviceActivity.class);
+                startActivity(intent);
+                finish();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
             }
         });
 

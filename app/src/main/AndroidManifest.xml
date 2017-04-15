@@ -3,7 +3,9 @@
     package="com.example.admin.jipcon2">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <application
         android:name=".GlobalApplication"
         android:allowBackup="true"
@@ -42,7 +44,10 @@
         <activity
             android:name=".MakeCon.MakeConStartActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MakeCon.MakeCon0"
+        <activity
+            android:name=".MakeCon.MakeCon0"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Device.AddDevice.AddDeviceActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
