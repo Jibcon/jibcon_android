@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * Created by admin on 2017-04-06.
  */
 
-public class DeviceMenuAdapter extends BaseAdapter{
+public class DeviceMenuAdapter extends BaseAdapter {
 
     LayoutInflater inflater;
     GlobalApplication app;
@@ -66,9 +66,36 @@ public class DeviceMenuAdapter extends BaseAdapter{
 
 
         //Button button = (Button)convertView.findViewById(R.id.BtnDeviceItem);
-        notifyDataSetChanged();
+        //notifyDataSetChanged();
 
 
         return convertView;
     }
 }
+//
+//public class DeviceMenuAdapter extends BaseAdapter
+//{
+//
+//
+//    @Override
+//    public int getCount() {
+//        return 0;
+//    }
+//
+//    @Override
+//    public Object getItem(int position) {
+//        return null;
+//    }
+//
+//    @Override
+//    public long getItemId(int position) {
+//        return 0;
+//    }
+//
+//    @Override
+//    public View getView(int position, View convertView, ViewGroup parent) {
+//
+//
+//        return null;
+//    }
+//}

@@ -12,6 +12,13 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -25,7 +32,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Splash.TutorialActivity"
+        <activity
+            android:name=".Splash.TutorialActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Login.LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MakeCon.MakeConStartActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MakeCon.MakeCon0"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

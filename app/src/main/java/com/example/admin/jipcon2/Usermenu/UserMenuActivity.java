@@ -1,5 +1,8 @@
 package com.example.admin.jipcon2.Usermenu;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +15,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.admin.jipcon2.GlobalApplication;
+import com.example.admin.jipcon2.MakeCon.MakeConStartActivity;
 import com.example.admin.jipcon2.R;
+import com.example.admin.jipcon2.Splash.IntroActivity;
+import com.facebook.login.LoginManager;
 
 /**
  * Created by Chanjoo on 2017-03-30.
@@ -20,13 +28,17 @@ import com.example.admin.jipcon2.R;
 
 public class UserMenuActivity extends android.support.v4.app.Fragment {
 
+
+    GlobalApplication app;
+
     public UserMenuActivity(){}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        app=(GlobalApplication) getActivity().getApplicationContext();
     }
-
+    TextView username;
     ImageView userProfileImage;
     ImageView userProfileChange;
     TextView userProfileEmail;
@@ -37,7 +49,7 @@ public class UserMenuActivity extends android.support.v4.app.Fragment {
         // 기능 리스트
         final String[] list_menu = {"사용자 권한 관리", "에너지 사용기록 분석",
                             "사용자 에너지 사용 패턴 분석", "jibcon 제어 기록", "위젯 만들기",
-                            "유현호", "안도익", "이승열", "김우진", "이혜진", "이찬주", "왈왈"};
+                           "새 집콘 만들기","로그아웃"};
 
         ListView listview = (ListView) layout.findViewById(R.id.list_menu);
 
@@ -53,6 +65,32 @@ public class UserMenuActivity extends android.support.v4.app.Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getActivity().getApplicationContext(),list_menu[position],Toast.LENGTH_SHORT).show();
+                switch (position)
+                {
+                    case 6 :
+                        SharedPreferences pref = getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = pref.edit();
+                        editor.clear();
+                        editor.commit();
+                        //sharedpreference에 저장된 값 지우기
+
+                        LoginManager.getInstance().logOut();
+                        //페이스북 로그아웃
+                        //카카오 로그아웃
+                        getActivity().finish();
+                        Intent intent = new Intent(getActivity().getApplicationContext(), IntroActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+
+                        break;
+                    case 5:
+                        //새 집콘 만들기
+                        Intent intent1 = new Intent(getActivity().getApplicationContext(), MakeConStartActivity.class);
+                        startActivity(intent1);
+                        getActivity().finish();
+                        break;
+                }
+
             }
         });
 
@@ -62,7 +100,7 @@ public class UserMenuActivity extends android.support.v4.app.Fragment {
 
     private  void initLayout(View view)
     {
-
+        username=(TextView)view.findViewById(R.id.user_name);
         userProfileImage=(ImageView)view.findViewById(R.id.ImgView_User_Profile);
         userProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +117,22 @@ public class UserMenuActivity extends android.support.v4.app.Fragment {
             }
         });
         userProfileEmail= (TextView)view.findViewById(R.id.TxtView_User_Email);
+
+        username.setText(app.getUsername());
+//        try
+//        {
+//            Bitmap bitmap= Glide.with(getContext()).load(app.getUserProfileImage())
+//                    .asBitmap().into(60,60).get();
+//            userProfileImage.setImageBitmap(bitmap);
+//        }catch (Exception e)
+//        {
+//            Log.d("Profile change","Username error");
+//            e.printStackTrace();
+//        }
+        Glide.with(getActivity().getApplicationContext())
+                .load(app.getUserProfileImage())
+                .into(userProfileImage);
+
 
 
     }

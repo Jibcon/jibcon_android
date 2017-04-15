@@ -17,7 +17,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.example.admin.jipcon2.Cheatkey.TrickMenuActivity;
 import com.example.admin.jipcon2.Conshop.MarketMenuActivity;
 import com.example.admin.jipcon2.Device.DeviceMenuActivity;
@@ -29,6 +32,13 @@ public class MainActivity extends AppCompatActivity
     String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};//사이드바 임시 메뉴 껍데기
     GlobalApplication app;
 
+    Fragment devicemenu;
+    Fragment trickmenu;
+    Fragment marketmenu;
+    Fragment usermenu;
+    ImageView userProfileImage;
+    //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
+    //속도 너무 느림 ㅠ
     private class pagerAdapter extends FragmentStatePagerAdapter{
         public pagerAdapter(android.support.v4.app.FragmentManager fm){
             super(fm);
@@ -40,19 +50,19 @@ public class MainActivity extends AppCompatActivity
             switch(position){
                 case 0:
                     Log.d("FragmentCheck","ToDevice");
-                    return new DeviceMenuActivity();
+                    return devicemenu;
                 case 1:
                     Log.d("FragmentCheck","ToTrick");
 
-                    return new TrickMenuActivity();
+                    return trickmenu;
                 case 2:
                     Log.d("FragmentCheck","ToMarket");
 
-                    return new MarketMenuActivity();
+                    return marketmenu;
                 case 3:
                     Log.d("FragmentCheck","ToUserMenu");
 
-                    return new UserMenuActivity();
+                    return usermenu;
                 default:
                     return null;
             }
@@ -77,6 +87,11 @@ public class MainActivity extends AppCompatActivity
 
     private  void initLayout()
     {
+        devicemenu = new DeviceMenuActivity();
+        usermenu = new UserMenuActivity();
+        trickmenu = new TrickMenuActivity();
+        marketmenu = new MarketMenuActivity();
+
         vp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
 
         ImageButton btn1 = (ImageButton) findViewById(R.id.btn1); // 기기 버튼
@@ -138,9 +153,25 @@ public class MainActivity extends AppCompatActivity
         View headerView =navigationView.getHeaderView(0);
         TextView userEmail=(TextView)headerView.findViewById(R.id.Txt_Drawer_UserEmail);
         TextView username = (TextView)headerView.findViewById(R.id.Txt_Drawer_Username);
+        userProfileImage = (ImageView)headerView.findViewById(R.id.ImgView_Drawer_UserProfile);
 
+        Glide.with(getApplicationContext())
+                .load(app.getUserProfileImage())
+                .into(userProfileImage);
+
+        //Log.d("userProfile",app.getUserProfileImage().toString());
         username.setText(app.getUsername());
         userEmail.setText(app.getUserEmail());
+
+//        try
+//        {
+//            Bitmap bitmap=Glide.with(MainActivity.this).load(app.getUserProfileImage())
+//                    .asBitmap().into(60,60).get();
+//            userProfileImage.setImageBitmap(bitmap);
+//        }catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
 
         initLayout();
     }

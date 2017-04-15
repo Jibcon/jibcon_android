@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/Btn_makeCon2_0"
+        android:text="이전"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="주거 환경"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"/>
+    <ImageView
+        android:id="@+id/ImgView_MakeCon2_user"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/default_user"
+        android:layout_marginBottom="40dp"/>
+    <Button
+        android:text="아파트"
+        android:layout_below="@id/ImgView_MakeCon2_user"
+        android:id="@+id/Btn_makeCon2_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_below="@id/Btn_makeCon2_1"
+        android:id="@+id/Btn_makeCon2_2"
+        android:text="빌라"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_below="@id/Btn_makeCon2_2"
+        android:id="@+id/Btn_makeCon2_3"
+        android:text="컨테이너 박스"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_below="@id/Btn_makeCon2_3"
+        android:id="@+id/Btn_makeCon2_4"
+        android:text="경비실"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="사무실"
+        android:layout_below="@id/Btn_makeCon2_4"
+        android:id="@+id/Btn_makeCon_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="다음"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/Btn_makeCon2_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
