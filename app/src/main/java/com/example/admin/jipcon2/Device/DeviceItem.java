@@ -1,26 +1,34 @@
 package com.example.admin.jipcon2.Device;
 
-import android.graphics.Bitmap;
-
 /**
  * Created by admin on 2017-04-06.
  */
 
 public class DeviceItem {
-    Bitmap image;//디바이스 메뉴의 이미지
+    int deviceType;//디바이스 메뉴의 int 값. int 값으로 판별
     String itemname;//디바이스 메뉴 아이템 이름 ex) 전등 알람 등등..
 
-    public DeviceItem(Bitmap image, String itemname) {
-        this.image = image;
+
+//    strarr.add(0,"airconditioner");
+//    strarr.add(1,"lightbulb");
+//    strarr.add(2,"fan");
+//    strarr.add(3,"refrigerator");
+    //0 : 에어컨
+    //1 : 전구
+    //2 : 선풍기
+    //3 : 냉장고
+
+    public DeviceItem(int deviceType, String itemname) {
+        this.deviceType = deviceType;
         this.itemname = itemname;
     }
 
-    public Bitmap getImage() {
-        return image;
+    public int getDeviceType() {
+        return deviceType;
     }
 
-    public void setImage(Bitmap image) {
-        this.image = image;
+    public void setDeviceType(int deviceType) {
+        this.deviceType = deviceType;
     }
 
     public String getItemname() {

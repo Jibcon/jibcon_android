@@ -9,7 +9,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
@@ -188,6 +187,7 @@ public class IntroActivity extends AppCompatActivity {
         arr.add(2,bitmap3);
         arr.add(3,bitmap4);
 
+
         strarr.add(0,"airconditioner");
         strarr.add(1,"lightbulb");
         strarr.add(2,"fan");
@@ -195,7 +195,7 @@ public class IntroActivity extends AppCompatActivity {
 
         for(int i=0;i<4;i++)
         {
-            deviceItemArrayList.add(i, new DeviceItem(arr.get(i),strarr.get(i)));
+            deviceItemArrayList.add(i, new DeviceItem(i,strarr.get(i)));
             //초기 테스트 아이템 설정
             //여기 디바이스 메뉴 아이템
         }
