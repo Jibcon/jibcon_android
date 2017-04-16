@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity
     ViewPager vp;
     String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};//사이드바 임시 메뉴 껍데기
     GlobalApplication app;
+
     Fragment devicemenu;
     Fragment trickmenu;
     Fragment marketmenu;
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity
         marketmenu = new MarketMenuActivity();
 
         vp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
+
         ImageButton btn1 = (ImageButton) findViewById(R.id.btn1); // 기기 버튼
         ImageButton btn2 = (ImageButton) findViewById(R.id.btn2); // 트릭 버튼
         ImageButton btn3 = (ImageButton) findViewById(R.id.btn3); // 마켓 버튼
@@ -111,21 +113,25 @@ public class MainActivity extends AppCompatActivity
         btn3.setTag(2);
         btn4.setOnClickListener(movePageListener);
         btn4.setTag(3);
-
-        /* ↑뷰 페이저(액티비티 슬라이드)↑ */
     }
+    /* ↑뷰 페이저(액티비티 슬라이드)↑ */
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        app=(GlobalApplication)getApplicationContext();
+
+        app = (GlobalApplication)getApplicationContext();
+
         ActionBarDrawerToggle drawerToggle;
+
         String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};//사이드바 임시 메뉴 껍데기
 
+        /* ↓Floating Button↓ */
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +147,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -148,7 +155,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
 
         //! 여기까지 기본설정
         View headerView =navigationView.getHeaderView(0);

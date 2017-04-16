@@ -172,19 +172,21 @@ public class IntroActivity extends AppCompatActivity {
         ArrayList<Bitmap> arr= new ArrayList<>();
         ArrayList<String> strarr= new ArrayList<>();
         DeviceItem item;
-//        BitmapDrawable drawable1 = (BitmapDrawable) getResources().getDrawable(R.drawable.airconditioner);
-//        Bitmap bitmap1 = drawable1.getBitmap();
-//        BitmapDrawable drawable2 = (BitmapDrawable) getResources().getDrawable(R.drawable.lightbulb);
-//        Bitmap bitmap2 = drawable2.getBitmap();
-//        BitmapDrawable drawable3 = (BitmapDrawable) getResources().getDrawable(R.drawable.fan);
-//        Bitmap bitmap3 = drawable3.getBitmap();
-//        BitmapDrawable drawable4 = (BitmapDrawable) getResources().getDrawable(R.drawable.refrigerator);
-//        Bitmap bitmap4 = drawable4.getBitmap();
-//
-//        arr.add(0, bitmap1);
-//        arr.add(1,bitmap2);
-//        arr.add(2,bitmap3);
-//        arr.add(3,bitmap4);
+
+        BitmapDrawable drawable1 = (BitmapDrawable) getResources().getDrawable(R.drawable.airconditioner);
+        Bitmap bitmap1 = drawable1.getBitmap();
+        BitmapDrawable drawable2 = (BitmapDrawable) getResources().getDrawable(R.drawable.lightbulb);
+        Bitmap bitmap2 = drawable2.getBitmap();
+        BitmapDrawable drawable3 = (BitmapDrawable) getResources().getDrawable(R.drawable.fan);
+        Bitmap bitmap3 = drawable3.getBitmap();
+        BitmapDrawable drawable4 = (BitmapDrawable) getResources().getDrawable(R.drawable.refrigerator);
+        Bitmap bitmap4 = drawable4.getBitmap();
+
+        arr.add(0, bitmap1);
+        arr.add(1,bitmap2);
+        arr.add(2,bitmap3);
+        arr.add(3,bitmap4);
+
 
         strarr.add(0,"airconditioner");
         strarr.add(1,"lightbulb");
