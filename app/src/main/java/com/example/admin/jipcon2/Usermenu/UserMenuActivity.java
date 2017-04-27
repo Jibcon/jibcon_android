@@ -119,6 +119,7 @@ public class UserMenuActivity extends android.support.v4.app.Fragment {
         userProfileEmail= (TextView)view.findViewById(R.id.TxtView_User_Email);
 
         username.setText(app.getUsername());
+        userProfileEmail.setText(app.getUserEmail());
 //        try
 //        {
 //            Bitmap bitmap= Glide.with(getContext()).load(app.getUserProfileImage())

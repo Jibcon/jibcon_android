@@ -5,10 +5,26 @@ package com.example.admin.jipcon2.Device;
  */
 
 public class DeviceItem {
-    int deviceType;//디바이스 메뉴의 int 값. int 값으로 판별
-    String itemname;//디바이스 메뉴 아이템 이름 ex) 전등 알람 등등..
+    String deviceType;//디바이스 메뉴의 int 값. int 값으로 판별
+    String deviceName;//디바이스 메뉴 아이템 이름 ex) 전등 알람 등등..
+    String deviceWifiAddr;
+    String id;
+    String deviceCom;
+    boolean deviceOnOffState;
+    String user;
 
+    public DeviceItem(int deviceType, String deviceName) {
+        this.deviceType = new Integer(deviceType).toString();
+        this.deviceName = deviceName;
+    }
 
+    public String getDeviceWifiAddr() {
+        return deviceWifiAddr;
+    }
+
+    public void setDeviceWifiAddr(String deviceWifiAddr) {
+        this.deviceWifiAddr = deviceWifiAddr;
+    }
 //    strarr.add(0,"airconditioner");
 //    strarr.add(1,"lightbulb");
 //    strarr.add(2,"fan");
@@ -18,24 +34,52 @@ public class DeviceItem {
     //2 : 선풍기
     //3 : 냉장고
 
-    public DeviceItem(int deviceType, String itemname) {
-        this.deviceType = deviceType;
-        this.itemname = itemname;
-    }
 
-    public int getDeviceType() {
+    public String getDeviceType() {
         return deviceType;
     }
 
-    public void setDeviceType(int deviceType) {
+    public void setDeviceType(String deviceType) {
         this.deviceType = deviceType;
     }
 
-    public String getItemname() {
-        return itemname;
+    public String getId() {
+        return id;
     }
 
-    public void setItemname(String itemname) {
-        this.itemname = itemname;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDeviceName() {
+        return deviceName;
+    }
+
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
+    }
+
+    public boolean isDeviceOnOffState() {
+        return deviceOnOffState;
+    }
+
+    public void setDeviceOnOffState(boolean deviceOnOffState) {
+        this.deviceOnOffState = deviceOnOffState;
+    }
+
+    public String getDeviceCom() {
+        return deviceCom;
+    }
+
+    public void setDeviceCom(String deviceCom) {
+        this.deviceCom = deviceCom;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 }

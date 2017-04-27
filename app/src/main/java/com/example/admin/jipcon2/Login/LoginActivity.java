@@ -85,6 +85,7 @@ private CallbackManager callbackManager = null;
 
                         SharedPreferences pref = getSharedPreferences("pref",MODE_PRIVATE);
                         SharedPreferences.Editor editor = pref.edit();
+                        editor.putString("id",userid);
                         editor.putString("name",object.optString("name"));
                         Log.d("profieImage",app.getUserProfileImage().toString());
                         editor.putString("profileImage",app.getUserProfileImage().toString());
@@ -95,9 +96,9 @@ private CallbackManager callbackManager = null;
 
 
             final String userTokenFacebook;
-            userTokenFacebook=loginResult.getAccessToken().getUserId();
+            userTokenFacebook=loginResult.getAccessToken().getToken();
             UserInfo userInfo=new UserInfo("facebook",userTokenFacebook);
-
+            Log.d("MYTOKEN",userTokenFacebook);
             ApiService apiService = new repo().getService();
             Call<User> c = apiService.login(userInfo);
             try
@@ -106,19 +107,24 @@ private CallbackManager callbackManager = null;
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
 
-                        //debug코드
-                        Toast.makeText(getApplicationContext(), response.body().getEmail()+" 들어옴", Toast.LENGTH_LONG).show();
 
 
-// Toast.makeText(getActivity().getApplicationContext(), loginResult.getAccessToken().getToken(), Toast.LENGTH_LONG).show();
+
+                        app.setUserEmail(response.body().getEmail());
+                        app.setUserToken(response.body().getToken());
+                        Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
                         Intent intent= new Intent(getApplicationContext(), MakeConStartActivity.class);
+
+
                         startActivity(intent);
+
                         finish();
                     }
 
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
                         t.printStackTrace();
+                        Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
                     }
                 });
             }catch (Exception e)

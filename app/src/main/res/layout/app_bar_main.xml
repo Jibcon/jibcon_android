@@ -29,6 +29,7 @@
                 <TextView
                     android:text="JIBCON"
                     android:id="@+id/topLogo"
+
                     android:textSize="24dp"
                     android:gravity="center_vertical"
                     android:layout_width="wrap_content"

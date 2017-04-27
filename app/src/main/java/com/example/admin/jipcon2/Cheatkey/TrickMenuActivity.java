@@ -2,7 +2,6 @@ package com.example.admin.jipcon2.Cheatkey;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -40,8 +39,8 @@ public class TrickMenuActivity extends Fragment{
         Button btn_active = (Button) layout.findViewById(R.id.btn_active);
         Button btn_passive = (Button) layout.findViewById(R.id.btn_passive);
 
-        vp.setAdapter(new pagerAdapter(getChildFragmentManager())); // getSupportFragmentManager에서 수정
-        vp.setCurrentItem(0);
+        //vp.setAdapter(new pagerAdapter(getChildFragmentManager())); // getSupportFragmentManager에서 수정
+        //vp.setCurrentItem(0);
 
         btn_active.setOnClickListener(movePageListener);
         btn_active.setTag(0);
@@ -71,9 +70,9 @@ public class TrickMenuActivity extends Fragment{
             Log.w("CJ","movePageListener");
             switch(position){
                 case 0:
-                    return new TrickActive();
+                    //return new TrickActive();
                 case 1:
-                    return new TrickPassive();
+                    //return new TrickPassive();
                 default:
                     return null;
             }

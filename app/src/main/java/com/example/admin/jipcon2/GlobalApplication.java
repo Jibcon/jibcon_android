@@ -20,8 +20,7 @@ public class GlobalApplication extends Application{
     private static volatile Activity currentActivity = null;
     //카톡 로그인
 
-    String userTokenFacebook;
-    String userTokenKakao;
+    String userToken;
     ArrayList<DeviceItem> deviceItemArrayList;//device 메뉴 아이템들의 리스트
     String username;
     String userEmail;
@@ -51,20 +50,12 @@ public class GlobalApplication extends Application{
         this.userEmail = userEmail;
     }
 
-    public String getUserTokenFacebook() {
-        return userTokenFacebook;
+    public String getUserToken() {
+        return userToken;
     }
 
-    public void setUserTokenFacebook(String userTokenFacebook) {
-        this.userTokenFacebook = userTokenFacebook;
-    }
-
-    public String getUserTokenKakao() {
-        return userTokenKakao;
-    }
-
-    public void setUserTokenKakao(String userTokenKakao) {
-        this.userTokenKakao = userTokenKakao;
+    public void setUserToken(String userToken) {
+        this.userToken = userToken;
     }
 
     @Override
