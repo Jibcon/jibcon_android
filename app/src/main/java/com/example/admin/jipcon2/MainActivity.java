@@ -170,15 +170,6 @@ public class MainActivity extends AppCompatActivity
         username.setText(app.getUsername());
         userEmail.setText(app.getUserEmail());
 
-//        try
-//        {
-//            Bitmap bitmap=Glide.with(MainActivity.this).load(app.getUserProfileImage())
-//                    .asBitmap().into(60,60).get();
-//            userProfileImage.setImageBitmap(bitmap);
-//        }catch (Exception e)
-//        {
-//            e.printStackTrace();
-//        }
 
         initLayout();
     }
@@ -217,10 +208,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.connected) {
 //
-        }// else if (id == R.id.nav_send) {
-//
-//        }
-
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

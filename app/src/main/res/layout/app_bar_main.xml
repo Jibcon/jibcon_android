@@ -27,8 +27,7 @@
                 android:layout_height="?attr/actionBarSize">
 
                 <TextView
-                    android:text="JIBCON"
-                    android:id="@+id/topLogo"
+                     android:id="@+id/topLogo"
                     android:text="JIPCON"
                     android:textSize="24dp"
                     android:gravity="center_vertical"

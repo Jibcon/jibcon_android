@@ -25,10 +25,12 @@ public class AddDevice2 extends Fragment {
 
     }
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         relativeLayout = (RelativeLayout) inflater.inflate(R.layout.add_device2,container,false);
+
 
         return relativeLayout;
     }
