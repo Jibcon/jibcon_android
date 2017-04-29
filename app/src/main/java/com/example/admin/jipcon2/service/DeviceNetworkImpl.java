@@ -24,6 +24,8 @@ public class DeviceNetworkImpl implements DeviceNetwork {
     private GlobalApplication app;
     private ApiService apiService;
     private static DeviceNetwork mInstance;
+    private boolean isWorking = false;
+    private List<DeviceNetwork.onSuccessListener> mListeners = new ArrayList<>();
 
     private DeviceNetworkImpl() {
         app = GlobalApplication.getGlobalApplicationContext();
@@ -39,26 +41,43 @@ public class DeviceNetworkImpl implements DeviceNetwork {
     }
 
     public void getDeviceItemsFromServer(DeviceNetwork.onSuccessListener listener) {
-        final DeviceNetwork.onSuccessListener callbackListener = listener;
+        mListeners.add(listener);
         Log.d(TAG, "getDeviceItemsFromServer: Call.enqueue");
-        Call<List<DeviceItem>> c = repo.getStaticService().getDevices("Token " + app.getUserToken());
-        try {
-            c.enqueue(new Callback<List<DeviceItem>>() {
-                @Override
-                public void onResponse(Call<List<DeviceItem>> call, Response<List<DeviceItem>> response) {
-                    List<DeviceItem> result = response.body();
-                    Log.d(TAG, "getDeviceItemsFromServer/onResponse: "+result.toString());
-                    callbackListener.onSuccessGetDeviceItemsFromServer(result);
-                }
 
-                @Override
-                public void onFailure(Call<List<DeviceItem>> call, Throwable t) {
-                    Log.d(TAG, "getDeviceItemsFromServer/onFailure: ");
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
+        if(isWorking) {
+            Log.d(TAG, "getDeviceItemsFromServer: isWorking -> just addListener");
+        } else {
+            isWorking = true;
+            Call<List<DeviceItem>> c = repo.getStaticService().getDevices("Token " + app.getUserToken());
+            try {
+                c.enqueue(new Callback<List<DeviceItem>>() {
+                    @Override
+                    public void onResponse(Call<List<DeviceItem>> call, Response<List<DeviceItem>> response) {
+                        List<DeviceItem> result = response.body();
+                        Log.d(TAG, "getDeviceItemsFromServer/onResponse: " + result.toString());
+                        notifyListenersOnSuccessGetDeviceItemsFromServer(result);
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<DeviceItem>> call, Throwable t) {
+                        Log.d(TAG, "getDeviceItemsFromServer/onFailure: ");
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+    }
+
+    private void notifyListenersOnSuccessGetDeviceItemsFromServer(List<DeviceItem> result) {
+        Log.d(TAG, "notifyListenersOnSuccessGetDeviceItemsFromServer: ");
+        for (DeviceNetwork.onSuccessListener listener:
+             mListeners) {
+            listener.onSuccessGetDeviceItemsFromServer(result);
+        }
+
+        mListeners.clear();
+        isWorking = false;
     }
 
 
