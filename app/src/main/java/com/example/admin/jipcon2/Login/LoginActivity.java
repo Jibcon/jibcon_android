@@ -14,6 +14,7 @@ import com.example.admin.jipcon2.network.ApiService;
 import com.example.admin.jipcon2.network.repo;
 import com.example.admin.jipcon2.network.userinfo.User;
 import com.example.admin.jipcon2.network.userinfo.UserInfo;
+import com.example.admin.jipcon2.service.DeviceServiceImpl;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -115,6 +116,8 @@ private CallbackManager callbackManager = null;
                         Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
                         Intent intent= new Intent(getApplicationContext(), MakeConStartActivity.class);
 
+                        // prepare deviceItems
+                        DeviceServiceImpl.getInstance().prepareDeviceItems();
 
                         startActivity(intent);
 

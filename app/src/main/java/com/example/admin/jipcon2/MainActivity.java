@@ -25,8 +25,13 @@ import com.bumptech.glide.Glide;
 import com.example.admin.jipcon2.Cheatkey.TrickMenuActivity;
 import com.example.admin.jipcon2.Conshop.MarketMenuActivity;
 import com.example.admin.jipcon2.Device.AddDevice.AddDeviceActivity;
+import com.example.admin.jipcon2.Device.DeviceItem;
 import com.example.admin.jipcon2.Device.DeviceMenuActivity;
 import com.example.admin.jipcon2.Usermenu.UserMenuActivity;
+import com.example.admin.jipcon2.service.DeviceService;
+import com.example.admin.jipcon2.service.DeviceServiceImpl;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

@@ -21,7 +21,7 @@ public class GlobalApplication extends Application{
     //카톡 로그인
 
     String userToken;
-    ArrayList<DeviceItem> deviceItemArrayList;//device 메뉴 아이템들의 리스트
+//    ArrayList<DeviceItem> deviceItemArrayList;//device 메뉴 아이템들의 리스트
     String username;
     String userEmail;
     URL userProfileImage;
@@ -61,22 +61,24 @@ public class GlobalApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        deviceItemArrayList = new ArrayList<>();
+//        deviceItemArrayList = new ArrayList<>();
         username="TestUser";
         userEmail="Jipcon@Jipcon.com";
+
+        obj = this;
 //        KakaoSDK.init(new KaKaoSDKAdpater());
         //카톡로그인
 
     }
 
-    public ArrayList<DeviceItem> getDeviceItemArrayList() {
-        return deviceItemArrayList;
-    }
-
-    public void setDeviceItemArrayList(ArrayList<DeviceItem> deviceItemArrayList) {
-        this.deviceItemArrayList = deviceItemArrayList;
-
-    }
+//    public ArrayList<DeviceItem> getDeviceItemArrayList() {
+//        return deviceItemArrayList;
+//    }
+//
+//    public void setDeviceItemArrayList(ArrayList<DeviceItem> deviceItemArrayList) {
+//        this.deviceItemArrayList = deviceItemArrayList;
+//
+//    }
 
 
     //카톡 로그인용

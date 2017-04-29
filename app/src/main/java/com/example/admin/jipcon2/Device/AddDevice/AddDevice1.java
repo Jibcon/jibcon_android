@@ -53,7 +53,7 @@ public class AddDevice1 extends Fragment {
 //            }
             if(intent.getAction().equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION))
             {
-                arr=wifiManager.getScanResults();
+                arr=wifiManager.getScanResults(); // todo remove error permission
                 for(int i=0;i<arr.size();i++)
                 {
                     wifiNames.add(i,arr.get(i).BSSID);
