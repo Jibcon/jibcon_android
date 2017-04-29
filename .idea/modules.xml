@@ -4,10 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JibCon.iml" filepath="$PROJECT_DIR$/JibCon.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-     
       <module fileurl="file://$PROJECT_DIR$/jibcon_android.iml" filepath="$PROJECT_DIR$/jibcon_android.iml" />
-
     </modules>
   </component>
 </project>

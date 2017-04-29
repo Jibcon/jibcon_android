@@ -25,6 +25,7 @@ import com.example.admin.jipcon2.network.ApiService;
 import com.example.admin.jipcon2.network.repo;
 import com.example.admin.jipcon2.network.userinfo.User;
 import com.example.admin.jipcon2.network.userinfo.UserInfo;
+import com.example.admin.jipcon2.service.DeviceServiceImpl;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 
@@ -85,6 +86,9 @@ public class IntroActivity extends AppCompatActivity {
                             {
                                 e.printStackTrace();
                             }
+
+                            // prepare deviceItems
+                            DeviceServiceImpl.getInstance().prepareDeviceItems();
                             startActivity(intent);
 
                             finish();
@@ -212,7 +216,7 @@ public class IntroActivity extends AppCompatActivity {
 
         //Global Application 에 담을 정보 초기 setup;
         application = (GlobalApplication)getApplicationContext();
-        deviceItemArrayList = new ArrayList<>();
+//        deviceItemArrayList = new ArrayList<>();
         ArrayList<Bitmap> arr= new ArrayList<>();
         ArrayList<String> strarr= new ArrayList<>();
         DeviceItem item;
@@ -245,7 +249,7 @@ public class IntroActivity extends AppCompatActivity {
 //        }
 
 
-        application.setDeviceItemArrayList(deviceItemArrayList);
+//        application.setDeviceItemArrayList(deviceItemArrayList);
     }
 
 
