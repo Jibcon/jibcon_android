@@ -43,13 +43,13 @@ public class DeviceMenuAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return app.getDeviceItemArrayList().size();
+        return deviceItems.size();
     }
 
     @Override
     public Object getItem(int position) {
 
-        return app.getDeviceItemArrayList().get(position);
+        return deviceItems.get(position);
     }
 
     @Override

@@ -25,7 +25,7 @@ public class GlobalApplication extends Application {
     //카톡 로그인
 
     String userToken;
-    ArrayList<DeviceItem> deviceItemArrayList;//device 메뉴 아이템들의 리스트
+//    ArrayList<DeviceItem> deviceItemArrayList;//device 메뉴 아이템들의 리스트
     String username;
     String userEmail;
     URL userProfileImage;
@@ -75,14 +75,14 @@ public class GlobalApplication extends Application {
 
     }
 
-    public ArrayList<DeviceItem> getDeviceItemArrayList() {
-        return deviceItemArrayList;
-    }
-
-    public void setDeviceItemArrayList(ArrayList<DeviceItem> deviceItemArrayList) {
-        this.deviceItemArrayList = deviceItemArrayList;
-
-    }
+//    public ArrayList<DeviceItem> getDeviceItemArrayList() {
+//        return deviceItemArrayList;
+//    }
+//
+//    public void setDeviceItemArrayList(ArrayList<DeviceItem> deviceItemArrayList) {
+//        this.deviceItemArrayList = deviceItemArrayList;
+//
+//    }
 
 
     //카톡 로그인용

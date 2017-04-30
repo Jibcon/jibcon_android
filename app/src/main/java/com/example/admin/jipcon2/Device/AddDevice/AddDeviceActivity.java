@@ -15,8 +15,11 @@ import com.example.admin.jipcon2.MainActivity;
 import com.example.admin.jipcon2.R;
 import com.example.admin.jipcon2.network.ApiService;
 import com.example.admin.jipcon2.network.repo;
+import com.example.admin.jipcon2.service.DeviceService;
+import com.example.admin.jipcon2.service.DeviceServiceImpl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,11 +36,11 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
     Fragment addDevice1;
     Fragment addDevice2;
     GlobalApplication app;
-    ArrayList<DeviceItem> arr;
+//    ArrayList<DeviceItem> arr;
     DeviceItem deviceItem;
     public void sendDevice()
     {
-       arr = app.getDeviceItemArrayList() ;
+//       arr = app.getDeviceItemArrayList() ;
         //0 : 에어컨
         //1 : 전구
         //2 : 선풍기
@@ -67,23 +70,25 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
         }
         else if(DeviceName.equals("냉장고")) {
             deviceItem= new DeviceItem(3,DeviceName);
-
             deviceItem.setDeviceWifiAddr(getWifiAddr());
         }
 
         ApiService apiService = new repo().getService();
         Log.d(TAG, "sendDevice: Call.enqueue DeviceItem "+deviceItem.toString());
         Call<DeviceItem> c = apiService.addDevice("Token " +app.getUserToken(),deviceItem);
+        Log.d("TAG", "sendDevice: "+c.toString());
 
         try{
             c.enqueue(new Callback<DeviceItem>() {
                 @Override
                 public void onResponse(Call<DeviceItem> call, Response<DeviceItem> response) {
+                    DeviceServiceImpl.getInstance().notifyDeviceItemsChanged();
+//                    DeviceServiceImpl.getInstance().reloadDeviceItems();
 
-                    arr= app.getDeviceItemArrayList();
+//                    arr= app.getDeviceItemArrayList();
 
-                    arr.add(response.body());
-                    app.setDeviceItemArrayList(arr);
+//                    arr.add(response.body());
+//                    app.setDeviceItemArrayList(arr);
 
                 }
 

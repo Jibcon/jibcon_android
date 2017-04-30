@@ -1,5 +1,6 @@
 package com.example.admin.jipcon2.Device;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -14,6 +15,8 @@ import com.example.admin.jipcon2.GlobalApplication;
 import com.example.admin.jipcon2.R;
 import com.example.admin.jipcon2.network.ApiService;
 import com.example.admin.jipcon2.network.repo;
+import com.example.admin.jipcon2.service.DeviceService;
+import com.example.admin.jipcon2.service.DeviceServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +30,7 @@ import retrofit2.Response;
  */
 
 public class DeviceMenuActivity extends Fragment {
-
+    private final String TAG = "jibcon/"+getClass().getSimpleName();
     public DeviceMenuActivity(){}
 
 
@@ -59,39 +62,14 @@ public class DeviceMenuActivity extends Fragment {
         button=(Button)root.findViewById(R.id.Btn_getDevices);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                ApiService apiService = new repo().getService();
-                Call<List<DeviceItem>> c = apiService.getDevices("Token "+app.getUserToken());
-
-                try
-                {
-                    c.enqueue(new Callback<List<DeviceItem>>() {
-                        @Override
-                        public void onResponse(Call<List<DeviceItem>> call, Response<List<DeviceItem>> response) {
-
-                            arr = new ArrayList<>();
-                            for(int i=0;i<response.body().size();i++)
-                            {
-                                arr.add(response.body().get(i));
-                            }
-                            app.setDeviceItemArrayList(arr);
-                            adapter.setDeviceItems(arr);
-                            Toast.makeText(getActivity().getApplicationContext(),"success",Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onFailure(Call<List<DeviceItem>> call, Throwable t) {
-
-                            Toast.makeText(getActivity().getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
-
-                        }
-                    });
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-
+            public void onClick(View v) { // todo buttonclick -> reload
+                DeviceServiceImpl.getInstance().reloadDeviceItems(new DeviceService.onSuccessListener() {
+                    @Override
+                    public void onSuccessGetDeviceItems(List<DeviceItem> deviceItems) {
+                        adapter.setDeviceItems((ArrayList)deviceItems);
+                        adapter.notifyDataSetChanged();
+                    }
+                });
             }
         });
         DeviceGridview = (myGridView)root.findViewById(R.id.ScrollViewDevice);
@@ -99,16 +77,25 @@ public class DeviceMenuActivity extends Fragment {
         DeviceGridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity().getApplicationContext(),app.getDeviceItemArrayList().get(position).getDeviceName(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(),adapter.getDeviceItems().get(position).getDeviceName(),Toast.LENGTH_SHORT).show();
                 //
             }
         });
         // TODO: 2017-04-06 그리드뷰에 리스너 달기
 
         adapter = new DeviceMenuAdapter(getActivity().getApplicationContext());
-        adapter.setDeviceItems(app.getDeviceItemArrayList());
-
+        adapter.setDeviceItems(new ArrayList<DeviceItem>());
         DeviceGridview.setAdapter(adapter);
+
+        Log.d(TAG, "onCreateView: ");
+        DeviceServiceImpl.getInstance().getDeviceItems(new DeviceService.onSuccessListener() {
+            @Override
+            public void onSuccessGetDeviceItems(List<DeviceItem> deviceItems) {
+                Log.d(TAG, "onSuccessGetDeviceItems: ");
+                adapter.setDeviceItems((ArrayList)deviceItems);
+                adapter.notifyDataSetChanged();
+            }
+        });
 
         return root;
     }
