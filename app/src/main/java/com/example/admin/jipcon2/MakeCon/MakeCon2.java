@@ -39,6 +39,9 @@ public class MakeCon2 extends android.support.v4.app.Fragment {
 
     void initLayout()
     {
+        // 리스트로 바꾸기!(20170430)
+
+        /*
         apart = (Button)relativeLayout.findViewById(R.id.Btn_makeCon2_1);
         villa=(Button)relativeLayout.findViewById(R.id.Btn_makeCon2_2);
         container=(Button)relativeLayout.findViewById(R.id.Btn_makeCon2_3);
@@ -46,9 +49,7 @@ public class MakeCon2 extends android.support.v4.app.Fragment {
         office=(Button)relativeLayout.findViewById(R.id.Btn_makeCon2_5);
         next =(Button)relativeLayout.findViewById(R.id.Btn_makeCon2_5);
         before=(Button)relativeLayout.findViewById(R.id.Btn_makeCon2_0);
-
-
-
+        */
 
     }
 
@@ -59,7 +60,7 @@ public class MakeCon2 extends android.support.v4.app.Fragment {
         relativeLayout = (RelativeLayout) inflater.inflate(R.layout.makecon2,container,false);
 
         initLayout();
-
+        /*
         apart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +96,7 @@ public class MakeCon2 extends android.support.v4.app.Fragment {
                 houseInfoListener.getHouseType("office");
             }
         });
-
+        */
         before.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
