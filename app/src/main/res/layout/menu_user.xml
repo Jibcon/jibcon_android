@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="#FFF">
 
     <!-- 사용자 이름, 프로필 사진, 이메일 주소-->
     <LinearLayout

@@ -2,105 +2,102 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingEnd="16dp">
+    android:paddingBottom="16dp"
+    android:background="#FFF">
 
-    <RelativeLayout
+    <!--상단 진행 상황-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/xml_boreder"
+            android:text="제품 선택"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="와이파이 연결"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="핸드폰 연결"
+            android:textColor="#000000"/>
+    </LinearLayout>
 
+    <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
-        <ImageView
-            android:id="@+id/ImgView_Adddevice0_1"
-            android:background="@drawable/default_user"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+        android:layout_height="wrap_content"
+        android:gravity="center">
         <TextView
-            android:layout_below="@id/ImgView_Adddevice0_1"
-            android:text="제품 선택"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:layout_gravity="center"
+            android:text="제품 선택"
+            android:textSize="24dp"
+            android:textColor="#000000"
+            android:textStyle="bold"/>
+    </LinearLayout>
 
-        <ImageView
-            android:id="@+id/ImgView_Adddevice0_2"
-            android:background="@drawable/default_user"
-            android:layout_centerHorizontal="true"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-        <TextView
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/ImgView_Adddevice0_2"
-            android:text="폰  와이파이"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <ImageView
-            android:id="@+id/ImgView_Adddevice0_3"
-
-            android:background="@drawable/default_user"
-            android:layout_alignParentRight="true"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-        <TextView
-            android:layout_alignParentRight="true"
-            android:text="완료"
-            android:layout_below="@id/ImgView_Adddevice0_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_weight="1.5"
+    <LinearLayout
+        android:layout_weight="2"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center">
         <TextView
             android:layout_centerVertical="true"
             android:id="@+id/Txt_adddevice0_0"
-            android:gravity="center"
-            android:text="제품 선택"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <Spinner
-            android:layout_below="@id/Txt_adddevice0_0"
             android:id="@+id/Spinner_adddevice0_1"
-            android:layout_width="match_parent"
-            android:background="@color/cardview_dark_background"
-            android:layout_height="wrap_content"></Spinner>
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="16dp"/>
+
         <Spinner
-            android:background="@color/cardview_dark_background"
-            android:layout_below="@id/Spinner_adddevice0_1"
             android:id="@+id/Spinner_adddevice0_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></Spinner>
-    </RelativeLayout>
+            android:layout_width="240dp"
+            android:layout_height="40dp" />
+    </LinearLayout>
 
     <RelativeLayout
-        android:layout_weight="2"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
         <TextView
-            android:layout_centerVertical="true"
             android:id="@+id/Txt_adddevice0_1"
-            android:gravity="center"
-            android:text="1. 제품 별 다른 설명"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_below="@id/Txt_adddevice0_1"
-            android:id="@+id/Txt_adddevice0_2"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:gravity="center"
-            android:text="2. 제품 별 다른 설명"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:text="제품별 다른 설명"
+            android:textColor="#000000"
+            android:textSize="24dp"/>
+
+
         <Button
             android:id="@+id/Btn_addDevice0"
-            android:text="다음"
-            android:layout_centerHorizontal="true"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
             android:layout_alignParentBottom="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:background="@color/colorPrimary"
+            android:text="다음"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
     </RelativeLayout>
 </LinearLayout>

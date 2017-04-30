@@ -2,33 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     android:id="@+id/tutorial3">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:src="@drawable/default_user"
-        android:layout_weight="1"/>
+        android:paddingBottom="16dp"
+        android:src="@drawable/blank"
+        android:layout_weight="6"/>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center">
+        android:layout_weight="4">
         <TextView
-            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="에너지 사용량을 확인해 보세요"
-            android:layout_weight="1"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="혁신적인 제품들을 만나보세요"
+            android:textSize="16dp"
+            android:textColor="@color/colorPrimary" />
         <TextView
-            android:gravity="center"
-            android:text="아무도 모르게 빠져나갔던 전기세를 줄여보아요"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="콘샵을 통해 당신에게 맞는 제품을\n가장 저렴하게 만나볼 수 있습니다"
+            android:textColor="#000000"
+            android:textSize="16dp"/>
     </LinearLayout>
-
 </LinearLayout>

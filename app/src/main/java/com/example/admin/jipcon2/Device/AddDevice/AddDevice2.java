@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 
 import com.example.admin.jipcon2.R;
 
@@ -16,8 +16,9 @@ import com.example.admin.jipcon2.R;
  */
 
 public class AddDevice2 extends Fragment {
-    RelativeLayout relativeLayout;
+    LinearLayout linearLayout;
     MakeDeviceListner makeDeviceListener;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -29,9 +30,7 @@ public class AddDevice2 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        relativeLayout = (RelativeLayout) inflater.inflate(R.layout.add_device2,container,false);
-
-
-        return relativeLayout;
+        linearLayout = (LinearLayout) inflater.inflate(R.layout.add_device2,container,false);
+        return linearLayout;
     }
 }

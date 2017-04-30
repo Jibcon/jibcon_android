@@ -1,70 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingEnd="16dp">
+    android:paddingBottom="16dp"
+    android:background="#FFF">
 
-    <RelativeLayout
-
+    <!--상단 진행 상황-->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/ImgView_Adddevice2_1"
-            android:background="@drawable/default_user"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+        android:layout_height="40dp"
+        android:orientation="horizontal">
         <TextView
-            android:layout_below="@id/ImgView_Adddevice2_1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/xml_boreder"
             android:text="제품 선택"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/xml_boreder"
+            android:text="와이파이 연결"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/xml_boreder"
+            android:text="핸드폰 연결"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="0.8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:layout_gravity="center"
+            android:text="핸드폰 연결"
+            android:textColor="#000000"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-        <ImageView
-            android:id="@+id/ImgView_Adddevice2_2"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="center|top"
+        android:orientation="vertical">
+
+        <!--  와이파이 연결 진행률 -->
+        <!--ImageView
+            android:id="@+id/ImgView_Adddevice2_4"
+            android:layout_gravity="center"
             android:background="@drawable/default_user"
-            android:layout_centerHorizontal="true"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_width="200dp"
+            android:layout_height="200dp" /-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <!-- 프로그레스바 -->
+            <ProgressBar
+                android:id="@+id/add_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="240dp"
+                android:layout_height="20dp"
+                android:max="100"
+                android:progress="50"
+                android:progressDrawable="@drawable/progressbar" />
+            <!--// 프로그레스바 -->
+        </LinearLayout>
+
         <TextView
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/ImgView_Adddevice2_2"
-            android:text="폰  와이파이"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="장치 생성 완료"
+            android:textColor="#000000"
+            android:textSize="24dp" />
 
-        <ImageView
-            android:id="@+id/ImgView_Adddevice2_3"
-
-            android:background="@drawable/default_user"
-            android:layout_alignParentRight="true"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
-        <TextView
-            android:layout_alignParentRight="true"
-            android:text="완료"
-            android:layout_below="@id/ImgView_Adddevice2_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </RelativeLayout>
-    <ImageView
-        android:id="@+id/ImgView_Adddevice2_4"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:background="@drawable/default_user"
-        android:layout_width="200dp"
-        android:layout_height="200dp" />
-
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:text="장치 생성 완료"
-        android:layout_below="@id/ImgView_Adddevice2_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

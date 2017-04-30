@@ -39,8 +39,6 @@ public class DeviceMenuActivity extends Fragment {
     DeviceMenuAdapter adapter;
     GlobalApplication app;
 
-
-
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);

@@ -14,8 +14,6 @@ public class myGridView extends GridView {
         super(context);
     }
 
-
-
     public myGridView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }

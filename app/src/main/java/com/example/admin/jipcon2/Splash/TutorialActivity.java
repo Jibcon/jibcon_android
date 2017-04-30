@@ -18,7 +18,7 @@ public class TutorialActivity extends AppCompatActivity {
 
     private void initLayout()
     {
-        viewpager =(ViewPager)findViewById(R.id.viewpager);
+        viewpager =(ViewPager)findViewById(R.id.vp_tutorial);
 
     }
     private  class adapter extends FragmentPagerAdapter
@@ -69,4 +69,5 @@ public class TutorialActivity extends AppCompatActivity {
         viewpager.setOffscreenPageLimit(3);
 
     }
+
 }

@@ -2,29 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="#FFF">
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-
-        <ScrollView
-
-            android:id="@+id/TopScrollView"
+        <com.example.admin.jipcon2.Device.myGridView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <com.example.admin.jipcon2.Device.myGridView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:numColumns="2"
-                android:id="@+id/ScrollViewDevice"
-                >
-
-            </com.example.admin.jipcon2.Device.myGridView>
-        </ScrollView>
-
-    <Button
-        android:id="@+id/Btn_getDevices"
-        android:layout_alignParentBottom="true"
-        android:text="get Devices"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:id="@+id/ScrollViewDevice"/>
+    </ScrollView>
 </RelativeLayout>
