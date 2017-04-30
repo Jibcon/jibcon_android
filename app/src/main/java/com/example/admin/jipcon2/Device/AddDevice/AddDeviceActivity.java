@@ -1,10 +1,12 @@
 package com.example.admin.jipcon2.Device.AddDevice;
 
 import android.content.Intent;
+import android.net.wifi.ScanResult;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.admin.jipcon2.Device.DeviceItem;
@@ -21,11 +23,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceListner {
-
+    private final String TAG = "jibcon/" + getClass().getSimpleName();
     String DeviceCom;
     String DeviceName;
     //
-    String WifiName;
+    ScanResult Wifi;
     int pageNum;
     Fragment addDevice0;
     Fragment addDevice1;
@@ -50,26 +52,27 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
         if(DeviceName.equals("에어컨"))
         {
             deviceItem= new DeviceItem(0,DeviceName);
-            deviceItem.setDeviceWifiAddr("127.0.0.1");
+            deviceItem.setDeviceWifiAddr(getWifiAddr());
          
         }
         else if(DeviceName.equals("전구")) {
              deviceItem= new DeviceItem(1,DeviceName);
 
-            deviceItem.setDeviceWifiAddr("127.0.0.1");
+            deviceItem.setDeviceWifiAddr(getWifiAddr());
         }
         else if(DeviceName.equals("선풍기")) {
             deviceItem= new DeviceItem(2,DeviceName);
 
-            deviceItem.setDeviceWifiAddr("127.0.0.1");
+            deviceItem.setDeviceWifiAddr(getWifiAddr());
         }
         else if(DeviceName.equals("냉장고")) {
             deviceItem= new DeviceItem(3,DeviceName);
 
-            deviceItem.setDeviceWifiAddr("127.0.0.1");
+            deviceItem.setDeviceWifiAddr(getWifiAddr());
         }
 
         ApiService apiService = new repo().getService();
+        Log.d(TAG, "sendDevice: Call.enqueue DeviceItem "+deviceItem.toString());
         Call<DeviceItem> c = apiService.addDevice("Token " +app.getUserToken(),deviceItem);
 
         try{
@@ -99,6 +102,14 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
 
 
 
+    }
+
+    private String getWifiAddr() { // todo implements
+        if (Wifi == null) {
+            return "127.0.0.1";
+        } else {
+            return Wifi.BSSID;
+        }
     }
 
     @Override
@@ -152,8 +163,8 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
     }
 
     @Override
-    public void setWifi(String wifi) {
-        this.WifiName=wifi;
+    public void setWifi(ScanResult wifi) {
+        this.Wifi=wifi;
     }
 
     @Override
