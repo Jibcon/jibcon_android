@@ -70,8 +70,9 @@
         <ListView
             android:id="@+id/ListView_adddevice1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/Btn_addDevice1" />
+            android:layout_height="match_parent"
+            android:layout_above="@+id/Btn_addDevice1"
+            android:foregroundGravity="top" />
 
         <Button
             android:id="@+id/Btn_addDevice1"

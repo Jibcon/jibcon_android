@@ -68,7 +68,8 @@ public class DeviceMenuActivity extends Fragment {
         DeviceGridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity().getApplicationContext(),adapter.getDeviceItems().get(position).getDeviceName(),Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onItemClick: "+adapter.getDeviceItems().get(position).getDeviceName());
+//                Toast.makeText(getActivity().getApplicationContext(),adapter.getDeviceItems().get(position).getDeviceName(),Toast.LENGTH_SHORT).show();
                 //
             }
         });

@@ -30,6 +30,7 @@ import com.example.admin.jipcon2.Usermenu.UserMenuActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private final String TAG = "jibcon/" + getClass().getSimpleName();
     ViewPager vp;
     String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};//사이드바 임시 메뉴 껍데기
     GlobalApplication app;
@@ -147,7 +148,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplication().getApplicationContext(),"장치 추가",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplication().getApplicationContext(),"장치 추가",Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick: 장치추가");
                 Intent intent = new Intent(getApplicationContext(), AddDeviceActivity.class);
                 startActivity(intent);
                 finish();
