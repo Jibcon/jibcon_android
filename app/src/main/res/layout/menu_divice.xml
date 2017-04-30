@@ -3,6 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF">
+
+    <Button
+        android:id="@+id/Btn_getDevices"
+        android:layout_alignParentBottom="true"
+        android:text="get Devices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -14,4 +22,5 @@
             android:numColumns="2"
             android:id="@+id/ScrollViewDevice"/>
     </ScrollView>
+
 </RelativeLayout>

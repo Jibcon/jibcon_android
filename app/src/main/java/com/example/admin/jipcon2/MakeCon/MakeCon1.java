@@ -1,6 +1,7 @@
 package com.example.admin.jipcon2.MakeCon;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -89,6 +90,8 @@ public class MakeCon1 extends android.support.v4.app.Fragment {
                 houseInfoListener.getUserName(username);
                 houseInfoListener.getFragmentNum(1);
 
+                Intent intent = new Intent(getActivity().getApplicationContext(), MakeCon2.class);
+                startActivity(intent);
             }
         });
         return linearLayout;

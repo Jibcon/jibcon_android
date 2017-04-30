@@ -1,17 +1,24 @@
 package com.example.admin.jipcon2.MakeCon;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.admin.jipcon2.R;
+import com.example.admin.jipcon2.Splash.IntroActivity;
+import com.facebook.login.LoginManager;
 
 /**
  * Created by admin on 2017-04-12.
@@ -19,16 +26,9 @@ import com.example.admin.jipcon2.R;
 
 public class MakeCon2 extends android.support.v4.app.Fragment {
 
-    RelativeLayout relativeLayout;
-    Button apart;
-    Button villa;
-    Button container;
-    Button guard;
-    Button office;
+    LinearLayout linearLayout;
     Button next;
     Button before;
-
-    TextView textView;
     HouseInfoListener houseInfoListener;
 
     @Override
@@ -41,15 +41,7 @@ public class MakeCon2 extends android.support.v4.app.Fragment {
     {
         // 리스트로 바꾸기!(20170430)
 
-        /*
-        apart = (Button)relativeLayout.findViewById(R.id.Btn_makeCon2_1);
-        villa=(Button)relativeLayout.findViewById(R.id.Btn_makeCon2_2);
-        container=(Button)relativeLayout.findViewById(R.id.Btn_makeCon2_3);
-        guard=(Button)relativeLayout.findViewById(R.id.Btn_makeCon2_4);
-        office=(Button)relativeLayout.findViewById(R.id.Btn_makeCon2_5);
-        next =(Button)relativeLayout.findViewById(R.id.Btn_makeCon2_5);
-        before=(Button)relativeLayout.findViewById(R.id.Btn_makeCon2_0);
-        */
+
 
     }
 
@@ -57,46 +49,56 @@ public class MakeCon2 extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        relativeLayout = (RelativeLayout) inflater.inflate(R.layout.makecon2,container,false);
+        linearLayout = (LinearLayout) inflater.inflate(R.layout.makecon2,container,false);
+
+        // 공간 리스트
+        final String[] list_place = {"전원 주택", "아파트", "오피스텔", "빌라", "기숙사"};
+
+        ListView listView   = (ListView)linearLayout.findViewById(R.id.list_place);
+
+        ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
+                getActivity(),
+                android.R.layout.simple_list_item_1,
+                list_place
+        );
+
+        listView.setAdapter(listViewAdapter);
+
+        // 리스트 뷰 클릭 시 houseinfo에 추가
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getActivity().getApplicationContext(),list_place[position],Toast.LENGTH_SHORT).show();
+                switch (position)
+                {
+                    case 0 :
+                        Toast.makeText(getActivity().getApplicationContext(), "전원 주택", Toast.LENGTH_SHORT).show();
+                        houseInfoListener.getHouseType("house");
+                        break;
+                    case 1:
+                        Toast.makeText(getActivity().getApplicationContext(), "아파트", Toast.LENGTH_SHORT).show();
+                        houseInfoListener.getHouseType("apart");
+                        break;
+                    case 2:
+                        Toast.makeText(getActivity().getApplicationContext(), "오피스텔", Toast.LENGTH_SHORT).show();
+                        houseInfoListener.getHouseType("officetel");
+                        break;
+                    case 3:
+                        Toast.makeText(getActivity().getApplicationContext(), "빌라", Toast.LENGTH_SHORT).show();
+                        houseInfoListener.getHouseType("villa");
+                        break;
+                    case 4:
+                        Toast.makeText(getActivity().getApplicationContext(), "기숙사", Toast.LENGTH_SHORT).show();
+                        houseInfoListener.getHouseType("dorm");
+                        break;
+                }
+
+            }
+        });
+
 
         initLayout();
-        /*
-        apart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"아파트 선택",Toast.LENGTH_SHORT).show();
-                houseInfoListener.getHouseType("apart");
-            }
-        });
-        villa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"빌라 선택",Toast.LENGTH_SHORT).show();
-                houseInfoListener.getHouseType("villa");
-            }
-        });
-        container.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"컨테이너",Toast.LENGTH_SHORT).show();
-                houseInfoListener.getHouseType("container");
-            }
-        });
-        guard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"경비실",Toast.LENGTH_SHORT).show();
-                houseInfoListener.getHouseType("guard");
-            }
-        });
-        office.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"office",Toast.LENGTH_SHORT).show();
-                houseInfoListener.getHouseType("office");
-            }
-        });
-        */
+
         before.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,8 +110,10 @@ public class MakeCon2 extends android.support.v4.app.Fragment {
             @Override
             public void onClick(View v) {
                 houseInfoListener.getFragmentNum(1);
+                Intent intent = new Intent(getActivity().getApplicationContext(), MakeCon3.class);
+                startActivity(intent);
             }
         });
-        return relativeLayout;
+        return linearLayout;
     }
 }
