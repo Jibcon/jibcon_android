@@ -15,11 +15,7 @@ import com.example.admin.jipcon2.MainActivity;
 import com.example.admin.jipcon2.R;
 import com.example.admin.jipcon2.network.ApiService;
 import com.example.admin.jipcon2.network.repo;
-import com.example.admin.jipcon2.service.DeviceService;
-import com.example.admin.jipcon2.service.DeviceServiceImpl;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.admin.jipcon2.Device.service.DeviceServiceImpl;
 
 import retrofit2.Call;
 import retrofit2.Callback;

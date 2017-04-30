@@ -1,4 +1,4 @@
-package com.example.admin.jipcon2.network.userinfo;
+package com.example.admin.jipcon2.Login.user.domain;
 
 /**
  * Created by admin on 2017-04-10.
@@ -12,12 +12,12 @@ public class User {
     String last_name;
     String first_name;
 
-    public UserInfo getUserInfo() {
+    public UserInfo getUserinfo() {
         return userinfo;
     }
 
-    public void setUserInfo(UserInfo userInfo) {
-        this.userinfo = userInfo;
+    public void setUserInfo(UserInfo userinfo) {
+        this.userinfo = userinfo;
     }
 
     public String getLast_name() {

@@ -6,8 +6,10 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.admin.jipcon2.Device.DeviceItem;
+import com.example.admin.jipcon2.Login.user.domain.User;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -67,7 +69,6 @@ public class GlobalApplication extends Application {
         super.onCreate();
         Log.d(TAG, "onCreate: allocate GlobalApplication obj");
         obj = this;
-        deviceItemArrayList = new ArrayList<>();
         username = "TestUser";
         userEmail = "Jipcon@Jipcon.com";
 //        KakaoSDK.init(new KaKaoSDKAdpater());
@@ -120,5 +121,19 @@ public class GlobalApplication extends Application {
 
     public boolean chkPermission(String permission) {
         return chkPermission(permission, currentActivity); // todo activate currentActivity
+    }
+
+    public void setUser(User user) {
+        setUsername(user.getUserinfo().getFull_name());
+        setUserEmail(user.getEmail());
+        setUserToken(user.getToken());
+
+        try{
+            setUserProfileImage(new URL(user.getUserinfo().getPic_url()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Toast.makeText(getApplicationContext(),"Success Signin With SampleUser",Toast.LENGTH_SHORT).show();
     }
 }

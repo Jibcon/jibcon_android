@@ -1,8 +1,8 @@
 package com.example.admin.jipcon2.network;
 
 import com.example.admin.jipcon2.Device.DeviceItem;
-import com.example.admin.jipcon2.network.userinfo.User;
-import com.example.admin.jipcon2.network.userinfo.UserInfo;
+import com.example.admin.jipcon2.Login.user.domain.User;
+import com.example.admin.jipcon2.Login.user.domain.UserInfo;
 
 import java.util.List;
 
@@ -21,8 +21,8 @@ public interface ApiService {
 
 
 
-
-
+    @GET("/api/samples/sign_in/")
+    retrofit2.Call<User> getSampleUser();
 
     @POST("/api/devices/")
     retrofit2.Call<DeviceItem> addDevice(@Header("Authorization") String token,@Body DeviceItem deviceItem);

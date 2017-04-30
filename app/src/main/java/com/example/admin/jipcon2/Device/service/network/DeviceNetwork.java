@@ -1,4 +1,4 @@
-package com.example.admin.jipcon2.service;
+package com.example.admin.jipcon2.Device.service.network;
 
 import com.example.admin.jipcon2.Device.DeviceItem;
 

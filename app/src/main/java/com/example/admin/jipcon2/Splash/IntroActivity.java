@@ -8,7 +8,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
@@ -23,9 +22,9 @@ import com.example.admin.jipcon2.MainActivity;
 import com.example.admin.jipcon2.R;
 import com.example.admin.jipcon2.network.ApiService;
 import com.example.admin.jipcon2.network.repo;
-import com.example.admin.jipcon2.network.userinfo.User;
-import com.example.admin.jipcon2.network.userinfo.UserInfo;
-import com.example.admin.jipcon2.service.DeviceServiceImpl;
+import com.example.admin.jipcon2.Login.user.domain.User;
+import com.example.admin.jipcon2.Login.user.domain.UserInfo;
+import com.example.admin.jipcon2.Device.service.DeviceServiceImpl;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 
@@ -77,11 +76,11 @@ public class IntroActivity extends AppCompatActivity {
                         public void onResponse(Call<User> call, Response<User> response) {
                             application.setUserEmail(response.body().getEmail());
                             application.setUserToken(response.body().getToken());
-                            application.setUsername(response.body().getUserInfo().getFull_name());
+                            application.setUsername(response.body().getUserinfo().getFull_name());
                             Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
                             Intent intent= new Intent(getApplicationContext(), MainActivity.class);
                             try{
-                            application.setUserProfileImage(new URL(response.body().getUserInfo().getPic_url()));
+                            application.setUserProfileImage(new URL(response.body().getUserinfo().getPic_url()));
                             }catch (Exception e)
                             {
                                 e.printStackTrace();
@@ -142,7 +141,7 @@ public class IntroActivity extends AppCompatActivity {
         //액션바 없애기
         hideActionBar();
         itemSetup();
-        getKeyHash(getApplicationContext());
+//        getKeyHash(getApplicationContext());
 
         checkUserLogin();
 
