@@ -72,21 +72,21 @@ public class DeviceMenuAdapter extends BaseAdapter {
             //2 : 선풍기
             //3 : 냉장고
 
-            case "에어컨":   BitmapDrawable drawable1 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.airconditioner);
+            case "0":   BitmapDrawable drawable1 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.airconditioner);
             Bitmap bitmap1 = drawable1.getBitmap();
               imageView.setImageBitmap(bitmap1);
                 break;
-            case "전구":
+            case "1":
                 BitmapDrawable drawable2 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.lightbulb);
                 Bitmap bitmap2 = drawable2.getBitmap();
                 imageView.setImageBitmap(bitmap2);
                 break;
-            case "선풍기":
+            case "2":
                 BitmapDrawable drawable3 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.fan);
                 Bitmap bitmap3 = drawable3.getBitmap();
                 imageView.setImageBitmap(bitmap3);
                 break;
-            case "냉장고":
+            case "3":
                 BitmapDrawable drawable4 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.refrigerator);
                 Bitmap bitmap4 = drawable4.getBitmap();
                 imageView.setImageBitmap(bitmap4);
