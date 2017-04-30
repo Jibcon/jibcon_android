@@ -52,10 +52,13 @@ public class AddDevice0 extends Fragment {
 
         spinner1=(Spinner)linearLayout.findViewById(R.id.Spinner_adddevice0_1);
         spinner2=(Spinner)linearLayout.findViewById(R.id.Spinner_adddevice0_2);
+
         adapter1 = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arr1);
         adapter2= new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arr2);
+
         spinner1.setAdapter(adapter1);
         spinner2.setAdapter(adapter2);
+
         nextButton=(Button)linearLayout.findViewById(R.id.Btn_addDevice0);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +67,6 @@ public class AddDevice0 extends Fragment {
                 makeDeviceListener.NextPage(1);
             }
         });
-
 
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

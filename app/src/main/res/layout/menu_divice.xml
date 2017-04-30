@@ -7,16 +7,13 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
         <com.example.admin.jipcon2.Device.myGridView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="2"
-            android:id="@+id/ScrollViewDevice"
-            >
-
-        </com.example.admin.jipcon2.Device.myGridView>
+            android:id="@+id/ScrollViewDevice"/>
     </ScrollView>
-
 
 </RelativeLayout>

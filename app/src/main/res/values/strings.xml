@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Jibcon</string>
+    <string name="app_name">jibcon</string>
     <string name="kakao_app_key"> 7652e64a5f98aefeb14808a3756d9b80</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

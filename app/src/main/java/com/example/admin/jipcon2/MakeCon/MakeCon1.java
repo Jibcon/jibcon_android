@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.example.admin.jipcon2.R;
@@ -23,7 +24,7 @@ public class MakeCon1 extends android.support.v4.app.Fragment {
     String username;
     String houseintro;
     Button next;
-    Button before;
+    ImageButton before;
     LinearLayout linearLayout;
     EditText EditHousename;
     EditText EditUername;
@@ -40,7 +41,7 @@ public class MakeCon1 extends android.support.v4.app.Fragment {
         EditUername = (EditText)linearLayout.findViewById(R.id.EditTxt_makecon1_2);
         EditHouseintro=(EditText)linearLayout.findViewById(R.id.EditTxt_makecon1_3);
         fragmentNum = 0;
-        before=(Button)linearLayout.findViewById(R.id.Btn_MakeCon1_0);
+        before=(ImageButton)linearLayout.findViewById(R.id.Btn_MakeCon1_0);
 
     }
     @Override

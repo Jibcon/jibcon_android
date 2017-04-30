@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.example.admin.jipcon2.R;
 
@@ -19,6 +18,7 @@ import com.example.admin.jipcon2.R;
 public class AddDevice2 extends Fragment {
     LinearLayout linearLayout;
     MakeDeviceListner makeDeviceListener;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

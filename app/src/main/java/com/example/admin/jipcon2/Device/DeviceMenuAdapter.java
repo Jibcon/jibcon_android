@@ -47,10 +47,7 @@ public class DeviceMenuAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-
-        return app.getDeviceItemArrayList().get(position);
-    }
+    public Object getItem(int position) { return app.getDeviceItemArrayList().get(position); }
 
     @Override
     public long getItemId(int position) {

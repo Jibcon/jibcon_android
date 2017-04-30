@@ -19,25 +19,19 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
             android:background="#FFFFFF"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
-            <RelativeLayout
-                android:id="@+id/newToolbar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <!--
-                <TextView
-                    android:text="JIBCON"
-                    android:id="@+id/topLogo"
-                    android:textSize="24dp"
-                    android:gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"/>
-                    -->
-            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="JibCon"
+                android:textColor="#3498DB"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
 
         </android.support.v7.widget.Toolbar>
 

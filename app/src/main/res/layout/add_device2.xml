@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="와이파이 연결"
+            android:text="핸드폰 연결"
             android:textColor="#000000"
             android:textSize="24dp"
             android:textStyle="bold" />
@@ -57,26 +57,48 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:orientation="vertical"
-        android:gravity="center|top">
+        android:gravity="center|top"
+        android:orientation="vertical">
 
         <!--  와이파이 연결 진행률 -->
-        <ImageView
+        <!--ImageView
             android:id="@+id/ImgView_Adddevice2_4"
             android:layout_gravity="center"
             android:background="@drawable/default_user"
             android:layout_width="200dp"
-            android:layout_height="200dp" />
+            android:layout_height="200dp" /-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <!-- 프로그레스바 -->
+            <ProgressBar
+                android:id="@+id/add_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="240dp"
+                android:layout_height="20dp"
+                android:max="100"
+                android:progress="50"
+                android:progressDrawable="@drawable/progressbar" />
+            <!--// 프로그레스바 -->
+        </LinearLayout>
 
         <TextView
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
             android:text="장치 생성 완료"
-            android:textSize="24dp"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            android:textSize="24dp" />
 
     </LinearLayout>
 </LinearLayout>
