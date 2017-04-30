@@ -1,6 +1,5 @@
 package com.example.admin.jipcon2.Device;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -13,17 +12,11 @@ import android.widget.Toast;
 
 import com.example.admin.jipcon2.GlobalApplication;
 import com.example.admin.jipcon2.R;
-import com.example.admin.jipcon2.network.ApiService;
-import com.example.admin.jipcon2.network.repo;
-import com.example.admin.jipcon2.service.DeviceService;
-import com.example.admin.jipcon2.service.DeviceServiceImpl;
+import com.example.admin.jipcon2.Device.service.DeviceService;
+import com.example.admin.jipcon2.Device.service.DeviceServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by user on 2017-03-30.

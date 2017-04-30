@@ -1,4 +1,4 @@
-package com.example.admin.jipcon2.network.userinfo;
+package com.example.admin.jipcon2.Login.user.domain;
 
 /**
  * Created by admin on 2017-04-08.

@@ -1,18 +1,13 @@
-package com.example.admin.jipcon2.service;
+package com.example.admin.jipcon2.Device.service;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.admin.jipcon2.Device.DeviceItem;
-import com.example.admin.jipcon2.network.ApiService;
-import com.example.admin.jipcon2.network.repo;
+import com.example.admin.jipcon2.Device.service.network.DeviceNetwork;
+import com.example.admin.jipcon2.Device.service.network.DeviceNetworkImpl;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by jaeyoung on 2017. 4. 29..

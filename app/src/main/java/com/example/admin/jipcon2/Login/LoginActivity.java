@@ -5,16 +5,20 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.admin.jipcon2.GlobalApplication;
+import com.example.admin.jipcon2.Login.user.service.UserService;
+import com.example.admin.jipcon2.Login.user.service.UserServiceImpl;
 import com.example.admin.jipcon2.MakeCon.MakeConStartActivity;
 import com.example.admin.jipcon2.R;
 import com.example.admin.jipcon2.network.ApiService;
 import com.example.admin.jipcon2.network.repo;
-import com.example.admin.jipcon2.network.userinfo.User;
-import com.example.admin.jipcon2.network.userinfo.UserInfo;
-import com.example.admin.jipcon2.service.DeviceServiceImpl;
+import com.example.admin.jipcon2.Login.user.domain.User;
+import com.example.admin.jipcon2.Login.user.domain.UserInfo;
+import com.example.admin.jipcon2.Device.service.DeviceServiceImpl;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -36,13 +40,12 @@ import retrofit2.Response;
 
 
 public class LoginActivity extends AppCompatActivity {
-
+    private final String TAG = "jibcon/" + getClass().getSimpleName();
 
 
 //--블로그
-private CallbackManager callbackManager = null;
+    private CallbackManager callbackManager = null;
     private AccessTokenTracker accessTokenTracker = null;
-    private com.facebook.login.widget.LoginButton loginButton = null;
     GlobalApplication app;
 
     //facebook
@@ -178,7 +181,34 @@ private CallbackManager callbackManager = null;
         //loginButton.setFragment(this);
         loginButton.registerCallback(callbackManager, callback);
 
+        initSampleSignInBtn();
+    }
 
+    void initSampleSignInBtn() {
+        Log.d(TAG, "initSampleSignInBtn: ");
+        (findViewById(R.id.btnSampleSignIn)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: btnSampleSignIn");
+                UserServiceImpl.getInstance().getSampleUserAsynchronisely(new UserService.onSuccessListener() {
+                    @Override
+                    public void onSuccessGetSampleUserAsynchronisely(User sampleUser) {
+                        Log.d(TAG, "onSuccessGetSampleUserAsynchronisely: ");
+                        app.setUser(sampleUser);
+                        DeviceServiceImpl.getInstance().prepareDeviceItems();
+
+                        gotoMakeConStartActivity();
+                    }
+                });
+            }
+        });
+    }
+
+    private void gotoMakeConStartActivity() {
+        Intent intent= new Intent(getApplicationContext(), MakeConStartActivity.class);
+        startActivity(intent);
+        Log.d(TAG, "gotoMakeConStartActivity: finish");
+        finish();
     }
 
     @Override

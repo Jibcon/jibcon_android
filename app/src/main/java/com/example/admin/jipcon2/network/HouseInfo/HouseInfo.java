@@ -1,6 +1,6 @@
 package com.example.admin.jipcon2.network.HouseInfo;
 
-import com.example.admin.jipcon2.network.userinfo.UserInfo;
+import com.example.admin.jipcon2.Login.user.domain.UserInfo;
 
 import java.util.ArrayList;
 

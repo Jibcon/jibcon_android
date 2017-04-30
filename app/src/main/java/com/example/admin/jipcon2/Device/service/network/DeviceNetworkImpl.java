@@ -1,7 +1,6 @@
-package com.example.admin.jipcon2.service;
+package com.example.admin.jipcon2.Device.service.network;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.admin.jipcon2.Device.DeviceItem;
 import com.example.admin.jipcon2.GlobalApplication;
