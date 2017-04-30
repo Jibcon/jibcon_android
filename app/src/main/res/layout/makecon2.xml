@@ -67,10 +67,7 @@
                 android:layout_gravity="start"
                 android:orientation="vertical"
                 android:divider="#000000"
-                android:dividerHeight="0.25dp">
-
-
-            </ListView>
+                android:dividerHeight="0.25dp"/>
         </LinearLayout>
 
         <LinearLayout
