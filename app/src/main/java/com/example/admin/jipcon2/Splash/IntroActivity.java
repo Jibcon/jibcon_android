@@ -4,7 +4,6 @@ package com.example.admin.jipcon2.Splash;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -15,12 +14,18 @@ import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.admin.jipcon2.Device.DeviceItem;
 import com.example.admin.jipcon2.GlobalApplication;
 import com.example.admin.jipcon2.Login.LoginActivity;
 import com.example.admin.jipcon2.MainActivity;
 import com.example.admin.jipcon2.R;
+import com.example.admin.jipcon2.network.ApiService;
+import com.example.admin.jipcon2.network.repo;
+import com.example.admin.jipcon2.network.userinfo.User;
+import com.example.admin.jipcon2.network.userinfo.UserInfo;
+import com.example.admin.jipcon2.service.DeviceServiceImpl;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 
@@ -28,6 +33,10 @@ import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.kakao.util.helper.Utility.getPackageInfo;
 
@@ -44,7 +53,6 @@ public class IntroActivity extends AppCompatActivity {
             callbackManager = CallbackManager.Factory.create();
             final AccessToken accesstoken = AccessToken.getCurrentAccessToken();
 
-
             if(accesstoken!=null&&accesstoken.isExpired())
             {//accesstoken만료기간 60일
                 //만료되면 로그인창으로
@@ -54,25 +62,64 @@ public class IntroActivity extends AppCompatActivity {
             }
 
             //기존에 로그인된 상태 체크하기
-            if(accesstoken!=null)
-            {
+            if(accesstoken!=null) {
                 //intro->login success->main
+                accesstoken.getToken();
 
-                //sharedpreferece에 저장된 값으로 유저 이름, 이미지 설정
-                SharedPreferences pref = getSharedPreferences("pref",MODE_PRIVATE);
-                application.setUsername(pref.getString("name",""));
+                ApiService service = new repo().getService();
+                UserInfo userInfo = new UserInfo("facebook", accesstoken.getToken());
+                Call<User> c = service.logincheck(userInfo);
+
                 try
                 {
-                    application.setUserProfileImage(new URL(pref.getString("profileImage","")));
+                    c.enqueue(new Callback<User>() {
+                        @Override
+                        public void onResponse(Call<User> call, Response<User> response) {
+                            application.setUserEmail(response.body().getEmail());
+                            application.setUserToken(response.body().getToken());
+                            application.setUsername(response.body().getUserInfo().getFull_name());
+                            Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
+                            Intent intent= new Intent(getApplicationContext(), MainActivity.class);
+                            try{
+                            application.setUserProfileImage(new URL(response.body().getUserInfo().getPic_url()));
+                            }catch (Exception e)
+                            {
+                                e.printStackTrace();
+                            }
 
+                            // prepare deviceItems
+                            DeviceServiceImpl.getInstance().prepareDeviceItems();
+                            startActivity(intent);
+
+                            finish();
+                        }
+
+                        @Override
+                        public void onFailure(Call<User> call, Throwable t) {
+
+                        }
+                    });
                 }
                 catch (Exception e)
                 {
                     e.printStackTrace();
                 }
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                finish();
+
+                //response->
+                //sharedpreferece에 저장된 값으로 유저 이름, 이미지 설정
+
+
+
+//                try
+//                {
+//                    application.setUserProfileImage(new URL(pref.getString("profileImage","")));
+//
+//                }
+//                catch (Exception e)
+//                {
+//                    e.printStackTrace();
+//                }
+
             }
             else
             {//intro->login success->tutorial
@@ -169,40 +216,40 @@ public class IntroActivity extends AppCompatActivity {
 
         //Global Application 에 담을 정보 초기 setup;
         application = (GlobalApplication)getApplicationContext();
-        deviceItemArrayList = new ArrayList<>();
+//        deviceItemArrayList = new ArrayList<>();
         ArrayList<Bitmap> arr= new ArrayList<>();
         ArrayList<String> strarr= new ArrayList<>();
         DeviceItem item;
+//
+//        BitmapDrawable drawable1 = (BitmapDrawable) getResources().getDrawable(R.drawable.airconditioner);
+//        Bitmap bitmap1 = drawable1.getBitmap();
+//        BitmapDrawable drawable2 = (BitmapDrawable) getResources().getDrawable(R.drawable.lightbulb);
+//        Bitmap bitmap2 = drawable2.getBitmap();
+//        BitmapDrawable drawable3 = (BitmapDrawable) getResources().getDrawable(R.drawable.fan);
+//        Bitmap bitmap3 = drawable3.getBitmap();
+//        BitmapDrawable drawable4 = (BitmapDrawable) getResources().getDrawable(R.drawable.refrigerator);
+//        Bitmap bitmap4 = drawable4.getBitmap();
+//
+//        arr.add(0, bitmap1);
+//        arr.add(1,bitmap2);
+//        arr.add(2,bitmap3);
+//        arr.add(3,bitmap4);
+//
+//
+//        strarr.add(0,"airconditioner");
+//        strarr.add(1,"lightbulb");
+//        strarr.add(2,"fan");
+//        strarr.add(3,"refrigerator");
+//
+//        for(int i=0;i<4;i++)
+//        {
+//            deviceItemArrayList.add(i, new DeviceItem(i,strarr.get(i)));
+//            //초기 테스트 아이템 설정
+//            //여기 디바이스 메뉴 아이템
+//        }
 
-        BitmapDrawable drawable1 = (BitmapDrawable) getResources().getDrawable(R.drawable.airconditioner);
-        Bitmap bitmap1 = drawable1.getBitmap();
-        BitmapDrawable drawable2 = (BitmapDrawable) getResources().getDrawable(R.drawable.lightbulb);
-        Bitmap bitmap2 = drawable2.getBitmap();
-        BitmapDrawable drawable3 = (BitmapDrawable) getResources().getDrawable(R.drawable.fan);
-        Bitmap bitmap3 = drawable3.getBitmap();
-        BitmapDrawable drawable4 = (BitmapDrawable) getResources().getDrawable(R.drawable.refrigerator);
-        Bitmap bitmap4 = drawable4.getBitmap();
 
-        arr.add(0, bitmap1);
-        arr.add(1,bitmap2);
-        arr.add(2,bitmap3);
-        arr.add(3,bitmap4);
-
-
-        strarr.add(0,"airconditioner");
-        strarr.add(1,"lightbulb");
-        strarr.add(2,"fan");
-        strarr.add(3,"refrigerator");
-
-        for(int i=0;i<4;i++)
-        {
-            deviceItemArrayList.add(i, new DeviceItem(i,strarr.get(i)));
-            //초기 테스트 아이템 설정
-            //여기 디바이스 메뉴 아이템
-        }
-
-
-        application.setDeviceItemArrayList(deviceItemArrayList);
+//        application.setDeviceItemArrayList(deviceItemArrayList);
     }
 
 

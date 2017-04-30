@@ -51,6 +51,24 @@ public class UserInfo {
 
     String type;
     String token;
+    String full_name;
+    String pic_url;
+
+    public String getPic_url() {
+        return pic_url;
+    }
+
+    public void setPic_url(String pic_url) {
+        this.pic_url = pic_url;
+    }
+
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
+    }
 
     public UserInfo(String type, String token) {
         this.type = type;

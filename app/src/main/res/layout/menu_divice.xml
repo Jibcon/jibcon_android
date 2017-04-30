@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF">
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -15,5 +14,4 @@
             android:numColumns="2"
             android:id="@+id/ScrollViewDevice"/>
     </ScrollView>
-
 </RelativeLayout>

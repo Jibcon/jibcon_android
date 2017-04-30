@@ -24,4 +24,19 @@ public class repo {
             Log.d("service","실패");
         return service;
     }
+
+    public static ApiService getStaticService()
+    {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://52.79.142.130/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiService service = retrofit.create(ApiService.class);
+
+        if(service!=null)
+            Log.d("service","할당");
+        else
+            Log.d("service","실패");
+        return service;
+    }
 }

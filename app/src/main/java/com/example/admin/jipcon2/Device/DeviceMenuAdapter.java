@@ -43,11 +43,14 @@ public class DeviceMenuAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return app.getDeviceItemArrayList().size();
+        return deviceItems.size();
     }
 
     @Override
-    public Object getItem(int position) { return app.getDeviceItemArrayList().get(position); }
+    public Object getItem(int position) {
+
+        return deviceItems.get(position);
+    }
 
     @Override
     public long getItemId(int position) {
@@ -62,28 +65,28 @@ public class DeviceMenuAdapter extends BaseAdapter {
 
         ImageView imageView = (ImageView)convertView.findViewById(R.id.ImgViewDiviceItem);
         //imageView.setImageBitmap(app.getDeviceItemArrayList().get(position).getImage());
-        switch (deviceItems.get(position).deviceType)
+        switch ( deviceItems.get(position).getDeviceType())
         {
             //0 : 에어컨
             //1 : 전구
             //2 : 선풍기
             //3 : 냉장고
 
-            case 0:   BitmapDrawable drawable1 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.airconditioner);
+            case "에어컨":   BitmapDrawable drawable1 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.airconditioner);
             Bitmap bitmap1 = drawable1.getBitmap();
               imageView.setImageBitmap(bitmap1);
                 break;
-            case 1:
+            case "전구":
                 BitmapDrawable drawable2 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.lightbulb);
                 Bitmap bitmap2 = drawable2.getBitmap();
                 imageView.setImageBitmap(bitmap2);
                 break;
-            case 2:
+            case "선풍기":
                 BitmapDrawable drawable3 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.fan);
                 Bitmap bitmap3 = drawable3.getBitmap();
                 imageView.setImageBitmap(bitmap3);
                 break;
-            case 3:
+            case "냉장고":
                 BitmapDrawable drawable4 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.refrigerator);
                 Bitmap bitmap4 = drawable4.getBitmap();
                 imageView.setImageBitmap(bitmap4);

@@ -27,8 +27,13 @@ import com.bumptech.glide.Glide;
 import com.example.admin.jipcon2.Cheatkey.TrickMenuActivity;
 import com.example.admin.jipcon2.Conshop.MarketMenuActivity;
 import com.example.admin.jipcon2.Device.AddDevice.AddDeviceActivity;
+import com.example.admin.jipcon2.Device.DeviceItem;
 import com.example.admin.jipcon2.Device.DeviceMenuActivity;
 import com.example.admin.jipcon2.Usermenu.UserMenuActivity;
+import com.example.admin.jipcon2.service.DeviceService;
+import com.example.admin.jipcon2.service.DeviceServiceImpl;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -182,15 +187,6 @@ public class MainActivity extends AppCompatActivity
         username.setText(app.getUsername());
         userEmail.setText(app.getUserEmail());
 
-//        try
-//        {
-//            Bitmap bitmap=Glide.with(MainActivity.this).load(app.getUserProfileImage())
-//                    .asBitmap().into(60,60).get();
-//            userProfileImage.setImageBitmap(bitmap);
-//        }catch (Exception e)
-//        {
-//            e.printStackTrace();
-//        }
 
         initLayout();
     }
@@ -232,7 +228,6 @@ public class MainActivity extends AppCompatActivity
         }// else if (id == R.id.nav_send) {
 //
 //      }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

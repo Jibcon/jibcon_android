@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JibCon.iml" filepath="$PROJECT_DIR$/JibCon.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/jibcon_android.iml" filepath="$PROJECT_DIR$/jibcon_android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jibcon_android.iml" filepath="$PROJECT_DIR$/jibcon_android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jibcon_android_real.iml" filepath="$PROJECT_DIR$/jibcon_android_real.iml" />
     </modules>
   </component>
 </project>
