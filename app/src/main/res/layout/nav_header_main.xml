@@ -10,14 +10,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-   >
+    android:background="#FFF">
 
     <ImageView
         android:id="@+id/ImgView_Drawer_UserProfile"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/default_user" />
+        android:src="@drawable/default_user"/>
 
     <TextView
         android:id="@+id/Txt_Drawer_Username"
@@ -25,11 +25,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="4dp"
-        android:text="Android Studio"
-         />
+        android:text="Android Studio"/>
 
     <TextView
-
         android:id="@+id/Txt_Drawer_UserEmail"
         android:layout_below="@+id/Txt_Drawer_Username"
         android:layout_width="wrap_content"

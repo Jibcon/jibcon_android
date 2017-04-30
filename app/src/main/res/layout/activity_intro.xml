@@ -7,19 +7,22 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_weight="9"
-    android:background="#ffc200"
+    android:background="#FFFFFF"
     tools:context="com.example.admin.jipcon2.MainActivity">
 
     <ImageView
-        android:layout_width="158dp"
-        android:layout_height="206dp"
-        android:src="@drawable/intro"/>
+        android:layout_width="193dp"
+        android:layout_height="196dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/blank"/>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="sm.Arts 2017"
+        android:text="처음 만나는 스마트홈"
+        android:textSize="28dp"
+        android:textColor="@color/colorPrimary"
         android:textStyle="bold" />
 
 </LinearLayout>

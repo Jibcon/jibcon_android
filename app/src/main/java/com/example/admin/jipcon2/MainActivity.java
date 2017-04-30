@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity
     Fragment marketmenu;
     Fragment usermenu;
     ImageView userProfileImage;
+
+
     //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
     //속도 너무 느림 ㅠ
     private class pagerAdapter extends FragmentStatePagerAdapter{
@@ -80,9 +82,34 @@ public class MainActivity extends AppCompatActivity
 
     /* ↓뷰 페이저(액티비티 슬라이드)↓ */
     View.OnClickListener movePageListener = new View.OnClickListener(){
+
         @Override
         public void onClick(View v){
             int tag = (int) v.getTag();
+
+            /*
+            if(btn1.isSelected()){
+                btn1.setSelected(true);
+                btn2.setSelected(false);
+                btn3.setSelected(false);
+                btn4.setSelected(false);
+            }else if(btn2.isSelected()){
+                btn1.setSelected(false);
+                btn2.setSelected(true);
+                btn3.setSelected(false);
+                btn4.setSelected(false);
+            }else if(btn3.isSelected()){
+                btn1.setSelected(false);
+                btn2.setSelected(false);
+                btn3.setSelected(true);
+                btn4.setSelected(false);
+            }else if(btn4.isSelected()){
+                btn1.setSelected(false);
+                btn2.setSelected(false);
+                btn3.setSelected(false);
+                btn4.setSelected(true);
+            }*/
+
             vp.setCurrentItem(tag);
         }
     };
@@ -96,10 +123,12 @@ public class MainActivity extends AppCompatActivity
 
         vp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
 
+
         ImageButton btn1 = (ImageButton) findViewById(R.id.btn1); // 기기 버튼
         ImageButton btn2 = (ImageButton) findViewById(R.id.btn2); // 트릭 버튼
         ImageButton btn3 = (ImageButton) findViewById(R.id.btn3); // 마켓 버튼
         ImageButton btn4 = (ImageButton) findViewById(R.id.btn4); // 사용자 버튼
+
 
         vp.setOffscreenPageLimit(3);
         vp.setAdapter(new pagerAdapter(getSupportFragmentManager()));
@@ -107,12 +136,16 @@ public class MainActivity extends AppCompatActivity
 
         btn1.setOnClickListener(movePageListener);
         btn1.setTag(0);
+        btn1.setSelected(true);
         btn2.setOnClickListener(movePageListener);
         btn2.setTag(1);
+        btn2.setSelected(true);
         btn3.setOnClickListener(movePageListener);
         btn3.setTag(2);
+        btn3.setSelected(true);
         btn4.setOnClickListener(movePageListener);
         btn4.setTag(3);
+        btn4.setSelected(true);
     }
     /* ↑뷰 페이저(액티비티 슬라이드)↑ */
 
@@ -129,7 +162,7 @@ public class MainActivity extends AppCompatActivity
 
         ActionBarDrawerToggle drawerToggle;
 
-        String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};//사이드바 임시 메뉴 껍데기
+        String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};// 사이드바 임시 메뉴 껍데기
 
         /* ↓Floating Button↓ */
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -141,7 +174,7 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(getApplicationContext(), AddDeviceActivity.class);
                 startActivity(intent);
                 finish();
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//              Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
             }
         });
@@ -219,14 +252,10 @@ public class MainActivity extends AppCompatActivity
 //
         }// else if (id == R.id.nav_send) {
 //
-//        }
+//      }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-
-
 }
