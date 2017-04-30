@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.admin.jipcon2.Device.DeviceItem;
 import com.example.admin.jipcon2.Login.user.domain.User;
@@ -124,6 +123,7 @@ public class GlobalApplication extends Application {
             e.printStackTrace();
         }
 
-        Toast.makeText(getApplicationContext(),"Success Signin With SampleUser",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(),"Success Signin With SampleUser",Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "setUser: Success Signin With SampleUser");
     }
 }

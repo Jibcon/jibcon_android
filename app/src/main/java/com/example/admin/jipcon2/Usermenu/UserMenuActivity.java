@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,7 @@ import com.facebook.login.LoginManager;
  */
 
 public class UserMenuActivity extends android.support.v4.app.Fragment {
-
+    private final String TAG = "jibcon/" + getClass().getSimpleName();
 
     GlobalApplication app;
 
@@ -64,7 +65,9 @@ public class UserMenuActivity extends android.support.v4.app.Fragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity().getApplicationContext(),list_menu[position],Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onItemClick: "+list_menu[position]);
+
+//                Toast.makeText(getActivity().getApplicationContext(),list_menu[position],Toast.LENGTH_SHORT).show();
                 switch (position)
                 {
                     case 6 :

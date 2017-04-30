@@ -90,8 +90,8 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
 
                 @Override
                 public void onFailure(Call<DeviceItem> call, Throwable t) {
-
-                    Toast.makeText(getApplicationContext(),"device send fail",Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "onFailure: device send fail");
+//                    Toast.makeText(getApplicationContext(),"device send fail",Toast.LENGTH_SHORT).show();
                 }
             });
         }

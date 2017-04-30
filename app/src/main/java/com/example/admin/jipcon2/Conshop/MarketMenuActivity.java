@@ -1,6 +1,7 @@
 package com.example.admin.jipcon2.Conshop;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.example.admin.jipcon2.R;
  */
 
 public class MarketMenuActivity extends android.support.v4.app.Fragment {
+    private final String TAG = "jibcon/" + getClass().getSimpleName();
 
     public MarketMenuActivity(){}
 
@@ -32,28 +34,32 @@ public class MarketMenuActivity extends android.support.v4.app.Fragment {
         Best.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"Move to Best",Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick: Move to Best");
+//                Toast.makeText(getActivity().getApplicationContext(),"Move to Best",Toast.LENGTH_SHORT).show();
             }
         });
 
         Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"Move to Home",Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick: Move to Home");
+//                Toast.makeText(getActivity().getApplicationContext(),"Move to Home",Toast.LENGTH_SHORT).show();
 
             }
         });
         Health.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"Move to Health",Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick: Move to Health");
+//                Toast.makeText(getActivity().getApplicationContext(),"Move to Health",Toast.LENGTH_SHORT).show();
 
             }
         });
         Outdoor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"Move to Ourdoor",Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick: Move to Ourdoor");
+//                Toast.makeText(getActivity().getApplicationContext(),"Move to Ourdoor",Toast.LENGTH_SHORT).show();
 
             }
         });

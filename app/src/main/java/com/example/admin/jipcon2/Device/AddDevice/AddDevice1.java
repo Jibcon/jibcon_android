@@ -114,10 +114,11 @@ public class AddDevice1 extends Fragment {
         {
             Log.d(TAG, "wifiSetting: Wifi Turn on");
             wifiManager.setWifiEnabled(true);
-            Toast.makeText(this.getActivity(),"Wifi Turned On",Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "wifiSetting: Wifi Turned On");
+//            Toast.makeText(this.getActivity(),"Wifi Turned On",Toast.LENGTH_SHORT).show();
         }
         Log.d(TAG, "wifiSetting: Wifi Scan start");
-        Toast.makeText(this.getActivity(),"Wifi Scan started",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this.getActivity(),"Wifi Scan started",Toast.LENGTH_SHORT).show();
         wifiManager.startScan();
     }
 
