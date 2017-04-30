@@ -1,6 +1,8 @@
 package com.example.admin.jipcon2;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -79,36 +81,13 @@ public class MainActivity extends AppCompatActivity
     }
     /* ↑뷰 페이저(액티비티 슬라이드)↑ */
 
-
     /* ↓뷰 페이저(액티비티 슬라이드)↓ */
     View.OnClickListener movePageListener = new View.OnClickListener(){
 
         @Override
         public void onClick(View v){
-            int tag = (int) v.getTag();
 
-            /*
-            if(btn1.isSelected()){
-                btn1.setSelected(true);
-                btn2.setSelected(false);
-                btn3.setSelected(false);
-                btn4.setSelected(false);
-            }else if(btn2.isSelected()){
-                btn1.setSelected(false);
-                btn2.setSelected(true);
-                btn3.setSelected(false);
-                btn4.setSelected(false);
-            }else if(btn3.isSelected()){
-                btn1.setSelected(false);
-                btn2.setSelected(false);
-                btn3.setSelected(true);
-                btn4.setSelected(false);
-            }else if(btn4.isSelected()){
-                btn1.setSelected(false);
-                btn2.setSelected(false);
-                btn3.setSelected(false);
-                btn4.setSelected(true);
-            }*/
+            int tag = (int) v.getTag();
 
             vp.setCurrentItem(tag);
         }
@@ -123,29 +102,24 @@ public class MainActivity extends AppCompatActivity
 
         vp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
 
-
         ImageButton btn1 = (ImageButton) findViewById(R.id.btn1); // 기기 버튼
         ImageButton btn2 = (ImageButton) findViewById(R.id.btn2); // 트릭 버튼
         ImageButton btn3 = (ImageButton) findViewById(R.id.btn3); // 마켓 버튼
         ImageButton btn4 = (ImageButton) findViewById(R.id.btn4); // 사용자 버튼
 
-
         vp.setOffscreenPageLimit(3);
         vp.setAdapter(new pagerAdapter(getSupportFragmentManager()));
         vp.setCurrentItem(0); // 첫 뷰페이저로는 기기 목록이 나오도록 설정.
 
-        btn1.setOnClickListener(movePageListener);
         btn1.setTag(0);
-        btn1.setSelected(true);
-        btn2.setOnClickListener(movePageListener);
+        btn1.setOnClickListener(movePageListener);
         btn2.setTag(1);
-        btn2.setSelected(true);
-        btn3.setOnClickListener(movePageListener);
+        btn2.setOnClickListener(movePageListener);
         btn3.setTag(2);
-        btn3.setSelected(true);
-        btn4.setOnClickListener(movePageListener);
+        btn3.setOnClickListener(movePageListener);
         btn4.setTag(3);
-        btn4.setSelected(true);
+        btn4.setOnClickListener(movePageListener);
+
     }
     /* ↑뷰 페이저(액티비티 슬라이드)↑ */
 
@@ -154,6 +128,11 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ImageButton btn1 = (ImageButton) findViewById(R.id.btn1); // 기기 버튼
+        ImageButton btn2 = (ImageButton) findViewById(R.id.btn2); // 트릭 버튼
+        ImageButton btn3 = (ImageButton) findViewById(R.id.btn3); // 마켓 버튼
+        ImageButton btn4 = (ImageButton) findViewById(R.id.btn4); // 사용자 버튼
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

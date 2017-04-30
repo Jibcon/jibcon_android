@@ -4,23 +4,18 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/aboutjipcon"
-            android:icon="@drawable/ic_menu_camera"
             android:title="about jipcon" />
         <item
             android:id="@+id/asking"
-            android:icon="@drawable/ic_menu_gallery"
             android:title="문의" />
         <item
             android:id="@+id/alramsetting"
-            android:icon="@drawable/ic_menu_slideshow"
             android:title="알림설정" />
         <item
             android:id="@+id/goout"
-            android:icon="@drawable/ic_menu_manage"
             android:title="외출" />
         <item
             android:id="@+id/connected"
-            android:icon="@drawable/ic_menu_manage"
             android:title="연결된 디바이스" />
     </group>
 
