@@ -6,18 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
-import com.sm_arts.jibcon.GlobalApplication;
-import com.sm_arts.jibcon.Login.user.service.UserService;
-import com.sm_arts.jibcon.Login.user.service.UserServiceImpl;
-import com.sm_arts.jibcon.MakeCon.MakeConStartActivity;
-import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.network.ApiService;
-import com.sm_arts.jibcon.network.repo;
-import com.sm_arts.jibcon.Login.user.domain.User;
-import com.sm_arts.jibcon.Login.user.domain.UserInfo;
-import com.sm_arts.jibcon.Device.service.DeviceServiceImpl;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -28,6 +17,16 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.sm_arts.jibcon.Device.service.DeviceServiceImpl;
+import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.Login.user.domain.User;
+import com.sm_arts.jibcon.Login.user.domain.UserInfo;
+import com.sm_arts.jibcon.Login.user.service.UserService;
+import com.sm_arts.jibcon.Login.user.service.UserServiceImpl;
+import com.sm_arts.jibcon.MakeCon.MakeConStartActivity;
+import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.network.ApiService;
+import com.sm_arts.jibcon.network.repo;
 
 import org.json.JSONObject;
 
@@ -80,7 +79,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         userEmail= object.optString("email");
                         name=object.optString("name");
-                        Toast.makeText(getApplicationContext(),userEmail+"/"+name,Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "onCompleted: "+userEmail+"/"+name);
+                        //Toast.makeText(getApplicationContext(),userEmail+"/"+name,Toast.LENGTH_SHORT).show();
                         Log.d("profilecheck","useremail :"+userEmail);
                         Log.d("profilecheck","name : "+name);
 
@@ -115,7 +115,8 @@ public class LoginActivity extends AppCompatActivity {
 
                         app.setUserEmail(response.body().getEmail());
                         app.setUserToken(response.body().getToken());
-                        Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "onResponse: "+"success");
+                        //Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
                         Intent intent= new Intent(getApplicationContext(), MakeConStartActivity.class);
 
                         // prepare deviceItems
@@ -129,7 +130,8 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
                         t.printStackTrace();
-                        Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "onFailure: "+"fail");
+                        //Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
                     }
                 });
             }catch (Exception e)
@@ -141,7 +143,8 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         public void onCancel() {
-            Toast.makeText(getApplicationContext(), "User sign in canceled!", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "onCancel: "+"cancled");
+            //Toast.makeText(getApplicationContext(), "User sign in canceled!", Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -168,7 +171,8 @@ public class LoginActivity extends AppCompatActivity {
                 //DEBUG코드
                 if(currentAccessToken!=null)
                      Log.d("Token",currentAccessToken.toString());
-                Toast.makeText(getApplicationContext(),"current token : "+currentAccessToken,Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onCurrentAccessTokenChanged: "+currentAccessToken);
+                //Toast.makeText(getApplicationContext(),"current token : "+currentAccessToken,Toast.LENGTH_SHORT).show();
                  }
         };
 
