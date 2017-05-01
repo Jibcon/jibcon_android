@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="#FFF">
+
+    <ScrollView
+        android:id="@+id/ScrollView_user_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <!-- 사용자 이름, 프로필 사진, 이메일 주소-->
+     <RelativeLayout
+         android:id="@+id/Relative_menu_user_parent"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/linearLayout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="집이름 | 권한"
+            android:textSize="10dp"/>
+        <ImageView
+            android:id="@+id/ImgView_User_Profile"
+            android:layout_width="120dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/default_user"/>
+
+        <RelativeLayout
+            android:id="@+id/Relative_menu_user"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="사용자 이름"
+                android:textSize="15dp"/>
+            <ImageView
+                android:id='@+id/Btn_User_Profile_Change'
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/user_name"
+                android:src="@drawable/edit"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/TxtView_User_Email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="example@smarts.com"
+            android:textSize="10dp"/>
+
+    </LinearLayout>
+
+    <!-- 기능 리스트 @사용자 메뉴 -->
+    <LinearLayout
+        android:layout_below="@id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ListView
+            android:id="@+id/list_menu"
+            android:layout_width="match_parent"
+            android:layout_height="340dp"
+            android:layout_gravity="start"
+            android:orientation="vertical"
+            android:divider="#000000"
+            android:dividerHeight="0.25dp">
+
+
+        </ListView>
+
+    </LinearLayout>
+     </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
