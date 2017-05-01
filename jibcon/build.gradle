@@ -7,7 +7,7 @@ android {
         mavenCentral()
     }
     defaultConfig {
-        applicationId "com.sm_arts.jipcon2"
+        applicationId "com.sm_arts.jibcon"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
