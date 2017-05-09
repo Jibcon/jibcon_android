@@ -1,5 +1,6 @@
 package com.sm_arts.jibcon.Splash;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.sm_arts.jibcon.R;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class TutorialActivity extends AppCompatActivity {
 
@@ -68,6 +70,12 @@ public class TutorialActivity extends AppCompatActivity {
         viewpager.setAdapter(new adapter(getSupportFragmentManager()));
         viewpager.setOffscreenPageLimit(3);
 
+    }
+
+    // for font change
+    @Override
+    protected void attachBaseContext(Context newBase){
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 
 }

@@ -26,6 +26,7 @@ import com.sm_arts.jibcon.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.network.repo;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 import java.net.URL;
 import java.security.MessageDigest;
@@ -250,6 +251,12 @@ public class IntroActivity extends AppCompatActivity {
 
 
 //        application.setDeviceItemArrayList(deviceItemArrayList);
+    }
+
+    // for font change
+    @Override
+    protected void attachBaseContext(Context newBase){
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 
 

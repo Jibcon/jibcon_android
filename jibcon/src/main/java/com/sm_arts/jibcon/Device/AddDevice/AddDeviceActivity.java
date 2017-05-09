@@ -1,5 +1,6 @@
 package com.sm_arts.jibcon.Device.AddDevice;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.ScanResult;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.network.repo;
 import com.sm_arts.jibcon.Device.service.DeviceServiceImpl;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -182,5 +184,11 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
 
         getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,addDevice0).commit();
 
+    }
+
+    // for font change
+    @Override
+    protected void attachBaseContext(Context newBase){
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }
