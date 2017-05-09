@@ -1,11 +1,13 @@
 package com.sm_arts.jibcon.MakeCon;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.HouseInfo.HouseInfo;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class MakeCon0 extends AppCompatActivity implements HouseInfoListener {
     String housename;
@@ -98,5 +100,11 @@ public class MakeCon0 extends AppCompatActivity implements HouseInfoListener {
         makecon4=new MakeCon4();
         getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,makecon1).commit();
 
+    }
+
+    // for font change
+    @Override
+    protected void attachBaseContext(Context newBase){
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }

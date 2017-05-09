@@ -1,5 +1,6 @@
 package com.sm_arts.jibcon;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -28,6 +29,7 @@ import com.sm_arts.jibcon.Conshop.MarketMenuActivity;
 import com.sm_arts.jibcon.Device.AddDevice.AddDeviceActivity;
 import com.sm_arts.jibcon.Device.DeviceMenuActivity;
 import com.sm_arts.jibcon.Usermenu.UserMenuActivity;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -277,5 +279,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    // for font change
+    @Override
+    protected void attachBaseContext(Context newBase){
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }
