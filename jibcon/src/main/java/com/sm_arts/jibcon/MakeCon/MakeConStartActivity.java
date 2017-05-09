@@ -1,5 +1,6 @@
 package com.sm_arts.jibcon.MakeCon;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.widget.Button;
 
 import com.sm_arts.jibcon.MainActivity;
 import com.sm_arts.jibcon.R;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class MakeConStartActivity extends AppCompatActivity {
 
@@ -61,5 +63,11 @@ public class MakeConStartActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    // for font change
+    @Override
+    protected void attachBaseContext(Context newBase){
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }

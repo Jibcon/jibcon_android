@@ -1,9 +1,11 @@
 package com.sm_arts.jibcon.Cheatkey;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.sm_arts.jibcon.R;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 /**
  * Edited by ChanJoo on 2017-04-13.
@@ -24,10 +27,7 @@ public class TrickMenuActivity extends Fragment{
     public TrickMenuActivity(){}
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
+    public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

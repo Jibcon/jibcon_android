@@ -1,5 +1,6 @@
 package com.sm_arts.jibcon.Login;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import com.sm_arts.jibcon.MakeCon.MakeConStartActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.network.repo;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 import org.json.JSONObject;
 
@@ -226,7 +228,11 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
+    // for font change
+    @Override
+    protected void attachBaseContext(Context newBase){
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
+    }
 
 
 }
