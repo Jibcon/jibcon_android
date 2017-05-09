@@ -13,20 +13,19 @@ import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
 import com.sm_arts.jibcon.Device.DeviceItem;
+import com.sm_arts.jibcon.Device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.Login.LoginActivity;
+import com.sm_arts.jibcon.Login.user.domain.User;
+import com.sm_arts.jibcon.Login.user.domain.UserInfo;
 import com.sm_arts.jibcon.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.network.repo;
-import com.sm_arts.jibcon.Login.user.domain.User;
-import com.sm_arts.jibcon.Login.user.domain.UserInfo;
-import com.sm_arts.jibcon.Device.service.DeviceServiceImpl;
-import com.facebook.AccessToken;
-import com.facebook.CallbackManager;
 
 import java.net.URL;
 import java.security.MessageDigest;
@@ -40,6 +39,7 @@ import retrofit2.Response;
 import static com.kakao.util.helper.Utility.getPackageInfo;
 
 public class IntroActivity extends AppCompatActivity {
+    private final String TAG = "jibcon/" + getClass().getSimpleName();
     private Handler handler;
     GlobalApplication application;
     ArrayList<DeviceItem> deviceItemArrayList;
@@ -77,7 +77,8 @@ public class IntroActivity extends AppCompatActivity {
                             application.setUserEmail(response.body().getEmail());
                             application.setUserToken(response.body().getToken());
                             application.setUsername(response.body().getUserinfo().getFull_name());
-                            Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "onResponse: "+"Success");
+                            //Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
                             Intent intent= new Intent(getApplicationContext(), MainActivity.class);
                             try{
                             application.setUserProfileImage(new URL(response.body().getUserinfo().getPic_url()));
