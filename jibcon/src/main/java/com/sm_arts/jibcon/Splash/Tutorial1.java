@@ -18,21 +18,11 @@ import com.sm_arts.jibcon.R;
 
 public class Tutorial1 extends android.support.v4.app.Fragment{
 
-    Button TutorialSkip;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         LinearLayout linearLayout = (LinearLayout)inflater.inflate(R.layout.tutorial_1,container,false);
-        TutorialSkip = (Button)linearLayout.findViewById(R.id.Btn_Tutorial1_1);
-        TutorialSkip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                getActivity().finish();
-            }
-        });
 
         return linearLayout;
     }
