@@ -14,20 +14,23 @@
         android:paddingBottom="16dp"
         android:src="@drawable/blank"
         android:layout_weight="6"/>
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4">
+        android:layout_weight="4"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="나의 스마트홈 습관을 확인해봐요"
-            android:textSize="16dp"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,16 +38,19 @@
             android:gravity="center"
             android:text="낭비되는 전기세부터 나에게 맞는 온도까지! 데이터로 알아보세요"
             android:textColor="#000"
-            android:textSize="16dp"/>
+            android:textSize="16dp" />
+
         <Button
             android:id="@+id/Btn_Tutorial4_1"
             android:layout_width="240dp"
             android:layout_height="40dp"
-            android:layout_marginTop="16dp"
             android:layout_gravity="center"
+            android:layout_marginTop="16dp"
             android:background="@color/colorPrimary"
             android:text="집콘 시작하기"
             android:textColor="#FFFFFF"
-            android:textSize="16dp"/>
+            android:textSize="16dp" />
+
     </LinearLayout>
+
 </LinearLayout>
