@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
+        android:padding="12dp"
         android:paddingBottom="16dp"
         android:src="@drawable/blank" />
 
@@ -20,30 +21,27 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
+        android:paddingTop="16dp"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="쓰고 있는 스마트홈 기기를 등록하세요"
-            android:textSize="16dp"
-            android:textColor="@color/colorPrimary"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="어떠한 기기든 빠르게 연결하고\n쉽게 사용해보세요"
-                android:textColor="#000000"
-                android:textSize="16dp" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dp" />
 
-        <Button
-            android:id="@+id/Btn_Tutorial1_1"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:background="@null"
-            android:text="Skip" />
+            android:gravity="center"
+            android:text="어떠한 기기든 빠르게 연결하고\n쉽게 사용해보세요"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
     </LinearLayout>
+
 </LinearLayout>
