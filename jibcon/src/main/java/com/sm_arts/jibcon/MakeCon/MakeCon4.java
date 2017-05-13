@@ -60,8 +60,12 @@ public class MakeCon4 extends android.support.v4.app.Fragment {
             }
         };
 
+
+
         handler.postDelayed(runnable,1500);
         return linearLayout;
 
     }
+
+
 }

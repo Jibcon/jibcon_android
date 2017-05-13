@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF"
+    android:orientation="vertical"
     android:gravity="center">
 
     <GridView
@@ -14,6 +15,8 @@
         android:numColumns="2"
         >
     </GridView>
+    <include layout="@layout/floatingbutton_cheatkey"
+        ></include>
 
 
 </LinearLayout>
