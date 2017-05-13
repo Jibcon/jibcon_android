@@ -14,7 +14,7 @@
         android:layout_width="193dp"
         android:layout_height="196dp"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/blank"/>
+        android:src="@drawable/jibcon_logo_en"/>
 
     <TextView
         android:id="@+id/textView"

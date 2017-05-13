@@ -13,12 +13,16 @@
         android:layout_height="0dp"
         android:paddingBottom="16dp"
         android:src="@drawable/blank"
-        android:layout_weight="6"/>
+        android:layout_weight="6"
+        android:padding="12dp"/>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4">
+        android:layout_weight="4"
+        android:paddingTop="16dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,5 +39,7 @@
             android:text="콘샵을 통해 당신에게 맞는 제품을\n가장 저렴하게 만나볼 수 있습니다"
             android:textColor="#000000"
             android:textSize="16dp"/>
+
     </LinearLayout>
+
 </LinearLayout>

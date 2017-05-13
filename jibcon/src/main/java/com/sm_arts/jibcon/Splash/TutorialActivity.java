@@ -1,18 +1,23 @@
 package com.sm_arts.jibcon.Splash;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageButton;
 
+import com.sm_arts.jibcon.Login.LoginActivity;
 import com.sm_arts.jibcon.R;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class TutorialActivity extends AppCompatActivity {
 
+    ImageButton skip_button;
     ViewPager viewpager;
     int MAX_PAGE=4;
 
@@ -20,7 +25,7 @@ public class TutorialActivity extends AppCompatActivity {
 
     private void initLayout()
     {
-        viewpager =(ViewPager)findViewById(R.id.vp_tutorial);
+        viewpager = (ViewPager)findViewById(R.id.vp_tutorial);
 
     }
     private  class adapter extends FragmentPagerAdapter
@@ -66,9 +71,21 @@ public class TutorialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
+
         initLayout();
+
         viewpager.setAdapter(new adapter(getSupportFragmentManager()));
         viewpager.setOffscreenPageLimit(3);
+
+        // 튜토리얼 스킵 버튼
+        skip_button = (ImageButton) findViewById(R.id.btn_skip_tutorial);
+        skip_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(TutorialActivity.this , LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
