@@ -34,7 +34,6 @@ import java.util.List;
 
 public class DeviceMenuActivity extends Fragment {
     private final String TAG = "jibcon/"+getClass().getSimpleName();
-    public DeviceMenuActivity(){}
 
     boolean expanded = false;
     private View fabItem1;
@@ -52,12 +51,7 @@ public class DeviceMenuActivity extends Fragment {
     DeviceMenuAdapter adapter;
     GlobalApplication app;
 
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//        //init();
-//    }
+
 
     public void goToAddDevice()
     {
@@ -65,6 +59,55 @@ public class DeviceMenuActivity extends Fragment {
                 startActivity(intent);
                 getActivity().finish();
     }
+    public void floatingbuttoninit(final View root)
+    {
+        final ViewGroup fabcontainer = (ViewGroup)root.findViewById(R.id.fab_container_device);
+        fabItem1=root.findViewById(R.id.fab_action_1_device);
+        fabItem2=(TextView)root.findViewById(R.id.Txt_floating_device);
+
+        fabItem1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToAddDevice();
+
+            }
+        });
+        fab=(ImageButton) root.findViewById(R.id.fab_device);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                expanded=!expanded;
+                if(expanded)
+                {
+                    expandFab();
+                    fabItem1.setVisibility(View.VISIBLE);
+                    fabItem2.setVisibility(View.VISIBLE);
+
+                }
+                else
+                {
+                    collapseFab();
+                    fabItem1.setVisibility(View.INVISIBLE);
+                    fabItem2.setVisibility(View.INVISIBLE);
+
+                }
+            }
+        });
+
+        fabcontainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            @Override
+            public boolean onPreDraw() {
+                fabcontainer.getViewTreeObserver().removeOnPreDrawListener(this);
+                offset1 = fab.getY() - fabItem1.getY();
+                fabItem1.setTranslationY(offset1);
+                offset2 = fab.getY() - fabItem2.getY();
+                fabItem2.setTranslationY(offset2);
+                return true;
+            }
+        });
+
+    }
+
     private View initLayout(LayoutInflater inflater, ViewGroup container)
     {
         final TextView floatingtext;
@@ -113,50 +156,7 @@ public class DeviceMenuActivity extends Fragment {
             }
         });
 
-        final ViewGroup fabcontainer = (ViewGroup)root.findViewById(R.id.fab_container);
-        fabItem1=root.findViewById(R.id.fab_action_1);
-        fabItem2=(TextView)root.findViewById(R.id.Txt_floating);
-
-        fabItem1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToAddDevice();
-
-            }
-        });
-        fab=(ImageButton) root.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                expanded=!expanded;
-                if(expanded)
-                {
-                    expandFab();
-                    fabItem1.setVisibility(View.VISIBLE);
-                    fabItem2.setVisibility(View.VISIBLE);
-                }
-                else
-                {
-                    collapseFab();
-                    fabItem1.setVisibility(View.INVISIBLE);
-                    fabItem2.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-        fabcontainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-            @Override
-            public boolean onPreDraw() {
-                fabcontainer.getViewTreeObserver().removeOnPreDrawListener(this);
-                offset1 = fab.getY() - fabItem1.getY();
-                fabItem1.setTranslationY(offset1);
-                offset2 = fab.getY() - fabItem2.getY();
-                fabItem2.setTranslationY(offset2);
-                return true;
-            }
-        });
-
-
+        floatingbuttoninit(root);
 
 
         return root;
@@ -169,13 +169,6 @@ public class DeviceMenuActivity extends Fragment {
 
         Log.d("FragmentCheck","DeviceMenuActivity onCreateView");
         View root=initLayout(inflater,container);
-
-
-
-
-
-
-
         return root;
     }
 

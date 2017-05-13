@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+            >
         <item
-            android:id="@+id/aboutjipcon"
-            android:title="about jipcon" />
+            android:id="@+id/Sidebar_myjibcon"
+            android:title="내 집콘" />
         <item
-            android:id="@+id/asking"
-            android:title="문의" />
+            android:id="@+id/Sidebar_userAuthority"
+            android:title="사용자 권한" />
         <item
-            android:id="@+id/alramsetting"
-            android:title="알림설정" />
-        <item
-            android:id="@+id/goout"
-            android:title="외출" />
-        <item
-            android:id="@+id/connected"
+            android:id="@+id/Sidebar_connectedDevices"
             android:title="연결된 디바이스" />
+        <item
+            android:id="@+id/Sidebar_widget"
+            android:title="위젯" />
+        <item
+            android:id="@+id/Sidebar_aboutJibcon"
+            android:title="About 집콘" />
     </group>
 
     <!--<item android:title="Communicate">-->
