@@ -11,10 +11,18 @@ android {
 
         minSdkVersion 17
         targetSdkVersion 25
+        multiDexEnabled true // For multidex error
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    // For multidex error
+    dexOptions{
+        javaMaxHeapSize = "4g"
+    }
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -34,11 +42,16 @@ dependencies {
     compile group: 'com.kakao.sdk', name: 'usermgmt', version: project.KAKAO_SDK_VERSION
     compile group: 'com.kakao.sdk', name: 'kakaotalk', version: project.KAKAO_SDK_VERSION
     compile 'com.facebook.android:facebook-android-sdk:4.+'
-
     compile 'com.google.firebase:firebase-auth:10.0.1'
     compile 'com.google.firebase:firebase-messaging:10.0.1'
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.0.0'
     compile 'com.android.support:design:25.1.0'
-    compile 'com.tsengvn:Typekit:1.0.0'
+
+    compile 'com.tsengvn:Typekit:1.0.0' // for font change
+    compile 'com.google.android.gms:play-services-maps:10.2.4' // For Google Maps
+    compile 'com.google.android.gms:play-services-location:10.2.4' // For Google Maps
+    compile 'com.android.support:multidex:1.0.0' // For multidex error
+
+
     testCompile 'junit:junit:4.12'
 }

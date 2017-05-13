@@ -32,7 +32,7 @@ public class Tutorial4 extends android.support.v4.app.Fragment{
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), LoginActivity.class);
                 startActivity(intent);
-                getActivity().finish();
+                //getActivity().finish();
             }
         });
 
