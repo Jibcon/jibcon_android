@@ -1,6 +1,7 @@
 package com.sm_arts.jibcon;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +27,11 @@ import com.bumptech.glide.Glide;
 import com.sm_arts.jibcon.Cheatkey.TrickMenuActivity;
 import com.sm_arts.jibcon.Conshop.MarketMenuActivity;
 import com.sm_arts.jibcon.Device.DeviceMenuActivity;
+import com.sm_arts.jibcon.SidebarMenu.AboutJibcon;
+import com.sm_arts.jibcon.SidebarMenu.ConnectedDevices;
+import com.sm_arts.jibcon.SidebarMenu.MyJibcon;
+import com.sm_arts.jibcon.SidebarMenu.UserAuthority;
+import com.sm_arts.jibcon.SidebarMenu.Widget;
 import com.sm_arts.jibcon.Usermenu.UserMenuActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
@@ -52,24 +59,24 @@ public class MainActivity extends AppCompatActivity
             super(fm);
         }
 
+
+
         @Override
         public Fragment getItem(int position){
             Log.w("CJ","movePageListener");
+
             switch(position){
                 case 0:
                     Log.d("FragmentCheck","ToDevice");
                     return devicemenu;
                 case 1:
                     Log.d("FragmentCheck","ToTrick");
-
                     return trickmenu;
                 case 2:
                     Log.d("FragmentCheck","ToMarket");
-
                     return marketmenu;
                 case 3:
                     Log.d("FragmentCheck","ToUserMenu");
-
                     return usermenu;
                 default:
                     return null;
@@ -87,10 +94,8 @@ public class MainActivity extends AppCompatActivity
     View.OnClickListener movePageListener = new View.OnClickListener(){
 
 
-
         @Override
         public void onClick(View v){
-            int tag = (int) v.getTag();
             //활성화버튼
             BitmapDrawable drawable1 = (BitmapDrawable) getResources().getDrawable(R.drawable.ic_home_blue_48dp);
             Bitmap bitmap1 = drawable1.getBitmap();
@@ -110,6 +115,9 @@ public class MainActivity extends AppCompatActivity
             Bitmap bitmap3_1 = drawable3_1.getBitmap();
             BitmapDrawable drawable4_1 = (BitmapDrawable) getResources().getDrawable(R.drawable.ic_pie_chart_gray_48dp);
             Bitmap bitmap4_1 = drawable4_1.getBitmap();
+
+            int tag = (int) v.getTag();
+
             switch (tag)
             {
                 case 0 :
@@ -178,12 +186,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton btn1 = (ImageButton) findViewById(R.id.btn1); // 기기 버튼
-        ImageButton btn2 = (ImageButton) findViewById(R.id.btn2); // 트릭 버튼
-        ImageButton btn3 = (ImageButton) findViewById(R.id.btn3); // 마켓 버튼
-        ImageButton btn4 = (ImageButton) findViewById(R.id.btn4); // 사용자 버튼
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbar);
 
         app = (GlobalApplication)getApplicationContext();
@@ -191,22 +194,6 @@ public class MainActivity extends AppCompatActivity
         ActionBarDrawerToggle drawerToggle;
 
         String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};// 사이드바 임시 메뉴 껍데기
-
-        /* ↓Floating Button↓ */
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-////                Toast.makeText(getApplication().getApplicationContext(),"장치 추가",Toast.LENGTH_SHORT).show();
-//                Log.d(TAG, "onClick: 장치추가");
-//                Intent intent = new Intent(getApplicationContext(), AddDeviceActivity.class);
-//                startActivity(intent);
-//                finish();
-////              Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-////                        .setAction("Action", null).show();
-//            }
-//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -218,7 +205,16 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //! 여기까지 기본설정
+        //네비게이션 뷰 풀화면
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        DrawerLayout.LayoutParams params =(DrawerLayout.LayoutParams)navigationView.getLayoutParams();
+
+        params.width=dm.widthPixels;
+        navigationView.setLayoutParams(params);
+        //네비게이션 뷰 풀화면
+
+
         View headerView =navigationView.getHeaderView(0);
         TextView userEmail=(TextView)headerView.findViewById(R.id.Txt_Drawer_UserEmail);
         TextView username = (TextView)headerView.findViewById(R.id.Txt_Drawer_Username);
@@ -260,20 +256,44 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.aboutjipcon) {
+        if (id == R.id.Sidebar_myjibcon) {
+
+            Intent intent= new Intent(getApplicationContext(), MyJibcon.class);
+            startActivity(intent);
+
+
+
             // Handle the camera action
-        } else if (id == R.id.asking) {
 
-        } else if (id == R.id.alramsetting) {
+        } else if (id == R.id.Sidebar_userAuthority) {
 
-        } else if (id == R.id.goout) {
+            Intent intent= new Intent(getApplicationContext(), UserAuthority.class);
+            startActivity(intent);
 
-        } else if (id == R.id.connected) {
+
+        } else if (id == R.id.Sidebar_connectedDevices) {
+
+            Intent intent= new Intent(getApplicationContext(), ConnectedDevices.class);
+            startActivity(intent);
+
+
+        } else if (id == R.id.Sidebar_widget) {
+
+            Intent intent= new Intent(getApplicationContext(), Widget.class);
+            startActivity(intent);
+
+
+        } else if (id == R.id.Sidebar_aboutJibcon) {
 //
+            Intent intent= new Intent(getApplicationContext(), AboutJibcon.class);
+            startActivity(intent);
+
+
         }// else if (id == R.id.nav_send) {
 //
 //      }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

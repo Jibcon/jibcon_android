@@ -3,30 +3,30 @@
     package="com.sm_arts.jibcon">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:name="com.sm_arts.jibcon.GlobalApplication"
+        android:name=".GlobalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/jibcon_logo"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
+
         <activity
-            android:name="com.sm_arts.jibcon.MainActivity"
+            android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.sm_arts.jibcon.Splash.IntroActivity"
+            android:name=".Splash.IntroActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -36,21 +36,40 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.sm_arts.jibcon.Splash.TutorialActivity"
+            android:name=".Splash.TutorialActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.sm_arts.jibcon.Login.LoginActivity"
+            android:name=".Login.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.sm_arts.jibcon.MakeCon.MakeConStartActivity"
+            android:name=".MakeCon.MakeConStartActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.sm_arts.jibcon.MakeCon.MakeCon0"
+            android:name=".MakeCon.MakeCon0"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.sm_arts.jibcon.Device.AddDevice.AddDeviceActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Device.AddDevice.AddDeviceActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SidebarMenu.MyJibcon"
+            android:theme="@style/myAppTheme.NoActionBar" />
 
+        <activity
+            android:name=".SidebarMenu.ConnectedDevices"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".SidebarMenu.Widget"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".SidebarMenu.AboutJibcon"
+            android:theme="@style/myAppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".SidebarMenu.UserAuthority"
+            android:theme="@style/myAppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>
