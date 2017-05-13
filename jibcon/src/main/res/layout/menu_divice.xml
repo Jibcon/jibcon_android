@@ -26,5 +26,9 @@
             android:numColumns="2"
             android:id="@+id/ScrollViewDevice"/>
     </ScrollView>
+
+
     </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include layout="@layout/floatingbutton" />
 </RelativeLayout>

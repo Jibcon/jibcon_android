@@ -1,11 +1,9 @@
 package com.sm_arts.jibcon;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -26,7 +24,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.sm_arts.jibcon.Cheatkey.TrickMenuActivity;
 import com.sm_arts.jibcon.Conshop.MarketMenuActivity;
-import com.sm_arts.jibcon.Device.AddDevice.AddDeviceActivity;
 import com.sm_arts.jibcon.Device.DeviceMenuActivity;
 import com.sm_arts.jibcon.Usermenu.UserMenuActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
@@ -196,20 +193,20 @@ public class MainActivity extends AppCompatActivity
         String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};// 사이드바 임시 메뉴 껍데기
 
         /* ↓Floating Button↓ */
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-//                Toast.makeText(getApplication().getApplicationContext(),"장치 추가",Toast.LENGTH_SHORT).show();
-                Log.d(TAG, "onClick: 장치추가");
-                Intent intent = new Intent(getApplicationContext(), AddDeviceActivity.class);
-                startActivity(intent);
-                finish();
-//              Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+////                Toast.makeText(getApplication().getApplicationContext(),"장치 추가",Toast.LENGTH_SHORT).show();
+//                Log.d(TAG, "onClick: 장치추가");
+//                Intent intent = new Intent(getApplicationContext(), AddDeviceActivity.class);
+//                startActivity(intent);
+//                finish();
+////              Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+////                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 

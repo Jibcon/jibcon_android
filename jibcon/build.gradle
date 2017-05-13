@@ -8,7 +8,7 @@ android {
     }
     defaultConfig {
         applicationId "com.sm_arts.jibcon"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 25
         multiDexEnabled true // For multidex error
         versionCode 1
@@ -43,7 +43,7 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:4.+'
     compile 'com.google.firebase:firebase-auth:10.0.1'
     compile 'com.google.firebase:firebase-messaging:10.0.1'
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.0.0'
     compile 'com.android.support:design:25.1.0'
     compile 'com.tsengvn:Typekit:1.0.0' // for font change
     compile 'com.google.android.gms:play-services-maps:10.2.4' // For Google Maps
