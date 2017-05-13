@@ -16,6 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- For Google Maps -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBZWQYb4N-vR8Cdx_zyMHNh3SQytrpLtfQ" />
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -35,6 +40,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.sm_arts.jibcon.Splash.TutorialActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -49,7 +55,7 @@
             android:name="com.sm_arts.jibcon.MakeCon.MakeCon0"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.sm_arts.jibcon.Device.AddDevice.AddDeviceActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 
