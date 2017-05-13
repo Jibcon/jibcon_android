@@ -47,7 +47,7 @@ public class DeviceMenuActivity extends Fragment {
     private float offset3;
     SwipeRefreshLayout swiperefreshlayout;
 
-    Button button;
+    //Button button;
     static myGridView DeviceGridview;
     DeviceMenuAdapter adapter;
     GlobalApplication app;
