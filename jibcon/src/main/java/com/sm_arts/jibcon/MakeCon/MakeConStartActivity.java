@@ -11,15 +11,23 @@ import com.sm_arts.jibcon.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
+/*
+* 170511 chanjoo
+*
+* 1. 스토리 보드 상 skip버튼이 포함되어있지 않아 삭제함.
+* 2.
+*
+* */
+
 public class MakeConStartActivity extends AppCompatActivity {
 
     Button makeMyCon;
     Button getOtherCon;
-    Button skip;
+    //Button skip;
 
     private  void initLayout()
     {
-        skip=(Button)findViewById(R.id.Btn_MakeConStart_0);
+        //skip=(Button)findViewById(R.id.Btn_MakeConStart_0);
         makeMyCon = (Button)findViewById(R.id.Btn_makeMyCon);
         getOtherCon =(Button)findViewById(R.id.Btn_getOtherCon);
 
@@ -52,6 +60,7 @@ public class MakeConStartActivity extends AppCompatActivity {
 
 
         initLayout();
+        /* skip 버튼 삭제 (승인 대기 중)
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +72,7 @@ public class MakeConStartActivity extends AppCompatActivity {
                 finish();
             }
         });
+        */
     }
 
     // for font change
