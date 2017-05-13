@@ -40,7 +40,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.sm_arts.jibcon.Splash.TutorialActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -55,8 +54,29 @@
             android:name="com.sm_arts.jibcon.MakeCon.MakeCon0"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.sm_arts.jibcon.Device.AddDevice.AddDeviceActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
+        <activity
+            android:name="com.sm_arts.jibcon.SidebarMenu.ConnectedDevices"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name="com.sm_arts.jibcon.SidebarMenu.Widget"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".SidebarMenu.AboutJibcon"
+            android:theme="@style/myAppTheme.NoActionBar">
+
+        </activity>
+
+        <activity android:name=".SidebarMenu.MyJibcon"
+            android:theme="@style/myAppTheme.NoActionBar">
+
+        </activity>
+
+        <activity android:name=".SidebarMenu.UserAuthority"
+            android:theme="@style/myAppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>
