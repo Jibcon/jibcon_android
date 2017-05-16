@@ -18,35 +18,21 @@ import com.sm_arts.jibcon.R;
  */
 
 public class MakeCon4 extends android.support.v4.app.Fragment {
-     Button before;
     HouseInfoListener houseInfoListener;
-
     LinearLayout linearLayout;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         houseInfoListener = (HouseInfoListener)context;
     }
-    private void initLayout()
-    {
-        before=(Button)linearLayout.findViewById(R.id.Btn_makeCon4_0);
 
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-         linearLayout= (LinearLayout)inflater.inflate(R.layout.makecon4,container,false);
-
-        initLayout();
-        before.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                houseInfoListener.getFragmentNum(-1);
-            }
-        });
+        linearLayout= (LinearLayout)inflater.inflate(R.layout.makecon4,container,false);
 
         Handler handler;
         handler=new Handler();
-
 
         Runnable runnable = new Runnable() {
             @Override
@@ -60,12 +46,9 @@ public class MakeCon4 extends android.support.v4.app.Fragment {
             }
         };
 
-
-
         handler.postDelayed(runnable,1500);
+
         return linearLayout;
 
     }
-
-
 }

@@ -54,8 +54,7 @@
             android:name="com.sm_arts.jibcon.MakeCon.MakeCon0"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.sm_arts.jibcon.Device.AddDevice.AddDeviceActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name="com.sm_arts.jibcon.SidebarMenu.ConnectedDevices"
             android:theme="@style/myAppTheme.NoActionBar" />
@@ -64,19 +63,14 @@
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
             android:name=".SidebarMenu.AboutJibcon"
-            android:theme="@style/myAppTheme.NoActionBar">
-
-        </activity>
-
+            android:theme="@style/myAppTheme.NoActionBar"/>
         <activity android:name=".SidebarMenu.MyJibcon"
-            android:theme="@style/myAppTheme.NoActionBar">
-
-        </activity>
-
+            android:theme="@style/myAppTheme.NoActionBar"/>
         <activity android:name=".SidebarMenu.UserAuthority"
-            android:theme="@style/myAppTheme.NoActionBar">
+            android:theme="@style/myAppTheme.NoActionBar"/>
+        <activity android:name=".GetOtherCon.GetOtherCon"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
-        </activity>
     </application>
 
 </manifest>
