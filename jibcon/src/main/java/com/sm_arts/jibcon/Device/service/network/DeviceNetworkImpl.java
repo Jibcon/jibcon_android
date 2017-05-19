@@ -31,7 +31,6 @@ public class DeviceNetworkImpl implements DeviceNetwork {
         apiService = new repo().getService();
     }
 
-
     public static DeviceNetwork getInstance() {
         if (mInstance == null){
             mInstance = new DeviceNetworkImpl();
@@ -78,6 +77,4 @@ public class DeviceNetworkImpl implements DeviceNetwork {
         mListeners.clear();
         isWorking = false;
     }
-
-
 }

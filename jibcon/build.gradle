@@ -52,6 +52,7 @@ dependencies {
     compile 'com.tsengvn:Typekit:1.0.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
+    compile 'com.google.android.gms:play-services:10.2.4' // for zipException solving
     compile 'com.google.android.gms:play-services-maps:10.2.4' // For Google Maps
     compile 'com.google.android.gms:play-services-location:10.2.4' // For Google Maps
     compile 'com.android.support:multidex:1.0.0' // For multidex error

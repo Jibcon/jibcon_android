@@ -1,14 +1,22 @@
 package com.sm_arts.jibcon.GetOtherCon;
 
+
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
+import com.sm_arts.jibcon.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.tsengvn.typekit.TypekitContextWrapper;
-
 import java.util.ArrayList;
 
 /**
@@ -22,6 +30,8 @@ public class GetOtherCon extends AppCompatActivity{
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<getConData> getConDataset;
+
+    Button btn_gotoMain;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -40,6 +50,16 @@ public class GetOtherCon extends AppCompatActivity{
         //데이터 입력
         getConDataset.add(new getConData(R.drawable.default_user, "찬주의 자취방",
                 "example@jibcon.com", "환영합니다!"));
+
+        btn_gotoMain = (Button)findViewById(R.id.btn_gotoMain); // 등록 완료
+        btn_gotoMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GetOtherCon.this, GetOtherConFinish.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     // for font change

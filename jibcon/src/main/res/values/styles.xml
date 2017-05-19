@@ -29,6 +29,12 @@
         <item name="colorPrimary">@color/statusbar_gray</item>
         <item name="colorPrimaryDark">@color/statusbar_gray</item>
     </style>
+    <style name="myAppTheme.IntroNoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/statusbar_gray</item>
+        <item name="colorPrimaryDark">#FFFFFF</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
