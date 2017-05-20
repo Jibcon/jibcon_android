@@ -1,94 +1,64 @@
-//package com.example.admin.jibcon.Cheatkey;
 package com.sm_arts.jibcon.Cheatkey;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-
 import com.sm_arts.jibcon.R;
-
 import java.util.ArrayList;
+
 
 /**
  * Created by WooJin on 2017-04-14.
  */
 
 public class TrickPassive extends android.support.v4.app.Fragment{
-    ArrayList<String> txtArr1 = new ArrayList<String>();
-    ArrayList<String> txtArr2 = new ArrayList<String>();
+    // For Recyclerview(CardView)
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private ArrayList<PassiveCheatkeyData> passiveCheatkeyDataset;
 
-    ListView listView;
+    Context context;
+
     public TrickPassive(){}
 
-    @Override
-    public void onCreate(Bundle savedInstanceState){ super.onCreate(savedInstanceState);}
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        View v = inflater.inflate(R.layout.cheatkey_passive, container, false); // 액티비티에서는 setContentView
 
-        txtArr1.add("방의 온도 < 24 ");
-        txtArr2.add("-난방 on, -전기장판 on");
+        mRecyclerView = (RecyclerView)v.findViewById(R.id.passive_cardview);
+        mRecyclerView.setHasFixedSize(true);
 
-        txtArr1.add("방의 온도가 > 30");
-        txtArr2.add("-에어컨 on, -공기청정기 on");
+        mLayoutManager = new LinearLayoutManager(context);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
-        txtArr1.add("새벽인데 코딩중");
-        txtArr2.add("소리벗고 바지질러");
+        passiveCheatkeyDataset = new ArrayList<>();
+        mAdapter = new PassiveCheatkeyAdapter(passiveCheatkeyDataset);
+        mRecyclerView.setAdapter(mAdapter);
 
-        txtArr1.add("여자친구");
-        txtArr2.add("off");
+        // 치트키 수동 입력, 추후 사용자가 치트키 등록시 추가되도록 구현해야
+        // cardview #1
+        passiveCheatkeyDataset.add(new PassiveCheatkeyData
+                (R.id.btn_passive_cheatkey_setting,"온도가 30도 이상이 되면","에어컨 온도를 22도에 맞춰 켜기"));
+        // cardview #2
+        passiveCheatkeyDataset.add(new PassiveCheatkeyData
+                (R.id.btn_passive_cheatkey_setting, "아침에 비가오면", "평소보다 30분 전에 알람 울리기"));
+        // cardview #3
+        passiveCheatkeyDataset.add(new PassiveCheatkeyData
+                (R.id.btn_passive_cheatkey_setting, "퇴근 하고 집에 오는 동안", "집안 온도 조절 및\n공기청정기 가동하기"));
+        // cardview #4
+        passiveCheatkeyDataset.add(new PassiveCheatkeyData
+                (R.id.btn_passive_cheatkey_setting, "출근 하면", "가스 벨브 잠그고\n방범 시스템 가동하기"));
 
-
-
-        View rootView2 = inflater.inflate(R.layout.cheatkey_passive, container, false);
-
-        listView = (ListView)rootView2.findViewById(R.id.passiveListView);
-        listView.setAdapter(new Myadapter());
-
-        return rootView2;
+        return v;
     }
-    public class Myadapter extends BaseAdapter {
-        LayoutInflater inflater;
-
-        public Myadapter(){
-            inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            notifyDataSetChanged();
-        }
-
-        @Override
-        public int getCount() {
-            return txtArr1.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return txtArr1.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if(convertView==null)
-            {
-                convertView = inflater.inflate(R.layout.cheatkey_passive_item,parent,false);
-            }
-
-            TextView textView = (TextView) convertView.findViewById(R.id.passiveTextView1);
-            textView.setText(txtArr1.get(position));
-
-            TextView textView2 = (TextView) convertView.findViewById(R.id.passiveTextView2);
-            textView2.setText(txtArr2.get(position));
-
-            return convertView;
-        }
-    }
+    // onViewCreated 추가할까?
 }

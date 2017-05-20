@@ -105,6 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
+
             <Button
                 android:id="@+id/Btn_makeCon1_1"
                 android:layout_width="240dp"
@@ -114,6 +115,7 @@
                 android:text="다음"
                 android:textColor="#FFFFFF"
                 android:textSize="16dp"/>
+
         </LinearLayout>
 
     </LinearLayout>
