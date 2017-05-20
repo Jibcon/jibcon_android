@@ -74,19 +74,19 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity android:name=".Settings.SettingActivity"
-        android:theme="@style/AppTheme.NoActionBar"/>
+        android:theme="@style/myAppTheme.NoActionBar"/>
         <activity android:name=".Settings.alarm.Alarm"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/myAppTheme.NoActionBar"/>
         <activity android:name=".Settings.person_secure.Person_Secure"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/myAppTheme.NoActionBar"/>
         <activity android:name=".Settings.usercenter.AskEnrollCompany"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/myAppTheme.NoActionBar"/>
         <activity android:name=".Settings.usercenter.FAQ"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/myAppTheme.NoActionBar"/>
         <activity android:name=".Settings.usercenter.JibconAsk"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/myAppTheme.NoActionBar"/>
         <activity android:name=".Settings.usercenter.UserCenter"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/myAppTheme.NoActionBar"/>
     </application>
 
 </manifest>
