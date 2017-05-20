@@ -1,11 +1,9 @@
 package com.sm_arts.jibcon.Cheatkey;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +12,6 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.sm_arts.jibcon.R;
-import com.tsengvn.typekit.TypekitContextWrapper;
 
 /**
  * Edited by ChanJoo on 2017-04-13.
@@ -70,9 +67,9 @@ public class TrickMenuActivity extends Fragment{
             Log.w("CJ","movePageListener");
             switch(position){
                 case 0:
-                    return new TrickActive();
+                    return new TrickActiveFragment();
                 case 1:
-                    return new TrickPassive();
+                    return new TrickPassiveFragment();
                 default:
                     return null;
             }

@@ -25,7 +25,7 @@ import java.util.ArrayList;
  * Created by WooJin & ChanJoo on 2017-04-14.
  */
 
-public class TrickActive extends android.support.v4.app.Fragment{
+public class TrickActiveFragment extends android.support.v4.app.Fragment{
     GridView gridView=null;
 
     ArrayList<Bitmap> picArr = new ArrayList<Bitmap>();
@@ -121,7 +121,7 @@ public class TrickActive extends android.support.v4.app.Fragment{
     }
 
 
-    public TrickActive(){}
+    public TrickActiveFragment(){}
 
     @Override
     public void onCreate(Bundle savedInstanceState){ super.onCreate(savedInstanceState);}

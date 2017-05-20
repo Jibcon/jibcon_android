@@ -25,12 +25,12 @@ import java.util.ArrayList;
  * Created by WooJin on 2017-04-14.
  */
 
-public class TrickPassive extends android.support.v4.app.Fragment{
+public class TrickPassiveFragment extends android.support.v4.app.Fragment{
     ArrayList<String> txtArr1 = new ArrayList<String>();
     ArrayList<String> txtArr2 = new ArrayList<String>();
 
     ListView listView;
-    public TrickPassive(){}
+    public TrickPassiveFragment(){}
     ImageButton fab;
     boolean expanded = false;
     private View fabItem1;

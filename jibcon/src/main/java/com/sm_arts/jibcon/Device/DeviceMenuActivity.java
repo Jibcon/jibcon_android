@@ -1,11 +1,6 @@
 package com.sm_arts.jibcon.Device;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.graphics.drawable.Animatable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -13,16 +8,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.sm_arts.jibcon.Device.AddDevice.AddDeviceActivity;
 import com.sm_arts.jibcon.Device.service.DeviceService;
 import com.sm_arts.jibcon.Device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.UI.FloatingActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,66 +45,81 @@ public class DeviceMenuActivity extends Fragment {
     GlobalApplication app;
 
 
-
-    public void goToAddDevice()
-    {
-        Intent intent = new Intent(getActivity().getApplicationContext(), AddDeviceActivity.class);
-                startActivity(intent);
-                getActivity().finish();
-    }
-    public void floatingbuttoninit(final View root)
-    {
-        final ViewGroup fabcontainer = (ViewGroup)root.findViewById(R.id.fab_container_device);
-        fabItem1=root.findViewById(R.id.fab_action_1_device);
-        fabItem2=(TextView)root.findViewById(R.id.Txt_floating_device);
-
-        fabItem1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToAddDevice();
-
-            }
-        });
-        fab=(ImageButton) root.findViewById(R.id.fab_device);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                expanded=!expanded;
-                if(expanded)
-                {
-                    expandFab();
-                    fabItem1.setVisibility(View.VISIBLE);
-                    fabItem2.setVisibility(View.VISIBLE);
-
-                }
-                else
-                {
-                    collapseFab();
-                    fabItem1.setVisibility(View.INVISIBLE);
-                    fabItem2.setVisibility(View.INVISIBLE);
-
-                }
-            }
-        });
-
-        fabcontainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-            @Override
-            public boolean onPreDraw() {
-                fabcontainer.getViewTreeObserver().removeOnPreDrawListener(this);
-                offset1 = fab.getY() - fabItem1.getY();
-                fabItem1.setTranslationY(offset1);
-                offset2 = fab.getY() - fabItem2.getY();
-                fabItem2.setTranslationY(offset2);
-                return true;
-            }
-        });
-
-    }
+//
+//    public void goToAddDevice()
+//    {
+//        Intent intent = new Intent(getActivity().getApplicationContext(), AddDeviceActivity.class);
+//                startActivity(intent);
+//                getActivity().finish();
+//    }
+//    public void floatingbuttoninit(final View root, final ViewGroup container,LayoutInflater inflater)
+//    {
+//
+//        final ViewGroup fabcontainer = (ViewGroup)root.findViewById(R.id.fab_container_device);
+//        fabItem1=root.findViewById(R.id.fab_action_1_device);
+//        fabItem2=(TextView)root.findViewById(R.id.Txt_floating_device);
+//
+//        fabItem1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                goToAddDevice();
+//
+//
+//            }
+//        });
+//        fab=(ImageButton) root.findViewById(R.id.fab_device);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                expanded=!expanded;
+//                if(expanded)
+//                {
+//
+//                    expandFab();
+//                    fabItem1.setVisibility(View.VISIBLE);
+//                    fabItem2.setVisibility(View.VISIBLE);
+//
+//                }
+//                else
+//                {
+//
+//                    collapseFab();
+//                    fabItem1.setVisibility(View.INVISIBLE);
+//                    fabItem2.setVisibility(View.INVISIBLE);
+//
+//                }
+//            }
+//        });
+//
+//        fabcontainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+//            @Override
+//            public boolean onPreDraw() {
+//                fabcontainer.getViewTreeObserver().removeOnPreDrawListener(this);
+//                offset1 = fab.getY() - fabItem1.getY();
+//                fabItem1.setTranslationY(offset1);
+//                offset2 = fab.getY() - fabItem2.getY();
+//                fabItem2.setTranslationY(offset2);
+//                return true;
+//            }
+//        });
+//
+//    }
 
     private View initLayout(LayoutInflater inflater, ViewGroup container)
     {
             View root = inflater.inflate(R.layout.menu_divice,container,false);
 
+        ImageButton fab= (ImageButton)root.findViewById(R.id.fab_device_behind);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getActivity().getApplicationContext(),FloatingActivity.class));
+                //getActivity().finish();
+            }
+        });
         swiperefreshlayout=(SwipeRefreshLayout)root.findViewById(R.id.swipelayout_menu_deivce);
 
         swiperefreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -153,7 +162,7 @@ public class DeviceMenuActivity extends Fragment {
             }
         });
 
-        floatingbuttoninit(root);
+        //floatingbuttoninit(root,container, inflater);
 
 
         return root;
@@ -168,44 +177,44 @@ public class DeviceMenuActivity extends Fragment {
         View root=initLayout(inflater,container);
         return root;
     }
-
-    private void collapseFab() {
-        // fab.setImageResource(R.drawable.animated_minus);
-        AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(createCollapseAnimator(fabItem1, offset1),
-                createCollapseAnimator(fabItem2, offset2),
-                createCollapseAnimator(fabItem3, offset3));
-        animatorSet.start();
-        animateFab();
-    }
-
-    private void expandFab() {
-        //.setImageResource(R.drawable.animated_plus);
-        AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(createExpandAnimator(fabItem1, offset1),
-                createExpandAnimator(fabItem2, offset2),
-                createExpandAnimator(fabItem3, offset3));
-        animatorSet.start();
-        animateFab();
-    }
-
-    private static final String TRANSLATION_Y = "translationY";
-
-    private Animator createCollapseAnimator(View view, float offset) {
-        return ObjectAnimator.ofFloat(view, TRANSLATION_Y, 0, offset)
-                .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
-    }
-
-    private Animator createExpandAnimator(View view, float offset) {
-        return ObjectAnimator.ofFloat(view, TRANSLATION_Y, offset, 0)
-                .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
-    }
-
-    private void animateFab() {
-        Drawable drawable = fab.getDrawable();
-        if (drawable instanceof Animatable) {
-            ((Animatable) drawable).start();
-        }
-    }
+//
+//    private void collapseFab() {
+//        // fab.setImageResource(R.drawable.animated_minus);
+//        AnimatorSet animatorSet = new AnimatorSet();
+//        animatorSet.playTogether(createCollapseAnimator(fabItem1, offset1),
+//                createCollapseAnimator(fabItem2, offset2),
+//                createCollapseAnimator(fabItem3, offset3));
+//        animatorSet.start();
+//        animateFab();
+//    }
+//
+//    private void expandFab() {
+//        //.setImageResource(R.drawable.animated_plus);
+//        AnimatorSet animatorSet = new AnimatorSet();
+//        animatorSet.playTogether(createExpandAnimator(fabItem1, offset1),
+//                createExpandAnimator(fabItem2, offset2),
+//                createExpandAnimator(fabItem3, offset3));
+//        animatorSet.start();
+//        animateFab();
+//    }
+//
+//    private static final String TRANSLATION_Y = "translationY";
+//
+//    private Animator createCollapseAnimator(View view, float offset) {
+//        return ObjectAnimator.ofFloat(view, TRANSLATION_Y, 0, offset)
+//                .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
+//    }
+//
+//    private Animator createExpandAnimator(View view, float offset) {
+//        return ObjectAnimator.ofFloat(view, TRANSLATION_Y, offset, 0)
+//                .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
+//    }
+//
+//    private void animateFab() {
+//        Drawable drawable = fab.getDrawable();
+//        if (drawable instanceof Animatable) {
+//            ((Animatable) drawable).start();
+//        }
+//    }
 
 }

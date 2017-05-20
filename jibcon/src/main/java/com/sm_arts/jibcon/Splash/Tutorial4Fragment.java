@@ -17,7 +17,7 @@ import com.sm_arts.jibcon.R;
  * Created by admin on 2017-04-09.
  */
 
-public class Tutorial4 extends android.support.v4.app.Fragment{
+public class Tutorial4Fragment extends android.support.v4.app.Fragment{
     Button toMain;
     Fragment fragment;
     @Nullable

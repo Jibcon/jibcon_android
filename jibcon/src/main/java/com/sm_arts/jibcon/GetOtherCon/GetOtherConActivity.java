@@ -4,17 +4,12 @@ package com.sm_arts.jibcon.GetOtherCon;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
-import com.sm_arts.jibcon.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.tsengvn.typekit.TypekitContextWrapper;
 import java.util.ArrayList;
@@ -25,7 +20,7 @@ import java.util.ArrayList;
  *
  */
 
-public class GetOtherCon extends AppCompatActivity{
+public class GetOtherConActivity extends AppCompatActivity{
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -55,7 +50,7 @@ public class GetOtherCon extends AppCompatActivity{
         btn_gotoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GetOtherCon.this, GetOtherConFinish.class);
+                Intent intent = new Intent(GetOtherConActivity.this, GetOtherConFinishActivity.class);
                 startActivity(intent);
             }
         });

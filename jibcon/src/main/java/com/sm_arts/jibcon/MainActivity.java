@@ -27,11 +27,11 @@ import com.bumptech.glide.Glide;
 import com.sm_arts.jibcon.Cheatkey.TrickMenuActivity;
 import com.sm_arts.jibcon.Conshop.MarketMenuActivity;
 import com.sm_arts.jibcon.Device.DeviceMenuActivity;
-import com.sm_arts.jibcon.SidebarMenu.AboutJibcon;
-import com.sm_arts.jibcon.SidebarMenu.ConnectedDevices;
-import com.sm_arts.jibcon.SidebarMenu.MyJibcon;
-import com.sm_arts.jibcon.SidebarMenu.UserAuthority;
-import com.sm_arts.jibcon.SidebarMenu.Widget;
+import com.sm_arts.jibcon.SidebarMenu.AboutJibconActivity;
+import com.sm_arts.jibcon.SidebarMenu.ConnectedDevicesActivity;
+import com.sm_arts.jibcon.SidebarMenu.MyJibconActivity;
+import com.sm_arts.jibcon.SidebarMenu.UserAuthorityActivity;
+import com.sm_arts.jibcon.SidebarMenu.WidgetActivity;
 import com.sm_arts.jibcon.Usermenu.UserMenuActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.Sidebar_myjibcon) {
 
-            Intent intent= new Intent(getApplicationContext(), MyJibcon.class);
+            Intent intent= new Intent(getApplicationContext(), MyJibconActivity.class);
             startActivity(intent);
 
 
@@ -267,25 +267,25 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.Sidebar_userAuthority) {
 
-            Intent intent= new Intent(getApplicationContext(), UserAuthority.class);
+            Intent intent= new Intent(getApplicationContext(), UserAuthorityActivity.class);
             startActivity(intent);
 
 
         } else if (id == R.id.Sidebar_connectedDevices) {
 
-            Intent intent= new Intent(getApplicationContext(), ConnectedDevices.class);
+            Intent intent= new Intent(getApplicationContext(), ConnectedDevicesActivity.class);
             startActivity(intent);
 
 
         } else if (id == R.id.Sidebar_widget) {
 
-            Intent intent= new Intent(getApplicationContext(), Widget.class);
+            Intent intent= new Intent(getApplicationContext(), WidgetActivity.class);
             startActivity(intent);
 
 
         } else if (id == R.id.Sidebar_aboutJibcon) {
 //
-            Intent intent= new Intent(getApplicationContext(), AboutJibcon.class);
+            Intent intent= new Intent(getApplicationContext(), AboutJibconActivity.class);
             startActivity(intent);
 
 

@@ -22,7 +22,7 @@ import com.sm_arts.jibcon.R;
  * Created by admin on 2017-04-12.
  */
 
-public class MakeCon3 extends android.support.v4.app.Fragment{
+public class MakeCon3Fragment extends android.support.v4.app.Fragment{
     String houselocation;
     ImageButton before;
     Button next;

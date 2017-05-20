@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.sm_arts.jibcon.R;
 
-public class AboutJibcon extends AppCompatActivity {
+public class AboutJibconActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

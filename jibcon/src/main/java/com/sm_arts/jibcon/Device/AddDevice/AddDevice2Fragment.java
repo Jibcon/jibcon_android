@@ -15,7 +15,7 @@ import com.sm_arts.jibcon.R;
  * Created by admin on 2017-04-15.
  */
 
-public class AddDevice2 extends Fragment {
+public class AddDevice2Fragment extends Fragment {
     LinearLayout linearLayout;
     MakeDeviceListner makeDeviceListener;
 

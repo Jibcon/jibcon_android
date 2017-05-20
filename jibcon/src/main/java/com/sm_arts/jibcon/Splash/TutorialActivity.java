@@ -44,19 +44,19 @@ public class TutorialActivity extends AppCompatActivity {
             switch (position)
             {
                 case 0:
-                    cur_fragment=new Tutorial1();
+                    cur_fragment=new Tutorial1Fragment();
 
                     break;
                 case 1:
-                    cur_fragment=new Tutorial2();
+                    cur_fragment=new Tutorial2Fragment();
 
                     break;
                 case 2:
-                    cur_fragment=new Tutorial3();
+                    cur_fragment=new Tutorial3Fragment();
 
                     break;
                 case 3:
-                    cur_fragment=new Tutorial4();
+                    cur_fragment=new Tutorial4Fragment();
                     break;
             }
             return cur_fragment;
