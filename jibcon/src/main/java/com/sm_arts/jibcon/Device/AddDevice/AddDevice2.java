@@ -26,11 +26,16 @@ public class AddDevice2 extends Fragment {
 
     }
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        linearLayout = (LinearLayout) inflater.inflate(R.layout.add_device2,container,false);
-        return linearLayout;
+        return inflater.inflate(R.layout.add_device2,container,false);
+
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
     }
 }

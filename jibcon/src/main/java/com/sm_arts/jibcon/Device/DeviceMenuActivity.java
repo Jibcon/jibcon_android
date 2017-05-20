@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -110,10 +109,8 @@ public class DeviceMenuActivity extends Fragment {
 
     private View initLayout(LayoutInflater inflater, ViewGroup container)
     {
-        final TextView floatingtext;
             View root = inflater.inflate(R.layout.menu_divice,container,false);
 
-        //floatingtext=(TextView)root.findViewById(R.id.Txt_floating);
         swiperefreshlayout=(SwipeRefreshLayout)root.findViewById(R.id.swipelayout_menu_deivce);
 
         swiperefreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

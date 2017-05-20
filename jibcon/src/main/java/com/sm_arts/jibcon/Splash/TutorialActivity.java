@@ -84,6 +84,7 @@ public class TutorialActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(TutorialActivity.this , LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
