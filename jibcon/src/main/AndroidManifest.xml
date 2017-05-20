@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sm_arts.jibcon">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -78,9 +77,48 @@
         <activity
             android:name=".GetOtherCon.GetOtherConFinishActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".UI.FloatingActivity"
-            android:theme="@style/Theme.AppCompat.Translucent"
-            ></activity>
+        <activity
+            android:name=".Settings.SettingActivity"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".Settings.alarm.Alarm"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".Settings.person_secure.Person_Secure"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".Settings.usercenter.AskEnrollCompany"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".Settings.usercenter.FAQ"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".Settings.usercenter.JibconAsk"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".Settings.usercenter.UserCenter"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        android:name=".SidebarMenu.AboutJibconActivity"
+        android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".SidebarMenu.MyJibconActivity"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".SidebarMenu.UserAuthorityActivity"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".GetOtherCon.GetOtherConActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GetOtherCon.GetOtherConFinishActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FloatingButtonUi.FloatingButtonDeviceActivity"
+            android:theme="@style/Theme.AppCompat.Translucent" />
+        <activity android:name=".FloatingButtonUi.FlotingButtonActiveActivity"
+            android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:name=".FloatingButtonUi.FlotingButtonPassiveActivity"
+            android:theme="@style/Theme.AppCompat.Translucent"></activity>
     </application>
 
 </manifest>

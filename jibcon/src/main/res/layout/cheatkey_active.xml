@@ -15,35 +15,9 @@
         android:numColumns="2"
         >
     </GridView>
-    <RelativeLayout
-        android:id="@+id/fab_container_cheatkey"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clipChildren="false">
-
-        <TextView
-            android:id="@+id/Txt_floating_cheatkey"
-            android:text="액티브 루틴 추가하기"
-            android:layout_toLeftOf="@+id/fab_action_1_cheatkey"
-            android:layout_alignBottom="@id/fab_action_1_cheatkey"
-            android:layout_width="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:visibility="invisible"
-            android:layout_height="wrap_content" />
-        <ImageButton
-            android:id="@id/fab_action_1_cheatkey"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_above="@+id/fab_cheatkey"
-            android:layout_alignParentRight="true"
-            android:layout_alignRight="@id/fab_cheatkey"
-            android:layout_marginRight="16dp"
-            android:contentDescription="@null"
-            android:visibility="invisible"
-            android:src="@drawable/ic_add_circle_white_48dp" />
 
         <ImageButton
-            android:id="@id/fab_cheatkey"
+            android:id="@+id/fab_cheatkey_active_behind"
             android:layout_width="92dp"
             android:layout_height="92dp"
             android:layout_alignParentBottom="true"
@@ -56,8 +30,6 @@
             android:visibility="visible"
 
             />
-
-    </RelativeLayout>
 
 
 </RelativeLayout>

@@ -29,6 +29,7 @@ public class GetConAdapter extends RecyclerView.Adapter<GetConAdapter.ViewHolder
 
         public ViewHolder(View view){
             super(view);
+
             UserImg = (ImageView)view.findViewById(R.id.image);
             HouseName = (TextView)view.findViewById(R.id.tv_invte_house_name);
             Email = (TextView)view.findViewById(R.id.tv_invite_email);
@@ -43,7 +44,6 @@ public class GetConAdapter extends RecyclerView.Adapter<GetConAdapter.ViewHolder
     // Create new views(invoked by the layout manager)
     @Override
     public GetConAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cardview_getcon, parent, false);

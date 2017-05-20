@@ -16,7 +16,7 @@ import com.sm_arts.jibcon.Device.service.DeviceService;
 import com.sm_arts.jibcon.Device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.UI.FloatingActivity;
+import com.sm_arts.jibcon.FloatingButtonUi.FloatingButtonDeviceActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -116,7 +116,7 @@ public class DeviceMenuActivity extends Fragment {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getActivity().getApplicationContext(),FloatingActivity.class));
+                startActivity(new Intent(getActivity().getApplicationContext(),FloatingButtonDeviceActivity.class));
                 //getActivity().finish();
             }
         });

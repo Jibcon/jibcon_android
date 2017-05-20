@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_about_jibcon"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#404040"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        >
+        <TextView
+            style="@style/setting_head"
+            android:text=" 제조업체 문의"
+    />
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="60dp"
+        android:paddingBottom="60dp"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        >
+
+        <TextView
+            android:id="@+id/Tv_setting_askenrollcompany_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="제목" />
+
+
+        <EditText
+            android:id="@+id/ETv_setting_askenrollcompany_title_answer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=" " />
+
+
+        <TextView
+            android:id="@+id/Tv_setting_askenrollcompany_phone"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="답변받을 연락처" />
+
+        <EditText
+            android:id="@+id/ETv_Tv_setting_askenrollcompany_phone_answer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=" " />
+
+        <TextView
+            android:id="@+id/Tv_setting_askenrollcompany_device"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="제품" />
+
+        <EditText
+            android:id="@+id/Tv_setting_askenrollcompany_device_answer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=" " />
+
+        <TextView
+            android:id="@+id/Tv_setting_askenrollcompany_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="내용 " />
+
+        <EditText
+            android:id="@+id/ETv_Tv_setting_askenrollcompany_content_answer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=" " />
+
+        <Button
+            android:id="@+id/Btn_setting_askenrollcompany_ask"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#36C3FF"
+            android:text="문의하기" />
+    </LinearLayout>
+
+</LinearLayout>

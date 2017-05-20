@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.UI;
+package com.sm_arts.jibcon.FloatingButtonUi;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.sm_arts.jibcon.Device.AddDevice.AddDeviceActivity;
 import com.sm_arts.jibcon.R;
 
-public class FloatingActivity extends Activity {
+public class FloatingButtonDeviceActivity extends Activity {
     boolean expanded = false;
     private View fabItem1;
     private TextView fabItem2;
@@ -38,22 +38,7 @@ public class FloatingActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
-//                WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
-        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        //getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.black_opaque)));
 
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_floating_device);
 
 
@@ -89,35 +74,15 @@ public class FloatingActivity extends Activity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                collapseFab();
                 fabItem1.setVisibility(View.INVISIBLE);
                 fabItem2.setVisibility(View.INVISIBLE);
+
                 finish();
+
             }
         });
-//
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                expanded=!expanded;
-//                if(expanded)
-//                {
-//
-//                    expandFab();
-//                    fabItem1.setVisibility(View.VISIBLE);
-//                    fabItem2.setVisibility(View.VISIBLE);
-//
-//                }
-//                else
-//                {
-//
-//                    collapseFab();
-//                    fabItem1.setVisibility(View.INVISIBLE);
-//                    fabItem2.setVisibility(View.INVISIBLE);
-//
-//                }
-//            }
-//        });
+
 
         fabcontainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override

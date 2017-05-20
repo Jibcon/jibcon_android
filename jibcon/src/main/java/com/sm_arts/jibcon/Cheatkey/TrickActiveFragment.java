@@ -1,24 +1,21 @@
 package com.sm_arts.jibcon.Cheatkey;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Animatable;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.sm_arts.jibcon.FloatingButtonUi.*;
 import com.sm_arts.jibcon.R;
+
 import java.util.ArrayList;
 
 /**
@@ -32,93 +29,6 @@ public class TrickActiveFragment extends android.support.v4.app.Fragment{
     ArrayList<String> textArr = new ArrayList<String>();
 
 
-    ImageButton fab;
-    boolean expanded = false;
-    private View fabItem1;
-    private TextView fabItem2;
-    private float offset1;
-    private float offset2;
-
-        public void floatingbuttoninit(final View root)
-        {
-            final ViewGroup fabcontainer = (ViewGroup)root.findViewById(R.id.fab_container_cheatkey);
-            fabItem1=root.findViewById(R.id.fab_action_1_cheatkey);
-            fabItem2=(TextView)root.findViewById(R.id.Txt_floating_cheatkey);
-
-            fab=(ImageButton) root.findViewById(R.id.fab_cheatkey);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    expanded=!expanded;
-                    if(expanded)
-                    {
-                        expandFab();
-                        fabItem1.setVisibility(View.VISIBLE);
-                        fabItem2.setVisibility(View.VISIBLE);
-
-                    }
-                    else
-                    {
-                        collapseFab();
-                        fabItem1.setVisibility(View.INVISIBLE);
-                        fabItem2.setVisibility(View.INVISIBLE);
-
-                    }
-                }
-            });
-
-            fabcontainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-                @Override
-                public boolean onPreDraw() {
-                    fabcontainer.getViewTreeObserver().removeOnPreDrawListener(this);
-                    offset1 = fab.getY() - fabItem1.getY();
-                    fabItem1.setTranslationY(offset1);
-                    offset2 = fab.getY() - fabItem2.getY();
-                    fabItem2.setTranslationY(offset2);
-                    return true;
-                }
-            });
-
-        }
-
-
-
-    private void collapseFab() {
-        // fab.setImageResource(R.drawable.animated_minus);
-        AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(createCollapseAnimator(fabItem1, offset1),
-                createCollapseAnimator(fabItem2, offset2));
-        animatorSet.start();
-        animateFab();
-    }
-
-    private void expandFab() {
-        //.setImageResource(R.drawable.animated_plus);
-        AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(createExpandAnimator(fabItem1, offset1),
-                createExpandAnimator(fabItem2, offset2));
-        animatorSet.start();
-        animateFab();
-    }
-
-    private static final String TRANSLATION_Y = "translationY";
-
-    private Animator createCollapseAnimator(View view, float offset) {
-        return ObjectAnimator.ofFloat(view, TRANSLATION_Y, 0, offset)
-                .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
-    }
-
-    private Animator createExpandAnimator(View view, float offset) {
-        return ObjectAnimator.ofFloat(view, TRANSLATION_Y, offset, 0)
-                .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
-    }
-
-    private void animateFab() {
-        Drawable drawable = fab.getDrawable();
-        if (drawable instanceof Animatable) {
-            ((Animatable) drawable).start();
-        }
-    }
 
 
     public TrickActiveFragment(){}
@@ -164,8 +74,14 @@ public class TrickActiveFragment extends android.support.v4.app.Fragment{
         gridView = (GridView)rootView.findViewById(R.id.maingridView);
         gridView.setAdapter(new Myadapter());
 
+        ImageButton imageButton =(ImageButton)rootView.findViewById(R.id.fab_cheatkey_active_behind);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),FlotingButtonActiveActivity.class));
+            }
+        });
 
-        floatingbuttoninit(rootView);
 
         return rootView;
     }
