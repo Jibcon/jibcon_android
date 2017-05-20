@@ -32,7 +32,7 @@ import static android.Manifest.permission.CHANGE_WIFI_STATE;
  * Created by admin on 2017-04-15.
  */
 
-public class AddDevice1 extends Fragment {
+public class AddDevice1Fragment extends Fragment {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     LinearLayout linearLayout;
     Button nextPage;
@@ -76,7 +76,7 @@ public class AddDevice1 extends Fragment {
 //            if(intent.getAction().equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION))
 //            {
 //                arr=wifiManager.getScanResults();
-//                Log.d(TAG, "AddDevice1/onReceive: SCAN_RESULTS_AVAILABLE_ACTION ScanResults is "+arr.toString());
+//                Log.d(TAG, "AddDevice1Fragment/onReceive: SCAN_RESULTS_AVAILABLE_ACTION ScanResults is "+arr.toString());
 //                for(int i=0;i<arr.size();i++)
 //                {
 //                    wifiNames.add(i,arr.get(i).BSSID);

@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
-import com.google.android.gms.maps.MapFragment;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.HouseInfo.HouseInfo;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
-public class MakeCon0 extends AppCompatActivity implements HouseInfoListener {
+public class MakeCon0Fragment extends AppCompatActivity implements HouseInfoListener {
     String housename;
     String username;
     String houseintro;
@@ -95,10 +94,10 @@ public class MakeCon0 extends AppCompatActivity implements HouseInfoListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_con0);
 
-        makecon1=new MakeCon1();
-        makecon2=new MakeCon2();
-        makecon3=new MakeCon3();
-        makecon4=new MakeCon4();
+        makecon1=new MakeCon1Fragment();
+        makecon2=new MakeCon2Fragment();
+        makecon3=new MakeCon3Fragment();
+        makecon4=new MakeCon4Fragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,makecon1).commit();
 
     }

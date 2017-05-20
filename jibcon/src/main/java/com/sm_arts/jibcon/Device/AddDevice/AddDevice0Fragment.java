@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * Created by admin on 2017-04-15.
  */
 
-public class AddDevice0 extends Fragment {
+public class AddDevice0Fragment extends Fragment {
     LinearLayout linearLayout;
 
     Spinner spinner1;

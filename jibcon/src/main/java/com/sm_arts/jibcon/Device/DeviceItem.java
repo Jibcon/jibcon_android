@@ -17,10 +17,7 @@ public class DeviceItem {
         this.deviceType = new Integer(deviceType).toString();
         this.deviceName = deviceName;
     }
-
-    public String getDeviceWifiAddr() {
-        return deviceWifiAddr;
-    }
+ 
 
     public void setDeviceWifiAddr(String deviceWifiAddr) {
         this.deviceWifiAddr = deviceWifiAddr;
