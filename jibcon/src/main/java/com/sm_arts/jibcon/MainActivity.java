@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ import com.bumptech.glide.Glide;
 import com.sm_arts.jibcon.Cheatkey.TrickMenuActivity;
 import com.sm_arts.jibcon.Conshop.MarketMenuActivity;
 import com.sm_arts.jibcon.Device.DeviceMenuActivity;
+import com.sm_arts.jibcon.Settings.SettingActivity;
 import com.sm_arts.jibcon.SidebarMenu.AboutJibcon;
 import com.sm_arts.jibcon.SidebarMenu.ConnectedDevices;
 import com.sm_arts.jibcon.SidebarMenu.MyJibcon;
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity
     ImageButton btn2;
     ImageButton btn3;
     ImageButton btn4;
+
+    Button mtoSettingBtn;
 
     //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
     //속도 너무 느림 ㅠ
@@ -210,6 +214,17 @@ public class MainActivity extends AppCompatActivity
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         DrawerLayout.LayoutParams params =(DrawerLayout.LayoutParams)navigationView.getLayoutParams();
 
+        mtoSettingBtn = (Button)findViewById(R.id.Btn_Setting);
+
+        mtoSettingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,SettingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         params.width=dm.widthPixels;
         navigationView.setLayoutParams(params);
         //네비게이션 뷰 풀화면
@@ -231,6 +246,7 @@ public class MainActivity extends AppCompatActivity
 
         initLayout();
     }
+
 
     @Override
     public void onBackPressed() {

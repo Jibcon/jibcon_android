@@ -72,6 +72,9 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".GetOtherCon.GetOtherConFinish"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Settings.SettingActivity"
+        android:theme="@style/AppTheme.NoActionBar"/>
+
 
     </application>
 
