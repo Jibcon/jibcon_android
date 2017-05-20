@@ -9,14 +9,13 @@
         android:id="@+id/toolbar_about_jibcon"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:scrollbarAlwaysDrawHorizontalTrack="true"
         android:background="#404040"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="0dp"
-        app:layout_constraintRight_toRightOf="parent"
         >
+        <TextView
+            style="@style/setting_head"
+            android:text=" 설정 " />
 
 
     </android.support.v7.widget.Toolbar>
