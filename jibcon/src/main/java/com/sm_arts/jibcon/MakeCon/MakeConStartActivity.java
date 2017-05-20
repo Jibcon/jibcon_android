@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.sm_arts.jibcon.GetOtherCon.GetOtherCon;
+import com.sm_arts.jibcon.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
@@ -22,7 +24,7 @@ public class MakeConStartActivity extends AppCompatActivity {
 
     Button makeMyCon;
     Button getOtherCon;
-    Button skip;
+    //Button skip;
 
     private  void initLayout()
     {
@@ -45,7 +47,8 @@ public class MakeConStartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //집콘 초대받기
-
+                Intent intent = new Intent(getApplicationContext(), GetOtherCon.class);
+                startActivity(intent);
             }
         });
     }
@@ -56,22 +59,7 @@ public class MakeConStartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_con_start);
 
-
-
         initLayout();
-        /* skip 버튼 삭제 (승인 대기 중)
-        skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //
-
-                Intent intent=new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        */
     }
 
     // for font change

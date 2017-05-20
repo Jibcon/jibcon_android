@@ -10,6 +10,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.sm_arts.jibcon.R;
 
 /**
@@ -20,6 +26,8 @@ public class MakeCon3 extends android.support.v4.app.Fragment{
     String houselocation;
     ImageButton before;
     Button next;
+    //private GoogleMap mMap = null; // Google Maps
+    //private float LAT=10,LNG=10; // Google Maps variable
 
     HouseInfoListener houseInfoListener;
     LinearLayout linearLayout;
@@ -39,6 +47,10 @@ public class MakeCon3 extends android.support.v4.app.Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         linearLayout = (LinearLayout) inflater.inflate(R.layout.makecon3,container,false);
+
+        // Google Maps Fragment
+        //SupportMapFragment mapFragment = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.google_map);
+
         initLayout();
 
         before.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +66,24 @@ public class MakeCon3 extends android.support.v4.app.Fragment{
             }
         });
 
+        // Google map start
+        //mapFragment.getMapAsync(this);
+
         return linearLayout;
     }
+
+    /*
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        LatLng latLng = new LatLng(LAT, LNG);
+
+        MarkerOptions marker = new MarkerOptions().position(latLng);
+
+        mMap.addMarker(marker);
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 13));
+    }
+    */
 }
