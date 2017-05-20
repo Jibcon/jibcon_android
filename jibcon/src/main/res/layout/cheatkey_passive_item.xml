@@ -10,8 +10,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="40dp"
-        android:textColor="#00F"
-        />
+        android:textColor="#00F" />
 
     <TextView
         android:id="@+id/passiveTextView2"
@@ -19,6 +18,6 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="28dp"
-        android:textColor="#FCF"
-        />
+        android:textColor="#FCF" />
+
 </LinearLayout>
