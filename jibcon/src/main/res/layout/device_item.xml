@@ -12,14 +12,14 @@
         card_view:cardUseCompatPadding="true"
         card_view:cardElevation="10dp"
         card_view:cardCornerRadius="10dp"
-        android:background="#FFFFFF"
-        >
+        android:background="#FFFFFF">
+
         <LinearLayout
             android:id="@+id/Linear_Cardview"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
+
             <ImageView
                 android:id="@+id/ImgViewDiviceItem"
                 android:src="@drawable/bulb"
@@ -30,6 +30,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:background="#FFFFFF"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_alignParentLeft="true"
@@ -37,6 +38,7 @@
                 android:orientation="horizontal"
                 android:background="@color/white"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:gravity="center"
                     android:text="장소이름"
@@ -45,6 +47,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content" />
+
                 <TextView
                     android:gravity="center"
                     android:text="장치이름"
@@ -54,8 +57,8 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content" />
-            </LinearLayout>
 
+            </LinearLayout>
 
         </LinearLayout>
 
