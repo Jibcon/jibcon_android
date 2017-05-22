@@ -14,7 +14,7 @@ import com.tsengvn.typekit.TypekitContextWrapper;
  * Created by user on 2017-05-19.
  */
 
-public class GetOtherConFinish extends AppCompatActivity {
+public class GetOtherConFinishActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -23,7 +23,7 @@ public class GetOtherConFinish extends AppCompatActivity {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable(){
             public void run(){
-                Intent intent = new Intent(GetOtherConFinish.this, MainActivity.class);
+                Intent intent = new Intent(GetOtherConFinishActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         }, 1500);

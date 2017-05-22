@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.sm_arts.jibcon.R;
 
-public class UserAuthority extends AppCompatActivity {
+public class UserAuthorityActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -6,13 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.Settings.SettingActivity;
-import com.sm_arts.jibcon.Settings.alarm.Alarm;
-import com.sm_arts.jibcon.Settings.person_secure.Person_Secure;
 
 /**
  * Created by woojinkim on 2017. 5. 20..

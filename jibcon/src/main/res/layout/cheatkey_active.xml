@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF"
-    android:orientation="vertical"
+
     android:gravity="center">
 
     <GridView
@@ -15,8 +15,21 @@
         android:numColumns="2"
         >
     </GridView>
-    <include layout="@layout/floatingbutton_cheatkey"
-        ></include>
+
+        <ImageButton
+            android:id="@+id/fab_cheatkey_active_behind"
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:paddingBottom="24dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_add_circle_blue_48dp"
+            android:visibility="visible"
+
+            />
 
 
-</LinearLayout>
+</RelativeLayout>

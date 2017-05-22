@@ -1,12 +1,16 @@
 package com.sm_arts.jibcon.Cheatkey;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+
+import com.sm_arts.jibcon.FloatingButtonUi.FlotingButtonPassiveActivity;
 import com.sm_arts.jibcon.R;
 import java.util.ArrayList;
 
@@ -15,7 +19,7 @@ import java.util.ArrayList;
  * Created by WooJin on 2017-04-14.
  */
 
-public class TrickPassive extends android.support.v4.app.Fragment{
+public class TrickPassiveFragment extends android.support.v4.app.Fragment{
     // For Recyclerview(CardView)
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -24,7 +28,7 @@ public class TrickPassive extends android.support.v4.app.Fragment{
 
     Context context;
 
-    public TrickPassive(){}
+    public TrickPassiveFragment(){}
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -34,6 +38,14 @@ public class TrickPassive extends android.support.v4.app.Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.cheatkey_passive, container, false); // 액티비티에서는 setContentView
 
+        ImageButton imageButton = (ImageButton)v.findViewById(R.id.fab_cheatkey_passive_behind);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), FlotingButtonPassiveActivity.class));
+            }
+        });
         mRecyclerView = (RecyclerView)v.findViewById(R.id.passive_cardview);
         mRecyclerView.setHasFixedSize(true);
 

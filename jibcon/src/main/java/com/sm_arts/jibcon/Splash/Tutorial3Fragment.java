@@ -13,7 +13,7 @@ import com.sm_arts.jibcon.R;
  * Created by admin on 2017-04-09.
  */
 
-public class Tutorial3 extends android.support.v4.app.Fragment {
+public class Tutorial3Fragment extends android.support.v4.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
