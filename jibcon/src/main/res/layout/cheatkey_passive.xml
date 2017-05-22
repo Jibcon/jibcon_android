@@ -15,20 +15,17 @@
         android:scrollbars="vertical"
         android:layout_gravity="top"/>
 
-
-        <ImageButton
-            android:id="@+id/fab_cheatkey_passive_behind"
-            android:layout_width="92dp"
-            android:layout_height="92dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:background="@null"
-            android:contentDescription="@null"
-            android:paddingBottom="24dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_add_circle_blue_48dp"
-            android:visibility="visible"
-
-            />
+    <ImageButton
+        android:id="@+id/fab_cheatkey_passive_behind"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:paddingBottom="24dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_add_circle_blue_48dp"
+        android:visibility="visible" />
 
 </RelativeLayout>

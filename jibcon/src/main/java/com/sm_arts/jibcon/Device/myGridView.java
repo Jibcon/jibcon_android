@@ -22,18 +22,16 @@ public class myGridView extends GridView {
         super(context, attrs, defStyleAttr);
     }
 
-    public boolean isExpanded()
-    {return expanded;}
+    public boolean isExpanded(){return expanded;}
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-
         int expandSpec = MeasureSpec.makeMeasureSpec(MEASURED_SIZE_MASK, MeasureSpec.EXACTLY);
         super.onMeasure(widthMeasureSpec, expandSpec);
         ViewGroup.LayoutParams param = getLayoutParams();
         param.height=getMeasuredHeight();
-
-
     }
+
     public void setExpanded(boolean expanded)
     {
         this.expanded=expanded;

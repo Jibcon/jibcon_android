@@ -3,6 +3,7 @@ package com.sm_arts.jibcon.Cheatkey;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ public class TrickPassiveFragment extends android.support.v4.app.Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.cheatkey_passive, container, false); // 액티비티에서는 setContentView
 
+        // 햄버거 버튼
         ImageButton imageButton = (ImageButton)v.findViewById(R.id.fab_cheatkey_passive_behind);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -46,9 +48,12 @@ public class TrickPassiveFragment extends android.support.v4.app.Fragment{
                 startActivity(new Intent(getContext(), FlotingButtonPassiveActivity.class));
             }
         });
+
+        // RecyclerView 구현 및 Adpater 설정
         mRecyclerView = (RecyclerView)v.findViewById(R.id.passive_cardview);
         mRecyclerView.setHasFixedSize(true);
 
+        //mLayoutManager = new GridLayoutManager(context,2); // RecyclerView로 GridView 구현 test
         mLayoutManager = new LinearLayoutManager(context);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -72,5 +77,4 @@ public class TrickPassiveFragment extends android.support.v4.app.Fragment{
 
         return v;
     }
-    // onViewCreated 추가할까?
 }

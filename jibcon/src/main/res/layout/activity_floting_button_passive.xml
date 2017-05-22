@@ -6,11 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.sm_arts.jibcon.FloatingButtonUi.FlotingButtonPassiveActivity"
     android:background="@color/transparent"
-    android:id="@+id/fab_container_cheatkey_passive"
-    >
-
-
-
+    android:id="@+id/fab_container_cheatkey_passive">
 
     <TextView
         android:id="@+id/Txt_floating_cheatkey_passive"
@@ -22,6 +18,7 @@
         android:visibility="invisible"
         android:background="@null"
         android:layout_height="wrap_content" />
+
     <ImageButton
         android:id="@id/fab_action_1_cheatkey_passive"
         android:layout_width="40dp"
@@ -46,7 +43,6 @@
         android:paddingBottom="24dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_add_circle_blue_48dp"
-        android:visibility="visible"
+        android:visibility="visible" />
 
-        />
 </RelativeLayout>
