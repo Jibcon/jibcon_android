@@ -18,6 +18,10 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.kakao.auth.ISessionCallback;
+import com.kakao.auth.Session;
+import com.kakao.util.exception.KakaoException;
+import com.kakao.util.helper.log.Logger;
 import com.sm_arts.jibcon.Device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.Login.user.domain.User;
@@ -41,9 +45,11 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
+    private SessionCallback kakaoCallback;      //콜백 선언
 
 
-//--블로그
+
+    //--블로그
     private CallbackManager callbackManager = null;
     private AccessTokenTracker accessTokenTracker = null;
     GlobalApplication app;
@@ -160,6 +166,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         app=(GlobalApplication)getApplicationContext();
 
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -186,8 +193,27 @@ public class LoginActivity extends AppCompatActivity {
         //loginButton.setFragment(this);
         loginButton.registerCallback(callbackManager, callback);
 
+
+
         initSampleSignInBtn();
+
+
+        kakaoSetup();
+
     }
+
+    void kakaoSetup()
+    {
+        if(!Session.getCurrentSession().isClosed())
+        {
+            redirectSignupActivity();
+        }
+
+        kakaoCallback = new SessionCallback();                  // 이 두개의 함수 중요함
+        Session.getCurrentSession().addCallback(kakaoCallback);
+
+    }
+
 
     void initSampleSignInBtn() {
         Log.d(TAG, "initSampleSignInBtn: ");
@@ -233,6 +259,47 @@ public class LoginActivity extends AppCompatActivity {
     protected void attachBaseContext(Context newBase){
         super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
+
+
+    //kakao login
+
+    private class SessionCallback implements ISessionCallback {
+
+        @Override
+        public void onSessionOpened() {
+            Log.d("testing","LoginActivity_onSessionOpened()");
+
+            redirectSignupActivity();  // 세션 연결성공 시 redirectSignupActivity() 호출
+        }
+
+        @Override
+        public void onSessionOpenFailed(KakaoException exception) {
+            Log.d("testing","LoginActivity_onSessionOpenFailed"+exception);
+            exception.printStackTrace();
+            Log.d("testing","LoginActivity_onSessionOpenFailed()");
+            if(exception != null) {
+                Logger.e(exception);
+            }
+            setContentView(R.layout.activity_login); // 세션 연결이 실패했을때
+        }                                            // 로그인화면을 다시 불러옴
+    }
+
+    protected void redirectSignupActivity() {       //세션 연결 성공 시 SignupActivity로 넘김
+        Log.d("testing","LoginActivity_redirectSignupActivity()");
+
+        final Intent intent = new Intent(this, KakaoSignupActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+        finish();
+    }
+
+    //kakao
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Session.getCurrentSession().removeCallback(kakaoCallback);
+    }
+
 
 
 }

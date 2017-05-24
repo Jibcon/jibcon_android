@@ -2,15 +2,24 @@ package com.sm_arts.jibcon;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
+import com.kakao.auth.KakaoSDK;
+import com.sm_arts.jibcon.Login.KaKaoSDKAdpater;
 import com.sm_arts.jibcon.Login.user.domain.User;
 import com.tsengvn.typekit.Typekit;
 
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+import static com.kakao.util.helper.Utility.getPackageInfo;
 
 /**
  * Created by admin on 2017-04-06.
@@ -69,9 +78,9 @@ public class GlobalApplication extends Application {
         obj = this;
         username = "TestUser";
         userEmail = "Jipcon@Jipcon.com";
-//        KakaoSDK.init(new KaKaoSDKAdpater());
+        KakaoSDK.init(new KaKaoSDKAdpater());
         //카톡로그인
-
+        getKeyHash(getApplicationContext());
         // for font change
         Typekit.getInstance()
                 .addNormal(Typekit.createFromAsset(this, "12롯데마트드림Medium.ttf"))
@@ -130,5 +139,26 @@ public class GlobalApplication extends Application {
 
 //        Toast.makeText(getApplicationContext(),"Success Signin With SampleUser",Toast.LENGTH_SHORT).show();
         Log.d(TAG, "setUser: Success Signin With SampleUser");
+    }
+
+    public static String getKeyHash(Context context)
+    {
+        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
+        if (packageInfo == null)
+            return null;
+        for (Signature signature : packageInfo.signatures) {
+            try {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String hashKey= android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
+                //카카오톡 안드로이드 플랫폼 키해시에 들어갈 키 정보 알아내기
+                Log.d("testing",hashKey);
+
+                return android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
+            } catch (NoSuchAlgorithmException e) {
+                Log.d("testing", "Unable to get MessageDigest. signature=" + signature, e);
+            }
+        }
+        return null;
     }
 }
