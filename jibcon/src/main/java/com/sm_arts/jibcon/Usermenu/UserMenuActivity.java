@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.MakeCon.MakeConStartActivity;
 import com.sm_arts.jibcon.R;
@@ -77,11 +79,22 @@ public class UserMenuActivity extends android.support.v4.app.Fragment {
                         editor.clear();
                         editor.commit();
                         //sharedpreference에 저장된 값 지우기
-
-                        LoginManager.getInstance().logOut();
                         //페이스북 로그아웃
+                        LoginManager.getInstance().logOut();
+
                         //카카오 로그아웃
+                        UserManagement.requestLogout(new LogoutResponseCallback() {
+                            @Override
+                            public void onCompleteLogout() {
+
+                            }
+                        });
+
+
                         getActivity().finish();
+
+
+
                         Intent intent = new Intent(getActivity().getApplicationContext(), IntroActivity.class);
                         startActivity(intent);
                         getActivity().finish();

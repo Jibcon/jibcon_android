@@ -98,8 +98,10 @@
         <activity
             android:name=".Settings.usercenter.UserCenter"
             android:theme="@style/myAppTheme.NoActionBar" />
-        android:name=".SidebarMenu.AboutJibconActivity"
-        android:theme="@style/myAppTheme.NoActionBar" />
+       <activity android:name=".Login.KakaoSignupActivity"
+           android:theme="@style/AppTheme.NoActionBar">
+
+       </activity>
         <activity
             android:name=".SidebarMenu.MyJibconActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
