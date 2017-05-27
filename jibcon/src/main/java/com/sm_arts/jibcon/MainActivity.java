@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
     ImageButton btn3;
     ImageButton btn4;
 
-    Button mtoSettingBtn;
+    ImageButton mtoSettingBtn;
 
     //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
     //속도 너무 느림 ㅠ
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         DrawerLayout.LayoutParams params =(DrawerLayout.LayoutParams)navigationView.getLayoutParams();
 
-        mtoSettingBtn = (Button)findViewById(R.id.Btn_Setting);
+        mtoSettingBtn = (ImageButton)findViewById(R.id.Btn_Setting);
 
         mtoSettingBtn.setOnClickListener(new View.OnClickListener() {
             @Override

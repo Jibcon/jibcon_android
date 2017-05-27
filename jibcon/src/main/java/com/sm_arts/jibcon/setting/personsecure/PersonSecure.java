@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,23 +27,19 @@ import com.tsengvn.typekit.TypekitContextWrapper;
  */
 
 public class PersonSecure extends AppCompatActivity {
-    private static final String TAG = "kimwoojinlog ";
     ListView mSettingPersonSecureLv;
-    static final String[] mSettingList={"프로필 설정","암호 설정","지문 설정","정보제공 동의서", "집콘 탈퇴하기"};
-
-    Toolbar mToolBar;
-
+    static final String[] mSettingPersonSecureList={"프로필 설정","암호 설정","지문 설정","정보제공 동의서", "집콘 탈퇴하기"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting);
+        setContentView(R.layout.setting_person_secure);
 
         /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSettingList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSettingPersonSecureList);
 
-        mSettingPersonSecureLv = (ListView)findViewById(R.id.Lv_setting);
+        mSettingPersonSecureLv = (ListView)findViewById(R.id.Lv_setting_person_secure);
 
         mSettingPersonSecureLv.setAdapter(adapter);
         /* add onItemClickListener to ListView*/
@@ -54,7 +51,16 @@ public class PersonSecure extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
             }
         }) ;
-        mToolBar=(Toolbar)findViewById(R.id.toolbar_setting_personsecure);
+
+        ImageView mImageView = (ImageView)findViewById(R.id.imageview_setting_personsecure);
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PersonSecure.this, SettingActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 

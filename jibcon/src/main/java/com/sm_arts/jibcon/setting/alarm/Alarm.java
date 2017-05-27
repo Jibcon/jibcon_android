@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -28,10 +29,18 @@ public class Alarm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_alarm);
 
+        ImageView mImageView = (ImageView) findViewById(R.id.imageview_setting_alarm);
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Alarm.this, SettingActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
-
-
-
     @Override
     protected void attachBaseContext(Context newBase){
         super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
