@@ -6,12 +6,16 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_about_jibcon"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#404040"
+        android:id="@+id/toolbar_setting_personsecure"
+        style="@style/toolbar_common"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         >
+        <ImageView
+            android:id="@+id/imageview_setting_personsecure"
+            android:layout_height="match_parent"
+            android:layout_width="40dp"
+            android:src="@mipmap/arrow_back_white"
+            />
         <TextView
             android:text=" 개인/보안 "
             style="@style/setting_head"  />
@@ -20,7 +24,7 @@
     </android.support.v7.widget.Toolbar>
 
     <ListView
-        android:id="@+id/Lv_setting_personal_secure"
+        android:id="@+id/Lv_setting_person_secure"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

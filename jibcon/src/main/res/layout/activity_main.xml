@@ -25,13 +25,14 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer">
 
-        <Button
+        <ImageButton
+            android:background="@color/white"
             android:id="@+id/Btn_Setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
             android:layout_gravity="end"
             android:layout_marginTop="20dp"
-            android:text="Settings" />
+            android:src="@mipmap/three_dots_grey"/>
     </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

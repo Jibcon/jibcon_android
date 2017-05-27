@@ -6,25 +6,25 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_setting"
+        android:id="@+id/toolbar_sidebar_widget"
         style="@style/toolbar_common"
         app:popupTheme="@style/AppTheme.PopupOverlay"
-        ><ImageView
-        android:id="@+id/imageview_setting"
+        >
+        <ImageView
+        android:id="@+id/imageview_sidebar_widget"
         android:layout_height="match_parent"
         android:layout_width="40dp"
         android:src="@mipmap/arrow_back_white"
         />
         <TextView
             style="@style/setting_head"
-            android:text=" 설정 " />
-
+            android:text="위젯"
+             />
 
     </android.support.v7.widget.Toolbar>
 
     <ListView
-        android:id="@+id/Lv_setting"
+        android:id="@+id/listview_widget"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 </LinearLayout>
