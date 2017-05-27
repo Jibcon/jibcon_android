@@ -28,7 +28,7 @@ import com.sm_arts.jibcon.Login.user.domain.User;
 import com.sm_arts.jibcon.Login.user.domain.UserInfo;
 import com.sm_arts.jibcon.Login.user.service.UserService;
 import com.sm_arts.jibcon.Login.user.service.UserServiceImpl;
-import com.sm_arts.jibcon.MakeCon.MakeConStartActivity;
+import com.sm_arts.jibcon.app.MakeCon.MakeConStartActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.network.repo;
@@ -45,7 +45,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
-    private SessionCallback kakaoCallback;      //콜백 선언
+    private SessionCallback mkakaoCallback;      //콜백 선언
 
 
 
@@ -209,8 +209,8 @@ public class LoginActivity extends AppCompatActivity {
             redirectSignupActivity();
         }
 
-        kakaoCallback = new SessionCallback();                  // 이 두개의 함수 중요함
-        Session.getCurrentSession().addCallback(kakaoCallback);
+        mkakaoCallback = new SessionCallback();                  // 이 두개의 함수 중요함
+        Session.getCurrentSession().addCallback(mkakaoCallback);
 
     }
 
@@ -297,7 +297,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Session.getCurrentSession().removeCallback(kakaoCallback);
+        Session.getCurrentSession().removeCallback(mkakaoCallback);
     }
 
 

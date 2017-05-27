@@ -73,9 +73,6 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
         ApiService apiService = new repo().getService();
         Log.d(TAG, "sendDevice: Call.enqueue DeviceItem "+deviceItem.toString());
 
-
-
-
         Call<DeviceItem> c = apiService.addDevice("Token " +app.getUserToken(),deviceItem);
         Log.d("TAG", "sendDevice: "+c.toString());
 

@@ -31,7 +31,7 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Splash.IntroActivity"
+            android:name=".app.Splash.IntroActivity"
             android:label="@string/app_name"
             android:theme="@style/myAppTheme.IntroNoActionBar">
             <intent-filter>
@@ -41,85 +41,80 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Splash.TutorialActivity"
+            android:name=".app.Splash.TutorialActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Login.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MakeCon.MakeConStartActivity"
+            android:name=".app.MakeCon.MakeConStartActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MakeCon.MakeCon0Fragment"
+            android:name=".app.MakeCon.MakeCon0Fragment"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Device.AddDevice.AddDeviceActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".sidebar.ConnectedDevicesActivity"
+            android:name=".app.sidebar.ConnectedDevicesActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".sidebar.WidgetActivity"
+            android:name=".app.sidebar.WidgetActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".sidebar.AboutJibconActivity"
+            android:name=".app.sidebar.AboutJibconActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".sidebar.MyJibconActivity"
+            android:name=".app.sidebar.MyJibconActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".sidebar.UserAuthorityActivity"
+            android:name=".app.sidebar.UserAuthorityActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".GetOtherCon.GetOtherConActivity"
+            android:name=".app.GetOtherCon.GetOtherConActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GetOtherCon.GetOtherConFinishActivity"
+            android:name=".app.GetOtherCon.GetOtherConFinishActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".setting.SettingActivity"
+            android:name=".app.setting.SettingActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".setting.alarm.Alarm"
+            android:name=".app.setting.alarm.Alarm"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".setting.personsecure.PersonSecure"
+            android:name=".app.setting.personsecure.PersonSecure"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".setting.usercenter.AskEnrollCompany"
+            android:name=".app.setting.usercenter.AskEnrollCompany"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".setting.usercenter.FAQ"
+            android:name=".app.setting.usercenter.FAQ"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".setting.usercenter.JibconAsk"
+            android:name=".app.setting.usercenter.JibconAsk"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".setting.usercenter.UserCenter"
+            android:name=".app.setting.usercenter.UserCenter"
             android:theme="@style/myAppTheme.NoActionBar" />
        <activity android:name=".Login.KakaoSignupActivity"
            android:theme="@style/AppTheme.NoActionBar">
 
        </activity>
+
         <activity
-            android:name=".sidebar.MyJibconActivity"
-            android:theme="@style/myAppTheme.NoActionBar" />
-        <activity
-            android:name=".sidebar.UserAuthorityActivity"
-            android:theme="@style/myAppTheme.NoActionBar" />
-        <activity
-            android:name=".GetOtherCon.GetOtherConActivity"
+            android:name=".app.GetOtherCon.GetOtherConActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GetOtherCon.GetOtherConFinishActivity"
+            android:name=".app.GetOtherCon.GetOtherConFinishActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".FloatingButtonUi.FloatingButtonDeviceActivity"
+            android:name=".ui.FloatingButtonUi.FloatingButtonDeviceActivity"
             android:theme="@style/Theme.AppCompat.Translucent" />
-        <activity android:name=".FloatingButtonUi.FlotingButtonActiveActivity"
+        <activity android:name=".ui.FloatingButtonUi.FlotingButtonActiveActivity"
             android:theme="@style/Theme.AppCompat.Translucent"/>
-        <activity android:name=".FloatingButtonUi.FlotingButtonPassiveActivity"
+        <activity android:name=".ui.FloatingButtonUi.FlotingButtonPassiveActivity"
             android:theme="@style/Theme.AppCompat.Translucent"></activity>
     </application>
 

@@ -1,8 +1,6 @@
 package com.sm_arts.jibcon.Device;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.sm_arts.jibcon.ui.Dialogs.DeviceDialog;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.R;
 
@@ -58,10 +57,19 @@ public class DeviceMenuAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
         if(convertView==null)
             Log.d("DeviceMenu","DeviceMenuNull");
         convertView= inflater.inflate(R.layout.device_item, parent, false);
+        ImageView threedot = (ImageView)convertView.findViewById(R.id.ImgView_deviceItem_threedot);
+        threedot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DeviceDialog deviceDialog = new DeviceDialog(parent.getContext());
+                deviceDialog.show();
+             }
+        });
+        //threedot.bringToFront();
 
         ImageView imageView = (ImageView)convertView.findViewById(R.id.ImgViewDiviceItem);
         //imageView.setImageBitmap(app.getDeviceItemArrayList().get(position).getImage());
@@ -72,58 +80,21 @@ public class DeviceMenuAdapter extends BaseAdapter {
             //2 : 선풍기
             //3 : 냉장고
 
-            case "0":   BitmapDrawable drawable1 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.airconditioner);
-            Bitmap bitmap1 = drawable1.getBitmap();
-              imageView.setImageBitmap(bitmap1);
+            case "0":
+                imageView.setImageResource(R.drawable.airconditioner);
                 break;
             case "1":
-                BitmapDrawable drawable2 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.lightbulb);
-                Bitmap bitmap2 = drawable2.getBitmap();
-                imageView.setImageBitmap(bitmap2);
+                imageView.setImageResource(R.drawable.lightbulb);
                 break;
             case "2":
-                BitmapDrawable drawable3 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.fan);
-                Bitmap bitmap3 = drawable3.getBitmap();
-                imageView.setImageBitmap(bitmap3);
+                imageView.setImageResource(R.drawable.fan);
                 break;
             case "3":
-                BitmapDrawable drawable4 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.refrigerator);
-                Bitmap bitmap4 = drawable4.getBitmap();
-                imageView.setImageBitmap(bitmap4);
+                imageView.setImageResource(R.drawable.refrigerator);
                 break;
         }
-
-        //Button button = (Button)convertView.findViewById(R.id.BtnDeviceItem);
-        //notifyDataSetChanged();
 
 
         return convertView;
     }
 }
-//
-//public class DeviceMenuAdapter extends BaseAdapter
-//{
-//
-//
-//    @Override
-//    public int getCount() {
-//        return 0;
-//    }
-//
-//    @Override
-//    public Object getItem(int position) {
-//        return null;
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return 0;
-//    }
-//
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//
-//
-//        return null;
-//    }
-//}
