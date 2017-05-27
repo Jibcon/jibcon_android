@@ -64,6 +64,7 @@ public class AddDevice1Fragment extends Fragment {
 //                    wifiNames.add(i,arr.get(i).BSSID);
 //                    wifiLevels.add(i,new Integer(arr.get(i).level).toString());
 //                    wifiSeceret.add(i,arr.get(i).capabilities);
+
                     adpater.setWifilist(arr);
                     adpater.notifyDataSetChanged();
                 }

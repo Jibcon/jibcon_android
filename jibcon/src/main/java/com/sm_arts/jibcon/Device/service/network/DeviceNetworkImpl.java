@@ -55,7 +55,6 @@ public class DeviceNetworkImpl implements DeviceNetwork {
                         Log.d(TAG, "getDeviceItemsFromServer/onResponse: " + result.toString());
                         notifyListenersOnSuccessGetDeviceItemsFromServer(result);
                     }
-
                     @Override
                     public void onFailure(Call<List<DeviceItem>> call, Throwable t) {
                         Log.d(TAG, "getDeviceItemsFromServer/onFailure: ");

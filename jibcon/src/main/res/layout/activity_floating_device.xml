@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sm_arts.jibcon.FloatingButtonUi.FloatingButtonDeviceActivity"
+    tools:context=".ui.FloatingButtonUi.FloatingButtonDeviceActivity"
     android:background="@color/transparent"
     android:id="@+id/fab_container_device"
 

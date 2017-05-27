@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF"
-    tools:context="com.sm_arts.jibcon.MakeCon.MakeCon0Fragment">
+    tools:context=".app.MakeCon.MakeCon0Fragment">
 
     <FrameLayout
         android:id="@+id/Frame_makecon0"

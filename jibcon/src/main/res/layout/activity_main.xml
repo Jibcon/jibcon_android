@@ -20,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+
         android:fitsSystemWindows="true"
         android:foregroundGravity="center_vertical"
         app:headerLayout="@layout/nav_header_main"
@@ -31,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="20dp"
+
             android:text="Settings" />
     </android.support.design.widget.NavigationView>
 

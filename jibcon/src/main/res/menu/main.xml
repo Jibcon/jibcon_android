@@ -4,6 +4,7 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:title="검색"
+        android:icon="@mipmap/toolbar_search"
+        app:showAsAction="withText|always" />
 </menu>

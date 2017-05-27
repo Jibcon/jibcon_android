@@ -4,7 +4,7 @@
     android:id="@+id/activity_tutorial"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sm_arts.jibcon.Splash.TutorialActivity"
+    tools:context=".app.Splash.TutorialActivity"
     android:orientation="vertical">
 
     <include
