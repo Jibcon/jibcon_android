@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_about_jibcon"
         style="@style/toolbar_common"
@@ -12,15 +11,14 @@
         app:popupTheme="@style/AppTheme.PopupOverlay"
         >
         <TextView
-            android:text=" 개인/보안 "
-            style="@style/setting_head"  />
-
+            style="@style/setting_head"
+            android:text="사용자 권한"
+             />
 
     </android.support.v7.widget.Toolbar>
 
     <ListView
-        android:id="@+id/Lv_setting_personal_secure"
+        android:id="@+id/listview_user_authority"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 </LinearLayout>

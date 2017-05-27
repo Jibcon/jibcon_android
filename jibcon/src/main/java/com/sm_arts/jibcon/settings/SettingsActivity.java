@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.Settings;
+package com.sm_arts.jibcon.settings;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,18 +8,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.google.android.gms.plus.model.people.Person;
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.Settings.alarm.Alarm;
-import com.sm_arts.jibcon.Settings.person_secure.Person_Secure;
-import com.sm_arts.jibcon.Settings.usercenter.UserCenter;
+import com.sm_arts.jibcon.settings.alarm.Alarm;
+import com.sm_arts.jibcon.settings.personsecure.PersonSecure;
+import com.sm_arts.jibcon.settings.usercenter.UserCenter;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
 
 
-public class SettingActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
 
     ListView mSettingLv;
     static final String[] mSettingList={"개인/보안","알림","고객센터"};
@@ -44,15 +42,15 @@ public class SettingActivity extends AppCompatActivity {
                 String settingClickedItem = (String) mSettingLv.getItemAtPosition(position);
 
                 if(settingClickedItem == "개인/보안"){
-                    Intent intent = new Intent(SettingActivity.this, Person_Secure.class);
+                    Intent intent = new Intent(SettingsActivity.this, PersonSecure.class);
                     startActivity(intent);
                 }
                 else if(settingClickedItem=="알림"){
-                    Intent intent = new Intent(SettingActivity.this, Alarm.class);
+                    Intent intent = new Intent(SettingsActivity.this, Alarm.class);
                     startActivity(intent);
                 }
                 else {
-                    Intent intent = new Intent(SettingActivity.this, UserCenter.class);
+                    Intent intent = new Intent(SettingsActivity.this, UserCenter.class);
                     startActivity(intent);
                 }
             }

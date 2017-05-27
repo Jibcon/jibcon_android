@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.Settings.usercenter;
+package com.sm_arts.jibcon.settings.usercenter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

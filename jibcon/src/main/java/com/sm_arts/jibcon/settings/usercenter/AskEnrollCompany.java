@@ -1,16 +1,19 @@
-package com.sm_arts.jibcon.SidebarMenu;
+package com.sm_arts.jibcon.settings.usercenter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.sm_arts.jibcon.R;
 
-public class ConnectedDevicesActivity extends AppCompatActivity {
+/**
+ * Created by woojinkim on 2017. 5. 20..
+ */
+
+public class AskEnrollCompany extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_connected_devices);
-
+        setContentView(R.layout.setting_askenrollcompany);
     }
 }

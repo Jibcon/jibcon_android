@@ -28,13 +28,13 @@ import com.bumptech.glide.Glide;
 import com.sm_arts.jibcon.Cheatkey.TrickMenuActivity;
 import com.sm_arts.jibcon.Conshop.MarketMenuActivity;
 import com.sm_arts.jibcon.Device.DeviceMenuActivity;
-import com.sm_arts.jibcon.Settings.SettingActivity;
+import com.sm_arts.jibcon.settings.SettingsActivity;
 
-import com.sm_arts.jibcon.SidebarMenu.AboutJibconActivity;
-import com.sm_arts.jibcon.SidebarMenu.ConnectedDevicesActivity;
-import com.sm_arts.jibcon.SidebarMenu.MyJibconActivity;
-import com.sm_arts.jibcon.SidebarMenu.UserAuthorityActivity;
-import com.sm_arts.jibcon.SidebarMenu.WidgetActivity;
+import com.sm_arts.jibcon.sidebar.AboutJibconActivity;
+import com.sm_arts.jibcon.sidebar.ConnectedDevicesActivity;
+import com.sm_arts.jibcon.sidebar.MyJibconActivity;
+import com.sm_arts.jibcon.sidebar.UserAuthorityActivity;
+import com.sm_arts.jibcon.sidebar.WidgetActivity;
 import com.sm_arts.jibcon.Usermenu.UserMenuActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity
         mtoSettingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,SettingActivity.class);
+                Intent intent=new Intent(MainActivity.this,SettingsActivity.class);
                 startActivity(intent);
             }
         });

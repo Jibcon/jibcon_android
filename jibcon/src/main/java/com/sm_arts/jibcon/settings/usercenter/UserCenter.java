@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.Settings.usercenter;
+package com.sm_arts.jibcon.settings.usercenter;
 
 import android.content.Intent;
 import android.os.Bundle;

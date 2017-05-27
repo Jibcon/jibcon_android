@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
@@ -11,16 +11,24 @@
         app:navigationIcon ="@mipmap/arrow_back_white"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         >
-        <TextView
-            android:text=" 개인/보안 "
-            style="@style/setting_head"  />
 
+        <TextView
+            style="@style/setting_head"
+            android:text="About Jibcon"
+             />
 
     </android.support.v7.widget.Toolbar>
 
-    <ListView
-        android:id="@+id/Lv_setting_personal_secure"
+    <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/jibcon_logo_en" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
 </LinearLayout>

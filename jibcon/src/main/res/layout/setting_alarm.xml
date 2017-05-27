@@ -7,11 +7,9 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_about_jibcon"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#404040"
+        style="@style/toolbar_common"
+        app:navigationIcon ="@mipmap/arrow_back_white"
         app:popupTheme="@style/AppTheme.PopupOverlay"
-        app:navigationIcon="@mipmap/arrow_back_white"
         >
         <TextView
             style="@style/setting_head"
