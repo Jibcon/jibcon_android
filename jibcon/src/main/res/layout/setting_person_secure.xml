@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_about_jibcon"
+        android:id="@+id/toolbar_setting_personsecure"
         style="@style/toolbar_common"
         app:navigationIcon ="@mipmap/arrow_back_white"
         app:popupTheme="@style/AppTheme.PopupOverlay"
@@ -19,7 +19,7 @@
     </android.support.v7.widget.Toolbar>
 
     <ListView
-        android:id="@+id/Lv_setting_personal_secure"
+        android:id="@+id/Lv_setting_person_secure"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

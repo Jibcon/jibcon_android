@@ -1,8 +1,10 @@
 package com.sm_arts.jibcon.setting.alarm;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,6 +12,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.setting.SettingActivity;
+import com.sm_arts.jibcon.setting.personsecure.PersonSecure;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
 /**
@@ -18,30 +22,11 @@ import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class Alarm extends AppCompatActivity {
 
-    ListView mSettingAlarmLv;
-    static final String[] mSettingAlarmList={"푸쉬 알림","진동 알림","에너지 경고 알림","conshop 알림"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_alarm);
-
-        /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSettingAlarmList);
-
-        mSettingAlarmLv = (ListView)findViewById(R.id.Lv_setting_alarm);
-
-        mSettingAlarmLv.setAdapter(adapter);
-        /* add onItemClickListener to ListView*/
-        mSettingAlarmLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView parent, View v, int position, long id) {
-
-                String settingClickedItem = (String) mSettingAlarmLv.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
-            }
-        }) ;
 
     }
 

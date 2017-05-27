@@ -7,7 +7,7 @@
 
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_about_jibcon"
+        android:id="@+id/toolbar_sidebar_myjibcon"
         style="@style/toolbar_common"
         app:navigationIcon ="@mipmap/arrow_back_white"
         app:popupTheme="@style/AppTheme.PopupOverlay">
