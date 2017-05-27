@@ -92,6 +92,9 @@ public class WifiListAdpater extends BaseAdapter {
             case "2.4Ghz/WPA2-AES":   BitmapDrawable drawable1 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.airconditioner);
                 Bitmap bitmap1 = drawable1.getBitmap();
                 imgView.setImageBitmap(bitmap1);
+                Log.d(TAG, "getView: "+wifilist.get(position).level);
+
+
                 break;
         }
 

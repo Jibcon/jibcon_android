@@ -10,7 +10,7 @@
     android:paddingTop="32dp"
     android:background="#FFF"
     android:orientation="vertical"
-    tools:context="com.sm_arts.jibcon.MakeCon.MakeConStartActivity">
+    tools:context=".app.MakeCon.MakeConStartActivity">
 
     <!--
     <Button
