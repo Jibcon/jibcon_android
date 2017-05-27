@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.app.Settings;
+package com.sm_arts.jibcon.app.setting;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,12 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.app.Settings.alarm.Alarm;
-import com.sm_arts.jibcon.app.Settings.person_secure.Person_Secure;
-import com.sm_arts.jibcon.app.Settings.usercenter.UserCenter;
+import com.sm_arts.jibcon.app.setting.alarm.Alarm;
+import com.sm_arts.jibcon.app.setting.personsecure.PersonSecure;
+import com.sm_arts.jibcon.app.setting.usercenter.UserCenter;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
 
@@ -42,20 +43,29 @@ public class SettingActivity extends AppCompatActivity {
                 String settingClickedItem = (String) mSettingLv.getItemAtPosition(position);
 
                 if(settingClickedItem == "개인/보안"){
-                    Intent intent = new Intent(SettingActivity.this, Person_Secure.class);
+                    Intent intent = new Intent(SettingActivity.this, PersonSecure.class);
                     startActivity(intent);
+                    finish();
                 }
                 else if(settingClickedItem=="알림"){
                     Intent intent = new Intent(SettingActivity.this, Alarm.class);
                     startActivity(intent);
+                    finish();
                 }
                 else {
                     Intent intent = new Intent(SettingActivity.this, UserCenter.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         }) ;
-
+        ImageView mImageView = (ImageView)findViewById(R.id.imageview_setting);
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         /**/
     }

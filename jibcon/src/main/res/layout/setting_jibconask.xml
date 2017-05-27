@@ -5,12 +5,15 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_about_jibcon"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#404040"
+        android:id="@+id/toolbar_setting"
+        style="@style/toolbar_common"
         app:popupTheme="@style/AppTheme.PopupOverlay"
-        >
+        ><ImageView
+        android:id="@+id/imageview_setting_jibconask"
+        android:layout_height="match_parent"
+        android:layout_width="40dp"
+        android:src="@mipmap/arrow_back_white"
+        />
         <TextView
             style="@style/setting_head"
             android:text=" 집콘 문의하기 "
@@ -99,6 +102,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="#36C3FF"
+            android:textColor="@color/white"
             android:text="문의하기" />
     </LinearLayout>
 

@@ -10,21 +10,23 @@
         style="@style/toolbar_common"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         ><ImageView
-        android:id="@+id/imageview_setting"
+        android:id="@+id/imageview_sidebar_connecteddevices"
         android:layout_height="match_parent"
         android:layout_width="40dp"
         android:src="@mipmap/arrow_back_white"
         />
         <TextView
             style="@style/setting_head"
-            android:text=" 설정 " />
-
+            android:text="연결된 디바이스"
+             />
 
     </android.support.v7.widget.Toolbar>
 
     <ListView
-        android:id="@+id/Lv_setting"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="60dp"
+        android:id="@+id/listview_connected_device"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 </LinearLayout>

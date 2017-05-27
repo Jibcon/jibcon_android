@@ -4,27 +4,25 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_setting"
         style="@style/toolbar_common"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         ><ImageView
-        android:id="@+id/imageview_setting"
+        android:id="@+id/imageview_sidebar_userauthority"
         android:layout_height="match_parent"
         android:layout_width="40dp"
         android:src="@mipmap/arrow_back_white"
         />
         <TextView
             style="@style/setting_head"
-            android:text=" 설정 " />
-
+            android:text="사용자 권한"
+             />
 
     </android.support.v7.widget.Toolbar>
 
     <ListView
-        android:id="@+id/Lv_setting"
+        android:id="@+id/Lv_user_authority"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 </LinearLayout>

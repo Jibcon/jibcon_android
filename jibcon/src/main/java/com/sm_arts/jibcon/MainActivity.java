@@ -17,22 +17,21 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.sm_arts.jibcon.Device.DeviceMenuFragment;
 import com.sm_arts.jibcon.app.Cheatkey.TrickMenuActivity;
 import com.sm_arts.jibcon.app.Conshop.MarketMenuActivity;
-import com.sm_arts.jibcon.Device.DeviceMenuFragment;
-import com.sm_arts.jibcon.app.Settings.SettingActivity;
-import com.sm_arts.jibcon.app.SidebarMenu.AboutJibconActivity;
-import com.sm_arts.jibcon.app.SidebarMenu.ConnectedDevicesActivity;
-import com.sm_arts.jibcon.app.SidebarMenu.MyJibconActivity;
-import com.sm_arts.jibcon.app.SidebarMenu.UserAuthorityActivity;
-import com.sm_arts.jibcon.app.SidebarMenu.WidgetActivity;
 import com.sm_arts.jibcon.app.Usermenu.UserMenuActivity;
+import com.sm_arts.jibcon.app.setting.SettingActivity;
+import com.sm_arts.jibcon.app.sidebar.AboutJibconActivity;
+import com.sm_arts.jibcon.app.sidebar.ConnectedDevicesActivity;
+import com.sm_arts.jibcon.app.sidebar.MyJibconActivity;
+import com.sm_arts.jibcon.app.sidebar.UserAuthorityActivity;
+import com.sm_arts.jibcon.app.sidebar.WidgetActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class MainActivity extends AppCompatActivity
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity
     ImageButton btn3;
     ImageButton btn4;
 
-    Button mtoSettingBtn;
+    ImageButton mtoSettingBtn;
 
     //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
     //속도 너무 느림 ㅠ
@@ -61,16 +60,15 @@ public class MainActivity extends AppCompatActivity
             super(fm);
         }
 
+
+
         @Override
         public Fragment getItem(int position){
             Log.w("CJ","movePageListener");
                         switch(position){
                 case 0:
                     Log.d("FragmentCheck","ToDevice");
-                    btn1.setImageResource(R.drawable.ic_home_blue_48dp);
-                    btn2.setImageResource(R.drawable.ic_link_gray_48dp);
-                    btn3.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-                    btn4.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
+
                     return devicemenu;
                 case 1:
                     Log.d("FragmentCheck","ToTrick");
@@ -108,6 +106,7 @@ public class MainActivity extends AppCompatActivity
     /* ↓뷰 페이저(액티비티 슬라이드)↓ */
     View.OnClickListener movePageListener = new View.OnClickListener(){
 
+
         @Override
         public void onClick(View v){
 
@@ -142,7 +141,6 @@ public class MainActivity extends AppCompatActivity
             }
 
             vp.setCurrentItem(tag);
-
         }
     };
 
@@ -154,7 +152,6 @@ public class MainActivity extends AppCompatActivity
         marketmenu = new MarketMenuActivity();
 
         vp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
-
 
          btn1 = (ImageButton) findViewById(R.id.btn1); // 기기 버튼
          btn2 = (ImageButton) findViewById(R.id.btn2); // 트릭 버튼
@@ -235,7 +232,7 @@ public class MainActivity extends AppCompatActivity
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         app = (GlobalApplication)getApplicationContext();
 
-       // toolbar.setNavigationIcon(R.mipmap.hamburder_menu);
+        ActionBarDrawerToggle drawerToggle;
 
         String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};// 사이드바 임시 메뉴 껍데기
 
@@ -254,7 +251,7 @@ public class MainActivity extends AppCompatActivity
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         DrawerLayout.LayoutParams params =(DrawerLayout.LayoutParams)navigationView.getLayoutParams();
 
-        mtoSettingBtn = (Button)findViewById(R.id.Btn_Setting);
+        mtoSettingBtn = (ImageButton)findViewById(R.id.Btn_Setting);
 
         mtoSettingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -268,6 +265,7 @@ public class MainActivity extends AppCompatActivity
         params.width=dm.widthPixels;
         navigationView.setLayoutParams(params);
         //네비게이션 뷰 풀화면
+
 
         View headerView =navigationView.getHeaderView(0);
         TextView userEmail=(TextView)headerView.findViewById(R.id.Txt_Drawer_UserEmail);
@@ -302,8 +300,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-                getMenuInflater().inflate(R.menu.main, menu);
-
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -360,29 +357,5 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void attachBaseContext(Context newBase){
         super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
-    }
-
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        ToastHelper.toast(getApplicationContext(),"검색");
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
-
-    @Override
-    public boolean onMenuOpened(int featureId, Menu menu) {
-//        menu.
-//        menu.getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                ToastHelper.toast(getApplicationContext(),"검색");
-//
-//                return false;
-//            }
-//        });
-        return super.onMenuOpened(featureId, menu);
-
     }
 }
