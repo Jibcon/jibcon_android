@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.settings.alarm;
+package com.sm_arts.jibcon.setting.alarm;
 
 import android.content.Context;
 import android.os.Bundle;

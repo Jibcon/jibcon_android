@@ -19,12 +19,12 @@ public class UserAuthorityActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_about_jibcon);
+        setContentView(R.layout.sidebar_user_authority);
 
         /* add String[] to ListView*/
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSidebarUserAuthorityList);
 
-        mSidebarUserAuthorityLV = (ListView)findViewById(R.id.listview_user_authority);
+        mSidebarUserAuthorityLV = (ListView)findViewById(R.id.Lv_user_authority);
 
         mSidebarUserAuthorityLV.setAdapter(adapter);
         /* add onItemClickListener to ListView*/

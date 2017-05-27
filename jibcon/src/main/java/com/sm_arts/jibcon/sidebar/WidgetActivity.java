@@ -19,7 +19,7 @@ public class WidgetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_about_jibcon);
+        setContentView(R.layout.sidebar_widget);
 
         /* add String[] to ListView*/
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSidebarWidgetList);

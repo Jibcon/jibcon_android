@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.settings;
+package com.sm_arts.jibcon.setting;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,14 +10,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.settings.alarm.Alarm;
-import com.sm_arts.jibcon.settings.personsecure.PersonSecure;
-import com.sm_arts.jibcon.settings.usercenter.UserCenter;
+import com.sm_arts.jibcon.setting.alarm.Alarm;
+import com.sm_arts.jibcon.setting.personsecure.PersonSecure;
+import com.sm_arts.jibcon.setting.usercenter.UserCenter;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
 
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingActivity extends AppCompatActivity {
 
     ListView mSettingLv;
     static final String[] mSettingList={"개인/보안","알림","고객센터"};
@@ -42,15 +42,15 @@ public class SettingsActivity extends AppCompatActivity {
                 String settingClickedItem = (String) mSettingLv.getItemAtPosition(position);
 
                 if(settingClickedItem == "개인/보안"){
-                    Intent intent = new Intent(SettingsActivity.this, PersonSecure.class);
+                    Intent intent = new Intent(SettingActivity.this, PersonSecure.class);
                     startActivity(intent);
                 }
                 else if(settingClickedItem=="알림"){
-                    Intent intent = new Intent(SettingsActivity.this, Alarm.class);
+                    Intent intent = new Intent(SettingActivity.this, Alarm.class);
                     startActivity(intent);
                 }
                 else {
-                    Intent intent = new Intent(SettingsActivity.this, UserCenter.class);
+                    Intent intent = new Intent(SettingActivity.this, UserCenter.class);
                     startActivity(intent);
                 }
             }

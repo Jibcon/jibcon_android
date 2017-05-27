@@ -1,6 +1,7 @@
-package com.sm_arts.jibcon.settings.personsecure;
+package com.sm_arts.jibcon.setting.personsecure;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,7 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.plus.model.people.Person;
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.setting.SettingActivity;
+import com.sm_arts.jibcon.setting.alarm.Alarm;
+import com.sm_arts.jibcon.setting.usercenter.UserCenter;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
 /**
@@ -17,20 +22,19 @@ import com.tsengvn.typekit.TypekitContextWrapper;
  */
 
 public class PersonSecure extends AppCompatActivity {
-
     ListView mSettingPersonSecureLv;
-    static final String[] mSettingPersonSecureList={"프로필 설정 ","암호 설정 ","집콘 설정 ","정보제공 동의서 ","집콘 탈퇴하기 "};
+    static final String[] mSettingList={"프로필 설정","암호 설정","지문 설정","정보제공 동의서", "집콘 탈퇴하기"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_personal_secure);
+        setContentView(R.layout.setting);
 
         /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSettingPersonSecureList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSettingList);
 
-        mSettingPersonSecureLv = (ListView)findViewById(R.id.Lv_setting_personal_secure);
+        mSettingPersonSecureLv = (ListView)findViewById(R.id.Lv_setting);
 
         mSettingPersonSecureLv.setAdapter(adapter);
         /* add onItemClickListener to ListView*/
@@ -43,6 +47,8 @@ public class PersonSecure extends AppCompatActivity {
             }
         }) ;
 
+
+        /**/
     }
 
 

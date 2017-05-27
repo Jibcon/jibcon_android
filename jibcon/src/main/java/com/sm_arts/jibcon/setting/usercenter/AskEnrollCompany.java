@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.settings.usercenter;
+package com.sm_arts.jibcon.setting.usercenter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,11 +9,11 @@ import com.sm_arts.jibcon.R;
  * Created by woojinkim on 2017. 5. 20..
  */
 
-public class JibconAsk extends AppCompatActivity {
+public class AskEnrollCompany extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_jibconask);
+        setContentView(R.layout.setting_askenrollcompany);
     }
 }

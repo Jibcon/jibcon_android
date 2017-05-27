@@ -78,25 +78,25 @@
             android:name=".GetOtherCon.GetOtherConFinishActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".settings.SettingsActivity"
+            android:name=".setting.SettingActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".settings.alarm.Alarm"
+            android:name=".setting.alarm.Alarm"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".settings.personsecure.PersonSecure"
+            android:name=".setting.personsecure.PersonSecure"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".settings.usercenter.AskEnrollCompany"
+            android:name=".setting.usercenter.AskEnrollCompany"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".settings.usercenter.FAQ"
+            android:name=".setting.usercenter.FAQ"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".settings.usercenter.JibconAsk"
+            android:name=".setting.usercenter.JibconAsk"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".settings.usercenter.UserCenter"
+            android:name=".setting.usercenter.UserCenter"
             android:theme="@style/myAppTheme.NoActionBar" />
        <activity android:name=".Login.KakaoSignupActivity"
            android:theme="@style/AppTheme.NoActionBar">
