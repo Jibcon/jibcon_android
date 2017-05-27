@@ -11,6 +11,7 @@
         android:layout_height="56dp"
         android:background="#404040"
         app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:navigationIcon="@mipmap/arrow_back_white"
         >
         <TextView
             style="@style/setting_head"

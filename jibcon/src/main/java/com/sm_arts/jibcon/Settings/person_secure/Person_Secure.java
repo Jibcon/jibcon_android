@@ -43,8 +43,6 @@ public class Person_Secure extends AppCompatActivity {
             }
         }) ;
 
-
-        /**/
     }
 
 

@@ -47,8 +47,6 @@ public class Alarm extends AppCompatActivity {
             }
         }) ;
 
-
-        /**/
     }
 
 
