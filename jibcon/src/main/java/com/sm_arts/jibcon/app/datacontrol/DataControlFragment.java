@@ -1,31 +1,16 @@
 package com.sm_arts.jibcon.app.datacontrol;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.facebook.login.LoginManager;
-import com.kakao.usermgmt.UserManagement;
-import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.sm_arts.jibcon.GlobalApplication;
-import com.sm_arts.jibcon.app.MakeCon.MakeConStartActivity;
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.app.Splash.IntroActivity;
 import com.sm_arts.jibcon.utils.ToastHelper;
 
 /**
@@ -50,7 +35,7 @@ public class DataControlFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.data_control, container, false);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.datacontrol, container, false);
 
 
         // 기능 리스트
