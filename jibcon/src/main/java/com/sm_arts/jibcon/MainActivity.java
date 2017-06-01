@@ -25,7 +25,7 @@ import com.bumptech.glide.Glide;
 import com.sm_arts.jibcon.Device.DeviceMenuFragment;
 import com.sm_arts.jibcon.app.Cheatkey.TrickMenuActivity;
 import com.sm_arts.jibcon.app.Conshop.MarketMenuActivity;
-import com.sm_arts.jibcon.app.Usermenu.UserMenuActivity;
+import com.sm_arts.jibcon.app.datacontrol.DataControlFragment;
 import com.sm_arts.jibcon.app.setting.SettingActivity;
 import com.sm_arts.jibcon.app.sidebar.AboutJibconActivity;
 import com.sm_arts.jibcon.app.sidebar.ConnectedDevicesActivity;
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity
     private  void initLayout()
     {
         devicemenu = new DeviceMenuFragment();
-        usermenu = new UserMenuActivity();
+        usermenu = new DataControlFragment();
         trickmenu = new TrickMenuActivity();
         marketmenu = new MarketMenuActivity();
 
