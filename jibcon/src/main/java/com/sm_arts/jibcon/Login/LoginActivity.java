@@ -3,10 +3,13 @@ package com.sm_arts.jibcon.Login;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.VideoView;
 
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
@@ -47,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     private SessionCallback mkakaoCallback;      //콜백 선언
 
+    private VideoView mVideoView;
 
 
     //--블로그
@@ -166,6 +170,18 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mVideoView = (VideoView)findViewById(R.id.videoView);
+
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mVideoView.start();
+            }
+        });
+
+        String videoPath ="android.resource://"+getPackageName()+"/"+R.raw.justsample;
+        mVideoView.setVideoURI(Uri.parse(videoPath));
+        mVideoView.start();
 
         app=(GlobalApplication)getApplicationContext();
 
