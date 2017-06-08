@@ -1,3 +1,5 @@
+jibcon_key_store.jks
+
 *.iml
 .gradle
 /local.properties

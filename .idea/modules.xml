@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jibcon/jibcon.iml" filepath="$PROJECT_DIR$/jibcon/jibcon.iml" />
       <module fileurl="file://$PROJECT_DIR$/jibcon/jibcon.iml" filepath="$PROJECT_DIR$/jibcon/jibcon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jibcon/jibcon.iml" filepath="$PROJECT_DIR$/jibcon/jibcon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jibcon_android.iml" filepath="$PROJECT_DIR$/jibcon_android.iml" />
       <module fileurl="file://$PROJECT_DIR$/jibcon_android.iml" filepath="$PROJECT_DIR$/jibcon_android.iml" />
       <module fileurl="file://$PROJECT_DIR$/jibcon_android_0529.iml" filepath="$PROJECT_DIR$/jibcon_android_0529.iml" />
       <module fileurl="file://$PROJECT_DIR$/jibcon_android_datacontrol.iml" filepath="$PROJECT_DIR$/jibcon_android_datacontrol.iml" />
