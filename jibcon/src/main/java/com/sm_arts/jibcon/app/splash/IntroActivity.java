@@ -40,16 +40,15 @@ import static com.kakao.util.helper.Utility.getPackageInfo;
 
 public class IntroActivity extends AppCompatActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
-    private Handler handler;
-    GlobalApplication application;
-    ArrayList<DeviceItem> deviceItemArrayList;
-    private CallbackManager callbackManager = null;
+    private Handler mHandler;
+    GlobalApplication mApplication;
+    private CallbackManager mCallbackManager= null;
 
-    Runnable runnable = new Runnable(){
+    Runnable mRunnable = new Runnable(){
         @Override
         public void run(){
 
-            callbackManager = CallbackManager.Factory.create();
+            mCallbackManager= CallbackManager.Factory.create();
             final AccessToken accesstoken = AccessToken.getCurrentAccessToken();
 
             if(accesstoken!=null&&accesstoken.isExpired())
@@ -74,14 +73,14 @@ public class IntroActivity extends AppCompatActivity {
                     c.enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
-                            application.setUserEmail(response.body().getEmail());
-                            application.setUserToken(response.body().getToken());
-                            application.setUsername(response.body().getUserinfo().getFull_name());
+                            mApplication.setUserEmail(response.body().getEmail());
+                            mApplication.setUserToken(response.body().getToken());
+                            mApplication.setUsername(response.body().getUserinfo().getFull_name());
                             Log.d(TAG, "onResponse: "+"Success");
                             //Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
                             Intent intent= new Intent(getApplicationContext(), MainActivity.class);
                             try{
-                            application.setUserProfileImage(new URL(response.body().getUserinfo().getPic_url()));
+                            mApplication.setUserProfileImage(new URL(response.body().getUserinfo().getPic_url()));
                             }catch (Exception e)
                             {
                                 e.printStackTrace();
@@ -143,7 +142,7 @@ public class IntroActivity extends AppCompatActivity {
         //유저 디바이스 정보들
         //받은 상태에서 MainActivity로 이동하기
 
-        handler.postDelayed(runnable, 1500);
+        mHandler.postDelayed(mRunnable, 1500);
         //intro->login failed->tutorial
 
     }
@@ -153,7 +152,7 @@ public class IntroActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Log.d("LoginTest","onActivityResult");
 
-        callbackManager.onActivityResult(requestCode, resultCode, data);
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     //액션바 없애기
@@ -166,13 +165,13 @@ public class IntroActivity extends AppCompatActivity {
     }
 
     public void init(){
-        handler = new Handler();
+        mHandler = new Handler();
     }
 
     @Override
     public void onBackPressed(){
         super.onBackPressed();
-        handler.removeCallbacks(runnable);
+        mHandler.removeCallbacks(mRunnable);
     }
 
 
@@ -201,7 +200,7 @@ public class IntroActivity extends AppCompatActivity {
     {
 
         //Global Application 에 담을 정보 초기 setup;
-        application = (GlobalApplication)getApplicationContext();
+        mApplication = (GlobalApplication)getApplicationContext();
 
     }
 

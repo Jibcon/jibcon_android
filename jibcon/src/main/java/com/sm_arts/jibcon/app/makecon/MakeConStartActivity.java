@@ -22,17 +22,17 @@ import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class MakeConStartActivity extends AppCompatActivity {
 
-    Button makeMyCon;
-    Button getOtherCon;
-    Button skip;
+    Button mMakeMyCon;
+    Button mGetOtherCon;
+    Button mSkip;
 
     private  void initLayout()
     {
-        //skip=(Button)findViewById(R.id.Btn_MakeConStart_0);
-        makeMyCon = (Button)findViewById(R.id.Btn_makeMyCon);
-        getOtherCon =(Button)findViewById(R.id.Btn_getOtherCon);
-        skip=(Button)findViewById(R.id.makeconstart_skip);
-        skip.setOnClickListener(new View.OnClickListener() {
+        //mSkip=(Button)findViewById(R.id.Btn_MakeConStart_0);
+        mMakeMyCon = (Button)findViewById(R.id.Btn_makeMyCon);
+        mGetOtherCon =(Button)findViewById(R.id.Btn_getOtherCon);
+        mSkip=(Button)findViewById(R.id.makeconstart_skip);
+        mSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -41,7 +41,7 @@ public class MakeConStartActivity extends AppCompatActivity {
                 finish();
             }
         });
-        makeMyCon.setOnClickListener(new View.OnClickListener() {
+        mMakeMyCon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -52,7 +52,7 @@ public class MakeConStartActivity extends AppCompatActivity {
 
             }
         });
-        getOtherCon.setOnClickListener(new View.OnClickListener() {
+        mGetOtherCon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //집콘 초대받기

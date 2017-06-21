@@ -34,18 +34,18 @@ import static android.Manifest.permission.CHANGE_WIFI_STATE;
 
 public class AddDevice1Fragment extends Fragment {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
-    LinearLayout linearLayout;
-    Button nextPage;
-    ListView listView;
-    MakeDeviceListner makeDeviceListener;
-    List<ScanResult> arr;
-    ArrayList<String> wifiNames;
-    ArrayList<String> wifiLevels;
-    ArrayList<String> wifiSeceret;
-    WifiManager wifiManager;
-    WifiListAdpater adpater;
+    LinearLayout mLinearLayout;
+    Button mNextPage;
+    ListView mListView;
+    MakeDeviceListner mMakeDeviceListener;
+    List<ScanResult> mArr;
+    ArrayList<String> mWifiNames;
+    ArrayList<String> mWifiLevels;
+    ArrayList<String> mWifiSeceret;
+    WifiManager mWifiManager;
+    WifiListAdpater mAdapter;
 
-    private BroadcastReceiver receiver = new BroadcastReceiver() {
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.d(TAG, "BroadcastReceiver/onReceive: ");
@@ -54,19 +54,19 @@ public class AddDevice1Fragment extends Fragment {
             Log.d(TAG, "onReceive: Action RESULTSAVAILABLE is "+action.equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION) +" Action RSSICHANGED is "+action.equals(WifiManager.RSSI_CHANGED_ACTION));
             if(action.equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION) | action.equals(WifiManager.RSSI_CHANGED_ACTION)) // todo rssi_changed 아직 뭔지도 모름
             {
-                arr=wifiManager.getScanResults();
-                Log.d(TAG, "BroadcastReceiver/onReceive: SCAN_RESULTS_AVAILABLE_ACTION ScanResults is "+arr.toString());
-                wifiManager.startScan();
+                mArr=mWifiManager.getScanResults();
+                Log.d(TAG, "BroadcastReceiver/onReceive: SCAN_RESULTS_AVAILABLE_ACTION ScanResults is "+mArr.toString());
+                mWifiManager.startScan();
                 Log.d(TAG, "BroadcastReceiver/onReceive: restartScan");
 
-                for(int i=0;i<arr.size();i++)
+                for(int i=0;i<mArr.size();i++)
                 {
-//                    wifiNames.add(i,arr.get(i).BSSID);
-//                    wifiLevels.add(i,new Integer(arr.get(i).level).toString());
-//                    wifiSeceret.add(i,arr.get(i).capabilities);
+//                    mWifiNames.add(i,mArr.get(i).BSSID);
+//                    mWifiLevels.add(i,new Integer(mArr.get(i).level).toString());
+//                    mWifiSeceret.add(i,mArr.get(i).capabilities);
 
-                    adpater.setWifilist(arr);
-                    adpater.notifyDataSetChanged();
+                    mAdapter.setWifilist(mArr);
+                    mAdapter.notifyDataSetChanged();
                 }
             }else if(action.equals(WifiManager.NETWORK_STATE_CHANGED_ACTION))
             {
@@ -76,15 +76,15 @@ public class AddDevice1Fragment extends Fragment {
             }
 //            if(intent.getAction().equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION))
 //            {
-//                arr=wifiManager.getScanResults();
-//                Log.d(TAG, "AddDevice1Fragment/onReceive: SCAN_RESULTS_AVAILABLE_ACTION ScanResults is "+arr.toString());
-//                for(int i=0;i<arr.size();i++)
+//                mArr=mWifiManager.getScanResults();
+//                Log.d(TAG, "AddDevice1Fragment/onReceive: SCAN_RESULTS_AVAILABLE_ACTION ScanResults is "+mArr.toString());
+//                for(int i=0;i<mArr.size();i++)
 //                {
-//                    wifiNames.add(i,arr.get(i).BSSID);
-//                    wifiLevels.add(i,new Integer(arr.get(i).level).toString());
-//                    wifiSeceret.add(i,arr.get(i).capabilities);
-//                    adpater.setWifilist(wifiNames);
-//                    adpater.notifyDataSetChanged();
+//                    mWifiNames.add(i,mArr.get(i).BSSID);
+//                    mWifiLevels.add(i,new Integer(mArr.get(i).level).toString());
+//                    mWifiSeceret.add(i,mArr.get(i).capabilities);
+//                    mAdapter.setWifilist(mWifiNames);
+//                    mAdapter.notifyDataSetChanged();
 //                }
 //            }
 
@@ -95,7 +95,7 @@ public class AddDevice1Fragment extends Fragment {
     public void onAttach(Context context) {
         Log.d(TAG, "onAttach: ");
         super.onAttach(context);
-            makeDeviceListener=(MakeDeviceListner) context;
+            mMakeDeviceListener=(MakeDeviceListner) context;
     }
     private void wifiSetting()
     {
@@ -108,48 +108,48 @@ public class AddDevice1Fragment extends Fragment {
         intentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
         intentFilter.addAction(WifiManager.RSSI_CHANGED_ACTION);
         intentFilter.addAction(WifiManager.ACTION_REQUEST_SCAN_ALWAYS_AVAILABLE);
-        getActivity().getApplicationContext().registerReceiver(receiver,intentFilter);
-        wifiManager=(WifiManager)getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        if(!wifiManager.isWifiEnabled())
+        getActivity().getApplicationContext().registerReceiver(mReceiver,intentFilter);
+        mWifiManager=(WifiManager)getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        if(!mWifiManager.isWifiEnabled())
         {
             Log.d(TAG, "wifiSetting: Wifi Turn on");
-            wifiManager.setWifiEnabled(true);
+            mWifiManager.setWifiEnabled(true);
             Log.d(TAG, "wifiSetting: Wifi Turned On");
 //            Toast.makeText(this.getActivity(),"Wifi Turned On",Toast.LENGTH_SHORT).show();
         }
         Log.d(TAG, "wifiSetting: Wifi Scan start");
 //        Toast.makeText(this.getActivity(),"Wifi Scan started",Toast.LENGTH_SHORT).show();
-        wifiManager.startScan();
+        mWifiManager.startScan();
     }
 
     private void initlayout()
     {
         Log.d(TAG, "initlayout: ");
-        arr=new ArrayList<>();
-        wifiNames=new ArrayList<>();
-        wifiLevels=new ArrayList<>();
-        wifiSeceret=new ArrayList<>();
-        adpater= new WifiListAdpater(getContext());
-        adpater.setWifilist(new ArrayList<ScanResult>());
+        mArr=new ArrayList<>();
+        mWifiNames=new ArrayList<>();
+        mWifiLevels=new ArrayList<>();
+        mWifiSeceret=new ArrayList<>();
+        mAdapter= new WifiListAdpater(getContext());
+        mAdapter.setWifilist(new ArrayList<ScanResult>());
 
 
-        listView= (ListView)linearLayout.findViewById(R.id.ListView_adddevice1);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mListView= (ListView)mLinearLayout.findViewById(R.id.ListView_adddevice1);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemClick: position "+position);
-                makeDeviceListener.setWifi(arr.get(position));
+                mMakeDeviceListener.setWifi(mArr.get(position));
             }
         });
-        listView.setAdapter(adpater);
+        mListView.setAdapter(mAdapter);
 
-        nextPage = (Button)linearLayout.findViewById(R.id.Btn_addDevice1);
-        nextPage.setOnClickListener(new View.OnClickListener() {
+        mNextPage = (Button)mLinearLayout.findViewById(R.id.Btn_addDevice1);
+        mNextPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "nextPage/onClick: unregisterReceiver WIFI");
-                getActivity().getApplicationContext().unregisterReceiver(receiver);
-                makeDeviceListener.NextPage(1);
+                Log.d(TAG, "mNextPage/onClick: unregisterReceiver WIFI");
+                getActivity().getApplicationContext().unregisterReceiver(mReceiver);
+                mMakeDeviceListener.NextPage(1);
             }
         });
     }
@@ -157,11 +157,11 @@ public class AddDevice1Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: ");
-        linearLayout = (LinearLayout)inflater.inflate(R.layout.add_device1,container,false);
+        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.add_device1,container,false);
 
         wifiSetting();
         initlayout();
-        return linearLayout;
+        return mLinearLayout;
     }
 
     @Override

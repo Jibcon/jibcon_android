@@ -17,14 +17,14 @@ import com.sm_arts.jibcon.R;
 
 public class FlotingButtonActiveActivity extends Activity {
     boolean expanded = false;
-    private View fabItem1;
-    private TextView fabItem2;
-    private View fabItem3;
-    ImageButton fab;
+    private View mFabItem1;
+    private TextView mFabItem2;
+    private View mFabItem3;
+    ImageButton mFab;
 
-    private float offset1;
-    private float offset2;
-    private float offset3;
+    private float mOffset1;
+    private float mOffset2;
+    private float mOffset3;
 
 
 
@@ -44,26 +44,26 @@ public class FlotingButtonActiveActivity extends Activity {
             }
         });
 
-        fabItem1=findViewById(R.id.fab_action_1_cheatkey_active);
-        fabItem1.setVisibility(View.INVISIBLE);
-        fabItem2=(TextView)findViewById(R.id.Txt_floating_cheatkey_active);
+        mFabItem1=findViewById(R.id.fab_action_1_cheatkey_active);
+        mFabItem1.setVisibility(View.INVISIBLE);
+        mFabItem2=(TextView)findViewById(R.id.Txt_floating_cheatkey_active);
 
 
-        fab=(ImageButton)findViewById(R.id.fab_cheatkey_active);
+        mFab=(ImageButton)findViewById(R.id.fab_cheatkey_active);
 
         expandFab();
-        fabItem1.setVisibility(View.VISIBLE);
-        fabItem2.setVisibility(View.VISIBLE);
+        mFabItem1.setVisibility(View.VISIBLE);
+        mFabItem2.setVisibility(View.VISIBLE);
 
 
 
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 collapseFab();
-                fabItem1.setVisibility(View.INVISIBLE);
-                fabItem2.setVisibility(View.INVISIBLE);
+                mFabItem1.setVisibility(View.INVISIBLE);
+                mFabItem2.setVisibility(View.INVISIBLE);
 
                 finish();
 
@@ -75,10 +75,10 @@ public class FlotingButtonActiveActivity extends Activity {
             @Override
             public boolean onPreDraw() {
                 fabcontainer.getViewTreeObserver().removeOnPreDrawListener(this);
-                offset1 = fab.getY() - fabItem1.getY();
-                fabItem1.setTranslationY(offset1);
-                offset2 = fab.getY() - fabItem2.getY();
-                fabItem2.setTranslationY(offset2);
+                mOffset1 = mFab.getY() - mFabItem1.getY();
+                mFabItem1.setTranslationY(mOffset1);
+                mOffset2 = mFab.getY() - mFabItem2.getY();
+                mFabItem2.setTranslationY(mOffset2);
                 return true;
             }
         });
@@ -87,11 +87,11 @@ public class FlotingButtonActiveActivity extends Activity {
 
 
     private void collapseFab() {
-        // fab.setImageResource(R.drawable.animated_minus);
+        // mFab.setImageResource(R.drawable.animated_minus);
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(createCollapseAnimator(fabItem1, offset1),
-                createCollapseAnimator(fabItem2, offset2),
-                createCollapseAnimator(fabItem3, offset3));
+        animatorSet.playTogether(createCollapseAnimator(mFabItem1, mOffset1),
+                createCollapseAnimator(mFabItem2, mOffset2),
+                createCollapseAnimator(mFabItem3, mOffset3));
         animatorSet.start();
         animateFab();
     }
@@ -99,9 +99,9 @@ public class FlotingButtonActiveActivity extends Activity {
     private void expandFab() {
         //.setImageResource(R.drawable.animated_plus);
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(createExpandAnimator(fabItem1, offset1),
-                createExpandAnimator(fabItem2, offset2),
-                createExpandAnimator(fabItem3, offset3));
+        animatorSet.playTogether(createExpandAnimator(mFabItem1, mOffset1),
+                createExpandAnimator(mFabItem2, mOffset2),
+                createExpandAnimator(mFabItem3, mOffset3));
         animatorSet.start();
         animateFab();
     }
@@ -119,7 +119,7 @@ public class FlotingButtonActiveActivity extends Activity {
     }
 
     private void animateFab() {
-        Drawable drawable = fab.getDrawable();
+        Drawable drawable = mFab.getDrawable();
         if (drawable instanceof Animatable) {
             ((Animatable) drawable).start();
         }

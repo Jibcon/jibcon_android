@@ -19,36 +19,36 @@ import com.sm_arts.jibcon.R;
  */
 
 public class MakeCon1Fragment extends android.support.v4.app.Fragment {
-   HouseInfoListener houseInfoListener;
-    String housename;
-    String username;
-    String houseintro;
-    Button next;
-    ImageButton before;
-    LinearLayout linearLayout;
-    EditText EditHousename;
-    EditText EditUername;
-    EditText EditHouseintro;
-    Activity activity;
-    int fragmentNum;
+    HouseInfoListener mHouseInfoListener;
+    String mHousename;
+    String mUsername;
+    String mHouseintro;
+    Button mNext;
+    ImageButton mBefore;
+    LinearLayout mLinearLayout;
+    EditText mEditHousename;
+    EditText mEditUsername;
+    EditText mEditHouseintro;
+    Activity mActivity;
+    int mFragmentNum;
 
 
 
     private void initLayout()
     {
-        next = (Button)linearLayout.findViewById(R.id.Btn_makeCon1_1);
-        EditHousename = (EditText)linearLayout.findViewById(R.id.EditTxt_makecon1_1);
-        EditUername = (EditText)linearLayout.findViewById(R.id.EditTxt_makecon1_2);
-        EditHouseintro=(EditText)linearLayout.findViewById(R.id.EditTxt_makecon1_3);
-        fragmentNum = 0;
-        before=(ImageButton)linearLayout.findViewById(R.id.Btn_MakeCon1_0);
+        mNext = (Button)mLinearLayout.findViewById(R.id.Btn_makeCon1_1);
+        mEditHousename = (EditText)mLinearLayout.findViewById(R.id.EditTxt_makecon1_1);
+        mEditUsername = (EditText)mLinearLayout.findViewById(R.id.EditTxt_makecon1_2);
+        mEditHouseintro=(EditText)mLinearLayout.findViewById(R.id.EditTxt_makecon1_3);
+        mFragmentNum = 0;
+        mBefore=(ImageButton)mLinearLayout.findViewById(R.id.Btn_MakeCon1_0);
 
     }
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Activity mActivity) {
+        super.onAttach(mActivity);
         try {
-            houseInfoListener = (HouseInfoListener) activity;
+            mHouseInfoListener = (HouseInfoListener) mActivity;
         }
         catch (Exception e)
         {
@@ -61,38 +61,38 @@ public class MakeCon1Fragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        linearLayout = (LinearLayout)inflater.inflate(R.layout.makecon1,container,false);
+        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.makecon1,container,false);
         initLayout();
 
-        housename=EditHousename.getText().toString();
-        houseintro=EditHouseintro.getText().toString();
-        username=EditUername.getText().toString();
+        mHousename=mEditHousename.getText().toString();
+        mHouseintro=mEditHouseintro.getText().toString();
+        mUsername=mEditUsername.getText().toString();
 
 
-        before.setOnClickListener(new View.OnClickListener() {
+        mBefore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                houseInfoListener.getFragmentNum(-1);
+                mHouseInfoListener.getFragmentNum(-1);
             }
         });
-        next.setOnClickListener(new View.OnClickListener() {
+        mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                housename=EditHousename.getText().toString();
-                houseintro=EditHouseintro.getText().toString();
-                username=EditUername.getText().toString();
+                mHousename=mEditHousename.getText().toString();
+                mHouseintro=mEditHouseintro.getText().toString();
+                mUsername=mEditUsername.getText().toString();
 
-                //  ((houseInfoListener)activity).getHouseName(housename);
-                houseInfoListener.getHouseIntro(houseintro);
-                houseInfoListener.getHouseName(housename);
-                houseInfoListener.getUserName(username);
-                houseInfoListener.getFragmentNum(1);
+                //  ((mHouseInfoListener)mActivity).getHouseName(mHousename);
+                mHouseInfoListener.getHouseIntro(mHouseintro);
+                mHouseInfoListener.getHouseName(mHousename);
+                mHouseInfoListener.getUserName(mUsername);
+                mHouseInfoListener.getFragmentNum(1);
 
 //                Intent intent = new Intent(getActivity().getApplicationContext(), MakeCon2Fragment.class);
 //                startActivity(intent);
             }
         });
-        return linearLayout;
+        return mLinearLayout;
     }
 }

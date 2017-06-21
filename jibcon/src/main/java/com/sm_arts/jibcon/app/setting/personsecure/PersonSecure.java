@@ -21,7 +21,7 @@ import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class PersonSecure extends AppCompatActivity {
     ListView mSettingPersonSecureLv;
-    static final String[] mSettingPersonSecureList={"프로필 설정","암호 설정","지문 설정","정보제공 동의서", "집콘 탈퇴하기"};
+    static final String[] sSettingPersonSecureList={"프로필 설정","암호 설정","지문 설정","정보제공 동의서", "집콘 탈퇴하기"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class PersonSecure extends AppCompatActivity {
         setContentView(R.layout.setting_person_secure);
 
         /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSettingPersonSecureList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSettingPersonSecureList);
 
         mSettingPersonSecureLv = (ListView)findViewById(R.id.Lv_setting_person_secure);
 

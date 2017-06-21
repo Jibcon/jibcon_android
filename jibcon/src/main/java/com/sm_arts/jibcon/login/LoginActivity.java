@@ -48,18 +48,18 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
-    private SessionCallback mkakaoCallback;      //콜백 선언
+    private SessionCallback mKakaoCallback;      //콜백 선언
 
     private VideoView mVideoView;
 
 
     //--블로그
-    private CallbackManager callbackManager = null;
-    private AccessTokenTracker accessTokenTracker = null;
-    GlobalApplication app;
+    private CallbackManager mCallbackManager = null;
+    private AccessTokenTracker mAccessTokenTracker = null;
+    GlobalApplication mApp;
 
     //facebook
-    private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
+    private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
         String userEmail;
         String name;
 
@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         userid=object.optString("id");
                         try{
-                            app.setUserProfileImage(new URL("https://graph.facebook.com/"+userid+"/picture"));
+                            mApp.setUserProfileImage(new URL("https://graph.facebook.com/"+userid+"/picture"));
 
                         }catch (Exception e)
                         {
@@ -96,14 +96,14 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d("profilecheck","useremail :"+userEmail);
                         Log.d("profilecheck","name : "+name);
 
-                        app.setUsername(object.optString("name"));
+                        mApp.setUsername(object.optString("name"));
 
                         SharedPreferences pref = getSharedPreferences("pref",MODE_PRIVATE);
                         SharedPreferences.Editor editor = pref.edit();
                         editor.putString("id",userid);
                         editor.putString("name",object.optString("name"));
-                        Log.d("profieImage",app.getUserProfileImage().toString());
-                        editor.putString("profileImage",app.getUserProfileImage().toString());
+                        Log.d("profieImage",mApp.getUserProfileImage().toString());
+                        editor.putString("profileImage",mApp.getUserProfileImage().toString());
                         editor.commit();
                     }
                 }
@@ -125,8 +125,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-                        app.setUserEmail(response.body().getEmail());
-                        app.setUserToken(response.body().getToken());
+                        mApp.setUserEmail(response.body().getEmail());
+                        mApp.setUserToken(response.body().getToken());
                         Log.d(TAG, "onResponse: "+"success");
                         //Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
                         Intent intent= new Intent(getApplicationContext(), MakeConStartActivity.class);
@@ -183,13 +183,13 @@ public class LoginActivity extends AppCompatActivity {
         mVideoView.setVideoURI(Uri.parse(videoPath));
         mVideoView.start();
 
-        app=(GlobalApplication)getApplicationContext();
+        mApp=(GlobalApplication)getApplicationContext();
 
         FacebookSdk.sdkInitialize(getApplicationContext());
 
-        callbackManager = CallbackManager.Factory.create();
+        mCallbackManager = CallbackManager.Factory.create();
 
-        accessTokenTracker = new AccessTokenTracker() {
+        mAccessTokenTracker = new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
 // App code
@@ -207,7 +207,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         //loginButton.setFragment(this);
-        loginButton.registerCallback(callbackManager, callback);
+        loginButton.registerCallback(mCallbackManager, mCallback);
 
 
 
@@ -225,8 +225,8 @@ public class LoginActivity extends AppCompatActivity {
             redirectSignupActivity();
         }
 
-        mkakaoCallback = new SessionCallback();                  // 이 두개의 함수 중요함
-        Session.getCurrentSession().addCallback(mkakaoCallback);
+        mKakaoCallback = new SessionCallback();                  // 이 두개의 함수 중요함
+        Session.getCurrentSession().addCallback(mKakaoCallback);
 
     }
 
@@ -241,7 +241,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onSuccessGetSampleUserAsynchronisely(User sampleUser) {
                         Log.d(TAG, "onSuccessGetSampleUserAsynchronisely: ");
-                        app.setUser(sampleUser);
+                        mApp.setUser(sampleUser);
                         DeviceServiceImpl.getInstance().prepareDeviceItems();
 
                         gotoMakeConStartActivity();
@@ -261,12 +261,12 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();
-        accessTokenTracker.stopTracking();
+        mAccessTokenTracker.stopTracking();
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
 
     }
 
@@ -313,7 +313,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Session.getCurrentSession().removeCallback(mkakaoCallback);
+        Session.getCurrentSession().removeCallback(mKakaoCallback);
     }
 
 

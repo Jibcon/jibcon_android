@@ -22,57 +22,57 @@ import java.util.ArrayList;
  */
 
 public class AddDevice0Fragment extends Fragment {
-    LinearLayout linearLayout;
+    LinearLayout mLinearLayout;
 
-    Spinner spinner1;
-    Spinner spinner2;
-    Button nextButton;
-    ArrayList<String> arr1;
-    ArrayList<String> arr2;
-    ArrayAdapter<String> adapter1;
-    ArrayAdapter<String> adapter2;
-    MakeDeviceListner makeDeviceListener;
-    String selectedCompany;
-    String selectedDevicename;
+    Spinner mSpinner1;
+    Spinner mSpinner2;
+    Button mNextButton;
+    ArrayList<String> mArr1;
+    ArrayList<String> mArr2;
+    ArrayAdapter<String> mAdapter1;
+    ArrayAdapter<String> mAdapter2;
+    MakeDeviceListner mMakeDeviceListener;
+    String mSelectedCompany;
+    String mSelectedDevicename;
 
     private  void initLayout()
     {
         //제조사 제품 서버로부터 받아야함
-        arr1=new ArrayList<>();
-        arr1.add("삼성");
-        arr1.add("LG");
-        arr1.add("SK");
+        mArr1=new ArrayList<>();
+        mArr1.add("삼성");
+        mArr1.add("LG");
+        mArr1.add("SK");
 
-        arr2=new ArrayList<>();
-        arr2.add("에어컨");
-        arr2.add("전구");
-        arr2.add("선풍기");
-        arr2.add("냉장고");
+        mArr2=new ArrayList<>();
+        mArr2.add("에어컨");
+        mArr2.add("전구");
+        mArr2.add("선풍기");
+        mArr2.add("냉장고");
 
 
-        spinner1=(Spinner)linearLayout.findViewById(R.id.Spinner_adddevice0_1);
-        spinner2=(Spinner)linearLayout.findViewById(R.id.Spinner_adddevice0_2);
+        mSpinner1=(Spinner)mLinearLayout.findViewById(R.id.Spinner_adddevice0_1);
+        mSpinner2=(Spinner)mLinearLayout.findViewById(R.id.Spinner_adddevice0_2);
 
-        adapter1 = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arr1);
-        adapter2= new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arr2);
+        mAdapter1 = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,mArr1);
+        mAdapter2= new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,mArr2);
 
-        spinner1.setAdapter(adapter1);
-        spinner2.setAdapter(adapter2);
+        mSpinner1.setAdapter(mAdapter1);
+        mSpinner2.setAdapter(mAdapter2);
 
-        nextButton=(Button)linearLayout.findViewById(R.id.Btn_addDevice0);
+        mNextButton=(Button)mLinearLayout.findViewById(R.id.Btn_addDevice0);
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeDeviceListener.NextPage(1);
+                mMakeDeviceListener.NextPage(1);
             }
         });
 
-        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedCompany = arr1.get(position);
-                makeDeviceListener.setDeviceCom(selectedCompany);
+                mSelectedCompany = mArr1.get(position);
+                mMakeDeviceListener.setDeviceCom(mSelectedCompany);
             }
 
             @Override
@@ -81,11 +81,11 @@ public class AddDevice0Fragment extends Fragment {
             }
         });
 
-        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedDevicename=arr2.get(position);
-                makeDeviceListener.setDeviceName(selectedDevicename);
+                mSelectedDevicename=mArr2.get(position);
+                mMakeDeviceListener.setDeviceName(mSelectedDevicename);
 
             }
 
@@ -100,7 +100,7 @@ public class AddDevice0Fragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        makeDeviceListener=(MakeDeviceListner) context;
+        mMakeDeviceListener=(MakeDeviceListner) context;
     }
 
 
@@ -108,13 +108,13 @@ public class AddDevice0Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        linearLayout = (LinearLayout)inflater.inflate(R.layout.add_device0,container,false);
+        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.add_device0,container,false);
 
         initLayout();
-        makeDeviceListener.setDeviceCom(selectedCompany);
-        makeDeviceListener.setDeviceName(selectedDevicename);
+        mMakeDeviceListener.setDeviceCom(mSelectedCompany);
+        mMakeDeviceListener.setDeviceName(mSelectedDevicename);
 
 
-        return linearLayout;
+        return mLinearLayout;
     }
 }

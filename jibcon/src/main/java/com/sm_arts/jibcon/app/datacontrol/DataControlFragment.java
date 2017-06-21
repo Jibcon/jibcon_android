@@ -20,7 +20,7 @@ import com.sm_arts.jibcon.utils.ToastHelper;
 public class DataControlFragment extends android.support.v4.app.Fragment {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
-    GlobalApplication app;
+    GlobalApplication mApp;
     ListView mDataControlListView;
     static final String[] mDataControlList = {"기기별 전기 사용량","집콘 사용 기록","기간별 전기 사용량","실내 온습도 및 미세먼지 측정"};
 
@@ -29,7 +29,7 @@ public class DataControlFragment extends android.support.v4.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        app=(GlobalApplication) getActivity().getApplicationContext();
+        mApp=(GlobalApplication) getActivity().getApplicationContext();
     }
 
     @Override

@@ -24,56 +24,56 @@ import retrofit2.Response;
 
 public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceListner {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
-    String DeviceCom;
-    String DeviceName;
+    String mDeviceCom;
+    String mDeviceName;
     //
-    ScanResult Wifi;
-    int pageNum;
-    Fragment addDevice0;
-    Fragment addDevice1;
-    Fragment addDevice2;
-    GlobalApplication app;
+    ScanResult mWifi;
+    int mPageNum;
+    Fragment mAddDevice0;
+    Fragment mAddDevice1;
+    Fragment mAddDevice2;
+    GlobalApplication mApp;
 //    ArrayList<DeviceItem> arr;
-    DeviceItem deviceItem;
+    DeviceItem mDeviceItem;
     public void sendDevice()
     {
-//       arr = app.getDeviceItemArrayList() ;
+//       arr = mApp.getDeviceItemArrayList() ;
         //0 : 에어컨
         //1 : 전구
         //2 : 선풍기
         //3 : 냉장고
-        String deviceType;//디바이스 메뉴의 int 값. int 값으로 판별
-        String deviceName;//디바이스 메뉴 아이템 이름 ex) 전등 알람 등등..
-        String deviceWifiAddr;
-        String id;
-        String deviceCom;
-        boolean deviceOnOffState;
-        String user;
-        if(DeviceName.equals("에어컨"))
+//        String deviceType;//디바이스 메뉴의 int 값. int 값으로 판별
+//        String deviceName;//디바이스 메뉴 아이템 이름 ex) 전등 알람 등등..
+//        String deviceWifiAddr;
+//        String id;
+//        String deviceCom;
+//        boolean deviceOnOffState;
+//        String user;
+        if(mDeviceName.equals("에어컨"))
         {
-            deviceItem= new DeviceItem(0,DeviceName);
-            deviceItem.setDeviceWifiAddr(getWifiAddr());
+            mDeviceItem= new DeviceItem(0,mDeviceName);
+            mDeviceItem.setDeviceWifiAddr(getWifiAddr());
          
         }
-        else if(DeviceName.equals("전구")) {
-             deviceItem= new DeviceItem(1,DeviceName);
+        else if(mDeviceName.equals("전구")) {
+             mDeviceItem= new DeviceItem(1,mDeviceName);
 
-            deviceItem.setDeviceWifiAddr(getWifiAddr());
+            mDeviceItem.setDeviceWifiAddr(getWifiAddr());
         }
-        else if(DeviceName.equals("선풍기")) {
-            deviceItem= new DeviceItem(2,DeviceName);
+        else if(mDeviceName.equals("선풍기")) {
+            mDeviceItem= new DeviceItem(2,mDeviceName);
 
-            deviceItem.setDeviceWifiAddr(getWifiAddr());
+            mDeviceItem.setDeviceWifiAddr(getWifiAddr());
         }
-        else if(DeviceName.equals("냉장고")) {
-            deviceItem= new DeviceItem(3,DeviceName);
-            deviceItem.setDeviceWifiAddr(getWifiAddr());
+        else if(mDeviceName.equals("냉장고")) {
+            mDeviceItem= new DeviceItem(3,mDeviceName);
+            mDeviceItem.setDeviceWifiAddr(getWifiAddr());
         }
 
         ApiService apiService = new Repo().getService();
-        Log.d(TAG, "sendDevice: Call.enqueue DeviceItem "+deviceItem.toString());
+        Log.d(TAG, "sendDevice: Call.enqueue DeviceItem "+mDeviceItem.toString());
 
-        Call<DeviceItem> c = apiService.addDevice("Token " +app.getUserToken(),deviceItem);
+        Call<DeviceItem> c = apiService.addDevice("Token " +mApp.getUserToken(),mDeviceItem);
         Log.d("TAG", "sendDevice: "+c.toString());
 
         try{
@@ -83,10 +83,10 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
                     DeviceServiceImpl.getInstance().notifyDeviceItemsChanged();
 //                    DeviceServiceImpl.getInstance().reloadDeviceItems();
 
-//                    arr= app.getDeviceItemArrayList();
+//                    arr= mApp.getDeviceItemArrayList();
 
 //                    arr.add(response.body());
-//                    app.setDeviceItemArrayList(arr);
+//                    mApp.setDeviceItemArrayList(arr);
 
                 }
 
@@ -108,29 +108,29 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
     }
 
     private String getWifiAddr() { // todo implements
-        if (Wifi == null) {
+        if (mWifi == null) {
             return "127.0.0.1";
         } else {
-            return Wifi.BSSID;
+            return mWifi.BSSID;
         }
     }
 
     @Override
     public void NextPage(int num) {
-        this.pageNum+=num;
-        if(this.pageNum<0)
-            this.pageNum=0;
-        switch (this.pageNum%3)
+        this.mPageNum+=num;
+        if(this.mPageNum<0)
+            this.mPageNum=0;
+        switch (this.mPageNum%3)
         {
             case 0:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,addDevice0).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice0).commit();
                 break;
             case 1:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,addDevice1).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice1).commit();
 
                 break;
             case 2:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,addDevice2).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice2).commit();
 
                 sendDevice();
 
@@ -157,29 +157,29 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
 
     @Override
     public void setDeviceCom(String deviceCom) {
-        this.DeviceCom=deviceCom;
+        this.mDeviceCom=deviceCom;
     }
 
     @Override
     public void setDeviceName(String deviceName) {
-        this.DeviceName=deviceName;
+        this.mDeviceName=deviceName;
     }
 
     @Override
     public void setWifi(ScanResult wifi) {
-        this.Wifi=wifi;
+        this.mWifi=wifi;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_device);
-        addDevice0=new AddDevice0Fragment();
-        addDevice1=new AddDevice1Fragment();
-        addDevice2=new AddDevice2Fragment();
-        app=(GlobalApplication)getApplicationContext();
+        mAddDevice0=new AddDevice0Fragment();
+        mAddDevice1=new AddDevice1Fragment();
+        mAddDevice2=new AddDevice2Fragment();
+        mApp=(GlobalApplication)getApplicationContext();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,addDevice0).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice0).commit();
 
     }
 

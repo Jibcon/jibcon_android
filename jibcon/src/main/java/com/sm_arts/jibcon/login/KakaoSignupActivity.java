@@ -28,12 +28,12 @@ public class KakaoSignupActivity extends Activity {
      * @param savedInstanceState 기존 session 정보가 저장된 객체
      */
 
-    GlobalApplication app;
+    GlobalApplication mApp;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("testing","KaKaoSignUpActivity_onCreate()");
-        app=(GlobalApplication)getApplicationContext(); 
+        mApp=(GlobalApplication)getApplicationContext();
         requestMe();
     }
 
@@ -91,7 +91,7 @@ public class KakaoSignupActivity extends Activity {
         UserServiceImpl.getInstance().getSampleUserAsynchronisely(new UserService.onSuccessListener() {
             @Override
             public void onSuccessGetSampleUserAsynchronisely(User sampleUser) {
-                app.setUser(sampleUser);
+                mApp.setUser(sampleUser);
                 DeviceServiceImpl.getInstance().prepareDeviceItems();
 
 

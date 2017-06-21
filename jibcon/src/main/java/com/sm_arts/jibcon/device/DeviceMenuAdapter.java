@@ -20,35 +20,35 @@ import java.util.ArrayList;
 
 public class DeviceMenuAdapter extends BaseAdapter {
 
-    LayoutInflater inflater;
-    GlobalApplication app;
-    Context context;
-    ArrayList<DeviceItem> deviceItems;
+    LayoutInflater mInflater;
+    GlobalApplication mApp;
+    Context mContext;
+    ArrayList<DeviceItem> mDeviceItems;
 
     public ArrayList<DeviceItem> getDeviceItems() {
-        return deviceItems;
+        return mDeviceItems;
     }
 
     public void setDeviceItems(ArrayList<DeviceItem> deviceItems) {
-        this.deviceItems = deviceItems;
+        this.mDeviceItems = deviceItems;
         notifyDataSetChanged();
     }
 
-    public DeviceMenuAdapter(Context mContext) {
-        this.context=mContext;
-        inflater=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        app=(GlobalApplication)mContext.getApplicationContext();
+    public DeviceMenuAdapter(Context context) {
+        this.mContext=context;
+        mInflater=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mApp=(GlobalApplication)mContext.getApplicationContext();
     }
 
     @Override
     public int getCount() {
-        return deviceItems.size();
+        return mDeviceItems.size();
     }
 
     @Override
     public Object getItem(int position) {
 
-        return deviceItems.get(position);
+        return mDeviceItems.get(position);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class DeviceMenuAdapter extends BaseAdapter {
     public View getView(int position, View convertView, final ViewGroup parent) {
         if(convertView==null)
             Log.d("DeviceMenu","DeviceMenuNull");
-        convertView= inflater.inflate(R.layout.device_item, parent, false);
+        convertView= mInflater.inflate(R.layout.device_item, parent, false);
         ImageView threedot = (ImageView)convertView.findViewById(R.id.ImgView_deviceItem_threedot);
         threedot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,8 +72,8 @@ public class DeviceMenuAdapter extends BaseAdapter {
         //threedot.bringToFront();
 
         ImageView imageView = (ImageView)convertView.findViewById(R.id.ImgViewDiviceItem);
-        //imageView.setImageBitmap(app.getDeviceItemArrayList().get(position).getImage());
-        switch ( deviceItems.get(position).getDeviceType())
+        //imageView.setImageBitmap(mApp.getDeviceItemArrayList().get(position).getImage());
+        switch ( mDeviceItems.get(position).getDeviceType())
         {
             //0 : 에어컨
             //1 : 전구

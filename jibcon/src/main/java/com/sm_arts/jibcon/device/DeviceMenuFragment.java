@@ -28,21 +28,12 @@ import java.util.List;
 public class DeviceMenuFragment extends Fragment {
     private final String TAG = "jibcon/"+getClass().getSimpleName();
 
-    boolean expanded = false;
-    private View fabItem1;
-    private TextView fabItem2;
-    private View fabItem3;
-    ImageButton fab;
-
-    private float offset1;
-    private float offset2;
-    private float offset3;
-    SwipeRefreshLayout swiperefreshlayout;
+    SwipeRefreshLayout mSwiperefreshlayout;
 
     //Button button;
-    static MyGridView DeviceGridview;
-    DeviceMenuAdapter adapter;
-    GlobalApplication app;
+    static MyGridView sDeviceGridview;
+    DeviceMenuAdapter mAdapter;
+    GlobalApplication mApp;
 
 
     private View initLayout(LayoutInflater inflater, ViewGroup container)
@@ -59,45 +50,45 @@ public class DeviceMenuFragment extends Fragment {
                 //getActivity().finish();
             }
         });
-        swiperefreshlayout=(SwipeRefreshLayout)root.findViewById(R.id.swipelayout_menu_deivce);
+        mSwiperefreshlayout=(SwipeRefreshLayout)root.findViewById(R.id.swipelayout_menu_deivce);
 
-        swiperefreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        mSwiperefreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 DeviceServiceImpl.getInstance().reloadDeviceItems(new DeviceService.onSuccessListener() {
                     @Override
                     public void onSuccessGetDeviceItems(List<DeviceItem> deviceItems) {
-                        adapter.setDeviceItems((ArrayList)deviceItems);
-                        adapter.notifyDataSetChanged();
-                        swiperefreshlayout.setRefreshing(false);
+                        mAdapter.setDeviceItems((ArrayList)deviceItems);
+                        mAdapter.notifyDataSetChanged();
+                        mSwiperefreshlayout.setRefreshing(false);
                     }
                 });
             }
         });
 
-        DeviceGridview = (MyGridView)root.findViewById(R.id.ScrollViewDevice);
+        sDeviceGridview = (MyGridView)root.findViewById(R.id.ScrollViewDevice);
 
-        DeviceGridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        sDeviceGridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(TAG, "onItemClick: "+adapter.getDeviceItems().get(position).getDeviceName());
-//                Toast.makeText(getActivity().getApplicationContext(),adapter.getDeviceItems().get(position).getDeviceName(),Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onItemClick: "+mAdapter.getDeviceItems().get(position).getDeviceName());
+//                Toast.makeText(getActivity().getApplicationContext(),mAdapter.getDeviceItems().get(position).getDeviceName(),Toast.LENGTH_SHORT).show();
                 //
             }
         });
         // TODO: 2017-04-06 그리드뷰에 리스너 달기
 
-        adapter = new DeviceMenuAdapter(getActivity().getApplicationContext());
-        adapter.setDeviceItems(new ArrayList<DeviceItem>());
-        DeviceGridview.setAdapter(adapter);
+        mAdapter = new DeviceMenuAdapter(getActivity().getApplicationContext());
+        mAdapter.setDeviceItems(new ArrayList<DeviceItem>());
+        sDeviceGridview.setAdapter(mAdapter);
 
         Log.d(TAG, "onCreateView: ");
         DeviceServiceImpl.getInstance().getDeviceItems(new DeviceService.onSuccessListener() {
             @Override
             public void onSuccessGetDeviceItems(List<DeviceItem> deviceItems) {
                 Log.d(TAG, "onSuccessGetDeviceItems: ");
-                adapter.setDeviceItems((ArrayList)deviceItems);
-                adapter.notifyDataSetChanged();
+                mAdapter.setDeviceItems((ArrayList)deviceItems);
+                mAdapter.notifyDataSetChanged();
             }
         });
 
@@ -109,7 +100,7 @@ public class DeviceMenuFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        app=(GlobalApplication)getActivity().getApplicationContext();
+        mApp=(GlobalApplication)getActivity().getApplicationContext();
 
 
         Log.d("FragmentCheck","DeviceMenuFragment onCreateView");

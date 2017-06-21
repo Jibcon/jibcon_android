@@ -14,7 +14,7 @@ import com.sm_arts.jibcon.R;
 public class UserAuthorityActivity extends AppCompatActivity {
 
     ListView mSidebarUserAuthorityLV;
-    static final String[] mSidebarUserAuthorityList={"집에 연결된 사용자 관리","내 집콘에 초대하기","초대받은 목록"};
+    static final String[] sSidebarUserAuthorityList={"집에 연결된 사용자 관리","내 집콘에 초대하기","초대받은 목록"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class UserAuthorityActivity extends AppCompatActivity {
         setContentView(R.layout.sidebar_user_authority);
 
         /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSidebarUserAuthorityList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSidebarUserAuthorityList);
 
         mSidebarUserAuthorityLV = (ListView)findViewById(R.id.Lv_user_authority);
 
@@ -38,8 +38,8 @@ public class UserAuthorityActivity extends AppCompatActivity {
             }
         }) ;
 
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_sidebar_userauthority);
-        mImageView.setOnClickListener(new View.OnClickListener() {
+        ImageView imageView = (ImageView)findViewById(R.id.imageview_sidebar_userauthority);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

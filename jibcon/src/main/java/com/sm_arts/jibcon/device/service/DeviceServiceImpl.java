@@ -15,38 +15,38 @@ import java.util.List;
 
 public class DeviceServiceImpl implements DeviceService {
     private final String TAG = "jibcon/"+getClass().getSimpleName();
-    private List<DeviceItem> deviceItems;//device 메뉴 아이템들의 리스트
-    private static DeviceService mInstance;
+    private List<DeviceItem> mDeviceItems;//device 메뉴 아이템들의 리스트
+    private static DeviceService sInstance;
     private DeviceNetwork mDeviceNetwork;
-    private boolean wasChanged = false;
+    private boolean mWasChanged = false;
 
     private DeviceServiceImpl() {
-        this.deviceItems = new ArrayList<>();
+        this.mDeviceItems = new ArrayList<>();
     }
 
     public static DeviceService getInstance() {
-        if (mInstance == null){
-            mInstance = new DeviceServiceImpl();
+        if (sInstance == null){
+            sInstance = new DeviceServiceImpl();
         }
-        return mInstance;
+        return sInstance;
     }
 
     @Override
     public void getDeviceItems(onSuccessListener listener) {
-        Log.d(TAG, "getDeviceItems: wasChanged is "+wasChanged +" deviceItems.size is "+deviceItems.size());
-        if (deviceItems.size() == 0 | wasChanged) {
+        Log.d(TAG, "getDeviceItems: wasChanged is "+mWasChanged +" deviceItems.size is "+mDeviceItems.size());
+        if (mDeviceItems.size() == 0 | mWasChanged) {
             Log.d(TAG, "getDeviceItems: reload");
-            wasChanged = false;
+            mWasChanged = false;
             reloadDeviceItems(listener);
         } else {
             Log.d(TAG, "getDeviceItems: don't reload");
-            listener.onSuccessGetDeviceItems(deviceItems);
+            listener.onSuccessGetDeviceItems(mDeviceItems);
         }
     }
 
     @Override
     public List<DeviceItem> getDeviceItems() {
-        return deviceItems;
+        return mDeviceItems;
     }
 
     @Override
@@ -68,7 +68,7 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
     private void setDeviceItems(List<DeviceItem> deviceItems) {
-        this.deviceItems = deviceItems;
+        this.mDeviceItems = deviceItems;
     }
 
     @Override
@@ -88,6 +88,6 @@ public class DeviceServiceImpl implements DeviceService {
     @Override
     public void notifyDeviceItemsChanged() {
         Log.d(TAG, "notifyDeviceItemsChanged: ");
-        wasChanged = true;
+        mWasChanged = true;
     }
 }

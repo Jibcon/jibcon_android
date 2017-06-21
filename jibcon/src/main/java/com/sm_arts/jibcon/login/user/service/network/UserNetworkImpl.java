@@ -15,17 +15,17 @@ import retrofit2.Response;
 
 public class UserNetworkImpl implements UserNetwork {
     private final String TAG = "jibcon/"+getClass().getSimpleName();
-    private static UserNetwork mInstance;
+    private static UserNetwork sInstance;
 
     private UserNetworkImpl() {
     }
 
 
     public static UserNetwork getInstance() {
-        if (mInstance == null){
-            mInstance = new UserNetworkImpl();
+        if (sInstance == null){
+            sInstance = new UserNetworkImpl();
         }
-        return mInstance;
+        return sInstance;
     }
 
     @Override

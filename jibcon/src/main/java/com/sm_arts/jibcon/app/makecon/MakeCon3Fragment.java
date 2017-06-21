@@ -17,53 +17,52 @@ import com.sm_arts.jibcon.R;
  */
 
 public class MakeCon3Fragment extends android.support.v4.app.Fragment{
-    String houselocation;
-    ImageButton before;
-    Button next;
+    ImageButton mBefore;
+    Button mNext;
     //private GoogleMap mMap = null; // Google Maps
     //private float LAT=10,LNG=10; // Google Maps variable
 
-    HouseInfoListener houseInfoListener;
-    LinearLayout linearLayout;
+    HouseInfoListener mHouseInfoListener;
+    LinearLayout mLinearLayout;
 
     private void initLayout() {
-        before= (ImageButton)linearLayout.findViewById(R.id.Btn_MakeCon3_0);
-        next =  (Button)linearLayout.findViewById(R.id.Btn_makeCon3_1);
+        mBefore= (ImageButton)mLinearLayout.findViewById(R.id.Btn_MakeCon3_0);
+        mNext =  (Button)mLinearLayout.findViewById(R.id.Btn_makeCon3_1);
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        houseInfoListener = (HouseInfoListener)context;
+        mHouseInfoListener = (HouseInfoListener)context;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        linearLayout = (LinearLayout) inflater.inflate(R.layout.makecon3,container,false);
+        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon3,container,false);
 
         // Google Maps Fragment
         //SupportMapFragment mapFragment = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.google_map);
 
         initLayout();
 
-        before.setOnClickListener(new View.OnClickListener() {
+        mBefore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                houseInfoListener.getFragmentNum(-1);
+                mHouseInfoListener.getFragmentNum(-1);
             }
         });
-        next.setOnClickListener(new View.OnClickListener() {
+        mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                houseInfoListener.getFragmentNum(1);
+                mHouseInfoListener.getFragmentNum(1);
             }
         });
 
         // Google map start
         //mapFragment.getMapAsync(this);
 
-        return linearLayout;
+        return mLinearLayout;
     }
 
     /*

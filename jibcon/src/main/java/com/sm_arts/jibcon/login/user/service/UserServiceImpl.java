@@ -12,17 +12,17 @@ import com.sm_arts.jibcon.login.user.service.network.UserNetworkImpl;
 
 public class UserServiceImpl implements UserService {
     private final String TAG = "jibcon/"+getClass().getSimpleName();
-    private static UserService mInstance;
+    private static UserService sInstance;
     private UserNetwork mUserNetwork;
 
     private UserServiceImpl() {
     }
 
     public static UserService getInstance() {
-        if (mInstance == null){
-            mInstance = new UserServiceImpl();
+        if (sInstance == null){
+            sInstance = new UserServiceImpl();
         }
-        return mInstance;
+        return sInstance;
     }
 
     private UserNetwork getUserNetwork(){

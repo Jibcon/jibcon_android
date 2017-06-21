@@ -21,7 +21,7 @@ import com.tsengvn.typekit.TypekitContextWrapper;
 public class SettingActivity extends AppCompatActivity {
 
     ListView mSettingLv;
-    static final String[] mSettingList={"개인/보안","알림","고객센터"};
+    static final String[] sSettingList={"개인/보안","알림","고객센터"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class SettingActivity extends AppCompatActivity {
         setContentView(R.layout.setting);
 
         /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSettingList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSettingList);
 
         mSettingLv = (ListView)findViewById(R.id.Lv_setting);
 

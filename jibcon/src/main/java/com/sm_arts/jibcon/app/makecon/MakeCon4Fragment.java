@@ -17,18 +17,18 @@ import com.sm_arts.jibcon.R;
  */
 
 public class MakeCon4Fragment extends android.support.v4.app.Fragment {
-    HouseInfoListener houseInfoListener;
-    LinearLayout linearLayout;
+    HouseInfoListener mHouseInfoListener;
+    LinearLayout mLinearLayout;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        houseInfoListener = (HouseInfoListener)context;
+        mHouseInfoListener = (HouseInfoListener)context;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        linearLayout= (LinearLayout)inflater.inflate(R.layout.makecon4,container,false);
+        mLinearLayout= (LinearLayout)inflater.inflate(R.layout.makecon4,container,false);
 
         Handler handler;
         handler=new Handler();
@@ -38,7 +38,7 @@ public class MakeCon4Fragment extends android.support.v4.app.Fragment {
             public void run() {
 
                 //asynktask로 houseinfo 보낸 뒤 보내고 성공하면 MainActivity로, 보내는중엔 집콘 최적화화면만
-                houseInfoListener.makeHouseInfo();
+                mHouseInfoListener.makeHouseInfo();
                 Intent intent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 getActivity().finish();
@@ -47,7 +47,7 @@ public class MakeCon4Fragment extends android.support.v4.app.Fragment {
 
         handler.postDelayed(runnable,1500);
 
-        return linearLayout;
+        return mLinearLayout;
 
     }
 }

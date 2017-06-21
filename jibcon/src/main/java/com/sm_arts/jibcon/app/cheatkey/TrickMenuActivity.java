@@ -19,7 +19,7 @@ import com.sm_arts.jibcon.R;
 
 public class TrickMenuActivity extends Fragment{
     // Viewpager
-    ViewPager vp;
+    ViewPager mVp;
 
     public TrickMenuActivity(){}
 
@@ -30,14 +30,14 @@ public class TrickMenuActivity extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.menu_trick, container, false);
 
-        vp = (ViewPager)layout.findViewById(R.id.vp_cheatkey);
+        mVp = (ViewPager)layout.findViewById(R.id.vp_cheatkey);
 
         /* ↓Acitve & Passive Button↓ */
         Button btn_active = (Button) layout.findViewById(R.id.btn_active);
         Button btn_passive = (Button) layout.findViewById(R.id.btn_passive);
 
-        vp.setAdapter(new pagerAdapter(getChildFragmentManager())); // getSupportFragmentManager에서 수정
-        vp.setCurrentItem(0);
+        mVp.setAdapter(new pagerAdapter(getChildFragmentManager())); // getSupportFragmentManager에서 수정
+        mVp.setCurrentItem(0);
 
         btn_active.setOnClickListener(movePageListener);
         btn_active.setTag(0);
@@ -53,7 +53,7 @@ public class TrickMenuActivity extends Fragment{
         @Override
         public void onClick(View v){
             int tag = (int) v.getTag();
-            vp.setCurrentItem(tag);
+            mVp.setCurrentItem(tag);
         }
     };
 

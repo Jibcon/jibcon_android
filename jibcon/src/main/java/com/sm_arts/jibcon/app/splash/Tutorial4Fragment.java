@@ -18,16 +18,16 @@ import com.sm_arts.jibcon.R;
  */
 
 public class Tutorial4Fragment extends android.support.v4.app.Fragment{
-    Button toMain;
-    Fragment fragment;
+    Button mToMain;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         LinearLayout linearLayout = (LinearLayout)inflater.inflate(R.layout.tutorial_4,container,false);
 
 
-        toMain = (Button)linearLayout.findViewById((R.id.Btn_Tutorial4_1));
-        toMain.setOnClickListener(new View.OnClickListener() {
+        mToMain = (Button)linearLayout.findViewById((R.id.Btn_Tutorial4_1));
+        mToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), LoginActivity.class);

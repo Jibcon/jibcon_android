@@ -19,18 +19,18 @@ public class MarketMenuActivity extends android.support.v4.app.Fragment {
 
     public MarketMenuActivity(){}
 
-    TextView Best;
-    TextView Home;
-    TextView Health;
-    TextView Outdoor;
+    TextView mBest;
+    TextView mHome;
+    TextView mHealth;
+    TextView mOutdoor;
     private  void initLayout(View view)
     {
-        Best=(TextView)view.findViewById(R.id.Txt_Market_Best);
-        Home=(TextView)view.findViewById(R.id.Txt_Market_Home);
-        Health=(TextView)view.findViewById(R.id.Txt_Market_Health);
-        Outdoor=(TextView)view.findViewById(R.id.Txt_Market_Outdoor);
+        mBest=(TextView)view.findViewById(R.id.Txt_Market_Best);
+        mHome=(TextView)view.findViewById(R.id.Txt_Market_Home);
+        mHealth=(TextView)view.findViewById(R.id.Txt_Market_Health);
+        mOutdoor=(TextView)view.findViewById(R.id.Txt_Market_Outdoor);
 
-        Best.setOnClickListener(new View.OnClickListener() {
+        mBest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: Move to Best");
@@ -38,7 +38,7 @@ public class MarketMenuActivity extends android.support.v4.app.Fragment {
             }
         });
 
-        Home.setOnClickListener(new View.OnClickListener() {
+        mHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: Move to Home");
@@ -46,7 +46,7 @@ public class MarketMenuActivity extends android.support.v4.app.Fragment {
 
             }
         });
-        Health.setOnClickListener(new View.OnClickListener() {
+        mHealth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: Move to Health");
@@ -54,7 +54,7 @@ public class MarketMenuActivity extends android.support.v4.app.Fragment {
 
             }
         });
-        Outdoor.setOnClickListener(new View.OnClickListener() {
+        mOutdoor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: Move to Ourdoor");

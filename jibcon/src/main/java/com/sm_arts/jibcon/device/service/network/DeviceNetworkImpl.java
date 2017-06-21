@@ -20,33 +20,33 @@ import retrofit2.Response;
 
 public class DeviceNetworkImpl implements DeviceNetwork {
     private final String TAG = "jibcon/"+getClass().getSimpleName();
-    private GlobalApplication app;
-    private ApiService apiService;
-    private static DeviceNetwork mInstance;
-    private boolean isWorking = false;
+    private GlobalApplication mApp;
+    private ApiService mApiService;
+    private static DeviceNetwork sInstance;
+    private boolean mIsWorking = false;
     private List<DeviceNetwork.onSuccessListener> mListeners = new ArrayList<>();
 
     private DeviceNetworkImpl() {
-        app = GlobalApplication.getGlobalApplicationContext();
-        apiService = new Repo().getService();
+        mApp = GlobalApplication.getGlobalApplicationContext();
+        mApiService = new Repo().getService();
     }
 
     public static DeviceNetwork getInstance() {
-        if (mInstance == null){
-            mInstance = new DeviceNetworkImpl();
+        if (sInstance == null){
+            sInstance = new DeviceNetworkImpl();
         }
-        return mInstance;
+        return sInstance;
     }
 
     public void getDeviceItemsFromServer(DeviceNetwork.onSuccessListener listener) {
         mListeners.add(listener);
         Log.d(TAG, "getDeviceItemsFromServer: Call.enqueue");
 
-        if(isWorking) {
+        if(mIsWorking) {
             Log.d(TAG, "getDeviceItemsFromServer: isWorking -> just addListener");
         } else {
-            isWorking = true;
-            Call<List<DeviceItem>> c = Repo.getStaticService().getDevices("Token " + app.getUserToken());
+            mIsWorking = true;
+            Call<List<DeviceItem>> c = Repo.getStaticService().getDevices("Token " + mApp.getUserToken());
             try {
                 c.enqueue(new Callback<List<DeviceItem>>() {
                     @Override
@@ -74,6 +74,6 @@ public class DeviceNetworkImpl implements DeviceNetwork {
         }
 
         mListeners.clear();
-        isWorking = false;
+        mIsWorking = false;
     }
 }

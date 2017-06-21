@@ -24,16 +24,16 @@ import java.util.List;
 
 public class WifiListAdpater extends BaseAdapter {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
-    Context context;
-    List<ScanResult> wifilist;
+    Context mContext;
+    List<ScanResult> mWifilist;
 
     public List<ScanResult> getWifilist() {
-        return wifilist;
+        return mWifilist;
     }
 
     public void setWifilist(List<ScanResult> wifilist) {
         wifilist = sortByLevel(wifilist);
-        this.wifilist = wifilist;
+        this.mWifilist = wifilist;
         notifyDataSetChanged();
     }
 
@@ -61,17 +61,17 @@ public class WifiListAdpater extends BaseAdapter {
     }
 
     public WifiListAdpater(Context context) {
-        this.context = context;
+        this.mContext = context;
     }
 
     @Override
     public int getCount() {
-        return wifilist.size();
+        return mWifilist.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return wifilist.get(position);
+        return mWifilist.get(position);
     }
 
     @Override
@@ -85,14 +85,14 @@ public class WifiListAdpater extends BaseAdapter {
 
         TextView textView = (TextView)root.findViewById(R.id.tvWifi);
         ImageView imgView = (ImageView)root.findViewById(R.id.imgViewWifi);
-        textView.setText(wifilist.get(position).SSID);
+        textView.setText(mWifilist.get(position).SSID);
 
-        switch ( getType(wifilist.get(position))) // todo get wifi pic
+        switch ( getType(mWifilist.get(position))) // todo get wifi pic
         {
-            case "2.4Ghz/WPA2-AES":   BitmapDrawable drawable1 = (BitmapDrawable) context.getResources().getDrawable(R.drawable.airconditioner);
+            case "2.4Ghz/WPA2-AES":   BitmapDrawable drawable1 = (BitmapDrawable) mContext.getResources().getDrawable(R.drawable.airconditioner);
                 Bitmap bitmap1 = drawable1.getBitmap();
                 imgView.setImageBitmap(bitmap1);
-                Log.d(TAG, "getView: "+wifilist.get(position).level);
+                Log.d(TAG, "getView: "+mWifilist.get(position).level);
 
 
                 break;

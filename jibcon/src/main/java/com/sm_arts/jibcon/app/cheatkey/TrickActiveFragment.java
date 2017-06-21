@@ -23,9 +23,9 @@ public class TrickActiveFragment extends android.support.v4.app.Fragment{
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<ActiveCheatkeyData> activeCheatkeyDataset;
+    private ArrayList<ActiveCheatkeyData> mActiveCheatkeyDataset;
 
-    Context context;
+    Context mContext;
 
     public TrickActiveFragment(){}
 
@@ -49,34 +49,34 @@ public class TrickActiveFragment extends android.support.v4.app.Fragment{
         mRecyclerView = (RecyclerView)rootView.findViewById(R.id.active_cardview);
         mRecyclerView.setHasFixedSize(true);
 
-        mLayoutManager = new GridLayoutManager(context,2); // RecyclerView로 GridView 구현
+        mLayoutManager = new GridLayoutManager(mContext,2); // RecyclerView로 GridView 구현
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        activeCheatkeyDataset = new ArrayList<>();
-        mAdapter = new ActiveCheatkeyAdapter(activeCheatkeyDataset);
+        mActiveCheatkeyDataset = new ArrayList<>();
+        mAdapter = new ActiveCheatkeyAdapter(mActiveCheatkeyDataset);
         mRecyclerView.setAdapter(mAdapter);
 
         // 치트키 수동 입력, 추후 사용자가 치트키 등록시 추가되도록 구현해야
         // cardview #1
-        activeCheatkeyDataset.add(new ActiveCheatkeyData
+        mActiveCheatkeyDataset.add(new ActiveCheatkeyData
                 (R.id.btn_passive_cheatkey_setting,R.drawable.blank,"출근"));
         // cardview #2
-        activeCheatkeyDataset.add(new ActiveCheatkeyData
+        mActiveCheatkeyDataset.add(new ActiveCheatkeyData
                 (R.id.btn_passive_cheatkey_setting,R.drawable.blank, "퇴근"));
         // cardview #3
-        activeCheatkeyDataset.add(new ActiveCheatkeyData
+        mActiveCheatkeyDataset.add(new ActiveCheatkeyData
                 (R.id.btn_passive_cheatkey_setting, R.drawable.blank, "굿나잇"));
         // cardview #4
-        activeCheatkeyDataset.add(new ActiveCheatkeyData
+        mActiveCheatkeyDataset.add(new ActiveCheatkeyData
                 (R.id.btn_passive_cheatkey_setting, R.drawable.blank, "출장 & 휴가"));
         // cardview #5
-        activeCheatkeyDataset.add(new ActiveCheatkeyData
+        mActiveCheatkeyDataset.add(new ActiveCheatkeyData
                 (R.id.btn_passive_cheatkey_setting, R.drawable.blank, "등교"));
         // cardview #6
-        activeCheatkeyDataset.add(new ActiveCheatkeyData
+        mActiveCheatkeyDataset.add(new ActiveCheatkeyData
                 (R.id.btn_passive_cheatkey_setting, R.drawable.blank, "아침 기상"));
         // cardview #7
-        activeCheatkeyDataset.add(new ActiveCheatkeyData
+        mActiveCheatkeyDataset.add(new ActiveCheatkeyData
                 (R.id.btn_passive_cheatkey_setting, R.drawable.blank, "현호 재울 때"));
 
 

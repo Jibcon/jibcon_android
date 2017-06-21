@@ -16,8 +16,8 @@ public class AboutJibconActivity extends AppCompatActivity {
         setContentView(R.layout.sidebar_about_jibcon);
 
 
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_sidebar_aboutjibcon);
-        mImageView.setOnClickListener(new View.OnClickListener() {
+        ImageView imageViw = (ImageView)findViewById(R.id.imageview_sidebar_aboutjibcon);
+        imageViw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

@@ -22,22 +22,22 @@ import com.sm_arts.jibcon.R;
 
 public class MakeCon2Fragment extends android.support.v4.app.Fragment {
 
-    LinearLayout linearLayout;
-    Button next;
-    ImageButton before;
-    HouseInfoListener houseInfoListener;
+    LinearLayout mLinearLayout;
+    Button mNext;
+    ImageButton mBefore;
+    HouseInfoListener mHouseInfoListener;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        houseInfoListener = (HouseInfoListener)context;
+        mHouseInfoListener = (HouseInfoListener)context;
     }
 
     void initLayout()
     {
         // 리스트로 바꾸기!(20170430)
 
-        next=(Button)getActivity().findViewById(R.id.Btn_makeCon2_1);
+        mNext=(Button)getActivity().findViewById(R.id.Btn_makeCon2_1);
 
     }
 
@@ -45,14 +45,14 @@ public class MakeCon2Fragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        linearLayout = (LinearLayout) inflater.inflate(R.layout.makecon2,container,false);
+        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon2,container,false);
 
         // 공간 리스트
         final String[] list_place = {"전원 주택", "아파트", "오피스텔", "빌라", "기숙사"};
 
-        ListView listView   = (ListView)linearLayout.findViewById(R.id.list_place);
-        before=(ImageButton)linearLayout.findViewById(R.id.Btn_MakeCon2_0);
-        next=(Button)linearLayout.findViewById(R.id.Btn_makeCon2_1);
+        ListView listView   = (ListView)mLinearLayout.findViewById(R.id.list_place);
+        mBefore=(ImageButton)mLinearLayout.findViewById(R.id.Btn_MakeCon2_0);
+        mNext=(Button)mLinearLayout.findViewById(R.id.Btn_makeCon2_1);
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
                 getActivity(),
                 android.R.layout.simple_list_item_1,
@@ -70,23 +70,23 @@ public class MakeCon2Fragment extends android.support.v4.app.Fragment {
                 {
                     case 0 :
                         Toast.makeText(getActivity().getApplicationContext(), "전원 주택", Toast.LENGTH_SHORT).show();
-                        houseInfoListener.getHouseType("house");
+                        mHouseInfoListener.getHouseType("house");
                         break;
                     case 1:
                         Toast.makeText(getActivity().getApplicationContext(), "아파트", Toast.LENGTH_SHORT).show();
-                        houseInfoListener.getHouseType("apart");
+                        mHouseInfoListener.getHouseType("apart");
                         break;
                     case 2:
                         Toast.makeText(getActivity().getApplicationContext(), "오피스텔", Toast.LENGTH_SHORT).show();
-                        houseInfoListener.getHouseType("officetel");
+                        mHouseInfoListener.getHouseType("officetel");
                         break;
                     case 3:
                         Toast.makeText(getActivity().getApplicationContext(), "빌라", Toast.LENGTH_SHORT).show();
-                        houseInfoListener.getHouseType("villa");
+                        mHouseInfoListener.getHouseType("villa");
                         break;
                     case 4:
                         Toast.makeText(getActivity().getApplicationContext(), "기숙사", Toast.LENGTH_SHORT).show();
-                        houseInfoListener.getHouseType("dorm");
+                        mHouseInfoListener.getHouseType("dorm");
                         break;
                 }
 
@@ -96,21 +96,21 @@ public class MakeCon2Fragment extends android.support.v4.app.Fragment {
 
        // initLayout();
 
-        before.setOnClickListener(new View.OnClickListener() {
+        mBefore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                houseInfoListener.getFragmentNum(-1);
+                mHouseInfoListener.getFragmentNum(-1);
             }
         });
 
-        next.setOnClickListener(new View.OnClickListener() {
+        mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                houseInfoListener.getFragmentNum(1);
+                mHouseInfoListener.getFragmentNum(1);
 //                Intent intent = new Intent(getActivity().getApplicationContext(), MakeCon3Fragment.class);
 //                startActivity(intent);
             }
         });
-        return linearLayout;
+        return mLinearLayout;
     }
 }

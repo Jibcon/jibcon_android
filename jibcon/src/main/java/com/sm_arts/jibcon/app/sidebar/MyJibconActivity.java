@@ -13,8 +13,8 @@ import com.sm_arts.jibcon.R;
 
 public class MyJibconActivity extends AppCompatActivity {
 
-    ListView mSidebarMyJibconLV;
-    static final String[] mSidebarMyJibconList={"집소개 수정","주거 환경","주소 설정"};
+    ListView mSidebarMyJibconLv;
+    static final String[] sSidebarMyJibconList={"집소개 수정","주거 환경","주소 설정"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,17 +23,17 @@ public class MyJibconActivity extends AppCompatActivity {
         setContentView(R.layout.sidebar_my_jibcon);
 
         /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSidebarMyJibconList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSidebarMyJibconList);
 
-        mSidebarMyJibconLV = (ListView)findViewById(R.id.listview_my_jibcon);
+        mSidebarMyJibconLv = (ListView)findViewById(R.id.listview_my_jibcon);
 
-        mSidebarMyJibconLV.setAdapter(adapter);
+        mSidebarMyJibconLv.setAdapter(adapter);
         /* add onItemClickListener to ListView*/
-        mSidebarMyJibconLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mSidebarMyJibconLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
 
-                String settingClickedItem = (String) mSidebarMyJibconLV.getItemAtPosition(position);
+                String settingClickedItem = (String) mSidebarMyJibconLv.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
             }
         }) ;

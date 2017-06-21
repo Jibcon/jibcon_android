@@ -9,7 +9,7 @@ import android.widget.GridView;
  * Created by admin on 2016-11-12.
  */
 public class MyGridView extends GridView {
-    boolean expanded = false;
+    boolean mExpanded = false;
     public MyGridView(Context context) {
         super(context);
     }
@@ -22,7 +22,7 @@ public class MyGridView extends GridView {
         super(context, attrs, defStyleAttr);
     }
 
-    public boolean isExpanded(){return expanded;}
+    public boolean isExpanded(){return mExpanded;}
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -34,6 +34,6 @@ public class MyGridView extends GridView {
 
     public void setExpanded(boolean expanded)
     {
-        this.expanded=expanded;
+        this.mExpanded=expanded;
     }
 }

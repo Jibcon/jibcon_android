@@ -16,13 +16,12 @@ import com.sm_arts.jibcon.R;
  */
 
 public class AddDevice2Fragment extends Fragment {
-    LinearLayout linearLayout;
-    MakeDeviceListner makeDeviceListener;
+    MakeDeviceListner mMakeDeviceListener;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        makeDeviceListener=(MakeDeviceListner) context;
+        mMakeDeviceListener=(MakeDeviceListner) context;
 
     }
 

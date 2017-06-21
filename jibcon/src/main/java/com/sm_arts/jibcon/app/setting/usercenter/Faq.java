@@ -19,8 +19,8 @@ public class Faq extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_faq);
 
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_setting_faq);
-        mImageView.setOnClickListener(new View.OnClickListener() {
+        ImageView imageView = (ImageView)findViewById(R.id.imageview_setting_faq);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Faq.this, UserCenter.class);

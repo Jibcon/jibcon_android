@@ -24,9 +24,9 @@ public class TrickPassiveFragment extends android.support.v4.app.Fragment{
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<PassiveCheatkeyData> passiveCheatkeyDataset;
+    private ArrayList<PassiveCheatkeyData> mPassiveCheatkeyDataset;
 
-    Context context;
+    Context mContext;
 
     public TrickPassiveFragment(){}
 
@@ -53,25 +53,25 @@ public class TrickPassiveFragment extends android.support.v4.app.Fragment{
         mRecyclerView.setHasFixedSize(true);
 
         //mLayoutManager = new GridLayoutManager(context,2); // RecyclerView로 GridView 구현 test
-        mLayoutManager = new LinearLayoutManager(context);
+        mLayoutManager = new LinearLayoutManager(mContext);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        passiveCheatkeyDataset = new ArrayList<>();
-        mAdapter = new PassiveCheatkeyAdapter(passiveCheatkeyDataset);
+        mPassiveCheatkeyDataset = new ArrayList<>();
+        mAdapter = new PassiveCheatkeyAdapter(mPassiveCheatkeyDataset);
         mRecyclerView.setAdapter(mAdapter);
 
         // 치트키 수동 입력, 추후 사용자가 치트키 등록시 추가되도록 구현해야
         // cardview #1
-        passiveCheatkeyDataset.add(new PassiveCheatkeyData
+        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData
                 (R.id.btn_passive_cheatkey_setting,"온도가 30도 이상이 되면","에어컨 온도를 22도에 맞춰 켜기"));
         // cardview #2
-        passiveCheatkeyDataset.add(new PassiveCheatkeyData
+        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData
                 (R.id.btn_passive_cheatkey_setting, "아침에 비가오면", "평소보다 30분 전에 알람 울리기"));
         // cardview #3
-        passiveCheatkeyDataset.add(new PassiveCheatkeyData
+        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData
                 (R.id.btn_passive_cheatkey_setting, "퇴근 하고 집에 오는 동안", "집안 온도 조절 및\n공기청정기 가동하기"));
         // cardview #4
-        passiveCheatkeyDataset.add(new PassiveCheatkeyData
+        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData
                 (R.id.btn_passive_cheatkey_setting, "출근 하면", "가스 벨브 잠그고\n방범 시스템 가동하기"));
 
         return v;

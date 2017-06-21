@@ -10,78 +10,78 @@ import com.sm_arts.jibcon.model.houseinfo.HouseInfo;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class MakeCon0Fragment extends AppCompatActivity implements HouseInfoListener {
-    String housename;
-    String username;
-    String houseintro;
-    String housetype;
-    String houselocation;
-    int fragmentNum;
+    String mHousename;
+    String mUsername;
+    String mHouseintro;
+    String mHousetype;
+    String mHouselocation;
+    int mFragmentNum;
 
-    Fragment makecon1;
-    Fragment makecon2;
-    Fragment makecon3;
-    Fragment makecon4;
+    Fragment mMakecon1;
+    Fragment mMakecon2;
+    Fragment mMakecon3;
+    Fragment mMakecon4;
 
-    HouseInfo houseInfo;
+    HouseInfo mHouseInfo;
 
 
     @Override
     public void makeHouseInfo() {
-        houseInfo = new HouseInfo();
+        mHouseInfo = new HouseInfo();
 
-        houseInfo.setHouseIntro(this.houseintro);
-        houseInfo.setHouseLocation(this.houselocation);
-        houseInfo.setHouseName(this.housename);
-        houseInfo.setHouseType(this.housetype);
-        houseInfo.setUserName(this.username);
+        mHouseInfo.setHouseIntro(this.mHouseintro);
+        mHouseInfo.setHouseLocation(this.mHouselocation);
+        mHouseInfo.setHouseName(this.mHousename);
+        mHouseInfo.setHouseType(this.mHousetype);
+        mHouseInfo.setUserName(this.mUsername);
 
         // TODO: 2017-04-1 서버로 집콘 정보 보내기
     }
 
     @Override
     public void getHouseName(String housename) {
-        this.housename=housename;
+        this.mHousename=housename;
     }
 
     @Override
     public void getUserName(String username) {
-        this.username=username;
+        this.mUsername=username;
     }
 
     @Override
     public void getHouseIntro(String houseintro) {
-        this.houseintro= houseintro;
+        this.mHouseintro= houseintro;
     }
 
     @Override
     public void getHouseType(String housetype) {
-        this.housetype=housetype;
+        this.mHousetype=housetype;
         }
 
     @Override
     public void getHouseLocation(String houselocation) {
-        this.houselocation=houselocation;
+        this.mHouselocation=houselocation;
     }
 
     @Override
     public void getFragmentNum(int fragmentNum) {
-        this.fragmentNum+=fragmentNum;
-        if(this.fragmentNum<0)
-            this.fragmentNum=0;
-        switch (this.fragmentNum%4)
+        this.mFragmentNum+=fragmentNum;
+        if(this.mFragmentNum<0)
+            this.mFragmentNum=0;
+        switch (this.mFragmentNum%4)
         {
             case 0 :
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,makecon1).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon1).commit();
                 break;
             case 1:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,makecon2).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon2).commit();
                 break;
             case 2:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,makecon3).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon3).commit();
                 break;
 
             case 3:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,makecon4).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon4).commit();
                 break;
 
 
@@ -94,11 +94,11 @@ public class MakeCon0Fragment extends AppCompatActivity implements HouseInfoList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_con0);
 
-        makecon1=new MakeCon1Fragment();
-        makecon2=new MakeCon2Fragment();
-        makecon3=new MakeCon3Fragment();
-        makecon4=new MakeCon4Fragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,makecon1).commit();
+        mMakecon1=new MakeCon1Fragment();
+        mMakecon2=new MakeCon2Fragment();
+        mMakecon3=new MakeCon3Fragment();
+        mMakecon4=new MakeCon4Fragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon1).commit();
 
     }
 

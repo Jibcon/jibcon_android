@@ -17,15 +17,15 @@ import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class TutorialActivity extends AppCompatActivity {
 
-    ImageButton skip_button;
-    ViewPager viewpager;
-    int MAX_PAGE=4;
+    ImageButton mSkipButton;
+    ViewPager mViewpager;
+    int mMaxPage=4;
 
-    Fragment cur_fragment = new Fragment();
+    Fragment mCurFragment = new Fragment();
 
     private void initLayout()
     {
-        viewpager = (ViewPager)findViewById(R.id.vp_tutorial);
+        mViewpager = (ViewPager)findViewById(R.id.vp_tutorial);
 
     }
     private  class adapter extends FragmentPagerAdapter
@@ -38,33 +38,33 @@ public class TutorialActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             if(position<0||position>=4)
             {
-                position=position%MAX_PAGE;
+                position=position%mMaxPage;
                 return null;
             }
             switch (position)
             {
                 case 0:
-                    cur_fragment=new Tutorial1Fragment();
+                    mCurFragment=new Tutorial1Fragment();
 
                     break;
                 case 1:
-                    cur_fragment=new Tutorial2Fragment();
+                    mCurFragment=new Tutorial2Fragment();
 
                     break;
                 case 2:
-                    cur_fragment=new Tutorial3Fragment();
+                    mCurFragment=new Tutorial3Fragment();
 
                     break;
                 case 3:
-                    cur_fragment=new Tutorial4Fragment();
+                    mCurFragment=new Tutorial4Fragment();
                     break;
             }
-            return cur_fragment;
+            return mCurFragment;
         }
 
         @Override
         public int getCount() {
-            return MAX_PAGE;
+            return mMaxPage;
         }
     }
     @Override
@@ -74,12 +74,12 @@ public class TutorialActivity extends AppCompatActivity {
 
         initLayout();
 
-        viewpager.setAdapter(new adapter(getSupportFragmentManager()));
-        viewpager.setOffscreenPageLimit(3);
+        mViewpager.setAdapter(new adapter(getSupportFragmentManager()));
+        mViewpager.setOffscreenPageLimit(3);
 
         // 튜토리얼 스킵 버튼
-        skip_button = (ImageButton) findViewById(R.id.btn_skip_tutorial);
-        skip_button.setOnClickListener(new View.OnClickListener(){
+        mSkipButton = (ImageButton) findViewById(R.id.btn_skip_tutorial);
+        mSkipButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(TutorialActivity.this , LoginActivity.class);

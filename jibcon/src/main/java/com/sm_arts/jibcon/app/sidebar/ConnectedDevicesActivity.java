@@ -13,8 +13,8 @@ import com.sm_arts.jibcon.R;
 
 public class ConnectedDevicesActivity extends AppCompatActivity {
 
-    ListView mSidebarConnectedDevicesLV;
-    static final String[] mSidebarConnectedDeviceList={"Company         Device",
+    ListView mSidebarConnectedDevicesLv;
+    static final String[] sSidebarConnectedDeviceList={"Company         Device",
                                                     "Company         Device",
                                                     "Company         Device"};
 
@@ -25,17 +25,17 @@ public class ConnectedDevicesActivity extends AppCompatActivity {
         setContentView(R.layout.sidebar_connected_devices);
 
         /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSidebarConnectedDeviceList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSidebarConnectedDeviceList);
 
-        mSidebarConnectedDevicesLV = (ListView)findViewById(R.id.listview_connected_device);
+        mSidebarConnectedDevicesLv = (ListView)findViewById(R.id.listview_connected_device);
 
-        mSidebarConnectedDevicesLV.setAdapter(adapter);
+        mSidebarConnectedDevicesLv.setAdapter(adapter);
         /* add onItemClickListener to ListView*/
-        mSidebarConnectedDevicesLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mSidebarConnectedDevicesLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
 
-                String settingClickedItem = (String) mSidebarConnectedDevicesLV.getItemAtPosition(position);
+                String settingClickedItem = (String) mSidebarConnectedDevicesLv.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
             }
         }) ;

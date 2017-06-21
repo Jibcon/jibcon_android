@@ -22,18 +22,18 @@ public class GetConAdapter extends RecyclerView.Adapter<GetConAdapter.ViewHolder
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        public ImageView UserImg;
-        public TextView HouseName;
-        public TextView Email;
-        public TextView HouseInfo;
+        public ImageView userImg;
+        public TextView houseName;
+        public TextView email;
+        public TextView houseInfo;
 
         public ViewHolder(View view){
             super(view);
 
-            UserImg = (ImageView)view.findViewById(R.id.image);
-            HouseName = (TextView)view.findViewById(R.id.tv_invte_house_name);
-            Email = (TextView)view.findViewById(R.id.tv_invite_email);
-            HouseInfo = (TextView)view.findViewById(R.id.tv_invite_house_info);
+            userImg = (ImageView)view.findViewById(R.id.image);
+            houseName = (TextView)view.findViewById(R.id.tv_invte_house_name);
+            email = (TextView)view.findViewById(R.id.tv_invite_email);
+            houseInfo = (TextView)view.findViewById(R.id.tv_invite_house_info);
         }
     }
 
@@ -59,10 +59,10 @@ public class GetConAdapter extends RecyclerView.Adapter<GetConAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, int position){
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.UserImg.setImageResource(mDataset.get(position).user_img);
-        holder.HouseName.setText(mDataset.get(position).house_name);
-        holder.Email.setText(mDataset.get(position).email);
-        holder.HouseInfo.setText(mDataset.get(position).house_info);
+        holder.userImg.setImageResource(mDataset.get(position).userImg);
+        holder.houseName.setText(mDataset.get(position).houseName);
+        holder.email.setText(mDataset.get(position).email);
+        holder.houseInfo.setText(mDataset.get(position).houseInfo);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -76,15 +76,15 @@ public class GetConAdapter extends RecyclerView.Adapter<GetConAdapter.ViewHolder
 
 // 입력할 데이터 종류 커스터마이징
 class getConData{
-    public int user_img; // 초대한 사람 이미지
-    public String house_name; // 초대한 사람의 집 이름
+    public int userImg; // 초대한 사람 이미지
+    public String houseName; // 초대한 사람의 집 이름
     public String email; // 초대한 사람의 이메일
-    public String house_info; // 초대한 사람의 집 정보
+    public String houseInfo; // 초대한 사람의 집 정보
 
-    public getConData(int user_img, String house_name, String email, String house_info){
-        this.user_img = user_img;
-        this.house_name = house_name;
+    public getConData(int userImg, String houseName, String email, String houseInfo){
+        this.userImg = userImg;
+        this.houseName = houseName;
         this.email = email;
-        this.house_info = house_info;
+        this.houseInfo = houseInfo;
     }
 }
