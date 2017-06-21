@@ -1,8 +1,8 @@
 package com.sm_arts.jibcon.network;
 
-import com.sm_arts.jibcon.Device.DeviceItem;
-import com.sm_arts.jibcon.Login.user.domain.User;
-import com.sm_arts.jibcon.Login.user.domain.UserInfo;
+import com.sm_arts.jibcon.device.DeviceItem;
+import com.sm_arts.jibcon.login.user.domain.User;
+import com.sm_arts.jibcon.login.user.domain.UserInfo;
 
 import java.util.List;
 

@@ -11,8 +11,8 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.kakao.auth.KakaoSDK;
-import com.sm_arts.jibcon.Login.KaKaoSDKAdpater;
-import com.sm_arts.jibcon.Login.user.domain.User;
+import com.sm_arts.jibcon.login.KaKaoSDKAdpater;
+import com.sm_arts.jibcon.login.user.domain.User;
 import com.tsengvn.typekit.Typekit;
 
 import java.net.URL;

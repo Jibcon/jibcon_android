@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="#FFFFFF"
-    tools:context="com.sm_arts.jibcon.Login.LoginActivity">
+    tools:context="com.sm_arts.jibcon.login.LoginActivity">
 
     <VideoView
         android:id="@+id/videoView"
