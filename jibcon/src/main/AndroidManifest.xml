@@ -90,7 +90,7 @@
             android:name=".app.setting.usercenter.AskEnrollCompany"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.usercenter.FAQ"
+            android:name=".app.setting.usercenter.Faq"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
             android:name=".app.setting.usercenter.JibconAsk"

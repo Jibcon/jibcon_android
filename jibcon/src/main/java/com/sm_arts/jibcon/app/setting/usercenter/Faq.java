@@ -12,7 +12,7 @@ import com.sm_arts.jibcon.R;
  * Created by woojinkim on 2017. 5. 20..
  */
 
-public class FAQ extends AppCompatActivity {
+public class Faq extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class FAQ extends AppCompatActivity {
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FAQ.this, UserCenter.class);
+                Intent intent = new Intent(Faq.this, UserCenter.class);
                 startActivity(intent);
                 finish();
             }
