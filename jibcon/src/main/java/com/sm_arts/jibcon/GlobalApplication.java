@@ -16,6 +16,7 @@ import com.sm_arts.jibcon.login.KaKaoSDKAdpater;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.tsengvn.typekit.Typekit;
 
+import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,7 +32,7 @@ public class GlobalApplication extends MultiDexApplication {
     //모든 액티비티에서 공유할 수 있는 정보만 담기 최대 4KB..?
 
     private static volatile GlobalApplication sObj = null;
-    private static volatile Activity sCurrentActivity = null;
+    private static volatile WeakReference<Activity> sCurrentActivity = null;
     //카톡 로그인
 
     String userToken;
@@ -96,7 +97,7 @@ public class GlobalApplication extends MultiDexApplication {
     }
 
     public static Activity getCurrentActivity() {
-        return sCurrentActivity;
+        return sCurrentActivity.get();
     }
 
     public boolean chkPermission(String permission, Activity currentActivity) {
