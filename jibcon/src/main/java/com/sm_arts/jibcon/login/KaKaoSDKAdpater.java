@@ -68,7 +68,7 @@ public class KaKaoSDKAdpater extends KakaoAdapter {
         return new IApplicationConfig() {
 
             public Activity getTopActivity() {
-                return GlobalApplication.getCurrentActivity();
+                return GlobalApplication.getGlobalApplicationContext().getCurrentActivity();
             }
             // 현재 최상단에 위치하고 있는 Activity. topActivity가 아니거나 ApplicationContext를 넣는다면
             // SDK내에서의 Dialog Popup등이 동작하지 않을 수 있습니다.

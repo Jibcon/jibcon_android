@@ -32,7 +32,7 @@ public class GlobalApplication extends MultiDexApplication {
     //모든 액티비티에서 공유할 수 있는 정보만 담기 최대 4KB..?
 
     private static volatile GlobalApplication sObj = null;
-    private static volatile WeakReference<Activity> sCurrentActivity = null;
+    private volatile WeakReference<Activity> sCurrentActivity = null;
     //카톡 로그인
 
     String userToken;
@@ -96,7 +96,7 @@ public class GlobalApplication extends MultiDexApplication {
         return sObj;
     }
 
-    public static Activity getCurrentActivity() {
+    public Activity getCurrentActivity() {
         return sCurrentActivity.get();
     }
 
@@ -139,7 +139,7 @@ public class GlobalApplication extends MultiDexApplication {
         Log.d(TAG, "setUser: Success Signin With SampleUser");
     }
 
-    public static String getKeyHash(Context context)
+    public String getKeyHash(Context context)
     {
         PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
         if (packageInfo == null)
