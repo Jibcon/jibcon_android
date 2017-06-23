@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.support.multidex.MultiDexApplication;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -25,7 +26,7 @@ import static com.kakao.util.helper.Utility.getPackageInfo;
  * Created by admin on 2017-04-06.
  */
 
-public class GlobalApplication extends Application {
+public class GlobalApplication extends MultiDexApplication {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     //모든 액티비티에서 공유할 수 있는 정보만 담기 최대 4KB..?
 
