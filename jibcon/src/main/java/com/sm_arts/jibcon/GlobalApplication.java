@@ -124,10 +124,6 @@ public class GlobalApplication extends MultiDexApplication {
         return true;
     }
 
-    public boolean chkPermission(String permission) {
-        return chkPermission(permission, sCurrentActivity); // todo activate sCurrentActivity
-    }
-
     public void setUser(User user) {
         setUsername(user.getUserinfo().getFull_name());
         setUserEmail(user.getEmail());
