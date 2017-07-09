@@ -31,7 +31,7 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".app.Splash.IntroActivity"
+            android:name=".app.splash.IntroActivity"
             android:label="@string/app_name"
             android:theme="@style/myAppTheme.IntroNoActionBar">
             <intent-filter>
@@ -41,20 +41,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".app.Splash.TutorialActivity"
+            android:name=".app.splash.TutorialActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Login.LoginActivity"
+            android:name=".login.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".app.MakeCon.MakeConStartActivity"
+            android:name=".app.makecon.MakeConStartActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".app.MakeCon.MakeCon0Fragment"
+            android:name=".app.makecon.MakeCon0Fragment"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Device.AddDevice.AddDeviceActivity"
+            android:name=".device.adddevice.AddDeviceActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".app.sidebar.ConnectedDevicesActivity"
@@ -72,10 +72,10 @@
             android:name=".app.sidebar.UserAuthorityActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.GetOtherCon.GetOtherConActivity"
+            android:name=".app.getothercon.GetOtherConActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".app.GetOtherCon.GetOtherConFinishActivity"
+            android:name=".app.getothercon.GetOtherConFinishActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".app.setting.SettingActivity"
@@ -90,7 +90,7 @@
             android:name=".app.setting.usercenter.AskEnrollCompany"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.usercenter.FAQ"
+            android:name=".app.setting.usercenter.Faq"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
             android:name=".app.setting.usercenter.JibconAsk"
@@ -98,23 +98,23 @@
         <activity
             android:name=".app.setting.usercenter.UserCenter"
             android:theme="@style/myAppTheme.NoActionBar" />
-       <activity android:name=".Login.KakaoSignupActivity"
+       <activity android:name=".login.KakaoSignupActivity"
            android:theme="@style/AppTheme.NoActionBar">
 
        </activity>
 
         <activity
-            android:name=".app.GetOtherCon.GetOtherConActivity"
+            android:name=".app.getothercon.GetOtherConActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".app.GetOtherCon.GetOtherConFinishActivity"
+            android:name=".app.getothercon.GetOtherConFinishActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.FloatingButtonUi.FloatingButtonDeviceActivity"
+            android:name=".ui.floatingbuttonui.FloatingButtonDeviceActivity"
             android:theme="@style/Theme.AppCompat.Translucent" />
-        <activity android:name=".ui.FloatingButtonUi.FlotingButtonActiveActivity"
+        <activity android:name=".ui.floatingbuttonui.FlotingButtonActiveActivity"
             android:theme="@style/Theme.AppCompat.Translucent"/>
-        <activity android:name=".ui.FloatingButtonUi.FlotingButtonPassiveActivity"
+        <activity android:name=".ui.floatingbuttonui.FlotingButtonPassiveActivity"
             android:theme="@style/Theme.AppCompat.Translucent"></activity>
     </application>
 

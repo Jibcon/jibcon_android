@@ -19,8 +19,8 @@ public class AskEnrollCompany extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_askenrollcompany);
 
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_setting_askenrollcompany);
-        mImageView.setOnClickListener(new View.OnClickListener() {
+        ImageView imageView = (ImageView)findViewById(R.id.imageview_setting_askenrollcompany);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AskEnrollCompany.this, UserCenter.class);

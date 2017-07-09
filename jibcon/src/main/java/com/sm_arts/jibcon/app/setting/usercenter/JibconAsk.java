@@ -19,8 +19,8 @@ public class JibconAsk extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_jibconask);
 
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_setting_jibconask);
-        mImageView.setOnClickListener(new View.OnClickListener() {
+        ImageView imageView = (ImageView)findViewById(R.id.imageview_setting_jibconask);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(JibconAsk.this, UserCenter.class);

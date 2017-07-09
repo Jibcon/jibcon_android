@@ -19,14 +19,14 @@ import com.sm_arts.jibcon.app.setting.SettingActivity;
 public class UserCenter extends AppCompatActivity {
 
     ListView mSettingUserCenterLv;
-    static final String[] mSettingUserCenterList={"제조업체 문의","FAQ","집콘 문의하기"};
+    static final String[] sSettingUserCenterList={"제조업체 문의","Faq","집콘 문의하기"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_usercenter);
 
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSettingUserCenterList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSettingUserCenterList);
 
         mSettingUserCenterLv = (ListView)findViewById(R.id.Lv_setting_usercenter);
 
@@ -42,8 +42,8 @@ public class UserCenter extends AppCompatActivity {
                     Intent intent = new Intent(UserCenter.this, AskEnrollCompany.class);
                     startActivity(intent);
                 }
-                else if(settingClickedItem=="FAQ"){
-                    Intent intent = new Intent(UserCenter.this, FAQ.class);
+                else if(settingClickedItem=="Faq"){
+                    Intent intent = new Intent(UserCenter.this, Faq.class);
                     startActivity(intent);
                 }
                 else {

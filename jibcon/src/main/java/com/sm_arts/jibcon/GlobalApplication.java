@@ -11,8 +11,8 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.kakao.auth.KakaoSDK;
-import com.sm_arts.jibcon.Login.KaKaoSDKAdpater;
-import com.sm_arts.jibcon.Login.user.domain.User;
+import com.sm_arts.jibcon.login.KaKaoSDKAdpater;
+import com.sm_arts.jibcon.login.user.domain.User;
 import com.tsengvn.typekit.Typekit;
 
 import java.net.URL;
@@ -29,8 +29,8 @@ public class GlobalApplication extends Application {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     //모든 액티비티에서 공유할 수 있는 정보만 담기 최대 4KB..?
 
-    private static volatile GlobalApplication obj = null;
-    private static volatile Activity currentActivity = null;
+    private static volatile GlobalApplication sObj = null;
+    private static volatile Activity sCurrentActivity = null;
     //카톡 로그인
 
     String userToken;
@@ -74,8 +74,8 @@ public class GlobalApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG, "onCreate: allocate GlobalApplication obj");
-        obj = this;
+        Log.d(TAG, "onCreate: allocate GlobalApplication sObj");
+        sObj = this;
         username = "TestUser";
         userEmail = "Jipcon@Jipcon.com";
         KakaoSDK.init(new KaKaoSDKAdpater());
@@ -91,11 +91,11 @@ public class GlobalApplication extends Application {
 
     //카톡 로그인용
     public static GlobalApplication getGlobalApplicationContext() {
-        return obj;
+        return sObj;
     }
 
     public static Activity getCurrentActivity() {
-        return currentActivity;
+        return sCurrentActivity;
     }
 
     public boolean chkPermission(String permission, Activity currentActivity) {
@@ -123,7 +123,7 @@ public class GlobalApplication extends Application {
     }
 
     public boolean chkPermission(String permission) {
-        return chkPermission(permission, currentActivity); // todo activate currentActivity
+        return chkPermission(permission, sCurrentActivity); // todo activate sCurrentActivity
     }
 
     public void setUser(User user) {

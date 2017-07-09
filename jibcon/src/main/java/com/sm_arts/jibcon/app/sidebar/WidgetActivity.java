@@ -14,7 +14,7 @@ import com.sm_arts.jibcon.R;
 public class WidgetActivity extends AppCompatActivity {
 
     ListView mSidebarWidgetLV;
-    static final String[] mSidebarWidgetList={"On/Off 위젯 만들기","루틴 위젯 만들기","툴바 만들기","데이터 위젯 만들기"};
+    static final String[] sSidebarWidgetList={"On/Off 위젯 만들기","루틴 위젯 만들기","툴바 만들기","데이터 위젯 만들기"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class WidgetActivity extends AppCompatActivity {
         setContentView(R.layout.sidebar_widget);
 
         /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSidebarWidgetList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSidebarWidgetList);
 
         mSidebarWidgetLV = (ListView)findViewById(R.id.listview_widget);
 
@@ -38,8 +38,8 @@ public class WidgetActivity extends AppCompatActivity {
             }
         }) ;
 
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_sidebar_widget);
-        mImageView.setOnClickListener(new View.OnClickListener() {
+        ImageView imageView = (ImageView)findViewById(R.id.imageview_sidebar_widget);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
