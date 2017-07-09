@@ -19,7 +19,7 @@ import com.sm_arts.jibcon.app.setting.SettingActivity;
 public class UserCenter extends AppCompatActivity {
 
     ListView mSettingUserCenterLv;
-    static final String[] sSettingUserCenterList={"제조업체 문의","Faq","집콘 문의하기"};
+    static final String[] sSettingUserCenterList={"제조업체 문의","FAQ","집콘 문의하기"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
