@@ -81,8 +81,6 @@ public class GlobalApplication extends MultiDexApplication {
         username = "TestUser";
         userEmail = "Jipcon@Jipcon.com";
         KakaoSDK.init(new KaKaoSDKAdpater());
-        //카톡로그인
-        getKeyHash(getApplicationContext());
         // for font change
         Typekit.getInstance()
                 .addNormal(Typekit.createFromAsset(this, "12롯데마트드림Medium.ttf"))
@@ -139,24 +137,25 @@ public class GlobalApplication extends MultiDexApplication {
         Log.d(TAG, "setUser: Success Signin With SampleUser");
     }
 
-    public String getKeyHash(Context context)
-    {
-        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
-        if (packageInfo == null)
-            return null;
-        for (Signature signature : packageInfo.signatures) {
-            try {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                String hashKey= android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
-                //카카오톡 안드로이드 플랫폼 키해시에 들어갈 키 정보 알아내기
-                Log.d("testing",hashKey);
-
-                return android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
-            } catch (NoSuchAlgorithmException e) {
-                Log.d("testing", "Unable to get MessageDigest. signature=" + signature, e);
-            }
-        }
-        return null;
-    }
+    // For Thirdparty App Key
+//    public String getKeyHash(Context context)
+//    {
+//        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
+//        if (packageInfo == null)
+//            return null;
+//        for (Signature signature : packageInfo.signatures) {
+//            try {
+//                MessageDigest md = MessageDigest.getInstance("SHA");
+//                md.update(signature.toByteArray());
+//                String hashKey= android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
+//                //카카오톡 안드로이드 플랫폼 키해시에 들어갈 키 정보 알아내기
+//                Log.d("testing",hashKey);
+//
+//                return android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
+//            } catch (NoSuchAlgorithmException e) {
+//                Log.d("testing", "Unable to get MessageDigest. signature=" + signature, e);
+//            }
+//        }
+//        return null;
+//    }
 }
