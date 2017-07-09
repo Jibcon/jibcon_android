@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.support.multidex.MultiDexApplication;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -15,6 +16,7 @@ import com.sm_arts.jibcon.login.KaKaoSDKAdpater;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.tsengvn.typekit.Typekit;
 
+import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -25,12 +27,12 @@ import static com.kakao.util.helper.Utility.getPackageInfo;
  * Created by admin on 2017-04-06.
  */
 
-public class GlobalApplication extends Application {
+public class GlobalApplication extends MultiDexApplication {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     //모든 액티비티에서 공유할 수 있는 정보만 담기 최대 4KB..?
 
     private static volatile GlobalApplication sObj = null;
-    private static volatile Activity sCurrentActivity = null;
+    private volatile WeakReference<Activity> sCurrentActivity = null;
     //카톡 로그인
 
     String userToken;
@@ -94,8 +96,8 @@ public class GlobalApplication extends Application {
         return sObj;
     }
 
-    public static Activity getCurrentActivity() {
-        return sCurrentActivity;
+    public Activity getCurrentActivity() {
+        return sCurrentActivity.get();
     }
 
     public boolean chkPermission(String permission, Activity currentActivity) {
@@ -122,10 +124,6 @@ public class GlobalApplication extends Application {
         return true;
     }
 
-    public boolean chkPermission(String permission) {
-        return chkPermission(permission, sCurrentActivity); // todo activate sCurrentActivity
-    }
-
     public void setUser(User user) {
         setUsername(user.getUserinfo().getFull_name());
         setUserEmail(user.getEmail());
@@ -141,7 +139,7 @@ public class GlobalApplication extends Application {
         Log.d(TAG, "setUser: Success Signin With SampleUser");
     }
 
-    public static String getKeyHash(Context context)
+    public String getKeyHash(Context context)
     {
         PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
         if (packageInfo == null)
