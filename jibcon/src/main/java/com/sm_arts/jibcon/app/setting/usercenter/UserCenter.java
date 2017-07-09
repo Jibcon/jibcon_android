@@ -42,7 +42,7 @@ public class UserCenter extends AppCompatActivity {
                     Intent intent = new Intent(UserCenter.this, AskEnrollCompany.class);
                     startActivity(intent);
                 }
-                else if(settingClickedItem=="Faq"){
+                else if(settingClickedItem=="FAQ"){
                     Intent intent = new Intent(UserCenter.this, Faq.class);
                     startActivity(intent);
                 }
