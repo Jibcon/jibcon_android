@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Chanjoo on 2017-03-30.
@@ -26,7 +27,7 @@ import butterknife.ButterKnife;
 public class DataControlFragment extends android.support.v4.app.Fragment {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
-    @BindView(R.id.Lv_data_control) ListView mDataControlListView;
+    @BindView(R.id.lv_data_control) ListView mDataControlListView;
     @BindString(R.string.datacontrol_menu_1) String menu1;
     @BindString(R.string.datacontrol_menu_2) String menu2;
     @BindString(R.string.datacontrol_menu_3) String menu3;

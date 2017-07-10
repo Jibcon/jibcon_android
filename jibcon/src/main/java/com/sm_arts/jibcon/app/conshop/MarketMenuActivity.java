@@ -30,8 +30,13 @@ public class MarketMenuActivity extends android.support.v4.app.Fragment {
     @BindView(R.id.Txt_Market_Outdoor) TextView mOutdoor;
 
     @OnClick(R.id.Txt_Market_Best) void Txt_Market_Best(){
-        ToastHelper.toast(getContext(), "test1");
-    }
+        ToastHelper.toast(getContext(), "best");}
+    @OnClick(R.id.Txt_Market_Home) void Txt_Market_Home(){
+        ToastHelper.toast(getContext(), "home");}
+    @OnClick(R.id.Txt_Market_Health) void Txt_Market_Health(){
+        ToastHelper.toast(getContext(), "health");}
+    @OnClick(R.id.Txt_Market_Outdoor) void Txt_Market_Outdoor(){
+        ToastHelper.toast(getContext(), "outdoor");}
 
 
     @Override
