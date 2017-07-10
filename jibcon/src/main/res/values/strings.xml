@@ -40,5 +40,15 @@
 
     <string name="sidebar_connecteddevices_menu_1">"Company         Device"</string>
 
+    <string name="trick_passive_input_menu_1">실내온도가 30도 이상이 되면</string>
+    <string name="trick_passive_input_menu_2">내가 퇴근해서 집에 오고있으면</string>
+    <string name="trick_passive_input_menu_3">내가 출근을 하면</string>
+    <string name="trick_passive_input_menu_4">아침에 비가오면</string>
+
+\    <string name="trick_passive_output_menu_1">22도에 맞춰 에어켠을 켜줘</string>
+    <string name="trick_passive_output_menu_2">공기청정기를 틀어줘</string>
+    <string name="trick_passive_output_menu_3">가스벨브를 잠그고 \n방범시스템을 켜줘</string>
+    <string name="trick_passive_output_menu_4">알람시간보다 30분 일찍 깨워줘</string>
+
 
 </resources>
