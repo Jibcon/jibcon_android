@@ -35,6 +35,7 @@ public class TrickPassiveFragment extends android.support.v4.app.Fragment{
     @BindString(R.string.trick_passive_output_menu_3) String output3;
     @BindString(R.string.trick_passive_output_menu_4) String output4;
 
+    
     //hamburger btn
     @OnClick(R.id.fab_cheatkey_passive_behind) void fab_cheatkey_passive_behind(){
         startActivity(new Intent(getContext(), FlotingButtonPassiveActivity.class));
