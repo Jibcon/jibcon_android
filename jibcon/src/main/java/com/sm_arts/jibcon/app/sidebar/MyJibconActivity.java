@@ -11,23 +11,34 @@ import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
 
+import butterknife.BindString;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MyJibconActivity extends AppCompatActivity {
 
-    ListView mSidebarMyJibconLv;
-    static final String[] sSidebarMyJibconList={"집소개 수정","주거 환경","주소 설정"};
+    @BindView(R.id.lv_my_jibcon) ListView mSidebarMyJibconLv;
+    @BindString(R.string.sidebar_myjibcon_menu_1) String menu1;
+    @BindString(R.string.sidebar_myjibcon_menu_2) String menu2;
+    @BindString(R.string.sidebar_myjibcon_menu_3) String menu3;
+    @OnClick(R.id.imageview_sidebar_myjibcon) void imageview_sidebar_myjibcon(){
+        finish();
 
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sidebar_my_jibcon);
+        ButterKnife.bind(this);
+
+        String[] sSidebarMyJibconList={menu1,menu2,menu3};
 
         /* add String[] to ListView*/
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSidebarMyJibconList);
-
-        mSidebarMyJibconLv = (ListView)findViewById(R.id.listview_my_jibcon);
-
         mSidebarMyJibconLv.setAdapter(adapter);
+
         /* add onItemClickListener to ListView*/
         mSidebarMyJibconLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -38,12 +49,5 @@ public class MyJibconActivity extends AppCompatActivity {
             }
         }) ;
 
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_sidebar_myjibcon);
-        mImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }

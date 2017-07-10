@@ -5,4 +5,50 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="facebook_app_id">440498979632151</string>
     <string name="action_settings">Settings</string>
+
+    <string name="datacontrol_menu_1">기기별 전기 사용량</string>
+    <string name="datacontrol_menu_2">집콘 사용 기록</string>
+    <string name="datacontrol_menu_3">기간별 전기 사용량</string>
+    <string name="datacontrol_menu_4">실내 온습도 및 미세먼지 측정</string>
+
+    <string name="setting_menu_1">개인/보안</string>
+    <string name="setting_menu_2">알림</string>
+    <string name="setting_menu_3">고객센터</string>
+
+    <string name="setting_personsecure_menu_1">프로필 설정</string>
+    <string name="setting_personsecure_menu_2">암호 설정</string>
+    <string name="setting_personsecure_menu_3">지문 설정</string>
+    <string name="setting_personsecure_menu_4">정보제공 동의서</string>
+    <string name="setting_personsecure_menu_5">집콘 탈퇴하기</string>
+
+    <string name="setting_usercenter_menu_1">제조업체 문의</string>
+    <string name="setting_usercenter_menu_2">FAQ</string>
+    <string name="setting_usercenter_menu_3">집콘 문의하기</string>
+
+    <string name="sidebar_widget_menu_1">On/Off 위젯 만들기</string>
+    <string name="sidebar_widget_menu_2">루틴 위젯 만들기</string>
+    <string name="sidebar_widget_menu_3">툴바 만들기</string>
+    <string name="sidebar_widget_menu_4">데이터 위젯 만들기</string>
+
+    <string name="sidebar_userauthority_menu_1">집에 연결된 사용자 관리</string>
+    <string name="sidebar_userauthority_menu_2">내 집콘에 초대하기</string>
+    <string name="sidebar_userauthority_menu_3">초대받은 목록</string>
+
+    <string name="sidebar_myjibcon_menu_1">집소개 수정</string>
+    <string name="sidebar_myjibcon_menu_2">주거 환경</string>
+    <string name="sidebar_myjibcon_menu_3">주소 설정</string>
+
+    <string name="sidebar_connecteddevices_menu_1">"Company         Device"</string>
+
+    <string name="trick_passive_input_menu_1">실내온도가 30도 이상이 되면</string>
+    <string name="trick_passive_input_menu_2">내가 퇴근해서 집에 오고있으면</string>
+    <string name="trick_passive_input_menu_3">내가 출근을 하면</string>
+    <string name="trick_passive_input_menu_4">아침에 비가오면</string>
+
+\    <string name="trick_passive_output_menu_1">22도에 맞춰 에어켠을 켜줘</string>
+    <string name="trick_passive_output_menu_2">공기청정기를 틀어줘</string>
+    <string name="trick_passive_output_menu_3">가스벨브를 잠그고 \n방범시스템을 켜줘</string>
+    <string name="trick_passive_output_menu_4">알람시간보다 30분 일찍 깨워줘</string>
+
+
 </resources>

@@ -24,7 +24,7 @@
     </android.support.v7.widget.Toolbar>
 
     <ListView
-        android:id="@+id/listview_widget"
+        android:id="@+id/lv_widget"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

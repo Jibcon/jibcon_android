@@ -11,42 +11,38 @@ import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
 
+import butterknife.BindString;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class ConnectedDevicesActivity extends AppCompatActivity {
 
-    ListView mSidebarConnectedDevicesLv;
-    static final String[] sSidebarConnectedDeviceList={"Company         Device",
-                                                    "Company         Device",
-                                                    "Company         Device"};
+    @OnClick(R.id.imageview_sidebar_connecteddevices) void imageview_sidebar_connecteddevices(){
+        finish();}
+    @BindView(R.id.lv_connected_device) ListView mSidebarConnectedDevicesLv;
+    @BindString(R.string.sidebar_connecteddevices_menu_1) String menu1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sidebar_connected_devices);
+        ButterKnife.bind(this);
+
+        String[] sSidebarConnectedDeviceList={menu1, menu1, menu1};
 
         /* add String[] to ListView*/
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSidebarConnectedDeviceList);
-
-        mSidebarConnectedDevicesLv = (ListView)findViewById(R.id.listview_connected_device);
-
         mSidebarConnectedDevicesLv.setAdapter(adapter);
         /* add onItemClickListener to ListView*/
         mSidebarConnectedDevicesLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-
                 String settingClickedItem = (String) mSidebarConnectedDevicesLv.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
             }
         }) ;
-
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_sidebar_connecteddevices);
-        mImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
     }
 }

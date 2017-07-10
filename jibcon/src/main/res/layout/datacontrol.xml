@@ -9,7 +9,7 @@
 
 
     <ListView
-        android:id="@+id/Lv_data_control"
+        android:id="@+id/lv_data_control"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

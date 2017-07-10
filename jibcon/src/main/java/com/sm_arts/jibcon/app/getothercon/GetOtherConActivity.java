@@ -22,6 +22,8 @@ import java.util.ArrayList;
 
 public class GetOtherConActivity extends AppCompatActivity{
     private RecyclerView mRecyclerView;
+
+
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<getConData> mGetConDataset;

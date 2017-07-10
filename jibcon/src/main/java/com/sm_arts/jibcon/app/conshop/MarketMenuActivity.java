@@ -9,6 +9,11 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.utils.ToastHelper;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by user on 2017-03-30.
@@ -19,61 +24,27 @@ public class MarketMenuActivity extends android.support.v4.app.Fragment {
 
     public MarketMenuActivity(){}
 
-    TextView mBest;
-    TextView mHome;
-    TextView mHealth;
-    TextView mOutdoor;
-    private  void initLayout(View view)
-    {
-        mBest=(TextView)view.findViewById(R.id.Txt_Market_Best);
-        mHome=(TextView)view.findViewById(R.id.Txt_Market_Home);
-        mHealth=(TextView)view.findViewById(R.id.Txt_Market_Health);
-        mOutdoor=(TextView)view.findViewById(R.id.Txt_Market_Outdoor);
+    @BindView(R.id.Txt_Market_Best) TextView mBest;
+    @BindView(R.id.Txt_Market_Home) TextView mHome;
+    @BindView(R.id.Txt_Market_Health) TextView mHealth;
+    @BindView(R.id.Txt_Market_Outdoor) TextView mOutdoor;
 
-        mBest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: Move to Best");
-//                Toast.makeText(getActivity().getApplicationContext(),"Move to Best",Toast.LENGTH_SHORT).show();
-            }
-        });
+    @OnClick(R.id.Txt_Market_Best) void Txt_Market_Best(){
+        ToastHelper.toast(getContext(), "best");}
+    @OnClick(R.id.Txt_Market_Home) void Txt_Market_Home(){
+        ToastHelper.toast(getContext(), "home");}
+    @OnClick(R.id.Txt_Market_Health) void Txt_Market_Health(){
+        ToastHelper.toast(getContext(), "health");}
+    @OnClick(R.id.Txt_Market_Outdoor) void Txt_Market_Outdoor(){
+        ToastHelper.toast(getContext(), "outdoor");}
 
-        mHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: Move to Home");
-//                Toast.makeText(getActivity().getApplicationContext(),"Move to Home",Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        mHealth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: Move to Health");
-//                Toast.makeText(getActivity().getApplicationContext(),"Move to Health",Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        mOutdoor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: Move to Ourdoor");
-//                Toast.makeText(getActivity().getApplicationContext(),"Move to Ourdoor",Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-    }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // 주의 : menu_market의 최상단 레이아웃은 scrollview이기 객체 생성시에도 타입을 ScrollView로 해야됨.
-        ScrollView layout = (ScrollView) inflater.inflate(R.layout.menu_market, container, false);
-        initLayout(layout);
-        return layout;
+        ScrollView view = (ScrollView) inflater.inflate(R.layout.menu_market, container, false);
+        ButterKnife.bind(this, view);
+
+        return view;
     }
 }
