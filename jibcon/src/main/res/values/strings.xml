@@ -5,4 +5,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="facebook_app_id">440498979632151</string>
     <string name="action_settings">Settings</string>
+
+    <string name="datacontrol_menu_1">기기별 전기 사용량</string>
+    <string name="datacontrol_menu_2">집콘 사용 기록</string>
+    <string name="datacontrol_menu_3">기간별 전기 사용량</string>
+    <string name="datacontrol_menu_4">실내 온습도 및 미세먼지 측정</string>
 </resources>
