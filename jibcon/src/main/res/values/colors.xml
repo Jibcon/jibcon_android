@@ -12,10 +12,10 @@
     <color name="black_opaque">#99000000</color>
     <color name="transparent">#00000000</color>
 
-    <color name="shallow_gray">#BFBFBF</color>
+    <color name="light_gray">#BFBFBF</color>
     <color name="deep_gray">#6E6E6E</color>
 
-    <color name="shallow_blue">#36C3FF</color>
+    <color name="light_blue">#36C3FF</color>
     <color name="deep_blue">#3498DB</color>
 
     <color name="default_text_color">#262626</color>
