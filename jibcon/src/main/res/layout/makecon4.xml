@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:text="최적화 완료"
         android:textSize="16dp"
-        android:textColor="#FFFFFF"/>
+        android:textColor="@color/white"/>
     <ImageView
         android:src="@drawable/makecon_finish"
         android:layout_width="260dp"
@@ -29,7 +29,7 @@
         android:layout_gravity="center"
         android:text="집콘을 시작합니다"
         android:textSize="24dp"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
 </LinearLayout>

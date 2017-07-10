@@ -24,7 +24,7 @@
                 android:paddingTop="8dp"
                 android:paddingRight="4dp"
                 android:gravity="right"
-                android:background="#FFFFFF">
+                android:background="@color/white">
 
                 <ImageButton
                     android:id="@+id/btn_passive_cheatkey_setting"
@@ -42,7 +42,7 @@
                 android:orientation="vertical"
                 android:layout_gravity="center"
                 android:paddingBottom="20dp"
-                android:background="#FFFFFF">
+                android:background="@color/white">
 
                 <TextView
                     android:id="@+id/passive_cheatkey_input"
@@ -51,7 +51,7 @@
                     android:layout_gravity="center"
                     android:text="INPUT"
                     android:textSize="24dp"
-                    android:textColor="#000000"/>
+                    android:textColor="@color/default_text_color"/>
 
                 <TextView
                     android:id="@+id/passive_cheatkey_output"

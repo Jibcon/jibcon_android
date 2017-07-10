@@ -31,7 +31,7 @@
                 android:text="Conshop"
                 android:textSize="30dp"
                 android:textStyle="bold"
-                android:textColor="#000000"
+                android:textColor="@color/default_text_color"
                 android:layout_marginRight="20dp"/>
             <TextView
                 android:id="@+id/Txt_Market_Best"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="베스트"
                 android:textSize="15dp"
-                android:textColor="#000000"
+                android:textColor="@color/default_text_color"
                 android:layout_marginRight="15dp"/>
             <TextView
                 android:id="@+id/Txt_Market_Home"
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="홈"
                 android:textSize="15dp"
-                android:textColor="#000000"
+                android:textColor="@color/default_text_color"
                 android:layout_marginRight="15dp"/>
             <TextView
                 android:id="@+id/Txt_Market_Health"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:text="헬스"
                 android:textSize="15dp"
-                android:textColor="#000000"
+                android:textColor="@color/default_text_color"
                 android:layout_marginRight="15dp"/>
             <TextView
                 android:id="@+id/Txt_Market_Outdoor"
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:text="아웃도어"
                 android:textSize="15dp"
-                android:textColor="#000000"
+                android:textColor="@color/default_text_color"
                 android:layout_marginRight="15dp"/>
         </LinearLayout>
 
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:text="Hot Item"
                 android:textSize="30dp"
-                android:textColor="#000000"
+                android:textColor="@color/default_text_color"
                 android:textStyle="bold"
                 android:layout_marginRight="15dp"/>
         </LinearLayout>
@@ -155,7 +155,7 @@
                 android:text="Hot News"
                 android:textSize="30dp"
                 android:textStyle="bold"
-                android:textColor="#000000"/>
+                android:textColor="@color/default_text_color"/>
 
             <!-- News Contents -->
             <TextView
@@ -164,28 +164,28 @@
                 android:layout_marginBottom="5dp"
                 android:text="[속보] 이찬주씨, 사실은 여자 아이돌을 많이 좋아해...충격"
                 android:textSize="15dp"
-                android:textColor="#000000"/>
+                android:textColor="@color/default_text_color"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="[신상] 삼성, 갤럭시8 공개"
                 android:textSize="15dp"
-                android:textColor="#000000"/>
+                android:textColor="@color/default_text_color"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="[시사] 나는 이 시간에 안자고 무엇을 하는가"
                 android:textSize="15dp"
-                android:textColor="#000000"/>
+                android:textColor="@color/default_text_color"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="[대학생활] 안암 공업 전문학교로 당신을 초대합니다!"
                 android:textSize="15dp"
-                android:textColor="#000000"/>
+                android:textColor="@color/default_text_color"/>
         </LinearLayout>
     </RelativeLayout>
 

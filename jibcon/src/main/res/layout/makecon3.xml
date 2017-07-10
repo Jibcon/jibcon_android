@@ -28,7 +28,7 @@
             android:gravity="center"
             android:text="주소"
             android:textSize="16dp"
-            android:textColor="#000000"
+            android:textColor="@color/default_text_color"
             android:textStyle="bold"/>
 
         <ImageButton
@@ -73,7 +73,7 @@
             android:layout_marginTop="60dp"
             android:text="완 료"
             android:textSize="16dp"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

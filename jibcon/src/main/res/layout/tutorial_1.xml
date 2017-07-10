@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="어떠한 기기든 빠르게 연결하고\n쉽게 사용해보세요"
-            android:textColor="#000000"
+            android:textColor="@color/default_text_color"
             android:textSize="16dp" />
 
     </LinearLayout>

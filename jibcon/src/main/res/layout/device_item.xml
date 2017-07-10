@@ -12,7 +12,7 @@
         card_view:cardUseCompatPadding="true"
         card_view:cardElevation="10dp"
         card_view:cardCornerRadius="10dp"
-        android:background="#FFFFFF">
+        android:background="@color/white">
 
 
         <LinearLayout
@@ -44,7 +44,7 @@
                 android:cropToPadding="true"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#FFFFFF"/>
+                android:background="@color/white"/>
 
             <LinearLayout
                 android:layout_below="@id/ImgViewDiviceItem"

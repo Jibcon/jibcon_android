@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="JibCon"
-                android:textColor="#3498DB"
+                android:textColor="@color/deep_blue"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 

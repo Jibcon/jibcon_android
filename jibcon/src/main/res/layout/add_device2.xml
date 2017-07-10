@@ -18,7 +18,7 @@
             android:gravity="center"
             android:background="@drawable/xml_boreder"
             android:text="제품 선택"
-            android:textColor="#000000"/>
+            android:textColor="@color/default_text_color"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -26,7 +26,7 @@
             android:gravity="center"
             android:background="@drawable/xml_boreder"
             android:text="와이파이 연결"
-            android:textColor="#000000"/>
+            android:textColor="@color/default_text_color"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -34,7 +34,7 @@
             android:gravity="center"
             android:background="@drawable/xml_boreder"
             android:text="핸드폰 연결"
-            android:textColor="#000000"/>
+            android:textColor="@color/default_text_color"/>
     </LinearLayout>
 
     <LinearLayout
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="핸드폰 연결"
-            android:textColor="#000000"
+            android:textColor="@color/default_text_color"
             android:textSize="24dp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -97,7 +97,7 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:text="장치 생성 완료"
-            android:textColor="#000000"
+            android:textColor="@color/default_text_color"
             android:textSize="24dp" />
 
     </LinearLayout>

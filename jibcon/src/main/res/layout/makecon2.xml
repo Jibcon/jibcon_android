@@ -28,7 +28,7 @@
             android:gravity="center"
             android:text="집 이름"
             android:textSize="16dp"
-            android:textColor="#000000"
+            android:textColor="@color/default_text_color"
             android:textStyle="bold"/>
 
         <ImageButton
@@ -66,7 +66,7 @@
                 android:layout_height="200dp"
                 android:layout_gravity="start"
                 android:orientation="vertical"
-                android:divider="#000000"
+                android:divider="@color/default_text_color"
                 android:dividerHeight="0.25dp"/>
         </LinearLayout>
 
@@ -81,7 +81,7 @@
                 android:layout_height="40dp"
                 android:background="@color/colorPrimary"
                 android:text="다음"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:textSize="16dp"/>
         </LinearLayout>
 
