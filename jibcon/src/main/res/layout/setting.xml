@@ -9,7 +9,8 @@
         android:id="@+id/toolbar_setting"
         style="@style/toolbar_common"
         app:popupTheme="@style/AppTheme.PopupOverlay"
-        ><ImageView
+        >
+        <ImageView
         android:id="@+id/imageview_setting"
         android:layout_height="match_parent"
         android:layout_width="40dp"
@@ -23,7 +24,7 @@
     </android.support.v7.widget.Toolbar>
 
     <ListView
-        android:id="@+id/Lv_setting"
+        android:id="@+id/lv_setting"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

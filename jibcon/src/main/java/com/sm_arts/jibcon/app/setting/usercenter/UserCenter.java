@@ -28,7 +28,7 @@ public class UserCenter extends AppCompatActivity {
 
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSettingUserCenterList);
 
-        mSettingUserCenterLv = (ListView)findViewById(R.id.Lv_setting_usercenter);
+        mSettingUserCenterLv = (ListView)findViewById(R.id.lv_setting_usercenter);
 
         mSettingUserCenterLv.setAdapter(adapter);
         /* add onItemClickListener to ListView*/

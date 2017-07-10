@@ -32,7 +32,7 @@ public class PersonSecure extends AppCompatActivity {
         /* add String[] to ListView*/
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSettingPersonSecureList);
 
-        mSettingPersonSecureLv = (ListView)findViewById(R.id.Lv_setting_person_secure);
+        mSettingPersonSecureLv = (ListView)findViewById(R.id.lv_setting_person_secure);
 
         mSettingPersonSecureLv.setAdapter(adapter);
         /* add onItemClickListener to ListView*/

@@ -16,11 +16,15 @@ import com.sm_arts.jibcon.app.setting.personsecure.PersonSecure;
 import com.sm_arts.jibcon.app.setting.usercenter.UserCenter;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class SettingActivity extends AppCompatActivity {
 
-    ListView mSettingLv;
+    @BindView(R.id.lv_setting) ListView mSettingLv;
+    @BindView(R.id.imageview_setting) ImageView mImageView;
+
     static final String[] sSettingList={"개인/보안","알림","고객센터"};
 
     @Override
@@ -28,14 +32,15 @@ public class SettingActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting);
+        ButterKnife.bind(this);
 
         /* add String[] to ListView*/
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSettingList);
 
-        mSettingLv = (ListView)findViewById(R.id.Lv_setting);
 
         mSettingLv.setAdapter(adapter);
         /* add onItemClickListener to ListView*/
+
         mSettingLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
@@ -59,17 +64,13 @@ public class SettingActivity extends AppCompatActivity {
                 }
             }
         }) ;
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_setting);
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
-        /**/
     }
-
 
 
     @Override
