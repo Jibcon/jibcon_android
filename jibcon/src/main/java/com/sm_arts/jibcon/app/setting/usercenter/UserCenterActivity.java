@@ -31,7 +31,8 @@ public class UserCenterActivity extends AppCompatActivity {
     @OnClick(R.id.imageview_setting_usercenter) void imageview_setting_usercenter(){
         Intent intent = new Intent(UserCenterActivity.this, SettingActivity.class);
         startActivity(intent);
-        finish();}
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +54,17 @@ public class UserCenterActivity extends AppCompatActivity {
                 if(settingClickedItem == menu1){
                     Intent intent = new Intent(UserCenterActivity.this, AskEnrollCompany.class);
                     startActivity(intent);
+                    finish();
                 }
                 else if(settingClickedItem==menu2){
                     Intent intent = new Intent(UserCenterActivity.this, Faq.class);
                     startActivity(intent);
+                    finish();
                 }
                 else {
                     Intent intent = new Intent(UserCenterActivity.this, JibconAsk.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         }) ;

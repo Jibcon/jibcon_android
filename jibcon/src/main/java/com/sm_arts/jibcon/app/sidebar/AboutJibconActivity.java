@@ -7,21 +7,18 @@ import android.widget.ImageView;
 
 import com.sm_arts.jibcon.R;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class AboutJibconActivity extends AppCompatActivity {
 
+    @OnClick(R.id.imageview_sidebar_aboutjibcon) void imageview_sidebar_aboutjibcon(){
+        finish();}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sidebar_about_jibcon);
-
-
-        ImageView imageViw = (ImageView)findViewById(R.id.imageview_sidebar_aboutjibcon);
-        imageViw.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ButterKnife.bind(this);
     }
 }

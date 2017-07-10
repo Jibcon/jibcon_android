@@ -26,7 +26,7 @@
         android:layout_marginRight="60dp"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="60dp"
-        android:id="@+id/listview_connected_device"
+        android:id="@+id/lv_connected_device"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

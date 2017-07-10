@@ -19,9 +19,8 @@ public class AskEnrollCompany extends AppCompatActivity {
     @OnClick(R.id.imageview_setting_askenrollcompany) void imageview_setting_askenrollcompany(){
             Intent intent = new Intent(AskEnrollCompany.this, UserCenterActivity.class);
             startActivity(intent);
-            finish();}
-
-
+            finish();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

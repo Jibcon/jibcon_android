@@ -25,5 +25,20 @@
     <string name="setting_usercenter_menu_2">FAQ</string>
     <string name="setting_usercenter_menu_3">집콘 문의하기</string>
 
+    <string name="sidebar_widget_menu_1">On/Off 위젯 만들기</string>
+    <string name="sidebar_widget_menu_2">루틴 위젯 만들기</string>
+    <string name="sidebar_widget_menu_3">툴바 만들기</string>
+    <string name="sidebar_widget_menu_4">데이터 위젯 만들기</string>
+
+    <string name="sidebar_userauthority_menu_1">집에 연결된 사용자 관리</string>
+    <string name="sidebar_userauthority_menu_2">내 집콘에 초대하기</string>
+    <string name="sidebar_userauthority_menu_3">초대받은 목록</string>
+
+    <string name="sidebar_myjibcon_menu_1">집소개 수정</string>
+    <string name="sidebar_myjibcon_menu_2">주거 환경</string>
+    <string name="sidebar_myjibcon_menu_3">주소 설정</string>
+
+    <string name="sidebar_connecteddevices_menu_1">"Company         Device"</string>
+
 
 </resources>

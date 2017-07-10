@@ -19,12 +19,14 @@ import com.tsengvn.typekit.TypekitContextWrapper;
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class SettingActivity extends AppCompatActivity {
 
     @BindView(R.id.lv_setting) ListView mSettingLv;
-    @BindView(R.id.imageview_setting) ImageView mImageView;
+    @OnClick(R.id.imageview_setting) void imageview_setting(){
+        finish();}
 
     @BindString(R.string.setting_menu_1) String menu1;
     @BindString(R.string.setting_menu_2) String menu2;
@@ -67,12 +69,7 @@ public class SettingActivity extends AppCompatActivity {
                 }
             }
         }) ;
-        mImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+
     }
 
 
