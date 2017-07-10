@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.SidebarMenu.AboutJibconActivity">
+    tools:context=".app.sidebar.AboutJibconActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_about_jibcon"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:scrollbarAlwaysDrawHorizontalTrack="true"
-        android:background="#404040"
+        android:background="@color/statusbar_gray"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         tools:layout_editor_absoluteY="0dp"
         android:layout_marginLeft="0dp"

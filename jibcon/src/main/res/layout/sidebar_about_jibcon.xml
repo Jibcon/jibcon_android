@@ -38,6 +38,6 @@
         android:textAlignment="center"
         android:text=
             "처음 만나는 스마트홈\n쉬운 스마트홈\n재밌는 스마트홈\n\n우리가 만들어갑니다"
-        android:textColor="@color/colorAccent"/>
+        android:textColor="@color/deep_blue"/>
 
 </LinearLayout>

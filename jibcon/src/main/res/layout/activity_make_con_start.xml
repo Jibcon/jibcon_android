@@ -34,7 +34,7 @@
         android:gravity="center"
         android:text="처음이신가요?"
         android:textSize="16dp"
-        android:textColor="#000000" />
+        android:textColor="@color/default_text_color" />
 
     <ImageView
         android:paddingTop="16dp"
@@ -60,7 +60,7 @@
             android:background="@color/colorPrimary"
             android:text="나의 집콘 만들기"
             android:textSize="16dp"
-            android:textColor="#FFFFFF"/>
+            android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -70,7 +70,7 @@
             android:gravity="center"
             android:text="새로운 집콘을 시작할 수 있어요"
             android:textSize="16dp"
-            android:textColor="#000000"/>
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/Btn_getOtherCon"
@@ -82,7 +82,7 @@
             android:background="@color/colorAccent"
             android:text="다른 집콘 초대받기"
             android:textSize="16dp"
-            android:textColor="#FFFFFF"/>
+            android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -91,7 +91,7 @@
             android:gravity="center"
             android:text="가족들이 사용하는 집콘을 같이 쓸 수 있어요"
             android:textSize="16dp"
-            android:textColor="#000000" />
+            android:textColor="@color/default_text_color" />
 
     </LinearLayout>
 

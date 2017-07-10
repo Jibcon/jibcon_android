@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.SidebarMenu.ConnectedDevicesActivity">
+    tools:context=".app.sidebar.ConnectedDevicesActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_connected_devices"
         android:layout_width="368dp"
         android:layout_height="56dp"
         android:scrollbarAlwaysDrawHorizontalTrack="true"
-        android:background="#404040"
+        android:background="@color/statusbar_gray"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp">

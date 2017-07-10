@@ -39,7 +39,7 @@
             android:layout_marginBottom="16dp"
             android:gravity="center"
             android:text="낭비되는 전기세부터 나에게 맞는 온도까지! 데이터로 알아보세요"
-            android:textColor="#000"
+            android:textColor="@color/default_text_color"
             android:textSize="16dp" />
 
         <Button
@@ -50,7 +50,7 @@
             android:layout_marginTop="16dp"
             android:background="@color/colorPrimary"
             android:text="집콘 시작하기"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="16dp" />
 
     </LinearLayout>

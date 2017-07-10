@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_weight="9"
-    android:background="#FFFFFF"
+    android:background="@color/white"
     tools:context="com.sm_arts.jibcon.MainActivity">
 
     <ImageView

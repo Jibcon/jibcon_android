@@ -5,7 +5,7 @@
     android:id="@+id/content_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF"
+    android:background="@color/white"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.sm_arts.jibcon.MainActivity"
     tools:showIn="@layout/app_bar_main">
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="66dp"
         android:orientation="horizontal"
-        android:background="#FFFFFF"
+        android:background="@color/white"
         android:paddingTop="9dp"
         android:paddingBottom="5dp">
         <!--기기등록-->

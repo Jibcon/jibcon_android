@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#FFFFFF"
+    android:background="@color/white"
     tools:context="com.sm_arts.jibcon.login.LoginActivity">
 
     <VideoView
@@ -52,9 +52,9 @@
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_marginBottom="8dp"
-            android:background="#13C300"
+            android:background="@color/naver_login_button"
             android:text="네이버계정으로 시작"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="16dp" />
 
         <Button
@@ -63,7 +63,7 @@
             android:layout_height="40dp"
             android:background="#001ac3"
             android:text="샘플계정으로 둘러보기"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="16dp" />
 
     </LinearLayout>
