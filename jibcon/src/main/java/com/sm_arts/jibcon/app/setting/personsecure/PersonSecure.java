@@ -15,27 +15,44 @@ import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.setting.SettingActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
+import butterknife.BindString;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by woojinkim on 2017. 5. 20..
  */
 
 public class PersonSecure extends AppCompatActivity {
-    ListView mSettingPersonSecureLv;
-    static final String[] sSettingPersonSecureList={"프로필 설정","암호 설정","지문 설정","정보제공 동의서", "집콘 탈퇴하기"};
+
+    @BindView(R.id.lv_setting_personsecure) ListView mSettingPersonSecureLv;
+    @BindString(R.string.setting_personsecure_menu_1) String menu1;
+    @BindString(R.string.setting_personsecure_menu_2) String menu2;
+    @BindString(R.string.setting_personsecure_menu_3) String menu3;
+    @BindString(R.string.setting_personsecure_menu_4) String menu4;
+    @BindString(R.string.setting_personsecure_menu_5) String menu5;
+
+    @OnClick(R.id.imageview_setting_personsecure) void imageview_setting_personsecure(){
+        Intent intent = new Intent(PersonSecure.this, SettingActivity.class);
+        startActivity(intent);
+        finish();}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_person_secure);
+        setContentView(R.layout.setting_personsecure);
+        ButterKnife.bind(this);
 
+
+        String[] sSettingPersonSecureList={menu1,menu2,menu3,menu4,menu5};
         /* add String[] to ListView*/
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSettingPersonSecureList);
 
-        mSettingPersonSecureLv = (ListView)findViewById(R.id.lv_setting_person_secure);
-
         mSettingPersonSecureLv.setAdapter(adapter);
         /* add onItemClickListener to ListView*/
+
         mSettingPersonSecureLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
@@ -45,18 +62,8 @@ public class PersonSecure extends AppCompatActivity {
             }
         }) ;
 
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_setting_personsecure);
-        mImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PersonSecure.this, SettingActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
     }
-
 
 
     @Override

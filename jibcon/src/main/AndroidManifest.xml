@@ -96,7 +96,7 @@
             android:name=".app.setting.usercenter.JibconAsk"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.usercenter.UserCenter"
+            android:name=".app.setting.usercenter.UserCenterActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
        <activity android:name=".login.KakaoSignupActivity"
            android:theme="@style/AppTheme.NoActionBar">

@@ -8,26 +8,25 @@ import android.widget.ImageView;
 
 import com.sm_arts.jibcon.R;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by woojinkim on 2017. 5. 20..
  */
 
 public class AskEnrollCompany extends AppCompatActivity {
+    @OnClick(R.id.imageview_setting_askenrollcompany) void imageview_setting_askenrollcompany(){
+            Intent intent = new Intent(AskEnrollCompany.this, UserCenterActivity.class);
+            startActivity(intent);
+            finish();}
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_askenrollcompany);
-
-        ImageView imageView = (ImageView)findViewById(R.id.imageview_setting_askenrollcompany);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AskEnrollCompany.this, UserCenter.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        ButterKnife.bind(this);
     }
 
 }

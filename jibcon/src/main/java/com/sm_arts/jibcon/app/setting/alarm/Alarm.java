@@ -11,28 +11,27 @@ import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.setting.SettingActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by woojinkim on 2017. 5. 20..
  */
 
 public class Alarm extends AppCompatActivity {
 
+    @OnClick(R.id.imageview_setting_alarm) void imageview_setting_alarm(){
+        Intent intent = new Intent(Alarm.this, SettingActivity.class);
+        startActivity(intent);
+        finish();}
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_alarm);
-
-        ImageView mImageView = (ImageView) findViewById(R.id.imageview_setting_alarm);
-        mImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Alarm.this, SettingActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
+        ButterKnife.bind(this);
 
     }
     @Override

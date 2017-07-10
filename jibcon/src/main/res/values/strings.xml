@@ -10,4 +10,20 @@
     <string name="datacontrol_menu_2">집콘 사용 기록</string>
     <string name="datacontrol_menu_3">기간별 전기 사용량</string>
     <string name="datacontrol_menu_4">실내 온습도 및 미세먼지 측정</string>
+
+    <string name="setting_menu_1">개인/보안</string>
+    <string name="setting_menu_2">알림</string>
+    <string name="setting_menu_3">고객센터</string>
+
+    <string name="setting_personsecure_menu_1">프로필 설정</string>
+    <string name="setting_personsecure_menu_2">암호 설정</string>
+    <string name="setting_personsecure_menu_3">지문 설정</string>
+    <string name="setting_personsecure_menu_4">정보제공 동의서</string>
+    <string name="setting_personsecure_menu_5">집콘 탈퇴하기</string>
+
+    <string name="setting_usercenter_menu_1">제조업체 문의</string>
+    <string name="setting_usercenter_menu_2">FAQ</string>
+    <string name="setting_usercenter_menu_3">집콘 문의하기</string>
+
+
 </resources>

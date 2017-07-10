@@ -24,7 +24,7 @@
     </android.support.v7.widget.Toolbar>
 
     <ListView
-        android:id="@+id/lv_setting_person_secure"
+        android:id="@+id/lv_setting_personsecure"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
