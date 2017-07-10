@@ -12,21 +12,22 @@ import com.sm_arts.jibcon.R;
  * Created by woojinkim on 2017. 5. 20..
  */
 
-public class Faq extends AppCompatActivity {
+public class AskEnrollCompanyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_faq);
+        setContentView(R.layout.setting_askenrollcompany);
 
-        ImageView imageView = (ImageView)findViewById(R.id.imageview_setting_faq);
+        ImageView imageView = (ImageView)findViewById(R.id.imageview_setting_askenrollcompany);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Faq.this, UserCenter.class);
+                Intent intent = new Intent(AskEnrollCompanyActivity.this, UserCenterActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
     }
+
 }

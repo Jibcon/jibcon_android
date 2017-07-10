@@ -15,7 +15,7 @@ import com.tsengvn.typekit.TypekitContextWrapper;
  * Created by woojinkim on 2017. 5. 20..
  */
 
-public class Alarm extends AppCompatActivity {
+public class AlarmActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class Alarm extends AppCompatActivity {
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Alarm.this, SettingActivity.class);
+                Intent intent = new Intent(AlarmActivity.this, SettingActivity.class);
                 startActivity(intent);
                 finish();
             }

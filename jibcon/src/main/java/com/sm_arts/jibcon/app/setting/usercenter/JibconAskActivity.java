@@ -12,7 +12,7 @@ import com.sm_arts.jibcon.R;
  * Created by woojinkim on 2017. 5. 20..
  */
 
-public class JibconAsk extends AppCompatActivity {
+public class JibconAskActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class JibconAsk extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(JibconAsk.this, UserCenter.class);
+                Intent intent = new Intent(JibconAskActivity.this, UserCenterActivity.class);
                 startActivity(intent);
                 finish();
             }

@@ -15,8 +15,8 @@ import java.util.ArrayList;
  * Created by user on 2017-05-16.
  */
 
-public class GetConAdapter extends RecyclerView.Adapter<GetConAdapter.ViewHolder>{
-    private ArrayList<getConData> mDataset;
+public class GetOtherConAdapter extends RecyclerView.Adapter<GetOtherConAdapter.ViewHolder>{
+    private ArrayList<GetOtherConData> mDataset;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -37,13 +37,13 @@ public class GetConAdapter extends RecyclerView.Adapter<GetConAdapter.ViewHolder
         }
     }
 
-    public GetConAdapter(ArrayList<getConData> getConDataset){
+    public GetOtherConAdapter(ArrayList<GetOtherConData> getConDataset){
         mDataset = getConDataset;
     }
 
     // Create new views(invoked by the layout manager)
     @Override
-    public GetConAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public GetOtherConAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cardview_getcon, parent, false);
@@ -75,13 +75,13 @@ public class GetConAdapter extends RecyclerView.Adapter<GetConAdapter.ViewHolder
 
 
 // 입력할 데이터 종류 커스터마이징
-class getConData{
+class GetOtherConData {
     public int userImg; // 초대한 사람 이미지
     public String houseName; // 초대한 사람의 집 이름
     public String email; // 초대한 사람의 이메일
     public String houseInfo; // 초대한 사람의 집 정보
 
-    public getConData(int userImg, String houseName, String email, String houseInfo){
+    public GetOtherConData(int userImg, String houseName, String email, String houseInfo){
         this.userImg = userImg;
         this.houseName = houseName;
         this.email = email;

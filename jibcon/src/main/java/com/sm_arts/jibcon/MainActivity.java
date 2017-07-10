@@ -24,7 +24,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.sm_arts.jibcon.device.DeviceMenuFragment;
 import com.sm_arts.jibcon.app.cheatkey.TrickMenuActivity;
-import com.sm_arts.jibcon.app.conshop.MarketMenuActivity;
+import com.sm_arts.jibcon.app.conshop.ConshopMenuActivity;
 import com.sm_arts.jibcon.app.datacontrol.DataControlFragment;
 import com.sm_arts.jibcon.app.setting.SettingActivity;
 import com.sm_arts.jibcon.app.sidebar.AboutJibconActivity;
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity
         mDevicemenu = new DeviceMenuFragment();
         mUsermenu = new DataControlFragment();
         mTrickmenu = new TrickMenuActivity();
-        mMarketmenu = new MarketMenuActivity();
+        mMarketmenu = new ConshopMenuActivity();
 
         mVp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
 

@@ -16,7 +16,7 @@ import com.sm_arts.jibcon.app.setting.SettingActivity;
  * Created by woojinkim on 2017. 5. 20..
  */
 
-public class UserCenter extends AppCompatActivity {
+public class UserCenterActivity extends AppCompatActivity {
 
     ListView mSettingUserCenterLv;
     static final String[] sSettingUserCenterList={"제조업체 문의","FAQ","집콘 문의하기"};
@@ -39,15 +39,15 @@ public class UserCenter extends AppCompatActivity {
                 String settingClickedItem = (String) mSettingUserCenterLv.getItemAtPosition(position);
 
                 if(settingClickedItem == "제조업체 문의"){
-                    Intent intent = new Intent(UserCenter.this, AskEnrollCompany.class);
+                    Intent intent = new Intent(UserCenterActivity.this, AskEnrollCompanyActivity.class);
                     startActivity(intent);
                 }
                 else if(settingClickedItem=="FAQ"){
-                    Intent intent = new Intent(UserCenter.this, Faq.class);
+                    Intent intent = new Intent(UserCenterActivity.this, FaqActivity.class);
                     startActivity(intent);
                 }
                 else {
-                    Intent intent = new Intent(UserCenter.this, JibconAsk.class);
+                    Intent intent = new Intent(UserCenterActivity.this, JibconAskActivity.class);
                     startActivity(intent);
                 }
             }
@@ -57,7 +57,7 @@ public class UserCenter extends AppCompatActivity {
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserCenter.this, SettingActivity.class);
+                Intent intent = new Intent(UserCenterActivity.this, SettingActivity.class);
                 startActivity(intent);
                 finish();
             }

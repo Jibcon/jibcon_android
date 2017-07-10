@@ -24,7 +24,7 @@ public class GetOtherConActivity extends AppCompatActivity{
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<getConData> mGetConDataset;
+    private ArrayList<GetOtherConData> mGetConDataset;
 
     Button mBtnGotoMain;
 
@@ -39,11 +39,11 @@ public class GetOtherConActivity extends AppCompatActivity{
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mGetConDataset = new ArrayList<>();
-        mAdapter = new GetConAdapter(mGetConDataset);
+        mAdapter = new GetOtherConAdapter(mGetConDataset);
         mRecyclerView.setAdapter(mAdapter);
 
         //데이터 입력
-        mGetConDataset.add(new getConData(R.drawable.default_user, "찬주의 자취방",
+        mGetConDataset.add(new GetOtherConData(R.drawable.default_user, "찬주의 자취방",
                 "example@jibcon.com", "환영합니다!"));
 
         mBtnGotoMain = (Button)findViewById(R.id.btn_gotoMain); // 등록 완료

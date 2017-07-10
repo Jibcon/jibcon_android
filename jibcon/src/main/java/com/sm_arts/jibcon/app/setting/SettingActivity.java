@@ -11,9 +11,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.app.setting.alarm.Alarm;
-import com.sm_arts.jibcon.app.setting.personsecure.PersonSecure;
-import com.sm_arts.jibcon.app.setting.usercenter.UserCenter;
+import com.sm_arts.jibcon.app.setting.alarm.AlarmActivity;
+import com.sm_arts.jibcon.app.setting.personsecure.PersonSecureActivity;
+import com.sm_arts.jibcon.app.setting.usercenter.UserCenterActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
 
@@ -43,17 +43,17 @@ public class SettingActivity extends AppCompatActivity {
                 String settingClickedItem = (String) mSettingLv.getItemAtPosition(position);
 
                 if(settingClickedItem == "개인/보안"){
-                    Intent intent = new Intent(SettingActivity.this, PersonSecure.class);
+                    Intent intent = new Intent(SettingActivity.this, PersonSecureActivity.class);
                     startActivity(intent);
                     finish();
                 }
                 else if(settingClickedItem=="알림"){
-                    Intent intent = new Intent(SettingActivity.this, Alarm.class);
+                    Intent intent = new Intent(SettingActivity.this, AlarmActivity.class);
                     startActivity(intent);
                     finish();
                 }
                 else {
-                    Intent intent = new Intent(SettingActivity.this, UserCenter.class);
+                    Intent intent = new Intent(SettingActivity.this, UserCenterActivity.class);
                     startActivity(intent);
                     finish();
                 }

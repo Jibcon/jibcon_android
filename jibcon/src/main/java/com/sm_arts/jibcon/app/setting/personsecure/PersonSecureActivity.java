@@ -19,7 +19,7 @@ import com.tsengvn.typekit.TypekitContextWrapper;
  * Created by woojinkim on 2017. 5. 20..
  */
 
-public class PersonSecure extends AppCompatActivity {
+public class PersonSecureActivity extends AppCompatActivity {
     ListView mSettingPersonSecureLv;
     static final String[] sSettingPersonSecureList={"프로필 설정","암호 설정","지문 설정","정보제공 동의서", "집콘 탈퇴하기"};
 
@@ -49,7 +49,7 @@ public class PersonSecure extends AppCompatActivity {
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PersonSecure.this, SettingActivity.class);
+                Intent intent = new Intent(PersonSecureActivity.this, SettingActivity.class);
                 startActivity(intent);
                 finish();
             }

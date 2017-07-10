@@ -14,10 +14,10 @@ import com.sm_arts.jibcon.R;
  * Created by user on 2017-03-30.
  */
 
-public class MarketMenuActivity extends android.support.v4.app.Fragment {
+public class ConshopMenuActivity extends android.support.v4.app.Fragment {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
-    public MarketMenuActivity(){}
+    public ConshopMenuActivity(){}
 
     TextView mBest;
     TextView mHome;
