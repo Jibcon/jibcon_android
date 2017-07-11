@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -14,6 +15,7 @@ import butterknife.OnClick;
  */
 
 public class JibconAskActivity extends BaseActivity {
+
 
     @OnClick(R.id.imageview_setting_jibconask) void imageview_setting_jibconask(){
         Intent intent = new Intent(JibconAskActivity.this, UserCenterActivity.class);

@@ -7,6 +7,7 @@ import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.setting.SettingActivity;
 
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -15,6 +16,7 @@ import butterknife.OnClick;
  */
 
 public class AlarmActivity extends BaseActivity {
+
 
     @OnClick(R.id.imageview_setting_alarm) void imageview_setting_alarm(){
         Intent intent = new Intent(AlarmActivity.this, SettingActivity.class);
@@ -29,4 +31,5 @@ public class AlarmActivity extends BaseActivity {
         ButterKnife.bind(this);
 
     }
+
 }

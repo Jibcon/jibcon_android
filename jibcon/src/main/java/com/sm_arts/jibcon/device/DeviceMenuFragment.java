@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.sm_arts.jibcon.device.service.DeviceService;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
@@ -31,7 +30,7 @@ public class DeviceMenuFragment extends Fragment {
     SwipeRefreshLayout mSwiperefreshlayout;
 
     //Button button;
-    static MyGridView sDeviceGridview;
+    static DeviceMenuGridView sDeviceGridview;
     DeviceMenuAdapter mAdapter;
     GlobalApplication mApp;
 
@@ -66,7 +65,7 @@ public class DeviceMenuFragment extends Fragment {
             }
         });
 
-        sDeviceGridview = (MyGridView)root.findViewById(R.id.ScrollViewDevice);
+        sDeviceGridview = (DeviceMenuGridView)root.findViewById(R.id.ScrollViewDevice);
 
         sDeviceGridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

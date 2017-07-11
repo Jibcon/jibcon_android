@@ -11,6 +11,7 @@ import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.setting.alarm.AlarmActivity;
 import com.sm_arts.jibcon.app.setting.personsecure.PersonSecureActivity;
+
 import com.sm_arts.jibcon.app.setting.usercenter.UserCenterActivity;
 
 import butterknife.BindString;

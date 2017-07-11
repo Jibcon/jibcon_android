@@ -8,17 +8,17 @@ import android.widget.GridView;
 /**
  * Created by admin on 2016-11-12.
  */
-public class MyGridView extends GridView {
+public class DeviceMenuGridView extends GridView {
     boolean mExpanded = false;
-    public MyGridView(Context context) {
+    public DeviceMenuGridView(Context context) {
         super(context);
     }
 
-    public MyGridView(Context context, AttributeSet attrs) {
+    public DeviceMenuGridView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public MyGridView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DeviceMenuGridView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

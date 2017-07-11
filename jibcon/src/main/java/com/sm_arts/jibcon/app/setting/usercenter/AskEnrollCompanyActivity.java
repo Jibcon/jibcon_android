@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -14,6 +15,7 @@ import butterknife.OnClick;
  */
 
 public class AskEnrollCompanyActivity extends BaseActivity {
+
     @OnClick(R.id.imageview_setting_askenrollcompany) void imageview_setting_askenrollcompany(){
             Intent intent = new Intent(AskEnrollCompanyActivity.this, UserCenterActivity.class);
             startActivity(intent);
