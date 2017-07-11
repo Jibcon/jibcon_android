@@ -6,10 +6,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.model.houseinfo.HouseInfo;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
-public class MakeCon0Fragment extends AppCompatActivity implements HouseInfoListener {
+public class MakeCon0Fragment extends BaseActivity implements HouseInfoListener {
     String mHousename;
     String mUsername;
     String mHouseintro;
@@ -102,9 +103,4 @@ public class MakeCon0Fragment extends AppCompatActivity implements HouseInfoList
 
     }
 
-    // for font change
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
-    }
 }

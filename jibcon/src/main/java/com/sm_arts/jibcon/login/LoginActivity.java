@@ -25,6 +25,7 @@ import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.login.user.domain.User;
@@ -46,7 +47,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     private SessionCallback mKakaoCallback;      //콜백 선언
 
@@ -270,11 +271,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    // for font change
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
-    }
 
 
     //kakao login

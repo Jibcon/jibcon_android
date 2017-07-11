@@ -84,7 +84,7 @@
             android:name=".app.setting.alarm.AlarmActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.personsecure.PersonSecure"
+            android:name=".app.setting.personsecure.PersonSecureActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
             android:name=".app.setting.usercenter.AskEnrollCompanyActivity"
@@ -96,7 +96,10 @@
             android:name=".app.setting.usercenter.JibconAskActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.usercenter.UserCenterActivity"
+        android:name=".app.setting.usercenter.UserCenterActivity"
+        android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".app.BaseActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
        <activity android:name=".login.KakaoSignupActivity"
            android:theme="@style/AppTheme.NoActionBar">

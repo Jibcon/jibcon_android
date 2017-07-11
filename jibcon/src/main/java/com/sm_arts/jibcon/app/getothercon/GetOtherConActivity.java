@@ -1,17 +1,16 @@
 package com.sm_arts.jibcon.app.getothercon;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
 import com.sm_arts.jibcon.R;
-import com.tsengvn.typekit.TypekitContextWrapper;
+import com.sm_arts.jibcon.app.BaseActivity;
+
 import java.util.ArrayList;
 
 /**
@@ -20,7 +19,7 @@ import java.util.ArrayList;
  *
  */
 
-public class GetOtherConActivity extends AppCompatActivity{
+public class GetOtherConActivity extends BaseActivity{
     private RecyclerView mRecyclerView;
 
 
@@ -59,9 +58,4 @@ public class GetOtherConActivity extends AppCompatActivity{
 
     }
 
-    // for font change
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
-    }
 }

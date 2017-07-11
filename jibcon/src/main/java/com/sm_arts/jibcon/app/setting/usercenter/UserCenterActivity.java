@@ -2,13 +2,13 @@ package com.sm_arts.jibcon.app.setting.usercenter;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.setting.SettingActivity;
 
 import butterknife.BindString;
@@ -20,7 +20,7 @@ import butterknife.OnClick;
  * Created by woojinkim on 2017. 5. 20..
  */
 
-public class UserCenterActivity extends AppCompatActivity {
+public class UserCenterActivity extends BaseActivity {
 
     @BindView(R.id.lv_setting_usercenter) ListView mSettingUserCenterLv;
     @BindString(R.string.setting_usercenter_menu_1) String menu1;

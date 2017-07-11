@@ -1,19 +1,18 @@
 package com.sm_arts.jibcon.app.setting;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.setting.alarm.AlarmActivity;
-import com.sm_arts.jibcon.app.setting.personsecure.PersonSecure;
+import com.sm_arts.jibcon.app.setting.personsecure.PersonSecureActivity;
+
 import com.sm_arts.jibcon.app.setting.usercenter.UserCenterActivity;
-import com.tsengvn.typekit.TypekitContextWrapper;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -21,7 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class SettingActivity extends AppCompatActivity {
+public class SettingActivity extends BaseActivity {
 
     @BindView(R.id.lv_setting) ListView mSettingLv;
     @OnClick(R.id.imageview_setting) void imageview_setting(){
@@ -52,7 +51,7 @@ public class SettingActivity extends AppCompatActivity {
                 String settingClickedItem = (String) mSettingLv.getItemAtPosition(position);
 
                 if(settingClickedItem == menu1){
-                    Intent intent = new Intent(SettingActivity.this, PersonSecure.class);
+                    Intent intent = new Intent(SettingActivity.this, PersonSecureActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -69,11 +68,5 @@ public class SettingActivity extends AppCompatActivity {
             }
         }) ;
 
-    }
-
-
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }

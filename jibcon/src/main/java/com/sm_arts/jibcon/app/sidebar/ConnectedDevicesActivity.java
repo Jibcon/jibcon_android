@@ -10,13 +10,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ConnectedDevicesActivity extends AppCompatActivity {
+public class ConnectedDevicesActivity extends BaseActivity {
 
     @OnClick(R.id.imageview_sidebar_connecteddevices) void imageview_sidebar_connecteddevices(){
         finish();}

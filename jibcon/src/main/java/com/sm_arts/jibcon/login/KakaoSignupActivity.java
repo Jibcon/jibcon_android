@@ -11,6 +11,7 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.helper.log.Logger;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.login.user.domain.User;
@@ -22,7 +23,7 @@ import com.sm_arts.jibcon.MainActivity;
  * Created by admin on 2017-01-20.
  */
 
-public class KakaoSignupActivity extends Activity {
+public class KakaoSignupActivity extends BaseActivity {
     /**
      * Main으로 넘길지 가입 페이지를 그릴지 판단하기 위해 me를 호출한다.
      * @param savedInstanceState 기존 session 정보가 저장된 객체

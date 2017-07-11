@@ -10,13 +10,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class WidgetActivity extends AppCompatActivity {
+public class WidgetActivity extends BaseActivity {
 
 
     @BindString(R.string.sidebar_widget_menu_1) String menu1;
