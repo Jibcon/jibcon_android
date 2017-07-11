@@ -15,6 +15,7 @@ import android.util.Log;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.GlobalApplication;
@@ -38,7 +39,7 @@ import retrofit2.Response;
 
 import static com.kakao.util.helper.Utility.getPackageInfo;
 
-public class IntroActivity extends AppCompatActivity {
+public class IntroActivity extends BaseActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     private Handler mHandler;
     GlobalApplication mApplication;
@@ -203,12 +204,5 @@ public class IntroActivity extends AppCompatActivity {
         mApplication = (GlobalApplication)getApplicationContext();
 
     }
-
-    // for font change
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
-    }
-
 
 }

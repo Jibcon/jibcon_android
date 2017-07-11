@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.setting.SettingActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
@@ -19,7 +20,7 @@ import butterknife.OnClick;
  * Created by woojinkim on 2017. 5. 20..
  */
 
-public class Alarm extends AppCompatActivity {
+public class Alarm extends BaseActivity {
 
     @OnClick(R.id.imageview_setting_alarm) void imageview_setting_alarm(){
         Intent intent = new Intent(Alarm.this, SettingActivity.class);
@@ -33,9 +34,5 @@ public class Alarm extends AppCompatActivity {
         setContentView(R.layout.setting_alarm);
         ButterKnife.bind(this);
 
-    }
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }

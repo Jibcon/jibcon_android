@@ -10,13 +10,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class UserAuthorityActivity extends AppCompatActivity {
+public class UserAuthorityActivity extends BaseActivity {
 
 
     @BindView(R.id.lv_user_authority) ListView mSidebarUserAuthorityLv;

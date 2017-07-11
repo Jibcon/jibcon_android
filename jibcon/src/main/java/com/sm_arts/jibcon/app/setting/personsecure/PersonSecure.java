@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.setting.SettingActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
@@ -24,7 +25,7 @@ import butterknife.OnClick;
  * Created by woojinkim on 2017. 5. 20..
  */
 
-public class PersonSecure extends AppCompatActivity {
+public class PersonSecure extends BaseActivity {
 
     @BindView(R.id.lv_setting_personsecure) ListView mSettingPersonSecureLv;
     @BindString(R.string.setting_personsecure_menu_1) String menu1;
@@ -66,8 +67,4 @@ public class PersonSecure extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
-    }
 }

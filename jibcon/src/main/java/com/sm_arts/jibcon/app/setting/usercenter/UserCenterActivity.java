@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.setting.SettingActivity;
 
 import butterknife.BindString;
@@ -21,7 +22,7 @@ import butterknife.OnClick;
  * Created by woojinkim on 2017. 5. 20..
  */
 
-public class UserCenterActivity extends AppCompatActivity {
+public class UserCenterActivity extends BaseActivity {
 
     @BindView(R.id.lv_setting_usercenter) ListView mSettingUserCenterLv;
     @BindString(R.string.setting_usercenter_menu_1) String menu1;

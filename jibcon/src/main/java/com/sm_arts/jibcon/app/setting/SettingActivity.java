@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.setting.alarm.Alarm;
 import com.sm_arts.jibcon.app.setting.personsecure.PersonSecure;
 import com.sm_arts.jibcon.app.setting.usercenter.UserCenterActivity;
@@ -22,7 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class SettingActivity extends AppCompatActivity {
+public class SettingActivity extends BaseActivity {
 
     @BindView(R.id.lv_setting) ListView mSettingLv;
     @OnClick(R.id.imageview_setting) void imageview_setting(){
@@ -70,11 +71,5 @@ public class SettingActivity extends AppCompatActivity {
             }
         }) ;
 
-    }
-
-
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }
