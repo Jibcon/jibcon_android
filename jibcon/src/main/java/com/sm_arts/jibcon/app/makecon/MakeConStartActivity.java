@@ -13,6 +13,10 @@ import com.sm_arts.jibcon.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /*
 * 170511 chanjoo
 *
@@ -23,53 +27,31 @@ import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class MakeConStartActivity extends BaseActivity {
 
-    Button mMakeMyCon;
-    Button mGetOtherCon;
-    Button mSkip;
 
-    private  void initLayout()
-    {
-        //mSkip=(Button)findViewById(R.id.Btn_MakeConStart_0);
-        mMakeMyCon = (Button)findViewById(R.id.Btn_makeMyCon);
-        mGetOtherCon =(Button)findViewById(R.id.Btn_getOtherCon);
-        mSkip=(Button)findViewById(R.id.makeconstart_skip);
-        mSkip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                startActivity(intent);
-                finish();
-            }
-        });
-        mMakeMyCon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                //집콘 만들기
-                Intent intent = new Intent(getApplicationContext(),MakeCon0Fragment.class);
-                startActivity(intent);
-                finish();
-
-            }
-        });
-        mGetOtherCon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //집콘 초대받기
-                Intent intent = new Intent(getApplicationContext(), GetOtherConActivity.class);
-                startActivity(intent);
-            }
-        });
+    @OnClick(R.id.Btn_makeMyCon) void Btn_makeMyCon(){
+        Intent intent = new Intent(getApplicationContext(),MakeCon0Fragment.class);
+        startActivity(intent);
+        finish();
     }
-
+    @OnClick(R.id.Btn_getOtherCon) void Btn_getOtherCon(){
+        //집콘 초대받기
+        Intent intent = new Intent(getApplicationContext(), GetOtherConActivity.class);
+        startActivity(intent);
+    }
+    @OnClick(R.id.makeconstart_skip) void makeconstart_skip(){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        startActivity(intent);
+        finish();
+    }
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_con_start);
+        ButterKnife.bind(this);
 
-        initLayout();
     }
 
 }
