@@ -16,7 +16,7 @@ import com.sm_arts.jibcon.utils.ToastHelper;
 public class RoutingDialog extends Dialog {
     public RoutingDialog(@NonNull final Context context) {
         super(context);
-        setContentView(R.layout.dialog_routine);
+        setContentView(R.layout.dialog_routine_dialog);
         final TextView mtextView1 = (TextView)findViewById(R.id.Txt_dialog_routine_txt1);
         TextView mtextView2 = (TextView)findViewById(R.id.Txt_dialog_routine_txt2);
 

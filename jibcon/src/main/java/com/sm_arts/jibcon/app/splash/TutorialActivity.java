@@ -1,20 +1,17 @@
 package com.sm_arts.jibcon.app.splash;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.login.LoginActivity;
 import com.sm_arts.jibcon.R;
-import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class TutorialActivity extends BaseActivity {
 
@@ -71,7 +68,7 @@ public class TutorialActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tutorial);
+        setContentView(R.layout.splash_tutorial_activity);
 
         initLayout();
 

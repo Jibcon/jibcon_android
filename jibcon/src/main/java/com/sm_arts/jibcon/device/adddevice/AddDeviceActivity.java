@@ -173,7 +173,7 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_device);
+        setContentView(R.layout.device_add_device_activity);
         mAddDevice0=new AddDevice0Fragment();
         mAddDevice1=new AddDevice1Fragment();
         mAddDevice2=new AddDevice2Fragment();

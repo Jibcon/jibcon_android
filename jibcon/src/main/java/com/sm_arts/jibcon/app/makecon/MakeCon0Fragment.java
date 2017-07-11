@@ -1,14 +1,11 @@
 package com.sm_arts.jibcon.app.makecon;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.model.houseinfo.HouseInfo;
-import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class MakeCon0Fragment extends BaseActivity implements HouseInfoListener {
     String mHousename;
@@ -93,7 +90,7 @@ public class MakeCon0Fragment extends BaseActivity implements HouseInfoListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_make_con0);
+        setContentView(R.layout.makecon_makecon0_activity);
 
         mMakecon1=new MakeCon1Fragment();
         mMakecon2=new MakeCon2Fragment();

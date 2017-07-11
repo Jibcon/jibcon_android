@@ -1,19 +1,13 @@
 package com.sm_arts.jibcon.app.makecon;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
 
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.getothercon.GetOtherConActivity;
 import com.sm_arts.jibcon.MainActivity;
 import com.sm_arts.jibcon.R;
-import com.tsengvn.typekit.TypekitContextWrapper;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -49,7 +43,7 @@ public class MakeConStartActivity extends BaseActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_make_con_start);
+        setContentView(R.layout.makecon_makecon_start_activity);
         ButterKnife.bind(this);
 
     }

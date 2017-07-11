@@ -34,7 +34,7 @@ public class TrickActiveFragment extends android.support.v4.app.Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View rootView = inflater.inflate(R.layout.cheatkey_active, container, false);
+        View rootView = inflater.inflate(R.layout.cheatkey_active_fragment, container, false);
 
         // 햄버거 버튼
         ImageButton imageButton =(ImageButton)rootView.findViewById(R.id.fab_cheatkey_active_behind);

@@ -46,7 +46,7 @@ public class GetOtherConAdapter extends RecyclerView.Adapter<GetOtherConAdapter.
     public GetOtherConAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.cardview_getcon, parent, false);
+                .inflate(R.layout.getothercon_cardview, parent, false);
 
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
