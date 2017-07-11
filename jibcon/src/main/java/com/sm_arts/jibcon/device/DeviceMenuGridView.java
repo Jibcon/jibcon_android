@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 /**
- * Created by admin on 2016-11-12.
+ * Created by chanjoo on 2016-11-12.
  */
 public class DeviceMenuGridView extends GridView {
     boolean mExpanded = false;
