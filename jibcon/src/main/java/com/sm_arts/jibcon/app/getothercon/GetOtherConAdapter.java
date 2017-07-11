@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Created by user on 2017-05-16.
  */
 
-public class GetConAdapter extends RecyclerView.Adapter<GetConAdapter.ViewHolder>{
+public class GetOtherConAdapter extends RecyclerView.Adapter<GetOtherConAdapter.ViewHolder>{
     private ArrayList<getConData> mDataset;
 
     // Provide a reference to the views for each data item
@@ -37,13 +37,13 @@ public class GetConAdapter extends RecyclerView.Adapter<GetConAdapter.ViewHolder
         }
     }
 
-    public GetConAdapter(ArrayList<getConData> getConDataset){
+    public GetOtherConAdapter(ArrayList<getConData> getConDataset){
         mDataset = getConDataset;
     }
 
     // Create new views(invoked by the layout manager)
     @Override
-    public GetConAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public GetOtherConAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cardview_getcon, parent, false);

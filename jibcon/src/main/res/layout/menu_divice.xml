@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.sm_arts.jibcon.device.MyGridView
+        <com.sm_arts.jibcon.device.DeviceMenuGridView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="2"
