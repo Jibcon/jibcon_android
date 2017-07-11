@@ -1,6 +1,5 @@
 package com.sm_arts.jibcon;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -10,7 +9,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -25,7 +23,7 @@ import com.bumptech.glide.Glide;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.DeviceMenuFragment;
 import com.sm_arts.jibcon.app.cheatkey.TrickMenuActivity;
-import com.sm_arts.jibcon.app.conshop.MarketMenuActivity;
+import com.sm_arts.jibcon.app.conshop.ConshopFragment;
 import com.sm_arts.jibcon.app.datacontrol.DataControlFragment;
 import com.sm_arts.jibcon.app.setting.SettingActivity;
 import com.sm_arts.jibcon.app.sidebar.AboutJibconActivity;
@@ -33,7 +31,6 @@ import com.sm_arts.jibcon.app.sidebar.ConnectedDevicesActivity;
 import com.sm_arts.jibcon.app.sidebar.MyJibconActivity;
 import com.sm_arts.jibcon.app.sidebar.UserAuthorityActivity;
 import com.sm_arts.jibcon.app.sidebar.WidgetActivity;
-import com.tsengvn.typekit.TypekitContextWrapper;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -150,7 +147,7 @@ public class MainActivity extends BaseActivity
         mDevicemenu = new DeviceMenuFragment();
         mUsermenu = new DataControlFragment();
         mTrickmenu = new TrickMenuActivity();
-        mMarketmenu = new MarketMenuActivity();
+        mMarketmenu = new ConshopFragment();
 
         mVp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
 

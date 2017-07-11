@@ -2,11 +2,9 @@ package com.sm_arts.jibcon.app.setting.usercenter;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.sm_arts.jibcon.R;
@@ -53,17 +51,17 @@ public class UserCenterActivity extends BaseActivity {
                 String settingClickedItem = (String) mSettingUserCenterLv.getItemAtPosition(position);
 
                 if(settingClickedItem == menu1){
-                    Intent intent = new Intent(UserCenterActivity.this, AskEnrollCompany.class);
+                    Intent intent = new Intent(UserCenterActivity.this, AskEnrollCompanyActivity.class);
                     startActivity(intent);
                     finish();
                 }
                 else if(settingClickedItem==menu2){
-                    Intent intent = new Intent(UserCenterActivity.this, Faq.class);
+                    Intent intent = new Intent(UserCenterActivity.this, FaqActivity.class);
                     startActivity(intent);
                     finish();
                 }
                 else {
-                    Intent intent = new Intent(UserCenterActivity.this, JibconAsk.class);
+                    Intent intent = new Intent(UserCenterActivity.this, JibconAskActivity.class);
                     startActivity(intent);
                     finish();
                 }

@@ -1,20 +1,16 @@
 package com.sm_arts.jibcon.app.setting.personsecure;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.setting.SettingActivity;
-import com.tsengvn.typekit.TypekitContextWrapper;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -25,7 +21,7 @@ import butterknife.OnClick;
  * Created by woojinkim on 2017. 5. 20..
  */
 
-public class PersonSecure extends BaseActivity {
+public class PersonSecureActivity extends BaseActivity {
 
     @BindView(R.id.lv_setting_personsecure) ListView mSettingPersonSecureLv;
     @BindString(R.string.setting_personsecure_menu_1) String menu1;
@@ -35,7 +31,7 @@ public class PersonSecure extends BaseActivity {
     @BindString(R.string.setting_personsecure_menu_5) String menu5;
 
     @OnClick(R.id.imageview_setting_personsecure) void imageview_setting_personsecure(){
-        Intent intent = new Intent(PersonSecure.this, SettingActivity.class);
+        Intent intent = new Intent(PersonSecureActivity.this, SettingActivity.class);
         startActivity(intent);
         finish();}
 

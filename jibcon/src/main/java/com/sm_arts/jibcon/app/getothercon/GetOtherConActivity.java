@@ -1,10 +1,8 @@
 package com.sm_arts.jibcon.app.getothercon;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,7 +10,7 @@ import android.widget.Button;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
-import com.tsengvn.typekit.TypekitContextWrapper;
+
 import java.util.ArrayList;
 
 /**
@@ -42,7 +40,7 @@ public class GetOtherConActivity extends BaseActivity{
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mGetConDataset = new ArrayList<>();
-        mAdapter = new GetConAdapter(mGetConDataset);
+        mAdapter = new GetOtherConAdapter(mGetConDataset);
         mRecyclerView.setAdapter(mAdapter);
 
         //데이터 입력

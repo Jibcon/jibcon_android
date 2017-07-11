@@ -81,19 +81,19 @@
             android:name=".app.setting.SettingActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.alarm.Alarm"
+            android:name=".app.setting.alarm.AlarmActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.personsecure.PersonSecure"
+            android:name=".app.setting.personsecure.PersonSecureActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.usercenter.AskEnrollCompany"
+            android:name=".app.setting.usercenter.AskEnrollCompanyActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.usercenter.Faq"
+            android:name=".app.setting.usercenter.FaqActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.usercenter.JibconAsk"
+            android:name=".app.setting.usercenter.JibconAskActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
         android:name=".app.setting.usercenter.UserCenterActivity"
