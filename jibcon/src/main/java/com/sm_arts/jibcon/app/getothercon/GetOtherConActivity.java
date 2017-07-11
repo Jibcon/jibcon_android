@@ -41,7 +41,7 @@ public class GetOtherConActivity extends AppCompatActivity{
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mGetConDataset = new ArrayList<>();
-        mAdapter = new GetConAdapter(mGetConDataset);
+        mAdapter = new GetOtherConAdapter(mGetConDataset);
         mRecyclerView.setAdapter(mAdapter);
 
         //데이터 입력

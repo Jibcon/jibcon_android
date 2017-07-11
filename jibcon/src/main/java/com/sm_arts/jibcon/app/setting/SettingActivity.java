@@ -7,11 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.app.setting.alarm.Alarm;
+import com.sm_arts.jibcon.app.setting.alarm.AlarmActivity;
 import com.sm_arts.jibcon.app.setting.personsecure.PersonSecure;
 import com.sm_arts.jibcon.app.setting.usercenter.UserCenterActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
@@ -58,7 +57,7 @@ public class SettingActivity extends AppCompatActivity {
                     finish();
                 }
                 else if(settingClickedItem==menu2){
-                    Intent intent = new Intent(SettingActivity.this, Alarm.class);
+                    Intent intent = new Intent(SettingActivity.this, AlarmActivity.class);
                     startActivity(intent);
                     finish();
                 }
