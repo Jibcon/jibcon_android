@@ -14,8 +14,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 
-public class FlotingButtonActiveActivity extends Activity {
+public class FlotingButtonActiveActivity extends BaseActivity {
     boolean expanded = false;
     private View mFabItem1;
     private TextView mFabItem2;

@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.DeviceMenuFragment;
 import com.sm_arts.jibcon.app.cheatkey.TrickMenuActivity;
 import com.sm_arts.jibcon.app.conshop.MarketMenuActivity;
@@ -34,7 +35,7 @@ import com.sm_arts.jibcon.app.sidebar.UserAuthorityActivity;
 import com.sm_arts.jibcon.app.sidebar.WidgetActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     ViewPager mVp;
@@ -353,9 +354,4 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    // for font change
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
-    }
 }

@@ -8,13 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.sm_arts.jibcon.MainActivity;
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
 /**
  * Created by user on 2017-05-19.
  */
 
-public class GetOtherConFinishActivity extends AppCompatActivity {
+public class GetOtherConFinishActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -29,9 +30,4 @@ public class GetOtherConFinishActivity extends AppCompatActivity {
         }, 1500);
     }
 
-    // for font change
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
-    }
 }

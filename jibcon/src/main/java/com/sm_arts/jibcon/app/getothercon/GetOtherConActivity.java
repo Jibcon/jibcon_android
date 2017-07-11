@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.tsengvn.typekit.TypekitContextWrapper;
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ import java.util.ArrayList;
  *
  */
 
-public class GetOtherConActivity extends AppCompatActivity{
+public class GetOtherConActivity extends BaseActivity{
     private RecyclerView mRecyclerView;
 
 
@@ -59,9 +60,4 @@ public class GetOtherConActivity extends AppCompatActivity{
 
     }
 
-    // for font change
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
-    }
 }

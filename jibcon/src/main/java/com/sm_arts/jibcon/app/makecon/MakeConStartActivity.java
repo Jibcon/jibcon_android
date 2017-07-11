@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.getothercon.GetOtherConActivity;
 import com.sm_arts.jibcon.MainActivity;
 import com.sm_arts.jibcon.R;
@@ -20,7 +21,7 @@ import com.tsengvn.typekit.TypekitContextWrapper;
 *
 * */
 
-public class MakeConStartActivity extends AppCompatActivity {
+public class MakeConStartActivity extends BaseActivity {
 
     Button mMakeMyCon;
     Button mGetOtherCon;
@@ -71,9 +72,4 @@ public class MakeConStartActivity extends AppCompatActivity {
         initLayout();
     }
 
-    // for font change
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
-    }
 }
