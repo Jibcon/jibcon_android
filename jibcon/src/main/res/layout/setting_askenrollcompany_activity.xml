@@ -7,17 +7,18 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_setting"
         style="@style/toolbar_common"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        ><ImageView
-        android:id="@+id/imageview_setting_jibconask"
-        android:layout_height="match_parent"
-        android:layout_width="40dp"
-        android:src="@mipmap/arrow_back_white"
-        />
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <ImageView
+            android:id="@+id/imageview_setting_askenrollcompany"
+            android:layout_height="match_parent"
+            android:layout_width="40dp"
+            android:src="@mipmap/arrow_back_white" />
+
         <TextView
             style="@style/setting_head"
-            android:text=" 집콘 문의하기 "
-             />
+            android:text=" 제조업체 문의" />
+
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
@@ -27,8 +28,7 @@
         android:paddingTop="60dp"
         android:paddingBottom="60dp"
         android:paddingLeft="60dp"
-        android:paddingRight="60dp"
-        >
+        android:paddingRight="60dp">
 
         <TextView
             android:id="@+id/Tv_setting_askenrollcompany_title"
@@ -46,7 +46,6 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text=" " />
-
 
         <TextView
             android:id="@+id/Tv_setting_askenrollcompany_phone"
@@ -104,7 +103,7 @@
             android:background="#36C3FF"
             android:textColor="@color/white"
             android:text="문의하기" />
-    </LinearLayout>
 
+    </LinearLayout>
 
 </LinearLayout>

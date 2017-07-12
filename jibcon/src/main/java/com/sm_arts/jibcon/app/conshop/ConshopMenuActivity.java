@@ -1,7 +1,6 @@
 package com.sm_arts.jibcon.app.conshop;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +41,7 @@ public class ConshopMenuActivity extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // 주의 : menu_market의 최상단 레이아웃은 scrollview이기 객체 생성시에도 타입을 ScrollView로 해야됨.
-        ScrollView view = (ScrollView) inflater.inflate(R.layout.menu_market, container, false);
+        ScrollView view = (ScrollView) inflater.inflate(R.layout.conshop_menu_fragment, container, false);
         ButterKnife.bind(this, view);
 
         return view;

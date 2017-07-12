@@ -31,7 +31,7 @@ public class TrickMenuActivity extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.menu_trick, container, false);
+        RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.cheatkey_menu_fragment, container, false);
         ButterKnife.bind(this, layout);
 
         mVp = (ViewPager)layout.findViewById(R.id.vp_cheatkey);

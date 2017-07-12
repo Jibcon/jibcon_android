@@ -28,7 +28,7 @@ public class MakeCon4Fragment extends android.support.v4.app.Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mLinearLayout= (LinearLayout)inflater.inflate(R.layout.makecon4,container,false);
+        mLinearLayout= (LinearLayout)inflater.inflate(R.layout.makecon_complete_activity,container,false);
 
         Handler handler;
         handler=new Handler();

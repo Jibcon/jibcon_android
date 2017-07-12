@@ -22,7 +22,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         android:foregroundGravity="center_vertical"
-        app:headerLayout="@layout/nav_header_main"
+        app:headerLayout="@layout/sidebar_profile_layout"
         app:menu="@menu/activity_main_drawer">
 
         <ImageButton

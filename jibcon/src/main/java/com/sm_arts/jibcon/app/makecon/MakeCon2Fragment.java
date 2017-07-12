@@ -45,7 +45,7 @@ public class MakeCon2Fragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon2,container,false);
+        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon_housetype_activity,container,false);
 
         // 공간 리스트
         final String[] list_place = {"전원 주택", "아파트", "오피스텔", "빌라", "기숙사"};
