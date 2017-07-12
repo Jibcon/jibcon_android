@@ -13,6 +13,9 @@ import com.sm_arts.jibcon.R;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by user on 2017-05-20.
  */
@@ -22,16 +25,14 @@ public class PassiveCheatkeyAdapter
     private ArrayList<PassiveCheatkeyData> mPassiveCheatkeyDataset;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        public ImageButton cheatkeySettingBtn;
-        public TextView cheatkeyInputTv;
-        public TextView cheatkeyOutputTv;
+        @BindView(R.id.btn_passive_cheatkey_setting) ImageButton cheatkeySettingBtn;
+        @BindView(R.id.passive_cheatkey_input) TextView cheatkeyInputTv;
+        @BindView(R.id.passive_cheatkey_output) TextView cheatkeyOutputTv;
+
 
         public ViewHolder(View view, final Context context){
             super(view);
-
-            cheatkeySettingBtn = (ImageButton)view.findViewById(R.id.btn_passive_cheatkey_setting);
-            cheatkeyInputTv = (TextView)view.findViewById(R.id.passive_cheatkey_input);
-            cheatkeyOutputTv = (TextView)view.findViewById(R.id.passive_cheatkey_output);
+            ButterKnife.bind(this,view);
 
             cheatkeySettingBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
