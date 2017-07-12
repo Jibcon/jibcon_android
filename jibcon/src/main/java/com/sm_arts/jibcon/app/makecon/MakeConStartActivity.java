@@ -24,7 +24,7 @@ public class MakeConStartActivity extends BaseActivity {
 
 
     @OnClick(R.id.Btn_makeMyCon) void Btn_makeMyCon(){
-        Intent intent = new Intent(getApplicationContext(),MakeCon0Fragment.class);
+        Intent intent = new Intent(getApplicationContext(),MakeCon0Activity.class);
         startActivity(intent);
         finish();
     }

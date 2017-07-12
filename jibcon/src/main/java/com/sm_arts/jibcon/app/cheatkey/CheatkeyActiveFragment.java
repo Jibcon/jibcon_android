@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Created by WooJin & ChanJoo on 2017-04-14.
  */
 
-public class TrickActiveFragment extends android.support.v4.app.Fragment{
+public class CheatkeyActiveFragment extends android.support.v4.app.Fragment{
     // For Recyclerview(CardView)
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -27,7 +27,7 @@ public class TrickActiveFragment extends android.support.v4.app.Fragment{
 
     Context mContext;
 
-    public TrickActiveFragment(){}
+    public CheatkeyActiveFragment(){}
 
     @Override
     public void onCreate(Bundle savedInstanceState){ super.onCreate(savedInstanceState);}

@@ -22,7 +22,7 @@ import butterknife.OnClick;
  * Created by WooJin on 2017-04-14.
  */
 
-public class TrickPassiveFragment extends android.support.v4.app.Fragment{
+public class CheatkeyPassiveFragment extends android.support.v4.app.Fragment{
 
     @BindString(R.string.trick_passive_input_menu_1) String input1;
     @BindString(R.string.trick_passive_input_menu_2) String input2;
@@ -48,7 +48,7 @@ public class TrickPassiveFragment extends android.support.v4.app.Fragment{
 
     Context mContext;
 
-    public TrickPassiveFragment(){}
+    public CheatkeyPassiveFragment(){}
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

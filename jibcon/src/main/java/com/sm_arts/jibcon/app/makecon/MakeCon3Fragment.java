@@ -39,7 +39,7 @@ public class MakeCon3Fragment extends android.support.v4.app.Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon_houseaddress_activity,container,false);
+        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon_houseaddress_fragment,container,false);
 
         // Google Maps Fragment
         //SupportMapFragment mapFragment = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.google_map);

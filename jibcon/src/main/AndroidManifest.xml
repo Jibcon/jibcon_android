@@ -51,7 +51,7 @@
             android:name=".app.makecon.MakeConStartActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".app.makecon.MakeCon0Fragment"
+            android:name=".app.makecon.MakeCon0Activity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".device.adddevice.AddDeviceActivity"
