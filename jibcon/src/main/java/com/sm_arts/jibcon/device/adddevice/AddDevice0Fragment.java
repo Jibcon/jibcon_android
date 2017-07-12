@@ -9,13 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.sm_arts.jibcon.R;
 
 import java.util.ArrayList;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by admin on 2017-04-15.
@@ -24,9 +27,12 @@ import java.util.ArrayList;
 public class AddDevice0Fragment extends Fragment {
     LinearLayout mLinearLayout;
 
-    Spinner mSpinner1;
-    Spinner mSpinner2;
-    Button mNextButton;
+    @BindView(R.id.addDevice0Spinner1) Spinner mSpinner1;
+    @BindView(R.id.addDevice0Spinner2) Spinner mSpinner2;
+    @OnClick(R.id.addDeviceBtn) void addDeviceBtn(){
+        mMakeDeviceListener.NextPage(1);
+    };
+
     ArrayList<String> mArr1;
     ArrayList<String> mArr2;
     ArrayAdapter<String> mAdapter1;
@@ -50,23 +56,11 @@ public class AddDevice0Fragment extends Fragment {
         mArr2.add("냉장고");
 
 
-        mSpinner1=(Spinner)mLinearLayout.findViewById(R.id.Spinner_adddevice0_1);
-        mSpinner2=(Spinner)mLinearLayout.findViewById(R.id.Spinner_adddevice0_2);
-
         mAdapter1 = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,mArr1);
         mAdapter2= new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,mArr2);
 
         mSpinner1.setAdapter(mAdapter1);
         mSpinner2.setAdapter(mAdapter2);
-
-        mNextButton=(Button)mLinearLayout.findViewById(R.id.Btn_addDevice0);
-
-        mNextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mMakeDeviceListener.NextPage(1);
-            }
-        });
 
         mSpinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -107,8 +101,8 @@ public class AddDevice0Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         mLinearLayout = (LinearLayout)inflater.inflate(R.layout.device_add_device0_activity,container,false);
+        ButterKnife.bind(this,mLinearLayout);
 
         initLayout();
         mMakeDeviceListener.setDeviceCom(mSelectedCompany);

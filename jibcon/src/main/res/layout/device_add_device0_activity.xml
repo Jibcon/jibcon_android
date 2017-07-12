@@ -61,13 +61,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <Spinner
-            android:id="@+id/Spinner_adddevice0_1"
+            android:id="@+id/addDevice0Spinner1"
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_marginBottom="16dp"/>
 
         <Spinner
-            android:id="@+id/Spinner_adddevice0_2"
+            android:id="@+id/addDevice0Spinner2"
             android:layout_width="240dp"
             android:layout_height="40dp" />
     </LinearLayout>
@@ -89,7 +89,7 @@
 
 
         <Button
-            android:id="@+id/Btn_addDevice0"
+            android:id="@+id/addDeviceBtn"
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
