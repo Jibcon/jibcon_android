@@ -14,6 +14,9 @@ import com.sm_arts.jibcon.R;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by user on 2017-05-23.
  */
@@ -23,16 +26,15 @@ public class ActiveCheatkeyAdapter
     private ArrayList<ActiveCheatkeyData> mActiveCheatkeyDataset;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        public ImageButton cheatkeySettingBtn;
-        public ImageView cheatkeyImg;
-        public TextView cheatkeyName;
+        @BindView(R.id.btn_active_cheatkey_setting)  ImageButton cheatkeySettingBtn;
+        @BindView(R.id.img_active_cheatkey)  ImageView cheatkeyIv;
+        @BindView(R.id.active_cheatkey_name)  TextView cheatkeyNameTv;
+
+
 
         public ViewHolder(View view, final Context context){
             super(view);
-
-            cheatkeySettingBtn = (ImageButton)view.findViewById(R.id.btn_active_cheatkey_setting);
-            cheatkeyImg = (ImageView)view.findViewById(R.id.img_active_cheatkey);
-            cheatkeyName = (TextView)view.findViewById(R.id.active_cheatkey_name);
+            ButterKnife.bind(this, view);
 
             cheatkeySettingBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -63,8 +65,8 @@ public class ActiveCheatkeyAdapter
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.cheatkeySettingBtn.setId(R.id.btn_passive_cheatkey_setting);
-        holder.cheatkeyImg.setId(R.id.img_active_cheatkey);
-        holder.cheatkeyName.setText(mActiveCheatkeyDataset.get(position).activeCheatkeyName);
+        holder.cheatkeyIv.setId(R.id.img_active_cheatkey);
+        holder.cheatkeyNameTv.setText(mActiveCheatkeyDataset.get(position).activeCheatkeyName);
 
     }
 
