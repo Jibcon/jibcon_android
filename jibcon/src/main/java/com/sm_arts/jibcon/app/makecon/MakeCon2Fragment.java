@@ -16,6 +16,10 @@ import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by admin on 2017-04-12.
  */
@@ -23,9 +27,13 @@ import com.sm_arts.jibcon.R;
 public class MakeCon2Fragment extends android.support.v4.app.Fragment {
 
     LinearLayout mLinearLayout;
-    Button mNext;
-    ImageButton mBefore;
     HouseInfoListener mHouseInfoListener;
+    @BindView(R.id.list_place) ListView MakeConPlaceListView;
+    @OnClick(R.id.Btn_MakeCon2_0) void MakeCon2BeforeListener(){
+        mHouseInfoListener.getFragmentNum(-1);}
+    @OnClick(R.id.Btn_makeCon2_1) void MakeCon2NextListener(){
+        mHouseInfoListener.getFragmentNum(1);}
+
 
     @Override
     public void onAttach(Context context) {
@@ -35,10 +43,6 @@ public class MakeCon2Fragment extends android.support.v4.app.Fragment {
 
     void initLayout()
     {
-        // 리스트로 바꾸기!(20170430)
-
-        mNext=(Button)getActivity().findViewById(R.id.Btn_makeCon2_1);
-
     }
 
     @Nullable
@@ -46,23 +50,21 @@ public class MakeCon2Fragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon_housetype_fragment,container,false);
+        initLayout();
+        ButterKnife.bind(this,mLinearLayout);
 
         // 공간 리스트
         final String[] list_place = {"전원 주택", "아파트", "오피스텔", "빌라", "기숙사"};
 
-        ListView listView   = (ListView)mLinearLayout.findViewById(R.id.list_place);
-        mBefore=(ImageButton)mLinearLayout.findViewById(R.id.Btn_MakeCon2_0);
-        mNext=(Button)mLinearLayout.findViewById(R.id.Btn_makeCon2_1);
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
                 getActivity(),
                 android.R.layout.simple_list_item_1,
                 list_place
         );
 
-        listView.setAdapter(listViewAdapter);
-
+        MakeConPlaceListView.setAdapter(listViewAdapter);
         // 리스트 뷰 클릭 시 houseinfo에 추가
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        MakeConPlaceListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(getActivity().getApplicationContext(),list_place[position],Toast.LENGTH_SHORT).show();
@@ -93,24 +95,6 @@ public class MakeCon2Fragment extends android.support.v4.app.Fragment {
             }
         });
 
-
-       // initLayout();
-
-        mBefore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mHouseInfoListener.getFragmentNum(-1);
-            }
-        });
-
-        mNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mHouseInfoListener.getFragmentNum(1);
-//                Intent intent = new Intent(getActivity().getApplicationContext(), MakeCon3Fragment.class);
-//                startActivity(intent);
-            }
-        });
         return mLinearLayout;
     }
 }
