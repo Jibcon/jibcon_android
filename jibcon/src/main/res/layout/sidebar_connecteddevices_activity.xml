@@ -8,17 +8,17 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_setting"
         style="@style/toolbar_common"
-        app:popupTheme="@style/AppTheme.PopupOverlay"
-        ><ImageView
-        android:id="@+id/imageview_sidebar_connecteddevices"
-        android:layout_height="match_parent"
-        android:layout_width="40dp"
-        android:src="@mipmap/arrow_back_white"
-        />
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <ImageView
+            android:id="@+id/imageview_sidebar_connecteddevices"
+            android:layout_height="match_parent"
+            android:layout_width="40dp"
+            android:src="@mipmap/arrow_back_white" />
+
         <TextView
             style="@style/setting_head"
-            android:text="연결된 디바이스"
-             />
+            android:text="연결된 디바이스" />
 
     </android.support.v7.widget.Toolbar>
 
@@ -29,4 +29,5 @@
         android:id="@+id/lv_connected_device"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </LinearLayout>

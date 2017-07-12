@@ -17,7 +17,7 @@ public class DeviceDialog extends Dialog {
 
     public DeviceDialog(@NonNull final Context context) {
         super(context);
-        setContentView(R.layout.dialog_device_dialog);
+        setContentView(R.layout.ui_device_dialog);
         TextView mTextView1=(TextView)findViewById(R.id.Txt_dialog_device_txt1);
         TextView mTextView2=(TextView)findViewById(R.id.Txt_dialog_device_txt2);
         TextView mTextView3=(TextView)findViewById(R.id.Txt_dialog_device_txt3);

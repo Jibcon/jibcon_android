@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".app.sidebar.WidgetActivity">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_widget"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:scrollbarAlwaysDrawHorizontalTrack="true"
-        android:background="#404040"
+        android:id="@+id/toolbar_sidebar_widget"
+        style="@style/toolbar_common"
         app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <ImageView
+            android:id="@+id/imageview_sidebar_widget"
+            android:layout_height="match_parent"
+            android:layout_width="40dp"
+            android:src="@mipmap/arrow_back_white"/>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="위젯"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            style="@style/setting_head"
+            android:text="위젯" />
 
     </android.support.v7.widget.Toolbar>
-</android.support.constraint.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/lv_widget"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

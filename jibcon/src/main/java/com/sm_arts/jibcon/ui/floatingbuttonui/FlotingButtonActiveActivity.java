@@ -31,7 +31,7 @@ public class FlotingButtonActiveActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.floatingbuttonui_active_activity);
+        setContentView(R.layout.ui_active_floatingbutton);
 
 
 

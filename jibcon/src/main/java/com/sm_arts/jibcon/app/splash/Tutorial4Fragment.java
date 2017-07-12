@@ -1,6 +1,5 @@
 package com.sm_arts.jibcon.app.splash;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,7 +22,7 @@ public class Tutorial4Fragment extends android.support.v4.app.Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        LinearLayout linearLayout = (LinearLayout)inflater.inflate(R.layout.tutorial_4,container,false);
+        LinearLayout linearLayout = (LinearLayout)inflater.inflate(R.layout.splash_tutorial4_fragment,container,false);
 
 
         mToMain = (Button)linearLayout.findViewById((R.id.Btn_Tutorial4_1));
