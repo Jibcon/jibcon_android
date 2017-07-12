@@ -23,7 +23,6 @@ public class TutorialActivity extends BaseActivity {
         startActivity(intent);
         finish();
     }
-    ImageButton mSkipButton;
     ViewPager mViewpager;
     int mMaxPage=4;
 
