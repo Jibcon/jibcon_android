@@ -29,7 +29,7 @@ public class MakeCon1Fragment extends android.support.v4.app.Fragment {
     String mHouseintro;
 
     @BindView(R.id.Btn_makeCon1_1) Button mNext;
-    @OnClick(R.id.Btn_makeCon1_1) void Btn_makeCon1_1(){
+    @OnClick(R.id.Btn_makeCon1_1) void MakeCon1NextListener(){
         mHousename=mEditHousename.getText().toString();
         mHouseintro=mEditHouseintro.getText().toString();
         mUsername=mEditUsername.getText().toString();
@@ -42,7 +42,7 @@ public class MakeCon1Fragment extends android.support.v4.app.Fragment {
         //  startActivity(intent);
     }
     @BindView(R.id.Btn_MakeCon1_0) ImageButton mBefore;
-    @OnClick(R.id.Btn_MakeCon1_0) void Btn_MakeCon1_0(){
+    @OnClick(R.id.Btn_MakeCon1_0) void MakeCon1BeforeListener(){
         mHouseInfoListener.getFragmentNum(-1);
     }
     @BindView(R.id.EditTxt_makecon1_1) EditText mEditHousename;
