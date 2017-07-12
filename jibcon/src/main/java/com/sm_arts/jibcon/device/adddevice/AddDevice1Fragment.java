@@ -24,6 +24,9 @@ import com.sm_arts.jibcon.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_WIFI_STATE;
 import static android.Manifest.permission.CHANGE_WIFI_STATE;
@@ -35,7 +38,12 @@ import static android.Manifest.permission.CHANGE_WIFI_STATE;
 public class AddDevice1Fragment extends Fragment {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     LinearLayout mLinearLayout;
-    Button mNextPage;
+    @OnClick(R.id.Btn_addDevice1) void mAddDevice1NextPageBtn(){
+        Log.d(TAG, "mNextPage/onClick: unregisterReceiver WIFI");
+        getActivity().getApplicationContext().unregisterReceiver(mReceiver);
+        mMakeDeviceListener.NextPage(1);
+    }
+
     ListView mListView;
     MakeDeviceListner mMakeDeviceListener;
     List<ScanResult> mArr;
@@ -143,22 +151,13 @@ public class AddDevice1Fragment extends Fragment {
         });
         mListView.setAdapter(mAdapter);
 
-        mNextPage = (Button)mLinearLayout.findViewById(R.id.Btn_addDevice1);
-        mNextPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "mNextPage/onClick: unregisterReceiver WIFI");
-                getActivity().getApplicationContext().unregisterReceiver(mReceiver);
-                mMakeDeviceListener.NextPage(1);
-            }
-        });
     }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: ");
         mLinearLayout = (LinearLayout)inflater.inflate(R.layout.device_add_device1_activity,container,false);
-
+        ButterKnife.bind(this,mLinearLayout);
         wifiSetting();
         initlayout();
         return mLinearLayout;
