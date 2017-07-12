@@ -12,11 +12,21 @@ import android.widget.LinearLayout;
 
 import com.sm_arts.jibcon.R;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by admin on 2017-04-12.
  */
 
 public class MakeCon3Fragment extends android.support.v4.app.Fragment{
+    @OnClick(R.id.Btn_MakeCon3_0) void MakeCon3BeforeListener(){
+        mHouseInfoListener.getFragmentNum(-1);
+    }
+    @OnClick(R.id.Btn_makeCon3_1) void MakeCon3NextListener(){
+        mHouseInfoListener.getFragmentNum(1);
+    }
+
     ImageButton mBefore;
     Button mNext;
     //private GoogleMap mMap = null; // Google Maps
@@ -25,9 +35,8 @@ public class MakeCon3Fragment extends android.support.v4.app.Fragment{
     HouseInfoListener mHouseInfoListener;
     LinearLayout mLinearLayout;
 
-    private void initLayout() {
-        mBefore= (ImageButton)mLinearLayout.findViewById(R.id.Btn_MakeCon3_0);
-        mNext =  (Button)mLinearLayout.findViewById(R.id.Btn_makeCon3_1);
+    private void initLayout()
+    {
     }
 
     @Override
@@ -45,19 +54,7 @@ public class MakeCon3Fragment extends android.support.v4.app.Fragment{
         //SupportMapFragment mapFragment = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.google_map);
 
         initLayout();
-
-        mBefore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mHouseInfoListener.getFragmentNum(-1);
-            }
-        });
-        mNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mHouseInfoListener.getFragmentNum(1);
-            }
-        });
+        ButterKnife.bind(this,mLinearLayout);
 
         // Google map start
         //mapFragment.getMapAsync(this);
