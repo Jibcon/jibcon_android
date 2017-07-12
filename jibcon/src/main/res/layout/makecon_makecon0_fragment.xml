@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF"
-    tools:context=".app.makecon.MakeCon0Fragment">
+    tools:context=".app.makecon.MakeCon0Activity">
 
     <FrameLayout
         android:id="@+id/Frame_makecon0"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

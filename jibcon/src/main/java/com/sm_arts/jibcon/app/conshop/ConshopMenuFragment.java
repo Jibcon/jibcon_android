@@ -18,10 +18,10 @@ import butterknife.OnClick;
  * Created by user on 2017-03-30.
  */
 
-public class ConshopMenuActivity extends android.support.v4.app.Fragment {
+public class ConshopMenuFragment extends android.support.v4.app.Fragment {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
-    public ConshopMenuActivity(){}
+    public ConshopMenuFragment(){}
 
     @BindView(R.id.Txt_Market_Best) TextView mBest;
     @BindView(R.id.Txt_Market_Home) TextView mHome;

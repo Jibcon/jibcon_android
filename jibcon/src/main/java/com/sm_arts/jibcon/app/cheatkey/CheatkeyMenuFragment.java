@@ -20,14 +20,14 @@ import butterknife.ButterKnife;
  * Edited by ChanJoo on 2017-04-13.
  */
 
-public class TrickMenuActivity extends Fragment{
+public class CheatkeyMenuFragment extends Fragment{
     // Viewpager
     ViewPager mVp;
 
     @BindView(R.id.btn_active) Button btn_active;
     @BindView(R.id.btn_passive) Button btn_passive;
 
-    public TrickMenuActivity(){}
+    public CheatkeyMenuFragment(){}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -69,9 +69,9 @@ public class TrickMenuActivity extends Fragment{
             Log.w("CJ","movePageListener");
             switch(position){
                 case 0:
-                    return new TrickActiveFragment();
+                    return new CheatkeyActiveFragment();
                 case 1:
-                    return new TrickPassiveFragment();
+                    return new CheatkeyPassiveFragment();
                 default:
                     return null;
             }
