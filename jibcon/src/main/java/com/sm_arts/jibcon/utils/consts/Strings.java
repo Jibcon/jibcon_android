@@ -11,7 +11,14 @@ import butterknife.BindString;
 
 public class Strings {
     private static Strings sInstance;
-    @BindString(R.string.app_name) public String appName;
+    @BindString(R.string.app_name)
+    public String appName;
+    @BindString(R.string.setting_menu_1)
+    public String setting_menu_1;
+    @BindString(R.string.setting_menu_2)
+    public String setting_menu_2;
+    @BindString(R.string.setting_menu_3)
+    public String setting_menu_3;
 
     public static Strings getInstance() {
         if (sInstance == null) {

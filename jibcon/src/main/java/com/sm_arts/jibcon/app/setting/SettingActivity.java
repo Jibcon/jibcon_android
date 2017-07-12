@@ -13,6 +13,7 @@ import com.sm_arts.jibcon.app.setting.alarm.AlarmActivity;
 import com.sm_arts.jibcon.app.setting.personsecure.PersonSecureActivity;
 
 import com.sm_arts.jibcon.app.setting.usercenter.UserCenterActivity;
+import com.sm_arts.jibcon.utils.consts.Strings;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -26,9 +27,7 @@ public class SettingActivity extends BaseActivity {
     @OnClick(R.id.imageview_setting) void imageview_setting(){
         finish();}
 
-    @BindString(R.string.setting_menu_1) String menu1;
-    @BindString(R.string.setting_menu_2) String menu2;
-    @BindString(R.string.setting_menu_3) String menu3;
+    private Strings strings = Strings.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,12 @@ public class SettingActivity extends BaseActivity {
         setContentView(R.layout.setting);
         ButterKnife.bind(this);
 
-        String[] sSettingList={menu1,menu2,menu3};
+        String[] sSettingList = {
+                strings.setting_menu_1,
+                strings.setting_menu_2,
+                strings.setting_menu_3
+        };
+
         /* add String[] to ListView*/
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSettingList);
 
@@ -50,12 +54,12 @@ public class SettingActivity extends BaseActivity {
 
                 String settingClickedItem = (String) mSettingLv.getItemAtPosition(position);
 
-                if(settingClickedItem == menu1){
+                if(strings.setting_menu_1.equals(settingClickedItem)){
                     Intent intent = new Intent(SettingActivity.this, PersonSecureActivity.class);
                     startActivity(intent);
                     finish();
                 }
-                else if(settingClickedItem==menu2){
+                else if(strings.setting_menu_2.equals(settingClickedItem)){
                     Intent intent = new Intent(SettingActivity.this, AlarmActivity.class);
                     startActivity(intent);
                     finish();
