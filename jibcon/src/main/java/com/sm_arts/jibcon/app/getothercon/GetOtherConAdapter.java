@@ -11,6 +11,9 @@ import com.sm_arts.jibcon.R;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by user on 2017-05-16.
  */
@@ -22,18 +25,15 @@ public class GetOtherConAdapter extends RecyclerView.Adapter<GetOtherConAdapter.
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        public ImageView userImg;
-        public TextView houseName;
-        public TextView email;
-        public TextView houseInfo;
+        @BindView(R.id.image) ImageView userImg;
+        @BindView(R.id.tv_invte_house_name) TextView houseName;
+        @BindView(R.id.tv_invite_email) TextView email;
+        @BindView(R.id.tv_invite_house_info) TextView houseInfo;
+
 
         public ViewHolder(View view){
             super(view);
-
-            userImg = (ImageView)view.findViewById(R.id.image);
-            houseName = (TextView)view.findViewById(R.id.tv_invte_house_name);
-            email = (TextView)view.findViewById(R.id.tv_invite_email);
-            houseInfo = (TextView)view.findViewById(R.id.tv_invite_house_info);
+            ButterKnife.bind(this,view);
         }
     }
 
