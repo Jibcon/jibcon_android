@@ -13,8 +13,16 @@ import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.login.LoginActivity;
 import com.sm_arts.jibcon.R;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class TutorialActivity extends BaseActivity {
 
+    @OnClick(R.id.btn_skip_tutorial) void tutorialSkipListener(){
+        Intent intent = new Intent(TutorialActivity.this , LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
     ImageButton mSkipButton;
     ViewPager mViewpager;
     int mMaxPage=4;
@@ -69,22 +77,12 @@ public class TutorialActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_tutorial_activity);
-
         initLayout();
+        ButterKnife.bind(this);
 
         mViewpager.setAdapter(new adapter(getSupportFragmentManager()));
         mViewpager.setOffscreenPageLimit(3);
 
-        // 튜토리얼 스킵 버튼
-        mSkipButton = (ImageButton) findViewById(R.id.btn_skip_tutorial);
-        mSkipButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(TutorialActivity.this , LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
     }
 
