@@ -45,15 +45,15 @@ public class TutorialMainActivity extends FragmentActivity {
         public Fragment getItem(int pos) {
             switch(pos) {
                 case 0:
-                    return Tutorial1Fragment.newInstance(pos);
+                    return TutorialFragment.newInstance(pos);
                 case 1:
-                    return Tutorial1Fragment.newInstance(pos);
+                    return TutorialFragment.newInstance(pos);
                 case 2:
-                    return Tutorial1Fragment.newInstance(pos);
+                    return TutorialFragment.newInstance(pos);
                 case 3:
-                    return Tutorial1Fragment.newInstance(pos);
+                    return TutorialFragment.newInstance(pos);
                 default:
-                    return Tutorial1Fragment.newInstance(0);
+                    return TutorialFragment.newInstance(0);
             }
         }
 

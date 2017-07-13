@@ -2,15 +2,12 @@ package com.sm_arts.jibcon.app.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
@@ -24,7 +21,7 @@ import butterknife.OnClick;
  * Created by admin on 2017-04-09.
  */
 
-public class Tutorial1Fragment extends android.support.v4.app.Fragment{
+public class TutorialFragment extends android.support.v4.app.Fragment{
 
 
     @BindView(R.id.tutorial_titletv)
@@ -43,7 +40,7 @@ public class Tutorial1Fragment extends android.support.v4.app.Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.splash_tutorial1_fragment, container, false);
+        View v = inflater.inflate(R.layout.splash_tutorial_fragment, container, false);
         ButterKnife.bind(this,v);
 
         int tutorialNumber = getArguments().getInt("msg");
@@ -77,7 +74,7 @@ public class Tutorial1Fragment extends android.support.v4.app.Fragment{
     }
 
     public static Fragment newInstance(int number) {
-        Fragment fragment = new Tutorial1Fragment();
+        Fragment fragment = new TutorialFragment();
         Bundle args = new Bundle();
         args.putInt("msg", number);
         fragment.setArguments(args);
