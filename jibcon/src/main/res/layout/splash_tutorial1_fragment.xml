@@ -9,7 +9,7 @@
     android:id="@+id/tutorial1">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/tutorial_iv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
@@ -32,7 +32,8 @@
             android:gravity="center"
             android:text="쓰고 있는 스마트홈 기기를 등록하세요"
             android:textColor="@color/colorPrimary"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:id="@+id/tutorial_titletv"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -40,8 +41,18 @@
             android:gravity="center"
             android:text="어떠한 기기든 빠르게 연결하고\n쉽게 사용해보세요"
             android:textColor="@color/default_text_color"
+            android:textSize="16dp"
+            android:id="@+id/tutorial_subtv"/>
+        <Button
+            android:id="@+id/makejibcon_btn"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimary"
+            android:text="집콘 시작하기"
+            android:textColor="@color/white"
             android:textSize="16dp" />
-
     </LinearLayout>
 
 </LinearLayout>
