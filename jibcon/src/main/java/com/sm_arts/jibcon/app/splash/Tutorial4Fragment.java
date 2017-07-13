@@ -25,7 +25,7 @@ public class Tutorial4Fragment extends android.support.v4.app.Fragment{
         LinearLayout linearLayout = (LinearLayout)inflater.inflate(R.layout.splash_tutorial4_fragment,container,false);
 
 
-        mToMain = (Button)linearLayout.findViewById((R.id.Btn_Tutorial4_1));
+        mToMain = (Button)linearLayout.findViewById((R.id.makejibcon_btn));
         mToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

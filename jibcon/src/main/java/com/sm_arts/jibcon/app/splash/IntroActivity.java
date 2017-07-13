@@ -122,7 +122,6 @@ public class IntroActivity extends BaseActivity {
         init();
 
         //액션바 없애기
-        hideActionBar();
         itemSetup();
 //        getKeyHash(getApplicationContext());
 
@@ -152,14 +151,6 @@ public class IntroActivity extends BaseActivity {
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    //액션바 없애기
-    private void hideActionBar(){
-        ActionBar actionBar = getSupportActionBar();
-
-        if(actionBar != null){
-            actionBar.hide();
-        }
-    }
 
     public void init(){
         mHandler = new Handler();

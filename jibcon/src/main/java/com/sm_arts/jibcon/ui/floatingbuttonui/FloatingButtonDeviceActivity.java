@@ -17,6 +17,8 @@ import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.adddevice.AddDeviceActivity;
 import com.sm_arts.jibcon.R;
 
+import butterknife.ButterKnife;
+
 public class FloatingButtonDeviceActivity extends BaseActivity {
     boolean mExpanded = false;
     private View mFabItem1;
@@ -38,9 +40,8 @@ public class FloatingButtonDeviceActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.ui_add_device_floatingbutton);
-
+        ButterKnife.bind(this);
 
 
         final ViewGroup fabcontainer = (ViewGroup)findViewById(R.id.fab_container_device);

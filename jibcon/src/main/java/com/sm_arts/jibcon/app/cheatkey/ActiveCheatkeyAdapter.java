@@ -75,17 +75,6 @@ public class ActiveCheatkeyAdapter
     public int getItemCount(){
         return mActiveCheatkeyDataset.size();
     }
-}
 
-// input 텍스트뷰와 output 텍스트뷰 DataSet
-class ActiveCheatkeyData{
-    public int imgBtnID;
-    public int activeCheatkeyImg;
-    public String activeCheatkeyName;
 
-    public ActiveCheatkeyData(int imgBtnID, int activeCheatkeyImg, String activeCheatkeyName){
-        this.imgBtnID = imgBtnID;
-        this.activeCheatkeyImg = activeCheatkeyImg;
-        this.activeCheatkeyName = activeCheatkeyName;
-    }
 }

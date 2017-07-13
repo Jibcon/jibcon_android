@@ -4,14 +4,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
 
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * Created by Chanjoo on 2017-03-30.
@@ -42,6 +46,15 @@ public class DataControlFragment extends android.support.v4.app.Fragment {
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, mDataControlList);
 
         mDataControlListView.setAdapter(adapter);
+
+        mDataControlListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+
+                String settingClickedItem = (String) mDataControlListView.getItemAtPosition(position);
+                Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
+            }
+        }) ;
 
         return view;
     }

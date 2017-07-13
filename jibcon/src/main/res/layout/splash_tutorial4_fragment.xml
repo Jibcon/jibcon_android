@@ -42,16 +42,7 @@
             android:textColor="@color/default_text_color"
             android:textSize="16dp" />
 
-        <Button
-            android:id="@+id/Btn_Tutorial4_1"
-            android:layout_width="240dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:background="@color/colorPrimary"
-            android:text="집콘 시작하기"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
+
 
     </LinearLayout>
 
