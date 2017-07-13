@@ -41,7 +41,7 @@ public class CheatkeyActiveFragment extends android.support.v4.app.Fragment{
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),FlotingButtonActiveActivity.class));
+                startActivity(new Intent(getContext(),FloatingButtonActiveActivity.class));
             }
         });
 

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 
-public class FlotingButtonPassiveActivity extends BaseActivity {
+public class FloatingButtonPassiveActivity extends BaseActivity {
     private View mFabItem1;
     private TextView mFabItem2;
     private View mFabItem3;

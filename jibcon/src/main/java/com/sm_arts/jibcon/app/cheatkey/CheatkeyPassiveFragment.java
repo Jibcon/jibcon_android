@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.sm_arts.jibcon.ui.floatingbuttonui.FlotingButtonPassiveActivity;
+import com.sm_arts.jibcon.ui.floatingbuttonui.FloatingButtonPassiveActivity;
 import com.sm_arts.jibcon.R;
 import java.util.ArrayList;
 
@@ -37,7 +37,7 @@ public class CheatkeyPassiveFragment extends android.support.v4.app.Fragment{
     
     //hamburger btn
     @OnClick(R.id.fab_cheatkey_passive_behind) void fab_cheatkey_passive_behind(){
-        startActivity(new Intent(getContext(), FlotingButtonPassiveActivity.class));
+        startActivity(new Intent(getContext(), FloatingButtonPassiveActivity.class));
     }
 
     // For Recyclerview(CardView)

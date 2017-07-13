@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
-import com.sm_arts.jibcon.main.GlobalApplication;
+import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.R;
 
 import java.util.ArrayList;

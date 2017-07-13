@@ -92,10 +92,10 @@ public class MakeconMainActivity extends BaseActivity implements HouseInfoListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.makecon_makecon0_activity);
 
-        mMakecon1=new MakeconHouseNameFragment();
-        mMakecon2=new MakeconHouseTypeFragment();
-        mMakecon3=new MakeconHouseAddressFragment();
-        mMakecon4=new MakeconCompleteFragment();
+        mMakecon1=new MakeconHousenameFragment();
+        mMakecon2=new MakeconHousetypeFragment();
+        mMakecon3=new MakeconHouseaddressFragment();
+        mMakecon4=new MakeconEndFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon1).commit();
 
     }

@@ -12,7 +12,7 @@ import com.sm_arts.jibcon.app.BaseActivity;
  * Created by user on 2017-05-19.
  */
 
-public class GetOtherConFinishActivity extends BaseActivity {
+public class GetOtherConEndActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -21,7 +21,7 @@ public class GetOtherConFinishActivity extends BaseActivity {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable(){
             public void run(){
-                Intent intent = new Intent(GetOtherConFinishActivity.this, MainActivity.class);
+                Intent intent = new Intent(GetOtherConEndActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         }, 1500);

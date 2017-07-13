@@ -25,7 +25,7 @@ import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.main.GlobalApplication;
+import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.login.user.service.UserService;

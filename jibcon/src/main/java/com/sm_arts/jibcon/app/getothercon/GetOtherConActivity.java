@@ -25,7 +25,7 @@ public class GetOtherConActivity extends BaseActivity{
 
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<getConData> mGetConDataset;
+    private ArrayList<getOtherConData> mGetOtherConDataset;
 
     Button mBtnGotoMain;
 
@@ -39,19 +39,19 @@ public class GetOtherConActivity extends BaseActivity{
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mGetConDataset = new ArrayList<>();
-        mAdapter = new GetOtherConAdapter(mGetConDataset);
+        mGetOtherConDataset = new ArrayList<>();
+        mAdapter = new GetOtherConAdapter(mGetOtherConDataset);
         mRecyclerView.setAdapter(mAdapter);
 
         //데이터 입력
-        mGetConDataset.add(new getConData(R.drawable.default_user, "찬주의 자취방",
+        mGetOtherConDataset.add(new getOtherConData(R.drawable.default_user, "찬주의 자취방",
                 "example@jibcon.com", "환영합니다!"));
 
         mBtnGotoMain = (Button)findViewById(R.id.btn_gotoMain); // 등록 완료
         mBtnGotoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GetOtherConActivity.this, GetOtherConFinishActivity.class);
+                Intent intent = new Intent(GetOtherConActivity.this, GetOtherConEndActivity.class);
                 startActivity(intent);
             }
         });

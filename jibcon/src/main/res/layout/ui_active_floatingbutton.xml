@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.floatingbuttonui.FlotingButtonActiveActivity"
+    tools:context=".ui.floatingbuttonui.FloatingButtonActiveActivity"
     android:background="@color/transparent"
     android:id="@+id/fab_container_cheatkey_active">
 

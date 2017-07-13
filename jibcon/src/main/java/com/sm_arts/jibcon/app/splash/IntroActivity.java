@@ -16,7 +16,7 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.main.GlobalApplication;
+import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.login.LoginActivity;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;

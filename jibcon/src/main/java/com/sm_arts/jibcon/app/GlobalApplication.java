@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.main;
+package com.sm_arts.jibcon.app;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;

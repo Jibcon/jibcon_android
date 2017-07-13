@@ -16,7 +16,7 @@ import com.sm_arts.jibcon.R;
  * Created by admin on 2017-04-12.
  */
 
-public class MakeconCompleteFragment extends android.support.v4.app.Fragment {
+public class MakeconEndFragment extends android.support.v4.app.Fragment {
     HouseInfoListener mHouseInfoListener;
     LinearLayout mLinearLayout;
 

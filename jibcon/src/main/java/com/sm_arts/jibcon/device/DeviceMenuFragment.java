@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 
 import com.sm_arts.jibcon.device.service.DeviceService;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.main.GlobalApplication;
+import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.floatingbuttonui.FloatingButtonDeviceActivity;
 
