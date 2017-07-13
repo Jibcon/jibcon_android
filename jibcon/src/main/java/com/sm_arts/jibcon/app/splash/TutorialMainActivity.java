@@ -15,67 +15,26 @@ import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.login.LoginActivity;
 import com.sm_arts.jibcon.R;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class TutorialMainActivity extends FragmentActivity {
-
-    ImageButton mSkipButton;
-    ViewPager mViewpager;
-    int mMaxPage=4;
-
-    Fragment mCurFragment = new Fragment();
-
-    private void initLayout()
-    {
-        mViewpager = (ViewPager)findViewById(R.id.vp_tutorial);
-
+    @OnClick(R.id.btn_skip_tutorial) void skipTutorialListener(){
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
-    private  class adapter extends FragmentPagerAdapter
-    {
-        public adapter(FragmentManager fm) {
-            super(fm);
-        }
 
-        @Override
-        public Fragment getItem(int position) {
-            if(position<0||position>=4)
-            {
-                position=position%mMaxPage;
-                return null;
-            }
-            switch (position)
-            {
-                case 0:
-                    mCurFragment=new Tutorial1Fragment();
-
-                    break;
-                case 1:
-                    mCurFragment=new Tutorial2Fragment();
-
-                    break;
-                case 2:
-                    mCurFragment=new Tutorial3Fragment();
-
-                    break;
-                case 3:
-                    mCurFragment=new Tutorial4Fragment();
-                    break;
-            }
-            return mCurFragment;
-        }
-
-        @Override
-        public int getCount() {
-            return mMaxPage;
-        }
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_tutorial_activity);
+        ButterKnife.bind(this);
 
         ViewPager pager = (ViewPager) findViewById(R.id.vp_tutorial);
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
-
     }
+
     private class MyPagerAdapter extends FragmentPagerAdapter {
 
         public MyPagerAdapter(FragmentManager fm) {
@@ -103,5 +62,4 @@ public class TutorialMainActivity extends FragmentActivity {
             return 4;
         }
     }
-
 }
