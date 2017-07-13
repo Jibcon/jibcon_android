@@ -3,9 +3,11 @@ package com.sm_arts.jibcon.app.splash;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -13,7 +15,7 @@ import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.login.LoginActivity;
 import com.sm_arts.jibcon.R;
 
-public class TutorialMainActivity extends BaseActivity {
+public class TutorialMainActivity extends FragmentActivity {
 
     ImageButton mSkipButton;
     ViewPager mViewpager;
@@ -70,23 +72,36 @@ public class TutorialMainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_tutorial_activity);
 
-        initLayout();
-
-        mViewpager.setAdapter(new adapter(getSupportFragmentManager()));
-        mViewpager.setOffscreenPageLimit(3);
-
-        // 튜토리얼 스킵 버튼
-        mSkipButton = (ImageButton) findViewById(R.id.btn_skip_tutorial);
-        mSkipButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(TutorialMainActivity.this , LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        ViewPager pager = (ViewPager) findViewById(R.id.vp_tutorial);
+        pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 
     }
+    private class MyPagerAdapter extends FragmentPagerAdapter {
 
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int pos) {
+            switch(pos) {
+                case 0:
+                    return Tutorial1Fragment.newInstance(pos);
+                case 1:
+                    return Tutorial1Fragment.newInstance(pos);
+                case 2:
+                    return Tutorial1Fragment.newInstance(pos);
+                case 3:
+                    return Tutorial1Fragment.newInstance(pos);
+                default:
+                    return Tutorial1Fragment.newInstance(0);
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return 4;
+        }
+    }
 
 }
