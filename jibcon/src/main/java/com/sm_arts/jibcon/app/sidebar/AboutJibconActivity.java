@@ -1,9 +1,6 @@
 package com.sm_arts.jibcon.app.sidebar;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
@@ -19,7 +16,7 @@ public class AboutJibconActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_about_jibcon);
+        setContentView(R.layout.sidebar_aboutjibcon_activity);
         ButterKnife.bind(this);
     }
 }

@@ -10,28 +10,24 @@ import android.content.pm.Signature;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.login.LoginActivity;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
-import com.sm_arts.jibcon.MainActivity;
+import com.sm_arts.jibcon.main.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.network.Repo;
-import com.tsengvn.typekit.TypekitContextWrapper;
 
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -110,7 +106,7 @@ public class IntroActivity extends BaseActivity {
             else
             {//intro->login success->tutorial
 
-                Intent intent = new Intent(getApplicationContext(),TutorialActivity.class);
+                Intent intent = new Intent(getApplicationContext(),TutorialMainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -122,7 +118,7 @@ public class IntroActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intro);
+        setContentView(R.layout.splash_intro_activity);
         init();
 
         //액션바 없애기

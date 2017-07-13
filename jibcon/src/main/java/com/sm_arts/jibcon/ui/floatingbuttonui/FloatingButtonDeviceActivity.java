@@ -3,7 +3,6 @@ package com.sm_arts.jibcon.ui.floatingbuttonui;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
@@ -40,7 +39,7 @@ public class FloatingButtonDeviceActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_floating_device);
+        setContentView(R.layout.ui_add_device_floatingbutton);
 
 
 

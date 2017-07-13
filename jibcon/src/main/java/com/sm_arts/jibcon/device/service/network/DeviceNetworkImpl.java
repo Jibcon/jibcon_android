@@ -3,7 +3,7 @@ package com.sm_arts.jibcon.device.service.network;
 import android.util.Log;
 
 import com.sm_arts.jibcon.device.DeviceItem;
-import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.network.Repo;
 

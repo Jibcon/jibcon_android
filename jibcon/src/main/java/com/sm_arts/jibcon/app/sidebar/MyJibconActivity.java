@@ -1,11 +1,9 @@
 package com.sm_arts.jibcon.app.sidebar;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -31,7 +29,7 @@ public class MyJibconActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_my_jibcon);
+        setContentView(R.layout.sidebar_myjibcon_activity);
         ButterKnife.bind(this);
 
         String[] sSidebarMyJibconList={menu1,menu2,menu3};
