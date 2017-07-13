@@ -4,21 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.utils.ToastHelper;
-
-import java.util.ArrayList;
 
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by Chanjoo on 2017-03-30.
@@ -39,7 +32,7 @@ public class DataControlFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view =  inflater.inflate(R.layout.datacontrol, container, false);
+        View view =  inflater.inflate(R.layout.datacontrol_main_fragment, container, false);
         ButterKnife.bind(this, view);
 
         String[] mDataControlList ={menu1,menu2,menu3,menu4};

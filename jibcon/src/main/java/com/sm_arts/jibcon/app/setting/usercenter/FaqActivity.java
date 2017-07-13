@@ -24,7 +24,7 @@ public class FaqActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_faq);
+        setContentView(R.layout.setting_faq_activity);
         ButterKnife.bind(this);
     }
 }

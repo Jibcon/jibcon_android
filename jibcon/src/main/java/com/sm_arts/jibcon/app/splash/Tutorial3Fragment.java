@@ -17,7 +17,7 @@ public class Tutorial3Fragment extends android.support.v4.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        LinearLayout linearLayout = (LinearLayout)inflater.inflate(R.layout.tutorial_3,container,false);
+        LinearLayout linearLayout = (LinearLayout)inflater.inflate(R.layout.splash_tutorial3_fragment,container,false);
 
         return linearLayout;
     }

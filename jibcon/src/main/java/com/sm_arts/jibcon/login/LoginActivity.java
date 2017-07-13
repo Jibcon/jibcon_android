@@ -1,12 +1,10 @@
 package com.sm_arts.jibcon.login;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.VideoView;
@@ -27,16 +25,15 @@ import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.main.GlobalApplication;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
-import com.sm_arts.jibcon.app.makecon.MakeConStartActivity;
+import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.network.Repo;
-import com.tsengvn.typekit.TypekitContextWrapper;
 
 import org.json.JSONObject;
 
@@ -130,7 +127,7 @@ public class LoginActivity extends BaseActivity {
                         mApp.setUserToken(response.body().getToken());
                         Log.d(TAG, "onResponse: "+"success");
                         //Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
-                        Intent intent= new Intent(getApplicationContext(), MakeConStartActivity.class);
+                        Intent intent= new Intent(getApplicationContext(), MakeconStartActivity.class);
 
                         // prepare deviceItems
                         DeviceServiceImpl.getInstance().prepareDeviceItems();
@@ -169,7 +166,7 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login_main_activity);
 
         mVideoView = (VideoView)findViewById(R.id.videoView);
 
@@ -253,7 +250,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void gotoMakeConStartActivity() {
-        Intent intent= new Intent(getApplicationContext(), MakeConStartActivity.class);
+        Intent intent= new Intent(getApplicationContext(), MakeconStartActivity.class);
         startActivity(intent);
         Log.d(TAG, "gotoMakeConStartActivity: finish");
         finish();
@@ -292,7 +289,7 @@ public class LoginActivity extends BaseActivity {
             if(exception != null) {
                 Logger.e(exception);
             }
-            setContentView(R.layout.activity_login); // 세션 연결이 실패했을때
+            setContentView(R.layout.login_main_activity); // 세션 연결이 실패했을때
         }                                            // 로그인화면을 다시 불러옴
     }
 
