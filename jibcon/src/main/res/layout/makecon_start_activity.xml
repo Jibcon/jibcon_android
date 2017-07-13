@@ -10,7 +10,7 @@
     android:paddingTop="32dp"
     android:background="#FFF"
     android:orientation="vertical"
-    tools:context=".app.makecon.MakeConStartActivity">
+    tools:context=".app.makecon.MakeconStartActivity">
 
     <!--
     <Button

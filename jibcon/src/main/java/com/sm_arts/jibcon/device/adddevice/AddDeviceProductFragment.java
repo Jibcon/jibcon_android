@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * Created by admin on 2017-04-15.
  */
 
-public class AddDevice0Fragment extends Fragment {
+public class AddDeviceProductFragment extends Fragment {
     LinearLayout mLinearLayout;
 
     Spinner mSpinner1;
@@ -31,7 +31,7 @@ public class AddDevice0Fragment extends Fragment {
     ArrayList<String> mArr2;
     ArrayAdapter<String> mAdapter1;
     ArrayAdapter<String> mAdapter2;
-    MakeDeviceListner mMakeDeviceListener;
+    AddDeviceListner mMakeDeviceListener;
     String mSelectedCompany;
     String mSelectedDevicename;
 
@@ -100,7 +100,7 @@ public class AddDevice0Fragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mMakeDeviceListener=(MakeDeviceListner) context;
+        mMakeDeviceListener=(AddDeviceListner) context;
     }
 
 

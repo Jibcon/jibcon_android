@@ -16,11 +16,9 @@ import com.sm_arts.jibcon.R;
  * Created by admin on 2017-04-12.
  */
 
-public class MakeCon3Fragment extends android.support.v4.app.Fragment{
+public class MakeconHouseAddressFragment extends android.support.v4.app.Fragment{
     ImageButton mBefore;
     Button mNext;
-    //private GoogleMap mMap = null; // Google Maps
-    //private float LAT=10,LNG=10; // Google Maps variable
 
     HouseInfoListener mHouseInfoListener;
     LinearLayout mLinearLayout;
@@ -41,9 +39,6 @@ public class MakeCon3Fragment extends android.support.v4.app.Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon_houseaddress_fragment,container,false);
 
-        // Google Maps Fragment
-        //SupportMapFragment mapFragment = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.google_map);
-
         initLayout();
 
         mBefore.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +47,7 @@ public class MakeCon3Fragment extends android.support.v4.app.Fragment{
                 mHouseInfoListener.getFragmentNum(-1);
             }
         });
+
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,24 +55,6 @@ public class MakeCon3Fragment extends android.support.v4.app.Fragment{
             }
         });
 
-        // Google map start
-        //mapFragment.getMapAsync(this);
-
         return mLinearLayout;
     }
-
-    /*
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-        LatLng latLng = new LatLng(LAT, LNG);
-
-        MarkerOptions marker = new MarkerOptions().position(latLng);
-
-        mMap.addMarker(marker);
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 13));
-    }
-    */
 }

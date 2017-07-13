@@ -20,7 +20,7 @@ import com.sm_arts.jibcon.R;
  * Created by admin on 2017-04-12.
  */
 
-public class MakeCon2Fragment extends android.support.v4.app.Fragment {
+public class MakeconHouseTypeFragment extends android.support.v4.app.Fragment {
 
     LinearLayout mLinearLayout;
     Button mNext;
@@ -107,7 +107,7 @@ public class MakeCon2Fragment extends android.support.v4.app.Fragment {
             @Override
             public void onClick(View v) {
                 mHouseInfoListener.getFragmentNum(1);
-//                Intent intent = new Intent(getActivity().getApplicationContext(), MakeCon3Fragment.class);
+//                Intent intent = new Intent(getActivity().getApplicationContext(), MakeconHouseAddressFragment.class);
 //                startActivity(intent);
             }
         });

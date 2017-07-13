@@ -25,12 +25,12 @@ import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.main.GlobalApplication;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
-import com.sm_arts.jibcon.app.makecon.MakeConStartActivity;
+import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.network.Repo;
@@ -127,7 +127,7 @@ public class LoginActivity extends BaseActivity {
                         mApp.setUserToken(response.body().getToken());
                         Log.d(TAG, "onResponse: "+"success");
                         //Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
-                        Intent intent= new Intent(getApplicationContext(), MakeConStartActivity.class);
+                        Intent intent= new Intent(getApplicationContext(), MakeconStartActivity.class);
 
                         // prepare deviceItems
                         DeviceServiceImpl.getInstance().prepareDeviceItems();
@@ -250,7 +250,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void gotoMakeConStartActivity() {
-        Intent intent= new Intent(getApplicationContext(), MakeConStartActivity.class);
+        Intent intent= new Intent(getApplicationContext(), MakeconStartActivity.class);
         startActivity(intent);
         Log.d(TAG, "gotoMakeConStartActivity: finish");
         finish();

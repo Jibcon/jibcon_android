@@ -1,11 +1,7 @@
-package com.sm_arts.jibcon;
+package com.sm_arts.jibcon.main;
 
 import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.support.multidex.MultiDexApplication;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -18,8 +14,6 @@ import com.tsengvn.typekit.Typekit;
 
 import java.lang.ref.WeakReference;
 import java.net.URL;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 import static com.kakao.util.helper.Utility.getPackageInfo;
 

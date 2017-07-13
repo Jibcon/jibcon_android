@@ -14,13 +14,13 @@ import com.sm_arts.jibcon.R;
  * Created by admin on 2017-04-15.
  */
 
-public class AddDevice2Fragment extends Fragment {
-    MakeDeviceListner mMakeDeviceListener;
+public class AddDevicePhoneFragment extends Fragment {
+    AddDeviceListner mMakeDeviceListener;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mMakeDeviceListener=(MakeDeviceListner) context;
+        mMakeDeviceListener=(AddDeviceListner) context;
 
     }
 

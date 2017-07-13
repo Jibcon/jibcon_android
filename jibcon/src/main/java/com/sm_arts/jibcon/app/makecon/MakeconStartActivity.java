@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.getothercon.GetOtherConActivity;
-import com.sm_arts.jibcon.MainActivity;
+import com.sm_arts.jibcon.main.MainActivity;
 import com.sm_arts.jibcon.R;
 
 import butterknife.ButterKnife;
@@ -19,12 +19,12 @@ import butterknife.OnClick;
 *
 * */
 
-public class MakeConStartActivity extends BaseActivity {
+public class MakeconStartActivity extends BaseActivity {
 
 
 
     @OnClick(R.id.Btn_makeMyCon) void Btn_makeMyCon(){
-        Intent intent = new Intent(getApplicationContext(),MakeCon0Activity.class);
+        Intent intent = new Intent(getApplicationContext(),MakeconMainActivity.class);
         startActivity(intent);
         finish();
     }

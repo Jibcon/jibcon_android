@@ -13,7 +13,7 @@ import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.login.LoginActivity;
 import com.sm_arts.jibcon.R;
 
-public class TutorialActivity extends BaseActivity {
+public class TutorialMainActivity extends BaseActivity {
 
     ImageButton mSkipButton;
     ViewPager mViewpager;
@@ -80,7 +80,7 @@ public class TutorialActivity extends BaseActivity {
         mSkipButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(TutorialActivity.this , LoginActivity.class);
+                Intent intent = new Intent(TutorialMainActivity.this , LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

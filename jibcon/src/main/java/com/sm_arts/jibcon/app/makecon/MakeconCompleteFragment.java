@@ -9,14 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.sm_arts.jibcon.MainActivity;
+import com.sm_arts.jibcon.main.MainActivity;
 import com.sm_arts.jibcon.R;
 
 /**
  * Created by admin on 2017-04-12.
  */
 
-public class MakeCon4Fragment extends android.support.v4.app.Fragment {
+public class MakeconCompleteFragment extends android.support.v4.app.Fragment {
     HouseInfoListener mHouseInfoListener;
     LinearLayout mLinearLayout;
 

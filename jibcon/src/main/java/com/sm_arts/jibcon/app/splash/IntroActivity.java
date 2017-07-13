@@ -16,11 +16,11 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.main.GlobalApplication;
 import com.sm_arts.jibcon.login.LoginActivity;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
-import com.sm_arts.jibcon.MainActivity;
+import com.sm_arts.jibcon.main.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.network.Repo;
@@ -106,7 +106,7 @@ public class IntroActivity extends BaseActivity {
             else
             {//intro->login success->tutorial
 
-                Intent intent = new Intent(getApplicationContext(),TutorialActivity.class);
+                Intent intent = new Intent(getApplicationContext(),TutorialMainActivity.class);
                 startActivity(intent);
                 finish();
             }

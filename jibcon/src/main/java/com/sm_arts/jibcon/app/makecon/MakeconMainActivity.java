@@ -7,7 +7,7 @@ import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.model.houseinfo.HouseInfo;
 
-public class MakeCon0Activity extends BaseActivity implements HouseInfoListener {
+public class MakeconMainActivity extends BaseActivity implements HouseInfoListener {
     String mHousename;
     String mUsername;
     String mHouseintro;
@@ -90,12 +90,12 @@ public class MakeCon0Activity extends BaseActivity implements HouseInfoListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.makecon_makecon0_fragment);
+        setContentView(R.layout.makecon_makecon0_activity);
 
-        mMakecon1=new MakeCon1Fragment();
-        mMakecon2=new MakeCon2Fragment();
-        mMakecon3=new MakeCon3Fragment();
-        mMakecon4=new MakeCon4Fragment();
+        mMakecon1=new MakeconHouseNameFragment();
+        mMakecon2=new MakeconHouseTypeFragment();
+        mMakecon3=new MakeconHouseAddressFragment();
+        mMakecon4=new MakeconCompleteFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon1).commit();
 
     }

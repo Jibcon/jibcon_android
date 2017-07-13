@@ -10,8 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.sm_arts.jibcon.device.DeviceItem;
-import com.sm_arts.jibcon.GlobalApplication;
-import com.sm_arts.jibcon.MainActivity;
+import com.sm_arts.jibcon.main.GlobalApplication;
+import com.sm_arts.jibcon.main.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.network.Repo;
@@ -22,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceListner {
+public class AddDeviceActivity extends AppCompatActivity implements AddDeviceListner {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     String mDeviceCom;
     String mDeviceName;
@@ -174,9 +174,9 @@ public class AddDeviceActivity extends AppCompatActivity implements MakeDeviceLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.device_add_device_activity);
-        mAddDevice0=new AddDevice0Fragment();
-        mAddDevice1=new AddDevice1Fragment();
-        mAddDevice2=new AddDevice2Fragment();
+        mAddDevice0=new AddDeviceProductFragment();
+        mAddDevice1=new AddDeviceWifiFragment();
+        mAddDevice2=new AddDevicePhoneFragment();
         mApp=(GlobalApplication)getApplicationContext();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice0).commit();

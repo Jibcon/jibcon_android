@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.sm_arts.jibcon.MainActivity;
+import com.sm_arts.jibcon.main.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 

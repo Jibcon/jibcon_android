@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon;
+package com.sm_arts.jibcon.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.cheatkey.CheatkeyMenuFragment;
 import com.sm_arts.jibcon.device.DeviceMenuFragment;

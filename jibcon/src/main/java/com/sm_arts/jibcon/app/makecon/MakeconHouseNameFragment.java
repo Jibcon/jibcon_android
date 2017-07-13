@@ -18,7 +18,7 @@ import com.sm_arts.jibcon.R;
  * Created by admin on 2017-04-12.
  */
 
-public class MakeCon1Fragment extends android.support.v4.app.Fragment {
+public class MakeconHouseNameFragment extends android.support.v4.app.Fragment {
     HouseInfoListener mHouseInfoListener;
     String mHousename;
     String mUsername;
@@ -89,7 +89,7 @@ public class MakeCon1Fragment extends android.support.v4.app.Fragment {
                 mHouseInfoListener.getUserName(mUsername);
                 mHouseInfoListener.getFragmentNum(1);
 
-//                Intent intent = new Intent(getActivity().getApplicationContext(), MakeCon2Fragment.class);
+//                Intent intent = new Intent(getActivity().getApplicationContext(), MakeconHouseTypeFragment.class);
 //                startActivity(intent);
             }
         });

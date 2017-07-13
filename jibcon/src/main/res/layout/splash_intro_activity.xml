@@ -8,7 +8,7 @@
     android:gravity="center"
     android:layout_weight="9"
     android:background="@color/white"
-    tools:context="com.sm_arts.jibcon.MainActivity">
+    tools:context="com.sm_arts.jibcon.main.MainActivity">
 
     <ImageView
         android:layout_width="193dp"

@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.main.GlobalApplication;
 import com.sm_arts.jibcon.R;
 
 import java.util.ArrayList;
@@ -32,12 +32,12 @@ import static android.Manifest.permission.CHANGE_WIFI_STATE;
  * Created by admin on 2017-04-15.
  */
 
-public class AddDevice1Fragment extends Fragment {
+public class AddDeviceWifiFragment extends Fragment {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     LinearLayout mLinearLayout;
     Button mNextPage;
     ListView mListView;
-    MakeDeviceListner mMakeDeviceListener;
+    AddDeviceListner mMakeDeviceListener;
     List<ScanResult> mArr;
     ArrayList<String> mWifiNames;
     ArrayList<String> mWifiLevels;
@@ -77,7 +77,7 @@ public class AddDevice1Fragment extends Fragment {
 //            if(intent.getAction().equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION))
 //            {
 //                mArr=mWifiManager.getScanResults();
-//                Log.d(TAG, "AddDevice1Fragment/onReceive: SCAN_RESULTS_AVAILABLE_ACTION ScanResults is "+mArr.toString());
+//                Log.d(TAG, "AddDeviceWifiFragment/onReceive: SCAN_RESULTS_AVAILABLE_ACTION ScanResults is "+mArr.toString());
 //                for(int i=0;i<mArr.size();i++)
 //                {
 //                    mWifiNames.add(i,mArr.get(i).BSSID);
@@ -95,7 +95,7 @@ public class AddDevice1Fragment extends Fragment {
     public void onAttach(Context context) {
         Log.d(TAG, "onAttach: ");
         super.onAttach(context);
-            mMakeDeviceListener=(MakeDeviceListner) context;
+            mMakeDeviceListener=(AddDeviceListner) context;
     }
     private void wifiSetting()
     {
