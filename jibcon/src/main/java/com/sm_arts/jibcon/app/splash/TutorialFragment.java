@@ -22,15 +22,12 @@ import butterknife.OnClick;
  */
 
 public class TutorialFragment extends android.support.v4.app.Fragment{
+    private static final String STRINGOF_TUTORIAL_PAGE="numofTutorialPage";
 
-
-    @BindView(R.id.tutorial_titletv)
-    TextView tutorialTitleTv;
+    @BindView(R.id.tutorial_titletv) TextView tutorialTitleTv;
     @BindView(R.id.tutorial_subtv) TextView tutorialSubTv;
-    @BindView(R.id.tutorial_iv)
-    ImageView tutorialIv;
-    @BindView(R.id.makejibcon_btn)
-    Button makejibconBtn;
+    @BindView(R.id.tutorial_iv) ImageView tutorialIv;
+    @BindView(R.id.makejibcon_btn) Button makejibconBtn;
     @OnClick(R.id.makejibcon_btn) void makejibconListener(){
         Intent intent = new Intent(getContext(), LoginActivity.class);
         startActivity(intent);
@@ -43,7 +40,7 @@ public class TutorialFragment extends android.support.v4.app.Fragment{
         View v = inflater.inflate(R.layout.splash_tutorial_fragment, container, false);
         ButterKnife.bind(this,v);
 
-        int tutorialNumber = getArguments().getInt("msg");
+        int tutorialNumber = getArguments().getInt(STRINGOF_TUTORIAL_PAGE);
 
         makejibconBtn.setVisibility(View.INVISIBLE);
 
@@ -76,7 +73,7 @@ public class TutorialFragment extends android.support.v4.app.Fragment{
     public static Fragment newInstance(int number) {
         Fragment fragment = new TutorialFragment();
         Bundle args = new Bundle();
-        args.putInt("msg", number);
+        args.putInt(STRINGOF_TUTORIAL_PAGE, number);
         fragment.setArguments(args);
         return fragment;
     }
