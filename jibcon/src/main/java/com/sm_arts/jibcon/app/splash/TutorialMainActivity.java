@@ -18,7 +18,7 @@ import com.sm_arts.jibcon.R;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class TutorialMainActivity extends FragmentActivity {
+public class TutorialMainActivity extends BaseActivity {
     @OnClick(R.id.btn_skip_tutorial) void skipTutorialListener(){
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
