@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 
@@ -25,6 +26,8 @@ public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
     String mHouseintro;
     Button mNext;
     ImageButton mBefore;
+    TextView mBarName;
+
     LinearLayout mLinearLayout;
     EditText mEditHousename;
     EditText mEditUsername;
@@ -41,8 +44,8 @@ public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
         mEditUsername = (EditText)mLinearLayout.findViewById(R.id.EditTxt_makecon1_2);
         mEditHouseintro=(EditText)mLinearLayout.findViewById(R.id.EditTxt_makecon1_3);
         mFragmentNum = 0;
-        mBefore=(ImageButton)mLinearLayout.findViewById(R.id.Btn_MakeCon1_0);
-
+        mBefore=(ImageButton)mLinearLayout.findViewById(R.id.btn_goback);
+        mBarName = (TextView)mLinearLayout.findViewById(R.id.bar_name);
     }
     @Override
     public void onAttach(Activity mActivity) {
@@ -75,6 +78,7 @@ public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
                 mHouseInfoListener.getFragmentNum(-1);
             }
         });
+
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +97,9 @@ public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
 //                startActivity(intent);
             }
         });
+
+        mBarName.setText("집 이름"); // sorry for hard-coding
+
         return mLinearLayout;
     }
 }
