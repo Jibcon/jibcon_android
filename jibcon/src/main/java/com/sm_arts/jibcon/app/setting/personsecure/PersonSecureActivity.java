@@ -24,12 +24,6 @@ import butterknife.OnClick;
 public class PersonSecureActivity extends BaseActivity {
 
     @BindView(R.id.lv_setting_personsecure) ListView mSettingPersonSecureLv;
-    @BindString(R.string.setting_personsecure_menu_1) String menu1;
-    @BindString(R.string.setting_personsecure_menu_2) String menu2;
-    @BindString(R.string.setting_personsecure_menu_3) String menu3;
-    @BindString(R.string.setting_personsecure_menu_4) String menu4;
-    @BindString(R.string.setting_personsecure_menu_5) String menu5;
-
     @OnClick(R.id.imageview_setting_personsecure) void imageview_setting_personsecure(){
         Intent intent = new Intent(PersonSecureActivity.this, SettingActivity.class);
         startActivity(intent);
@@ -42,13 +36,10 @@ public class PersonSecureActivity extends BaseActivity {
         setContentView(R.layout.setting_personsecure_activity);
         ButterKnife.bind(this);
 
+        final String[] personsecureOptionList = getResources().getStringArray(R.array.setting_personsecure_option_array);
 
-        String[] sSettingPersonSecureList={menu1,menu2,menu3,menu4,menu5};
-        /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSettingPersonSecureList);
-
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, personsecureOptionList);
         mSettingPersonSecureLv.setAdapter(adapter);
-        /* add onItemClickListener to ListView*/
 
         mSettingPersonSecureLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -58,9 +49,5 @@ public class PersonSecureActivity extends BaseActivity {
                 Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
             }
         }) ;
-
-
     }
-
-
 }
