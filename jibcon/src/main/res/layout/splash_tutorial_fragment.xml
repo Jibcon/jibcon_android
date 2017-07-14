@@ -25,6 +25,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tutorial_title_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -33,18 +34,19 @@
             android:text="쓰고 있는 스마트홈 기기를 등록하세요"
             android:textColor="@color/colorPrimary"
             android:textSize="16dp"
-            android:id="@+id/tutorial_titletv"/>
+            />
 
         <TextView
+            android:id="@+id/tutorial_sub_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="어떠한 기기든 빠르게 연결하고\n쉽게 사용해보세요"
             android:textColor="@color/default_text_color"
             android:textSize="16dp"
-            android:id="@+id/tutorial_subtv"/>
+            />
         <Button
-            android:id="@+id/makejibcon_btn"
+            android:id="@+id/tutorial_makejibcon_btn"
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_gravity="center"

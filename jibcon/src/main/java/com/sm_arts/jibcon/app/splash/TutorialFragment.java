@@ -24,11 +24,11 @@ import butterknife.OnClick;
 public class TutorialFragment extends android.support.v4.app.Fragment{
     private static final String STRINGOF_TUTORIAL_PAGE="numofTutorialPage";
 
-    @BindView(R.id.tutorial_titletv) TextView tutorialTitleTv;
-    @BindView(R.id.tutorial_subtv) TextView tutorialSubTv;
+    @BindView(R.id.tutorial_title_tv) TextView tutorialTitleTv;
+    @BindView(R.id.tutorial_sub_tv) TextView tutorialSubTv;
     @BindView(R.id.tutorial_iv) ImageView tutorialIv;
-    @BindView(R.id.makejibcon_btn) Button makejibconBtn;
-    @OnClick(R.id.makejibcon_btn) void makejibconListener(){
+    @BindView(R.id.tutorial_makejibcon_btn) Button makejibconBtn;
+    @OnClick(R.id.tutorial_makejibcon_btn) void makejibconListener(){
         Intent intent = new Intent(getContext(), LoginActivity.class);
         startActivity(intent);
         getActivity().finish();
