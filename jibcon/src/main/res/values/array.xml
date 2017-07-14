@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="datacontrol_option_array">
+        <item>기기별 전기 사용량</item>
+        <item>집콘 사용 기록</item>
+        <item>기간별 전기 사용량</item>
+        <item>실내 온습도 및 미세먼지 측정</item>
+    </string-array>
+
+    <string-array name="setting_option_array">
+        <item>개인/보안</item>
+        <item>알림</item>
+        <item>고객센터</item>
+    </string-array>
+
+    <string-array name="setting_personsecure_option_array">
+        <item>프로필 설정</item>
+        <item>암호 설정</item>
+        <item>지문 설정</item>
+        <item>정보제공 동의서</item>
+        <item>집콘 탈퇴하기</item>
+    </string-array>
+
+    <string-array name="setting_usercenter_option_array">
+        <item>제조업체 문의</item>
+        <item>FAQ</item>
+        <item>집콘 문의하기</item>
+    </string-array>
+
+    <string-array name="sidebar_widget_option_array">
+        <item>ON/OFF 위젯 만들기</item>
+        <item>루틴 위젯 만들기</item>
+        <item>툴바 만들기</item>
+        <item>데이터 위젯 만들기</item>
+    </string-array>
+
+    <string-array name="sidebar_userauthority_option_array">
+        <item>집에 연결된 사용자 관리</item>
+        <item>내 집콘에 초대하기</item>
+        <item>초대받은 목록</item>
+    </string-array>
+
+    <string-array name="sidebar_myjibcon_option_array">
+        <item>집소개 수정</item>
+        <item>주거 환경</item>
+        <item>주소 설정</item>
+    </string-array>
+
+    <string-array name="sidebar_connecteddevices_array">
+        <item>Company         Device</item>
+    </string-array>
+
+    <string-array name="trick_passive_input_array">
+        <item>실내온도가 30도 이상이 되면</item>
+        <item>내가 퇴근해서 집에 오고있으면</item>
+        <item>내가 출근을 하면</item>
+        <item>아침에 비가오면</item>
+    </string-array>
+
+    <string-array name="trick_passive_output_array">
+        <item>22도에 맞춰 에어켠을 켜줘</item>
+        <item>공기청정기를 틀어줘</item>
+        <item>가스벨브를 잠그고 \n방범시스템을 켜줘</item>
+        <item>알람시간보다 30분 일찍 깨워줘</item>
+    </string-array>
+
+    <string-array name="tutorial_title_array">
+        <item>쓰고있는 스마트홈 기기를 등록하세요</item>
+        <item>귀찮은 루틴을 등록해놓으세요</item>
+        <item>혁신적인 제품들을 만나보세요</item>
+        <item>실나의 스마트홈 습관을 확인해봐요</item>
+    </string-array>
+
+    <string-array name="tutorial_sub_array">
+        <item>어떠한 기기든 빠르게 연결하고\n 쉽게 사용해보세요</item>
+        <item>한번만 등록하면\n 신경쓰지 않아도 알아서 척척 해냅니다</item>
+        <item>콘샾을 통해 당신에게 맞는 제품들을\n 가장 저렴하게 만나볼 수 있습니다</item>
+        <item>낭비되는 전기세부터\n 나에게 맞는 온도까지! 데이터로 알아보세요</item>
+    </string-array>
+
+</resources>
