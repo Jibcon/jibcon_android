@@ -45,6 +45,7 @@ public class TutorialFragment extends android.support.v4.app.Fragment{
         makejibconBtn.setVisibility(View.INVISIBLE);
 
         switch (tutorialNumber){
+            
             case 0:
                 tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[0]);
                 tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[0]);
