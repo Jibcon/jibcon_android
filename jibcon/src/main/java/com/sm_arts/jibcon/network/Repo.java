@@ -39,4 +39,20 @@ public class Repo {
             Log.d("service","실패");
         return service;
     }
+
+    public static MobiusService getMobiusService()
+    {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://52.78.111.146:7579/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        MobiusService service = retrofit.create(MobiusService.class);
+
+        if(service != null)
+            Log.d("service","할당");
+        else
+            Log.d("service","실패");
+
+        return service;
+    }
 }
