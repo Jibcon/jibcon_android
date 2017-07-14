@@ -20,8 +20,6 @@ public class ConnectedDevicesActivity extends BaseActivity {
     @OnClick(R.id.imageview_sidebar_connecteddevices) void imageview_sidebar_connecteddevices(){
         finish();}
     @BindView(R.id.lv_connected_device) ListView mSidebarConnectedDevicesLv;
-    @BindString(R.string.sidebar_connecteddevices_menu_1) String menu1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +28,15 @@ public class ConnectedDevicesActivity extends BaseActivity {
         setContentView(R.layout.sidebar_connecteddevices_activity);
         ButterKnife.bind(this);
 
-        String[] sSidebarConnectedDeviceList={menu1, menu1, menu1};
+        final String[] connecteddevicesOptionList = getResources().getStringArray(R.array.sidebar_connecteddevices_array);
 
-        /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSidebarConnectedDeviceList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, connecteddevicesOptionList);
         mSidebarConnectedDevicesLv.setAdapter(adapter);
-        /* add onItemClickListener to ListView*/
+
         mSidebarConnectedDevicesLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
+
                 String settingClickedItem = (String) mSidebarConnectedDevicesLv.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
             }
