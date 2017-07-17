@@ -29,9 +29,9 @@ public class PassiveCheatkeyAdapter
         public ViewHolder(View view, final Context context) {
             super(view);
 
-            cheatkeySettingBtn = (ImageButton)view.findViewById(R.id.btn_passive_cheatkey_setting);
-            cheatkeyInputTv = (TextView)view.findViewById(R.id.passive_cheatkey_input);
-            cheatkeyOutputTv = (TextView)view.findViewById(R.id.passive_cheatkey_output);
+            cheatkeySettingBtn = (ImageButton) view.findViewById(R.id.btn_passive_cheatkey_setting);
+            cheatkeyInputTv = (TextView) view.findViewById(R.id.passive_cheatkey_input);
+            cheatkeyOutputTv = (TextView) view.findViewById(R.id.passive_cheatkey_output);
 
             cheatkeySettingBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -65,7 +65,6 @@ public class PassiveCheatkeyAdapter
         holder.cheatkeySettingBtn.setId(R.id.btn_passive_cheatkey_setting);
         holder.cheatkeyInputTv.setText(mPassiveCheatkeyDataset.get(position).inputTv);
         holder.cheatkeyOutputTv.setText(mPassiveCheatkeyDataset.get(position).outputTv);
-
     }
 
     // Return the size of your dataset (invoked by the layout manager)

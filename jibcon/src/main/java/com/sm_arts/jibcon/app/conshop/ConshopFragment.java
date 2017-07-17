@@ -21,7 +21,7 @@ import butterknife.OnClick;
 public class ConshopFragment extends android.support.v4.app.Fragment {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
-    public ConshopFragment(){}
+    public ConshopFragment() {}
 
     @BindView(R.id.Txt_Market_Best) TextView mBest;
     @BindView(R.id.Txt_Market_Home) TextView mHome;
