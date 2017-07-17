@@ -24,7 +24,7 @@ public class AskEnrollCompanyActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_askenrollcompany);
+        setContentView(R.layout.setting_askenrollcompany_activity);
         ButterKnife.bind(this);
     }
 

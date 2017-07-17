@@ -8,17 +8,24 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.sm_arts.jibcon.network.MobiusService;
+import com.sm_arts.jibcon.network.Repo;
 import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
-import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.R;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by admin on 2017-04-06.
  */
 
 public class DeviceMenuAdapter extends BaseAdapter {
+    private static final String TAG = "DeviceMenuAdapter";
 
     LayoutInflater mInflater;
     GlobalApplication mApp;
@@ -59,8 +66,8 @@ public class DeviceMenuAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
         if(convertView==null)
-            Log.d("DeviceMenu","DeviceMenuNull");
-        convertView= mInflater.inflate(R.layout.device_item, parent, false);
+            Log.d("DeviceMenu", "DeviceMenuNull");
+        convertView= mInflater.inflate(R.layout.device_deviceitem_cardview, parent, false);
         ImageView threedot = (ImageView)convertView.findViewById(R.id.ImgView_deviceItem_threedot);
         threedot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +79,32 @@ public class DeviceMenuAdapter extends BaseAdapter {
         //threedot.bringToFront();
 
         ImageView imageView = (ImageView)convertView.findViewById(R.id.ImgViewDiviceItem);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: ");
+                MobiusService service = Repo.getMobiusService();
+                Call<Object> call = service.turnOnLed(
+                        "application/json",
+                        "1",
+                        "/0.1",
+                        "application/vnd.onem2m-res+json; ty=4",
+                        new MobiusService.ApiCinC(3)
+                        );
+
+                call.enqueue(new Callback<Object>() {
+                    @Override
+                    public void onResponse(Call<Object> call, Response<Object> response) {
+                        Log.d(TAG, "onResponse: ");
+                    }
+
+                    @Override
+                    public void onFailure(Call<Object> call, Throwable t) {
+                        Log.d(TAG, "onFailure: ");
+                    }
+                });
+            }
+        });
         //imageView.setImageBitmap(mApp.getDeviceItemArrayList().get(position).getImage());
         switch ( mDeviceItems.get(position).getDeviceType())
         {

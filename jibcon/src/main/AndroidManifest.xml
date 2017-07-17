@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:name=".GlobalApplication"
+        android:name=".app.GlobalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/jibcon_logo"
         android:label="@string/app_name"
@@ -28,7 +28,7 @@
             android:value="@string/kakao_app_key" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".app.splash.IntroActivity"
@@ -41,17 +41,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".app.splash.TutorialActivity"
+            android:name=".app.splash.TutorialMainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".app.makecon.MakeConStartActivity"
+            android:name=".app.makecon.MakeconStartActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".app.makecon.MakeCon0Fragment"
+            android:name=".app.makecon.MakeconMainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".device.adddevice.AddDeviceActivity"
@@ -75,7 +75,7 @@
             android:name=".app.getothercon.GetOtherConActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".app.getothercon.GetOtherConFinishActivity"
+            android:name=".app.getothercon.GetOtherConEndActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".app.setting.SettingActivity"
@@ -110,15 +110,20 @@
             android:name=".app.getothercon.GetOtherConActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".app.getothercon.GetOtherConFinishActivity"
+            android:name=".app.getothercon.GetOtherConEndActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.floatingbuttonui.FloatingButtonDeviceActivity"
             android:theme="@style/Theme.AppCompat.Translucent" />
-        <activity android:name=".ui.floatingbuttonui.FlotingButtonActiveActivity"
+        <activity android:name=".ui.floatingbuttonui.FloatingButtonActiveActivity"
             android:theme="@style/Theme.AppCompat.Translucent"/>
-        <activity android:name=".ui.floatingbuttonui.FlotingButtonPassiveActivity"
+        <activity android:name=".ui.floatingbuttonui.FloatingButtonPassiveActivity"
             android:theme="@style/Theme.AppCompat.Translucent"></activity>
+
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"
+            android:label="OAuth2.0 In-app"/>
     </application>
 
 </manifest>

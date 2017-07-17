@@ -81,7 +81,7 @@ public class WifiListAdpater extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View root = View.inflate(parent.getContext(), R.layout.add_device2_wifi_item,null);
+        View root = View.inflate(parent.getContext(), R.layout.device_add_device2_wifiitem_activity,null);
 
         TextView textView = (TextView)root.findViewById(R.id.tvWifi);
         ImageView imgView = (ImageView)root.findViewById(R.id.imgViewWifi);

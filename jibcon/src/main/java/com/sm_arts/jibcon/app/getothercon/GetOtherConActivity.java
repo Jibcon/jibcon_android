@@ -7,9 +7,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
+import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 
 import java.util.ArrayList;
 
@@ -21,17 +24,17 @@ import java.util.ArrayList;
 
 public class GetOtherConActivity extends BaseActivity{
     private RecyclerView mRecyclerView;
-
-
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<getConData> mGetConDataset;
+    private ArrayList<getOtherConData> mGetOtherConDataset;
 
     Button mBtnGotoMain;
+    ImageButton mBtnGoBack;
+    TextView mBarNameTv;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_getothercon);
+        setContentView(R.layout.getothercon_main_activity);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.getcon_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -39,22 +42,34 @@ public class GetOtherConActivity extends BaseActivity{
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mGetConDataset = new ArrayList<>();
-        mAdapter = new GetOtherConAdapter(mGetConDataset);
+        mGetOtherConDataset = new ArrayList<>();
+        mAdapter = new GetOtherConAdapter(mGetOtherConDataset);
         mRecyclerView.setAdapter(mAdapter);
 
         //데이터 입력
-        mGetConDataset.add(new getConData(R.drawable.default_user, "찬주의 자취방",
+        mGetOtherConDataset.add(new getOtherConData(R.drawable.default_user, "찬주의 자취방",
                 "example@jibcon.com", "환영합니다!"));
 
         mBtnGotoMain = (Button)findViewById(R.id.btn_gotoMain); // 등록 완료
         mBtnGotoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GetOtherConActivity.this, GetOtherConFinishActivity.class);
+                Intent intent = new Intent(GetOtherConActivity.this, GetOtherConEndActivity.class);
                 startActivity(intent);
             }
         });
+
+        mBtnGoBack = (ImageButton) findViewById(R.id.btn_goback);
+        mBtnGoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GetOtherConActivity.this, MakeconStartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBarNameTv = (TextView) findViewById(R.id.bar_name);
+        mBarNameTv.setText("초대 목록"); // sorry for hard-coding...
 
     }
 

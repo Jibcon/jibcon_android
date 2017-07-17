@@ -2,7 +2,7 @@
     <string name="app_name">jibcon</string>
     <string name="kakao_app_key"> b7098b8b9fbec51fc6116d5c51946e5e</string>
     <string name="naver_client_id">f2VZgOgRx7HzZaCUzN_D</string>
-    <string name="client_secret">uldOlbBiia</string>
+    <string name="naver_client_secret">uldOlbBiia</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -52,6 +52,17 @@
     <string name="trick_passive_output_menu_2">공기청정기를 틀어줘</string>
     <string name="trick_passive_output_menu_3">가스벨브를 잠그고 \n방범시스템을 켜줘</string>
     <string name="trick_passive_output_menu_4">알람시간보다 30분 일찍 깨워줘</string>
+
+    <string name ="tutorial_title1">쓰고있는 스마트홈 기기를 등록하세요</string>
+    <string name ="tutorial_title2">귀찮은 루틴을 등록해놓으세요</string>
+    <string name ="tutorial_title3">혁신적인 제품들을 만나보세요</string>
+    <string name ="tutorial_title4">나의 스마트홈 습관을 확인해봐요</string>
+
+    <string name ="tutorial_sub1">어떠한 기기든 빠르게 연결하고\n 쉽게 사용해보세요</string>
+    <string name ="tutorial_sub2">한번만 등록하면\n 신경쓰지 않아도 알아서 척척 해냅니다</string>
+    <string name ="tutorial_sub3">콘샾을 통해 당신에게 맞는 제품들을\n 가장 저렴하게 만나볼 수 있습니다</string>
+    <string name ="tutorial_sub4">낭비되는 전기세부터\n 나에게 맞는 온도까지! 데이터로 알아보세요</string>
+
 
 
 </resources>

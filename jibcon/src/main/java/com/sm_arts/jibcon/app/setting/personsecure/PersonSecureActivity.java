@@ -39,7 +39,7 @@ public class PersonSecureActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_personsecure);
+        setContentView(R.layout.setting_personsecure_activity);
         ButterKnife.bind(this);
 
 
