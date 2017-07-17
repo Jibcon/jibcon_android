@@ -20,20 +20,18 @@ public class AddDevicePhoneFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mMakeDeviceListener=(AddDeviceListner) context;
-
+        mMakeDeviceListener = (AddDeviceListner) context;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.device_add_device2_activity,container,false);
+        return inflater.inflate(R.layout.device_add_device2_activity, container, false);
 
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
     }
 }

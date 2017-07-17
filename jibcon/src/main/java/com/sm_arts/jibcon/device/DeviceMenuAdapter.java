@@ -43,8 +43,8 @@ public class DeviceMenuAdapter extends BaseAdapter {
 
     public DeviceMenuAdapter(Context context) {
         this.mContext=context;
-        mInflater=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mApp=(GlobalApplication)mContext.getApplicationContext();
+        mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mApp = (GlobalApplication) mContext.getApplicationContext();
     }
 
     @Override
@@ -54,7 +54,6 @@ public class DeviceMenuAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-
         return mDeviceItems.get(position);
     }
 
@@ -65,10 +64,11 @@ public class DeviceMenuAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
-        if(convertView==null)
+        if(convertView == null) {
             Log.d("DeviceMenu", "DeviceMenuNull");
-        convertView= mInflater.inflate(R.layout.device_deviceitem_cardview, parent, false);
-        ImageView threedot = (ImageView)convertView.findViewById(R.id.ImgView_deviceItem_threedot);
+        }
+        convertView = mInflater.inflate(R.layout.device_deviceitem_cardview, parent, false);
+        ImageView threedot = (ImageView) convertView.findViewById(R.id.ImgView_deviceItem_threedot);
         threedot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +78,7 @@ public class DeviceMenuAdapter extends BaseAdapter {
         });
         //threedot.bringToFront();
 
-        ImageView imageView = (ImageView)convertView.findViewById(R.id.ImgViewDiviceItem);
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.ImgViewDiviceItem);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,13 +106,11 @@ public class DeviceMenuAdapter extends BaseAdapter {
             }
         });
         //imageView.setImageBitmap(mApp.getDeviceItemArrayList().get(position).getImage());
-        switch ( mDeviceItems.get(position).getDeviceType())
-        {
+        switch (mDeviceItems.get(position).getDeviceType()) {
             //0 : 에어컨
             //1 : 전구
             //2 : 선풍기
             //3 : 냉장고
-
             case "0":
                 imageView.setImageResource(R.drawable.airconditioner);
                 break;
@@ -126,7 +124,6 @@ public class DeviceMenuAdapter extends BaseAdapter {
                 imageView.setImageResource(R.drawable.refrigerator);
                 break;
         }
-
 
         return convertView;
     }
