@@ -73,16 +73,3 @@ public class PassiveCheatkeyAdapter
         return mPassiveCheatkeyDataset.size();
     }
 }
-
-// input 텍스트뷰와 output 텍스트뷰 DataSet
-class PassiveCheatkeyData {
-    public int imgBtnID;
-    public String inputTv;
-    public String outputTv;
-
-    public PassiveCheatkeyData(int imgBtnID, String inputTv, String outputTv) {
-        this.imgBtnID = imgBtnID;
-        this.inputTv = inputTv;
-        this.outputTv = outputTv;
-    }
-}
