@@ -19,15 +19,16 @@ public class UserNetworkImpl implements UserNetwork {
     private static UserNetwork sInstance;
     private ApiService mApiService;
 
+
     private UserNetworkImpl() {
         mApiService = (ApiService) RetrofitUtils.getInstance().getService(ApiService.class);
     }
 
-
     public static UserNetwork getInstance() {
-        if (sInstance == null){
+        if (sInstance == null) {
             sInstance = new UserNetworkImpl();
         }
+
         return sInstance;
     }
 
@@ -54,7 +55,6 @@ public class UserNetworkImpl implements UserNetwork {
             e.printStackTrace();
         }
     }
-
 
     @Override
     public User getSampleUserInfoFromServerSynchronisely() {

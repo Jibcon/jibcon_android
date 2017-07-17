@@ -15,12 +15,12 @@ import butterknife.OnClick;
  */
 
 public class JibconAskActivity extends BaseActivity {
-
-
-    @OnClick(R.id.imageview_setting_jibconask) void imageview_setting_jibconask(){
+    @OnClick(R.id.imageview_setting_jibconask) void imageview_setting_jibconask() {
         Intent intent = new Intent(JibconAskActivity.this, UserCenterActivity.class);
         startActivity(intent);
-        finish();}
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

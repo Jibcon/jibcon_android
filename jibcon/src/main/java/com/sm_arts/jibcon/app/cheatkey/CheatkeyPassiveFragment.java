@@ -36,7 +36,7 @@ public class CheatkeyPassiveFragment extends android.support.v4.app.Fragment{
 
     
     //hamburger btn
-    @OnClick(R.id.fab_cheatkey_passive_behind) void fab_cheatkey_passive_behind(){
+    @OnClick(R.id.fab_cheatkey_passive_behind) void fab_cheatkey_passive_behind() {
         startActivity(new Intent(getContext(), FloatingButtonPassiveActivity.class));
     }
 
@@ -48,14 +48,14 @@ public class CheatkeyPassiveFragment extends android.support.v4.app.Fragment{
 
     Context mContext;
 
-    public CheatkeyPassiveFragment(){}
+    public CheatkeyPassiveFragment() {}
 
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.cheatkey_passive_fragment, container, false); // 액티비티에서는 setContentView
         ButterKnife.bind(this, v);
 
@@ -75,17 +75,25 @@ public class CheatkeyPassiveFragment extends android.support.v4.app.Fragment{
 
         // 치트키 수동 입력, 추후 사용자가 치트키 등록시 추가되도록 구현해야
         // cardview #1
-        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData
-                (R.id.btn_passive_cheatkey_setting,input1, output1));
+        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData(
+                R.id.btn_passive_cheatkey_setting,
+                input1, output1
+        ));
         // cardview #2
-        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData
-                (R.id.btn_passive_cheatkey_setting, input2, output2));
+        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData(
+                R.id.btn_passive_cheatkey_setting,
+                input2, output2
+        ));
         // cardview #3
-        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData
-                (R.id.btn_passive_cheatkey_setting, input3, output3));
+        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData(
+                R.id.btn_passive_cheatkey_setting,
+                input3, output3
+        ));
         // cardview #4
-        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData
-                (R.id.btn_passive_cheatkey_setting,input4, output4));
+        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData(
+                R.id.btn_passive_cheatkey_setting,
+                input4, output4
+        ));
 
         return v;
     }

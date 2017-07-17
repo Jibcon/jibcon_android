@@ -19,15 +19,15 @@ import java.util.ArrayList;
  */
 
 public class ActiveCheatkeyAdapter
-        extends RecyclerView.Adapter<ActiveCheatkeyAdapter.ViewHolder>{
+        extends RecyclerView.Adapter<ActiveCheatkeyAdapter.ViewHolder> {
     private ArrayList<ActiveCheatkeyData> mActiveCheatkeyDataset;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageButton cheatkeySettingBtn;
         public ImageView cheatkeyImg;
         public TextView cheatkeyName;
 
-        public ViewHolder(View view, final Context context){
+        public ViewHolder(View view, final Context context) {
             super(view);
 
             cheatkeySettingBtn = (ImageButton)view.findViewById(R.id.btn_active_cheatkey_setting);
@@ -44,12 +44,12 @@ public class ActiveCheatkeyAdapter
         }
     }
 
-    public ActiveCheatkeyAdapter(ArrayList<ActiveCheatkeyData> ActiveCheatkeyDataset){
+    public ActiveCheatkeyAdapter(ArrayList<ActiveCheatkeyData> ActiveCheatkeyDataset) {
         mActiveCheatkeyDataset = ActiveCheatkeyDataset;
     }
 
     @Override
-    public ActiveCheatkeyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public ActiveCheatkeyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cheatkey_active_cardview, parent, false);
 
         ViewHolder vh = new ViewHolder(v,parent.getContext());
@@ -59,7 +59,7 @@ public class ActiveCheatkeyAdapter
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ActiveCheatkeyAdapter.ViewHolder holder, int position){
+    public void onBindViewHolder(ActiveCheatkeyAdapter.ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.cheatkeySettingBtn.setId(R.id.btn_passive_cheatkey_setting);
@@ -70,20 +70,7 @@ public class ActiveCheatkeyAdapter
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return mActiveCheatkeyDataset.size();
-    }
-}
-
-// input 텍스트뷰와 output 텍스트뷰 DataSet
-class ActiveCheatkeyData{
-    public int imgBtnID;
-    public int activeCheatkeyImg;
-    public String activeCheatkeyName;
-
-    public ActiveCheatkeyData(int imgBtnID, int activeCheatkeyImg, String activeCheatkeyName){
-        this.imgBtnID = imgBtnID;
-        this.activeCheatkeyImg = activeCheatkeyImg;
-        this.activeCheatkeyName = activeCheatkeyName;
     }
 }
