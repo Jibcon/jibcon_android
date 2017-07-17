@@ -1,12 +1,10 @@
 package com.sm_arts.jibcon.login;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.VideoView;
@@ -25,18 +23,17 @@ import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
-import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
+import com.sm_arts.jibcon.app.makecon.MakeConStartActivity;
+import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
-import com.sm_arts.jibcon.app.makecon.MakeConStartActivity;
-import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.network.Repo;
-import com.tsengvn.typekit.TypekitContextWrapper;
 
 import org.json.JSONObject;
 

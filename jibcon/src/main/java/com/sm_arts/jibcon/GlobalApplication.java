@@ -1,27 +1,20 @@
 package com.sm_arts.jibcon;
 
 import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.support.multidex.MultiDexApplication;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.kakao.auth.KakaoSDK;
+import com.nhn.android.naverlogin.OAuthLogin;
 import com.sm_arts.jibcon.login.KaKaoSDKAdpater;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.tsengvn.typekit.Typekit;
 
 import java.lang.ref.WeakReference;
 import java.net.URL;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
-import static com.kakao.util.helper.Utility.getPackageInfo;
 
 /**
  * Created by admin on 2017-04-06.
@@ -34,6 +27,9 @@ public class GlobalApplication extends MultiDexApplication {
     private static volatile GlobalApplication sObj = null;
     private volatile WeakReference<Activity> sCurrentActivity = null;
     //카톡 로그인
+
+    private  OAuthLogin mOAuthLoginModule;
+
 
     String userToken;
     //ArrayList<DeviceItem> deviceItemArrayList;//device 메뉴 아이템들의 리스트
@@ -81,6 +77,10 @@ public class GlobalApplication extends MultiDexApplication {
         username = "TestUser";
         userEmail = "Jipcon@Jipcon.com";
         KakaoSDK.init(new KaKaoSDKAdpater());
+        mOAuthLoginModule=OAuthLogin.getInstance();
+        mOAuthLoginModule.init(this,);
+
+
         // for font change
         Typekit.getInstance()
                 .addNormal(Typekit.createFromAsset(this, "12롯데마트드림Medium.ttf"))

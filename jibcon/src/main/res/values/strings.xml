@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">jibcon</string>
     <string name="kakao_app_key"> b7098b8b9fbec51fc6116d5c51946e5e</string>
+    <string name="naver_client_id">f2VZgOgRx7HzZaCUzN_D</string>
+    <string name="client_secret">uldOlbBiia</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="facebook_app_id">440498979632151</string>
@@ -45,7 +48,7 @@
     <string name="trick_passive_input_menu_3">내가 출근을 하면</string>
     <string name="trick_passive_input_menu_4">아침에 비가오면</string>
 
-\    <string name="trick_passive_output_menu_1">22도에 맞춰 에어켠을 켜줘</string>
+    <string name="trick_passive_output_menu_1">22도에 맞춰 에어켠을 켜줘</string>
     <string name="trick_passive_output_menu_2">공기청정기를 틀어줘</string>
     <string name="trick_passive_output_menu_3">가스벨브를 잠그고 \n방범시스템을 켜줘</string>
     <string name="trick_passive_output_menu_4">알람시간보다 30분 일찍 깨워줘</string>
