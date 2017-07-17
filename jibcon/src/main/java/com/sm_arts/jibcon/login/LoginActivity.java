@@ -33,7 +33,7 @@ import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
 import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
-import com.sm_arts.jibcon.network.Repo;
+import com.sm_arts.jibcon.utils.network.RetrofitUtils;
 
 import org.json.JSONObject;
 
@@ -102,9 +102,10 @@ public class LoginActivity extends BaseActivity {
 
             final String userTokenFacebook;
             userTokenFacebook=loginResult.getAccessToken().getToken();
-            UserInfo userInfo=new UserInfo("facebook", userTokenFacebook);
-            Log.d("MYTOKEN", userTokenFacebook);
-            ApiService apiService = new Repo().getService();
+            UserInfo userInfo=new UserInfo("facebook",userTokenFacebook);
+            Log.d("MYTOKEN",userTokenFacebook);
+            ApiService apiService = (ApiService) RetrofitUtils.getInstance().getService(ApiService.class);;
+
             Call<User> c = apiService.login(userInfo);
             try
             {
