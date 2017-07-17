@@ -2,6 +2,9 @@ package com.sm_arts.jibcon.network;
 
 import android.util.Log;
 
+import com.sm_arts.jibcon.utils.consts.UrlUtils;
+import com.sm_arts.jibcon.utils.network.GsonUtils;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -14,7 +17,7 @@ public class Repo {
     {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://52.79.142.130/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonUtils.getGsonConverterFactory())
                 .build();
         ApiService service = retrofit.create(ApiService.class);
 
@@ -28,8 +31,8 @@ public class Repo {
     public static ApiService getStaticService()
     {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://52.79.142.130/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(UrlUtils.getApiUrl())
+                .addConverterFactory(GsonUtils.getGsonConverterFactory())
                 .build();
         ApiService service = retrofit.create(ApiService.class);
 
@@ -43,8 +46,8 @@ public class Repo {
     public static MobiusService getMobiusService()
     {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://52.78.111.146:7579/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(UrlUtils.getMobiusUrl())
+                .addConverterFactory(GsonUtils.getGsonConverterFactory())
                 .build();
         MobiusService service = retrofit.create(MobiusService.class);
 
