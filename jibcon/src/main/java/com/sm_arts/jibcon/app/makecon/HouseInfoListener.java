@@ -12,6 +12,4 @@ public interface HouseInfoListener {
     void getHouseLocation(String houselocation);
     void getFragmentNum(int fragmentNum);
     void makeHouseInfo();
-
-
 }
