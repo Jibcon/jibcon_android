@@ -51,7 +51,7 @@ public class CheatkeyActiveFragment extends android.support.v4.app.Fragment {
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.active_cardview);
         mRecyclerView.setHasFixedSize(true);
 
-        mLayoutManager = new GridLayoutManager(mContext,2); // RecyclerView로 GridView 구현
+        mLayoutManager = new GridLayoutManager(mContext, 2); // RecyclerView로 GridView 구현
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mActiveCheatkeyDataset = new ArrayList<>();
