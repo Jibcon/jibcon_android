@@ -48,7 +48,7 @@
             android:padding="8dp" />
 
         <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
-            android:id="@+id/Btn_naver_login"
+            android:id="@+id/btn_naver_login"
             android:layout_height="60dp"
             android:layout_width="280dp"
             />

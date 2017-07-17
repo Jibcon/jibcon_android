@@ -71,10 +71,10 @@ public class GlobalApplication extends MultiDexApplication {
 
     public static OAuthLogin getNaverOAuthLogin()
     {
-        if(mOAuthLoginModule==null)
+        if(mOAuthLoginModule == null)
         {
-            mOAuthLoginModule=OAuthLogin.getInstance();
-            mOAuthLoginModule.init(getGlobalApplicationContext(),"f2VZgOgRx7HzZaCUzN_D","uldOlbBiia","JIBCON");
+            mOAuthLoginModule = OAuthLogin.getInstance();
+            mOAuthLoginModule.init(getGlobalApplicationContext(), "f2VZgOgRx7HzZaCUzN_D" , "uldOlbBiia" , "JIBCON");
 
         }
 
