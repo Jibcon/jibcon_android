@@ -15,19 +15,19 @@ import java.util.ArrayList;
  * Created by user on 2017-05-16.
  */
 
-public class GetOtherConAdapter extends RecyclerView.Adapter<GetOtherConAdapter.ViewHolder>{
+public class GetOtherConAdapter extends RecyclerView.Adapter<GetOtherConAdapter.ViewHolder> {
     private ArrayList<getOtherConData> mDataset;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView userImg;
         public TextView houseName;
         public TextView email;
         public TextView houseInfo;
 
-        public ViewHolder(View view){
+        public ViewHolder(View view) {
             super(view);
 
             userImg = (ImageView)view.findViewById(R.id.image);
@@ -37,13 +37,13 @@ public class GetOtherConAdapter extends RecyclerView.Adapter<GetOtherConAdapter.
         }
     }
 
-    public GetOtherConAdapter(ArrayList<getOtherConData> getOtherConDataset){
+    public GetOtherConAdapter(ArrayList<getOtherConData> getOtherConDataset) {
         mDataset = getOtherConDataset;
     }
 
     // Create new views(invoked by the layout manager)
     @Override
-    public GetOtherConAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public GetOtherConAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.getothercon_cardview, parent, false);
@@ -56,7 +56,7 @@ public class GetOtherConAdapter extends RecyclerView.Adapter<GetOtherConAdapter.
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position){
+    public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.userImg.setImageResource(mDataset.get(position).userImg);
@@ -67,7 +67,7 @@ public class GetOtherConAdapter extends RecyclerView.Adapter<GetOtherConAdapter.
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return mDataset.size();
     }
 }
@@ -81,7 +81,7 @@ class getOtherConData {
     public String email; // 초대한 사람의 이메일
     public String houseInfo; // 초대한 사람의 집 정보
 
-    public getOtherConData(int userImg, String houseName, String email, String houseInfo){
+    public getOtherConData(int userImg, String houseName, String email, String houseInfo) {
         this.userImg = userImg;
         this.houseName = houseName;
         this.email = email;
