@@ -16,8 +16,6 @@ import retrofit2.http.POST;
  */
 
 public interface ApiService {
-   // public static final String API_URL = "http://52.79.181.148/";
-
     @GET("/api/samples/sign_in/")
     retrofit2.Call<User> getSampleUser();
 

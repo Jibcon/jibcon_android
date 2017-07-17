@@ -21,14 +21,14 @@ import butterknife.OnClick;
  * Created by admin on 2017-04-09.
  */
 
-public class TutorialFragment extends android.support.v4.app.Fragment{
-    private static final String STRINGOF_TUTORIAL_PAGE="numofTutorialPage";
+public class TutorialFragment extends android.support.v4.app.Fragment {
+    private static final String STRINGOF_TUTORIAL_PAGE = "numofTutorialPage";
 
     @BindView(R.id.tutorial_title_tv) TextView tutorialTitleTv;
     @BindView(R.id.tutorial_sub_tv) TextView tutorialSubTv;
     @BindView(R.id.tutorial_iv) ImageView tutorialIv;
     @BindView(R.id.tutorial_makejibcon_btn) Button makejibconBtn;
-    @OnClick(R.id.tutorial_makejibcon_btn) void makejibconListener(){
+    @OnClick(R.id.tutorial_makejibcon_btn) void makejibconListener() {
         Intent intent = new Intent(getContext(), LoginActivity.class);
         startActivity(intent);
         getActivity().finish();
@@ -36,15 +36,14 @@ public class TutorialFragment extends android.support.v4.app.Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        View v = inflater.inflate(R.layout.splash_tutorial_fragment, container, false);
+        View v = inflater.inflate(R.layout.splash_tutorialfragment_fragment, container, false);
         ButterKnife.bind(this,v);
 
         int tutorialNumber = getArguments().getInt(STRINGOF_TUTORIAL_PAGE);
 
         makejibconBtn.setVisibility(View.INVISIBLE);
 
-        switch (tutorialNumber){
+        switch (tutorialNumber) {
             case 0:
                 tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[0]);
                 tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[0]);

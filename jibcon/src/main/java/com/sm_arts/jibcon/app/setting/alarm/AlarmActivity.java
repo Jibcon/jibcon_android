@@ -16,20 +16,16 @@ import butterknife.OnClick;
  */
 
 public class AlarmActivity extends BaseActivity {
-
-
-    @OnClick(R.id.imageview_setting_alarm) void imageview_setting_alarm(){
+    @OnClick(R.id.imageview_setting_alarm) void imageview_setting_alarm() {
         Intent intent = new Intent(AlarmActivity.this, SettingActivity.class);
         startActivity(intent);
-        finish();}
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_alarm_activity);
+        setContentView(R.layout.setting_alarmactivity_activity);
         ButterKnife.bind(this);
-
     }
-
 }

@@ -26,21 +26,21 @@ public class MakeconHouseaddressFragment extends android.support.v4.app.Fragment
     LinearLayout mLinearLayout;
 
     private void initLayout() {
-        mBefore= (ImageButton)mLinearLayout.findViewById(R.id.btn_goback);
-        mNext =  (Button)mLinearLayout.findViewById(R.id.Btn_makeCon3_1);
-        mBarName = (TextView)mLinearLayout.findViewById(R.id.bar_name);
+        mBefore= (ImageButton) mLinearLayout.findViewById(R.id.btn_goback);
+        mNext =  (Button) mLinearLayout.findViewById(R.id.Btn_makeCon3_1);
+        mBarName = (TextView) mLinearLayout.findViewById(R.id.bar_name);
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mHouseInfoListener = (HouseInfoListener)context;
+        mHouseInfoListener = (HouseInfoListener) context;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon_houseaddress_fragment,container,false);
+        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon_makeconhouseaddressfragment_fragment,container,false);
 
         initLayout();
 

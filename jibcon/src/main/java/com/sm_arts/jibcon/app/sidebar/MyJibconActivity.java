@@ -16,17 +16,15 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MyJibconActivity extends BaseActivity {
-
     @BindView(R.id.lv_my_jibcon) ListView mSidebarMyJibconLv;
-    @OnClick(R.id.imageview_sidebar_myjibcon) void imageview_sidebar_myjibcon(){
+    @OnClick(R.id.imageview_sidebar_myjibcon) void imageview_sidebar_myjibcon() {
         finish();
-
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_myjibcon_activity);
+        setContentView(R.layout.sidebar_myjibconactivity_activity);
         ButterKnife.bind(this);
 
         final String[] myjibconOptionList = getResources().getStringArray(R.array.sidebar_myjibcon_option_array);
@@ -37,11 +35,9 @@ public class MyJibconActivity extends BaseActivity {
         mSidebarMyJibconLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-
                 String settingClickedItem = (String) mSidebarMyJibconLv.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
             }
-        }) ;
-
+        });
     }
 }

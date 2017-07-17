@@ -24,7 +24,9 @@ public class KaKaoSDKAdpater extends KakaoAdapter {
         return new ISessionConfig() {
             @Override
             public AuthType[] getAuthTypes() {
-                return new AuthType[] {AuthType.KAKAO_LOGIN_ALL};
+                return new AuthType[] {
+                        AuthType.KAKAO_LOGIN_ALL
+                };
             }
             // 로그인시 인증받을 타입을 지정한다. 지정하지 않을 시 가능한 모든 옵션이 지정된다.
 
@@ -72,7 +74,6 @@ public class KaKaoSDKAdpater extends KakaoAdapter {
             }
             // 현재 최상단에 위치하고 있는 Activity. topActivity가 아니거나 ApplicationContext를 넣는다면
             // SDK내에서의 Dialog Popup등이 동작하지 않을 수 있습니다.
-
 
             @Override
             public Context getApplicationContext() {

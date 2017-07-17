@@ -2,15 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    >
-
-    <!--<Button-->
-        <!--android:id="@+id/Btn_getDevices"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:text="get Devices"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" />-->
+    android:background="#FFFFFF">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
@@ -31,6 +23,7 @@
     </ScrollView>
 
     </android.support.v4.widget.SwipeRefreshLayout>
+
     <ImageButton
         android:id="@+id/fab_device_behind"
         android:layout_width="92dp"
@@ -42,8 +35,6 @@
         android:paddingBottom="24dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_add_circle_blue_48dp"
-        android:visibility="visible"
-
-        />
+        android:visibility="visible" />
 
 </RelativeLayout>

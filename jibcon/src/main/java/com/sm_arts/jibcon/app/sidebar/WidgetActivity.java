@@ -16,16 +16,15 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class WidgetActivity extends BaseActivity {
-
     @BindView(R.id.lv_widget) ListView mSidebarWidgetLV;
-    @OnClick(R.id.imageview_sidebar_widget) void imageview_sidebar_widget(){
-        finish();}
+    @OnClick(R.id.imageview_sidebar_widget) void imageview_sidebar_widget() {
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_widget_activity);
+        setContentView(R.layout.sidebar_widgetactivity_activity);
         ButterKnife.bind(this);
 
         final String[] widgetOptionList = getResources().getStringArray(R.array.sidebar_widget_option_array);
@@ -36,10 +35,9 @@ public class WidgetActivity extends BaseActivity {
         mSidebarWidgetLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-
                 String settingClickedItem = (String) mSidebarWidgetLV.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
             }
-        }) ;
+        });
     }
 }

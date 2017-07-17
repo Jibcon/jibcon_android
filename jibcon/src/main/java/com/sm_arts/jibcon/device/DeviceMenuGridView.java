@@ -22,18 +22,19 @@ public class DeviceMenuGridView extends GridView {
         super(context, attrs, defStyleAttr);
     }
 
-    public boolean isExpanded(){return mExpanded;}
+    public boolean isExpanded() {
+        return mExpanded;
+    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int expandSpec = MeasureSpec.makeMeasureSpec(MEASURED_SIZE_MASK, MeasureSpec.EXACTLY);
         super.onMeasure(widthMeasureSpec, expandSpec);
         ViewGroup.LayoutParams param = getLayoutParams();
-        param.height=getMeasuredHeight();
+        param.height = getMeasuredHeight();
     }
 
-    public void setExpanded(boolean expanded)
-    {
-        this.mExpanded=expanded;
+    public void setExpanded(boolean expanded) {
+        this.mExpanded = expanded;
     }
 }

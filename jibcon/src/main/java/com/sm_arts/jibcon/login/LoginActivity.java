@@ -33,7 +33,7 @@ import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
 import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
-import com.sm_arts.jibcon.network.Repo;
+import com.sm_arts.jibcon.utils.network.RetrofitUtils;
 
 import org.json.JSONObject;
 
@@ -63,45 +63,37 @@ public class LoginActivity extends BaseActivity {
 
         @Override
         public void onSuccess(LoginResult loginResult) {
-
-
             //유저 정보 받아오기
-            GraphRequest.newMeRequest(loginResult.getAccessToken(),new GraphRequest.GraphJSONObjectCallback(){
+            GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                 @Override
                 public void onCompleted(JSONObject object, GraphResponse response) {
-                    if(response.getError()!=null)
-                    {
+                    if(response.getError() != null) {
                         Log.d("profilecheck","onCompleted() error");
                         //error handle
-
-                    }
-                    else
-                    {
+                    } else {
                         String userid;
 
-                        userid=object.optString("id");
-                        try{
+                        userid = object.optString("id");
+                        try {
                             mApp.setUserProfileImage(new URL("https://graph.facebook.com/"+userid+"/picture"));
-
-                        }catch (Exception e)
-                        {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        userEmail= object.optString("email");
-                        name=object.optString("name");
-                        Log.d(TAG, "onCompleted: "+userEmail+"/"+name);
+                        userEmail = object.optString("email");
+                        name = object.optString("name");
+                        Log.d(TAG, "onCompleted: " + userEmail + "/" + name);
                         //Toast.makeText(getApplicationContext(),userEmail+"/"+name,Toast.LENGTH_SHORT).show();
-                        Log.d("profilecheck","useremail :"+userEmail);
-                        Log.d("profilecheck","name : "+name);
+                        Log.d("profilecheck","useremail :" + userEmail);
+                        Log.d("profilecheck","name : " + name);
 
                         mApp.setUsername(object.optString("name"));
 
-                        SharedPreferences pref = getSharedPreferences("pref",MODE_PRIVATE);
+                        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
                         SharedPreferences.Editor editor = pref.edit();
-                        editor.putString("id",userid);
-                        editor.putString("name",object.optString("name"));
-                        Log.d("profieImage",mApp.getUserProfileImage().toString());
-                        editor.putString("profileImage",mApp.getUserProfileImage().toString());
+                        editor.putString("id", userid);
+                        editor.putString("name", object.optString("name"));
+                        Log.d("profieImage", mApp.getUserProfileImage().toString());
+                        editor.putString("profileImage", mApp.getUserProfileImage().toString());
                         editor.commit();
                     }
                 }
@@ -112,17 +104,14 @@ public class LoginActivity extends BaseActivity {
             userTokenFacebook=loginResult.getAccessToken().getToken();
             UserInfo userInfo=new UserInfo("facebook",userTokenFacebook);
             Log.d("MYTOKEN",userTokenFacebook);
-            ApiService apiService = new Repo().getService();
+            ApiService apiService = (ApiService) RetrofitUtils.getInstance().getService(ApiService.class);;
+
             Call<User> c = apiService.login(userInfo);
             try
             {
                 c.enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
-
-
-
-
                         mApp.setUserEmail(response.body().getEmail());
                         mApp.setUserToken(response.body().getToken());
                         Log.d(TAG, "onResponse: "+"success");
@@ -166,7 +155,7 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_main_activity);
+        setContentView(R.layout.login_loginactivity_activity);
 
         mVideoView = (VideoView)findViewById(R.id.videoView);
 
@@ -177,11 +166,11 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-        String videoPath ="android.resource://"+getPackageName()+"/"+R.raw.login_video;
+        String videoPath = "android.resource://"+getPackageName()+"/"+R.raw.login_video;
         mVideoView.setVideoURI(Uri.parse(videoPath));
         mVideoView.start();
 
-        mApp=(GlobalApplication)getApplicationContext();
+        mApp = (GlobalApplication) getApplicationContext();
 
         FacebookSdk.sdkInitialize(getApplicationContext());
 
@@ -192,34 +181,28 @@ public class LoginActivity extends BaseActivity {
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
 // App code
                 //DEBUG코드
-                if(currentAccessToken!=null)
-                     Log.d("Token",currentAccessToken.toString());
-                Log.d(TAG, "onCurrentAccessTokenChanged: "+currentAccessToken);
+                if (currentAccessToken != null) {
+                    Log.d("Token", currentAccessToken.toString());
+                }
+                Log.d(TAG, "onCurrentAccessTokenChanged: " + currentAccessToken);
                 //Toast.makeText(getApplicationContext(),"current token : "+currentAccessToken,Toast.LENGTH_SHORT).show();
                  }
         };
 
-        LoginButton loginButton = (LoginButton)findViewById(R.id.Btn_Login_Facebook);
+        LoginButton loginButton = (LoginButton) findViewById(R.id.btn_login_facebook);
         loginButton.setReadPermissions("public_profile", "user_friends");
         loginButton.setReadPermissions("email");
-
 
         //loginButton.setFragment(this);
         loginButton.registerCallback(mCallbackManager, mCallback);
 
-
-
         initSampleSignInBtn();
 
-
         kakaoSetup();
-
     }
 
-    void kakaoSetup()
-    {
-        if(!Session.getCurrentSession().isClosed())
-        {
+    void kakaoSetup() {
+        if (!Session.getCurrentSession().isClosed()) {
             redirectSignupActivity();
         }
 
@@ -231,7 +214,7 @@ public class LoginActivity extends BaseActivity {
 
     void initSampleSignInBtn() {
         Log.d(TAG, "initSampleSignInBtn: ");
-        (findViewById(R.id.btnSampleSignIn)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnSampleSignIn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: btnSampleSignIn");
@@ -250,7 +233,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void gotoMakeConStartActivity() {
-        Intent intent= new Intent(getApplicationContext(), MakeconStartActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MakeconStartActivity.class);
         startActivity(intent);
         Log.d(TAG, "gotoMakeConStartActivity: finish");
         finish();
@@ -265,15 +248,10 @@ public class LoginActivity extends BaseActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
-
     }
 
-
-
     //kakao login
-
     private class SessionCallback implements ISessionCallback {
-
         @Override
         public void onSessionOpened() {
             Log.d("testing","LoginActivity_onSessionOpened()");
@@ -289,7 +267,7 @@ public class LoginActivity extends BaseActivity {
             if(exception != null) {
                 Logger.e(exception);
             }
-            setContentView(R.layout.login_main_activity); // 세션 연결이 실패했을때
+            setContentView(R.layout.login_loginactivity_activity); // 세션 연결이 실패했을때
         }                                            // 로그인화면을 다시 불러옴
     }
 

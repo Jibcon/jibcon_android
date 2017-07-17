@@ -28,15 +28,14 @@ public class MakeconEndFragment extends android.support.v4.app.Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mLinearLayout= (LinearLayout)inflater.inflate(R.layout.makecon_complete_fragment,container,false);
+        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.makecon_makeconendfragment_fragment,container,false);
 
         Handler handler;
-        handler=new Handler();
+        handler = new Handler();
 
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-
                 //asynktask로 houseinfo 보낸 뒤 보내고 성공하면 MainActivity로, 보내는중엔 집콘 최적화화면만
                 mHouseInfoListener.makeHouseInfo();
                 Intent intent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
@@ -48,6 +47,5 @@ public class MakeconEndFragment extends android.support.v4.app.Fragment {
         handler.postDelayed(runnable,1500);
 
         return mLinearLayout;
-
     }
 }

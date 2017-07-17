@@ -52,15 +52,13 @@ public class AddDeviceWifiFragment extends Fragment {
                final String action = intent.getAction();
 
             Log.d(TAG, "onReceive: Action RESULTSAVAILABLE is "+action.equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION) +" Action RSSICHANGED is "+action.equals(WifiManager.RSSI_CHANGED_ACTION));
-            if(action.equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION) | action.equals(WifiManager.RSSI_CHANGED_ACTION)) // todo rssi_changed 아직 뭔지도 모름
-            {
+            if(action.equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION) | action.equals(WifiManager.RSSI_CHANGED_ACTION)) { // todo rssi_changed 아직 뭔지도 모름
                 mArr=mWifiManager.getScanResults();
                 Log.d(TAG, "BroadcastReceiver/onReceive: SCAN_RESULTS_AVAILABLE_ACTION ScanResults is "+mArr.toString());
                 mWifiManager.startScan();
                 Log.d(TAG, "BroadcastReceiver/onReceive: restartScan");
 
-                for(int i=0;i<mArr.size();i++)
-                {
+                for(int i=0;i<mArr.size();i++) {
 //                    mWifiNames.add(i,mArr.get(i).BSSID);
 //                    mWifiLevels.add(i,new Integer(mArr.get(i).level).toString());
 //                    mWifiSeceret.add(i,mArr.get(i).capabilities);
@@ -68,11 +66,9 @@ public class AddDeviceWifiFragment extends Fragment {
                     mAdapter.setWifilist(mArr);
                     mAdapter.notifyDataSetChanged();
                 }
-            }else if(action.equals(WifiManager.NETWORK_STATE_CHANGED_ACTION))
-            {
+            } else if(action.equals(WifiManager.NETWORK_STATE_CHANGED_ACTION)) {
                 Log.d(TAG, "BroadcastReceiver/onReceive: NETWORK_STATE_CHANGED_ACTION");
                 getActivity().getApplicationContext().sendBroadcast(new Intent("wifi.ON_NETWORK_STATE_CHANGED"));
-
             }
 //            if(intent.getAction().equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION))
 //            {
@@ -95,10 +91,10 @@ public class AddDeviceWifiFragment extends Fragment {
     public void onAttach(Context context) {
         Log.d(TAG, "onAttach: ");
         super.onAttach(context);
-            mMakeDeviceListener=(AddDeviceListner) context;
+        mMakeDeviceListener = (AddDeviceListner) context;
     }
-    private void wifiSetting()
-    {
+
+    private void wifiSetting() {
         Log.d(TAG, "wifiSetting: ");
         GlobalApplication.getGlobalApplicationContext().chkPermission(ACCESS_WIFI_STATE,getActivity());
         GlobalApplication.getGlobalApplicationContext().chkPermission(ACCESS_COARSE_LOCATION,getActivity());
@@ -110,8 +106,8 @@ public class AddDeviceWifiFragment extends Fragment {
         intentFilter.addAction(WifiManager.ACTION_REQUEST_SCAN_ALWAYS_AVAILABLE);
         getActivity().getApplicationContext().registerReceiver(mReceiver,intentFilter);
         mWifiManager=(WifiManager)getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        if(!mWifiManager.isWifiEnabled())
-        {
+
+        if(!mWifiManager.isWifiEnabled()) {
             Log.d(TAG, "wifiSetting: Wifi Turn on");
             mWifiManager.setWifiEnabled(true);
             Log.d(TAG, "wifiSetting: Wifi Turned On");
@@ -122,8 +118,7 @@ public class AddDeviceWifiFragment extends Fragment {
         mWifiManager.startScan();
     }
 
-    private void initlayout()
-    {
+    private void initlayout() {
         Log.d(TAG, "initlayout: ");
         mArr=new ArrayList<>();
         mWifiNames=new ArrayList<>();
@@ -153,11 +148,12 @@ public class AddDeviceWifiFragment extends Fragment {
             }
         });
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: ");
-        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.device_add_device1_activity,container,false);
+        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.device_adddevicewififragment_fragment,container,false);
 
         wifiSetting();
         initlayout();

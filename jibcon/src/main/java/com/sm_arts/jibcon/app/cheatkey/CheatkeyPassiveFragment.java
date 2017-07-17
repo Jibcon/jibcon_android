@@ -23,9 +23,8 @@ import butterknife.OnClick;
  */
 
 public class CheatkeyPassiveFragment extends android.support.v4.app.Fragment{
-
     //hamburger btn
-    @OnClick(R.id.fab_cheatkey_passive_behind) void fab_cheatkey_passive_behind(){
+    @OnClick(R.id.fab_cheatkey_passive_behind) void fab_cheatkey_passive_behind() {
         startActivity(new Intent(getContext(), FloatingButtonPassiveActivity.class));
     }
 
@@ -37,17 +36,16 @@ public class CheatkeyPassiveFragment extends android.support.v4.app.Fragment{
 
     Context mContext;
 
-    public CheatkeyPassiveFragment(){}
+    public CheatkeyPassiveFragment() {}
 
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View v = inflater.inflate(R.layout.cheatkey_passive_fragment, container, false); // 액티비티에서는 setContentView
+        View v = inflater.inflate(R.layout.cheatkey_cheatkeypassivefragment_fragment, container, false); // 액티비티에서는 setContentView
         ButterKnife.bind(this, v);
-
 
         // RecyclerView 구현 및 Adpater 설정
         mRecyclerView = (RecyclerView)v.findViewById(R.id.passive_cardview);
@@ -61,8 +59,7 @@ public class CheatkeyPassiveFragment extends android.support.v4.app.Fragment{
         mAdapter = new PassiveCheatkeyAdapter(mPassiveCheatkeyDataset);
         mRecyclerView.setAdapter(mAdapter);
 
-        for(int i=0;i<4;i++)
-        {
+        for(int i = 0; i < 4; i++) {
             mPassiveCheatkeyDataset.add(
                     new PassiveCheatkeyData
                             (R.id.btn_passive_cheatkey_setting,

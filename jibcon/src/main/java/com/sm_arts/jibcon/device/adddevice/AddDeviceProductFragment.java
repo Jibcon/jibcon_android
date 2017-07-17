@@ -35,31 +35,35 @@ public class AddDeviceProductFragment extends Fragment {
     String mSelectedCompany;
     String mSelectedDevicename;
 
-    private  void initLayout()
-    {
+    private  void initLayout() {
         //제조사 제품 서버로부터 받아야함
-        mArr1=new ArrayList<>();
+        mArr1 = new ArrayList<>();
         mArr1.add("삼성");
         mArr1.add("LG");
         mArr1.add("SK");
 
-        mArr2=new ArrayList<>();
+        mArr2 = new ArrayList<>();
         mArr2.add("에어컨");
         mArr2.add("전구");
         mArr2.add("선풍기");
         mArr2.add("냉장고");
 
+        mSpinner1 = (Spinner) mLinearLayout.findViewById(R.id.Spinner_adddevice0_1);
+        mSpinner2 = (Spinner) mLinearLayout.findViewById(R.id.Spinner_adddevice0_2);
 
-        mSpinner1=(Spinner)mLinearLayout.findViewById(R.id.Spinner_adddevice0_1);
-        mSpinner2=(Spinner)mLinearLayout.findViewById(R.id.Spinner_adddevice0_2);
-
-        mAdapter1 = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,mArr1);
-        mAdapter2= new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,mArr2);
+        mAdapter1 = new ArrayAdapter<String>(
+                getActivity().getApplicationContext(),
+                android.R.layout.simple_spinner_dropdown_item, mArr1
+        );
+        mAdapter2 = new ArrayAdapter<String>(
+                getActivity().getApplicationContext(),
+                android.R.layout.simple_spinner_dropdown_item, mArr2
+        );
 
         mSpinner1.setAdapter(mAdapter1);
         mSpinner2.setAdapter(mAdapter2);
 
-        mNextButton=(Button)mLinearLayout.findViewById(R.id.Btn_addDevice0);
+        mNextButton = (Button) mLinearLayout.findViewById(R.id.Btn_addDevice0);
 
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,9 +88,8 @@ public class AddDeviceProductFragment extends Fragment {
         mSpinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mSelectedDevicename=mArr2.get(position);
+                mSelectedDevicename = mArr2.get(position);
                 mMakeDeviceListener.setDeviceName(mSelectedDevicename);
-
             }
 
             @Override
@@ -94,26 +97,23 @@ public class AddDeviceProductFragment extends Fragment {
 
             }
         });
-
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mMakeDeviceListener=(AddDeviceListner) context;
+        mMakeDeviceListener = (AddDeviceListner) context;
     }
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.device_add_device0_activity,container,false);
+        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.device_adddeviceproductfragment_fragment, container, false);
 
         initLayout();
         mMakeDeviceListener.setDeviceCom(mSelectedCompany);
         mMakeDeviceListener.setDeviceName(mSelectedDevicename);
-
 
         return mLinearLayout;
     }

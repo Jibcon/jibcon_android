@@ -26,7 +26,7 @@ public class UserCenterActivity extends BaseActivity {
         int FAQ = 1;
     }
     @BindView(R.id.lv_setting_usercenter) ListView mSettingUserCenterLv;
-    @OnClick(R.id.imageview_setting_usercenter) void imageview_setting_usercenter(){
+    @OnClick(R.id.imageview_setting_usercenter) void imageview_setting_usercenter() {
         Intent intent = new Intent(UserCenterActivity.this, SettingActivity.class);
         startActivity(intent);
         finish();
@@ -35,7 +35,7 @@ public class UserCenterActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_usercenter_activity);
+        setContentView(R.layout.setting_usercenteractivity_activity);
         ButterKnife.bind(this);
 
         final String[] usercenterOptionList = getResources().getStringArray(R.array.setting_usercenter_option_array);
@@ -46,13 +46,12 @@ public class UserCenterActivity extends BaseActivity {
         mSettingUserCenterLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-
-                if( position == UsercetnerMenu.ASKCOMPANY ){
+                if (position == UsercetnerMenu.ASKCOMPANY) {
                     Intent intent = new Intent(UserCenterActivity.this, AskEnrollCompanyActivity.class);
                     startActivity(intent);
                     finish();
                 }
-                else if( position == UsercetnerMenu.FAQ ){
+                else if (position == UsercetnerMenu.FAQ) {
                     Intent intent = new Intent(UserCenterActivity.this, FaqActivity.class);
                     startActivity(intent);
                     finish();
@@ -63,6 +62,6 @@ public class UserCenterActivity extends BaseActivity {
                     finish();
                 }
             }
-        }) ;
+        });
     }
 }

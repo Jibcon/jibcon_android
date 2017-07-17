@@ -22,7 +22,7 @@ import java.util.ArrayList;
  *
  */
 
-public class GetOtherConActivity extends BaseActivity{
+public class GetOtherConActivity extends BaseActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -32,9 +32,9 @@ public class GetOtherConActivity extends BaseActivity{
     ImageButton mBtnGoBack;
     TextView mBarNameTv;
 
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.getothercon_main_activity);
+        setContentView(R.layout.getothercon_getotherconactivity_activity);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.getcon_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -47,10 +47,14 @@ public class GetOtherConActivity extends BaseActivity{
         mRecyclerView.setAdapter(mAdapter);
 
         //데이터 입력
-        mGetOtherConDataset.add(new getOtherConData(R.drawable.default_user, "찬주의 자취방",
-                "example@jibcon.com", "환영합니다!"));
+        mGetOtherConDataset.add(new getOtherConData(
+                R.drawable.default_user,
+                "찬주의 자취방",
+                "example@jibcon.com",
+                "환영합니다!"
+        ));
 
-        mBtnGotoMain = (Button)findViewById(R.id.btn_gotoMain); // 등록 완료
+        mBtnGotoMain = (Button) findViewById(R.id.btn_gotoMain); // 등록 완료
         mBtnGotoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

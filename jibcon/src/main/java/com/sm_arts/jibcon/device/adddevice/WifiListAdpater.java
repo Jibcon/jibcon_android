@@ -81,20 +81,17 @@ public class WifiListAdpater extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View root = View.inflate(parent.getContext(), R.layout.device_add_device2_wifiitem_activity,null);
+        View root = View.inflate(parent.getContext(), R.layout.device_wifilistadapter_listview_item,null);
 
         TextView textView = (TextView)root.findViewById(R.id.tvWifi);
         ImageView imgView = (ImageView)root.findViewById(R.id.imgViewWifi);
         textView.setText(mWifilist.get(position).SSID);
 
-        switch ( getType(mWifilist.get(position))) // todo get wifi pic
-        {
+        switch (getType(mWifilist.get(position))) { // todo get wifi pic
             case "2.4Ghz/WPA2-AES":   BitmapDrawable drawable1 = (BitmapDrawable) mContext.getResources().getDrawable(R.drawable.airconditioner);
                 Bitmap bitmap1 = drawable1.getBitmap();
                 imgView.setImageBitmap(bitmap1);
                 Log.d(TAG, "getView: "+mWifilist.get(position).level);
-
-
                 break;
         }
 

@@ -15,16 +15,16 @@ import butterknife.OnClick;
  */
 
 public class FaqActivity extends BaseActivity {
-
-
-    @OnClick(R.id.imageview_setting_faq) void imageview_setting_faq(){
+    @OnClick(R.id.imageview_setting_faq) void imageview_setting_faq() {
         Intent intent = new Intent(FaqActivity.this, UserCenterActivity.class);
         startActivity(intent);
-        finish();}
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_faq_activity);
+        setContentView(R.layout.setting_faqactivity_activity);
         ButterKnife.bind(this);
     }
 }

@@ -16,16 +16,16 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ConnectedDevicesActivity extends BaseActivity {
+    @OnClick(R.id.imageview_sidebar_connecteddevices) void imageview_sidebar_connecteddevices() {
+        finish();
+    }
 
-    @OnClick(R.id.imageview_sidebar_connecteddevices) void imageview_sidebar_connecteddevices(){
-        finish();}
     @BindView(R.id.lv_connected_device) ListView mSidebarConnectedDevicesLv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_connecteddevices_activity);
+        setContentView(R.layout.sidebar_connecteddevicesactivity_activity);
         ButterKnife.bind(this);
 
         final String[] connecteddevicesOptionList = getResources().getStringArray(R.array.sidebar_connecteddevices_array);
@@ -40,6 +40,6 @@ public class ConnectedDevicesActivity extends BaseActivity {
                 String settingClickedItem = (String) mSidebarConnectedDevicesLv.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
             }
-        }) ;
+        });
     }
 }
