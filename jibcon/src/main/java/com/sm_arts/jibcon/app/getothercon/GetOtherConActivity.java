@@ -7,9 +7,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
+import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 
 import java.util.ArrayList;
 
@@ -21,13 +24,13 @@ import java.util.ArrayList;
 
 public class GetOtherConActivity extends BaseActivity{
     private RecyclerView mRecyclerView;
-
-
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<getOtherConData> mGetOtherConDataset;
 
     Button mBtnGotoMain;
+    ImageButton mBtnGoBack;
+    TextView mBarNameTv;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -55,6 +58,18 @@ public class GetOtherConActivity extends BaseActivity{
                 startActivity(intent);
             }
         });
+
+        mBtnGoBack = (ImageButton) findViewById(R.id.btn_goback);
+        mBtnGoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GetOtherConActivity.this, MakeconStartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBarNameTv = (TextView) findViewById(R.id.bar_name);
+        mBarNameTv.setText("초대 목록"); // sorry for hard-coding...
 
     }
 

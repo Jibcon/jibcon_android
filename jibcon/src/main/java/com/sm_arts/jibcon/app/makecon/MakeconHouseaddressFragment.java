@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 
@@ -19,13 +20,15 @@ import com.sm_arts.jibcon.R;
 public class MakeconHouseaddressFragment extends android.support.v4.app.Fragment{
     ImageButton mBefore;
     Button mNext;
+    TextView mBarName;
 
     HouseInfoListener mHouseInfoListener;
     LinearLayout mLinearLayout;
 
     private void initLayout() {
-        mBefore= (ImageButton)mLinearLayout.findViewById(R.id.Btn_MakeCon3_0);
+        mBefore= (ImageButton)mLinearLayout.findViewById(R.id.btn_goback);
         mNext =  (Button)mLinearLayout.findViewById(R.id.Btn_makeCon3_1);
+        mBarName = (TextView)mLinearLayout.findViewById(R.id.bar_name);
     }
 
     @Override
@@ -54,6 +57,8 @@ public class MakeconHouseaddressFragment extends android.support.v4.app.Fragment
                 mHouseInfoListener.getFragmentNum(1);
             }
         });
+
+        mBarName.setText("집 주소"); // sorry for hard-coding
 
         return mLinearLayout;
     }

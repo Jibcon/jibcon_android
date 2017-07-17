@@ -177,7 +177,7 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-        String videoPath ="android.resource://"+getPackageName()+"/"+R.raw.justsample;
+        String videoPath ="android.resource://"+getPackageName()+"/"+R.raw.login_video;
         mVideoView.setVideoURI(Uri.parse(videoPath));
         mVideoView.start();
 

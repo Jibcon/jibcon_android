@@ -5,41 +5,10 @@
     android:orientation="vertical"
     android:background="#FFF">
 
-    <LinearLayout
+    <include
+        layout="@layout/content_makecon"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/Btn_MakeCon2_0"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:layout_gravity="left"
-            android:background="@null"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_arrow_back_black_48dp" />
-
-        <TextView
-            android:id="@+id/txt1"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="4"
-            android:gravity="center"
-            android:text="집 이름"
-            android:textSize="16dp"
-            android:textColor="@color/default_text_color"
-            android:textStyle="bold"/>
-
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:layout_gravity="left"
-            android:background="@null"
-            android:scaleType="centerInside"/>
-
-    </LinearLayout>
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
