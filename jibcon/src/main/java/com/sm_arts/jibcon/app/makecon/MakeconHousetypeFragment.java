@@ -33,45 +33,44 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mHouseInfoListener = (HouseInfoListener)context;
+        mHouseInfoListener = (HouseInfoListener) context;
     }
 
     void initLayout()
     {
-        // 리스트로 바꾸기!(20170430)
-
-        mNext=(Button)getActivity().findViewById(R.id.Btn_makeCon2_1);
+        // todo 리스트로 바꾸기!(20170430)
+        mNext = (Button) getActivity().findViewById(R.id.Btn_makeCon2_1);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon_makeconhousetypefragment_fragment,container,false);
-
+      
         // 공간 리스트
-        final String[] list_place = {"전원 주택", "아파트", "오피스텔", "빌라", "기숙사"};
+        final String[] list_place = {
+                "전원 주택", "아파트", "오피스텔", "빌라", "기숙사"
+        };
 
-        ListView listView   = (ListView)mLinearLayout.findViewById(R.id.list_place);
-        mBefore=(ImageButton)mLinearLayout.findViewById(R.id.btn_goback);
-        mNext=(Button)mLinearLayout.findViewById(R.id.Btn_makeCon2_1);
+        ListView listView = (ListView) mLinearLayout.findViewById(R.id.list_place);
+        mBefore = (ImageButton) mLinearLayout.findViewById(R.id.btn_goback);
+        mNext = (Button) mLinearLayout.findViewById(R.id.Btn_makeCon2_1);
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
                 getActivity(),
                 android.R.layout.simple_list_item_1,
                 list_place
         );
 
-        mBarName = (TextView)mLinearLayout.findViewById(R.id.bar_name);
+        mBarName = (TextView) mLinearLayout.findViewById(R.id.bar_name);
 
         listView.setAdapter(listViewAdapter);
 
         // 리스트 뷰 클릭 시 houseinfo에 추가
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(getActivity().getApplicationContext(),list_place[position],Toast.LENGTH_SHORT).show();
-                switch (position)
-                {
+                switch (position) {
                     case 0 :
                         Toast.makeText(getActivity().getApplicationContext(), "전원 주택", Toast.LENGTH_SHORT).show();
                         mHouseInfoListener.getHouseType("house");
@@ -93,7 +92,6 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
                         mHouseInfoListener.getHouseType("dorm");
                         break;
                 }
-
             }
         });
 

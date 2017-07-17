@@ -23,7 +23,7 @@ import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.main.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
-import com.sm_arts.jibcon.network.Repo;
+import com.sm_arts.jibcon.utils.network.RetrofitUtils;
 
 import java.net.URL;
 import java.security.MessageDigest;
@@ -41,10 +41,9 @@ public class IntroActivity extends BaseActivity {
     GlobalApplication mApplication;
     private CallbackManager mCallbackManager= null;
 
-    Runnable mRunnable = new Runnable(){
+    Runnable mRunnable = new Runnable() {
         @Override
-        public void run(){
-
+        public void run() {
             mCallbackManager= CallbackManager.Factory.create();
             final AccessToken accesstoken = AccessToken.getCurrentAccessToken();
 
@@ -61,12 +60,11 @@ public class IntroActivity extends BaseActivity {
                 //intro->login success->main
                 accesstoken.getToken();
 
-                ApiService service = new Repo().getService();
+                ApiService service = (ApiService) RetrofitUtils.getInstance().getService(ApiService.class);
                 UserInfo userInfo = new UserInfo("facebook", accesstoken.getToken());
                 Call<User> c = service.logincheck(userInfo);
 
-                try
-                {
+                try {
                     c.enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
@@ -95,26 +93,20 @@ public class IntroActivity extends BaseActivity {
 
                         }
                     });
-                }
-                catch (Exception e)
-                {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-
             }
-            else
-            {//intro->login success->tutorial
-
+            else {//intro->login success->tutorial
                 Intent intent = new Intent(getApplicationContext(),TutorialMainActivity.class);
                 startActivity(intent);
                 finish();
             }
 
-
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,7 +145,7 @@ public class IntroActivity extends BaseActivity {
     }
 
     //액션바 없애기
-    private void hideActionBar(){
+    private void hideActionBar() {
         ActionBar actionBar = getSupportActionBar();
 
         if(actionBar != null){
@@ -161,19 +153,18 @@ public class IntroActivity extends BaseActivity {
         }
     }
 
-    public void init(){
+    public void init() {
         mHandler = new Handler();
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         super.onBackPressed();
         mHandler.removeCallbacks(mRunnable);
     }
 
 
-    public static String getKeyHash(Context context)
-    {
+    public static String getKeyHash(Context context) {
         PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
         if (packageInfo == null)
             return null;
@@ -193,12 +184,9 @@ public class IntroActivity extends BaseActivity {
         return null;
     }
 
-    private  void itemSetup()
-    {
-
+    private  void itemSetup() {
         //Global Application 에 담을 정보 초기 setup;
         mApplication = (GlobalApplication)getApplicationContext();
-
     }
 
 }

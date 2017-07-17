@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.sm_arts.jibcon.network.MobiusService;
-import com.sm_arts.jibcon.network.Repo;
+import com.sm_arts.jibcon.utils.network.RetrofitUtils;
 import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.R;
@@ -43,8 +43,8 @@ public class DeviceMenuAdapter extends BaseAdapter {
 
     public DeviceMenuAdapter(Context context) {
         this.mContext=context;
-        mInflater=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mApp=(GlobalApplication)mContext.getApplicationContext();
+        mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mApp = (GlobalApplication) mContext.getApplicationContext();
     }
 
     @Override
@@ -54,7 +54,6 @@ public class DeviceMenuAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-
         return mDeviceItems.get(position);
     }
 
@@ -65,8 +64,9 @@ public class DeviceMenuAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
-        if(convertView==null)
+        if(convertView == null) {
             Log.d("DeviceMenu", "DeviceMenuNull");
+        }
         convertView= mInflater.inflate(R.layout.device_devicemenuadapter_cardview, parent, false);
         ImageView threedot = (ImageView)convertView.findViewById(R.id.ImgView_deviceItem_threedot);
         threedot.setOnClickListener(new View.OnClickListener() {
@@ -78,12 +78,12 @@ public class DeviceMenuAdapter extends BaseAdapter {
         });
         //threedot.bringToFront();
 
-        ImageView imageView = (ImageView)convertView.findViewById(R.id.ImgViewDiviceItem);
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.ImgViewDiviceItem);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: ");
-                MobiusService service = Repo.getMobiusService();
+                MobiusService service = (MobiusService) RetrofitUtils.getInstance().getService(MobiusService.class);
                 Call<Object> call = service.turnOnLed(
                         "application/json",
                         "1",
@@ -106,13 +106,11 @@ public class DeviceMenuAdapter extends BaseAdapter {
             }
         });
         //imageView.setImageBitmap(mApp.getDeviceItemArrayList().get(position).getImage());
-        switch ( mDeviceItems.get(position).getDeviceType())
-        {
+        switch (mDeviceItems.get(position).getDeviceType()) {
             //0 : 에어컨
             //1 : 전구
             //2 : 선풍기
             //3 : 냉장고
-
             case "0":
                 imageView.setImageResource(R.drawable.airconditioner);
                 break;
@@ -126,7 +124,6 @@ public class DeviceMenuAdapter extends BaseAdapter {
                 imageView.setImageResource(R.drawable.refrigerator);
                 break;
         }
-
 
         return convertView;
     }

@@ -21,21 +21,25 @@ import butterknife.OnClick;
 public class ConshopFragment extends android.support.v4.app.Fragment {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
-    public ConshopFragment(){}
+    public ConshopFragment() {}
 
     @BindView(R.id.Txt_Market_Best) TextView mBest;
     @BindView(R.id.Txt_Market_Home) TextView mHome;
     @BindView(R.id.Txt_Market_Health) TextView mHealth;
     @BindView(R.id.Txt_Market_Outdoor) TextView mOutdoor;
 
-    @OnClick(R.id.Txt_Market_Best) void Txt_Market_Best(){
-        ToastHelper.toast(getContext(), "best");}
-    @OnClick(R.id.Txt_Market_Home) void Txt_Market_Home(){
-        ToastHelper.toast(getContext(), "home");}
-    @OnClick(R.id.Txt_Market_Health) void Txt_Market_Health(){
-        ToastHelper.toast(getContext(), "health");}
-    @OnClick(R.id.Txt_Market_Outdoor) void Txt_Market_Outdoor(){
-        ToastHelper.toast(getContext(), "outdoor");}
+    @OnClick(R.id.Txt_Market_Best) void Txt_Market_Best() {
+        ToastHelper.toast(getContext(), "best");
+    }
+    @OnClick(R.id.Txt_Market_Home) void Txt_Market_Home() {
+        ToastHelper.toast(getContext(), "home");
+    }
+    @OnClick(R.id.Txt_Market_Health) void Txt_Market_Health() {
+        ToastHelper.toast(getContext(), "health");
+    }
+    @OnClick(R.id.Txt_Market_Outdoor) void Txt_Market_Outdoor() {
+        ToastHelper.toast(getContext(), "outdoor");
+    }
 
 
     @Override

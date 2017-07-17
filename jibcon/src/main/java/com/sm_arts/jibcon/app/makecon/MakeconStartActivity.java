@@ -13,19 +13,19 @@ import butterknife.OnClick;
 
 public class MakeconStartActivity extends BaseActivity {
 
-    @OnClick(R.id.Btn_makeMyCon) void Btn_makeMyCon(){
+    @OnClick(R.id.Btn_makeMyCon) void Btn_makeMyCon() {
         Intent intent = new Intent(getApplicationContext(),MakeconMainActivity.class);
         startActivity(intent);
         finish();
     }
 
-    @OnClick(R.id.Btn_getOtherCon) void Btn_getOtherCon(){
+    @OnClick(R.id.Btn_getOtherCon) void Btn_getOtherCon() {
         //집콘 초대받기
         Intent intent = new Intent(getApplicationContext(), GetOtherConActivity.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.makeconstart_skip) void makeconstart_skip(){
+    @OnClick(R.id.makeconstart_skip) void makeconstart_skip() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
         startActivity(intent);

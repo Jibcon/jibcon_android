@@ -27,7 +27,7 @@ public class UserCenterActivity extends BaseActivity {
     @BindString(R.string.setting_usercenter_menu_2) String menu2;
     @BindString(R.string.setting_usercenter_menu_3) String menu3;
 
-    @OnClick(R.id.imageview_setting_usercenter) void imageview_setting_usercenter(){
+    @OnClick(R.id.imageview_setting_usercenter) void imageview_setting_usercenter() {
         Intent intent = new Intent(UserCenterActivity.this, SettingActivity.class);
         startActivity(intent);
         finish();
@@ -47,15 +47,14 @@ public class UserCenterActivity extends BaseActivity {
         mSettingUserCenterLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-
                 String settingClickedItem = (String) mSettingUserCenterLv.getItemAtPosition(position);
 
-                if(settingClickedItem == menu1){
+                if(menu1.equals(settingClickedItem)) {
                     Intent intent = new Intent(UserCenterActivity.this, AskEnrollCompanyActivity.class);
                     startActivity(intent);
                     finish();
                 }
-                else if(settingClickedItem==menu2){
+                else if(menu2.equals(settingClickedItem)) {
                     Intent intent = new Intent(UserCenterActivity.this, FaqActivity.class);
                     startActivity(intent);
                     finish();
@@ -66,7 +65,6 @@ public class UserCenterActivity extends BaseActivity {
                     finish();
                 }
             }
-        }) ;
-
+        });
     }
 }

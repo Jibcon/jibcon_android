@@ -23,8 +23,9 @@ import butterknife.OnClick;
 public class SettingActivity extends BaseActivity {
 
     @BindView(R.id.lv_setting) ListView mSettingLv;
-    @OnClick(R.id.imageview_setting) void imageview_setting(){
-        finish();}
+    @OnClick(R.id.imageview_setting) void imageview_setting() {
+        finish();
+    }
 
     @BindString(R.string.setting_menu_1) String menu1;
     @BindString(R.string.setting_menu_2) String menu2;
@@ -37,9 +38,11 @@ public class SettingActivity extends BaseActivity {
         setContentView(R.layout.setting_settingactivity_activity);
         ButterKnife.bind(this);
 
-        String[] sSettingList={menu1,menu2,menu3};
+        String[] sSettingList = {
+                menu1, menu2, menu3
+        };
         /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSettingList);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, sSettingList);
 
         mSettingLv.setAdapter(adapter);
         /* add onItemClickListener to ListView*/
@@ -47,15 +50,14 @@ public class SettingActivity extends BaseActivity {
         mSettingLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-
                 String settingClickedItem = (String) mSettingLv.getItemAtPosition(position);
 
-                if(settingClickedItem == menu1){
+                if(menu1.equals(settingClickedItem)) {
                     Intent intent = new Intent(SettingActivity.this, PersonSecureActivity.class);
                     startActivity(intent);
                     finish();
                 }
-                else if(settingClickedItem==menu2){
+                else if(menu2.equals(settingClickedItem)) {
                     Intent intent = new Intent(SettingActivity.this, AlarmActivity.class);
                     startActivity(intent);
                     finish();
@@ -66,7 +68,6 @@ public class SettingActivity extends BaseActivity {
                     finish();
                 }
             }
-        }) ;
-
+        });
     }
 }

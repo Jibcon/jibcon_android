@@ -14,13 +14,13 @@ import com.sm_arts.jibcon.app.BaseActivity;
 
 public class GetOtherConEndActivity extends BaseActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.getothercon_getotherconendactivity_activity);
 
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable(){
-            public void run(){
+        handler.postDelayed(new Runnable() {
+            public void run() {
                 Intent intent = new Intent(GetOtherConEndActivity.this, MainActivity.class);
                 startActivity(intent);
             }

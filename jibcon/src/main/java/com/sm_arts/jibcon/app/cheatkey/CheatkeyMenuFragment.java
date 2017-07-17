@@ -34,7 +34,7 @@ public class CheatkeyMenuFragment extends Fragment{
         RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.cheatkey_cheatkeymenufragment_fragment, container, false);
         ButterKnife.bind(this, layout);
 
-        mVp = (ViewPager)layout.findViewById(R.id.vp_cheatkey);
+        mVp = (ViewPager) layout.findViewById(R.id.vp_cheatkey);
 
         /* ↓Acitve & Passive Button↓ */
 
@@ -51,7 +51,7 @@ public class CheatkeyMenuFragment extends Fragment{
     }
 
     /* ↓뷰 페이저(액티비티 슬라이드)↓ */
-    View.OnClickListener movePageListener = new View.OnClickListener(){
+    View.OnClickListener movePageListener = new View.OnClickListener() {
         @Override
         public void onClick(View v){
             int tag = (int) v.getTag();
@@ -60,14 +60,14 @@ public class CheatkeyMenuFragment extends Fragment{
     };
 
     private class pagerAdapter extends FragmentStatePagerAdapter {
-        public pagerAdapter(android.support.v4.app.FragmentManager fm){
+        public pagerAdapter(android.support.v4.app.FragmentManager fm) {
             super(fm);
         }
 
         @Override
-        public Fragment getItem(int position){
+        public Fragment getItem(int position) {
             Log.w("CJ","movePageListener");
-            switch(position){
+            switch(position) {
                 case 0:
                     return new CheatkeyActiveFragment();
                 case 1:
@@ -78,7 +78,7 @@ public class CheatkeyMenuFragment extends Fragment{
         }
 
         @Override
-        public int getCount(){
+        public int getCount() {
             return 2;
         }
     }

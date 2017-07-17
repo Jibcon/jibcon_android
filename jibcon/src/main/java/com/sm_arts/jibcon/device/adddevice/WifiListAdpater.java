@@ -87,14 +87,11 @@ public class WifiListAdpater extends BaseAdapter {
         ImageView imgView = (ImageView)root.findViewById(R.id.imgViewWifi);
         textView.setText(mWifilist.get(position).SSID);
 
-        switch ( getType(mWifilist.get(position))) // todo get wifi pic
-        {
+        switch (getType(mWifilist.get(position))) { // todo get wifi pic
             case "2.4Ghz/WPA2-AES":   BitmapDrawable drawable1 = (BitmapDrawable) mContext.getResources().getDrawable(R.drawable.airconditioner);
                 Bitmap bitmap1 = drawable1.getBitmap();
                 imgView.setImageBitmap(bitmap1);
                 Log.d(TAG, "getView: "+mWifilist.get(position).level);
-
-
                 break;
         }
 
