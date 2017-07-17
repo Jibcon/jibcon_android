@@ -64,10 +64,11 @@ public class MakeconMainActivity extends BaseActivity implements HouseInfoListen
     @Override
     public void getFragmentNum(int fragmentNum) {
         this.mFragmentNum+=fragmentNum;
-        if(this.mFragmentNum<0)
-            this.mFragmentNum=0;
-        switch (this.mFragmentNum%4)
-        {
+        if (this.mFragmentNum < 0) {
+            this.mFragmentNum = 0;
+        }
+
+        switch (this.mFragmentNum % 4) {
             case 0 :
                 getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon1).commit();
                 break;
@@ -77,13 +78,9 @@ public class MakeconMainActivity extends BaseActivity implements HouseInfoListen
             case 2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon3).commit();
                 break;
-
             case 3:
                 getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon4).commit();
                 break;
-
-
-
         }
     }
 
