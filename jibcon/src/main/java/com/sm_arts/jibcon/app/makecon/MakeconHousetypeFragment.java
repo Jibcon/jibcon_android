@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
@@ -25,6 +26,8 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
     LinearLayout mLinearLayout;
     Button mNext;
     ImageButton mBefore;
+    TextView mBarName;
+
     HouseInfoListener mHouseInfoListener;
 
     @Override
@@ -38,7 +41,6 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
         // 리스트로 바꾸기!(20170430)
 
         mNext=(Button)getActivity().findViewById(R.id.Btn_makeCon2_1);
-
     }
 
     @Nullable
@@ -51,13 +53,15 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
         final String[] list_place = {"전원 주택", "아파트", "오피스텔", "빌라", "기숙사"};
 
         ListView listView   = (ListView)mLinearLayout.findViewById(R.id.list_place);
-        mBefore=(ImageButton)mLinearLayout.findViewById(R.id.Btn_MakeCon2_0);
+        mBefore=(ImageButton)mLinearLayout.findViewById(R.id.btn_goback);
         mNext=(Button)mLinearLayout.findViewById(R.id.Btn_makeCon2_1);
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
                 getActivity(),
                 android.R.layout.simple_list_item_1,
                 list_place
         );
+
+        mBarName = (TextView)mLinearLayout.findViewById(R.id.bar_name);
 
         listView.setAdapter(listViewAdapter);
 
@@ -111,6 +115,9 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
 //                startActivity(intent);
             }
         });
+
+        mBarName.setText("집 유형"); // sorry for hard-coding
+
         return mLinearLayout;
     }
 }
