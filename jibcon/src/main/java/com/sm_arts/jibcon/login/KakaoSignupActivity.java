@@ -27,13 +27,14 @@ public class KakaoSignupActivity extends BaseActivity {
      * Main으로 넘길지 가입 페이지를 그릴지 판단하기 위해 me를 호출한다.
      * @param savedInstanceState 기존 session 정보가 저장된 객체
      */
-
     GlobalApplication mApp;
+
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("testing","KaKaoSignUpActivity_onCreate()");
-        mApp=(GlobalApplication)getApplicationContext();
+        mApp = (GlobalApplication) getApplicationContext();
         requestMe();
     }
 
@@ -71,8 +72,6 @@ public class KakaoSignupActivity extends BaseActivity {
 
             @Override
             public void onSuccess(UserProfile userProfile) {  //성공 시 userProfile 형태로 반환
-
-
                 Log.d("testing","KaKaoSignUpActivity_onSuccess()");
                 Log.d("testing","KaKaoSignUpActivity_onSuccess()"+userProfile);
 
@@ -85,7 +84,6 @@ public class KakaoSignupActivity extends BaseActivity {
         //성공시 Main
         Log.d("testing","KaKaoSignUpActivit_redirectMainActivity()");
 
-
         // TODO: 2017-05-24 facebook과 유사하게 토큰 처리
         // TODO: 2017-05-24 현재 sample 계정 로그인  
         UserServiceImpl.getInstance().getSampleUserAsynchronisely(new UserService.onSuccessListener() {
@@ -93,8 +91,6 @@ public class KakaoSignupActivity extends BaseActivity {
             public void onSuccessGetSampleUserAsynchronisely(User sampleUser) {
                 mApp.setUser(sampleUser);
                 DeviceServiceImpl.getInstance().prepareDeviceItems();
-
-
             }
         });
         
@@ -109,5 +105,4 @@ public class KakaoSignupActivity extends BaseActivity {
         startActivity(intent);
         finish();
     }
-
 }

@@ -20,7 +20,8 @@ import butterknife.OnClick;
 
 public class TutorialMainActivity extends BaseActivity {
     private final int NUMOF_TUTORIAL_PAGES =4;
-    @OnClick(R.id.btn_skip_tutorial) void skipTutorialListener(){
+
+    @OnClick(R.id.btn_skip_tutorial) void skipTutorialListener() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
