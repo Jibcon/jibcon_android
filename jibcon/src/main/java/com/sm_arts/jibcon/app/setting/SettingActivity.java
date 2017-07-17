@@ -52,12 +52,12 @@ public class SettingActivity extends BaseActivity {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 String settingClickedItem = (String) mSettingLv.getItemAtPosition(position);
 
-                if(settingClickedItem == menu1) {
+                if(menu1.equals(settingClickedItem)) {
                     Intent intent = new Intent(SettingActivity.this, PersonSecureActivity.class);
                     startActivity(intent);
                     finish();
                 }
-                else if(settingClickedItem==menu2) {
+                else if(menu2.equals(settingClickedItem)) {
                     Intent intent = new Intent(SettingActivity.this, AlarmActivity.class);
                     startActivity(intent);
                     finish();
