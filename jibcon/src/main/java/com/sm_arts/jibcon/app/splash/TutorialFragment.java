@@ -48,22 +48,22 @@ public class TutorialFragment extends android.support.v4.app.Fragment{
             case 0:
                 tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[0]);
                 tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[0]);
-                tutorialIv.setImageResource(R.drawable.airconditioner);
+                tutorialIv.setImageResource(R.drawable.splash_image);
                 break;
             case 1:
                 tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[1]);
                 tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[1]);
-                tutorialIv.setImageResource(R.drawable.airconditioner);
+                tutorialIv.setImageResource(R.drawable.splash_image);
                 break;
             case 2:
                 tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[2]);
                 tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[2]);
-                tutorialIv.setImageResource(R.drawable.airconditioner);
+                tutorialIv.setImageResource(R.drawable.splash_image);
                 break;
             case 3:
                 tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[3]);
                 tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[3]);
-                tutorialIv.setImageResource(R.drawable.airconditioner);
+                tutorialIv.setImageResource(R.drawable.splash_image);
                 makejibconBtn.setVisibility(View.VISIBLE);
                 break;
         }

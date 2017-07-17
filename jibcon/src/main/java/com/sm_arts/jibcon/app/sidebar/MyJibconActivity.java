@@ -18,9 +18,6 @@ import butterknife.OnClick;
 public class MyJibconActivity extends BaseActivity {
 
     @BindView(R.id.lv_my_jibcon) ListView mSidebarMyJibconLv;
-    @BindString(R.string.sidebar_myjibcon_menu_1) String menu1;
-    @BindString(R.string.sidebar_myjibcon_menu_2) String menu2;
-    @BindString(R.string.sidebar_myjibcon_menu_3) String menu3;
     @OnClick(R.id.imageview_sidebar_myjibcon) void imageview_sidebar_myjibcon(){
         finish();
 
