@@ -18,17 +18,16 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class UserAuthorityActivity extends BaseActivity {
-
-
     @BindView(R.id.lv_user_authority) ListView mSidebarUserAuthorityLv;
     @BindString(R.string.sidebar_userauthority_menu_1) String menu1;
     @BindString(R.string.sidebar_userauthority_menu_2) String menu2;
     @BindString(R.string.sidebar_userauthority_menu_3) String menu3;
-    @OnClick(R.id.imageview_sidebar_userauthority) void imageview_sidebar_userauthority(){
-        finish();}
+    @OnClick(R.id.imageview_sidebar_userauthority) void imageview_sidebar_userauthority() {
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sidebar_user_authority);
         ButterKnife.bind(this);
@@ -42,12 +41,9 @@ public class UserAuthorityActivity extends BaseActivity {
         mSidebarUserAuthorityLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-
                 String settingClickedItem = (String) mSidebarUserAuthorityLv.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), settingClickedItem, Toast.LENGTH_LONG).show();
             }
-        }) ;
-
-
+        });
     }
 }

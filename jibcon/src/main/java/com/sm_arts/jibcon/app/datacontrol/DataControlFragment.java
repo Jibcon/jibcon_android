@@ -35,11 +35,17 @@ public class DataControlFragment extends android.support.v4.app.Fragment {
         View view =  inflater.inflate(R.layout.datacontrol_main_fragment, container, false);
         ButterKnife.bind(this, view);
 
-        String[] mDataControlList ={menu1,menu2,menu3,menu4};
+        String[] mDataControlList = {
+                menu1, menu2, menu3, menu4
+        };
 
 
         //Fragment 에선 첫번째 인자가 this가 아니라 getActivity이다//
-        ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, mDataControlList);
+        ArrayAdapter adapter = new ArrayAdapter(
+                getActivity(),
+                android.R.layout.simple_list_item_1,
+                mDataControlList
+        );
 
         mDataControlListView.setAdapter(adapter);
 
