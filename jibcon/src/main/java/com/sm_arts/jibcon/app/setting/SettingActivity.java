@@ -21,15 +21,15 @@ import butterknife.OnClick;
 
 
 public class SettingActivity extends BaseActivity {
+    interface OptionMenus {
+        int SECURITY = 0;
+        int NOTICE = 1;
+    }
 
     @BindView(R.id.lv_setting) ListView mSettingLv;
     @OnClick(R.id.imageview_setting) void imageview_setting() {
         finish();
     }
-
-    @BindString(R.string.setting_menu_1) String menu1;
-    @BindString(R.string.setting_menu_2) String menu2;
-    @BindString(R.string.setting_menu_3) String menu3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,35 +38,27 @@ public class SettingActivity extends BaseActivity {
         setContentView(R.layout.setting_settingactivity_activity);
         ButterKnife.bind(this);
 
-        String[] sSettingList = {
-                menu1, menu2, menu3
-        };
-        /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, sSettingList);
+        final String[] settingOptionmenuList =getResources().getStringArray(R.array.setting_option_array);
 
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, settingOptionmenuList);
         mSettingLv.setAdapter(adapter);
-        /* add onItemClickListener to ListView*/
 
         mSettingLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-                String settingClickedItem = (String) mSettingLv.getItemAtPosition(position);
+                Intent intent;
 
-                if(menu1.equals(settingClickedItem)) {
-                    Intent intent = new Intent(SettingActivity.this, PersonSecureActivity.class);
-                    startActivity(intent);
-                    finish();
+                if (position == OptionMenus.SECURITY) {
+                    intent = new Intent(SettingActivity.this, PersonSecureActivity.class);
                 }
-                else if(menu2.equals(settingClickedItem)) {
-                    Intent intent = new Intent(SettingActivity.this, AlarmActivity.class);
-                    startActivity(intent);
-                    finish();
+                else if (position == OptionMenus.NOTICE) {
+                    intent = new Intent(SettingActivity.this, AlarmActivity.class);
                 }
-                else {
-                    Intent intent = new Intent(SettingActivity.this, UserCenterActivity.class);
-                    startActivity(intent);
-                    finish();
+                else{
+                    intent = new Intent(SettingActivity.this, UserCenterActivity.class);
                 }
+                startActivity(intent);
+                finish();
             }
         });
     }

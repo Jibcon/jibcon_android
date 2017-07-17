@@ -21,12 +21,11 @@ import butterknife.OnClick;
  */
 
 public class UserCenterActivity extends BaseActivity {
-
+    interface UsercetnerMenu {
+        int ASKCOMPANY = 0;
+        int FAQ = 1;
+    }
     @BindView(R.id.lv_setting_usercenter) ListView mSettingUserCenterLv;
-    @BindString(R.string.setting_usercenter_menu_1) String menu1;
-    @BindString(R.string.setting_usercenter_menu_2) String menu2;
-    @BindString(R.string.setting_usercenter_menu_3) String menu3;
-
     @OnClick(R.id.imageview_setting_usercenter) void imageview_setting_usercenter() {
         Intent intent = new Intent(UserCenterActivity.this, SettingActivity.class);
         startActivity(intent);
@@ -39,22 +38,20 @@ public class UserCenterActivity extends BaseActivity {
         setContentView(R.layout.setting_usercenteractivity_activity);
         ButterKnife.bind(this);
 
-        String[] SettingUserCenterList = {menu1,menu2,menu3};
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, SettingUserCenterList);
+        final String[] usercenterOptionList = getResources().getStringArray(R.array.setting_usercenter_option_array);
 
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, usercenterOptionList);
         mSettingUserCenterLv.setAdapter(adapter);
-        /* add onItemClickListener to ListView*/
+
         mSettingUserCenterLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-                String settingClickedItem = (String) mSettingUserCenterLv.getItemAtPosition(position);
-
-                if(menu1.equals(settingClickedItem)) {
+                if (position == UsercetnerMenu.ASKCOMPANY) {
                     Intent intent = new Intent(UserCenterActivity.this, AskEnrollCompanyActivity.class);
                     startActivity(intent);
                     finish();
                 }
-                else if(menu2.equals(settingClickedItem)) {
+                else if (position == UsercetnerMenu.FAQ) {
                     Intent intent = new Intent(UserCenterActivity.this, FaqActivity.class);
                     startActivity(intent);
                     finish();

@@ -17,12 +17,8 @@ import butterknife.OnClick;
 
 public class UserAuthorityActivity extends BaseActivity {
     @BindView(R.id.lv_user_authority) ListView mSidebarUserAuthorityLv;
-    @BindString(R.string.sidebar_userauthority_menu_1) String menu1;
-    @BindString(R.string.sidebar_userauthority_menu_2) String menu2;
-    @BindString(R.string.sidebar_userauthority_menu_3) String menu3;
     @OnClick(R.id.imageview_sidebar_userauthority) void imageview_sidebar_userauthority() {
-        finish();
-    }
+        finish();}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +26,11 @@ public class UserAuthorityActivity extends BaseActivity {
         setContentView(R.layout.sidebar_userauthorityactivity_activity);
         ButterKnife.bind(this);
 
-        String[] sSidebarUserAuthorityList={menu1,menu2,menu3};
+        final String[] userauthorityOptionList = getResources().getStringArray(R.array.sidebar_userauthority_option_array);
 
-        /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSidebarUserAuthorityList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, userauthorityOptionList);
         mSidebarUserAuthorityLv.setAdapter(adapter);
-        /* add onItemClickListener to ListView*/
+
         mSidebarUserAuthorityLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {

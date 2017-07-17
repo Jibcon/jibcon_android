@@ -17,10 +17,7 @@ import butterknife.OnClick;
 
 public class MyJibconActivity extends BaseActivity {
     @BindView(R.id.lv_my_jibcon) ListView mSidebarMyJibconLv;
-    @BindString(R.string.sidebar_myjibcon_menu_1) String menu1;
-    @BindString(R.string.sidebar_myjibcon_menu_2) String menu2;
-    @BindString(R.string.sidebar_myjibcon_menu_3) String menu3;
-    @OnClick(R.id.imageview_sidebar_myjibcon) void imageview_sidebar_myjibcon(){
+    @OnClick(R.id.imageview_sidebar_myjibcon) void imageview_sidebar_myjibcon() {
         finish();
     }
 
@@ -30,15 +27,11 @@ public class MyJibconActivity extends BaseActivity {
         setContentView(R.layout.sidebar_myjibconactivity_activity);
         ButterKnife.bind(this);
 
-        String[] sSidebarMyJibconList = {
-                menu1,menu2,menu3
-        };
+        final String[] myjibconOptionList = getResources().getStringArray(R.array.sidebar_myjibcon_option_array);
 
-        /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSidebarMyJibconList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, myjibconOptionList);
         mSidebarMyJibconLv.setAdapter(adapter);
 
-        /* add onItemClickListener to ListView*/
         mSidebarMyJibconLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
