@@ -33,9 +33,7 @@ public class FloatingButtonActiveActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_floatingbuttonactiveactivity_floatingbutton);
 
-
-
-        final ViewGroup fabcontainer = (ViewGroup)findViewById(R.id.fab_container_cheatkey_active);
+        final ViewGroup fabcontainer = (ViewGroup) findViewById(R.id.fab_container_cheatkey_active);
 
         fabcontainer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,19 +42,15 @@ public class FloatingButtonActiveActivity extends BaseActivity {
             }
         });
 
-        mFabItem1=findViewById(R.id.fab_action_1_cheatkey_active);
+        mFabItem1 = findViewById(R.id.fab_action_1_cheatkey_active);
         mFabItem1.setVisibility(View.INVISIBLE);
-        mFabItem2=(TextView)findViewById(R.id.Txt_floating_cheatkey_active);
+        mFabItem2 = (TextView) findViewById(R.id.Txt_floating_cheatkey_active);
 
-
-        mFab=(ImageButton)findViewById(R.id.fab_cheatkey_active);
+        mFab = (ImageButton) findViewById(R.id.fab_cheatkey_active);
 
         expandFab();
         mFabItem1.setVisibility(View.VISIBLE);
         mFabItem2.setVisibility(View.VISIBLE);
-
-
-
 
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,10 +60,8 @@ public class FloatingButtonActiveActivity extends BaseActivity {
                 mFabItem2.setVisibility(View.INVISIBLE);
 
                 finish();
-
             }
         });
-
 
         fabcontainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
@@ -84,7 +76,6 @@ public class FloatingButtonActiveActivity extends BaseActivity {
         });
 
     }
-
 
     private void collapseFab() {
         // mFab.setImageResource(R.drawable.animated_minus);
