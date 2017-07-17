@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.sm_arts.jibcon.network.MobiusService;
-import com.sm_arts.jibcon.network.Repo;
+import com.sm_arts.jibcon.utils.network.RetrofitUtils;
 import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.R;
@@ -83,7 +83,7 @@ public class DeviceMenuAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: ");
-                MobiusService service = Repo.getMobiusService();
+                MobiusService service = (MobiusService) RetrofitUtils.getInstance().getService(MobiusService.class);
                 Call<Object> call = service.turnOnLed(
                         "application/json",
                         "1",

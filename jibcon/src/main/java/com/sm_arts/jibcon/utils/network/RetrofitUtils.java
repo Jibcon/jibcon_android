@@ -1,9 +1,13 @@
-package com.sm_arts.jibcon.network;
+package com.sm_arts.jibcon.utils.network;
 
 import android.util.Log;
 
+import com.sm_arts.jibcon.network.ApiService;
+import com.sm_arts.jibcon.network.MobiusService;
 import com.sm_arts.jibcon.utils.consts.UrlUtils;
 import com.sm_arts.jibcon.utils.network.GsonUtils;
+
+import java.util.HashMap;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -12,49 +16,30 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by admin on 2017-04-10.
  */
 
-public class Repo {
-    public ApiService getService()
-    {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://52.79.142.130/")
-                .addConverterFactory(GsonUtils.getGsonConverterFactory())
-                .build();
-        ApiService service = retrofit.create(ApiService.class);
+public class RetrofitUtils {
+    private static RetrofitUtils sInstance;
 
-        if(service!=null)
-            Log.d("service","할당");
-        else
-            Log.d("service","실패");
-        return service;
+    private HashMap<Class, Object> services = new HashMap<>();
+
+    public static RetrofitUtils getInstance() {
+        if (sInstance == null) {
+            sInstance = new RetrofitUtils();
+        }
+
+        return sInstance;
     }
 
-    public static ApiService getStaticService()
-    {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(UrlUtils.getApiUrl())
-                .addConverterFactory(GsonUtils.getGsonConverterFactory())
-                .build();
-        ApiService service = retrofit.create(ApiService.class);
+    public Object getService(Class type) {
+        Object service = services.get(type);
+        if (service == null) {
+            Retrofit client = new Retrofit.Builder()
+                    .baseUrl(UrlUtils.getUrlWithClassName(type.getName()))
+                    .addConverterFactory(GsonUtils.getGsonConverterFactory())
+                    .build();
 
-        if(service!=null)
-            Log.d("service","할당");
-        else
-            Log.d("service","실패");
-        return service;
-    }
-
-    public static MobiusService getMobiusService()
-    {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(UrlUtils.getMobiusUrl())
-                .addConverterFactory(GsonUtils.getGsonConverterFactory())
-                .build();
-        MobiusService service = retrofit.create(MobiusService.class);
-
-        if(service != null)
-            Log.d("service","할당");
-        else
-            Log.d("service","실패");
+            service = client.create(type);
+            services.put(type, service);
+        }
 
         return service;
     }
