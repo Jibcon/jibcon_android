@@ -32,13 +32,11 @@ public class MyJibconActivity extends BaseActivity {
         setContentView(R.layout.sidebar_myjibcon_activity);
         ButterKnife.bind(this);
 
-        String[] sSidebarMyJibconList={menu1,menu2,menu3};
+        final String[] myjibconOptionList = getResources().getStringArray(R.array.sidebar_myjibcon_option_array);
 
-        /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, sSidebarMyJibconList);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, myjibconOptionList);
         mSidebarMyJibconLv.setAdapter(adapter);
 
-        /* add onItemClickListener to ListView*/
         mSidebarMyJibconLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
