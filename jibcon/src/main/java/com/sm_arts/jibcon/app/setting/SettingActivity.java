@@ -35,7 +35,7 @@ public class SettingActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_main_activity);
+        setContentView(R.layout.setting_settingactivity_activity);
         ButterKnife.bind(this);
 
         String[] sSettingList = {

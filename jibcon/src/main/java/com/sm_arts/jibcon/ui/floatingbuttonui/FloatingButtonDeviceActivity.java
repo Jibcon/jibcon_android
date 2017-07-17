@@ -39,7 +39,7 @@ public class FloatingButtonDeviceActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.ui_add_device_floatingbutton);
+        setContentView(R.layout.ui_floatingbuttondeviceactivity_floatingbutton);
 
 
 

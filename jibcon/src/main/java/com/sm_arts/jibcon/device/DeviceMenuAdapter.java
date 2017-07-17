@@ -67,8 +67,8 @@ public class DeviceMenuAdapter extends BaseAdapter {
         if(convertView == null) {
             Log.d("DeviceMenu", "DeviceMenuNull");
         }
-        convertView = mInflater.inflate(R.layout.device_deviceitem_cardview, parent, false);
-        ImageView threedot = (ImageView) convertView.findViewById(R.id.ImgView_deviceItem_threedot);
+        convertView= mInflater.inflate(R.layout.device_devicemenuadapter_cardview, parent, false);
+        ImageView threedot = (ImageView)convertView.findViewById(R.id.ImgView_deviceItem_threedot);
         threedot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

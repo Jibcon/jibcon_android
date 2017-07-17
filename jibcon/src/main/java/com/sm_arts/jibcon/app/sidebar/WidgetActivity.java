@@ -28,7 +28,7 @@ public class WidgetActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_widget_activity);
+        setContentView(R.layout.sidebar_widgetactivity_activity);
         ButterKnife.bind(this);
 
         String[] sSidebarWidgetList = {

@@ -50,7 +50,7 @@ public class PassiveCheatkeyAdapter
     @Override
     public PassiveCheatkeyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.cheatkey_passive_cardview, parent, false);
+                .inflate(R.layout.cheatkey_cheatkeypassivefragment_cardview, parent, false);
 
         ViewHolder vh = new ViewHolder(v,parent.getContext());
 

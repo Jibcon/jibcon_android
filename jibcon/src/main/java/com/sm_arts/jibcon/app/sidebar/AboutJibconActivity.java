@@ -16,7 +16,7 @@ public class AboutJibconActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_aboutjibcon_activity);
+        setContentView(R.layout.sidebar_aboutjibconactivity_activity);
         ButterKnife.bind(this);
     }
 }

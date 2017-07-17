@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF">
 
     <TextView
         android:id="@+id/tvWifi"
         android:layout_width="0dp"
-
         android:layout_height="50dp"
         android:gravity="center"
         android:layout_weight="4"
@@ -20,6 +20,6 @@
         android:layout_weight="1"
         android:cropToPadding="true"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        />
+        android:scaleType="fitCenter" />
+
 </LinearLayout>

@@ -27,7 +27,7 @@ public class MyJibconActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_myjibcon_activity);
+        setContentView(R.layout.sidebar_myjibconactivity_activity);
         ButterKnife.bind(this);
 
         String[] sSidebarMyJibconList = {

@@ -144,7 +144,7 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.device_add_device_activity);
+        setContentView(R.layout.device_adddeviceactivity_activity);
         mAddDevice0 = new AddDeviceProductFragment();
         mAddDevice1 = new AddDeviceWifiFragment();
         mAddDevice2 = new AddDevicePhoneFragment();

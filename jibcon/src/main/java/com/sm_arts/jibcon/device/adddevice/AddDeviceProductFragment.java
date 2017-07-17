@@ -109,7 +109,7 @@ public class AddDeviceProductFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.device_add_device0_activity, container, false);
+        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.device_adddeviceproductfragment_fragment, container, false);
 
         initLayout();
         mMakeDeviceListener.setDeviceCom(mSelectedCompany);

@@ -25,7 +25,7 @@ public class AlarmActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_alarm_activity);
+        setContentView(R.layout.setting_alarmactivity_activity);
         ButterKnife.bind(this);
     }
 }

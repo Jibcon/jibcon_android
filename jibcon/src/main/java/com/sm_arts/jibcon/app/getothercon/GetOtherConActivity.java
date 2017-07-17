@@ -34,7 +34,7 @@ public class GetOtherConActivity extends BaseActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.getothercon_main_activity);
+        setContentView(R.layout.getothercon_getotherconactivity_activity);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.getcon_recycler_view);
         mRecyclerView.setHasFixedSize(true);
