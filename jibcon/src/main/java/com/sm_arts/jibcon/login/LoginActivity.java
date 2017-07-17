@@ -205,7 +205,7 @@ public class LoginActivity extends BaseActivity {
 
         mVideoView = (VideoView)findViewById(R.id.videoView);
 
-        mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.Btn_naver_login);
+        mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.btn_naver_login);
         mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
         mOAuthLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
