@@ -80,7 +80,6 @@ public class GlobalApplication extends MultiDexApplication {
                 .addNormal(Typekit.createFromAsset(this, "12롯데마트드림Medium.ttf"))
                 .addBold(Typekit.createFromAsset(this, "12롯데마트드림Bold.ttf"))
                 .addCustom1(Typekit.createFromAsset(this, "12롯데마트드림Light.ttf")); // 이후 추가시 .addCustom2~9 까지 가능
-
     }
 
     //카톡 로그인용
@@ -121,7 +120,7 @@ public class GlobalApplication extends MultiDexApplication {
         setUserEmail(user.getEmail());
         setUserToken(user.getToken());
 
-        try{
+        try {
             setUserProfileImage(new URL(user.getUserinfo().getPic_url()));
         } catch (Exception e) {
             e.printStackTrace();

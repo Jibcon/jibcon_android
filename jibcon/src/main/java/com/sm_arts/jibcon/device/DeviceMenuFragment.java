@@ -25,7 +25,7 @@ import java.util.List;
  */
 
 public class DeviceMenuFragment extends Fragment {
-    private final String TAG = "jibcon/"+getClass().getSimpleName();
+    private static final String TAG = "DeviceMenuFragment";
 
     SwipeRefreshLayout mSwiperefreshlayout;
 
@@ -35,21 +35,19 @@ public class DeviceMenuFragment extends Fragment {
     GlobalApplication mApp;
 
 
-    private View initLayout(LayoutInflater inflater, ViewGroup container)
-    {
-            View root = inflater.inflate(R.layout.device_menu_fragment,container,false);
+    private View initLayout(LayoutInflater inflater, ViewGroup container) {
+        View root = inflater.inflate(R.layout.device_menu_fragment, container, false);
 
-        ImageButton fab= (ImageButton)root.findViewById(R.id.fab_device_behind);
+        ImageButton fab = (ImageButton) root.findViewById(R.id.fab_device_behind);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 startActivity(new Intent(getActivity().getApplicationContext(),FloatingButtonDeviceActivity.class));
                 //getActivity().finish();
             }
         });
-        mSwiperefreshlayout=(SwipeRefreshLayout)root.findViewById(R.id.swipelayout_menu_deivce);
+        mSwiperefreshlayout= (SwipeRefreshLayout) root.findViewById(R.id.swipelayout_menu_deivce);
 
         mSwiperefreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -90,20 +88,18 @@ public class DeviceMenuFragment extends Fragment {
                 mAdapter.notifyDataSetChanged();
             }
         });
-
         //floatingbuttoninit(root,container, inflater);
-
 
         return root;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mApp=(GlobalApplication)getActivity().getApplicationContext();
-
+        mApp = (GlobalApplication) getActivity().getApplicationContext();
 
         Log.d("FragmentCheck","DeviceMenuFragment onCreateView");
-        View root=initLayout(inflater,container);
+        View root = initLayout(inflater,container);
+
         return root;
     }
 

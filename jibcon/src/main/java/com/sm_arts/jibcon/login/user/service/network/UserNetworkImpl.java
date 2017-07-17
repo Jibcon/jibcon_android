@@ -17,14 +17,15 @@ public class UserNetworkImpl implements UserNetwork {
     private final String TAG = "jibcon/"+getClass().getSimpleName();
     private static UserNetwork sInstance;
 
+
     private UserNetworkImpl() {
     }
 
-
     public static UserNetwork getInstance() {
-        if (sInstance == null){
+        if (sInstance == null) {
             sInstance = new UserNetworkImpl();
         }
+
         return sInstance;
     }
 
@@ -51,7 +52,6 @@ public class UserNetworkImpl implements UserNetwork {
             e.printStackTrace();
         }
     }
-
 
     @Override
     public User getSampleUserInfoFromServerSynchronisely() {

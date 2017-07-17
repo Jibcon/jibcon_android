@@ -24,59 +24,44 @@ import retrofit2.Response;
 
 public class AddDeviceActivity extends AppCompatActivity implements AddDeviceListner {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
+
     String mDeviceCom;
     String mDeviceName;
-    //
     ScanResult mWifi;
     int mPageNum;
     Fragment mAddDevice0;
     Fragment mAddDevice1;
     Fragment mAddDevice2;
     GlobalApplication mApp;
-//    ArrayList<DeviceItem> arr;
     DeviceItem mDeviceItem;
-    public void sendDevice()
-    {
-//       arr = mApp.getDeviceItemArrayList() ;
+
+    public void sendDevice() {
         //0 : 에어컨
         //1 : 전구
         //2 : 선풍기
         //3 : 냉장고
-//        String deviceType;//디바이스 메뉴의 int 값. int 값으로 판별
-//        String deviceName;//디바이스 메뉴 아이템 이름 ex) 전등 알람 등등..
-//        String deviceWifiAddr;
-//        String id;
-//        String deviceCom;
-//        boolean deviceOnOffState;
-//        String user;
-        if(mDeviceName.equals("에어컨"))
-        {
-            mDeviceItem= new DeviceItem(0,mDeviceName);
+        if (mDeviceName.equals("에어컨")) {
+            mDeviceItem = new DeviceItem(0,mDeviceName);
             mDeviceItem.setDeviceWifiAddr(getWifiAddr());
-         
-        }
-        else if(mDeviceName.equals("전구")) {
-             mDeviceItem= new DeviceItem(1,mDeviceName);
+        } else if(mDeviceName.equals("전구")) {
+            mDeviceItem = new DeviceItem(1,mDeviceName);
+            mDeviceItem.setDeviceWifiAddr(getWifiAddr());
+        } else if(mDeviceName.equals("선풍기")) {
+            mDeviceItem = new DeviceItem(2,mDeviceName);
 
             mDeviceItem.setDeviceWifiAddr(getWifiAddr());
-        }
-        else if(mDeviceName.equals("선풍기")) {
-            mDeviceItem= new DeviceItem(2,mDeviceName);
-
-            mDeviceItem.setDeviceWifiAddr(getWifiAddr());
-        }
-        else if(mDeviceName.equals("냉장고")) {
-            mDeviceItem= new DeviceItem(3,mDeviceName);
+        } else if(mDeviceName.equals("냉장고")) {
+            mDeviceItem = new DeviceItem(3,mDeviceName);
             mDeviceItem.setDeviceWifiAddr(getWifiAddr());
         }
 
         ApiService apiService = new Repo().getService();
-        Log.d(TAG, "sendDevice: Call.enqueue DeviceItem "+mDeviceItem.toString());
+        Log.d(TAG, "sendDevice: Call.enqueue DeviceItem " + mDeviceItem.toString());
 
-        Call<DeviceItem> c = apiService.addDevice("Token " +mApp.getUserToken(),mDeviceItem);
-        Log.d("TAG", "sendDevice: "+c.toString());
+        Call<DeviceItem> c = apiService.addDevice("Token " + mApp.getUserToken(), mDeviceItem);
+        Log.d("TAG", "sendDevice: " + c.toString());
 
-        try{
+        try {
             c.enqueue(new Callback<DeviceItem>() {
                 @Override
                 public void onResponse(Call<DeviceItem> call, Response<DeviceItem> response) {
@@ -87,7 +72,6 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
 
 //                    arr.add(response.body());
 //                    mApp.setDeviceItemArrayList(arr);
-
                 }
 
                 @Override
@@ -96,15 +80,9 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
 //                    Toast.makeText(getApplicationContext(),"device send fail",Toast.LENGTH_SHORT).show();
                 }
             });
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
-
     }
 
     private String getWifiAddr() { // todo implements
@@ -117,75 +95,68 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
 
     @Override
     public void NextPage(int num) {
-        this.mPageNum+=num;
-        if(this.mPageNum<0)
-            this.mPageNum=0;
-        switch (this.mPageNum%3)
-        {
+        this.mPageNum += num;
+        if (this.mPageNum < 0) {
+            this.mPageNum = 0;
+        }
+
+        switch (this.mPageNum % 3) {
             case 0:
                 getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice0).commit();
                 break;
             case 1:
                 getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice1).commit();
-
                 break;
             case 2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice2).commit();
-
                 sendDevice();
-
                 Runnable runnable = new Runnable() {
                     @Override
                     public void run() {
                         //장치 추가하고 메인으로
-
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
-
                     }
                 };
+
                 Handler handler=new Handler();
                 handler.postDelayed(runnable,1500);
-
-
                 break;
-
         }
-
     }
 
     @Override
     public void setDeviceCom(String deviceCom) {
-        this.mDeviceCom=deviceCom;
+        this.mDeviceCom = deviceCom;
     }
 
     @Override
     public void setDeviceName(String deviceName) {
-        this.mDeviceName=deviceName;
+        this.mDeviceName = deviceName;
     }
 
     @Override
     public void setWifi(ScanResult wifi) {
-        this.mWifi=wifi;
+        this.mWifi = wifi;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.device_add_device_activity);
-        mAddDevice0=new AddDeviceProductFragment();
-        mAddDevice1=new AddDeviceWifiFragment();
-        mAddDevice2=new AddDevicePhoneFragment();
-        mApp=(GlobalApplication)getApplicationContext();
+        mAddDevice0 = new AddDeviceProductFragment();
+        mAddDevice1 = new AddDeviceWifiFragment();
+        mAddDevice2 = new AddDevicePhoneFragment();
+        mApp = (GlobalApplication) getApplicationContext();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice0).commit();
-
     }
 
     // for font change
+    // TODO: 7/17/17 Base Activity로 바꾸고 attachBaseContext 삭제
     @Override
-    protected void attachBaseContext(Context newBase){
+    protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }

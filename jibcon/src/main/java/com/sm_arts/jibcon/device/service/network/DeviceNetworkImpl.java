@@ -32,7 +32,7 @@ public class DeviceNetworkImpl implements DeviceNetwork {
     }
 
     public static DeviceNetwork getInstance() {
-        if (sInstance == null){
+        if (sInstance == null) {
             sInstance = new DeviceNetworkImpl();
         }
         return sInstance;
