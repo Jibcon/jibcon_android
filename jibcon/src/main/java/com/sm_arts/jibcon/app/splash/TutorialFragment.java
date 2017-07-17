@@ -37,7 +37,7 @@ public class TutorialFragment extends android.support.v4.app.Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.splash_tutorial_fragment, container, false);
+        View v = inflater.inflate(R.layout.splash_tutorialfragment_fragment, container, false);
         ButterKnife.bind(this,v);
 
         int tutorialNumber = getArguments().getInt(STRINGOF_TUTORIAL_PAGE);

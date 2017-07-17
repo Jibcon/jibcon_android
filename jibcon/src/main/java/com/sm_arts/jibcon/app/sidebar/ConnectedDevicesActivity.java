@@ -27,7 +27,7 @@ public class ConnectedDevicesActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_connecteddevices_activity);
+        setContentView(R.layout.sidebar_connecteddevicesactivity_activity);
         ButterKnife.bind(this);
 
         String[] sSidebarConnectedDeviceList={menu1, menu1, menu1};

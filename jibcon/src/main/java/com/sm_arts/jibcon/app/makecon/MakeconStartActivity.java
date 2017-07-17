@@ -35,7 +35,7 @@ public class MakeconStartActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.makecon_start_activity);
+        setContentView(R.layout.makecon_makeconstartactivity_activity);
         ButterKnife.bind(this);
     }
 

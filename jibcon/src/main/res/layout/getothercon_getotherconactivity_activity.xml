@@ -6,7 +6,7 @@
     android:background="@color/white">
 
     <include
-        layout="@layout/content_makecon"
+        layout="@layout/makecon_makeconmainactivity_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

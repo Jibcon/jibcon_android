@@ -82,15 +82,13 @@ public class MakeconMainActivity extends BaseActivity implements HouseInfoListen
                 getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon4).commit();
                 break;
 
-
-
         }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.makecon_makecon0_activity);
+        setContentView(R.layout.makecon_makeconmainactivity_activity);
 
         mMakecon1=new MakeconHousenameFragment();
         mMakecon2=new MakeconHousetypeFragment();

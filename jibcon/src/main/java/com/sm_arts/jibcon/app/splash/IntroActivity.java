@@ -118,7 +118,7 @@ public class IntroActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash_intro_activity);
+        setContentView(R.layout.splash_introactivity_activity);
         init();
 
         //액션바 없애기

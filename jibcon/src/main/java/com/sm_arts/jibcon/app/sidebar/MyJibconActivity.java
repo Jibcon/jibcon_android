@@ -29,7 +29,7 @@ public class MyJibconActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_myjibcon_activity);
+        setContentView(R.layout.sidebar_myjibconactivity_activity);
         ButterKnife.bind(this);
 
         String[] sSidebarMyJibconList={menu1,menu2,menu3};

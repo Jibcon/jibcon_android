@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fb="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,11 +31,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:id="@+id/linearLayout">
-
-
-
+        
         <com.facebook.login.widget.LoginButton
-            android:id="@+id/Btn_Login_Facebook"
+            android:id="@+id/btn_login_facebook"
             android:layout_width="280dp"
             android:layout_height="60dp"
             android:layout_weight="2.19"

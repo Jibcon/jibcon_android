@@ -157,7 +157,7 @@ public class AddDeviceWifiFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: ");
-        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.device_add_device1_activity,container,false);
+        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.device_adddevicewififragment_fragment,container,false);
 
         wifiSetting();
         initlayout();

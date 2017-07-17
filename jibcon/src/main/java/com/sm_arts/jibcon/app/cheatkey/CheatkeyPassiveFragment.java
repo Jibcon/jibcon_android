@@ -56,7 +56,7 @@ public class CheatkeyPassiveFragment extends android.support.v4.app.Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View v = inflater.inflate(R.layout.cheatkey_passive_fragment, container, false); // 액티비티에서는 setContentView
+        View v = inflater.inflate(R.layout.cheatkey_cheatkeypassivefragment_fragment, container, false); // 액티비티에서는 setContentView
         ButterKnife.bind(this, v);
 
 

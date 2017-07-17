@@ -3,13 +3,9 @@ package com.sm_arts.jibcon.app.splash;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageButton;
 
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.login.LoginActivity;
@@ -29,7 +25,7 @@ public class TutorialMainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash_tutorial_activity);
+        setContentView(R.layout.splash_tutorialmainactivity_activity);
         ButterKnife.bind(this);
 
         ViewPager pager = (ViewPager) findViewById(R.id.vp_tutorial);

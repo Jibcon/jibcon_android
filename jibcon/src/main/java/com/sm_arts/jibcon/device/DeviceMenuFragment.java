@@ -37,7 +37,7 @@ public class DeviceMenuFragment extends Fragment {
 
     private View initLayout(LayoutInflater inflater, ViewGroup container)
     {
-            View root = inflater.inflate(R.layout.device_menu_fragment,container,false);
+            View root = inflater.inflate(R.layout.device_devicemenufragment_fragment,container,false);
 
         ImageButton fab= (ImageButton)root.findViewById(R.id.fab_device_behind);
 

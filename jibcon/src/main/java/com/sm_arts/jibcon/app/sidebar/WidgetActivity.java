@@ -30,7 +30,7 @@ public class WidgetActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_widget_activity);
+        setContentView(R.layout.sidebar_widgetactivity_activity);
         ButterKnife.bind(this);
 
         String[] sSidebarWidgetList = {menu1,menu2,menu3,menu4};

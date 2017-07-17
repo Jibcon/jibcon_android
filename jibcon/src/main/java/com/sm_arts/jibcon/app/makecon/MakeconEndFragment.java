@@ -28,7 +28,7 @@ public class MakeconEndFragment extends android.support.v4.app.Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mLinearLayout= (LinearLayout)inflater.inflate(R.layout.makecon_complete_fragment,container,false);
+        mLinearLayout= (LinearLayout)inflater.inflate(R.layout.makecon_makeconendfragment_fragment,container,false);
 
         Handler handler;
         handler=new Handler();

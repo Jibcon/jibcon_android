@@ -24,7 +24,7 @@ public class JibconAskActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_jibconask_activity);
+        setContentView(R.layout.setting_jibconaskactivity_activity);
         ButterKnife.bind(this);
     }
 }
