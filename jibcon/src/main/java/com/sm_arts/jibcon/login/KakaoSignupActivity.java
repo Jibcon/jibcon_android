@@ -16,7 +16,7 @@ import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
-import com.sm_arts.jibcon.main.MainActivity;
+import com.sm_arts.jibcon.ui.main.MainActivity;
 
 /**
  * Created by admin on 2017-01-20.

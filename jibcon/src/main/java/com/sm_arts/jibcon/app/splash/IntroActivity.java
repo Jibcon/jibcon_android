@@ -20,7 +20,7 @@ import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.login.LoginActivity;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
-import com.sm_arts.jibcon.main.MainActivity;
+import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.utils.network.RetrofitUtils;

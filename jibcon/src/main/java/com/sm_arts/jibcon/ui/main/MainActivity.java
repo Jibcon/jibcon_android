@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.main;
+package com.sm_arts.jibcon.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
