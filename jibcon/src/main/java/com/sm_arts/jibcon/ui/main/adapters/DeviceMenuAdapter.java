@@ -1,29 +1,16 @@
 package com.sm_arts.jibcon.ui.main.adapters;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
 
 import com.sm_arts.jibcon.device.DeviceItem;
-import com.sm_arts.jibcon.network.MobiusService;
 import com.sm_arts.jibcon.ui.main.adapters.viewholder.DeviceMenuViewHolder;
 import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
-import com.sm_arts.jibcon.utils.network.RetrofitUtils;
-import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
-import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.R;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by admin on 2017-04-06.

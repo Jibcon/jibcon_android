@@ -14,7 +14,7 @@ import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
-import com.sm_arts.jibcon.utils.network.RetrofitUtils;
+import com.sm_arts.jibcon.utils.network.RetrofiClients;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.tsengvn.typekit.TypekitContextWrapper;
 
@@ -55,7 +55,7 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
             mDeviceItem.setDeviceWifiAddr(getWifiAddr());
         }
 
-        ApiService apiService = (ApiService) RetrofitUtils.getInstance().getService(ApiService.class);
+        ApiService apiService = RetrofiClients.getInstance().getService(ApiService.class);
         Log.d(TAG, "sendDevice: Call.enqueue DeviceItem "+mDeviceItem.toString());
       
         Call<DeviceItem> c = apiService.addDevice("Token " + mApp.getUserToken(), mDeviceItem);

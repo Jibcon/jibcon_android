@@ -3,14 +3,13 @@ package com.sm_arts.jibcon.ui.main.adapters.viewholder;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.network.MobiusService;
 import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
-import com.sm_arts.jibcon.utils.network.RetrofitUtils;
+import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,7 +40,7 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
         mDeviceItemIv.setOnClickListener(
                 v-> {
                     Log.d(TAG, "onClick: ");
-                    MobiusService service = (MobiusService) RetrofitUtils.getInstance().getService(MobiusService.class);
+                    MobiusService service = RetrofiClients.getInstance().getService(MobiusService.class);
                     Call<Object> call = service.turnOnLed(
                             "application/json",
                             "1",

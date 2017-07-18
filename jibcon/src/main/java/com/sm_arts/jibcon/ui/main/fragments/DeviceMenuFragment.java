@@ -47,10 +47,24 @@ public class DeviceMenuFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        attachUI();
+    }
+
+    @Override
+    public void onDestroyView() {
+        detachUI();
+        super.onDestroyView();
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
 
-        attachUI();
+    private void detachUI() {
+
     }
 
     private void attachUI() {

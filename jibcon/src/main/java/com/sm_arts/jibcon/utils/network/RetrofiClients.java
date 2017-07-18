@@ -1,11 +1,6 @@
 package com.sm_arts.jibcon.utils.network;
 
-import android.util.Log;
-
-import com.sm_arts.jibcon.network.ApiService;
-import com.sm_arts.jibcon.network.MobiusService;
 import com.sm_arts.jibcon.utils.consts.UrlUtils;
-import com.sm_arts.jibcon.utils.network.GsonUtils;
 
 import java.util.HashMap;
 
@@ -16,25 +11,27 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by admin on 2017-04-10.
  */
 
-public class RetrofitUtils {
-    private static RetrofitUtils sInstance;
+public class RetrofiClients {
+    private static RetrofiClients sInstance;
 
     private HashMap<Class, Object> services = new HashMap<>();
 
-    public static RetrofitUtils getInstance() {
+    public static RetrofiClients getInstance() {
         if (sInstance == null) {
-            sInstance = new RetrofitUtils();
+            sInstance = new RetrofiClients();
         }
 
         return sInstance;
     }
 
-    public Object getService(Class type) {
-        Object service = services.get(type);
+    public <T> T getService(Class<? extends T> type) {
+        T service = (T) services.get(type);
         if (service == null) {
             Retrofit client = new Retrofit.Builder()
                     .baseUrl(UrlUtils.getUrlWithClassName(type.getName()))
-                    .addConverterFactory(GsonUtils.getGsonConverterFactory())
+
+                    // mentoring
+                    .addConverterFactory(GsonConverterFactory.create(GsonUtils.getGson()))
                     .build();
 
             service = client.create(type);
