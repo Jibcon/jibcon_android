@@ -1,6 +1,7 @@
 package com.sm_arts.jibcon.device;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,10 +28,15 @@ import retrofit2.Response;
 public class DeviceMenuAdapter extends BaseAdapter {
     private static final String TAG = "DeviceMenuAdapter";
 
+    private final String AE = "";
+
     LayoutInflater mInflater;
     GlobalApplication mApp;
     Context mContext;
     ArrayList<DeviceItem> mDeviceItems;
+
+    private boolean mLedFlag;
+    private static int sReqid = 0;
 
     public ArrayList<DeviceItem> getDeviceItems() {
         return mDeviceItems;
@@ -42,7 +48,8 @@ public class DeviceMenuAdapter extends BaseAdapter {
     }
 
     public DeviceMenuAdapter(Context context) {
-        this.mContext=context;
+        this.mContext = context;
+        mLedFlag = false;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mApp = (GlobalApplication) mContext.getApplicationContext();
     }
@@ -67,7 +74,7 @@ public class DeviceMenuAdapter extends BaseAdapter {
         if(convertView == null) {
             Log.d("DeviceMenu", "DeviceMenuNull");
         }
-        convertView= mInflater.inflate(R.layout.device_devicemenuadapter_cardview, parent, false);
+        convertView = mInflater.inflate(R.layout.device_devicemenuadapter_cardview, parent, false);
         ImageView threedot = (ImageView)convertView.findViewById(R.id.ImgView_deviceItem_threedot);
         threedot.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,24 +85,35 @@ public class DeviceMenuAdapter extends BaseAdapter {
         });
         //threedot.bringToFront();
 
-        ImageView imageView = (ImageView) convertView.findViewById(R.id.ImgViewDiviceItem);
+        final ImageView imageView = (ImageView) convertView.findViewById(R.id.ImgViewDiviceItem);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: ");
                 MobiusService service = (MobiusService) RetrofitUtils.getInstance().getService(MobiusService.class);
+                int con = (mLedFlag) ? 2 : 1;
+
                 Call<Object> call = service.turnOnLed(
                         "application/json",
-                        "1",
-                        "/0.1",
+                        Integer.toString(sReqid),
+                        "/" + AE,
                         "application/vnd.onem2m-res+json; ty=4",
-                        new MobiusService.ApiCinC(3)
+                        new MobiusService.ApiCinC(con)
                         );
 
                 call.enqueue(new Callback<Object>() {
                     @Override
                     public void onResponse(Call<Object> call, Response<Object> response) {
-                        Log.d(TAG, "onResponse: ");
+                        if (response.isSuccessful()) {
+                            Log.d(TAG, "onResponse: code=" + response.code());
+                            Log.d(TAG, "onResponse: message=" + response.message());
+                            int color = mLedFlag ? Color.WHITE : Color.RED;
+                            imageView.setBackgroundColor(color);
+                            mLedFlag = !mLedFlag;
+                            sReqid++;
+                        } else {
+                            Log.d(TAG, "onResponse: code=" + response.code());
+                        }
                     }
 
                     @Override

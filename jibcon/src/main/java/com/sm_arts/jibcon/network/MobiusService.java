@@ -12,7 +12,7 @@ import retrofit2.http.POST;
 
 // todo remove this file
 public interface MobiusService {
-    @POST("/mobius-yt/ae-edu0/cnt-led")
+    @POST("/mobius-yt/ae-ledapp/cnt-ledonoff")
     retrofit2.Call<Object> turnOnLed(
             @Header("Accept") String accept,
             @Header("X-M2M-RI") String ri,
