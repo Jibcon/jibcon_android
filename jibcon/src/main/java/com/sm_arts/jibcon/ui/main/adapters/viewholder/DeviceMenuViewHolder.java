@@ -37,7 +37,7 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
                 }
         );
 
-        mDeviceItemIv = (ImageView) itemView.findViewById(R.id.ImgViewDiviceItem);
+        mDeviceItemIv = (ImageView) itemView.findViewById(R.id.deviceItemIv);
         mDeviceItemIv.setOnClickListener(
                 v-> {
                     Log.d(TAG, "onClick: ");

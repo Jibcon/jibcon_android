@@ -40,6 +40,11 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
         this.mListener = listener;
     }
 
+    public void setDeviceItems(List<DeviceItem> mDeviceItems) {
+        this.mDeviceItems = mDeviceItems;
+        notifyDataSetChanged();
+    }
+
     @Override
     public DeviceMenuViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View deviceMenuView = LayoutInflater.from(parent.getContext())

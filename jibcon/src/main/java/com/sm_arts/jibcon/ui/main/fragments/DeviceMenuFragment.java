@@ -2,8 +2,10 @@ package com.sm_arts.jibcon.ui.main.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,74 +35,72 @@ public class DeviceMenuFragment extends Fragment {
     SwipeRefreshLayout mSwiperefreshlayout;
 
     //Button button;
-    static DeviceMenuGridView sDeviceGridview;
-    DeviceMenuAdapter mAdapter;
-    GlobalApplication mApp;
+    private RecyclerView mRecyclerView;
+    private DeviceMenuAdapter mAdapter;
+    private ImageButton mFabDeviceBehindBtn;
 
-    private View initLayout(LayoutInflater inflater, ViewGroup container) {
-            View root = inflater.inflate(R.layout.device_devicemenufragment_fragment,container,false);
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        ImageButton fab = (ImageButton) root.findViewById(R.id.fab_device_behind);
+        loadData();
+    }
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity().getApplicationContext(),FloatingButtonDeviceActivity.class));
-                //getActivity().finish();
-            }
-        });
-        mSwiperefreshlayout= (SwipeRefreshLayout) root.findViewById(R.id.swipelayout_menu_deivce);
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        mSwiperefreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                DeviceServiceImpl.getInstance().reloadDeviceItems(new DeviceService.onSuccessListener() {
-                    @Override
-                    public void onSuccessGetDeviceItems(List<DeviceItem> deviceItems) {
-                        mAdapter.setDeviceItems((ArrayList)deviceItems);
-                        mAdapter.notifyDataSetChanged();
-                        mSwiperefreshlayout.setRefreshing(false);
-                    }
-                });
-            }
-        });
+        attachUI();
+    }
 
-        sDeviceGridview = (DeviceMenuGridView)root.findViewById(R.id.ScrollViewDevice);
+    private void attachUI() {
+        mFabDeviceBehindBtn = (ImageButton) getView().findViewById(R.id.fab_device_behind);
 
-        sDeviceGridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(TAG, "onItemClick: "+mAdapter.getDeviceItems().get(position).getDeviceName());
-//                Toast.makeText(getActivity().getApplicationContext(),mAdapter.getDeviceItems().get(position).getDeviceName(),Toast.LENGTH_SHORT).show();
-                //
-            }
-        });
-        // TODO: 2017-04-06 그리드뷰에 리스너 달기
+        mFabDeviceBehindBtn.setOnClickListener(
+                v -> startActivity(new Intent(getActivity().
+                        getApplicationContext(),FloatingButtonDeviceActivity.class))
+        );
 
-        mAdapter = new DeviceMenuAdapter(getActivity().getApplicationContext());
-        mAdapter.setDeviceItems(new ArrayList<DeviceItem>());
-        sDeviceGridview.setAdapter(mAdapter);
+        mSwiperefreshlayout = (SwipeRefreshLayout) getView().findViewById(R.id.swipelayout_menu_deivce);
+
+        mSwiperefreshlayout.setOnRefreshListener(
+                () ->
+                        DeviceServiceImpl.getInstance().reloadDeviceItems(
+                                (deviceItems) -> {
+                                    mAdapter.setDeviceItems((ArrayList)deviceItems);
+                                    mAdapter.notifyDataSetChanged();
+                                    mSwiperefreshlayout.setRefreshing(false);
+                                }
+                        )
+        );
+
+        mRecyclerView = (RecyclerView) getView().findViewById(R.id.deviceRecyclerView);
+
+        mAdapter = new DeviceMenuAdapter(
+                new ArrayList<DeviceItem>(),
+                (v, position) ->
+                        Log.d(TAG, "onItemClick: position=[" + position + "]")
+        );
+        mRecyclerView.setAdapter(mAdapter);
 
         Log.d(TAG, "onCreateView: ");
-        DeviceServiceImpl.getInstance().getDeviceItems(new DeviceService.onSuccessListener() {
-            @Override
-            public void onSuccessGetDeviceItems(List<DeviceItem> deviceItems) {
-                Log.d(TAG, "onSuccessGetDeviceItems: ");
-                mAdapter.setDeviceItems((ArrayList)deviceItems);
-                mAdapter.notifyDataSetChanged();
-            }
-        });
-        //floatingbuttoninit(root,container, inflater);
+        DeviceServiceImpl.getInstance().getDeviceItems(
+                deviceItems -> {
+                    Log.d(TAG, "onSuccessGetDeviceItems: ");
+                    mAdapter.setDeviceItems((ArrayList) deviceItems);
+                    mAdapter.notifyDataSetChanged();
+                }
+        );
+    }
 
-        return root;
+    private void loadData() {
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mApp = (GlobalApplication) getActivity().getApplicationContext();
-
-        Log.d("FragmentCheck","DeviceMenuFragment onCreateView");
-        View root = initLayout(inflater,container);
+        View root = inflater.inflate(R.layout.device_devicemenufragment_fragment, container, false);
+        Log.d(TAG, "onCreateView: ");
 
         return root;
     }
