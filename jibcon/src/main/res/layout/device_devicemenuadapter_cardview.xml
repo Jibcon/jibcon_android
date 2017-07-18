@@ -36,7 +36,7 @@
 
             <ImageView
 
-                android:id="@+id/ImgViewDiviceItem"
+                android:id="@+id/deviceItemIv"
                 android:src="@drawable/bulb"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
                 android:background="@color/white"/>
 
             <LinearLayout
-                android:layout_below="@id/ImgViewDiviceItem"
+                android:layout_below="@id/deviceItemIv"
                 android:layout_width="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="true"
@@ -59,7 +59,7 @@
                     android:gravity="center"
                     android:text="장소이름"
                     android:id="@+id/Txt_Cardview1"
-                    android:layout_below="@id/ImgViewDiviceItem"
+                    android:layout_below="@id/deviceItemIv"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content" />
@@ -69,7 +69,7 @@
                     android:text="장치이름"
                     android:layout_toRightOf="@id/Txt_Cardview1"
                     android:id="@+id/Txt_Cardview2"
-                    android:layout_below="@id/ImgViewDiviceItem"
+                    android:layout_below="@id/deviceItemIv"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content" />
