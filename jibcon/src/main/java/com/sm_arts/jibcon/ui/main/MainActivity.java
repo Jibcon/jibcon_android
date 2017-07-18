@@ -24,7 +24,6 @@ import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.app.cheatkey.CheatkeyMenuFragment;
-import com.sm_arts.jibcon.device.DeviceMenuFragment;
 import com.sm_arts.jibcon.app.conshop.ConshopFragment;
 
 import com.sm_arts.jibcon.app.datacontrol.DataControlFragment;
@@ -34,6 +33,7 @@ import com.sm_arts.jibcon.app.sidebar.ConnectedDevicesActivity;
 import com.sm_arts.jibcon.app.sidebar.MyJibconActivity;
 import com.sm_arts.jibcon.app.sidebar.UserAuthorityActivity;
 import com.sm_arts.jibcon.app.sidebar.WidgetActivity;
+import com.sm_arts.jibcon.ui.main.fragments.DeviceMenuFragment;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {

@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.device;
+package com.sm_arts.jibcon.ui.main.adapters;
 
 import android.content.Context;
 import android.util.Log;
@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.network.MobiusService;
 import com.sm_arts.jibcon.utils.network.RetrofitUtils;
 import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;

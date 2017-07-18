@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.device;
+package com.sm_arts.jibcon.ui.main.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 
+import com.sm_arts.jibcon.device.DeviceItem;
+import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
+import com.sm_arts.jibcon.device.DeviceMenuGridView;
 import com.sm_arts.jibcon.device.service.DeviceService;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.app.GlobalApplication;
