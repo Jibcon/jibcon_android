@@ -10,10 +10,13 @@ import android.util.Log;
 import com.kakao.auth.KakaoSDK;
 import com.sm_arts.jibcon.login.KaKaoSDKAdpater;
 import com.sm_arts.jibcon.login.user.domain.User;
+import com.sm_arts.jibcon.login.user.service.network.UserNetworkImpl;
 import com.tsengvn.typekit.Typekit;
 
 import java.lang.ref.WeakReference;
 import java.net.URL;
+
+import io.reactivex.functions.Consumer;
 
 import static com.kakao.util.helper.Utility.getPackageInfo;
 
@@ -60,7 +63,42 @@ public class GlobalApplication extends MultiDexApplication {
     }
 
     public String getUserToken() {
+        // todo remove
+        if (!userSignin()) {
+            User user = UserNetworkImpl.getInstance().getSampleUserInfoFromServerSynchronisely();
+            userToken = user.getToken();
+            Log.d(TAG, "getUserToken: " + userToken);
+        }
+
         return userToken;
+    }
+
+    public String getUserToken(Consumer<String> comsumer) {
+        // todo remove
+        if (!userSignin()) {
+            UserNetworkImpl.getInstance().getSampleUserInfoFromServerAsynchronisely(
+                    (user) -> {
+                        try {
+                            String token = user.getToken();
+                            setUserToken(token);
+                            Log.d(TAG, "getUserToken: " + token);
+                            comsumer.accept(token);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+            );
+        }
+
+        return userToken;
+    }
+
+    public boolean userSignin() {
+        if (userToken == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public void setUserToken(String userToken) {
