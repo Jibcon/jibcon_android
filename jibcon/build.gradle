@@ -22,6 +22,15 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    productFlavors {
+        dev {
+            minSdkVersion 21
+        }
+        prod {
+            minSdkVersion 14
+        }
+    }
+
     // For multidex error
     dexOptions {
         javaMaxHeapSize = "4g"
