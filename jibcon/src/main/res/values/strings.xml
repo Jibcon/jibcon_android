@@ -2,6 +2,9 @@
     
     <string name="app_name">jibcon</string>
     <string name="kakao_app_key"> b7098b8b9fbec51fc6116d5c51946e5e</string>
+    <string name="naver_client_id">f2VZgOgRx7HzZaCUzN_D</string>
+    <string name="naver_client_secret">uldOlbBiia</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="facebook_app_id">440498979632151</string>

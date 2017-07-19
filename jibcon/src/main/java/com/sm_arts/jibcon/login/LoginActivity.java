@@ -1,5 +1,6 @@
 package com.sm_arts.jibcon.login;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -23,15 +24,18 @@ import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
+import com.nhn.android.naverlogin.OAuthLogin;
+import com.nhn.android.naverlogin.OAuthLoginHandler;
+import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
+import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.app.GlobalApplication;
+import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
+import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
-import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
-import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.utils.network.RetrofitUtils;
 
@@ -47,7 +51,7 @@ import retrofit2.Response;
 public class LoginActivity extends BaseActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     private SessionCallback mKakaoCallback;      //콜백 선언
-
+    private OAuthLoginButton mOAuthLoginButton;
     private VideoView mVideoView;
 
 
@@ -152,12 +156,65 @@ public class LoginActivity extends BaseActivity {
         }
     };
 
+
+    //naver login handler
+
+    private OAuthLoginHandler mOAuthLoginHandler = new OAuthLoginHandler() {
+        @Override
+        public void run(boolean success) {
+
+            if(success)
+            {//네이버 로그인 성공시
+                OAuthLogin mOAuthLogin = GlobalApplication.getNaverOAuthLogin();
+                Context mContext = getApplicationContext();
+                String accessToken = mOAuthLogin.getAccessToken(mContext);
+                String refreshToken= mOAuthLogin.getRefreshToken(mContext);
+                long expiresAt = mOAuthLogin.getExpiresAt(mContext);
+                String tokenType = mOAuthLogin.getTokenType(mContext);
+
+                Log.d(TAG, "run: accesstoken : "+accessToken);
+                Log.d(TAG, "run: refreshtoken : "+refreshToken);
+                Log.d(TAG, "run: expiresAt : "+expiresAt);
+                Log.d(TAG, "run: tokenType : "+tokenType);
+
+
+                //일단 샘플계정 로그인으로
+                UserServiceImpl.getInstance().getSampleUserAsynchronisely(new UserService.onSuccessListener() {
+                    @Override
+                    public void onSuccessGetSampleUserAsynchronisely(User sampleUser) {
+                        Log.d(TAG, "onSuccessGetSampleUserAsynchronisely: ");
+                        mApp.setUser(sampleUser);
+                        DeviceServiceImpl.getInstance().prepareDeviceItems();
+
+                        gotoMakeConStartActivity();
+                    }
+                });
+
+
+            }
+            else
+            {
+
+            }
+        }
+    };
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_loginactivity_activity);
 
         mVideoView = (VideoView)findViewById(R.id.videoView);
+
+        mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.btn_naver_login);
+        mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
+        mOAuthLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GlobalApplication.getNaverOAuthLogin().startOauthLoginActivity(LoginActivity.this,mOAuthLoginHandler);
+            }
+        });
+
 
         mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override

@@ -2,11 +2,7 @@ package com.sm_arts.jibcon.app.splash;
 
 // 매니페스트 파일에서 메인 엑티비티에 걸려있는? <intent-filter>를 IntroActivity에 넣어줌.
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
@@ -14,26 +10,22 @@ import android.util.Log;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
+import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.app.GlobalApplication;
+import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.login.LoginActivity;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.main.MainActivity;
-import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.utils.network.RetrofitUtils;
 
 import java.net.URL;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static com.kakao.util.helper.Utility.getPackageInfo;
 
 public class IntroActivity extends BaseActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
@@ -163,26 +155,26 @@ public class IntroActivity extends BaseActivity {
         mHandler.removeCallbacks(mRunnable);
     }
 
-
-    public static String getKeyHash(Context context) {
-        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
-        if (packageInfo == null)
-            return null;
-        for (Signature signature : packageInfo.signatures) {
-            try {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                String hashKey= android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
-                //카카오톡 안드로이드 플랫폼 키해시에 들어갈 키 정보 알아내기
-                Log.d("testing",hashKey);
-
-                return android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
-            } catch (NoSuchAlgorithmException e) {
-                Log.d("testing", "Unable to get MessageDigest. signature=" + signature, e);
-            }
-        }
-        return null;
-    }
+//
+//    public static String getKeyHash(Context context) {
+//        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
+//        if (packageInfo == null)
+//            return null;
+//        for (Signature signature : packageInfo.signatures) {
+//            try {
+//                MessageDigest md = MessageDigest.getInstance("SHA");
+//                md.update(signature.toByteArray());
+//                String hashKey= android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
+//                //카카오톡 안드로이드 플랫폼 키해시에 들어갈 키 정보 알아내기
+//                Log.d("testing",hashKey);
+//
+//                return android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
+//            } catch (NoSuchAlgorithmException e) {
+//                Log.d("testing", "Unable to get MessageDigest. signature=" + signature, e);
+//            }
+//        }
+//        return null;
+//    }
 
     private  void itemSetup() {
         //Global Application 에 담을 정보 초기 setup;
