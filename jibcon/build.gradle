@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
 
 android {
     compileSdkVersion 25
@@ -6,12 +8,10 @@ android {
     repositories {
         mavenCentral()
     }
+
     defaultConfig {
         applicationId "com.sm_arts.jibcon"
 
-        jackOptions {
-            enabled true
-        }
         minSdkVersion 17
         targetSdkVersion 25
         versionCode 3
@@ -29,6 +29,11 @@ android {
         prod {
             minSdkVersion 14
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     // For multidex error
@@ -85,12 +90,4 @@ dependencies {
 
 //    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.0.9'
-
-}
-
-android {
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
 }
