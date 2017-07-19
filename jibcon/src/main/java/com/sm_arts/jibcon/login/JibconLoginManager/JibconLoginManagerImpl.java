@@ -3,7 +3,6 @@ package com.sm_arts.jibcon.login.JibconLoginManager;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.facebook.AccessToken;
@@ -24,6 +23,7 @@ import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.network.ApiService;
+import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 import com.sm_arts.jibcon.utils.network.RetrofitUtils;
 
 import org.json.JSONObject;
@@ -101,11 +101,8 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
 
                             mApp.setUsername(object.optString("name"));
 
-                            SharedPreferences pref = mApp.getSharedPreferences("pref",Context.MODE_PRIVATE);
-                            SharedPreferences.Editor editor = pref.edit();
 
-                            editor.putString("LOGINTYPE","FACEBOOK");
-                            editor.commit();
+                            SharedPreferenceHelper.SaveSharedPreference("pref","LOGINTYPE","FACEBOOK");
 
                         }
                     }
@@ -175,9 +172,9 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
         // TODO: 2017-07-19 sharedpreference로 어떤 로그인 타입이었는지 체크
         // TODO: 2017-07-19 DB로 변경
 
-        SharedPreferences pref = context.getSharedPreferences("pref",Context.MODE_PRIVATE);
         String logintype;
-        logintype=pref.getString("LOGINTYPE","");
+        logintype=SharedPreferenceHelper.GetSharedPrefrence("pref","LOGINTYPE");
+
         Log.d(TAG, "logout: LoginType : "+logintype);
         if(logintype.equals(""))
         {
