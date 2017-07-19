@@ -25,7 +25,7 @@ import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.login.JibconLoginManager.JibconLoginManagerImpl;
+import com.sm_arts.jibcon.login.loginmanager.JibconLoginManagerImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
@@ -47,8 +47,7 @@ public class LoginActivity extends BaseActivity {
     private FacebookCallback<LoginResult> mFacebookCallback=null;
 
     private OAuthLoginHandler mMaverOAuthLoginHandler=null;
-    private void facebookLoginSetup()
-    {
+    private void facebookLoginSetup() {
         FacebookSdk.sdkInitialize(getApplicationContext());
 
 
@@ -94,8 +93,8 @@ public class LoginActivity extends BaseActivity {
         mOAuthLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferenceHelper.SaveSharedPreference("pref","LOGINTYPE","NAVER");
-                GlobalApplication.getNaverOAuthLogin().startOauthLoginActivity(LoginActivity.this,mOAuthLoginHandler);
+                SharedPreferenceHelper.saveSharedPreference("pref","LOGINTYPE","NAVER");
+                GlobalApplication.getNaverOAuthLogin().startOauthLoginActivity(LoginActivity.this, mOAuthLoginHandler);
             }
         });
 

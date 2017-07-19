@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.login.JibconLoginManager;
+package com.sm_arts.jibcon.login.loginmanager;
 
 import android.content.Context;
 

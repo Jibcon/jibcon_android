@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.login.JibconLoginManager;
+package com.sm_arts.jibcon.login.loginmanager;
 
 import android.app.Activity;
 import android.content.Context;
@@ -47,7 +47,6 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
     private CallbackManager mCallbackManager = null;
     private AccessTokenTracker mAccessTokenTracker = null;
     private static final String TAG =  "JibconLoginManagerImpl";
-    GlobalApplication mApp;
 
     @Override
     public CallbackManager makeFacebookCallbackManager() {
@@ -99,7 +98,7 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
                         @Override
                         public void onSuccessGetSampleUserAsynchronisely(User sampleUser) {
                             Log.d(TAG, "onSuccessGetSampleUserAsynchronisely: ");
-                            mApp.setUser(sampleUser);
+                            GlobalApplication.getGlobalApplicationContext().setUser(sampleUser);
                             DeviceServiceImpl.getInstance().prepareDeviceItems();
                             context.startActivity(new Intent(context,MakeconStartActivity.class));
                         }
@@ -117,7 +116,6 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
     @Override
     public FacebookCallback<LoginResult> makeFacebookLoginManager() {
 
-        mApp=GlobalApplication.getGlobalApplicationContext();
         FacebookCallback<LoginResult> mFacebookCallback = new FacebookCallback<LoginResult>() {
             String userEmail;
             String name;
@@ -136,7 +134,7 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
 
                             userid = object.optString("id");
                             try {
-                                mApp.setUserProfileImage(new URL("https://graph.facebook.com/"+userid+"/picture"));
+                                GlobalApplication.getGlobalApplicationContext().setUserProfileImage(new URL("https://graph.facebook.com/"+userid+"/picture"));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -146,10 +144,10 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
                             Log.d("profilecheck","useremail :" + userEmail);
                             Log.d("profilecheck","name : " + name);
 
-                            mApp.setUsername(object.optString("name"));
+                            GlobalApplication.getGlobalApplicationContext().setUsername(object.optString("name"));
 
 
-                            SharedPreferenceHelper.SaveSharedPreference("pref","LOGINTYPE","FACEBOOK");
+                            SharedPreferenceHelper.saveSharedPreference("pref","LOGINTYPE","FACEBOOK");
 
                         }
                     }
@@ -157,8 +155,8 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
 
 
                 final String userTokenFacebook;
-                userTokenFacebook=loginResult.getAccessToken().getToken();
-                UserInfo userInfo=new UserInfo("facebook",userTokenFacebook);
+                userTokenFacebook = loginResult.getAccessToken().getToken();
+                UserInfo userInfo = new UserInfo("facebook",userTokenFacebook);
                 Log.d("MYTOKEN",userTokenFacebook);
                 ApiService apiService = (ApiService) RetrofitUtils.getInstance().getService(ApiService.class);;
 
@@ -168,16 +166,16 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
                     c.enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
-                            mApp.setUserEmail(response.body().getEmail());
-                            mApp.setUserToken(response.body().getToken());
+                            GlobalApplication.getGlobalApplicationContext().setUserEmail(response.body().getEmail());
+                            GlobalApplication.getGlobalApplicationContext().setUserToken(response.body().getToken());
                             Log.d(TAG, "onResponse: "+"success");
                             //Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
-                            Intent intent= new Intent(mApp, MakeconStartActivity.class);
+                            Intent intent = new Intent(GlobalApplication.getGlobalApplicationContext(), MakeconStartActivity.class);
 
                             // prepare deviceItems
                             DeviceServiceImpl.getInstance().prepareDeviceItems();
 
-                            mApp.startActivity(intent);
+                            GlobalApplication.getGlobalApplicationContext().startActivity(intent);
 
 
                         }
@@ -220,7 +218,7 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
         // TODO: 2017-07-19 DB로 변경
 
         String logintype;
-        logintype=SharedPreferenceHelper.GetSharedPrefrence("pref","LOGINTYPE");
+        logintype = SharedPreferenceHelper.getSharedPrefrence("pref","LOGINTYPE");
 
         Log.d(TAG, "logout: LoginType : "+logintype);
         if(logintype.equals(""))

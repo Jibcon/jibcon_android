@@ -95,7 +95,7 @@ public class KakaoSignupActivity extends BaseActivity {
             }
         });
 
-        SharedPreferenceHelper.SaveSharedPreference("pref","LOGINTYPE","KAKAO");
+        SharedPreferenceHelper.saveSharedPreference("pref", "LOGINTYPE", "KAKAO");
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }

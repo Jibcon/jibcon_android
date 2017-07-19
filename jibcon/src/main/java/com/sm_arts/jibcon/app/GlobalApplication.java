@@ -34,7 +34,7 @@ public class GlobalApplication extends MultiDexApplication {
     String userEmail;
     URL userProfileImage;
 
-    private static OAuthLogin mOAuthLoginModule=null;
+    private static OAuthLogin mOAuthLoginModule = null;
 
     public URL getUserProfileImage() {
         return userProfileImage;
@@ -88,7 +88,8 @@ public class GlobalApplication extends MultiDexApplication {
         if (mOAuthLoginModule == null)
         {
             mOAuthLoginModule = OAuthLogin.getInstance();
-            mOAuthLoginModule.init(getGlobalApplicationContext(), "f2VZgOgRx7HzZaCUzN_D" , "uldOlbBiia" , "JIBCON");
+            mOAuthLoginModule.init(getGlobalApplicationContext(),
+                    "f2VZgOgRx7HzZaCUzN_D" , "uldOlbBiia" , "JIBCON");
 
         }
 

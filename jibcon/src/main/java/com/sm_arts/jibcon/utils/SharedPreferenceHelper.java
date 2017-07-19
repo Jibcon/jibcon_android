@@ -13,7 +13,7 @@ public class SharedPreferenceHelper {
 
 
 
-    public static void SaveSharedPreference(String preferenceName,String key, String str)
+    public static void saveSharedPreference(String preferenceName, String key, String str)
     {
         SharedPreferences pref = GlobalApplication.getGlobalApplicationContext().getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
@@ -21,7 +21,7 @@ public class SharedPreferenceHelper {
         editor.putString(key,str);
         editor.commit();
     }
-    public static String GetSharedPrefrence(String preferenceName,String key)
+    public static String getSharedPrefrence(String preferenceName, String key)
     {
 
         //default return ""
