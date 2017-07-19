@@ -24,16 +24,15 @@ import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.app.cheatkey.CheatkeyMenuFragment;
-import com.sm_arts.jibcon.device.DeviceMenuFragment;
 import com.sm_arts.jibcon.app.conshop.ConshopFragment;
-
 import com.sm_arts.jibcon.app.datacontrol.DataControlFragment;
-import com.sm_arts.jibcon.app.setting.SettingActivity;
 import com.sm_arts.jibcon.app.sidebar.AboutJibconActivity;
 import com.sm_arts.jibcon.app.sidebar.ConnectedDevicesActivity;
 import com.sm_arts.jibcon.app.sidebar.MyJibconActivity;
 import com.sm_arts.jibcon.app.sidebar.UserAuthorityActivity;
 import com.sm_arts.jibcon.app.sidebar.WidgetActivity;
+import com.sm_arts.jibcon.device.DeviceMenuFragment;
+import com.sm_arts.jibcon.ui.dialogs.SidebarDialog;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -258,8 +257,13 @@ public class MainActivity extends BaseActivity
         mtoSettingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,SettingActivity.class);
-                startActivity(intent);
+
+
+                SidebarDialog sidebarDialog = new SidebarDialog(MainActivity.this);
+                sidebarDialog.show();
+
+//                Intent intent=new Intent(MainActivity.this,SettingActivity.class);
+//                startActivity(intent);
             }
         });
 

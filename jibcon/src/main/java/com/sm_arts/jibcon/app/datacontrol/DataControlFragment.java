@@ -9,7 +9,6 @@ import android.widget.ListView;
 
 import com.sm_arts.jibcon.R;
 
-import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

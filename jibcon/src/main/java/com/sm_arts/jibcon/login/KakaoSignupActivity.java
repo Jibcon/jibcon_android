@@ -1,6 +1,8 @@
 package com.sm_arts.jibcon.login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -93,7 +95,12 @@ public class KakaoSignupActivity extends BaseActivity {
                 DeviceServiceImpl.getInstance().prepareDeviceItems();
             }
         });
-        
+
+        SharedPreferences pref = mApp.getSharedPreferences("pref", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+
+        editor.putString("LOGINTYPE","KAKAO");
+        editor.commit();
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }

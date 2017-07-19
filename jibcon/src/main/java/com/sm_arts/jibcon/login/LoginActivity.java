@@ -1,7 +1,6 @@
 package com.sm_arts.jibcon.login;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,153 +8,66 @@ import android.util.Log;
 import android.view.View;
 import android.widget.VideoView;
 
-import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
+import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.app.GlobalApplication;
+import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
+import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
+import com.sm_arts.jibcon.login.JibconLoginManager.JibconLoginManagerImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
-import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
-import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
-import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.network.ApiService;
-import com.sm_arts.jibcon.utils.network.RetrofitUtils;
-
-import org.json.JSONObject;
-
-import java.net.URL;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class LoginActivity extends BaseActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
+
+    private JibconLoginManagerImpl mJibconLoginManager;
+
     private SessionCallback mKakaoCallback;      //콜백 선언
 
     private VideoView mVideoView;
 
-
-    //--블로그
     private CallbackManager mCallbackManager = null;
     private AccessTokenTracker mAccessTokenTracker = null;
     GlobalApplication mApp;
+    private FacebookCallback<LoginResult> mFacebookCallback=null;
 
-    //facebook
-    private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
-        String userEmail;
-        String name;
-
-        @Override
-        public void onSuccess(LoginResult loginResult) {
-            //유저 정보 받아오기
-            GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
-                @Override
-                public void onCompleted(JSONObject object, GraphResponse response) {
-                    if(response.getError() != null) {
-                        Log.d("profilecheck","onCompleted() error");
-                        //error handle
-                    } else {
-                        String userid;
-
-                        userid = object.optString("id");
-                        try {
-                            mApp.setUserProfileImage(new URL("https://graph.facebook.com/"+userid+"/picture"));
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        userEmail = object.optString("email");
-                        name = object.optString("name");
-                        Log.d(TAG, "onCompleted: " + userEmail + "/" + name);
-                        //Toast.makeText(getApplicationContext(),userEmail+"/"+name,Toast.LENGTH_SHORT).show();
-                        Log.d("profilecheck","useremail :" + userEmail);
-                        Log.d("profilecheck","name : " + name);
-
-                        mApp.setUsername(object.optString("name"));
-
-                        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = pref.edit();
-                        editor.putString("id", userid);
-                        editor.putString("name", object.optString("name"));
-                        Log.d("profieImage", mApp.getUserProfileImage().toString());
-                        editor.putString("profileImage", mApp.getUserProfileImage().toString());
-                        editor.commit();
-                    }
-                }
-            }).executeAsync();
+    private void facebookLoginSetup()
+    {
+        FacebookSdk.sdkInitialize(getApplicationContext());
 
 
-            final String userTokenFacebook;
-            userTokenFacebook=loginResult.getAccessToken().getToken();
-            UserInfo userInfo=new UserInfo("facebook",userTokenFacebook);
-            Log.d("MYTOKEN",userTokenFacebook);
-            ApiService apiService = (ApiService) RetrofitUtils.getInstance().getService(ApiService.class);;
+        mFacebookCallback = mJibconLoginManager.makeFacebookLoginManager();
+        mCallbackManager = mJibconLoginManager.makeFacebookCallbackManager();
+        mAccessTokenTracker = mJibconLoginManager.makeFacebookAccessTokenTracker();
 
-            Call<User> c = apiService.login(userInfo);
-            try
-            {
-                c.enqueue(new Callback<User>() {
-                    @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
-                        mApp.setUserEmail(response.body().getEmail());
-                        mApp.setUserToken(response.body().getToken());
-                        Log.d(TAG, "onResponse: "+"success");
-                        //Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
-                        Intent intent= new Intent(getApplicationContext(), MakeconStartActivity.class);
 
-                        // prepare deviceItems
-                        DeviceServiceImpl.getInstance().prepareDeviceItems();
+        LoginButton loginButton = (LoginButton) findViewById(R.id.btn_login_facebook);
+        loginButton.setReadPermissions("public_profile", "user_friends");
+        loginButton.setReadPermissions("email");
 
-                        startActivity(intent);
+        //loginButton.setFragment(this);
+        loginButton.registerCallback(mCallbackManager, mFacebookCallback);
 
-                        finish();
-                    }
-
-                    @Override
-                    public void onFailure(Call<User> call, Throwable t) {
-                        t.printStackTrace();
-                        Log.d(TAG, "onFailure: "+"fail");
-                        //Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-
-        }
-
-        @Override
-        public void onCancel() {
-            Log.d(TAG, "onCancel: "+"cancled");
-            //Toast.makeText(getApplicationContext(), "User sign in canceled!", Toast.LENGTH_LONG).show();
-        }
-
-        @Override
-        public void onError(FacebookException e) {
-
-        }
-    };
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_loginactivity_activity);
+
+        mJibconLoginManager = new JibconLoginManagerImpl();
 
         mVideoView = (VideoView)findViewById(R.id.videoView);
 
@@ -172,29 +84,7 @@ public class LoginActivity extends BaseActivity {
 
         mApp = (GlobalApplication) getApplicationContext();
 
-        FacebookSdk.sdkInitialize(getApplicationContext());
-
-        mCallbackManager = CallbackManager.Factory.create();
-
-        mAccessTokenTracker = new AccessTokenTracker() {
-            @Override
-            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-// App code
-                //DEBUG코드
-                if (currentAccessToken != null) {
-                    Log.d("Token", currentAccessToken.toString());
-                }
-                Log.d(TAG, "onCurrentAccessTokenChanged: " + currentAccessToken);
-                //Toast.makeText(getApplicationContext(),"current token : "+currentAccessToken,Toast.LENGTH_SHORT).show();
-                 }
-        };
-
-        LoginButton loginButton = (LoginButton) findViewById(R.id.btn_login_facebook);
-        loginButton.setReadPermissions("public_profile", "user_friends");
-        loginButton.setReadPermissions("email");
-
-        //loginButton.setFragment(this);
-        loginButton.registerCallback(mCallbackManager, mCallback);
+        facebookLoginSetup();
 
         initSampleSignInBtn();
 
