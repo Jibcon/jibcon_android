@@ -44,6 +44,8 @@ public class IntroActivity extends BaseActivity {
     Runnable mRunnable = new Runnable() {
         @Override
         public void run() {
+
+            Log.d(TAG, "run: ");
             mCallbackManager= CallbackManager.Factory.create();
             final AccessToken accesstoken = AccessToken.getCurrentAccessToken();
 

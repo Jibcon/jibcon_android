@@ -174,6 +174,7 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
 
         // TODO: 2017-07-19 sharedpreference로 어떤 로그인 타입이었는지 체크
         // TODO: 2017-07-19 DB로 변경
+
         SharedPreferences pref = context.getSharedPreferences("pref",Context.MODE_PRIVATE);
         String logintype;
         logintype=pref.getString("LOGINTYPE","");
