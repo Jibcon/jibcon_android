@@ -25,16 +25,12 @@ public class FloatingButtonPassiveActivity extends BaseActivity {
     private float mOffset2;
     private float mOffset3;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ui_passive_floatingbutton);
+        setContentView(R.layout.ui_floatingbuttonpassiveactivity_floatingbutton);
 
-
-
-        final ViewGroup fabcontainer = (ViewGroup)findViewById(R.id.fab_container_cheatkey_passive);
+        final ViewGroup fabcontainer = (ViewGroup) findViewById(R.id.fab_container_cheatkey_passive);
 
         fabcontainer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,19 +39,15 @@ public class FloatingButtonPassiveActivity extends BaseActivity {
             }
         });
 
-        mFabItem1=findViewById(R.id.fab_action_1_cheatkey_passive);
+        mFabItem1 = findViewById(R.id.fab_action_1_cheatkey_passive);
         mFabItem1.setVisibility(View.INVISIBLE);
-        mFabItem2=(TextView)findViewById(R.id.Txt_floating_cheatkey_passive);
+        mFabItem2 = (TextView) findViewById(R.id.Txt_floating_cheatkey_passive);
 
-
-        mFab=(ImageButton)findViewById(R.id.fab_cheatkey_passive);
+        mFab = (ImageButton) findViewById(R.id.fab_cheatkey_passive);
 
         expandFab();
         mFabItem1.setVisibility(View.VISIBLE);
         mFabItem2.setVisibility(View.VISIBLE);
-
-
-
 
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +61,6 @@ public class FloatingButtonPassiveActivity extends BaseActivity {
             }
         });
 
-
         fabcontainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
@@ -81,9 +72,7 @@ public class FloatingButtonPassiveActivity extends BaseActivity {
                 return true;
             }
         });
-
     }
-
 
     private void collapseFab() {
         // fab.setImageResource(R.drawable.animated_minus);

@@ -23,18 +23,6 @@ import butterknife.OnClick;
  */
 
 public class CheatkeyPassiveFragment extends android.support.v4.app.Fragment{
-
-    @BindString(R.string.trick_passive_input_menu_1) String input1;
-    @BindString(R.string.trick_passive_input_menu_2) String input2;
-    @BindString(R.string.trick_passive_input_menu_3) String input3;
-    @BindString(R.string.trick_passive_input_menu_4) String input4;
-
-    @BindString(R.string.trick_passive_output_menu_1) String output1;
-    @BindString(R.string.trick_passive_output_menu_2) String output2;
-    @BindString(R.string.trick_passive_output_menu_3) String output3;
-    @BindString(R.string.trick_passive_output_menu_4) String output4;
-
-    
     //hamburger btn
     @OnClick(R.id.fab_cheatkey_passive_behind) void fab_cheatkey_passive_behind() {
         startActivity(new Intent(getContext(), FloatingButtonPassiveActivity.class));
@@ -55,10 +43,9 @@ public class CheatkeyPassiveFragment extends android.support.v4.app.Fragment{
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.cheatkey_passive_fragment, container, false); // 액티비티에서는 setContentView
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        View v = inflater.inflate(R.layout.cheatkey_cheatkeypassivefragment_fragment, container, false); // 액티비티에서는 setContentView
         ButterKnife.bind(this, v);
-
 
         // RecyclerView 구현 및 Adpater 설정
         mRecyclerView = (RecyclerView)v.findViewById(R.id.passive_cardview);
@@ -72,28 +59,13 @@ public class CheatkeyPassiveFragment extends android.support.v4.app.Fragment{
         mAdapter = new PassiveCheatkeyAdapter(mPassiveCheatkeyDataset);
         mRecyclerView.setAdapter(mAdapter);
 
-
-        // 치트키 수동 입력, 추후 사용자가 치트키 등록시 추가되도록 구현해야
-        // cardview #1
-        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
-                input1, output1
-        ));
-        // cardview #2
-        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
-                input2, output2
-        ));
-        // cardview #3
-        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
-                input3, output3
-        ));
-        // cardview #4
-        mPassiveCheatkeyDataset.add(new PassiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
-                input4, output4
-        ));
+        for(int i = 0; i < 4; i++) {
+            mPassiveCheatkeyDataset.add(
+                    new PassiveCheatkeyData
+                            (R.id.btn_passive_cheatkey_setting,
+                                    getResources().getStringArray(R.array.trick_passive_input_array)[i],
+                                    getResources().getStringArray(R.array.trick_passive_output_array)[i]));
+        }
 
         return v;
     }

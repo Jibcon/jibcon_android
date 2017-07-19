@@ -5,7 +5,7 @@ import android.util.Log;
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.network.ApiService;
-import com.sm_arts.jibcon.network.Repo;
+import com.sm_arts.jibcon.utils.network.RetrofitUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class DeviceNetworkImpl implements DeviceNetwork {
 
     private DeviceNetworkImpl() {
         mApp = GlobalApplication.getGlobalApplicationContext();
-        mApiService = new Repo().getService();
+        mApiService = (ApiService) RetrofitUtils.getInstance().getService(ApiService.class);
     }
 
     public static DeviceNetwork getInstance() {
@@ -46,7 +46,7 @@ public class DeviceNetworkImpl implements DeviceNetwork {
             Log.d(TAG, "getDeviceItemsFromServer: isWorking -> just addListener");
         } else {
             mIsWorking = true;
-            Call<List<DeviceItem>> c = Repo.getStaticService().getDevices("Token " + mApp.getUserToken());
+            Call<List<DeviceItem>> c = mApiService.getDevices("Token " + mApp.getUserToken());
             try {
                 c.enqueue(new Callback<List<DeviceItem>>() {
                     @Override

@@ -46,7 +46,7 @@ public class GetOtherConAdapter extends RecyclerView.Adapter<GetOtherConAdapter.
     public GetOtherConAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.getothercon_cardview, parent, false);
+                .inflate(R.layout.getothercon_getotherconadapter_cardview, parent, false);
 
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
@@ -69,22 +69,5 @@ public class GetOtherConAdapter extends RecyclerView.Adapter<GetOtherConAdapter.
     @Override
     public int getItemCount() {
         return mDataset.size();
-    }
-}
-
-
-
-// 입력할 데이터 종류 커스터마이징
-class getOtherConData {
-    public int userImg; // 초대한 사람 이미지
-    public String houseName; // 초대한 사람의 집 이름
-    public String email; // 초대한 사람의 이메일
-    public String houseInfo; // 초대한 사람의 집 정보
-
-    public getOtherConData(int userImg, String houseName, String email, String houseInfo) {
-        this.userImg = userImg;
-        this.houseName = houseName;
-        this.email = email;
-        this.houseInfo = houseInfo;
     }
 }

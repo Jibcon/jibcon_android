@@ -38,13 +38,13 @@ public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
 
 
     private void initLayout() {
-        mNext = (Button)mLinearLayout.findViewById(R.id.Btn_makeCon1_1);
-        mEditHousename = (EditText)mLinearLayout.findViewById(R.id.EditTxt_makecon1_1);
-        mEditUsername = (EditText)mLinearLayout.findViewById(R.id.EditTxt_makecon1_2);
-        mEditHouseintro=(EditText)mLinearLayout.findViewById(R.id.EditTxt_makecon1_3);
+        mNext = (Button) mLinearLayout.findViewById(R.id.Btn_makeCon1_1);
+        mEditHousename = (EditText) mLinearLayout.findViewById(R.id.EditTxt_makecon1_1);
+        mEditUsername = (EditText) mLinearLayout.findViewById(R.id.EditTxt_makecon1_2);
+        mEditHouseintro = (EditText) mLinearLayout.findViewById(R.id.EditTxt_makecon1_3);
         mFragmentNum = 0;
-        mBefore=(ImageButton)mLinearLayout.findViewById(R.id.btn_goback);
-        mBarName = (TextView)mLinearLayout.findViewById(R.id.bar_name);
+        mBefore = (ImageButton) mLinearLayout.findViewById(R.id.btn_goback);
+        mBarName = (TextView) mLinearLayout.findViewById(R.id.bar_name);
     }
 
     @Override
@@ -63,7 +63,8 @@ public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon_housename_fragment, container, false);
+        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.makecon_makeconhousenamefragment_fragment,container,false);
+      
         initLayout();
 
         mHousename = mEditHousename.getText().toString();

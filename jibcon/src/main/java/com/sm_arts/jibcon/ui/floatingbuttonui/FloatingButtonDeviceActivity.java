@@ -28,9 +28,7 @@ public class FloatingButtonDeviceActivity extends BaseActivity {
     private float mOffset2;
     private float mOffset3;
 
-
-    public void goToAddDevice()
-    {
+    public void goToAddDevice() {
         Intent intent = new Intent(getApplicationContext(), AddDeviceActivity.class);
         startActivity(intent);
         finish();
@@ -38,12 +36,9 @@ public class FloatingButtonDeviceActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.ui_floatingbuttondeviceactivity_floatingbutton);
 
-        setContentView(R.layout.ui_add_device_floatingbutton);
-
-
-
-        final ViewGroup fabcontainer = (ViewGroup)findViewById(R.id.fab_container_device);
+        final ViewGroup fabcontainer = (ViewGroup) findViewById(R.id.fab_container_device);
 
         fabcontainer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,9 +47,9 @@ public class FloatingButtonDeviceActivity extends BaseActivity {
             }
         });
 
-        mFabItem1=findViewById(R.id.fab_action_1_device);
+        mFabItem1 = findViewById(R.id.fab_action_1_device);
         mFabItem1.setVisibility(View.INVISIBLE);
-        mFabItem2=(TextView)findViewById(R.id.Txt_floating_device);
+        mFabItem2 = (TextView) findViewById(R.id.Txt_floating_device);
 
         mFabItem1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,18 +63,13 @@ public class FloatingButtonDeviceActivity extends BaseActivity {
         mFabItem1.setVisibility(View.VISIBLE);
         mFabItem2.setVisibility(View.VISIBLE);
 
-
-
-
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 collapseFab();
                 mFabItem1.setVisibility(View.INVISIBLE);
                 mFabItem2.setVisibility(View.INVISIBLE);
-
                 finish();
-
             }
         });
 
@@ -95,11 +85,7 @@ public class FloatingButtonDeviceActivity extends BaseActivity {
                 return true;
             }
         });
-
-
-
     }
-
 
     private void collapseFab() {
         // mFab.setImageResource(R.drawable.animated_minus);

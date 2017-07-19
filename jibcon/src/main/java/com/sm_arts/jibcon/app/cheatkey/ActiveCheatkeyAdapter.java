@@ -49,8 +49,8 @@ public class ActiveCheatkeyAdapter
     }
 
     @Override
-    public ActiveCheatkeyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cheatkey_active_cardview, parent, false);
+    public ActiveCheatkeyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cheatkey_cheatkeyactivefragment_cardview, parent, false);
 
         ViewHolder vh = new ViewHolder(v,parent.getContext());
 
@@ -70,20 +70,7 @@ public class ActiveCheatkeyAdapter
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return mActiveCheatkeyDataset.size();
-    }
-}
-
-// input 텍스트뷰와 output 텍스트뷰 DataSet
-class ActiveCheatkeyData {
-    public int imgBtnID;
-    public int activeCheatkeyImg;
-    public String activeCheatkeyName;
-
-    public ActiveCheatkeyData(int imgBtnID, int activeCheatkeyImg, String activeCheatkeyName) {
-        this.imgBtnID = imgBtnID;
-        this.activeCheatkeyImg = activeCheatkeyImg;
-        this.activeCheatkeyName = activeCheatkeyName;
     }
 }

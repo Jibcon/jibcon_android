@@ -36,7 +36,7 @@ public class TutorialFragment extends android.support.v4.app.Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.splash_tutorial_fragment, container, false);
+        View v = inflater.inflate(R.layout.splash_tutorialfragment_fragment, container, false);
         ButterKnife.bind(this,v);
 
         int tutorialNumber = getArguments().getInt(STRINGOF_TUTORIAL_PAGE);
@@ -45,23 +45,23 @@ public class TutorialFragment extends android.support.v4.app.Fragment {
 
         switch (tutorialNumber) {
             case 0:
-                tutorialTitleTv.setText(R.string.tutorial_title1);
-                tutorialSubTv.setText(R.string.tutorial_sub1);
+                tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[0]);
+                tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[0]);
                 tutorialIv.setImageResource(R.drawable.splash_image);
                 break;
             case 1:
-                tutorialTitleTv.setText(R.string.tutorial_title2);
-                tutorialSubTv.setText(R.string.tutorial_sub2);
+                tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[1]);
+                tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[1]);
                 tutorialIv.setImageResource(R.drawable.splash_image);
                 break;
             case 2:
-                tutorialTitleTv.setText(R.string.tutorial_title3);
-                tutorialSubTv.setText(R.string.tutorial_sub3);
+                tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[2]);
+                tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[2]);
                 tutorialIv.setImageResource(R.drawable.splash_image);
                 break;
             case 3:
-                tutorialTitleTv.setText(R.string.tutorial_title4);
-                tutorialSubTv.setText(R.string.tutorial_sub4);
+                tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[3]);
+                tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[3]);
                 tutorialIv.setImageResource(R.drawable.splash_image);
                 makejibconBtn.setVisibility(View.VISIBLE);
                 break;

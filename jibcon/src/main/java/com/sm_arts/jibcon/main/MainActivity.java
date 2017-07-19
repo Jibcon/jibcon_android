@@ -51,25 +51,21 @@ public class MainActivity extends BaseActivity
     ImageButton mBtn2;
     ImageButton mBtn3;
     ImageButton mBtn4;
-
     ImageButton mtoSettingBtn;
 
     //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
     //속도 너무 느림 ㅠ
     private class pagerAdapter extends FragmentStatePagerAdapter{
-        public pagerAdapter(android.support.v4.app.FragmentManager fm){
+        public pagerAdapter(android.support.v4.app.FragmentManager fm) {
             super(fm);
         }
-
-
 
         @Override
         public Fragment getItem(int position){
             Log.w("CJ","movePageListener");
-                        switch(position){
+            switch (position) {
                 case 0:
                     Log.d("FragmentCheck","ToDevice");
-
                     return mDevicemenu;
                 case 1:
                     Log.d("FragmentCheck","ToTrick");
@@ -98,23 +94,18 @@ public class MainActivity extends BaseActivity
         }
 
         @Override
-        public int getCount(){
+        public int getCount() {
             return 4;
         }
     }
     /* ↑뷰 페이저(액티비티 슬라이드)↑ */
 
     /* ↓뷰 페이저(액티비티 슬라이드)↓ */
-    View.OnClickListener movePageListener = new View.OnClickListener(){
-
-
+    View.OnClickListener movePageListener = new View.OnClickListener() {
         @Override
         public void onClick(View v){
-
             int tag = (int) v.getTag();
-
-            switch (tag)
-            {
+            switch (tag) {
                 case 0 :
                     mBtn1.setImageResource(R.drawable.ic_home_blue_48dp);
                     mBtn2.setImageResource(R.drawable.ic_link_gray_48dp);
@@ -140,25 +131,22 @@ public class MainActivity extends BaseActivity
                     mBtn4.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
                     break;
             }
-
             mVp.setCurrentItem(tag);
         }
     };
 
-    private  void initLayout()
-    {
+    private  void initLayout() {
         mDevicemenu = new DeviceMenuFragment();
         mUsermenu = new DataControlFragment();
         mTrickmenu = new CheatkeyMenuFragment();
         mMarketmenu = new ConshopFragment();
 
-
         mVp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
 
-         mBtn1 = (ImageButton) findViewById(R.id.btn1); // 기기 버튼
-         mBtn2 = (ImageButton) findViewById(R.id.btn2); // 트릭 버튼
-         mBtn3 = (ImageButton) findViewById(R.id.btn3); // 마켓 버튼
-         mBtn4 = (ImageButton) findViewById(R.id.btn4); // 사용자 버튼
+        mBtn1 = (ImageButton) findViewById(R.id.btn1); // 기기 버튼
+        mBtn2 = (ImageButton) findViewById(R.id.btn2); // 트릭 버튼
+        mBtn3 = (ImageButton) findViewById(R.id.btn3); // 마켓 버튼
+        mBtn4 = (ImageButton) findViewById(R.id.btn4); // 사용자 버튼
 
         mVp.setOffscreenPageLimit(3);
         mVp.setAdapter(new pagerAdapter(getSupportFragmentManager()));
@@ -171,8 +159,7 @@ public class MainActivity extends BaseActivity
             @Override
             public void onPageSelected(int position) {
                 Log.d(TAG, "onPageSelected: "+position);
-                switch (position)
-                {
+                switch (position) {
                     case 0 :
                         mBtn1.setImageResource(R.drawable.ic_home_blue_48dp);
                         mBtn2.setImageResource(R.drawable.ic_link_gray_48dp);
@@ -215,18 +202,14 @@ public class MainActivity extends BaseActivity
         mBtn3.setOnClickListener(movePageListener);
         mBtn4.setTag(3);
         mBtn4.setOnClickListener(movePageListener);
-
     }
-    /* ↑뷰 페이저(액티비티 슬라이드)↑ */
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_mainactivity_activity);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
-
         //toolbar search tab  : res-> menu
         //toolbar hamburder menu :  style->ToolbarColoredBackArrow
 
@@ -253,7 +236,7 @@ public class MainActivity extends BaseActivity
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         DrawerLayout.LayoutParams params =(DrawerLayout.LayoutParams)navigationView.getLayoutParams();
 
-        mtoSettingBtn = (ImageButton)findViewById(R.id.Btn_Setting);
+        mtoSettingBtn = (ImageButton) findViewById(R.id.Btn_Setting);
 
         mtoSettingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -263,16 +246,14 @@ public class MainActivity extends BaseActivity
             }
         });
 
-
         params.width=dm.widthPixels;
         navigationView.setLayoutParams(params);
         //네비게이션 뷰 풀화면
 
-
         View headerView =navigationView.getHeaderView(0);
-        TextView userEmail=(TextView)headerView.findViewById(R.id.Txt_Drawer_UserEmail);
-        TextView username = (TextView)headerView.findViewById(R.id.Txt_Drawer_Username);
-        mUserProfileImage = (ImageView)headerView.findViewById(R.id.ImgView_Drawer_UserProfile);
+        TextView userEmail = (TextView) headerView.findViewById(R.id.Txt_Drawer_UserEmail);
+        TextView username = (TextView) headerView.findViewById(R.id.Txt_Drawer_Username);
+        mUserProfileImage = (ImageView) headerView.findViewById(R.id.ImgView_Drawer_UserProfile);
 
         Glide.with(getApplicationContext())
                 .load(mApp.getUserProfileImage())
@@ -281,7 +262,6 @@ public class MainActivity extends BaseActivity
         //Log.d("userProfile",mApp.getUserProfileImage().toString());
         username.setText(mApp.getUsername());
         userEmail.setText(mApp.getUserEmail());
-
 
         initLayout();
         mBtn1.setImageResource(R.drawable.ic_home_blue_48dp);
@@ -306,7 +286,6 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -314,41 +293,22 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.Sidebar_myjibcon) {
-
             Intent intent= new Intent(getApplicationContext(), MyJibconActivity.class);
             startActivity(intent);
-
-
-
             // Handle the camera action
-
         } else if (id == R.id.Sidebar_userAuthority) {
-
             Intent intent= new Intent(getApplicationContext(), UserAuthorityActivity.class);
             startActivity(intent);
-
-
         } else if (id == R.id.Sidebar_connectedDevices) {
-
             Intent intent= new Intent(getApplicationContext(), ConnectedDevicesActivity.class);
             startActivity(intent);
-
-
         } else if (id == R.id.Sidebar_widget) {
-
             Intent intent= new Intent(getApplicationContext(), WidgetActivity.class);
             startActivity(intent);
-
-
         } else if (id == R.id.Sidebar_aboutJibcon) {
-//
             Intent intent= new Intent(getApplicationContext(), AboutJibconActivity.class);
             startActivity(intent);
-
-
-        }// else if (id == R.id.nav_send) {
-//
-//      }
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         drawer.closeDrawer(GravityCompat.START);

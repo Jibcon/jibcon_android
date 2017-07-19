@@ -19,7 +19,7 @@ import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.main.MainActivity;
 import com.sm_arts.jibcon.network.ApiService;
-import com.sm_arts.jibcon.network.Repo;
+import com.sm_arts.jibcon.utils.network.RetrofitUtils;
 
 import java.net.URL;
 
@@ -52,7 +52,7 @@ public class IntroActivity extends BaseActivity {
                 //intro->login success->main
                 accesstoken.getToken();
 
-                ApiService service = new Repo().getService();
+                ApiService service = (ApiService) RetrofitUtils.getInstance().getService(ApiService.class);
                 UserInfo userInfo = new UserInfo("facebook", accesstoken.getToken());
                 Call<User> c = service.logincheck(userInfo);
 
@@ -102,7 +102,7 @@ public class IntroActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash_intro_activity);
+        setContentView(R.layout.splash_introactivity_activity);
         init();
 
         //액션바 없애기

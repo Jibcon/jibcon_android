@@ -37,7 +37,7 @@ import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
 import com.sm_arts.jibcon.network.ApiService;
-import com.sm_arts.jibcon.network.Repo;
+import com.sm_arts.jibcon.utils.network.RetrofitUtils;
 
 import org.json.JSONObject;
 
@@ -106,9 +106,10 @@ public class LoginActivity extends BaseActivity {
 
             final String userTokenFacebook;
             userTokenFacebook=loginResult.getAccessToken().getToken();
-            UserInfo userInfo=new UserInfo("facebook", userTokenFacebook);
-            Log.d("MYTOKEN", userTokenFacebook);
-            ApiService apiService = new Repo().getService();
+            UserInfo userInfo=new UserInfo("facebook",userTokenFacebook);
+            Log.d("MYTOKEN",userTokenFacebook);
+            ApiService apiService = (ApiService) RetrofitUtils.getInstance().getService(ApiService.class);;
+
             Call<User> c = apiService.login(userInfo);
             try
             {
@@ -201,7 +202,7 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_main_activity);
+        setContentView(R.layout.login_loginactivity_activity);
 
         mVideoView = (VideoView)findViewById(R.id.videoView);
 
@@ -245,7 +246,7 @@ public class LoginActivity extends BaseActivity {
                  }
         };
 
-        LoginButton loginButton = (LoginButton) findViewById(R.id.Btn_Login_Facebook);
+        LoginButton loginButton = (LoginButton) findViewById(R.id.btn_login_facebook);
         loginButton.setReadPermissions("public_profile", "user_friends");
         loginButton.setReadPermissions("email");
 
@@ -323,7 +324,7 @@ public class LoginActivity extends BaseActivity {
             if(exception != null) {
                 Logger.e(exception);
             }
-            setContentView(R.layout.login_main_activity); // 세션 연결이 실패했을때
+            setContentView(R.layout.login_loginactivity_activity); // 세션 연결이 실패했을때
         }                                            // 로그인화면을 다시 불러옴
     }
 

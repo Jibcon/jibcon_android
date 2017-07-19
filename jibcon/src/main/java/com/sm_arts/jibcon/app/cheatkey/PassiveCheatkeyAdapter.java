@@ -50,7 +50,7 @@ public class PassiveCheatkeyAdapter
     @Override
     public PassiveCheatkeyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.cheatkey_passive_cardview, parent, false);
+                .inflate(R.layout.cheatkey_cheatkeypassivefragment_cardview, parent, false);
 
         ViewHolder vh = new ViewHolder(v,parent.getContext());
 
@@ -71,18 +71,5 @@ public class PassiveCheatkeyAdapter
     @Override
     public int getItemCount() {
         return mPassiveCheatkeyDataset.size();
-    }
-}
-
-// input 텍스트뷰와 output 텍스트뷰 DataSet
-class PassiveCheatkeyData {
-    public int imgBtnID;
-    public String inputTv;
-    public String outputTv;
-
-    public PassiveCheatkeyData(int imgBtnID, String inputTv, String outputTv) {
-        this.imgBtnID = imgBtnID;
-        this.inputTv = inputTv;
-        this.outputTv = outputTv;
     }
 }
