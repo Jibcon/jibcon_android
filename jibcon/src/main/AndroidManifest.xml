@@ -19,7 +19,7 @@
         <!-- For Google Maps -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBZWQYb4N-vR8Cdx_zyMHNh3SQytrpLtfQ" />
+            android:value="AIzaSyBP73RAvcp8GudO0VHssQ5pX-173kO9GhY" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -119,6 +119,12 @@
             android:theme="@style/Theme.AppCompat.Translucent"/>
         <activity android:name=".ui.floatingbuttonui.FloatingButtonPassiveActivity"
             android:theme="@style/Theme.AppCompat.Translucent"></activity>
+
+
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"
+            android:label="OAuth2.0 In-app"/>
     </application>
 
 </manifest>

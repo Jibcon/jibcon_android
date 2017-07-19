@@ -8,14 +8,13 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.kakao.auth.KakaoSDK;
+import com.nhn.android.naverlogin.OAuthLogin;
 import com.sm_arts.jibcon.login.KaKaoSDKAdpater;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.tsengvn.typekit.Typekit;
 
 import java.lang.ref.WeakReference;
 import java.net.URL;
-
-import static com.kakao.util.helper.Utility.getPackageInfo;
 
 /**
  * Created by admin on 2017-04-06.
@@ -34,6 +33,8 @@ public class GlobalApplication extends MultiDexApplication {
     String username;
     String userEmail;
     URL userProfileImage;
+
+    private static OAuthLogin mOAuthLoginModule = null;
 
     public URL getUserProfileImage() {
         return userProfileImage;
@@ -80,6 +81,19 @@ public class GlobalApplication extends MultiDexApplication {
                 .addNormal(Typekit.createFromAsset(this, "12롯데마트드림Medium.ttf"))
                 .addBold(Typekit.createFromAsset(this, "12롯데마트드림Bold.ttf"))
                 .addCustom1(Typekit.createFromAsset(this, "12롯데마트드림Light.ttf")); // 이후 추가시 .addCustom2~9 까지 가능
+    }
+
+    public static OAuthLogin getNaverOAuthLogin()
+    {
+        if (mOAuthLoginModule == null)
+        {
+            mOAuthLoginModule = OAuthLogin.getInstance();
+            mOAuthLoginModule.init(getGlobalApplicationContext(),
+                    "f2VZgOgRx7HzZaCUzN_D" , "uldOlbBiia" , "JIBCON");
+
+        }
+
+        return mOAuthLoginModule;
     }
 
     //카톡 로그인용

@@ -11,12 +11,13 @@ import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.helper.log.Logger;
 import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.app.GlobalApplication;
+import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
 import com.sm_arts.jibcon.main.MainActivity;
+import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 
 /**
  * Created by admin on 2017-01-20.
@@ -93,7 +94,8 @@ public class KakaoSignupActivity extends BaseActivity {
                 DeviceServiceImpl.getInstance().prepareDeviceItems();
             }
         });
-        
+
+        SharedPreferenceHelper.saveSharedPreference("pref", "LOGINTYPE", "KAKAO");
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }

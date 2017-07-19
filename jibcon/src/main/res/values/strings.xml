@@ -6,5 +6,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="facebook_app_id">440498979632151</string>
     <string name="action_settings">Settings</string>
+    <string name="naver_client_id">f2VZgOgRx7HzZaCUzN_D</string>
+    <string name="naver_client_secret">uldOlbBiia</string>
 
 </resources>
