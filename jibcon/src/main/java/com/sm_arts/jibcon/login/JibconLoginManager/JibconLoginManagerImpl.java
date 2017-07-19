@@ -16,12 +16,16 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
+import com.nhn.android.naverlogin.OAuthLogin;
+import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.app.splash.IntroActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
+import com.sm_arts.jibcon.login.user.service.UserService;
+import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 import com.sm_arts.jibcon.utils.network.RetrofitUtils;
@@ -66,6 +70,49 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
         };
 
     }
+
+
+
+
+    //naver login handler
+    public OAuthLoginHandler getNaverOAuthLoginHandler(final Context context) {
+        return new OAuthLoginHandler() {
+            @Override
+            public void run(boolean success) {
+
+                if (success) {//네이버 로그인 성공시
+                    OAuthLogin mOAuthLogin = GlobalApplication.getNaverOAuthLogin();
+                    Context mContext = GlobalApplication.getGlobalApplicationContext();
+                    String accessToken = mOAuthLogin.getAccessToken(mContext);
+                    String refreshToken = mOAuthLogin.getRefreshToken(mContext);
+                    long expiresAt = mOAuthLogin.getExpiresAt(mContext);
+                    String tokenType = mOAuthLogin.getTokenType(mContext);
+
+                    Log.d(TAG, "run: accesstoken : " + accessToken);
+                    Log.d(TAG, "run: refreshtoken : " + refreshToken);
+                    Log.d(TAG, "run: expiresAt : " + expiresAt);
+                    Log.d(TAG, "run: tokenType : " + tokenType);
+
+
+                    //일단 샘플계정 로그인으로
+                    UserServiceImpl.getInstance().getSampleUserAsynchronisely(new UserService.onSuccessListener() {
+                        @Override
+                        public void onSuccessGetSampleUserAsynchronisely(User sampleUser) {
+                            Log.d(TAG, "onSuccessGetSampleUserAsynchronisely: ");
+                            mApp.setUser(sampleUser);
+                            DeviceServiceImpl.getInstance().prepareDeviceItems();
+                            context.startActivity(new Intent(context,MakeconStartActivity.class));
+                        }
+                    });
+
+
+                } else {
+
+                }
+            }
+        };
+    }
+
 
     @Override
     public FacebookCallback<LoginResult> makeFacebookLoginManager() {
@@ -197,6 +244,7 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
         }
         else if(logintype.equals("NAVER"))
         {
+            OAuthLogin.getInstance().logout(context);
             // TODO: 2017-07-19 naver logout
         }
 

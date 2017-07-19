@@ -119,6 +119,12 @@
             android:theme="@style/Theme.AppCompat.Translucent"/>
         <activity android:name=".ui.floatingbuttonui.FloatingButtonPassiveActivity"
             android:theme="@style/Theme.AppCompat.Translucent"></activity>
+
+
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"
+            android:label="OAuth2.0 In-app"/>
     </application>
 
 </manifest>

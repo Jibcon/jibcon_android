@@ -18,6 +18,8 @@ import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.util.helper.log.Logger;
+import com.nhn.android.naverlogin.OAuthLoginHandler;
+import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.GlobalApplication;
@@ -27,15 +29,16 @@ import com.sm_arts.jibcon.login.JibconLoginManager.JibconLoginManagerImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
+import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 
 
 public class LoginActivity extends BaseActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
     private JibconLoginManagerImpl mJibconLoginManager;
-
+    private OAuthLoginButton mOAuthLoginButton;
     private SessionCallback mKakaoCallback;      //콜백 선언
-
+    OAuthLoginHandler mOAuthLoginHandler;
     private VideoView mVideoView;
 
     private CallbackManager mCallbackManager = null;
@@ -43,6 +46,7 @@ public class LoginActivity extends BaseActivity {
     GlobalApplication mApp;
     private FacebookCallback<LoginResult> mFacebookCallback=null;
 
+    private OAuthLoginHandler mMaverOAuthLoginHandler=null;
     private void facebookLoginSetup()
     {
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -82,12 +86,22 @@ public class LoginActivity extends BaseActivity {
         mVideoView.setVideoURI(Uri.parse(videoPath));
         mVideoView.start();
 
-        mApp = (GlobalApplication) getApplicationContext();
+
+        mOAuthLoginHandler=mJibconLoginManager.getNaverOAuthLoginHandler(LoginActivity.this);
+        mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.btn_naver_login);
+
+        mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
+        mOAuthLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferenceHelper.SaveSharedPreference("pref","LOGINTYPE","NAVER");
+                GlobalApplication.getNaverOAuthLogin().startOauthLoginActivity(LoginActivity.this,mOAuthLoginHandler);
+            }
+        });
+
 
         facebookLoginSetup();
-
         initSampleSignInBtn();
-
         kakaoSetup();
     }
 
@@ -112,7 +126,7 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void onSuccessGetSampleUserAsynchronisely(User sampleUser) {
                         Log.d(TAG, "onSuccessGetSampleUserAsynchronisely: ");
-                        mApp.setUser(sampleUser);
+                        GlobalApplication.getGlobalApplicationContext().setUser(sampleUser);
                         DeviceServiceImpl.getInstance().prepareDeviceItems();
 
                         gotoMakeConStartActivity();

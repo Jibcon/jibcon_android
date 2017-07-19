@@ -45,15 +45,12 @@
             android:layout_height="wrap_content"
             android:padding="8dp" />
 
-        <Button
-            android:id="@+id/button2"
+        <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
+            android:id="@+id/btn_naver_login"
+            android:layout_height="60dp"
             android:layout_width="280dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="8dp"
-            android:background="@color/naver_login_button"
-            android:text="네이버계정으로 시작"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
+            android:padding="8dp"
+            />
 
         <Button
             android:id="@+id/btnSampleSignIn"
