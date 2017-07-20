@@ -25,95 +25,18 @@ import io.reactivex.functions.Consumer;
 
 public class GlobalApplication extends MultiDexApplication {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
-    //모든 액티비티에서 공유할 수 있는 정보만 담기 최대 4KB..?
 
     private static volatile GlobalApplication sObj = null;
     private volatile WeakReference<Activity> sCurrentActivity = null;
     //카톡 로그인
 
-    String userToken;
-    String username;
-    String userEmail;
-    URL userProfileImage;
-
     private static OAuthLogin mOAuthLoginModule = null;
-
-    public URL getUserProfileImage() {
-        return userProfileImage;
-    }
-
-    public void setUserProfileImage(URL userProfileImage) {
-        this.userProfileImage = userProfileImage;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public String getUserToken() {
-        // todo remove
-        if (!userSignin()) {
-            User user = UserNetworkImpl.getInstance()
-                    .getSampleUserInfoFromServerSynchronisely();
-            userToken = user.getToken();
-            Log.d(TAG, "getUserToken: " + userToken);
-        }
-
-        return userToken;
-    }
-
-    public String getUserToken(Consumer<String> comsumer) {
-        // todo remove
-        if (!userSignin()) {
-            UserNetworkImpl.getInstance()
-                    .getSampleUserInfoFromServerAsynchronisely(
-                        (user) -> {
-                            try {
-                                String token = user.getToken();
-                                setUserToken(token);
-                                Log.d(TAG, "getUserToken: " + token);
-                                comsumer.accept(token);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-            );
-        }
-
-        return userToken;
-    }
-
-    public boolean userSignin() {
-        if (userToken == null) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public void setUserToken(String userToken) {
-        this.userToken = userToken;
-    }
 
     @Override
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "onCreate: allocate GlobalApplication sObj");
         sObj = this;
-        username = "TestUser";
-        userEmail = "Jipcon@Jipcon.com";
         KakaoSDK.init(new KaKaoSDKAdpater());
         // for font change
         Typekit.getInstance()
@@ -163,19 +86,5 @@ public class GlobalApplication extends MultiDexApplication {
         }
 
         return true;
-    }
-
-    public void setUser(User user) {
-        setUsername(user.getUserinfo().getFull_name());
-        setUserEmail(user.getEmail());
-        setUserToken(user.getToken());
-
-        try {
-            setUserProfileImage(new URL(user.getUserinfo().getPic_url()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        Log.d(TAG, "setUser: Success Signin With SampleUser");
     }
 }

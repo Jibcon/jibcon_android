@@ -26,6 +26,7 @@ import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
+import com.sm_arts.jibcon.login.user.service.network.UserNetworkImpl;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
@@ -34,6 +35,7 @@ import org.json.JSONObject;
 
 import java.net.URL;
 
+import io.reactivex.functions.Action;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,11 +44,65 @@ import retrofit2.Response;
  * Created by admin on 2017-07-19.
  */
 
-public class JibconLoginManagerImpl implements JibconLoginManager{
-
+public class JibconLoginManagerImpl implements JibconLoginManager {
     private CallbackManager mCallbackManager = null;
     private AccessTokenTracker mAccessTokenTracker = null;
     private static final String TAG =  "JibconLoginManagerImpl";
+
+    private User mUser;
+
+    private static JibconLoginManager mInstance = null;
+
+    public static JibconLoginManager getInstance() {
+        if (mInstance == null) {
+            mInstance = new JibconLoginManagerImpl();
+        }
+
+        return mInstance;
+    }
+
+    public User getCurrentUser() {
+        return mUser;
+    }
+
+    public void setUser(User mUser) {
+        this.mUser = mUser;
+    }
+
+    @Override
+    public String getUserToken() {
+        if (mUser != null) {
+            return mUser.getEmail();
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public String getUserProfileImageUrl() {
+        if (mUser != null) {
+            return mUser.getUserinfo().getPic_url();
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public String getUserName() {
+        if (mUser != null) {
+            return mUser.getLast_name() + mUser.getFirst_name();
+        } else {
+            return null;
+        }
+    }
+
+    public String getUserEmail() {
+        if (mUser != null) {
+            return mUser.getEmail();
+        } else {
+            return null;
+        }
+    }
 
     @Override
     public CallbackManager makeFacebookCallbackManager() {
@@ -69,9 +125,6 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
 
     }
 
-
-
-
     //naver login handler
     public OAuthLoginHandler getNaverOAuthLoginHandler(final Context context) {
         return new OAuthLoginHandler() {
@@ -93,17 +146,9 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
 
 
                     //일단 샘플계정 로그인으로
-                    UserServiceImpl.getInstance().getSampleUserAsynchronisely(new UserService.onSuccessListener() {
-                        @Override
-                        public void onSuccessGetSampleUserAsynchronisely(User sampleUser) {
-                            Log.d(TAG, "onSuccessGetSampleUserAsynchronisely: ");
-                            GlobalApplication.getGlobalApplicationContext().setUser(sampleUser);
-                            DeviceServiceImpl.getInstance().prepareDeviceItems();
-                            context.startActivity(new Intent(context,MakeconStartActivity.class));
-                        }
-                    });
-
-
+                    JibconLoginManagerImpl.getInstance().loginWithSampleUser(
+                            () -> context.startActivity(new Intent(context,MakeconStartActivity.class))
+                    );
                 } else {
 
                 }
@@ -132,22 +177,13 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
                             String userid;
 
                             userid = object.optString("id");
-                            try {
-                                GlobalApplication.getGlobalApplicationContext().setUserProfileImage(new URL("https://graph.facebook.com/"+userid+"/picture"));
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
                             userEmail = object.optString("email");
                             name = object.optString("name");
                             Log.d(TAG, "onCompleted: " + userEmail + "/" + name);
                             Log.d("profilecheck","useremail :" + userEmail);
                             Log.d("profilecheck","name : " + name);
 
-                            GlobalApplication.getGlobalApplicationContext().setUsername(object.optString("name"));
-
-
                             SharedPreferenceHelper.saveSharedPreference("pref","LOGINTYPE","FACEBOOK");
-
                         }
                     }
                 }).executeAsync();
@@ -165,10 +201,11 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
                     c.enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
-                            GlobalApplication.getGlobalApplicationContext().setUserEmail(response.body().getEmail());
-                            GlobalApplication.getGlobalApplicationContext().setUserToken(response.body().getToken());
+                            JibconLoginManagerImpl.getInstance()
+                                    .setUser(response.body());
                             Log.d(TAG, "onResponse: "+"success");
-                            Intent intent = new Intent(GlobalApplication.getGlobalApplicationContext(), MakeconStartActivity.class);
+                            Intent intent = new Intent(GlobalApplication.getGlobalApplicationContext(),
+                                    MakeconStartActivity.class);
 
                             // prepare deviceItems
                             DeviceServiceImpl.getInstance().prepareDeviceItems();
@@ -234,10 +271,36 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
             // TODO: 2017-07-19 naver logout
         }
 
-
         Intent intent = new Intent(context.getApplicationContext(), IntroActivity.class);
         context.startActivity(intent);
 
         ((Activity) context).finish();
+
+        mUser = null;
+    }
+
+    @Override
+    public void loginWithSampleUser(Action action) {
+        if (!userSignin()) {
+            UserNetworkImpl.getInstance()
+                    .getSampleUserInfoFromServerAsynchronisely(
+                            (user) -> {
+                                setUser(user);
+                                Log.d(TAG, "getSampleUser: user=" + user.toString());
+
+                                try {
+                                    action.run();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                    );
+        } else {
+            Log.e(TAG, "loginWithSampleUser: already user signed in");
+        }
+    }
+
+    public boolean userSignin() {
+        return (mUser != null);
     }
 }

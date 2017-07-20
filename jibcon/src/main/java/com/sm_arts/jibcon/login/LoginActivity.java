@@ -58,7 +58,6 @@ public class LoginActivity extends BaseActivity {
         loginButton.setReadPermissions("public_profile", "user_friends");
         loginButton.setReadPermissions("email");
 
-        //loginButton.setFragment(this);
         loginButton.registerCallback(mCallbackManager, mFacebookCallback);
     }
 
@@ -69,7 +68,7 @@ public class LoginActivity extends BaseActivity {
 
         mJibconLoginManager = new JibconLoginManagerImpl();
 
-        mVideoView = (VideoView)findViewById(R.id.videoView);
+        mVideoView = (VideoView) findViewById(R.id.videoView);
 
         mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
@@ -82,7 +81,7 @@ public class LoginActivity extends BaseActivity {
         mVideoView.setVideoURI(Uri.parse(videoPath));
         mVideoView.start();
 
-        mOAuthLoginHandler=mJibconLoginManager.getNaverOAuthLoginHandler(LoginActivity.this);
+        mOAuthLoginHandler = mJibconLoginManager.getNaverOAuthLoginHandler(LoginActivity.this);
         mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.btn_naver_login);
 
         mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
@@ -113,22 +112,14 @@ public class LoginActivity extends BaseActivity {
 
     void initSampleSignInBtn() {
         Log.d(TAG, "initSampleSignInBtn: ");
-        findViewById(R.id.btnSampleSignIn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: btnSampleSignIn");
-                UserServiceImpl.getInstance().getSampleUserAsynchronisely(new UserService.onSuccessListener() {
-                    @Override
-                    public void onSuccessGetSampleUserAsynchronisely(User sampleUser) {
-                        Log.d(TAG, "onSuccessGetSampleUserAsynchronisely: ");
-                        GlobalApplication.getGlobalApplicationContext().setUser(sampleUser);
-                        DeviceServiceImpl.getInstance().prepareDeviceItems();
-
-                        gotoMakeConStartActivity();
-                    }
-                });
-            }
-        });
+        findViewById(R.id.btnSampleSignIn).setOnClickListener(
+                v -> {
+                    Log.d(TAG, "initSampleSignInBtn: btnSampleSignIn clicked");
+                    JibconLoginManagerImpl.getInstance().loginWithSampleUser(
+                            this::gotoMakeConStartActivity
+                    );
+                }
+        );
     }
 
     private void gotoMakeConStartActivity() {
