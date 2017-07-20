@@ -28,8 +28,15 @@
             android:value="@string/kakao_app_key" />
 
         <activity
-            android:name=".main.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".ui.main.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+
         <activity
             android:name=".app.splash.IntroActivity"
             android:label="@string/app_name"
@@ -96,15 +103,15 @@
             android:name=".app.setting.usercenter.JibconAskActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-        android:name=".app.setting.usercenter.UserCenterActivity"
-        android:theme="@style/myAppTheme.NoActionBar" />
+            android:name=".app.setting.usercenter.UserCenterActivity"
+            android:theme="@style/myAppTheme.NoActionBar" />
         <activity
             android:name=".app.BaseActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
-       <activity android:name=".login.KakaoSignupActivity"
-           android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".login.KakaoSignupActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
-       </activity>
+        </activity>
 
         <activity
             android:name=".app.getothercon.GetOtherConActivity"

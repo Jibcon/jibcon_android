@@ -1,5 +1,8 @@
 package com.sm_arts.jibcon.utils.network;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -7,13 +10,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class GsonUtils {
-    private static GsonConverterFactory sGsonConverterFactory;
+    private static Gson sGson;
 
-    public static GsonConverterFactory getGsonConverterFactory() {
-        if (sGsonConverterFactory == null) {
-            sGsonConverterFactory = GsonConverterFactory.create();
+    public static Gson getGson() {
+        if (sGson == null) {
+            sGson = new GsonBuilder()
+                    .create();
         }
 
-        return sGsonConverterFactory;
+        return sGson;
     }
 }

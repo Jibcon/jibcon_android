@@ -28,7 +28,7 @@ import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
-import com.sm_arts.jibcon.utils.network.RetrofitUtils;
+import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import org.json.JSONObject;
 
@@ -64,7 +64,6 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
                     Log.d("Token", currentAccessToken.toString());
                 }
                 Log.d(TAG, "onCurrentAccessTokenChanged: " + currentAccessToken);
-                //Toast.makeText(getApplicationContext(),"current token : "+currentAccessToken,Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -157,47 +156,40 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
                 final String userTokenFacebook;
                 userTokenFacebook = loginResult.getAccessToken().getToken();
                 UserInfo userInfo = new UserInfo("facebook",userTokenFacebook);
-                Log.d("MYTOKEN",userTokenFacebook);
-                ApiService apiService = (ApiService) RetrofitUtils.getInstance().getService(ApiService.class);;
+                Log.d("MYTOKEN", userTokenFacebook);
+                ApiService apiService = RetrofiClients.getInstance()
+                        .getService(ApiService.class);;
 
                 Call<User> c = apiService.login(userInfo);
-                try
-                {
+                try {
                     c.enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
                             GlobalApplication.getGlobalApplicationContext().setUserEmail(response.body().getEmail());
                             GlobalApplication.getGlobalApplicationContext().setUserToken(response.body().getToken());
                             Log.d(TAG, "onResponse: "+"success");
-                            //Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(GlobalApplication.getGlobalApplicationContext(), MakeconStartActivity.class);
 
                             // prepare deviceItems
                             DeviceServiceImpl.getInstance().prepareDeviceItems();
 
                             GlobalApplication.getGlobalApplicationContext().startActivity(intent);
-
-
                         }
 
                         @Override
                         public void onFailure(Call<User> call, Throwable t) {
                             t.printStackTrace();
                             Log.d(TAG, "onFailure: "+"fail");
-                            //Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
                         }
                     });
-                }catch (Exception e)
-                {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
 
             @Override
             public void onCancel() {
                 Log.d(TAG, "onCancel: "+"cancled");
-                //Toast.makeText(getApplicationContext(), "User sign in canceled!", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -221,18 +213,15 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
         logintype = SharedPreferenceHelper.getSharedPrefrence("pref","LOGINTYPE");
 
         Log.d(TAG, "logout: LoginType : "+logintype);
-        if(logintype.equals(""))
-        {
+        if(logintype.equals("")) {
             Log.d(TAG, "logout: logintype null");
             return;
         }
-        else if(logintype.equals("FACEBOOK"))
-        {
+        else if(logintype.equals("FACEBOOK")) {
             Log.d(TAG, "logout: facebook logout");
             LoginManager.getInstance().logOut();
         }
-        else if(logintype.equals("KAKAO"))
-        {
+        else if(logintype.equals("KAKAO")) {
             UserManagement.requestLogout(new LogoutResponseCallback() {
                 @Override
                 public void onCompleteLogout() {
@@ -240,8 +229,7 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
                 }
             });
         }
-        else if(logintype.equals("NAVER"))
-        {
+        else if(logintype.equals("NAVER")) {
             OAuthLogin.getInstance().logout(context);
             // TODO: 2017-07-19 naver logout
         }
@@ -250,8 +238,6 @@ public class JibconLoginManagerImpl implements JibconLoginManager{
         Intent intent = new Intent(context.getApplicationContext(), IntroActivity.class);
         context.startActivity(intent);
 
-        ((Activity)context).finish();
-
-
+        ((Activity) context).finish();
     }
 }

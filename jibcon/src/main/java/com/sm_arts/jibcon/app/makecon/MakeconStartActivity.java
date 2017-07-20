@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.getothercon.GetOtherConActivity;
-import com.sm_arts.jibcon.main.MainActivity;
+import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
 
 import butterknife.ButterKnife;

@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.main;
+package com.sm_arts.jibcon.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,8 +31,9 @@ import com.sm_arts.jibcon.app.sidebar.ConnectedDevicesActivity;
 import com.sm_arts.jibcon.app.sidebar.MyJibconActivity;
 import com.sm_arts.jibcon.app.sidebar.UserAuthorityActivity;
 import com.sm_arts.jibcon.app.sidebar.WidgetActivity;
-import com.sm_arts.jibcon.device.DeviceMenuFragment;
 import com.sm_arts.jibcon.ui.dialogs.SidebarDialog;
+import com.sm_arts.jibcon.ui.main.fragments.DeviceMenuFragment;
+
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {

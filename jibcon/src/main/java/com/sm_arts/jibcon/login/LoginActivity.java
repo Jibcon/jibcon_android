@@ -38,18 +38,16 @@ public class LoginActivity extends BaseActivity {
     private JibconLoginManagerImpl mJibconLoginManager;
     private OAuthLoginButton mOAuthLoginButton;
     private SessionCallback mKakaoCallback;      //콜백 선언
-    OAuthLoginHandler mOAuthLoginHandler;
+    private OAuthLoginHandler mOAuthLoginHandler;
     private VideoView mVideoView;
 
     private CallbackManager mCallbackManager = null;
     private AccessTokenTracker mAccessTokenTracker = null;
-    GlobalApplication mApp;
-    private FacebookCallback<LoginResult> mFacebookCallback=null;
+    private FacebookCallback<LoginResult> mFacebookCallback = null;
 
-    private OAuthLoginHandler mMaverOAuthLoginHandler=null;
+
     private void facebookLoginSetup() {
         FacebookSdk.sdkInitialize(getApplicationContext());
-
 
         mFacebookCallback = mJibconLoginManager.makeFacebookLoginManager();
         mCallbackManager = mJibconLoginManager.makeFacebookCallbackManager();
@@ -62,7 +60,6 @@ public class LoginActivity extends BaseActivity {
 
         //loginButton.setFragment(this);
         loginButton.registerCallback(mCallbackManager, mFacebookCallback);
-
     }
 
     @Override
@@ -84,7 +81,6 @@ public class LoginActivity extends BaseActivity {
         String videoPath = "android.resource://"+getPackageName()+"/"+R.raw.login_video;
         mVideoView.setVideoURI(Uri.parse(videoPath));
         mVideoView.start();
-
 
         mOAuthLoginHandler=mJibconLoginManager.getNaverOAuthLoginHandler(LoginActivity.this);
         mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.btn_naver_login);
@@ -189,7 +185,4 @@ public class LoginActivity extends BaseActivity {
         super.onDestroy();
         Session.getCurrentSession().removeCallback(mKakaoCallback);
     }
-
-
-
 }

@@ -14,11 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.sm_arts.jibcon.device.DeviceMenuGridView
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/deviceRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:numColumns="2"
-            android:id="@+id/ScrollViewDevice"/>
+            android:scrollbars="vertical"
+            android:clipToPadding="false"
+            android:scrollbarStyle="outsideOverlay" />
 
     </ScrollView>
 

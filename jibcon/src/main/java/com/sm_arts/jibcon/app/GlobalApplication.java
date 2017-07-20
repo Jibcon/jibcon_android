@@ -11,10 +11,13 @@ import com.kakao.auth.KakaoSDK;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.sm_arts.jibcon.login.KaKaoSDKAdpater;
 import com.sm_arts.jibcon.login.user.domain.User;
+import com.sm_arts.jibcon.login.user.service.network.UserNetworkImpl;
 import com.tsengvn.typekit.Typekit;
 
 import java.lang.ref.WeakReference;
 import java.net.URL;
+import io.reactivex.functions.Consumer;
+
 
 /**
  * Created by admin on 2017-04-06.
@@ -29,7 +32,6 @@ public class GlobalApplication extends MultiDexApplication {
     //카톡 로그인
 
     String userToken;
-    //ArrayList<DeviceItem> deviceItemArrayList;//device 메뉴 아이템들의 리스트
     String username;
     String userEmail;
     URL userProfileImage;
@@ -61,7 +63,44 @@ public class GlobalApplication extends MultiDexApplication {
     }
 
     public String getUserToken() {
+        // todo remove
+        if (!userSignin()) {
+            User user = UserNetworkImpl.getInstance()
+                    .getSampleUserInfoFromServerSynchronisely();
+            userToken = user.getToken();
+            Log.d(TAG, "getUserToken: " + userToken);
+        }
+
         return userToken;
+    }
+
+    public String getUserToken(Consumer<String> comsumer) {
+        // todo remove
+        if (!userSignin()) {
+            UserNetworkImpl.getInstance()
+                    .getSampleUserInfoFromServerAsynchronisely(
+                        (user) -> {
+                            try {
+                                String token = user.getToken();
+                                setUserToken(token);
+                                Log.d(TAG, "getUserToken: " + token);
+                                comsumer.accept(token);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+            );
+        }
+
+        return userToken;
+    }
+
+    public boolean userSignin() {
+        if (userToken == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public void setUserToken(String userToken) {
@@ -83,14 +122,11 @@ public class GlobalApplication extends MultiDexApplication {
                 .addCustom1(Typekit.createFromAsset(this, "12롯데마트드림Light.ttf")); // 이후 추가시 .addCustom2~9 까지 가능
     }
 
-    public static OAuthLogin getNaverOAuthLogin()
-    {
-        if (mOAuthLoginModule == null)
-        {
+    public static OAuthLogin getNaverOAuthLogin() {
+        if (mOAuthLoginModule == null) {
             mOAuthLoginModule = OAuthLogin.getInstance();
             mOAuthLoginModule.init(getGlobalApplicationContext(),
                     "f2VZgOgRx7HzZaCUzN_D" , "uldOlbBiia" , "JIBCON");
-
         }
 
         return mOAuthLoginModule;
@@ -140,29 +176,6 @@ public class GlobalApplication extends MultiDexApplication {
             e.printStackTrace();
         }
 
-//        Toast.makeText(getApplicationContext(),"Success Signin With SampleUser",Toast.LENGTH_SHORT).show();
         Log.d(TAG, "setUser: Success Signin With SampleUser");
     }
-
-    // For Thirdparty App Key
-//    public String getKeyHash(Context context)
-//    {
-//        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
-//        if (packageInfo == null)
-//            return null;
-//        for (Signature signature : packageInfo.signatures) {
-//            try {
-//                MessageDigest md = MessageDigest.getInstance("SHA");
-//                md.update(signature.toByteArray());
-//                String hashKey= android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
-//                //카카오톡 안드로이드 플랫폼 키해시에 들어갈 키 정보 알아내기
-//                Log.d("testing",hashKey);
-//
-//                return android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
-//            } catch (NoSuchAlgorithmException e) {
-//                Log.d("testing", "Unable to get MessageDigest. signature=" + signature, e);
-//            }
-//        }
-//        return null;
-//    }
 }

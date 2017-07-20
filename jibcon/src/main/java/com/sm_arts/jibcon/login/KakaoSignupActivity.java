@@ -16,8 +16,9 @@ import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
-import com.sm_arts.jibcon.main.MainActivity;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
+import com.sm_arts.jibcon.ui.main.MainActivity;
+
 
 /**
  * Created by admin on 2017-01-20.
@@ -28,14 +29,12 @@ public class KakaoSignupActivity extends BaseActivity {
      * Main으로 넘길지 가입 페이지를 그릴지 판단하기 위해 me를 호출한다.
      * @param savedInstanceState 기존 session 정보가 저장된 객체
      */
-    GlobalApplication mApp;
 
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("testing","KaKaoSignUpActivity_onCreate()");
-        mApp = (GlobalApplication) getApplicationContext();
         requestMe();
     }
 
@@ -90,7 +89,8 @@ public class KakaoSignupActivity extends BaseActivity {
         UserServiceImpl.getInstance().getSampleUserAsynchronisely(new UserService.onSuccessListener() {
             @Override
             public void onSuccessGetSampleUserAsynchronisely(User sampleUser) {
-                mApp.setUser(sampleUser);
+                GlobalApplication.getGlobalApplicationContext()
+                        .setUser(sampleUser);
                 DeviceServiceImpl.getInstance().prepareDeviceItems();
             }
         });
