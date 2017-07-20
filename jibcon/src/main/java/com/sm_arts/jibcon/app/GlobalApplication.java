@@ -65,7 +65,8 @@ public class GlobalApplication extends MultiDexApplication {
     public String getUserToken() {
         // todo remove
         if (!userSignin()) {
-            User user = UserNetworkImpl.getInstance().getSampleUserInfoFromServerSynchronisely();
+            User user = UserNetworkImpl.getInstance()
+                    .getSampleUserInfoFromServerSynchronisely();
             userToken = user.getToken();
             Log.d(TAG, "getUserToken: " + userToken);
         }
@@ -76,17 +77,18 @@ public class GlobalApplication extends MultiDexApplication {
     public String getUserToken(Consumer<String> comsumer) {
         // todo remove
         if (!userSignin()) {
-            UserNetworkImpl.getInstance().getSampleUserInfoFromServerAsynchronisely(
-                    (user) -> {
-                        try {
-                            String token = user.getToken();
-                            setUserToken(token);
-                            Log.d(TAG, "getUserToken: " + token);
-                            comsumer.accept(token);
-                        } catch (Exception e) {
-                            e.printStackTrace();
+            UserNetworkImpl.getInstance()
+                    .getSampleUserInfoFromServerAsynchronisely(
+                        (user) -> {
+                            try {
+                                String token = user.getToken();
+                                setUserToken(token);
+                                Log.d(TAG, "getUserToken: " + token);
+                                comsumer.accept(token);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         }
-                    }
             );
         }
 

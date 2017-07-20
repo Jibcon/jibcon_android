@@ -56,11 +56,13 @@ public class DeviceNetworkImpl implements DeviceNetwork {
                                 public void onResponse(Call<List<DeviceItem>> call, Response<List<DeviceItem>> response) {
                                     if (response.isSuccessful()) {
                                         List<DeviceItem> result = response.body();
-                                        Log.d(TAG, "getDeviceItemsFromServer/onResponse: " + result.toString());
+                                        Log.d(TAG, "getDeviceItemsFromServer/onResponse: "
+                                                + result.toString());
                                         notifyListenersOnSuccessGetDeviceItemsFromServer(result);
                                     } else {
-                                        Log.d(TAG, "getDeviceItemsFromServer/onResponse: code=[" +
-                                                response.code() + "] message=[" + response.message() + "]");
+                                        Log.d(TAG, "getDeviceItemsFromServer/onResponse: " +
+                                                "code=[" + response.code() + "] " +
+                                                "message=[" + response.message() + "]");
                                     }
                                 }
                                 @Override
