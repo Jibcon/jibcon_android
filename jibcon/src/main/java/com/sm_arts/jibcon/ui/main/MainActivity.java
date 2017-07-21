@@ -1,12 +1,10 @@
 package com.sm_arts.jibcon.ui.main;
 
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -14,14 +12,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -41,7 +36,6 @@ import com.sm_arts.jibcon.ui.main.fragments.DeviceMenuFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 
 public class MainActivity extends BaseActivity
@@ -49,16 +43,16 @@ public class MainActivity extends BaseActivity
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     ViewPager mVp;
     GlobalApplication mApp;
-    Fragment mDevicemenu;
-    Fragment mTrickmenu;
-    Fragment mMarketmenu;
-    Fragment mUsermenu;
+    Fragment mDeviceFragment;
+    Fragment mCheatkeyFragment;
+    Fragment mConshopFragment;
+    Fragment mDataControlFragment;
     ImageView mUserProfileImage;
 
-    @BindView(R.id.btn1) ImageButton mBtn1;
-    @BindView(R.id.btn2) ImageButton mBtn2;
-    @BindView(R.id.btn3) ImageButton mBtn3;
-    @BindView(R.id.btn4) ImageButton mBtn4;
+    @BindView(R.id.btn1) ImageButton mDeviceBtn;
+    @BindView(R.id.btn2) ImageButton mCheatkeyBtn;
+    @BindView(R.id.btn3) ImageButton mConshopBtn;
+    @BindView(R.id.btn4) ImageButton mDataControlBtn;
 
     ImageButton mtoSettingBtn;
 
@@ -75,16 +69,16 @@ public class MainActivity extends BaseActivity
             switch (position) {
                 case 0:
                     Log.d("FragmentCheck","ToDevice");
-                    return mDevicemenu;
+                    return mDeviceFragment;
                 case 1:
                     Log.d("FragmentCheck","ToTrick");
-                    return mTrickmenu;
+                    return mCheatkeyFragment;
                 case 2:
                     Log.d("FragmentCheck","ToMarket");
-                    return mMarketmenu;
+                    return mConshopFragment;
                 case 3:
                     Log.d("FragmentCheck","ToUserMenu");
-                    return mUsermenu;
+                    return mDataControlFragment;
                 default:
                     return null;
             }
@@ -105,19 +99,19 @@ public class MainActivity extends BaseActivity
             switch (tag) {
                 case 0 :
                     setDefaultMainMenuBtn();
-                    mBtn1.setImageResource(R.drawable.ic_home_blue_48dp);
+                    mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
                     break;
                 case 1:
                     setDefaultMainMenuBtn();
-                    mBtn2.setImageResource(R.drawable.ic_link_blue_48dp);
+                    mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
                     break;
                 case 2:
                     setDefaultMainMenuBtn();
-                    mBtn3.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
+                    mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
                     break;
                 case 3:
                     setDefaultMainMenuBtn();
-                    mBtn4.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
+                    mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
                     break;
             }
             mVp.setCurrentItem(tag);
@@ -125,10 +119,10 @@ public class MainActivity extends BaseActivity
     };
 
     private  void initLayout() {
-        mDevicemenu = new DeviceMenuFragment();
-        mUsermenu = new DataControlFragment();
-        mTrickmenu = new CheatkeyMenuFragment();
-        mMarketmenu = new ConshopFragment();
+        mDeviceFragment = new DeviceMenuFragment();
+        mDataControlFragment = new DataControlFragment();
+        mCheatkeyFragment = new CheatkeyMenuFragment();
+        mConshopFragment = new ConshopFragment();
 
         mVp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
 
@@ -147,19 +141,19 @@ public class MainActivity extends BaseActivity
                 switch (position) {
                     case 0 :
                         setDefaultMainMenuBtn();
-                        mBtn1.setImageResource(R.drawable.ic_home_blue_48dp);
+                        mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
                         break;
                     case 1:
                         setDefaultMainMenuBtn();
-                        mBtn2.setImageResource(R.drawable.ic_link_blue_48dp);
+                        mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
                         break;
                     case 2:
                         setDefaultMainMenuBtn();
-                        mBtn3.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
+                        mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
                         break;
                     case 3:
                         setDefaultMainMenuBtn();
-                        mBtn4.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
+                        mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
                         break;
                 }
             }
@@ -172,20 +166,20 @@ public class MainActivity extends BaseActivity
 
         mVp.setCurrentItem(0); // 첫 뷰페이저로는 기기 목록이 나오도록 설정.
 
-        mBtn1.setTag(0);
-        mBtn1.setOnClickListener(movePageListener);
-        mBtn2.setTag(1);
-        mBtn2.setOnClickListener(movePageListener);
-        mBtn3.setTag(2);
-        mBtn3.setOnClickListener(movePageListener);
-        mBtn4.setTag(3);
-        mBtn4.setOnClickListener(movePageListener);
+        mDeviceBtn.setTag(0);
+        mDeviceBtn.setOnClickListener(movePageListener);
+        mCheatkeyBtn.setTag(1);
+        mCheatkeyBtn.setOnClickListener(movePageListener);
+        mConshopBtn.setTag(2);
+        mConshopBtn.setOnClickListener(movePageListener);
+        mDataControlBtn.setTag(3);
+        mDataControlBtn.setOnClickListener(movePageListener);
     }
     private void setDefaultMainMenuBtn() {
-        mBtn1.setImageResource(R.drawable.ic_home_gray_48dp);
-        mBtn2.setImageResource(R.drawable.ic_link_gray_48dp);
-        mBtn3.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-        mBtn4.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
+        mDeviceBtn.setImageResource(R.drawable.ic_home_gray_48dp);
+        mCheatkeyBtn.setImageResource(R.drawable.ic_link_gray_48dp);
+        mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
+        mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
     }
 
     @Override
@@ -302,10 +296,10 @@ public class MainActivity extends BaseActivity
     }
 
     private void setDefaultImages() {
-        mBtn1.setImageResource(R.drawable.ic_home_gray_48dp);
-        mBtn2.setImageResource(R.drawable.ic_link_gray_48dp);
-        mBtn3.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-        mBtn4.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
+        mDeviceBtn.setImageResource(R.drawable.ic_home_gray_48dp);
+        mCheatkeyBtn.setImageResource(R.drawable.ic_link_gray_48dp);
+        mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
+        mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
     }
 
 
