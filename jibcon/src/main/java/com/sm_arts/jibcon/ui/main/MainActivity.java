@@ -39,7 +39,7 @@ import butterknife.ButterKnife;
 
 
 public class MainActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     ViewPager mVp;
     GlobalApplication mApp;
@@ -64,20 +64,15 @@ public class MainActivity extends BaseActivity
         }
 
         @Override
-        public Fragment getItem(int position){
-            Log.w("CJ","movePageListener");
+        public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    Log.d("FragmentCheck","ToDevice");
                     return mDeviceFragment;
                 case 1:
-                    Log.d("FragmentCheck","ToTrick");
                     return mCheatkeyFragment;
                 case 2:
-                    Log.d("FragmentCheck","ToMarket");
                     return mConshopFragment;
                 case 3:
-                    Log.d("FragmentCheck","ToUserMenu");
                     return mDataControlFragment;
                 default:
                     return null;
@@ -94,26 +89,9 @@ public class MainActivity extends BaseActivity
     /* ↓뷰 페이저(액티비티 슬라이드)↓ */
     View.OnClickListener movePageListener = new View.OnClickListener() {
         @Override
-        public void onClick(View v){
+        public void onClick(View v) {
             int tag = (int) v.getTag();
-            switch (tag) {
-                case 0 :
-                    setDefaultMainMenuBtn();
-                    mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
-                    break;
-                case 1:
-                    setDefaultMainMenuBtn();
-                    mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
-                    break;
-                case 2:
-                    setDefaultMainMenuBtn();
-                    mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
-                    break;
-                case 3:
-                    setDefaultMainMenuBtn();
-                    mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
-                    break;
-            }
+            setSelectedMainMenuBtn(tag);
             mVp.setCurrentItem(tag);
         }
     };
@@ -138,24 +116,7 @@ public class MainActivity extends BaseActivity
             @Override
             public void onPageSelected(int position) {
                 Log.d(TAG, "onPageSelected: "+position);
-                switch (position) {
-                    case 0 :
-                        setDefaultMainMenuBtn();
-                        mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
-                        break;
-                    case 1:
-                        setDefaultMainMenuBtn();
-                        mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
-                        break;
-                    case 2:
-                        setDefaultMainMenuBtn();
-                        mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
-                        break;
-                    case 3:
-                        setDefaultMainMenuBtn();
-                        mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
-                        break;
-                }
+                setSelectedMainMenuBtn(position);
             }
 
             @Override
@@ -175,11 +136,33 @@ public class MainActivity extends BaseActivity
         mDataControlBtn.setTag(3);
         mDataControlBtn.setOnClickListener(movePageListener);
     }
+
     private void setDefaultMainMenuBtn() {
         mDeviceBtn.setImageResource(R.drawable.ic_home_gray_48dp);
         mCheatkeyBtn.setImageResource(R.drawable.ic_link_gray_48dp);
         mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
         mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
+    }
+
+    private void setSelectedMainMenuBtn(int position) {
+        switch (position) {
+            case 0 :
+                setDefaultMainMenuBtn();
+                mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
+                break;
+            case 1:
+                setDefaultMainMenuBtn();
+                mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
+                break;
+            case 2:
+                setDefaultMainMenuBtn();
+                mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
+                break;
+            case 3:
+                setDefaultMainMenuBtn();
+                mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
+                break;
+        }
     }
 
     @Override
