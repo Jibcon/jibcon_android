@@ -72,7 +72,7 @@ public class JibconLoginManager {
 
     public String getUserToken() {
         if (mUser != null) {
-            return mUser.getEmail();
+            return mUser.getToken();
         } else {
             return null;
         }
