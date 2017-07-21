@@ -24,18 +24,13 @@ import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
-import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.login.loginmanager.JibconLoginManagerImpl;
-import com.sm_arts.jibcon.login.user.domain.User;
-import com.sm_arts.jibcon.login.user.service.UserService;
-import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
+import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 
 
 public class LoginActivity extends BaseActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
-    private JibconLoginManagerImpl mJibconLoginManager;
     private OAuthLoginButton mOAuthLoginButton;
     private SessionCallback mKakaoCallback;      //콜백 선언
     private OAuthLoginHandler mOAuthLoginHandler;
@@ -49,9 +44,12 @@ public class LoginActivity extends BaseActivity {
     private void facebookLoginSetup() {
         FacebookSdk.sdkInitialize(getApplicationContext());
 
-        mFacebookCallback = mJibconLoginManager.makeFacebookLoginManager();
-        mCallbackManager = mJibconLoginManager.makeFacebookCallbackManager();
-        mAccessTokenTracker = mJibconLoginManager.makeFacebookAccessTokenTracker();
+        mFacebookCallback = JibconLoginManager.getInstance()
+                                    .makeFacebookLoginManager();
+        mCallbackManager = JibconLoginManager.getInstance()
+                                    .makeFacebookCallbackManager();
+        mAccessTokenTracker = JibconLoginManager.getInstance()
+                                    .makeFacebookAccessTokenTracker();
 
 
         LoginButton loginButton = (LoginButton) findViewById(R.id.btn_login_facebook);
@@ -66,7 +64,6 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_loginactivity_activity);
 
-        mJibconLoginManager = new JibconLoginManagerImpl();
 
         mVideoView = (VideoView) findViewById(R.id.videoView);
 
@@ -81,7 +78,8 @@ public class LoginActivity extends BaseActivity {
         mVideoView.setVideoURI(Uri.parse(videoPath));
         mVideoView.start();
 
-        mOAuthLoginHandler = mJibconLoginManager.getNaverOAuthLoginHandler(LoginActivity.this);
+        mOAuthLoginHandler = JibconLoginManager.getInstance()
+                                        .getNaverOAuthLoginHandler(LoginActivity.this);
         mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.btn_naver_login);
 
         mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
@@ -115,7 +113,7 @@ public class LoginActivity extends BaseActivity {
         findViewById(R.id.btnSampleSignIn).setOnClickListener(
                 v -> {
                     Log.d(TAG, "initSampleSignInBtn: btnSampleSignIn clicked");
-                    JibconLoginManagerImpl.getInstance().loginWithSampleUser(
+                    JibconLoginManager.getInstance().loginWithSampleUser(
                             this::gotoMakeConStartActivity
                     );
                 }

@@ -38,7 +38,7 @@ public class SettingActivity extends BaseActivity {
         setContentView(R.layout.setting_settingactivity_activity);
         ButterKnife.bind(this);
 
-        final String[] settingOptionmenuList =getResources().getStringArray(R.array.setting_option_array);
+        final String[] settingOptionmenuList = getResources().getStringArray(R.array.setting_option_array);
 
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, settingOptionmenuList);
         mSettingLv.setAdapter(adapter);

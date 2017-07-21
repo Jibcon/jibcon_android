@@ -11,7 +11,7 @@ import android.util.Log;
 
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.app.GlobalApplication;
-import com.sm_arts.jibcon.login.loginmanager.JibconLoginManagerImpl;
+import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
@@ -60,7 +60,7 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
         Log.d(TAG, "sendDevice: Call.enqueue DeviceItem "+mDeviceItem.toString());
       
         Call<DeviceItem> c = apiService.addDevice("Token " +
-                JibconLoginManagerImpl.getInstance().getUserToken(), mDeviceItem);
+                JibconLoginManager.getInstance().getUserToken(), mDeviceItem);
         Log.d("TAG", "sendDevice: " + c.toString());
 
         try {

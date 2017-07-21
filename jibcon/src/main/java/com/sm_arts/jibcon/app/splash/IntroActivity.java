@@ -18,7 +18,7 @@ import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.login.LoginActivity;
-import com.sm_arts.jibcon.login.loginmanager.JibconLoginManagerImpl;
+import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.ui.main.MainActivity;
@@ -26,7 +26,6 @@ import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
-import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -71,7 +70,7 @@ public class IntroActivity extends BaseActivity {
                     c.enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
-                            JibconLoginManagerImpl.getInstance().setUser(response.body());
+                            JibconLoginManager.getInstance().setUser(response.body());
                             Log.d(TAG, "onResponse: "+"Success");
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.setting.SettingActivity;
-import com.sm_arts.jibcon.login.loginmanager.JibconLoginManagerImpl;
+import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.utils.ToastHelper;
 
 /**
@@ -41,8 +41,7 @@ public class SidebarDialog extends Dialog {
         mTextViewLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                JibconLoginManagerImpl jibconLoginManager = new JibconLoginManagerImpl();
-                jibconLoginManager.logout(context);
+                JibconLoginManager.getInstance().logout(context);
             }
         });
     }

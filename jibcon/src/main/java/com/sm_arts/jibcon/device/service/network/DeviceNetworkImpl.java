@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.app.GlobalApplication;
-import com.sm_arts.jibcon.login.loginmanager.JibconLoginManagerImpl;
+import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.network.ApiService;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
@@ -48,7 +48,7 @@ public class DeviceNetworkImpl implements DeviceNetwork {
         } else {
             mIsWorking = true;
 
-            String token = JibconLoginManagerImpl.getInstance()
+            String token = JibconLoginManager.getInstance()
                                                 .getUserToken();
             Call<List<DeviceItem>> c = mApiService.getDevices("Token " + token);
             try {

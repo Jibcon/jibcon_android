@@ -31,7 +31,7 @@ import com.sm_arts.jibcon.app.sidebar.ConnectedDevicesActivity;
 import com.sm_arts.jibcon.app.sidebar.MyJibconActivity;
 import com.sm_arts.jibcon.app.sidebar.UserAuthorityActivity;
 import com.sm_arts.jibcon.app.sidebar.WidgetActivity;
-import com.sm_arts.jibcon.login.loginmanager.JibconLoginManagerImpl;
+import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.ui.dialogs.SidebarDialog;
 import com.sm_arts.jibcon.ui.main.fragments.DeviceMenuFragment;
 
@@ -262,13 +262,13 @@ public class MainActivity extends BaseActivity
         mUserProfileImage = (ImageView) headerView.findViewById(R.id.ImgView_Drawer_UserProfile);
 
         Glide.with(getApplicationContext())
-                .load(JibconLoginManagerImpl.getInstance()
+                .load(JibconLoginManager.getInstance()
                         .getUserProfileImageUrl())
                 .into(mUserProfileImage);
 
         //Log.d("userProfile",mApp.getUserProfileImageUrl().toString());
-        username.setText(JibconLoginManagerImpl.getInstance().getUserName());
-        userEmail.setText(JibconLoginManagerImpl.getInstance().getUserEmail());
+        username.setText(JibconLoginManager.getInstance().getUserName());
+        userEmail.setText(JibconLoginManager.getInstance().getUserEmail());
 
         initLayout();
         mBtn1.setImageResource(R.drawable.ic_home_blue_48dp);

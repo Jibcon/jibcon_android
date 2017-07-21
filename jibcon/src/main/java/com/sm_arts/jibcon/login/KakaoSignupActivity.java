@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.facebook.login.LoginManager;
 import com.kakao.auth.ErrorCode;
 import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.UserManagement;
@@ -12,12 +11,7 @@ import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.helper.log.Logger;
 import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.app.GlobalApplication;
-import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.login.loginmanager.JibconLoginManagerImpl;
-import com.sm_arts.jibcon.login.user.domain.User;
-import com.sm_arts.jibcon.login.user.service.UserService;
-import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
+import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 
@@ -88,7 +82,7 @@ public class KakaoSignupActivity extends BaseActivity {
 
         // TODO: 2017-05-24 facebook과 유사하게 토큰 처리
         // TODO: 2017-05-24 현재 sample 계정 로그인  
-        JibconLoginManagerImpl.getInstance().loginWithSampleUser(
+        JibconLoginManager.getInstance().loginWithSampleUser(
                 () -> {
                     SharedPreferenceHelper.saveSharedPreference("pref", "LOGINTYPE", "KAKAO");
                     startActivity(new Intent(this, MainActivity.class));
