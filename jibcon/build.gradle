@@ -27,7 +27,7 @@ android {
             minSdkVersion 21
         }
         prod {
-            minSdkVersion 14
+            minSdkVersion 17
         }
     }
 

@@ -157,7 +157,7 @@ public class JibconLoginManager {
 
 
 
-    public FacebookCallback<LoginResult> makeFacebookLoginManager() {
+    public FacebookCallback<LoginResult> makeFacebookLoginManager(Action action) {
 
         FacebookCallback<LoginResult> mFacebookCallback = new FacebookCallback<LoginResult>() {
             String userEmail;
@@ -203,13 +203,15 @@ public class JibconLoginManager {
                             JibconLoginManager.getInstance()
                                     .setUser(response.body());
                             Log.d(TAG, "onResponse: "+"success");
-                            Intent intent = new Intent(GlobalApplication.getGlobalApplicationContext(),
-                                    MakeconStartActivity.class);
 
                             // prepare deviceItems
                             DeviceServiceImpl.getInstance().prepareDeviceItems();
 
-                            GlobalApplication.getGlobalApplicationContext().startActivity(intent);
+                            try {
+                                action.run();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         }
 
                         @Override
