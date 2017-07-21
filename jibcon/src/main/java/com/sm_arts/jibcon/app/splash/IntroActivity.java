@@ -18,6 +18,7 @@ import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.login.LoginActivity;
+import com.sm_arts.jibcon.login.loginmanager.JibconLoginManagerImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.ui.main.MainActivity;
@@ -70,18 +71,9 @@ public class IntroActivity extends BaseActivity {
                     c.enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
-                            mApplication.setUserEmail(response.body().getEmail());
-                            mApplication.setUserToken(response.body().getToken());
-                            mApplication.setUsername(response.body().getUserinfo().getFull_name());
+                            JibconLoginManagerImpl.getInstance().setUser(response.body());
                             Log.d(TAG, "onResponse: "+"Success");
-                            //Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
-                            Intent intent= new Intent(getApplicationContext(), MainActivity.class);
-                            try{
-                            mApplication.setUserProfileImage(new URL(response.body().getUserinfo().getPic_url()));
-                            }catch (Exception e)
-                            {
-                                e.printStackTrace();
-                            }
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
                             // prepare deviceItems
                             DeviceServiceImpl.getInstance().prepareDeviceItems();

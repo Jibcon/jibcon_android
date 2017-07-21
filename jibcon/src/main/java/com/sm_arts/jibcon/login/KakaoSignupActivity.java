@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.facebook.login.LoginManager;
 import com.kakao.auth.ErrorCode;
 import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.UserManagement;
@@ -13,6 +14,7 @@ import com.kakao.util.helper.log.Logger;
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
+import com.sm_arts.jibcon.login.loginmanager.JibconLoginManagerImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.service.UserService;
 import com.sm_arts.jibcon.login.user.service.UserServiceImpl;
@@ -86,19 +88,15 @@ public class KakaoSignupActivity extends BaseActivity {
 
         // TODO: 2017-05-24 facebook과 유사하게 토큰 처리
         // TODO: 2017-05-24 현재 sample 계정 로그인  
-        UserServiceImpl.getInstance().getSampleUserAsynchronisely(new UserService.onSuccessListener() {
-            @Override
-            public void onSuccessGetSampleUserAsynchronisely(User sampleUser) {
-                GlobalApplication.getGlobalApplicationContext()
-                        .setUser(sampleUser);
-                DeviceServiceImpl.getInstance().prepareDeviceItems();
-            }
-        });
-
-        SharedPreferenceHelper.saveSharedPreference("pref", "LOGINTYPE", "KAKAO");
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
+        JibconLoginManagerImpl.getInstance().loginWithSampleUser(
+                () -> {
+                    SharedPreferenceHelper.saveSharedPreference("pref", "LOGINTYPE", "KAKAO");
+                    startActivity(new Intent(this, MainActivity.class));
+                    finish();
+                }
+        );
     }
+
     protected void redirectLoginActivity() {
         Log.d("testing","KaKaoSignUpActivity_redirectLoginActivity()");
 
