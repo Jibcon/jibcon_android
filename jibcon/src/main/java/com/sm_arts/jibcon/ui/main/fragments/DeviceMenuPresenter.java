@@ -11,6 +11,7 @@ import com.sm_arts.jibcon.utils.network.RetrofiClients;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,8 +26,11 @@ class DeviceMenuPresenter {
     private final DeviceMenuView mView;
 
     public DeviceMenuPresenter(DeviceMenuView view) {
+        Log.d(TAG, "DeviceMenuPresenter: ");
         mView = view;
     }
+
+    //region Presenter role
 
     public void loadData(Consumer<List<DeviceItem>> finished) {
         Log.d(TAG, "loadData: ");
@@ -46,6 +50,45 @@ class DeviceMenuPresenter {
         Log.d(TAG, "deviceItemIvClicked() called with: " +
                 "position = [" + position + "]");
 
+        activateDevice(position);
+    }
+
+    public void threedotIvClicked(int position) {
+        Log.d(TAG, "threedotIvClicked() called with: " +
+                "position = [" + position + "]");
+        mView.showDeviceDialog();
+    }
+
+    public void swipeRefreshed() {
+        Log.d(TAG, "swipeRefreshed: ");
+        reloadData(mView::setSwiperefreshingOff);
+    }
+
+    public void fabDeviceBehindBtnClicked() {
+        mView.gotoFloatingButtonDeviceActivity();
+    }
+
+    //endregion
+
+    //region Calling Model Layer
+
+    private void reloadData(Action finished) {
+        DeviceServiceImpl.getInstance().reloadDeviceItems(
+                (deviceItems) -> {
+                    mView.refreshDeviceItems(deviceItems);
+                    try {
+                        finished.run();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+        );
+    }
+
+    private void activateDevice(int position) {
+        Log.d(TAG, "activateDevice() called with: position = [" + position + "]");
+
+        // TODO: 7/21/17 replace this stub
         MobiusService service = RetrofiClients.getInstance().getService(MobiusService.class);
         Call<Object> call = service.turnOnLed(
                 "application/json",
@@ -69,9 +112,5 @@ class DeviceMenuPresenter {
         });
     }
 
-    public void threedotIvClicked(int position) {
-        Log.d(TAG, "threedotIvClicked() called with: " +
-                "position = [" + position + "]");
-        mView.showDeviceDialog();
-    }
+    //endregion
 }

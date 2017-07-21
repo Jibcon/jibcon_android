@@ -37,6 +37,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     private ImageButton mFabDeviceBehindBtn;
     private DeviceMenuPresenter mPresenter;
 
+    //region Fragment role
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,43 +61,20 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         super.onDestroyView();
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    private void detachUI() {
-
-    }
-
     private void attachUI() {
+        Log.d(TAG, "attachUI: ");
         mFabDeviceBehindBtn = (ImageButton) getView().findViewById(R.id.fab_device_behind);
         mFabDeviceBehindBtn.setOnClickListener(
-                v -> gotoFloatingButtonDeviceActivity()
+                v -> mPresenter.fabDeviceBehindBtnClicked()
         );
 
         mSwiperefreshlayout = (SwipeRefreshLayout) getView().findViewById(R.id.swipelayout_menu_deivce);
-
         mSwiperefreshlayout.setOnRefreshListener(
-                () ->
-                        DeviceServiceImpl.getInstance().reloadDeviceItems(
-                                (deviceItems) -> {
-                                    mAdapter.setDeviceItems((ArrayList) deviceItems);
-                                    mAdapter.notifyDataSetChanged();
-                                    mSwiperefreshlayout.setRefreshing(false);
-                                }
-                        )
+                () -> mPresenter.swipeRefreshed()
         );
 
         mRecyclerView = (RecyclerView) getView().findViewById(R.id.deviceRecyclerView);
-
         initializeRecyclerView();
-    }
-
-    private void gotoFloatingButtonDeviceActivity() {
-        Log.d(TAG, "gotoFloatingButtonDeviceActivity: ");
-        startActivity(new Intent(getActivity().
-                getApplicationContext(), FloatingButtonDeviceActivity.class));
     }
 
     private void initializeRecyclerView() {
@@ -104,33 +82,17 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
                 new ArrayList<>(),
                 (v, position) -> {
                     Log.d(TAG, "onItemClick: position=[" + position + "]");
-                    deviceItemIvClicked(position);
+                    mPresenter.deviceItemIvClicked(position);
                 },
                 (v, position) -> {
                     Log.d(TAG, "onItemClick: position=[" + position + "]");
-                    threedotIvClicked(position);
+                    mPresenter.threedotIvClicked(position);
                 }
         );
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), GRID_COLUMN_COUNT);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-    }
-
-    private void deviceItemIvClicked(int position) {
-        Log.d(TAG, "deviceItemIvClicked() called with: position = [" + position + "]");
-        mPresenter.deviceItemIvClicked(position);
-    }
-
-    public void showDeviceDialog() {
-        Log.d(TAG, "showDeviceDialog: ");
-        DeviceDialog deviceDialog = new DeviceDialog(getContext());
-        deviceDialog.show();
-    }
-
-    private void threedotIvClicked(int position) {
-        Log.d(TAG, "threedotIvClicked() called with: position = [" + position + "]");
-        mPresenter.threedotIvClicked(position);
     }
 
     private void loadData() {
@@ -141,13 +103,6 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         });
     }
 
-    private void updateRecyclerView(List<DeviceItem> deviceItems) {
-        Log.d(TAG, "updateRecyclerView() called with: " +
-                "deviceItems = [" + deviceItems + "]");
-        mAdapter.setDeviceItems(deviceItems);
-        mAdapter.notifyDataSetChanged();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.device_devicemenufragment_fragment, container, false);
@@ -155,5 +110,45 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
 
         return root;
     }
+
+    private void detachUI() {
+        Log.d(TAG, "detachUI: ");
+        // TODO: 7/21/17 implement unbind
+    }
+
+    //endregion
+
+    //region View role
+    public void gotoFloatingButtonDeviceActivity() {
+        Log.d(TAG, "gotoFloatingButtonDeviceActivity: ");
+        startActivity(new Intent(getActivity().
+                getApplicationContext(), FloatingButtonDeviceActivity.class));
+    }
+
+    @Override
+    public void setSwiperefreshingOff() {
+        Log.d(TAG, "setSwiperefreshingOff: ");
+        mSwiperefreshlayout.setRefreshing(false);
+    }
+
+    @Override
+    public void refreshDeviceItems(List<DeviceItem> deviceItems) {
+        Log.d(TAG, "refreshDeviceItems() called with: deviceItems = [" + deviceItems + "]");
+        updateRecyclerView(deviceItems);
+    }
+
+    public void showDeviceDialog() {
+        Log.d(TAG, "showDeviceDialog: ");
+        DeviceDialog deviceDialog = new DeviceDialog(getContext());
+        deviceDialog.show();
+    }
+
+    private void updateRecyclerView(List<DeviceItem> deviceItems) {
+        Log.d(TAG, "updateRecyclerView() called with: " +
+                "deviceItems = [" + deviceItems + "]");
+        mAdapter.setDeviceItems(deviceItems);
+        mAdapter.notifyDataSetChanged();
+    }
+    //endregion
 
 }
