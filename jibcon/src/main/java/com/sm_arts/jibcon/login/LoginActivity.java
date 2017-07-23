@@ -45,7 +45,9 @@ public class LoginActivity extends BaseActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
 
         mFacebookCallback = JibconLoginManager.getInstance()
-                                    .makeFacebookLoginManager();
+                                    .makeFacebookLoginManager(
+                                            this::gotoMakeConStartActivity
+                                    );
         mCallbackManager = JibconLoginManager.getInstance()
                                     .makeFacebookCallbackManager();
         mAccessTokenTracker = JibconLoginManager.getInstance()
