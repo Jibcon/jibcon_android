@@ -35,23 +35,26 @@ import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.ui.dialogs.SidebarDialog;
 import com.sm_arts.jibcon.ui.main.fragments.DeviceMenuFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     ViewPager mVp;
-//    String[] drawer_str = {"about Jibcon", "문의", "알림 설정", "외출", "연결된 디바이스"};//사이드바 임시 메뉴 껍데기
     GlobalApplication mApp;
-
-    Fragment mDevicemenu;
-    Fragment mTrickmenu;
-    Fragment mMarketmenu;
-    Fragment mUsermenu;
+    Fragment mDeviceFragment;
+    Fragment mCheatkeyFragment;
+    Fragment mConshopFragment;
+    Fragment mDataControlFragment;
     ImageView mUserProfileImage;
-    ImageButton mBtn1;
-    ImageButton mBtn2;
-    ImageButton mBtn3;
-    ImageButton mBtn4;
+
+    @BindView(R.id.btn1) ImageButton mDeviceBtn;
+    @BindView(R.id.btn2) ImageButton mCheatkeyBtn;
+    @BindView(R.id.btn3) ImageButton mConshopBtn;
+    @BindView(R.id.btn4) ImageButton mDataControlBtn;
+
     ImageButton mtoSettingBtn;
 
     //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
@@ -62,33 +65,16 @@ public class MainActivity extends BaseActivity
         }
 
         @Override
-        public Fragment getItem(int position){
-            Log.w("CJ","movePageListener");
+        public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    Log.d("FragmentCheck","ToDevice");
-                    return mDevicemenu;
+                    return mDeviceFragment;
                 case 1:
-                    Log.d("FragmentCheck","ToTrick");
-                    mBtn1.setImageResource(R.drawable.ic_home_gray_48dp);
-                    mBtn2.setImageResource(R.drawable.ic_link_blue_48dp);
-                    mBtn3.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-                    mBtn4.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
-                    return mTrickmenu;
+                    return mCheatkeyFragment;
                 case 2:
-                    Log.d("FragmentCheck","ToMarket");
-                    mBtn1.setImageResource(R.drawable.ic_home_gray_48dp);
-                    mBtn2.setImageResource(R.drawable.ic_link_gray_48dp);
-                    mBtn3.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
-                    mBtn4.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
-                    return mMarketmenu;
+                    return mConshopFragment;
                 case 3:
-                    Log.d("FragmentCheck","ToUserMenu");
-                    mBtn1.setImageResource(R.drawable.ic_home_gray_48dp);
-                    mBtn2.setImageResource(R.drawable.ic_link_gray_48dp);
-                    mBtn3.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-                    mBtn4.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
-                    return mUsermenu;
+                    return mDataControlFragment;
                 default:
                     return null;
             }
@@ -104,53 +90,24 @@ public class MainActivity extends BaseActivity
     /* ↓뷰 페이저(액티비티 슬라이드)↓ */
     View.OnClickListener movePageListener = new View.OnClickListener() {
         @Override
-        public void onClick(View v){
+        public void onClick(View v) {
             int tag = (int) v.getTag();
-            switch (tag) {
-                case 0 :
-                    mBtn1.setImageResource(R.drawable.ic_home_blue_48dp);
-                    mBtn2.setImageResource(R.drawable.ic_link_gray_48dp);
-                    mBtn3.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-                    mBtn4.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
-                    break;
-                case 1:
-                    mBtn1.setImageResource(R.drawable.ic_home_gray_48dp);
-                    mBtn2.setImageResource(R.drawable.ic_link_blue_48dp);
-                    mBtn3.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-                    mBtn4.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
-                    break;
-                case 2:
-                    mBtn1.setImageResource(R.drawable.ic_home_gray_48dp);
-                    mBtn2.setImageResource(R.drawable.ic_link_gray_48dp);
-                    mBtn3.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
-                    mBtn4.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
-                    break;
-                case 3:
-                    mBtn1.setImageResource(R.drawable.ic_home_gray_48dp);
-                    mBtn2.setImageResource(R.drawable.ic_link_gray_48dp);
-                    mBtn3.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-                    mBtn4.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
-                    break;
-            }
+            setSelectedMainMenuBtn(tag);
             mVp.setCurrentItem(tag);
         }
     };
 
     private  void initLayout() {
-        mDevicemenu = new DeviceMenuFragment();
-        mUsermenu = new DataControlFragment();
-        mTrickmenu = new CheatkeyMenuFragment();
-        mMarketmenu = new ConshopFragment();
+        mDeviceFragment = new DeviceMenuFragment();
+        mDataControlFragment = new DataControlFragment();
+        mCheatkeyFragment = new CheatkeyMenuFragment();
+        mConshopFragment = new ConshopFragment();
 
         mVp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
 
-        mBtn1 = (ImageButton) findViewById(R.id.btn1); // 기기 버튼
-        mBtn2 = (ImageButton) findViewById(R.id.btn2); // 트릭 버튼
-        mBtn3 = (ImageButton) findViewById(R.id.btn3); // 마켓 버튼
-        mBtn4 = (ImageButton) findViewById(R.id.btn4); // 사용자 버튼
-
         mVp.setOffscreenPageLimit(3);
         mVp.setAdapter(new pagerAdapter(getSupportFragmentManager()));
+
         mVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -160,32 +117,7 @@ public class MainActivity extends BaseActivity
             @Override
             public void onPageSelected(int position) {
                 Log.d(TAG, "onPageSelected: "+position);
-                switch (position) {
-                    case 0 :
-                        mBtn1.setImageResource(R.drawable.ic_home_blue_48dp);
-                        mBtn2.setImageResource(R.drawable.ic_link_gray_48dp);
-                        mBtn3.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-                        mBtn4.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
-                        break;
-                    case 1:
-                        mBtn1.setImageResource(R.drawable.ic_home_gray_48dp);
-                        mBtn2.setImageResource(R.drawable.ic_link_blue_48dp);
-                        mBtn3.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-                        mBtn4.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
-                        break;
-                    case 2:
-                        mBtn1.setImageResource(R.drawable.ic_home_gray_48dp);
-                        mBtn2.setImageResource(R.drawable.ic_link_gray_48dp);
-                        mBtn3.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
-                        mBtn4.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
-                        break;
-                    case 3:
-                        mBtn1.setImageResource(R.drawable.ic_home_gray_48dp);
-                        mBtn2.setImageResource(R.drawable.ic_link_gray_48dp);
-                        mBtn3.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-                        mBtn4.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
-                        break;
-                }
+                setSelectedMainMenuBtn(position);
             }
 
             @Override
@@ -193,22 +125,52 @@ public class MainActivity extends BaseActivity
                 Log.d(TAG, "onPageScrollStateChanged: "+state);
             }
         });
+
         mVp.setCurrentItem(0); // 첫 뷰페이저로는 기기 목록이 나오도록 설정.
 
-        mBtn1.setTag(0);
-        mBtn1.setOnClickListener(movePageListener);
-        mBtn2.setTag(1);
-        mBtn2.setOnClickListener(movePageListener);
-        mBtn3.setTag(2);
-        mBtn3.setOnClickListener(movePageListener);
-        mBtn4.setTag(3);
-        mBtn4.setOnClickListener(movePageListener);
+        mDeviceBtn.setTag(0);
+        mDeviceBtn.setOnClickListener(movePageListener);
+        mCheatkeyBtn.setTag(1);
+        mCheatkeyBtn.setOnClickListener(movePageListener);
+        mConshopBtn.setTag(2);
+        mConshopBtn.setOnClickListener(movePageListener);
+        mDataControlBtn.setTag(3);
+        mDataControlBtn.setOnClickListener(movePageListener);
+    }
+
+    private void setDefaultMainMenuBtn() {
+        mDeviceBtn.setImageResource(R.drawable.ic_home_gray_48dp);
+        mCheatkeyBtn.setImageResource(R.drawable.ic_link_gray_48dp);
+        mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
+        mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
+    }
+
+    private void setSelectedMainMenuBtn(int position) {
+        switch (position) {
+            case 0 :
+                setDefaultMainMenuBtn();
+                mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
+                break;
+            case 1:
+                setDefaultMainMenuBtn();
+                mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
+                break;
+            case 2:
+                setDefaultMainMenuBtn();
+                mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
+                break;
+            case 3:
+                setDefaultMainMenuBtn();
+                mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
+                break;
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_mainactivity_activity);
+        ButterKnife.bind(this);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         //toolbar search tab  : res-> menu
@@ -242,8 +204,6 @@ public class MainActivity extends BaseActivity
         mtoSettingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 SidebarDialog sidebarDialog = new SidebarDialog(MainActivity.this);
                 sidebarDialog.show();
 
@@ -271,8 +231,6 @@ public class MainActivity extends BaseActivity
         userEmail.setText(JibconLoginManager.getInstance().getUserEmail());
 
         initLayout();
-        mBtn1.setImageResource(R.drawable.ic_home_blue_48dp);
-        mBtn4.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
     }
 
 
@@ -321,5 +279,13 @@ public class MainActivity extends BaseActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void setDefaultImages() {
+        mDeviceBtn.setImageResource(R.drawable.ic_home_gray_48dp);
+        mCheatkeyBtn.setImageResource(R.drawable.ic_link_gray_48dp);
+        mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
+        mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
+    }
+
 
 }
