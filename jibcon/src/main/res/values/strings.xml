@@ -9,4 +9,5 @@
     <string name="naver_client_id">f2VZgOgRx7HzZaCUzN_D</string>
     <string name="naver_client_secret">uldOlbBiia</string>
 
+    <string name="tutorial_skip">SKIP</string>
 </resources>

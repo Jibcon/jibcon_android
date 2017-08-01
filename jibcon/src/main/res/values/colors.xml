@@ -32,5 +32,9 @@
     <!--leftmenu_menubar_gray #404040-->
     <!--text_default_black #262626-->
 
+    <!--Tutorial Activity-->
+    <color name="tutorial_background">#2192fc</color>
+    <color name="tutorial_skip">#ffffff</color>
+    <color name="tutorial_fontcolor">#ffffff</color>
 
 </resources>

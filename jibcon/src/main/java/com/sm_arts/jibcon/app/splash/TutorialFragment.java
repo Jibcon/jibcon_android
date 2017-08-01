@@ -24,11 +24,11 @@ import butterknife.OnClick;
 public class TutorialFragment extends android.support.v4.app.Fragment {
     private static final String STRINGOF_TUTORIAL_PAGE = "numofTutorialPage";
 
-    @BindView(R.id.tutorial_title_tv) TextView tutorialTitleTv;
-    @BindView(R.id.tutorial_sub_tv) TextView tutorialSubTv;
-    @BindView(R.id.tutorial_iv) ImageView tutorialIv;
-    @BindView(R.id.tutorial_makejibcon_btn) Button makejibconBtn;
-    @OnClick(R.id.tutorial_makejibcon_btn) void makejibconListener() {
+    @BindView(R.id.tv_tutorial_description) TextView tutorialTitleTv;
+    @BindView(R.id.tv_tutorial_subdescription) TextView tutorialSubTv;
+    @BindView(R.id.iv_tutorial_sampleui) ImageView tutorialIv;
+    @BindView(R.id.btn_tutorial_makejibcon) Button makejibconBtn;
+    @OnClick(R.id.btn_tutorial_makejibcon) void makejibconListener() {
         Intent intent = new Intent(getContext(), LoginActivity.class);
         startActivity(intent);
         getActivity().finish();
@@ -47,7 +47,7 @@ public class TutorialFragment extends android.support.v4.app.Fragment {
             case 0:
                 tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[0]);
                 tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[0]);
-                tutorialIv.setImageResource(R.drawable.splash_image);
+                tutorialIv.setImageResource(R.drawable.tutorial_sampleui);
                 break;
             case 1:
                 tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[1]);
