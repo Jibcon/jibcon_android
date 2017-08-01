@@ -1,60 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="#2192FC"
     android:id="@+id/tutorial1">
 
     <ImageView
-        android:id="@+id/tutorial_iv"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="6"
-        android:padding="12dp"
-        android:paddingBottom="16dp"
-        android:src="@drawable/blank" />
+        android:id="@+id/tutorial_img_1"
+        android:src="@drawable/tutorial_img_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="111dp"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginLeft="28dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="28dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"
-        android:paddingTop="16dp"
-        android:orientation="vertical">
+    <Button
+        android:id="@+id/tutorial_makejibcon_btn"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:text="집콘 시작하기"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
-        <TextView
-            android:id="@+id/tutorial_title_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="쓰고 있는 스마트홈 기기를 등록하세요"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16dp"
-            />
-
-        <TextView
-            android:id="@+id/tutorial_sub_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="어떠한 기기든 빠르게 연결하고\n쉽게 사용해보세요"
-            android:textColor="@color/default_text_color"
-            android:textSize="16dp"
-            />
-        <Button
-            android:id="@+id/tutorial_makejibcon_btn"
-            android:layout_width="240dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:background="@color/colorPrimary"
-            android:text="집콘 시작하기"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
-    </LinearLayout>
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
