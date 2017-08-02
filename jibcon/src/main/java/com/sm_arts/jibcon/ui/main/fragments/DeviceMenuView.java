@@ -16,4 +16,6 @@ interface DeviceMenuView {
     void setSwiperefreshingOff();
 
     void refreshDeviceItems(List<DeviceItem> deviceItems);
+
+    void updateDevicesOnOffState();
 }

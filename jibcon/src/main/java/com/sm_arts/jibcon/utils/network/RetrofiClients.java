@@ -18,9 +18,12 @@ public class RetrofiClients {
 
     public static RetrofiClients getInstance() {
         if (sInstance == null) {
-            sInstance = new RetrofiClients();
+            synchronized(RetrofiClients.class) {
+                if (sInstance == null) {
+                    sInstance = new RetrofiClients();
+                }
+            }
         }
-
         return sInstance;
     }
 

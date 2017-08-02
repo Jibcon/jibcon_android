@@ -5,6 +5,7 @@ import android.util.Log;
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
+import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import java.util.List;
@@ -22,10 +23,12 @@ import retrofit2.Response;
 class DeviceMenuPresenter {
     private static final String TAG = "DeviceMenuPresenter";
     private final DeviceMenuView mView;
+    private  MqttManager mqttManager;
 
     public DeviceMenuPresenter(DeviceMenuView view) {
         Log.d(TAG, "DeviceMenuPresenter: ");
         mView = view;
+        mqttManager = new MqttManager();
     }
 
     //region Presenter role
@@ -44,11 +47,10 @@ class DeviceMenuPresenter {
         );
     }
 
-    public void deviceItemIvClicked(int position) {
-        Log.d(TAG, "deviceItemIvClicked() called with: " +
-                "position = [" + position + "]");
+    public void deviceItemIvClicked(DeviceItem item) {
+        Log.d(TAG, "deviceItemIvClicked() called with: item = [" + item + "]");
 
-        activateDevice(position);
+        activateDevice(item);
     }
 
     public void threedotIvClicked(int position) {
@@ -83,8 +85,27 @@ class DeviceMenuPresenter {
         );
     }
 
-    private void activateDevice(int position) {
-        Log.d(TAG, "activateDevice() called with: position = [" + position + "]");
+    private void activateDevice(DeviceItem item) {
+
+        Log.d(TAG, "activateDevice() called with: position = [" + item + "]");
+
+
+        /*--->change device's onoff state*/
+        if(item.isDeviceOnOffState()) {
+            item.setDeviceOnOffState(false);
+            mqttManager.MQTT_Create(false);
+        }
+        else {
+            item.setDeviceOnOffState(true);
+            mqttManager.MQTT_Create(true);
+        }
+        mView.updateDevicesOnOffState();
+
+        /*change device's onoff state--->*/
+
+
+        //// TODO: 2017-08-02  if we get led on from mosquitto change itemcolor
+
 
         // TODO: 7/21/17 replace this stub
         MobiusCiService service = RetrofiClients.getInstance().getService(MobiusCiService.class);
@@ -108,7 +129,10 @@ class DeviceMenuPresenter {
                 Log.d(TAG, "onFailure: ");
             }
         });
+
     }
+
+
 
     //endregion
 }

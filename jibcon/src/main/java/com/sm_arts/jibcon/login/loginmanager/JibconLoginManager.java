@@ -55,9 +55,12 @@ public class JibconLoginManager {
 
     public static JibconLoginManager getInstance() {
         if (mInstance == null) {
-            mInstance = new JibconLoginManager();
+            synchronized(JibconLoginManager.class) {
+                if (mInstance == null) {
+                    mInstance = new JibconLoginManager();
+                }
+            }
         }
-
         return mInstance;
     }
 
@@ -249,6 +252,7 @@ public class JibconLoginManager {
         String logintype;
         logintype = SharedPreferenceHelper.getSharedPrefrence(PREF_NAME, PREF_LOGINTYPE);
 
+        //LoginManager.getInstance().logOut();
         mUser = null;
 
         Log.d(TAG, "logout: LoginType : " + logintype);
