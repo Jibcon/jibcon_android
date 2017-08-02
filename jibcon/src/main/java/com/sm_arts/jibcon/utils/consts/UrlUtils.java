@@ -2,7 +2,7 @@ package com.sm_arts.jibcon.utils.consts;
 
 import com.sm_arts.jibcon.BuildConfig;
 import com.sm_arts.jibcon.model.repository.network.UserService;
-import com.sm_arts.jibcon.model.repository.network.MobiusService;
+import com.sm_arts.jibcon.model.repository.network.mobius.MobiusCiService;
 
 import java.util.HashMap;
 
@@ -24,7 +24,7 @@ public class UrlUtils {
         String mobiusUrl = BuildConfig.DEBUG ?
                 "http://52.78.111.146:7579/" :
                 "http://52.78.111.146:7579/";
-        urls.put(MobiusService.class.getName(), mobiusUrl);
+        urls.put(MobiusCiService.class.getName(), mobiusUrl);
     }
 
     public static String getUrlWithClassName(String clsName) {

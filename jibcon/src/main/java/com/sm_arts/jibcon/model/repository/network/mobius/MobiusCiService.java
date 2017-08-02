@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.model.repository.network;
+package com.sm_arts.jibcon.model.repository.network.mobius;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -11,7 +11,7 @@ import retrofit2.http.POST;
  */
 
 // todo remove this file
-public interface MobiusService {
+public interface MobiusCiService {
     @POST("/mobius-yt/ae-ledapp/cnt-ledonoff")
     retrofit2.Call<Object> turnOnLed(
             @Header("Accept") String accept,
