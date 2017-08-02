@@ -7,6 +7,11 @@
     tools:context=".app.splash.TutorialMainActivity"
     android:orientation="vertical">
 
+    <include
+        layout="@layout/splash_tutorialmainactivity_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <!-- ViewPager -->
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_tutorial"
