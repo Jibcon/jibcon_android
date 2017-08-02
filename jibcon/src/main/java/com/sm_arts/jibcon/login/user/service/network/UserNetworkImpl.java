@@ -26,9 +26,12 @@ public class UserNetworkImpl implements UserNetwork {
 
     public static UserNetwork getInstance() {
         if (sInstance == null) {
-            sInstance = new UserNetworkImpl();
+            synchronized(UserNetwork.class) {
+                if (sInstance == null) {
+                    sInstance = new UserNetworkImpl();
+                }
+            }
         }
-
         return sInstance;
     }
 

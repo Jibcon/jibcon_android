@@ -55,9 +55,12 @@ public class JibconLoginManager {
 
     public static JibconLoginManager getInstance() {
         if (mInstance == null) {
-            mInstance = new JibconLoginManager();
+            synchronized(JibconLoginManager.class) {
+                if (mInstance == null) {
+                    mInstance = new JibconLoginManager();
+                }
+            }
         }
-
         return mInstance;
     }
 
