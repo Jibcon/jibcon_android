@@ -54,6 +54,8 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
         return deviceMenuViewHolder;
     }
 
+
+
     @Override
     public void onBindViewHolder(DeviceMenuViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder() called with: " +
@@ -65,5 +67,13 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
     @Override
     public int getItemCount() {
         return mDeviceItems.size();
+    }
+
+    public DeviceItem getItemWithPosition(int position) {
+        if(getItemCount() > position) {
+            return mDeviceItems.get(position);
+        } else {
+            return null;
+        }
     }
 }

@@ -22,14 +22,7 @@ public class DeviceItem {
     public void setDeviceWifiAddr(String deviceWifiAddr) {
         this.deviceWifiAddr = deviceWifiAddr;
     }
-//    strarr.add(0,"airconditioner");
-//    strarr.add(1,"lightbulb");
-//    strarr.add(2,"fan");
-//    strarr.add(3,"refrigerator");
-    //0 : 에어컨
-    //1 : 전구
-    //2 : 선풍기
-    //3 : 냉장고
+
 
 
     public String getDeviceType() {

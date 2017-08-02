@@ -6,15 +6,9 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.device.DeviceItem;
-import com.sm_arts.jibcon.network.MobiusService;
-import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
-import com.sm_arts.jibcon.utils.network.RetrofiClients;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by jaeyoung on 7/18/17.
@@ -51,6 +45,11 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
         Log.d(TAG, "configureWith() called with: " +
                 "deviceItem = [" + deviceItem.toString() + "]");
         String deviceType = deviceItem.getDeviceType();
+
+        if(!deviceItem.isDeviceOnOffState())
+            mDeviceItemIv.setBackgroundColor(GlobalApplication.getGlobalApplicationContext().getResources().getColor(R.color.black_opaque));
+        else
+            mDeviceItemIv.setBackgroundColor(GlobalApplication.getGlobalApplicationContext().getResources().getColor(R.color.white));
 
         if(DeviceType.AIRCONDITIONER.equals(deviceType)) {
             mDeviceItemIv.setImageResource(R.drawable.airconditioner);

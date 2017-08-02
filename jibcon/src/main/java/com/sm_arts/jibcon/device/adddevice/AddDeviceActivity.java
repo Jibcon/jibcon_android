@@ -56,6 +56,10 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
             mDeviceItem.setDeviceWifiAddr(getWifiAddr());
         }
 
+        /*set device state on*/
+        mDeviceItem.setDeviceOnOffState(true);
+
+
         ApiService apiService = RetrofiClients.getInstance().getService(ApiService.class);
         Log.d(TAG, "sendDevice: Call.enqueue DeviceItem "+mDeviceItem.toString());
       
