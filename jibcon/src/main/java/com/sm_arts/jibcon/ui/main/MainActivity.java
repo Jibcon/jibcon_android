@@ -22,7 +22,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.app.GlobalApplication;
+import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.app.cheatkey.CheatkeyMenuFragment;
 import com.sm_arts.jibcon.app.conshop.ConshopFragment;
 import com.sm_arts.jibcon.app.datacontrol.DataControlFragment;

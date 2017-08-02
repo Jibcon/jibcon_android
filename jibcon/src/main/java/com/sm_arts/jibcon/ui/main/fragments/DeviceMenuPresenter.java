@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.network.MobiusService;
+import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
@@ -108,13 +108,13 @@ class DeviceMenuPresenter {
 
 
         // TODO: 7/21/17 replace this stub
-        MobiusService service = RetrofiClients.getInstance().getService(MobiusService.class);
+        MobiusCiService service = RetrofiClients.getInstance().getService(MobiusCiService.class);
         Call<Object> call = service.turnOnLed(
                 "application/json",
                 "1",
                 "/0.1",
                 "application/vnd.onem2m-res+json; ty=4",
-                new MobiusService.ApiCinC(3)
+                new MobiusCiService.ApiCinC(3)
         );
 
         call.enqueue(new Callback<Object>() {

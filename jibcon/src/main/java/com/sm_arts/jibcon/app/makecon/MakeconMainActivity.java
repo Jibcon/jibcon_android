@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.model.houseinfo.HouseInfo;
+import com.sm_arts.jibcon.data.models.HouseInfo;
 
 public class MakeconMainActivity extends BaseActivity implements HouseInfoListener {
     String mHousename;
