@@ -12,6 +12,7 @@ import com.sm_arts.jibcon.utils.consts.Configs;
 import com.sm_arts.jibcon.utils.consts.UrlUtils;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
+import io.reactivex.functions.Consumer;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,7 +35,7 @@ public class MobiusNetworkHelper {
         return sInstance;
     }
 
-    public void createAe() {
+    public void createAe(Consumer<ResponseAe> finished) {
         MobiusAeService service = RetrofiClients.getInstance().getService(MobiusAeService.class);
 
         RequestAe requestAe = new RequestAe();
@@ -57,8 +58,18 @@ public class MobiusNetworkHelper {
                 if (response.isSuccessful()) {
                     Log.d(TAG, "createAe/onResponse: code=[" + response.code() + "]");
                     Log.d(TAG, "createAe/onResponse: body = [" + response.body() + "]");
+                    try {
+                        finished.accept(response.body());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 } else {
                     Log.d(TAG, "createAe/onResponse: code=[" + response.code() + "] message=[" + response.message()+ "]");
+                    try {
+                        finished.accept(null);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
 
             }
@@ -66,11 +77,16 @@ public class MobiusNetworkHelper {
             @Override
             public void onFailure(Call<ResponseAe> call, Throwable t) {
                 Log.d(TAG, "createAe/onFailure: " + t);
+                try {
+                    finished.accept(null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    public void retrieveAe() {
+    public void retrieveAe(Consumer<ResponseAe> finished) {
         MobiusAeService service = RetrofiClients.getInstance().getService(MobiusAeService.class);
 
         RequestAe requestAe = new RequestAe();
@@ -91,16 +107,26 @@ public class MobiusNetworkHelper {
             public void onResponse(Call<ResponseAe> call, Response<ResponseAe> response) {
                 Log.d(TAG, "retrieveAe/onResponse: response.code()=[" + response.code() + "]");
                 Log.d(TAG, "retrieveAe/onResponse: body = [" + response.body() + "]");
+                try {
+                    finished.accept(response.body());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
             public void onFailure(Call<ResponseAe> call, Throwable t) {
                 Log.d(TAG, "retrieveAe/onFailure: " + t);
+                try {
+                    finished.accept(null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    public void createSub(String deviceAe, String deviceCnt) {
+    public void createSub(String deviceAe, String deviceCnt, Consumer<ResponseSub> finished) {
         MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
 
         RequestSub requestSub = new RequestSub();
@@ -129,8 +155,18 @@ public class MobiusNetworkHelper {
                 if (response.isSuccessful()) {
                     Log.d(TAG, "createSub/onResponse: code=[" + response.code() + "]");
                     Log.d(TAG, "createSub/onResponse: body = [" + response.body() + "]");
+                    try {
+                        finished.accept(response.body());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 } else {
                     Log.d(TAG, "createSub/onResponse: code=[" + response.code() + "] message=[" + response.message()+ "]");
+                    try {
+                        finished.accept(null);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
 
             }
@@ -138,11 +174,16 @@ public class MobiusNetworkHelper {
             @Override
             public void onFailure(Call<ResponseSub> call, Throwable t) {
                 Log.d(TAG, "createSub/onFailure: " + t);
+                try {
+                    finished.accept(null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    public void retrieveSub(String deviceAe, String deviceCnt) {
+    public void retrieveSub(String deviceAe, String deviceCnt, Consumer<ResponseSub> finished) {
         MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
 
         String deviceSub = getDeviceSub();
@@ -162,15 +203,29 @@ public class MobiusNetworkHelper {
                 if (response.isSuccessful()) {
                     Log.d(TAG, "retrieveSub/onResponse: code=[" + response.code() + "]");
                     Log.d(TAG, "retrieveSub/onResponse: body = [" + response.body() + "]");
+                    try {
+                        finished.accept(response.body());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 } else {
                     Log.d(TAG, "retrieveSub/onResponse: code=[" + response.code() + "] message=[" + response.message()+ "]");
+                    try {
+                        finished.accept(null);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-
             }
 
             @Override
             public void onFailure(Call<ResponseSub> call, Throwable t) {
                 Log.d(TAG, "retrieveSub/onFailure: " + t);
+                try {
+                    finished.accept(null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

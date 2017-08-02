@@ -9,11 +9,13 @@ import android.util.Log;
 
 import com.kakao.auth.KakaoSDK;
 import com.nhn.android.naverlogin.OAuthLogin;
+import com.sm_arts.jibcon.data.models.mobius.dto.ResponseAe;
 import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
 import com.sm_arts.jibcon.login.KaKaoSDKAdpater;
 import com.tsengvn.typekit.Typekit;
 
 import java.lang.ref.WeakReference;
+import java.util.function.Consumer;
 
 
 /**
@@ -46,12 +48,26 @@ public class GlobalApplication extends MultiDexApplication {
 
     private void initMobius() {
         Log.d(TAG, "initMobius: ");
-        MobiusNetworkHelper.getInstance().createAe();
-        MobiusNetworkHelper.getInstance().retrieveAe();
-        String deviceAe = "ae-firstled";
-        String deviceCnt = "cnt-led";
-        MobiusNetworkHelper.getInstance().createSub(deviceAe, deviceCnt);
-        MobiusNetworkHelper.getInstance().retrieveSub(deviceAe, deviceCnt);
+        MobiusNetworkHelper.getInstance().createAe(
+                createAe -> {
+                    MobiusNetworkHelper.getInstance().retrieveAe(
+                            retrieveAe -> {
+                                String deviceAe = "ae-firstled";
+                                String deviceCnt = "cnt-led";
+                                MobiusNetworkHelper.getInstance().createSub(deviceAe, deviceCnt,
+                                        createSub -> {
+                                            MobiusNetworkHelper.getInstance().retrieveSub(deviceAe, deviceCnt,
+                                                    retrieveSub -> {
+                                                        Log.d(TAG, "initMobius: finished");
+                                                    });
+                                        }
+                                );
+                            }
+                    );
+                }
+        );
+
+
     }
 
     public static OAuthLogin getNaverOAuthLogin() {
