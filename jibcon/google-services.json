@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "436459927041",
+    "firebase_url": "https://jibcon-ee72b.firebaseio.com",
+    "project_id": "jibcon-ee72b",
+    "storage_bucket": "jibcon-ee72b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436459927041:android:0df6e296543f665a",
+        "android_client_info": {
+          "package_name": "com.sm_arts.jibcon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436459927041-g6sp3h3qg8bh91e9p55eluoemse7gcmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJksyo5ifffYBsDTPXX6uuYNiikruoL00"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

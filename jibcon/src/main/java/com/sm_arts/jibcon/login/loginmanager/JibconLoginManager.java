@@ -249,6 +249,7 @@ public class JibconLoginManager {
         String logintype;
         logintype = SharedPreferenceHelper.getSharedPrefrence(PREF_NAME, PREF_LOGINTYPE);
 
+        //LoginManager.getInstance().logOut();
         mUser = null;
 
         Log.d(TAG, "logout: LoginType : " + logintype);
