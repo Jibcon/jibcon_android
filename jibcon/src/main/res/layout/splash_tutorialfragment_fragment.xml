@@ -55,7 +55,7 @@
             android:text="집콘 시작하기"
             android:textColor="@color/white"
             android:textSize="16dp" />
-        
+
     </LinearLayout>
 
 </LinearLayout>
