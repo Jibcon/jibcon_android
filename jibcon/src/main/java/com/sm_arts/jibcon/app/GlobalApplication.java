@@ -9,14 +9,11 @@ import android.util.Log;
 
 import com.kakao.auth.KakaoSDK;
 import com.nhn.android.naverlogin.OAuthLogin;
+import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
 import com.sm_arts.jibcon.login.KaKaoSDKAdpater;
-import com.sm_arts.jibcon.login.user.domain.User;
-import com.sm_arts.jibcon.login.user.service.network.UserNetworkImpl;
 import com.tsengvn.typekit.Typekit;
 
 import java.lang.ref.WeakReference;
-import java.net.URL;
-import io.reactivex.functions.Consumer;
 
 
 /**
@@ -43,6 +40,14 @@ public class GlobalApplication extends MultiDexApplication {
                 .addNormal(Typekit.createFromAsset(this, "12롯데마트드림Medium.ttf"))
                 .addBold(Typekit.createFromAsset(this, "12롯데마트드림Bold.ttf"))
                 .addCustom1(Typekit.createFromAsset(this, "12롯데마트드림Light.ttf")); // 이후 추가시 .addCustom2~9 까지 가능
+
+        initMobius();
+    }
+
+    private void initMobius() {
+        Log.d(TAG, "initMobius: ");
+        MobiusNetworkHelper.getInstance().createAe();
+        MobiusNetworkHelper.getInstance().retrieveAe();
     }
 
     public static OAuthLogin getNaverOAuthLogin() {

@@ -32,7 +32,6 @@ public interface MobiusAeService {
             @Path("ae") String ae,
             @Header("Accept") String accept,
             @Header("X-M2M-RI") String ri,
-            @Header("X-M2M-Origin") String origin,
-            @Header("Content-Type") String contentType
+            @Header("X-M2M-Origin") String origin
     );
 }

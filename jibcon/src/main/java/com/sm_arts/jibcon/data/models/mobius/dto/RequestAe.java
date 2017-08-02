@@ -10,7 +10,11 @@ public class RequestAe {
     @SerializedName("m2m:ae")
     public M2mae m2mae;
 
-    class M2mae {
+    public RequestAe() {
+        m2mae = new M2mae();
+    }
+
+    public class M2mae {
         public String rn;
         public String api;
         public boolean rr;

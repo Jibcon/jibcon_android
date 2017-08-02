@@ -1,0 +1,105 @@
+package com.sm_arts.jibcon.data.repository.helper;
+
+import android.util.Log;
+
+import com.sm_arts.jibcon.data.models.mobius.dto.RequestAe;
+import com.sm_arts.jibcon.data.models.mobius.dto.ResponseAe;
+import com.sm_arts.jibcon.data.repository.network.mobius.MobiusAeService;
+import com.sm_arts.jibcon.utils.consts.Configs;
+import com.sm_arts.jibcon.utils.network.RetrofiClients;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Created by jaeyoung on 8/2/17.
+ */
+
+public class MobiusNetworkHelper {
+    private static final String TAG = "MobiusNetworkHelper";
+
+    private static MobiusNetworkHelper sInstance;
+    private int mRequestNumber = 0;
+
+    public static MobiusNetworkHelper getInstance() {
+        if (sInstance == null) {
+            sInstance = new MobiusNetworkHelper();
+        }
+
+        return sInstance;
+    }
+
+    public void createAe() {
+        MobiusAeService service = RetrofiClients.getInstance().getService(MobiusAeService.class);
+
+        RequestAe requestAe = new RequestAe();
+        requestAe.m2mae.rn = Configs.AE.Name;
+        requestAe.m2mae.api = Configs.AE.Aid;
+        requestAe.m2mae.rr = true;
+
+        Call<ResponseAe> call = service.postAe(
+                Configs.CSE.Name,
+                "application/json",
+                requestIdGenerate(),
+                Configs.AE.Aid,
+                "application/vnd.onem2m-res+json; ty=2",
+                requestAe
+        );
+
+        call.enqueue(new Callback<ResponseAe>() {
+            @Override
+            public void onResponse(Call<ResponseAe> call, Response<ResponseAe> response) {
+                if (response.isSuccessful()) {
+                    Log.d(TAG, "onResponse: code=[" + response.code() + "]");
+                    Log.d(TAG, "onResponse: body = [" + response.body() + "]");
+                } else {
+                    Log.d(TAG, "onResponse: code=[" + response.code() + "] message=[" + response.message()+ "]");
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseAe> call, Throwable t) {
+                Log.d(TAG, "createAe/onFailure: " + t);
+            }
+        });
+    }
+
+    public void retrieveAe() {
+        MobiusAeService service = RetrofiClients.getInstance().getService(MobiusAeService.class);
+
+        RequestAe requestAe = new RequestAe();
+        requestAe.m2mae.rn = Configs.AE.Name;
+        requestAe.m2mae.api = Configs.AE.Aid;
+        requestAe.m2mae.rr = true;
+
+        Call<ResponseAe> call = service.getAe(
+                Configs.CSE.Name,
+                Configs.AE.Name,
+                "application/json",
+                requestIdGenerate(),
+                Configs.AE.Aid
+        );
+
+        call.enqueue(new Callback<ResponseAe>() {
+            @Override
+            public void onResponse(Call<ResponseAe> call, Response<ResponseAe> response) {
+                Log.d(TAG, "onResponse: response.code()=[" + response.code() + "]");
+                Log.d(TAG, "onResponse: body = [" + response.body() + "]");
+            }
+
+            @Override
+            public void onFailure(Call<ResponseAe> call, Throwable t) {
+                Log.d(TAG, "retrieveAe/onFailure: " + t);
+            }
+        });
+    }
+
+    private String requestIdGenerate() {
+        String requestId = "req" + mRequestNumber;
+        mRequestNumber++;
+
+        return requestId;
+    }
+}
