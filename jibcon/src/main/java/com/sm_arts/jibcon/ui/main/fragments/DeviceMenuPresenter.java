@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.model.repository.network.mobius.MobiusCiService;
+import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import java.util.List;

@@ -1,8 +1,8 @@
 package com.sm_arts.jibcon.utils.consts;
 
 import com.sm_arts.jibcon.BuildConfig;
-import com.sm_arts.jibcon.model.repository.network.UserService;
-import com.sm_arts.jibcon.model.repository.network.mobius.MobiusCiService;
+import com.sm_arts.jibcon.data.repository.network.UserService;
+import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
 
 import java.util.HashMap;
 

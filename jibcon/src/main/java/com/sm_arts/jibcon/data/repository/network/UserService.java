@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.model.repository.network;
+package com.sm_arts.jibcon.data.repository.network;
 
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.login.user.domain.User;

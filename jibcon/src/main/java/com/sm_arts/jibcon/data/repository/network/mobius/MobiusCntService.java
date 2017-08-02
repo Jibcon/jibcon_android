@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.model.repository.network.mobius;
+package com.sm_arts.jibcon.data.repository.network.mobius;
 
 /**
  * Created by jaeyoung on 8/2/17.

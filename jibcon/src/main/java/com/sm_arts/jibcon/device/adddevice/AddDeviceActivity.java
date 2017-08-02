@@ -14,7 +14,7 @@ import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.model.repository.network.UserService;
+import com.sm_arts.jibcon.data.repository.network.UserService;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.tsengvn.typekit.TypekitContextWrapper;

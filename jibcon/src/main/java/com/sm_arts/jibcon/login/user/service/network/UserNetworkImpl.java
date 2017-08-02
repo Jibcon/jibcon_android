@@ -3,7 +3,7 @@ package com.sm_arts.jibcon.login.user.service.network;
 import android.util.Log;
 
 import com.sm_arts.jibcon.login.user.domain.User;
-import com.sm_arts.jibcon.model.repository.network.UserService;
+import com.sm_arts.jibcon.data.repository.network.UserService;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import retrofit2.Call;
