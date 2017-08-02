@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.app;
+package com.sm_arts.jibcon;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;
@@ -48,6 +48,10 @@ public class GlobalApplication extends MultiDexApplication {
         Log.d(TAG, "initMobius: ");
         MobiusNetworkHelper.getInstance().createAe();
         MobiusNetworkHelper.getInstance().retrieveAe();
+        String deviceAe = "ae-firstled";
+        String deviceCnt = "cnt-led";
+        MobiusNetworkHelper.getInstance().createSub(deviceAe, deviceCnt);
+        MobiusNetworkHelper.getInstance().retrieveSub(deviceAe, deviceCnt);
     }
 
     public static OAuthLogin getNaverOAuthLogin() {

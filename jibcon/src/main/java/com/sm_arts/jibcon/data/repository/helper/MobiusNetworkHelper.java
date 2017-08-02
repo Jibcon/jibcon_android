@@ -3,9 +3,13 @@ package com.sm_arts.jibcon.data.repository.helper;
 import android.util.Log;
 
 import com.sm_arts.jibcon.data.models.mobius.dto.RequestAe;
+import com.sm_arts.jibcon.data.models.mobius.dto.RequestSub;
 import com.sm_arts.jibcon.data.models.mobius.dto.ResponseAe;
+import com.sm_arts.jibcon.data.models.mobius.dto.ResponseSub;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusAeService;
+import com.sm_arts.jibcon.data.repository.network.mobius.MobiusSubService;
 import com.sm_arts.jibcon.utils.consts.Configs;
+import com.sm_arts.jibcon.utils.consts.UrlUtils;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import retrofit2.Call;
@@ -51,10 +55,10 @@ public class MobiusNetworkHelper {
             @Override
             public void onResponse(Call<ResponseAe> call, Response<ResponseAe> response) {
                 if (response.isSuccessful()) {
-                    Log.d(TAG, "onResponse: code=[" + response.code() + "]");
-                    Log.d(TAG, "onResponse: body = [" + response.body() + "]");
+                    Log.d(TAG, "createAe/onResponse: code=[" + response.code() + "]");
+                    Log.d(TAG, "createAe/onResponse: body = [" + response.body() + "]");
                 } else {
-                    Log.d(TAG, "onResponse: code=[" + response.code() + "] message=[" + response.message()+ "]");
+                    Log.d(TAG, "createAe/onResponse: code=[" + response.code() + "] message=[" + response.message()+ "]");
                 }
 
             }
@@ -85,8 +89,8 @@ public class MobiusNetworkHelper {
         call.enqueue(new Callback<ResponseAe>() {
             @Override
             public void onResponse(Call<ResponseAe> call, Response<ResponseAe> response) {
-                Log.d(TAG, "onResponse: response.code()=[" + response.code() + "]");
-                Log.d(TAG, "onResponse: body = [" + response.body() + "]");
+                Log.d(TAG, "retrieveAe/onResponse: response.code()=[" + response.code() + "]");
+                Log.d(TAG, "retrieveAe/onResponse: body = [" + response.body() + "]");
             }
 
             @Override
@@ -94,6 +98,85 @@ public class MobiusNetworkHelper {
                 Log.d(TAG, "retrieveAe/onFailure: " + t);
             }
         });
+    }
+
+    public void createSub(String deviceAe, String deviceCnt) {
+        MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
+
+        RequestSub requestSub = new RequestSub();
+        requestSub.m2msub.rn = getDeviceSub();
+        requestSub.m2msub.enc.net.add(1);
+        requestSub.m2msub.enc.net.add(3);
+        requestSub.m2msub.enc.net.add(4);
+        requestSub.m2msub.nu.add(
+                "mqtt://" + Configs.Mobius.Host + "/" + requestSub.m2msub.rn
+        );
+
+        Call<ResponseSub> call = service.postSub(
+                Configs.CSE.Name,
+                deviceAe,
+                deviceCnt,
+                "application/json",
+                requestIdGenerate(),
+                Configs.AE.Aid,
+                "application/vnd.onem2m-res+json; ty=23",
+                requestSub
+        );
+
+        call.enqueue(new Callback<ResponseSub>() {
+            @Override
+            public void onResponse(Call<ResponseSub> call, Response<ResponseSub> response) {
+                if (response.isSuccessful()) {
+                    Log.d(TAG, "createSub/onResponse: code=[" + response.code() + "]");
+                    Log.d(TAG, "createSub/onResponse: body = [" + response.body() + "]");
+                } else {
+                    Log.d(TAG, "createSub/onResponse: code=[" + response.code() + "] message=[" + response.message()+ "]");
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseSub> call, Throwable t) {
+                Log.d(TAG, "createSub/onFailure: " + t);
+            }
+        });
+    }
+
+    public void retrieveSub(String deviceAe, String deviceCnt) {
+        MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
+
+        String deviceSub = getDeviceSub();
+        Call<ResponseSub> call = service.getSub(
+                Configs.CSE.Name,
+                deviceAe,
+                deviceCnt,
+                deviceSub,
+                "application/json",
+                requestIdGenerate(),
+                Configs.AE.Aid
+        );
+
+        call.enqueue(new Callback<ResponseSub>() {
+            @Override
+            public void onResponse(Call<ResponseSub> call, Response<ResponseSub> response) {
+                if (response.isSuccessful()) {
+                    Log.d(TAG, "retrieveSub/onResponse: code=[" + response.code() + "]");
+                    Log.d(TAG, "retrieveSub/onResponse: body = [" + response.body() + "]");
+                } else {
+                    Log.d(TAG, "retrieveSub/onResponse: code=[" + response.code() + "] message=[" + response.message()+ "]");
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseSub> call, Throwable t) {
+                Log.d(TAG, "retrieveSub/onFailure: " + t);
+            }
+        });
+    }
+
+    private String getDeviceSub() {
+        return Configs.AE.Name + "_sub";
     }
 
     private String requestIdGenerate() {

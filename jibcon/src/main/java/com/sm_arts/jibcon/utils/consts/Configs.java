@@ -5,6 +5,10 @@ package com.sm_arts.jibcon.utils.consts;
  */
 
 public interface Configs {
+    interface Mobius {
+        String Host = "13.124.172.12";
+        String Port = "7579";
+    }
     interface CSE {
         String Name = "Mobius";
     }
