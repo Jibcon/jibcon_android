@@ -29,7 +29,11 @@ public class MobiusNetworkHelper {
 
     public static MobiusNetworkHelper getInstance() {
         if (sInstance == null) {
-            sInstance = new MobiusNetworkHelper();
+            synchronized (MobiusNetworkHelper.class) {
+                if (sInstance == null) {
+                    sInstance = new MobiusNetworkHelper();
+                }
+            }
         }
 
         return sInstance;
