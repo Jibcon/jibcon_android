@@ -34,7 +34,11 @@ public class DeviceNetworkImpl implements DeviceNetwork {
 
     public static DeviceNetwork getInstance() {
         if (sInstance == null) {
-            sInstance = new DeviceNetworkImpl();
+            synchronized(DeviceNetwork.class) {
+                if (sInstance == null) {
+                    sInstance = new DeviceNetworkImpl();
+                }
+            }
         }
         return sInstance;
     }

@@ -19,8 +19,12 @@ public class UserServiceImpl implements UserService {
     }
 
     public static UserService getInstance() {
-        if (sInstance == null){
-            sInstance = new UserServiceImpl();
+        if (sInstance == null) {
+            synchronized(UserService.class) {
+                if (sInstance == null) {
+                    sInstance = new UserServiceImpl();
+                }
+            }
         }
         return sInstance;
     }

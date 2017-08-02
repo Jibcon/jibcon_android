@@ -25,8 +25,12 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
     public static DeviceService getInstance() {
-        if (sInstance == null){
-            sInstance = new DeviceServiceImpl();
+        if (sInstance == null) {
+            synchronized(DeviceService.class) {
+                if (sInstance == null) {
+                    sInstance = new DeviceServiceImpl();
+                }
+            }
         }
         return sInstance;
     }
