@@ -23,7 +23,7 @@ import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.network.ApiService;
+import com.sm_arts.jibcon.model.repository.network.UserService;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import java.security.MessageDigest;
@@ -62,7 +62,7 @@ public class IntroActivity extends BaseActivity {
                 //intro->login success->main
                 accesstoken.getToken();
 
-                ApiService service = RetrofiClients.getInstance().getService(ApiService.class);
+                UserService service = RetrofiClients.getInstance().getService(UserService.class);
                 UserInfo userInfo = new UserInfo("facebook", accesstoken.getToken());
                 Call<User> c = service.logincheck(userInfo);
 

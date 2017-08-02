@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.network;
+package com.sm_arts.jibcon.model.repository.network;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -26,7 +26,7 @@ import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.login.user.service.network.UserNetworkImpl;
-import com.sm_arts.jibcon.network.ApiService;
+import com.sm_arts.jibcon.model.repository.network.UserService;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
@@ -192,10 +192,10 @@ public class JibconLoginManager {
                 userTokenFacebook = loginResult.getAccessToken().getToken();
                 UserInfo userInfo = new UserInfo("facebook",userTokenFacebook);
                 Log.d("MYTOKEN", userTokenFacebook);
-                ApiService apiService = RetrofiClients.getInstance()
-                        .getService(ApiService.class);;
+                UserService userService = RetrofiClients.getInstance()
+                        .getService(UserService.class);;
 
-                Call<User> c = apiService.login(userInfo);
+                Call<User> c = userService.login(userInfo);
                 try {
                     c.enqueue(new Callback<User>() {
                         @Override

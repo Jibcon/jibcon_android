@@ -5,7 +5,7 @@ import android.util.Log;
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
-import com.sm_arts.jibcon.network.ApiService;
+import com.sm_arts.jibcon.model.repository.network.UserService;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import java.util.ArrayList;
@@ -22,14 +22,14 @@ import retrofit2.Response;
 public class DeviceNetworkImpl implements DeviceNetwork {
     private final String TAG = "jibcon/"+getClass().getSimpleName();
     private GlobalApplication mApp;
-    private ApiService mApiService;
+    private UserService mUserService;
     private static DeviceNetwork sInstance;
     private boolean mIsWorking = false;
     private List<DeviceNetwork.onSuccessListener> mListeners = new ArrayList<>();
 
     private DeviceNetworkImpl() {
         mApp = GlobalApplication.getGlobalApplicationContext();
-        mApiService = RetrofiClients.getInstance().getService(ApiService.class);
+        mUserService = RetrofiClients.getInstance().getService(UserService.class);
     }
 
     public static DeviceNetwork getInstance() {
@@ -50,7 +50,7 @@ public class DeviceNetworkImpl implements DeviceNetwork {
 
             String token = JibconLoginManager.getInstance()
                                                 .getUserToken();
-            Call<List<DeviceItem>> c = mApiService.getDevices("Token " + token);
+            Call<List<DeviceItem>> c = mUserService.getDevices("Token " + token);
             try {
                 c.enqueue(new Callback<List<DeviceItem>>() {
                     @Override

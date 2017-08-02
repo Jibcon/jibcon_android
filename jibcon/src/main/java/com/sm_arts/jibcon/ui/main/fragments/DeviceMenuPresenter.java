@@ -1,14 +1,12 @@
 package com.sm_arts.jibcon.ui.main.fragments;
 
-import android.content.Context;
 import android.util.Log;
 
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.network.MobiusService;
+import com.sm_arts.jibcon.model.repository.network.MobiusService;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.functions.Action;

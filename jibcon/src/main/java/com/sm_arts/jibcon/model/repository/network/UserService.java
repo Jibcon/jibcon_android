@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.network;
+package com.sm_arts.jibcon.model.repository.network;
 
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.login.user.domain.User;
@@ -15,7 +15,7 @@ import retrofit2.http.POST;
  * Created by admin on 2017-04-09.
  */
 
-public interface ApiService {
+public interface UserService {
     @GET("/api/samples/sign_in/")
     retrofit2.Call<User> getSampleUser();
 
