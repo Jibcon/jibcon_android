@@ -16,12 +16,11 @@
         android:textColor="@color/tutorial_fontcolor"
         android:textSize="@dimen/tutorial_description_fontsize"
         android:text="@string/tutorial_description_1"
-        android:layout_marginBottom="@dimen/tutorial_description_bottommargin"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tv_tutorial_subdescription"
-        />
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <TextView
         android:id="@+id/tv_tutorial_subdescription"
@@ -33,18 +32,17 @@
         android:textSize="@dimen/tutorial_subdescription_fontsize"
         android:layout_marginBottom="@dimen/tutorial_subdescription_bottommargin"
         app:font="custom1"
+        android:layout_marginTop="@dimen/tutorial_subdescription_topmargin"
         app:layout_constraintTop_toBottomOf="@+id/tv_tutorial_description"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/iv_tutorial_sampleui"
         />
 
     <ImageView
         android:id="@+id/iv_tutorial_sampleui"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:src="@drawable/tutorial_sampleui_1"
-        app:layout_constraintTop_toBottomOf="@+id/tv_tutorial_subdescription"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tutorial_sampleui_01"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

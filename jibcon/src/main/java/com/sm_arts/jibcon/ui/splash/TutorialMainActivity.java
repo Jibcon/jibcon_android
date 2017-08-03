@@ -1,23 +1,32 @@
 package com.sm_arts.jibcon.ui.splash;
 
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.widget.ImageView;
 
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.login.LoginActivity;
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.ui.splash.adapter.TutorialMainPageAdapter;
 
+import butterknife.BindArray;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class TutorialMainActivity extends BaseActivity {
-    private final int NUMOF_TUTORIAL_PAGES =4;
+    private static final String TAG = "TutorialMainActivity";
 
-    @OnClick(R.id.btn_skip_tutorial) void skipTutorialListener() {
+    @BindView(R.id.progress)
+    ImageView mIvProgress;
+    @BindArray(R.array.drawable_progresscircles)
+    TypedArray drawableProgresscircles;
+
+    @OnClick(R.id.btn_skip_tutorial)
+    void skipTutorialListener() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
@@ -30,34 +39,28 @@ public class TutorialMainActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         ViewPager pager = (ViewPager) findViewById(R.id.vp_tutorial);
-        pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+        Log.d(TAG, "onCreate: drawableProgresscircles.length=" + drawableProgresscircles.length());
+        pager.setAdapter(new TutorialMainPageAdapter(getSupportFragmentManager(), drawableProgresscircles.length()));
+
+        Log.d(TAG, "onCreate: " + drawableProgresscircles);
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                showIvProgress(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
-    private class MyPagerAdapter extends FragmentPagerAdapter {
-
-        public MyPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int pos) {
-            switch(pos) {
-                case 0:
-                    return TutorialFragment.newInstance(pos);
-                case 1:
-                    return TutorialFragment.newInstance(pos);
-                case 2:
-                    return TutorialFragment.newInstance(pos);
-                case 3:
-                    return TutorialFragment.newInstance(pos);
-                default:
-                    return TutorialFragment.newInstance(0);
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return NUMOF_TUTORIAL_PAGES;
-        }
+    private void showIvProgress(int position) {
+        mIvProgress.setImageResource(drawableProgresscircles.getResourceId(position, -1));
     }
 }
