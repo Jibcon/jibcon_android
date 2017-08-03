@@ -1,6 +1,7 @@
 package com.sm_arts.jibcon.ui.main.fragments;
 
-import com.sm_arts.jibcon.device.DeviceItem;
+import com.sm_arts.jibcon.data.models.DeviceItem;
+import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
 
 import java.util.List;
 
@@ -18,4 +19,8 @@ interface DeviceMenuView {
     void refreshDeviceItems(List<DeviceItem> deviceItems);
 
     void updateDevicesOnOffState();
+
+    DeviceMenuAdapter getAdapter();
+
+    void showContent(int position, String con);
 }

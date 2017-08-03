@@ -2,15 +2,18 @@ package com.sm_arts.jibcon.ui.main.fragments;
 
 import android.util.Log;
 
-import com.sm_arts.jibcon.device.DeviceItem;
+import com.sm_arts.jibcon.data.models.DeviceItem;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
+import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
+import com.sm_arts.jibcon.utils.consts.Configs;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import java.util.List;
 
 import io.reactivex.functions.Action;
+import io.reactivex.functions.BiConsumer;
 import io.reactivex.functions.Consumer;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,12 +26,28 @@ import retrofit2.Response;
 class DeviceMenuPresenter {
     private static final String TAG = "DeviceMenuPresenter";
     private final DeviceMenuView mView;
-    private  MqttManager mqttManager;
+    private MqttManager mqttManager;
+    private DeviceMenuAdapter mAdapter;
 
     public DeviceMenuPresenter(DeviceMenuView view) {
         Log.d(TAG, "DeviceMenuPresenter: ");
         mView = view;
-        mqttManager = new MqttManager();
+        mqttManager = new MqttManager(
+                this::receiveMqtt
+        );
+
+        mqttManager.MQTT_Create(true);
+    }
+
+    private void receiveMqtt(String topic, String con) {
+        Log.d(TAG, "receiveMqtt() called with: topic = [" + topic + "], con = [" + con + "]");
+        DeviceMenuAdapter adapter = mView.getAdapter();
+        int position = adapter.findDeviceItemPositionWithTopic(topic);
+        if (position != -1) {
+            mView.showContent(position, con);
+        } else {
+            Log.w(TAG, "receiveMqtt: cannot find mqtttopic, topic=[" + topic + "]");
+        }
     }
 
     //region Presenter role
@@ -89,14 +108,17 @@ class DeviceMenuPresenter {
 
         Log.d(TAG, "activateDevice() called with: position = [" + item + "]");
 
-
         /*--->change device's onoff state*/
         if(item.isDeviceOnOffState()) {
             item.setDeviceOnOffState(false);
-            mqttManager.MQTT_Create(false);
-        }
-        else {
+            String mqttTopic = item.getMqttTopic();
+            mqttManager.removeTopic(mqttTopic);
+        } else {
             item.setDeviceOnOffState(true);
+            String mqttTopic = item.getAeName() + "_" + item.getCntName() + "_" + Configs.AE.Name;
+            Log.d(TAG, "activateDevice() called with: mqttTopic = [" + mqttTopic + "]");
+            item.setMqttTopic(mqttTopic);
+            mqttManager.addTopic(mqttTopic);
             mqttManager.MQTT_Create(true);
         }
         mView.updateDevicesOnOffState();

@@ -1,6 +1,6 @@
 package com.sm_arts.jibcon.device.service.network;
 
-import com.sm_arts.jibcon.device.DeviceItem;
+import com.sm_arts.jibcon.data.models.DeviceItem;
 
 import java.util.List;
 
