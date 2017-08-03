@@ -39,7 +39,7 @@ public class TutorialMainActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         ViewPager pager = (ViewPager) findViewById(R.id.vp_tutorial);
-        Log.d(TAG, "onCreate: drawableProgresscircles.length="+ drawableProgresscircles.length());
+        Log.d(TAG, "onCreate: drawableProgresscircles.length=" + drawableProgresscircles.length());
         pager.setAdapter(new TutorialMainPageAdapter(getSupportFragmentManager(), drawableProgresscircles.length()));
 
         Log.d(TAG, "onCreate: " + drawableProgresscircles);

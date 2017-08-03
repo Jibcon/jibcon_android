@@ -10,7 +10,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="12"
         >
     <include
         layout="@layout/splash_tutorialmainactivity_content"
@@ -19,11 +19,11 @@
         />
     </FrameLayout>
 
-    <!-- ViewPager -->
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_tutorial"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="73"></android.support.v4.view.ViewPager>
+        android:layout_weight="88">
+    </android.support.v4.view.ViewPager>
 
 </LinearLayout>

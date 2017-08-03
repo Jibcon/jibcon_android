@@ -6,10 +6,10 @@
     <item name="ic_menu_share" type="drawable">@android:drawable/ic_menu_share</item>
     <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
     <array name="drawable_tutorialsampleuis">
-        <item>@drawable/tutorial_sampleui_1</item>
-        <item>@drawable/tutorial_sampleui_2</item>
-        <item>@drawable/tutorial_sampleui_1</item>
-        <item>@drawable/tutorial_sampleui_2</item>
+        <item>@drawable/tutorial_sampleui_01</item>
+        <item>@drawable/tutorial_sampleui_01</item>
+        <item>@drawable/tutorial_sampleui_01</item>
+        <item>@drawable/tutorial_sampleui_01</item>
     </array>
     <array name="drawable_progresscircles">
         <item>@drawable/tutorial_progressbar01</item>
