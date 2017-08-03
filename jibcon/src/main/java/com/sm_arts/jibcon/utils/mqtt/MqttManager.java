@@ -3,7 +3,8 @@ package com.sm_arts.jibcon.utils.mqtt;
 import android.os.Handler;
 import android.util.Log;
 
-import com.sm_arts.jibcon.app.GlobalApplication;
+
+import com.sm_arts.jibcon.GlobalApplication;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;

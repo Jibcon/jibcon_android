@@ -5,8 +5,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.app.GlobalApplication;
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
 
