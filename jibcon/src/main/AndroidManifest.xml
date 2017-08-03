@@ -38,7 +38,7 @@
         </activity>
 
         <activity
-            android:name=".app.splash.IntroActivity"
+            android:name=".ui.splash.IntroActivity"
             android:label="@string/app_name"
             android:theme="@style/myAppTheme.IntroNoActionBar">
             <intent-filter>
@@ -48,7 +48,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".app.splash.TutorialMainActivity"
+            android:name=".ui.splash.TutorialMainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".login.LoginActivity"

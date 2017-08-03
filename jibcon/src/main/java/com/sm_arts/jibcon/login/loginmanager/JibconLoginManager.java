@@ -21,7 +21,7 @@ import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
-import com.sm_arts.jibcon.app.splash.IntroActivity;
+import com.sm_arts.jibcon.ui.splash.IntroActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;

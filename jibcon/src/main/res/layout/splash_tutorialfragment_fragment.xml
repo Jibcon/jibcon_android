@@ -43,7 +43,7 @@
         android:id="@+id/iv_tutorial_sampleui"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:src="@drawable/tutorial_sampleui"
+        android:src="@drawable/tutorial_sampleui_1"
         app:layout_constraintTop_toBottomOf="@+id/tv_tutorial_subdescription"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
