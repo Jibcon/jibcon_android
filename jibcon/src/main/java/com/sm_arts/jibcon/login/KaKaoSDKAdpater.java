@@ -3,7 +3,7 @@ package com.sm_arts.jibcon.login;
 import android.app.Activity;
 import android.content.Context;
 
-import com.sm_arts.jibcon.app.GlobalApplication;
+import com.sm_arts.jibcon.GlobalApplication;
 import com.kakao.auth.ApprovalType;
 import com.kakao.auth.AuthType;
 import com.kakao.auth.IApplicationConfig;

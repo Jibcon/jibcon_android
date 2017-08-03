@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:name=".app.GlobalApplication"
+        android:name=".GlobalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/jibcon_logo"
         android:label="@string/app_name"
@@ -113,12 +113,7 @@
 
         </activity>
 
-        <activity
-            android:name=".app.getothercon.GetOtherConActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".app.getothercon.GetOtherConEndActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".ui.floatingbuttonui.FloatingButtonDeviceActivity"
             android:theme="@style/Theme.AppCompat.Translucent" />
@@ -132,6 +127,8 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"
             android:label="OAuth2.0 In-app"/>
+
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
     </application>
 
 </manifest>

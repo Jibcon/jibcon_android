@@ -19,14 +19,14 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
-import com.sm_arts.jibcon.app.GlobalApplication;
+import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.app.splash.IntroActivity;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.login.user.domain.User;
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.login.user.service.network.UserNetworkImpl;
-import com.sm_arts.jibcon.network.ApiService;
+import com.sm_arts.jibcon.data.repository.network.UserService;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
@@ -55,9 +55,12 @@ public class JibconLoginManager {
 
     public static JibconLoginManager getInstance() {
         if (mInstance == null) {
-            mInstance = new JibconLoginManager();
+            synchronized(JibconLoginManager.class) {
+                if (mInstance == null) {
+                    mInstance = new JibconLoginManager();
+                }
+            }
         }
-
         return mInstance;
     }
 
@@ -192,10 +195,10 @@ public class JibconLoginManager {
                 userTokenFacebook = loginResult.getAccessToken().getToken();
                 UserInfo userInfo = new UserInfo("facebook",userTokenFacebook);
                 Log.d("MYTOKEN", userTokenFacebook);
-                ApiService apiService = RetrofiClients.getInstance()
-                        .getService(ApiService.class);;
+                UserService userService = RetrofiClients.getInstance()
+                        .getService(UserService.class);;
 
-                Call<User> c = apiService.login(userInfo);
+                Call<User> c = userService.login(userInfo);
                 try {
                     c.enqueue(new Callback<User>() {
                         @Override
@@ -249,6 +252,7 @@ public class JibconLoginManager {
         String logintype;
         logintype = SharedPreferenceHelper.getSharedPrefrence(PREF_NAME, PREF_LOGINTYPE);
 
+        //LoginManager.getInstance().logOut();
         mUser = null;
 
         Log.d(TAG, "logout: LoginType : " + logintype);

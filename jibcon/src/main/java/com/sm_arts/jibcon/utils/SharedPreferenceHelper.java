@@ -3,7 +3,7 @@ package com.sm_arts.jibcon.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.sm_arts.jibcon.app.GlobalApplication;
+import com.sm_arts.jibcon.GlobalApplication;
 
 /**
  * Created by admin on 2017-07-19.

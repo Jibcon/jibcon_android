@@ -22,7 +22,7 @@ import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.app.GlobalApplication;
+import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;

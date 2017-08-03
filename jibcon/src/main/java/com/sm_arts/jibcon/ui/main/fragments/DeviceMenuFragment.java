@@ -13,12 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
-import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
-import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.floatingbuttonui.FloatingButtonDeviceActivity;
+import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,7 +81,8 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
                 new ArrayList<>(),
                 (v, position) -> {
                     Log.d(TAG, "onItemClick: position=[" + position + "]");
-                    mPresenter.deviceItemIvClicked(position);
+                    DeviceItem item = mAdapter.getItemWithPosition(position);
+                    mPresenter.deviceItemIvClicked(item);
                 },
                 (v, position) -> {
                     Log.d(TAG, "onItemClick: position=[" + position + "]");
@@ -90,9 +90,11 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
                 }
         );
 
+
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), GRID_COLUMN_COUNT);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
     }
 
     private void loadData() {
@@ -149,6 +151,12 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         mAdapter.setDeviceItems(deviceItems);
         mAdapter.notifyDataSetChanged();
     }
+    @Override
+    public void updateDevicesOnOffState()
+    {
+        mAdapter.notifyDataSetChanged();
+    }
+
     //endregion
 
 }

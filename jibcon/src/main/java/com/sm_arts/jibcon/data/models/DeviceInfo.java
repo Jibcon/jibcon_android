@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.model.deviceinfo;
+package com.sm_arts.jibcon.data.models;
 
 /**
  * Created by admin on 2017-04-08.

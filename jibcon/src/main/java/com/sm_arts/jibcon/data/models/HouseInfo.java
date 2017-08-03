@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.model.houseinfo;
+package com.sm_arts.jibcon.data.models;
 
 import com.sm_arts.jibcon.login.user.domain.UserInfo;
 
