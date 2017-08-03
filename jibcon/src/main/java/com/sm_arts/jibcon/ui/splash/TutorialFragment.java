@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,8 @@ import butterknife.OnClick;
  */
 
 public class TutorialFragment extends android.support.v4.app.Fragment {
-    private static final String STRINGOF_TUTORIAL_PAGE = "numofTutorialPage";
+    private static final String TAG = "TutorialFragment";
+    private static final String STRINGOF_TUTORIAL_PAGE = "NUMOFTUTORIALPAGE";
 
     @BindView(R.id.tv_tutorial_description) TextView tutorialTitleTv;
     @BindView(R.id.tv_tutorial_subdescription) TextView tutorialSubTv;
@@ -48,13 +50,17 @@ public class TutorialFragment extends android.support.v4.app.Fragment {
 
         int tutorialNumber = getArguments().getInt(STRINGOF_TUTORIAL_PAGE);
 
-        makejibconBtn.setVisibility(View.INVISIBLE);
-
+        makejibconBtn.setVisibility(View.GONE);
         tutorialTitleTv.setText(tutorialDescriptions[tutorialNumber]);
         tutorialSubTv.setText(tutorialSubdescriptions[tutorialNumber]);
         final TypedArray tutorialSampleUis = getResources().obtainTypedArray(R.array.drawable_tutorialsampleuis);
         tutorialIv.setImageResource(tutorialSampleUis.getResourceId(tutorialNumber, -1));
         tutorialSampleUis.recycle();
+
+        if (tutorialNumber == (tutorialDescriptions.length - 1)) {
+            Log.d(TAG, "onCreateView: set makejibconBtn VISIBLE");
+            makejibconBtn.setVisibility(View.VISIBLE);
+        }
 
         return v;
     }
