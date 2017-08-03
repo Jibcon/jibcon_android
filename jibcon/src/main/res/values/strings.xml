@@ -10,4 +10,27 @@
     <string name="naver_client_secret">uldOlbBiia</string>
 
     <string name="tutorial_skip">SKIP</string>
+
+    <string name="tutorial_description_1">스마트홈 기기를 등록하세요</string>
+    <string name="tutorial_description_2">귀찮은 루틴을 등록해놓으세요</string>
+    <string name="tutorial_description_3">혁신적인 제품들을 만나보세요</string>
+    <string name="tutorial_description_4">실내의 스마트홈 습관을 확인해봐요</string>
+    <string-array name="tutorial_description_array">
+        <item>@string/tutorial_description_1</item>
+        <item>@string/tutorial_description_2</item>
+        <item>@string/tutorial_description_3</item>
+        <item>@string/tutorial_description_4</item>
+    </string-array>
+
+    <string name="tutorial_subdescription_1">어떠한 기기든 빠르게 연결하고\n 쉽고 간편하게 사용해보세요</string>
+    <string name="tutorial_subdescription_2">한번만 등록하면\n 신경쓰지 않아도 알아서 척척 해냅니다</string>
+    <string name="tutorial_subdescription_3">콘샾을 통해 당신에게 맞는 제품들을\n 가장 저렴하게 만나볼 수 있습니다</string>
+    <string name="tutorial_subdescription_4">낭비되는 전기세부터\n 나에게 맞는 온도까지! 데이터로 알아보세요</string>
+    <string-array name="tutorial_subdescription_array">
+        <item>@string/tutorial_subdescription_1</item>
+        <item>@string/tutorial_subdescription_2</item>
+        <item>@string/tutorial_subdescription_3</item>
+        <item>@string/tutorial_subdescription_4</item>
+    </string-array>
+
 </resources>

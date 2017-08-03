@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.app.splash;
+package com.sm_arts.jibcon.ui.splash;
 
 // 매니페스트 파일에서 메인 엑티비티에 걸려있는? <intent-filter>를 IntroActivity에 넣어줌.
 

@@ -1,6 +1,7 @@
-package com.sm_arts.jibcon.app.splash;
+package com.sm_arts.jibcon.ui.splash;
 
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.login.LoginActivity;
 
+import butterknife.BindArray;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -28,6 +30,11 @@ public class TutorialFragment extends android.support.v4.app.Fragment {
     @BindView(R.id.tv_tutorial_subdescription) TextView tutorialSubTv;
     @BindView(R.id.iv_tutorial_sampleui) ImageView tutorialIv;
     @BindView(R.id.btn_tutorial_makejibcon) Button makejibconBtn;
+    @BindArray(R.array.tutorial_description_array)
+    String[] tutorialDescriptions;
+    @BindArray(R.array.tutorial_subdescription_array)
+    String[] tutorialSubdescriptions;
+
     @OnClick(R.id.btn_tutorial_makejibcon) void makejibconListener() {
         Intent intent = new Intent(getContext(), LoginActivity.class);
         startActivity(intent);
@@ -37,35 +44,18 @@ public class TutorialFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.splash_tutorialfragment_fragment, container, false);
-        ButterKnife.bind(this,v);
+        ButterKnife.bind(this, v);
 
         int tutorialNumber = getArguments().getInt(STRINGOF_TUTORIAL_PAGE);
 
         makejibconBtn.setVisibility(View.INVISIBLE);
 
-        switch (tutorialNumber) {
-            case 0:
-                tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[0]);
-                tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[0]);
-                tutorialIv.setImageResource(R.drawable.tutorial_sampleui);
-                break;
-            case 1:
-                tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[1]);
-                tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[1]);
-                tutorialIv.setImageResource(R.drawable.splash_image);
-                break;
-            case 2:
-                tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[2]);
-                tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[2]);
-                tutorialIv.setImageResource(R.drawable.splash_image);
-                break;
-            case 3:
-                tutorialTitleTv.setText(getResources().getStringArray(R.array.tutorial_title_array)[3]);
-                tutorialSubTv.setText(getResources().getStringArray(R.array.tutorial_sub_array)[3]);
-                tutorialIv.setImageResource(R.drawable.splash_image);
-                makejibconBtn.setVisibility(View.VISIBLE);
-                break;
-        }
+        tutorialTitleTv.setText(tutorialDescriptions[tutorialNumber]);
+        tutorialSubTv.setText(tutorialSubdescriptions[tutorialNumber]);
+        final TypedArray tutorialSampleUis = getResources().obtainTypedArray(R.array.drawable_tutorialsampleuis);
+        tutorialIv.setImageResource(tutorialSampleUis.getResourceId(tutorialNumber, -1));
+        tutorialSampleUis.recycle();
+
         return v;
     }
 

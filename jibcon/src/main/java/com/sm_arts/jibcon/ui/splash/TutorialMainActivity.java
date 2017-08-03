@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.app.splash;
+package com.sm_arts.jibcon.ui.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
