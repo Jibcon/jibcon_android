@@ -59,8 +59,6 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
 
     @Override
     public void onBindViewHolder(DeviceMenuViewHolder holder, int position) {
-        Log.d(TAG, "onBindViewHolder() called with: " +
-                "holder = [" + holder + "], position = [" + position + "]");
         DeviceItem deviceItem = mDeviceItems.get(position);
         holder.configureWith(deviceItem);
     }

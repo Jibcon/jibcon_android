@@ -42,8 +42,6 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void configureWith(DeviceItem deviceItem) {
-        Log.d(TAG, "configureWith() called with: " +
-                "deviceItem = [" + deviceItem.toString() + "]");
         String deviceType = deviceItem.getDeviceType();
 
         if(!deviceItem.isDeviceOnOffState())

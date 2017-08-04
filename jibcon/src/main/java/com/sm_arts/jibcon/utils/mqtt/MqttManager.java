@@ -32,8 +32,8 @@ import io.reactivex.functions.Consumer;
  */
 
 public class MqttManager {
-
     private static final String TAG = "MqttManager";
+
     private final BiConsumer<String, String> mlistener;
     private MqttAndroidClient mqttClient = null;
     private MyMqttCallback mainMqttCallback = new MyMqttCallback();
@@ -60,24 +60,7 @@ public class MqttManager {
     /* MQTT Subscription */
     public void MQTT_Create(boolean mtqqStart) {
         if (mtqqStart && mqttClient == null) {
-            /* Subscription Resource Create to Yellow Turtle */
-            SubscribeResource subcribeResource = new SubscribeResource();
-            subcribeResource.setReceiver(new IReceived() {
-                public void getResponseBody(final String msg) {
-                    handler.post(new Runnable() {
-                        public void run() {
-                            Log.d(TAG, "run: "+"**** Subscription Resource Create 요청 결과 ****\r\n\r\n" + msg);
-                            //textViewData.setText("**** Subscription Resource Create 요청 결과 ****\r\n\r\n" + msg);
-                        }
-                    });
-                }
-            });
-            subcribeResource.start();
-
-            /* MQTT Subscribe */
             mqttClient = new MqttAndroidClient(GlobalApplication.getGlobalApplicationContext(), "tcp://" + Config.MQTT.HOST + ":" + Config.MQTT.PORT, MqttClient.generateClientId());
-            mainIMqttActionListener = new MyIMqttActionListener(mqttClient);
-
 
             mainMqttCallback.setListener(
                     (topic, s) -> {
@@ -110,6 +93,7 @@ public class MqttManager {
                         }
                     }
             );
+
             mqttClient.setCallback(mainMqttCallback);
             try {
                 IMqttToken token = mqttClient.connect();
@@ -137,7 +121,18 @@ public class MqttManager {
     }
 
     public void addTopic(String mqttTopic) {
-        subscribeTopics.add(mqttTopic);
+        try {
+            String topic = attachPrefixToTopic(mqttTopic);
+            Log.d(TAG, "addTopic() called with: prefix attached topic = [" + topic + "]");
+            mqttClient.subscribe(topic, 1);
+            subscribeTopics.add(mqttTopic);
+        } catch (MqttException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String attachPrefixToTopic(String mqttTopic) {
+        return "/oneM2M/req/Mobius/" + mqttTopic + "/#";
     }
 
     public void removeTopic(String mqttTopic) {

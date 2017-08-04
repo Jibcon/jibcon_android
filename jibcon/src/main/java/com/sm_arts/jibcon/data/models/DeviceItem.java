@@ -22,7 +22,8 @@ public class DeviceItem {
     }
 
     public String getAeName() {
-        return aeName;
+        return "ae-firstled";
+//        return aeName;
     }
 
     public void setAeName(String aeName) {
@@ -30,7 +31,8 @@ public class DeviceItem {
     }
 
     public String getCntName() {
-        return cntName;
+//        return cntName;
+        return "cnt-led";
     }
 
     public void setCntName(String cntName) {

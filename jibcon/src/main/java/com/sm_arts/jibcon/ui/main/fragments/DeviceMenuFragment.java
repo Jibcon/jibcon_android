@@ -151,8 +151,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         mAdapter.notifyDataSetChanged();
     }
     @Override
-    public void updateDevicesOnOffState()
-    {
+    public void updateDevicesOnOffState() {
         mAdapter.notifyDataSetChanged();
     }
 

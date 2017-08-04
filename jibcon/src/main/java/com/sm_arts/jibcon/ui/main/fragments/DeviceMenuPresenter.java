@@ -3,6 +3,8 @@ package com.sm_arts.jibcon.ui.main.fragments;
 import android.util.Log;
 
 import com.sm_arts.jibcon.data.models.DeviceItem;
+import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
+import com.sm_arts.jibcon.data.repository.network.mobius.MobiusSubService;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
 import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
@@ -118,40 +120,17 @@ class DeviceMenuPresenter {
             String mqttTopic = item.getAeName() + "_" + item.getCntName() + "_" + Configs.AE.Name;
             Log.d(TAG, "activateDevice() called with: mqttTopic = [" + mqttTopic + "]");
             item.setMqttTopic(mqttTopic);
-            mqttManager.addTopic(mqttTopic);
-            mqttManager.MQTT_Create(true);
+            MobiusNetworkHelper.getInstance().createSub(
+                    item.getAeName(),
+                    item.getCntName(),
+                    mqttTopic,
+                    responseSub -> {
+                        Log.d(TAG, "activateDevice: responseSub = " + responseSub);
+                        mqttManager.addTopic(mqttTopic);
+                    }
+            );
         }
         mView.updateDevicesOnOffState();
-
-        /*change device's onoff state--->*/
-
-
-        //// TODO: 2017-08-02  if we get led on from mosquitto change itemcolor
-
-
-        // TODO: 7/21/17 replace this stub
-        MobiusCiService service = RetrofiClients.getInstance().getService(MobiusCiService.class);
-        Call<Object> call = service.turnOnLed(
-                "application/json",
-                "1",
-                "/0.1",
-                "application/vnd.onem2m-res+json; ty=4",
-                new MobiusCiService.ApiCinC(3)
-        );
-
-        call.enqueue(new Callback<Object>() {
-            @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
-                Log.d(TAG, "onResponse() called with: call = [" + call + "], " +
-                        "response.code() = [" + response.code() + "]");
-            }
-
-            @Override
-            public void onFailure(Call<Object> call, Throwable t) {
-                Log.d(TAG, "onFailure: ");
-            }
-        });
-
     }
 
 

@@ -130,7 +130,7 @@ public class MobiusNetworkHelper {
         });
     }
 
-    public void createSub(String deviceAe, String deviceCnt, Consumer<ResponseSub> finished) {
+    public void createSub(String deviceAe, String deviceCnt, String topic, Consumer<ResponseSub> finished) {
         MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
 
         RequestSub requestSub = new RequestSub();
@@ -139,7 +139,7 @@ public class MobiusNetworkHelper {
         requestSub.m2msub.enc.net.add(3);
         requestSub.m2msub.enc.net.add(4);
         requestSub.m2msub.nu.add(
-                "mqtt://" + Configs.Mobius.Host + "/" + requestSub.m2msub.rn
+                "mqtt://" + Configs.Mobius.Host + "/" + topic
         );
 
         Call<ResponseSub> call = service.postSub(
