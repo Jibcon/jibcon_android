@@ -1,7 +1,9 @@
 package com.sm_arts.jibcon.ui.main;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -26,12 +28,14 @@ import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.app.cheatkey.CheatkeyMenuFragment;
 import com.sm_arts.jibcon.app.conshop.ConshopFragment;
 import com.sm_arts.jibcon.app.datacontrol.DataControlFragment;
+import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.app.sidebar.AboutJibconActivity;
 import com.sm_arts.jibcon.app.sidebar.ConnectedDevicesActivity;
 import com.sm_arts.jibcon.app.sidebar.MyJibconActivity;
 import com.sm_arts.jibcon.app.sidebar.UserAuthorityActivity;
 import com.sm_arts.jibcon.app.sidebar.WidgetActivity;
 import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
+import com.sm_arts.jibcon.login.user.service.network.UserNetworkImpl;
 import com.sm_arts.jibcon.ui.dialogs.SidebarDialog;
 import com.sm_arts.jibcon.ui.main.fragments.DeviceMenuFragment;
 
@@ -229,9 +233,10 @@ public class MainActivity extends BaseActivity
         //Log.d("userProfile",mApp.getUserProfileImageUrl().toString());
         username.setText(JibconLoginManager.getInstance().getUserName());
         userEmail.setText(JibconLoginManager.getInstance().getUserEmail());
-
+        
         initLayout();
     }
+
 
 
     @Override
