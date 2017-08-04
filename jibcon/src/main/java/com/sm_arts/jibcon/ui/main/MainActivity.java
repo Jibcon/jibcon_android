@@ -3,6 +3,7 @@ package com.sm_arts.jibcon.ui.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -232,18 +233,10 @@ public class MainActivity extends BaseActivity
         //Log.d("userProfile",mApp.getUserProfileImageUrl().toString());
         username.setText(JibconLoginManager.getInstance().getUserName());
         userEmail.setText(JibconLoginManager.getInstance().getUserEmail());
-
-        //// TODO: 2017-08-04 delete 
-        sampleLogin(getApplicationContext());
         
         initLayout();
     }
 
-    private void sampleLogin(Context context) {
-        JibconLoginManager.getInstance().loginWithSampleUser(
-                () -> context.startActivity(new Intent(context,MakeconStartActivity.class))//여기를 사용자 데이터 받아오는 걸로
-        );
-    }
 
 
     @Override

@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.device.DeviceItem;
+import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.ui.floatingbuttonui.FloatingButtonDeviceActivity;
 import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
@@ -51,7 +52,18 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
 
         Log.d(TAG, "onViewCreated: ");
         attachUI();
-        loadData();
+        // TODO: 2017-08-04 remove samplelogin
+        sampleLogin();
+        //loadData();
+    }
+
+    private void sampleLogin() {
+        Log.d(TAG, "sampleLogin: ");
+
+        JibconLoginManager.getInstance().loginWithSampleUser(
+                ()->
+                        loadData()
+        );
     }
 
     @Override
@@ -97,7 +109,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
 
     }
 
-    private void loadData() {
+    public void loadData() {
         Log.d(TAG, "loadData: ");
         mPresenter.loadData(deviceItems -> {
             Log.d(TAG, "loadData: Consumer deviceItems=" + deviceItems.toString());
