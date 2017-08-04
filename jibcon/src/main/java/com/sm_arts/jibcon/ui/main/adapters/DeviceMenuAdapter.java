@@ -28,21 +28,21 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
     public DeviceMenuAdapter(List<DeviceItem> deviceItems,
                              CustomItemClickListener deviceItemIvClickedListener,
                              CustomItemClickListener threedotIvClicked) {
-        Log.d(TAG, "DeviceMenuAdapter: ");
+//        Log.d(TAG, "DeviceMenuAdapter: ");
         this.mDeviceItems = deviceItems;
         this.mDeviceItemIvClickedListener = deviceItemIvClickedListener;
         this.mThreedotIvClickedListener = threedotIvClicked;
     }
 
     public void setDeviceItems(List<DeviceItem> mDeviceItems) {
-        Log.d(TAG, "setDeviceItems: ");
+//        Log.d(TAG, "setDeviceItems: ");
         this.mDeviceItems = mDeviceItems;
         notifyDataSetChanged();
     }
 
     @Override
     public DeviceMenuViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.d(TAG, "onCreateViewHolder: ");
+//        Log.d(TAG, "onCreateViewHolder: ");
         View deviceMenuView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.device_devicemenuadapter_cardview,
                         parent, false);

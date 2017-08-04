@@ -116,24 +116,55 @@ class DeviceMenuPresenter {
             String mqttTopic = item.getMqttTopic();
             mqttManager.removeTopic(mqttTopic);
         } else {
-            item.setDeviceOnOffState(true);
-            String mqttTopic = item.getAeName() + "_" + item.getCntName() + "_" + Configs.AE.Name;
-            Log.d(TAG, "activateDevice() called with: mqttTopic = [" + mqttTopic + "]");
-            item.setMqttTopic(mqttTopic);
-            MobiusNetworkHelper.getInstance().createSub(
-                    item.getAeName(),
-                    item.getCntName(),
-                    mqttTopic,
-                    responseSub -> {
-                        Log.d(TAG, "activateDevice: responseSub = " + responseSub);
-                        mqttManager.addTopic(mqttTopic);
-                    }
-            );
+            createMqttSubscription(item);
         }
         mView.updateDevicesOnOffState();
     }
 
+    private void createMqttSubscription(DeviceItem item) {
+        MobiusNetworkHelper.getInstance().retrieveSub(
+                item.getAeName(),
+                item.getCntName(),
+                responseSub -> {
+                    Log.d(TAG, "activateDevice: responseSub = " + responseSub);
+                    if (responseSub == null) {
+                        createSub(item);
+                    } else {
+                        removeSub(item,
+                                () -> createSub(item)
+                        );
+                    }
+                }
+        );
+    }
 
+    private void removeSub(DeviceItem item, Action finished) {
+        MobiusNetworkHelper.getInstance().deleteSub(
+                item.getAeName(),
+                item.getCntName(),
+                () -> {
+                    Log.d(TAG, "removeSub: response");
+                    finished.run();
+                }
+        );
+    }
+
+    private void createSub(DeviceItem item) {
+        String mqttTopic = item.getAeName() + "_" + item.getCntName() + "_" + Configs.AE.Name;
+        Log.d(TAG, "createSub() called with: mqttTopic = [" + mqttTopic + "]");
+
+        MobiusNetworkHelper.getInstance().createSub(
+                item.getAeName(),
+                item.getCntName(),
+                mqttTopic,
+                responseSub -> {
+                    Log.d(TAG, "activateDevice: responseSub = " + responseSub);
+                    item.setDeviceOnOffState(true);
+                    item.setMqttTopic(mqttTopic);
+                    mqttManager.addTopic(mqttTopic);
+                }
+        );
+    }
 
     //endregion
 }
