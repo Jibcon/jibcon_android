@@ -61,8 +61,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         Log.d(TAG, "sampleLogin: ");
 
         JibconLoginManager.getInstance().loginWithSampleUser(
-                ()->
-                        loadData()
+                this::loadData
         );
     }
 
