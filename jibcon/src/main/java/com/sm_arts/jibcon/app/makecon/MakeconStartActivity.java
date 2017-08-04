@@ -28,7 +28,7 @@ public class MakeconStartActivity extends BaseActivity {
     @OnClick(R.id.makeconstart_skip) void makeconstart_skip() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
-        startActivity(intent);
+        startActivity(intent); // Q. 왜 2개임?
         finish();
     }
 
