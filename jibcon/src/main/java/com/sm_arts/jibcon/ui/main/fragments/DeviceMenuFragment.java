@@ -15,7 +15,7 @@ import android.widget.ImageButton;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
-import com.sm_arts.jibcon.data.models.DeviceItem;
+import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.ui.floatingbuttonui.FloatingButtonDeviceActivity;
 import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;

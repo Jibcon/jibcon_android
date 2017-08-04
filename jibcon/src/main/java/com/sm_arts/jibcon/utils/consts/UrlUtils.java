@@ -25,7 +25,7 @@ public class UrlUtils {
         urls.put(UserService.class.getName(), apiUrl);
 
         String mobiusUrl =
-                "http://" + Configs.Mobius.Host + ":" + Configs.Mobius.Port + "/";
+                "http://" + Configs.Mobius.HOST + ":" + Configs.Mobius.PORT + "/";
         urls.put(MobiusCiService.class.getName(), mobiusUrl);
         urls.put(MobiusAeService.class.getName(), mobiusUrl);
         urls.put(MobiusCntService.class.getName(), mobiusUrl);

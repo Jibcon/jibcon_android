@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.sm_arts.jibcon.data.models.DeviceItem;
+import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.ui.main.adapters.viewholder.DeviceMenuViewHolder;
 import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
 import com.sm_arts.jibcon.R;
@@ -76,12 +76,15 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
         }
     }
 
-    public int findDeviceItemPositionWithTopic(String topic) {
-        Log.d(TAG, "findDeviceItemPositionWithTopic() called with: topic = [" + topic + "]");
+    public int findDeviceItemPositionWithSur(String sur) {
+        Log.d(TAG, "findDeviceItemPositionWithSur() called with: topic = [" + sur + "]");
         for (int idx = 0; idx < mDeviceItems.size(); idx++) {
-            if (TextUtils.equals(mDeviceItems.get(idx).getMqttTopic(), topic)) {
-                Log.d(TAG, "findDeviceItemPositionWithTopic: found idx=" + idx);
-                return idx;
+            String itemSur = mDeviceItems.get(idx).getSubscriptionSur();
+            if (itemSur != null) {
+                if (TextUtils.equals(itemSur, sur)) {
+                    Log.d(TAG, "findDeviceItemPositionWithSur: found idx=" + idx);
+                    return idx;
+                }
             }
         }
 
@@ -90,7 +93,7 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
 
     public void showContent(int position, String con) {
         Log.d(TAG, "showContent() called with: position = [" + position + "], con = [" + con + "]");
-        mDeviceItems.get(position).setDeviceName(con);
-        notifyDataSetChanged();
+        mDeviceItems.get(position).setContent(con);
+        notifyItemChanged(position);
     }
 }

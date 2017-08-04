@@ -2,7 +2,7 @@ package com.sm_arts.jibcon.device.service.network;
 
 import android.util.Log;
 
-import com.sm_arts.jibcon.data.models.DeviceItem;
+import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.data.repository.network.UserService;

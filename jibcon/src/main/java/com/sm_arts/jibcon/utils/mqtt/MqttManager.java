@@ -1,31 +1,16 @@
 package com.sm_arts.jibcon.utils.mqtt;
 
-import android.os.Handler;
-import android.text.TextUtils;
 import android.util.Log;
-
-
-import com.google.gson.internal.LinkedTreeMap;
-import com.google.gson.reflect.TypeToken;
 import com.sm_arts.jibcon.GlobalApplication;
-import com.sm_arts.jibcon.data.models.mobius.dto.MqttCi;
+import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
 import com.sm_arts.jibcon.utils.consts.Configs;
-import com.sm_arts.jibcon.utils.network.GsonUtils;
+import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.BiConsumer;
 import io.reactivex.functions.Consumer;
 
 /**
@@ -34,112 +19,89 @@ import io.reactivex.functions.Consumer;
 
 public class MqttManager {
     private static final String TAG = "MqttManager";
+    private static MqttManager sInstance;
 
-    private final BiConsumer<String, String> mlistener;
-    private MqttAndroidClient mqttClient = null;
-    private MyMqttCallback mainMqttCallback = new MyMqttCallback();
-    private IMqttActionListener mainIMqttActionListener;
+    private MqttAndroidClient mMqttClient;
+    private MqttCallbackImpl mMqttCallback;
 
-    private Handler handler = new Handler();
-    private List<String> subscribeTopics = new ArrayList<>();
-
-    public MqttManager(BiConsumer<String, String> listener) {
-        mlistener = listener;
-    }
-
-    public void makeMqttSub(boolean isChecked)
-    {
-        if (isChecked) {
-            Log.d(TAG, "MQTT Create");
-            MQTT_Create(true);
-        } else {
-            Log.d(TAG, "MQTT Close");
-            MQTT_Create(false);
-        }
-    }
-
-    /* MQTT Subscription */
-    public void MQTT_Create(boolean mtqqStart) {
-        if (mtqqStart && mqttClient == null) {
-            mqttClient = new MqttAndroidClient(GlobalApplication.getGlobalApplicationContext(),
-                    "tcp://" + Config.MQTT.HOST + ":" + Config.MQTT.PORT, MqttClient.generateClientId());
-
-            mainMqttCallback.setListener(
-                    (topic, s) -> {
-                        if (isSubscribe(topic)) {
-                            Type type = new TypeToken<Map<String, Object>>() {
-                            }.getType();
-                            String[] keys = {
-                                    "pc",
-                                    "sgn",
-                                    "nev",
-                                    "rep",
-                                    "m2m:cin"
-                            };
-                            LinkedTreeMap<String, Object> map = GsonUtils.getGson().fromJson(s, type);
-
-                            for (String key :
-                                    keys) {
-                                if (map != null) {
-                                    map = (LinkedTreeMap<String, Object>) map.get(key);
-                                }
-                            }
-
-                            String json = GsonUtils.getGson().toJson(map);
-                            MqttCi ci = GsonUtils.getGson().fromJson(json, MqttCi.class);
-                            Log.d(TAG, "accept: Data from mosquitto : " + ci.con);
-
-                            mlistener.accept(topic, ci.con);
-                        } else {
-                            Log.d(TAG, "MQTT_Create: not subscribed topic, topic=" + topic);
-                        }
-                    }
-            );
-
-            mqttClient.setCallback(mainMqttCallback);
-            try {
-                IMqttToken token = mqttClient.connect();
-                token.setActionCallback(mainIMqttActionListener);
-            } catch (MqttException e) {
-                e.printStackTrace();
-            }
-        } else {
-            Log.d(TAG, "MQTT_Create: unsubscribe");
-            /* MQTT unSubscribe or Client Close */
-            mqttClient.setCallback(null);
-            mqttClient.close();
-            mqttClient = null;
-        }
-    }
-
-    private boolean isSubscribe(String topic) {
-        for (String item :
-                subscribeTopics) {
-            if (TextUtils.equals(item, topic)) {
-                return true;
-            }
+    public static MqttManager getInstance() {
+        if (sInstance == null) {
+            throw new ExceptionInInitializerError("call init() first");
         }
 
-        return false;
+        return sInstance;
     }
 
-    public void addTopic(String mqttTopic) {
+    public static void init() {
+        sInstance = new MqttManager();
+    }
+
+    public MqttManager() {
+        initClient();
+    }
+
+    private void subscribe() {
+        Log.d(TAG, "subscribe: ");
         try {
-            String topic = attachPrefixToTopic();
-            Log.d(TAG, "addTopic() called with: prefix attached topic = [" + topic + "]");
-            mqttClient.subscribe(topic, 1);
-            subscribeTopics.add(mqttTopic);
+            mMqttClient.subscribe(MqttTopicUtils.getSubscribeTopic(), Configs.Mqtt.QOS);
         } catch (MqttException e) {
             e.printStackTrace();
         }
     }
 
-    private String attachPrefixToTopic() {
-        return "/oneM2M/req/Mobius/" + Configs.AE.Aid + "/#";
+    private void initClient() {
+        Log.d(TAG, "initClient: ");
+
+        mMqttClient = new MqttAndroidClient(GlobalApplication.getGlobalApplicationContext(),
+                "tcp://" + Configs.Mqtt.HOST + ":" + Configs.Mqtt.PORT, MqttClient.generateClientId());
+        mMqttCallback = new MqttCallbackImpl(this);
+
+        startClient();
     }
 
-    public void removeTopic(String mqttTopic) {
-        // TODO: 8/2/17 IMPLEMENT
-        subscribeTopics.remove(mqttTopic);
+    private void startClient() {
+        Log.d(TAG, "startClient: ");
+
+        mMqttClient.setCallback(mMqttCallback);
+
+        IMqttToken token;
+        try {
+            token = mMqttClient.connect();
+            token.setActionCallback(new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+                    subscribe();
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                    exception.printStackTrace();
+                }
+            });
+        } catch (MqttException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void stopClient() {
+        mMqttClient.setCallback(null);
+        mMqttClient.close();
+    }
+
+    public void setListener(Consumer<MqttSurCon> listener) {
+        Log.d(TAG, "setListener: ");
+        if (mMqttCallback != null) {
+            mMqttCallback.setListener(listener);
+        }
+    }
+
+    public void addSubscriptionSur(String subscriptionSur) {
+        Log.d(TAG, "addSubscriptionSur() called with: subscriptionSur = [" + subscriptionSur + "]");
+        mMqttCallback.addSubscriptionSur(subscriptionSur);
+    }
+
+    public void delSubscriptionSur(String subscriptionSur) {
+        Log.d(TAG, "addSubscriptionSur() called with: subscriptionSur = [" + subscriptionSur + "]");
+        mMqttCallback.delSubscriptionSur(subscriptionSur);
     }
 }
