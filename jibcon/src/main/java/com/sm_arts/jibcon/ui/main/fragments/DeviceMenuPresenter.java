@@ -150,7 +150,7 @@ class DeviceMenuPresenter {
     }
 
     private void createSub(DeviceItem item) {
-        String mqttTopic = item.getAeName() + "_" + item.getCntName() + "_" + Configs.AE.Name;
+        String mqttTopic = Configs.AE.Aid + "_sbsb";
         Log.d(TAG, "createSub() called with: mqttTopic = [" + mqttTopic + "]");
 
         MobiusNetworkHelper.getInstance().createSub(

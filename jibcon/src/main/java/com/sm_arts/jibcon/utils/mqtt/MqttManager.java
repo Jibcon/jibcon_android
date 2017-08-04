@@ -9,6 +9,7 @@ import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.data.models.mobius.dto.MqttCi;
+import com.sm_arts.jibcon.utils.consts.Configs;
 import com.sm_arts.jibcon.utils.network.GsonUtils;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
@@ -60,7 +61,8 @@ public class MqttManager {
     /* MQTT Subscription */
     public void MQTT_Create(boolean mtqqStart) {
         if (mtqqStart && mqttClient == null) {
-            mqttClient = new MqttAndroidClient(GlobalApplication.getGlobalApplicationContext(), "tcp://" + Config.MQTT.HOST + ":" + Config.MQTT.PORT, MqttClient.generateClientId());
+            mqttClient = new MqttAndroidClient(GlobalApplication.getGlobalApplicationContext(),
+                    "tcp://" + Config.MQTT.HOST + ":" + Config.MQTT.PORT, MqttClient.generateClientId());
 
             mainMqttCallback.setListener(
                     (topic, s) -> {
@@ -102,6 +104,7 @@ public class MqttManager {
                 e.printStackTrace();
             }
         } else {
+            Log.d(TAG, "MQTT_Create: unsubscribe");
             /* MQTT unSubscribe or Client Close */
             mqttClient.setCallback(null);
             mqttClient.close();
@@ -122,7 +125,7 @@ public class MqttManager {
 
     public void addTopic(String mqttTopic) {
         try {
-            String topic = attachPrefixToTopic(mqttTopic);
+            String topic = attachPrefixToTopic();
             Log.d(TAG, "addTopic() called with: prefix attached topic = [" + topic + "]");
             mqttClient.subscribe(topic, 1);
             subscribeTopics.add(mqttTopic);
@@ -131,8 +134,8 @@ public class MqttManager {
         }
     }
 
-    private String attachPrefixToTopic(String mqttTopic) {
-        return "/oneM2M/req/Mobius/" + mqttTopic + "/#";
+    private String attachPrefixToTopic() {
+        return "/oneM2M/req/Mobius/" + Configs.AE.Aid + "/#";
     }
 
     public void removeTopic(String mqttTopic) {

@@ -141,8 +141,11 @@ public class MobiusNetworkHelper {
         requestSub.m2msub.enc.net.add(3);
         requestSub.m2msub.enc.net.add(4);
         requestSub.m2msub.nu.add(
-                "mqtt://" + Configs.Mobius.Host + "/" + topic
+                "mqtt://" + Configs.Mobius.Host + "/" + topic + "?ct=json"
         );
+        requestSub.m2msub.pn = 1;
+        requestSub.m2msub.nct = 2;
+
 
         Call<ResponseSub> call = service.postSub(
                 Configs.CSE.Name,
