@@ -58,7 +58,7 @@
                 <TextView
                     android:gravity="center"
                     android:text="장소이름"
-                    android:id="@+id/Txt_Cardview1"
+                    android:id="@+id/tv_devicename"
                     android:layout_below="@id/deviceItemIv"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -67,8 +67,8 @@
                 <TextView
                     android:gravity="center"
                     android:text="장치이름"
-                    android:layout_toRightOf="@id/Txt_Cardview1"
-                    android:id="@+id/Txt_Cardview2"
+                    android:layout_toRightOf="@id/tv_devicename"
+                    android:id="@+id/tv_devicecontent"
                     android:layout_below="@id/deviceItemIv"
                     android:layout_width="0dp"
                     android:layout_weight="1"

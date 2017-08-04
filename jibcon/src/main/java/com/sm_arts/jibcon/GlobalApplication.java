@@ -11,6 +11,7 @@ import com.kakao.auth.KakaoSDK;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
 import com.sm_arts.jibcon.login.KaKaoSDKAdpater;
+import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 import com.tsengvn.typekit.Typekit;
 
 import java.lang.ref.WeakReference;
@@ -35,13 +36,23 @@ public class GlobalApplication extends MultiDexApplication {
         Log.d(TAG, "onCreate: allocate GlobalApplication sObj");
         sObj = this;
         KakaoSDK.init(new KaKaoSDKAdpater());
-        // for font change
+
+        initTypekit();
+        initMobius();
+        initMqttManager();
+    }
+
+    private void initTypekit() {
+        Log.d(TAG, "initTypekit: ");
         Typekit.getInstance()
                 .addBold(Typekit.createFromAsset(this, "fonts/NanumSquareExtraBold.ttf"))
                 .addNormal(Typekit.createFromAsset(this, "fonts/NanumSquareRegular.ttf"))
                 .addCustom1(Typekit.createFromAsset(this, "fonts/NanumSquareLight.ttf"));
+    }
 
-        initMobius();
+    private void initMqttManager() {
+        Log.d(TAG, "initMqttManager: ");
+        MqttManager.init();
     }
 
     private void initMobius() {

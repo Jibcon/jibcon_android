@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.data.models;
+package com.sm_arts.jibcon.data.models.api.dto;
 
 /**
  * Created by admin on 2017-04-06.
@@ -12,9 +12,18 @@ public class DeviceItem {
     String deviceCom;
     boolean deviceOnOffState;
     String user;
-    String mqttTopic;
+    String subscriptionSur;
     String aeName;
     String cntName;
+    String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public DeviceItem(int deviceType, String deviceName) {
         this.deviceType = new Integer(deviceType).toString();
@@ -39,12 +48,12 @@ public class DeviceItem {
         this.cntName = cntName;
     }
 
-    public String getMqttTopic() {
-        return mqttTopic;
+    public String getSubscriptionSur() {
+        return subscriptionSur;
     }
 
-    public void setMqttTopic(String mqttTopic) {
-        this.mqttTopic = mqttTopic;
+    public void setSubscriptionSur(String subscriptionSur) {
+        this.subscriptionSur = subscriptionSur;
     }
 
     public void setDeviceWifiAddr(String deviceWifiAddr) {

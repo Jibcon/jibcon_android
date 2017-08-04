@@ -1,6 +1,6 @@
 package com.sm_arts.jibcon.ui.main.fragments;
 
-import com.sm_arts.jibcon.data.models.DeviceItem;
+import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
 
 import java.util.List;

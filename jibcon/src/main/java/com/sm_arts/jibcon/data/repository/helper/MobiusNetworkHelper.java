@@ -9,7 +9,7 @@ import com.sm_arts.jibcon.data.models.mobius.dto.ResponseSub;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusAeService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusSubService;
 import com.sm_arts.jibcon.utils.consts.Configs;
-import com.sm_arts.jibcon.utils.consts.UrlUtils;
+import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import io.reactivex.functions.Action;
@@ -45,15 +45,15 @@ public class MobiusNetworkHelper {
         MobiusAeService service = RetrofiClients.getInstance().getService(MobiusAeService.class);
 
         RequestAe requestAe = new RequestAe();
-        requestAe.m2mae.rn = Configs.AE.Name;
-        requestAe.m2mae.api = Configs.AE.Aid;
+        requestAe.m2mae.rn = Configs.AE.NAME;
+        requestAe.m2mae.api = Configs.AE.AID;
         requestAe.m2mae.rr = true;
 
         Call<ResponseAe> call = service.postAe(
-                Configs.CSE.Name,
+                Configs.CSE.NAME,
                 "application/json",
                 requestIdGenerate(),
-                Configs.AE.Aid,
+                Configs.AE.AID,
                 "application/vnd.onem2m-res+json; ty=2",
                 requestAe
         );
@@ -96,16 +96,16 @@ public class MobiusNetworkHelper {
         MobiusAeService service = RetrofiClients.getInstance().getService(MobiusAeService.class);
 
         RequestAe requestAe = new RequestAe();
-        requestAe.m2mae.rn = Configs.AE.Name;
-        requestAe.m2mae.api = Configs.AE.Aid;
+        requestAe.m2mae.rn = Configs.AE.NAME;
+        requestAe.m2mae.api = Configs.AE.AID;
         requestAe.m2mae.rr = true;
 
         Call<ResponseAe> call = service.getAe(
-                Configs.CSE.Name,
-                Configs.AE.Name,
+                Configs.CSE.NAME,
+                Configs.AE.NAME,
                 "application/json",
                 requestIdGenerate(),
-                Configs.AE.Aid
+                Configs.AE.AID
         );
 
         call.enqueue(new Callback<ResponseAe>() {
@@ -132,25 +132,28 @@ public class MobiusNetworkHelper {
         });
     }
 
-    public void createSub(String deviceAe, String deviceCnt, String topic, Consumer<ResponseSub> finished) {
+    public void createSub(String deviceAe, String deviceCnt, Consumer<ResponseSub> finished) {
         MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
 
         RequestSub requestSub = new RequestSub();
-        requestSub.m2msub.rn = getDeviceSub();
+        requestSub.m2msub.rn = MqttTopicUtils.getEndpointOfSubscription();
         requestSub.m2msub.enc.net.add(1);
         requestSub.m2msub.enc.net.add(3);
         requestSub.m2msub.enc.net.add(4);
         requestSub.m2msub.nu.add(
-                "mqtt://" + Configs.Mobius.Host + "/" + topic
+                MqttTopicUtils.getSubscribeUri()
         );
+        requestSub.m2msub.pn = 1;
+        requestSub.m2msub.nct = 2;
+
 
         Call<ResponseSub> call = service.postSub(
-                Configs.CSE.Name,
+                Configs.CSE.NAME,
                 deviceAe,
                 deviceCnt,
                 "application/json",
                 requestIdGenerate(),
-                Configs.AE.Aid,
+                Configs.AE.AID,
                 "application/vnd.onem2m-res+json; ty=23",
                 requestSub
         );
@@ -192,15 +195,15 @@ public class MobiusNetworkHelper {
     public void retrieveSub(String deviceAe, String deviceCnt, Consumer<ResponseSub> finished) {
         MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
 
-        String deviceSub = getDeviceSub();
+        String deviceSub = MqttTopicUtils.getEndpointOfSubscription();
         Call<ResponseSub> call = service.getSub(
-                Configs.CSE.Name,
+                Configs.CSE.NAME,
                 deviceAe,
                 deviceCnt,
                 deviceSub,
                 "application/json",
                 requestIdGenerate(),
-                Configs.AE.Aid
+                Configs.AE.AID
         );
 
         call.enqueue(new Callback<ResponseSub>() {
@@ -239,15 +242,15 @@ public class MobiusNetworkHelper {
     public void deleteSub(String deviceAe, String deviceCnt, Action finished) {
         MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
 
-        String deviceSub = getDeviceSub();
+        String deviceSub = MqttTopicUtils.getEndpointOfSubscription();
         Call<ResponseBody> call = service.deleteSub(
-                Configs.CSE.Name,
+                Configs.CSE.NAME,
                 deviceAe,
                 deviceCnt,
                 deviceSub,
                 "application/json",
                 requestIdGenerate(),
-                Configs.AE.Aid
+                Configs.AE.AID
         );
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -281,10 +284,6 @@ public class MobiusNetworkHelper {
                 }
             }
         });
-    }
-
-    private String getDeviceSub() {
-        return Configs.AE.Name + "_sub";
     }
 
     private String requestIdGenerate() {

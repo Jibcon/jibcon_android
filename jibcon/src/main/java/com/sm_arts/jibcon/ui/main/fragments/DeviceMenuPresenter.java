@@ -2,24 +2,18 @@ package com.sm_arts.jibcon.ui.main.fragments;
 
 import android.util.Log;
 
-import com.sm_arts.jibcon.data.models.DeviceItem;
+import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
+import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
 import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
-import com.sm_arts.jibcon.data.repository.network.mobius.MobiusSubService;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
 import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
-import com.sm_arts.jibcon.utils.consts.Configs;
+import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
-import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import java.util.List;
 
 import io.reactivex.functions.Action;
-import io.reactivex.functions.BiConsumer;
 import io.reactivex.functions.Consumer;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by jaeyoung on 7/21/17.
@@ -28,31 +22,33 @@ import retrofit2.Response;
 class DeviceMenuPresenter {
     private static final String TAG = "DeviceMenuPresenter";
     private final DeviceMenuView mView;
-    private MqttManager mqttManager;
     private DeviceMenuAdapter mAdapter;
 
     public DeviceMenuPresenter(DeviceMenuView view) {
         Log.d(TAG, "DeviceMenuPresenter: ");
         mView = view;
-        mqttManager = new MqttManager(
-                this::receiveMqtt
-        );
-
-        mqttManager.MQTT_Create(true);
+        attachMqttListener();
     }
 
-    private void receiveMqtt(String topic, String con) {
-        Log.d(TAG, "receiveMqtt() called with: topic = [" + topic + "], con = [" + con + "]");
-        DeviceMenuAdapter adapter = mView.getAdapter();
-        int position = adapter.findDeviceItemPositionWithTopic(topic);
-        if (position != -1) {
-            mView.showContent(position, con);
-        } else {
-            Log.w(TAG, "receiveMqtt: cannot find mqtttopic, topic=[" + topic + "]");
-        }
+    private void attachMqttListener() {
+        Log.d(TAG, "attachMqttListener: ");
+        MqttManager.getInstance().setListener(
+                this::receiveMqttNotification
+        );
     }
 
     //region Presenter role
+
+    private void receiveMqttNotification(MqttSurCon mqttSurCon) {
+        Log.d(TAG, "receiveMqttNotification() called with: mqttSurCon = [" + mqttSurCon.toString() + "]");
+        DeviceMenuAdapter adapter = mView.getAdapter();
+        int position = adapter.findDeviceItemPositionWithSur(mqttSurCon.getSur());
+        if (position != -1) {
+            mView.showContent(position, mqttSurCon.getCon());
+        } else {
+            Log.w(TAG, "receiveMqttNotification: cannot find mqttsur, sur = [" + mqttSurCon.getSur() + "]");
+        }
+    }
 
     public void loadData(Consumer<List<DeviceItem>> finished) {
         Log.d(TAG, "loadData: ");
@@ -107,17 +103,20 @@ class DeviceMenuPresenter {
     }
 
     private void activateDevice(DeviceItem item) {
-
         Log.d(TAG, "activateDevice() called with: position = [" + item + "]");
 
         /*--->change device's onoff state*/
         if(item.isDeviceOnOffState()) {
-            item.setDeviceOnOffState(false);
-            String mqttTopic = item.getMqttTopic();
-            mqttManager.removeTopic(mqttTopic);
+            setItemDeviceOnoffState(item, false);
+            String sur = item.getSubscriptionSur();
+            MqttManager.getInstance().delSubscriptionSur(sur);
         } else {
             createMqttSubscription(item);
         }
+    }
+
+    private void setItemDeviceOnoffState(DeviceItem item, boolean b) {
+        item.setDeviceOnOffState(b);
         mView.updateDevicesOnOffState();
     }
 
@@ -150,18 +149,15 @@ class DeviceMenuPresenter {
     }
 
     private void createSub(DeviceItem item) {
-        String mqttTopic = item.getAeName() + "_" + item.getCntName() + "_" + Configs.AE.Name;
-        Log.d(TAG, "createSub() called with: mqttTopic = [" + mqttTopic + "]");
-
         MobiusNetworkHelper.getInstance().createSub(
                 item.getAeName(),
                 item.getCntName(),
-                mqttTopic,
                 responseSub -> {
                     Log.d(TAG, "activateDevice: responseSub = " + responseSub);
-                    item.setDeviceOnOffState(true);
-                    item.setMqttTopic(mqttTopic);
-                    mqttManager.addTopic(mqttTopic);
+                    String subscriptionSur = MqttTopicUtils.makeSubscriptionSur(item);
+                    setItemDeviceOnoffState(item, true);
+                    item.setSubscriptionSur(subscriptionSur);
+                    MqttManager.getInstance().addSubscriptionSur(subscriptionSur);
                 }
         );
     }
