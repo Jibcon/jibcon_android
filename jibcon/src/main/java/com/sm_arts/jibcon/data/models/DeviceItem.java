@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.device;
+package com.sm_arts.jibcon.data.models;
 
 /**
  * Created by admin on 2017-04-06.
@@ -12,12 +12,40 @@ public class DeviceItem {
     String deviceCom;
     boolean deviceOnOffState;
     String user;
+    String mqttTopic;
+    String aeName;
+    String cntName;
 
     public DeviceItem(int deviceType, String deviceName) {
         this.deviceType = new Integer(deviceType).toString();
         this.deviceName = deviceName;
     }
- 
+
+    public String getAeName() {
+        return "ae-firstled";
+//        return aeName;
+    }
+
+    public void setAeName(String aeName) {
+        this.aeName = aeName;
+    }
+
+    public String getCntName() {
+//        return cntName;
+        return "cnt-led";
+    }
+
+    public void setCntName(String cntName) {
+        this.cntName = cntName;
+    }
+
+    public String getMqttTopic() {
+        return mqttTopic;
+    }
+
+    public void setMqttTopic(String mqttTopic) {
+        this.mqttTopic = mqttTopic;
+    }
 
     public void setDeviceWifiAddr(String deviceWifiAddr) {
         this.deviceWifiAddr = deviceWifiAddr;

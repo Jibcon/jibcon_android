@@ -50,16 +50,6 @@ public class GlobalApplication extends MultiDexApplication {
                 createAe -> {
                     MobiusNetworkHelper.getInstance().retrieveAe(
                             retrieveAe -> {
-                                String deviceAe = "ae-firstled";
-                                String deviceCnt = "cnt-led";
-                                MobiusNetworkHelper.getInstance().createSub(deviceAe, deviceCnt,
-                                        createSub -> {
-                                            MobiusNetworkHelper.getInstance().retrieveSub(deviceAe, deviceCnt,
-                                                    retrieveSub -> {
-                                                        Log.d(TAG, "initMobius: finished");
-                                                    });
-                                        }
-                                );
                             }
                     );
                 }

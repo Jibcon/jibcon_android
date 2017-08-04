@@ -12,7 +12,9 @@ import com.sm_arts.jibcon.utils.consts.Configs;
 import com.sm_arts.jibcon.utils.consts.UrlUtils;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -130,7 +132,7 @@ public class MobiusNetworkHelper {
         });
     }
 
-    public void createSub(String deviceAe, String deviceCnt, Consumer<ResponseSub> finished) {
+    public void createSub(String deviceAe, String deviceCnt, String topic, Consumer<ResponseSub> finished) {
         MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
 
         RequestSub requestSub = new RequestSub();
@@ -139,7 +141,7 @@ public class MobiusNetworkHelper {
         requestSub.m2msub.enc.net.add(3);
         requestSub.m2msub.enc.net.add(4);
         requestSub.m2msub.nu.add(
-                "mqtt://" + Configs.Mobius.Host + "/" + requestSub.m2msub.rn
+                "mqtt://" + Configs.Mobius.Host + "/" + topic
         );
 
         Call<ResponseSub> call = service.postSub(
@@ -227,6 +229,53 @@ public class MobiusNetworkHelper {
                 Log.d(TAG, "retrieveSub/onFailure: " + t);
                 try {
                     finished.accept(null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void deleteSub(String deviceAe, String deviceCnt, Action finished) {
+        MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
+
+        String deviceSub = getDeviceSub();
+        Call<ResponseBody> call = service.deleteSub(
+                Configs.CSE.Name,
+                deviceAe,
+                deviceCnt,
+                deviceSub,
+                "application/json",
+                requestIdGenerate(),
+                Configs.AE.Aid
+        );
+
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    Log.d(TAG, "deleteSub/onResponse: code=[" + response.code() + "]");
+                    Log.d(TAG, "deleteSub/onResponse: body = [" + response.body() + "]");
+                    try {
+                        finished.run();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Log.d(TAG, "deleteSub/onResponse: code=[" + response.code() + "] message=[" + response.message()+ "]");
+                    try {
+                        finished.run();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.d(TAG, "deleteSub/onFailure: " + t);
+                try {
+                    finished.run();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

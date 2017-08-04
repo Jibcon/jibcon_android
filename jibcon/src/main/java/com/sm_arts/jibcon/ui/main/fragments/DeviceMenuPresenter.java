@@ -2,15 +2,20 @@ package com.sm_arts.jibcon.ui.main.fragments;
 
 import android.util.Log;
 
-import com.sm_arts.jibcon.device.DeviceItem;
+import com.sm_arts.jibcon.data.models.DeviceItem;
+import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
+import com.sm_arts.jibcon.data.repository.network.mobius.MobiusSubService;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
+import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
+import com.sm_arts.jibcon.utils.consts.Configs;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import java.util.List;
 
 import io.reactivex.functions.Action;
+import io.reactivex.functions.BiConsumer;
 import io.reactivex.functions.Consumer;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,12 +28,28 @@ import retrofit2.Response;
 class DeviceMenuPresenter {
     private static final String TAG = "DeviceMenuPresenter";
     private final DeviceMenuView mView;
-    private  MqttManager mqttManager;
+    private MqttManager mqttManager;
+    private DeviceMenuAdapter mAdapter;
 
     public DeviceMenuPresenter(DeviceMenuView view) {
         Log.d(TAG, "DeviceMenuPresenter: ");
         mView = view;
-        mqttManager = new MqttManager();
+        mqttManager = new MqttManager(
+                this::receiveMqtt
+        );
+
+        mqttManager.MQTT_Create(true);
+    }
+
+    private void receiveMqtt(String topic, String con) {
+        Log.d(TAG, "receiveMqtt() called with: topic = [" + topic + "], con = [" + con + "]");
+        DeviceMenuAdapter adapter = mView.getAdapter();
+        int position = adapter.findDeviceItemPositionWithTopic(topic);
+        if (position != -1) {
+            mView.showContent(position, con);
+        } else {
+            Log.w(TAG, "receiveMqtt: cannot find mqtttopic, topic=[" + topic + "]");
+        }
     }
 
     //region Presenter role
@@ -89,50 +110,61 @@ class DeviceMenuPresenter {
 
         Log.d(TAG, "activateDevice() called with: position = [" + item + "]");
 
-
         /*--->change device's onoff state*/
         if(item.isDeviceOnOffState()) {
             item.setDeviceOnOffState(false);
-            mqttManager.MQTT_Create(false);
-        }
-        else {
-            item.setDeviceOnOffState(true);
-            mqttManager.MQTT_Create(true);
+            String mqttTopic = item.getMqttTopic();
+            mqttManager.removeTopic(mqttTopic);
+        } else {
+            createMqttSubscription(item);
         }
         mView.updateDevicesOnOffState();
-
-        /*change device's onoff state--->*/
-
-
-        //// TODO: 2017-08-02  if we get led on from mosquitto change itemcolor
-
-
-        // TODO: 7/21/17 replace this stub
-        MobiusCiService service = RetrofiClients.getInstance().getService(MobiusCiService.class);
-        Call<Object> call = service.turnOnLed(
-                "application/json",
-                "1",
-                "/0.1",
-                "application/vnd.onem2m-res+json; ty=4",
-                new MobiusCiService.ApiCinC(3)
-        );
-
-        call.enqueue(new Callback<Object>() {
-            @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
-                Log.d(TAG, "onResponse() called with: call = [" + call + "], " +
-                        "response.code() = [" + response.code() + "]");
-            }
-
-            @Override
-            public void onFailure(Call<Object> call, Throwable t) {
-                Log.d(TAG, "onFailure: ");
-            }
-        });
-
     }
 
+    private void createMqttSubscription(DeviceItem item) {
+        MobiusNetworkHelper.getInstance().retrieveSub(
+                item.getAeName(),
+                item.getCntName(),
+                responseSub -> {
+                    Log.d(TAG, "activateDevice: responseSub = " + responseSub);
+                    if (responseSub == null) {
+                        createSub(item);
+                    } else {
+                        removeSub(item,
+                                () -> createSub(item)
+                        );
+                    }
+                }
+        );
+    }
 
+    private void removeSub(DeviceItem item, Action finished) {
+        MobiusNetworkHelper.getInstance().deleteSub(
+                item.getAeName(),
+                item.getCntName(),
+                () -> {
+                    Log.d(TAG, "removeSub: response");
+                    finished.run();
+                }
+        );
+    }
+
+    private void createSub(DeviceItem item) {
+        String mqttTopic = item.getAeName() + "_" + item.getCntName() + "_" + Configs.AE.Name;
+        Log.d(TAG, "createSub() called with: mqttTopic = [" + mqttTopic + "]");
+
+        MobiusNetworkHelper.getInstance().createSub(
+                item.getAeName(),
+                item.getCntName(),
+                mqttTopic,
+                responseSub -> {
+                    Log.d(TAG, "activateDevice: responseSub = " + responseSub);
+                    item.setDeviceOnOffState(true);
+                    item.setMqttTopic(mqttTopic);
+                    mqttManager.addTopic(mqttTopic);
+                }
+        );
+    }
 
     //endregion
 }

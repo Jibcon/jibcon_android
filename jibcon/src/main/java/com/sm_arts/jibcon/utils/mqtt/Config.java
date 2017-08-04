@@ -16,7 +16,6 @@ public interface Config {
     interface MQTT {
         String HOST = "13.124.172.12";
         String PORT = "1883";
-        String REQ_TOPIC = "/oneM2M/req/Mobius/ae-jibcon_sub/#";
     }
 
     interface AndroidClient {

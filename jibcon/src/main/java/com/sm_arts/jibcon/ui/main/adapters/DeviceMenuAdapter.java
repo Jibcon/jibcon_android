@@ -1,12 +1,13 @@
 package com.sm_arts.jibcon.ui.main.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.sm_arts.jibcon.device.DeviceItem;
+import com.sm_arts.jibcon.data.models.DeviceItem;
 import com.sm_arts.jibcon.ui.main.adapters.viewholder.DeviceMenuViewHolder;
 import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
 import com.sm_arts.jibcon.R;
@@ -27,21 +28,21 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
     public DeviceMenuAdapter(List<DeviceItem> deviceItems,
                              CustomItemClickListener deviceItemIvClickedListener,
                              CustomItemClickListener threedotIvClicked) {
-        Log.d(TAG, "DeviceMenuAdapter: ");
+//        Log.d(TAG, "DeviceMenuAdapter: ");
         this.mDeviceItems = deviceItems;
         this.mDeviceItemIvClickedListener = deviceItemIvClickedListener;
         this.mThreedotIvClickedListener = threedotIvClicked;
     }
 
     public void setDeviceItems(List<DeviceItem> mDeviceItems) {
-        Log.d(TAG, "setDeviceItems: ");
+//        Log.d(TAG, "setDeviceItems: ");
         this.mDeviceItems = mDeviceItems;
         notifyDataSetChanged();
     }
 
     @Override
     public DeviceMenuViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.d(TAG, "onCreateViewHolder: ");
+//        Log.d(TAG, "onCreateViewHolder: ");
         View deviceMenuView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.device_devicemenuadapter_cardview,
                         parent, false);
@@ -58,8 +59,6 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
 
     @Override
     public void onBindViewHolder(DeviceMenuViewHolder holder, int position) {
-        Log.d(TAG, "onBindViewHolder() called with: " +
-                "holder = [" + holder + "], position = [" + position + "]");
         DeviceItem deviceItem = mDeviceItems.get(position);
         holder.configureWith(deviceItem);
     }
@@ -75,5 +74,23 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
         } else {
             return null;
         }
+    }
+
+    public int findDeviceItemPositionWithTopic(String topic) {
+        Log.d(TAG, "findDeviceItemPositionWithTopic() called with: topic = [" + topic + "]");
+        for (int idx = 0; idx < mDeviceItems.size(); idx++) {
+            if (TextUtils.equals(mDeviceItems.get(idx).getMqttTopic(), topic)) {
+                Log.d(TAG, "findDeviceItemPositionWithTopic: found idx=" + idx);
+                return idx;
+            }
+        }
+
+        return -1;
+    }
+
+    public void showContent(int position, String con) {
+        Log.d(TAG, "showContent() called with: position = [" + position + "], con = [" + con + "]");
+        mDeviceItems.get(position).setDeviceName(con);
+        notifyDataSetChanged();
     }
 }

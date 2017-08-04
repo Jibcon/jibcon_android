@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.device.DeviceItem;
 import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
+import com.sm_arts.jibcon.data.models.DeviceItem;
 import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.ui.floatingbuttonui.FloatingButtonDeviceActivity;
 import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
@@ -105,7 +105,6 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), GRID_COLUMN_COUNT);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-
     }
 
     public void loadData() {
@@ -163,9 +162,18 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         mAdapter.notifyDataSetChanged();
     }
     @Override
-    public void updateDevicesOnOffState()
-    {
+    public void updateDevicesOnOffState() {
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public DeviceMenuAdapter getAdapter() {
+        return mAdapter;
+    }
+
+    @Override
+    public void showContent(int position, String con) {
+        mAdapter.showContent(position, con);
     }
 
     //endregion

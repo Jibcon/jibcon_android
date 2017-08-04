@@ -9,6 +9,7 @@ public interface Configs {
         String Host = "13.124.172.12";
         String Port = "7579";
     }
+
     interface CSE {
         String Name = "Mobius";
     }
