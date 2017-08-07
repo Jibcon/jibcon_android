@@ -30,7 +30,7 @@
             />
         <activity
             android:name=".ui.main.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/myAppTheme.TutorialNoActionBar" >
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
 
@@ -60,7 +60,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".app.makecon.MakeconMainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.TutorialNoActionBar" />
         <activity
             android:name=".device.adddevice.AddDeviceActivity"
             android:theme="@style/AppTheme.NoActionBar" />
