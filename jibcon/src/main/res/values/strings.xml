@@ -36,4 +36,6 @@
         <item>@string/tutorial_subdescription_4</item>
     </string-array>
 
+    <string name="login_text">처음 만나는 스마트폰 플랫폼, 집콘</string>
+
 </resources>
