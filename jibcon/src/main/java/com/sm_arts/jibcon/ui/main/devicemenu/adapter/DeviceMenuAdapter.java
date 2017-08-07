@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.adapters;
+package com.sm_arts.jibcon.ui.main.devicemenu.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
-import com.sm_arts.jibcon.ui.main.adapters.viewholder.DeviceMenuViewHolder;
+import com.sm_arts.jibcon.ui.main.devicemenu.adapter.viewholder.DeviceMenuViewHolder;
 import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
 import com.sm_arts.jibcon.R;
 

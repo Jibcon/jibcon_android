@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.adapters.viewholder;
+package com.sm_arts.jibcon.ui.main.devicemenu.adapter.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
