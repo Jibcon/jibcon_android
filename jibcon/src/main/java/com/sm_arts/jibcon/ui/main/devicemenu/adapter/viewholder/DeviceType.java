@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.adapters.viewholder;
+package com.sm_arts.jibcon.ui.main.devicemenu.adapter.viewholder;
 
 /**
  * Created by jaeyoung on 7/18/17.

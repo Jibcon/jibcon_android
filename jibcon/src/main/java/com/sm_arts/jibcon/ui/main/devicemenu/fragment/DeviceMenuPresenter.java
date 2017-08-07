@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.fragments;
+package com.sm_arts.jibcon.ui.main.devicemenu.fragment;
 
 import android.util.Log;
 
@@ -6,7 +6,7 @@ import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
 import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
 import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
-import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
+import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
 import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 

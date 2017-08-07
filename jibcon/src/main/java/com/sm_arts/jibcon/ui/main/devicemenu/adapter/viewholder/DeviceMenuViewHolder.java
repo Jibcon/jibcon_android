@@ -1,11 +1,10 @@
-package com.sm_arts.jibcon.ui.main.adapters.viewholder;
+package com.sm_arts.jibcon.ui.main.devicemenu.adapter.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
@@ -21,6 +20,8 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
     private final ImageView mIvDeviceItem;
     private final TextView mTvDevicename;
     private final TextView mTvDevicecontent;
+    private final TextView mTvPlacename;
+    private final View mMotherView;
 
     public DeviceMenuViewHolder(View itemView,
                                 CustomItemClickListener mDeviceItemIvClickedListener,
@@ -28,42 +29,45 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 //        Log.d(TAG, "DeviceMenuViewHolder: ");
 
-        mIvThreedot = (ImageView) itemView.findViewById(R.id.ImgView_deviceItem_threedot);
+        mMotherView = itemView;
+        mIvThreedot = (ImageView) itemView.findViewById(R.id.iv_devicemenuviewholder_option);
         mIvThreedot.setOnClickListener(
                 v ->
                     mThreedotIvClickedListener.onItemClick(v,
                             getAdapterPosition())
         );
 
-        mIvDeviceItem = (ImageView) itemView.findViewById(R.id.deviceItemIv);
-        mIvDeviceItem.setOnClickListener(
+        mIvDeviceItem = (ImageView) itemView.findViewById(R.id.iv_devicemenuviewholder_icon);
+        mMotherView.setOnClickListener(
                 v->
                     mDeviceItemIvClickedListener.onItemClick(v,
                             getAdapterPosition())
         );
-        mTvDevicename = (TextView) itemView.findViewById(R.id.tv_devicename);
-        mTvDevicecontent = (TextView) itemView.findViewById(R.id.tv_devicecontent);
+        mTvPlacename = (TextView) itemView.findViewById(R.id.tv_devicemenuviewholder_placename);
+        mTvDevicename = (TextView) itemView.findViewById(R.id.tv_devicemenuviewholder_devicename);
+        mTvDevicecontent = (TextView) itemView.findViewById(R.id.tv_devicemenuviewholder_status);
     }
 
     public void configureWith(DeviceItem deviceItem) {
         String deviceType = deviceItem.getDeviceType();
 
         if(!deviceItem.isDeviceOnOffState()) {
-            mIvDeviceItem.setBackgroundColor(GlobalApplication.getGlobalApplicationContext().getResources().getColor(R.color.black_opaque));
+            mMotherView.setBackgroundResource(R.drawable.maindevicemenu_recycleritem_backgroundon);
         } else {
-            mIvDeviceItem.setBackgroundColor(GlobalApplication.getGlobalApplicationContext().getResources().getColor(R.color.white));
+            mMotherView.setBackgroundResource(R.drawable.maindevicemenu_recycleritem_backgroundoff);
         }
 
         if(DeviceType.AIRCONDITIONER.equals(deviceType)) {
-            mIvDeviceItem.setImageResource(R.drawable.airconditioner);
+            mIvDeviceItem.setImageResource(R.drawable.maindevicemenu_recycleritem_monitor_vector24dp);
         } else if (DeviceType.LIGHTBULB.equals(deviceType)) {
-            mIvDeviceItem.setImageResource(R.drawable.lightbulb);
+            mIvDeviceItem.setImageResource(R.drawable.maindevicemenu_recycleritem_lightbulb_vector24dp);
         } else if (DeviceType.FAN.equals(deviceType)) {
-            mIvDeviceItem.setImageResource(R.drawable.fan);
+            mIvDeviceItem.setImageResource(R.drawable.maindevicemenu_recycleritem_lightbulb_vector24dp);
         } else if (DeviceType.REFRIGERATOR.equals(deviceType)) {
-            mIvDeviceItem.setImageResource(R.drawable.refrigerator);
+            mIvDeviceItem.setImageResource(R.drawable.maindevicemenu_recycleritem_lightbulb_vector24dp);
         }
 
+        mTvPlacename.setText(deviceItem.getRoomName());
         mTvDevicename.setText(deviceItem.getDeviceName());
         mTvDevicecontent.setText(deviceItem.getContent());
     }

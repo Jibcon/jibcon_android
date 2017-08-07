@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.fragments;
+package com.sm_arts.jibcon.ui.main.devicemenu.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.ui.floatingbuttonui.FloatingButtonDeviceActivity;
-import com.sm_arts.jibcon.ui.main.adapters.DeviceMenuAdapter;
+import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +77,8 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         mFabDeviceBehindBtn.setOnClickListener(
                 v -> mPresenter.fabDeviceBehindBtnClicked()
         );
+        // TODO: 8/7/17 REMOVE THIS VIEW.GONE
+        mFabDeviceBehindBtn.setVisibility(View.GONE);
 
         mSwiperefreshlayout = (SwipeRefreshLayout) getView().findViewById(R.id.swipelayout_menu_deivce);
         mSwiperefreshlayout.setOnRefreshListener(
