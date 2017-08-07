@@ -5,6 +5,7 @@ package com.sm_arts.jibcon.data.models.api.dto;
  */
 
 public class DeviceItem {
+    String roomName;
     String deviceType;//디바이스 메뉴의 int 값. int 값으로 판별
     String deviceName;//디바이스 메뉴 아이템 이름 ex) 전등 알람 등등..
     String deviceWifiAddr;
@@ -16,6 +17,10 @@ public class DeviceItem {
     String aeName;
     String cntName;
     String content;
+
+    public String getRoomName() {
+        return "Living Room";
+    }
 
     public String getContent() {
         return content;

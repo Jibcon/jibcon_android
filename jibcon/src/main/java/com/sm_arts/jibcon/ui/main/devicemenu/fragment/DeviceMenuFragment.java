@@ -77,6 +77,8 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         mFabDeviceBehindBtn.setOnClickListener(
                 v -> mPresenter.fabDeviceBehindBtnClicked()
         );
+        // TODO: 8/7/17 REMOVE THIS VIEW.GONE
+        mFabDeviceBehindBtn.setVisibility(View.GONE);
 
         mSwiperefreshlayout = (SwipeRefreshLayout) getView().findViewById(R.id.swipelayout_menu_deivce);
         mSwiperefreshlayout.setOnRefreshListener(

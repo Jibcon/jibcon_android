@@ -44,7 +44,7 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
     public DeviceMenuViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //        Log.d(TAG, "onCreateViewHolder: ");
         View deviceMenuView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.device_devicemenuadapter_cardview,
+                .inflate(R.layout.device_devicemenuadapter_item,
                         parent, false);
 
         final DeviceMenuViewHolder deviceMenuViewHolder =
