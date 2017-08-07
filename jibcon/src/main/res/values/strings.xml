@@ -8,6 +8,7 @@
     <string name="action_settings">Settings</string>
     <string name="naver_client_id">f2VZgOgRx7HzZaCUzN_D</string>
     <string name="naver_client_secret">uldOlbBiia</string>
+    <string name="google_places_api">AIzaSyACPuDdfYh-OQqkLbeelGAguZ-6fgiwYQI</string>
 
     <string name="tutorial_skip">SKIP</string>
 
