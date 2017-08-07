@@ -12,7 +12,8 @@
         <item>@drawable/tutorial_sampleui_02</item>
     </array>
     <array name="drawable_progresscircles">
-        <item>@drawable/tutorial_progressbar01</item>
+        <!--<item>@drawable/tutorial_progressbar01</item>-->
+        <item>@drawable/progress_circles_1</item>
         <item>@drawable/progress_circles_2</item>
         <item>@drawable/progress_circles_3</item>
         <item>@drawable/progress_circles_4</item>
