@@ -21,15 +21,15 @@
         android:id="@+id/btn_skip_tutorial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/tutorial_skip"
         android:gravity="center"
         android:text="@string/tutorial_skip"
         android:textSize="@dimen/tutorial_skip_fontsize"
+        android:textColor="@color/white"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/progress"
         app:layout_constraintTop_toTopOf="@id/progress"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.87"
-        app:layout_constraintVertical_bias="0.555" />
+        app:layout_constraintHorizontal_bias="0.933" />
+        <!--android:background="@drawable/tutorial_skip"-->
 
 </android.support.constraint.ConstraintLayout>

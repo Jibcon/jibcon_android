@@ -13,7 +13,7 @@
     <!--<dimen name="tutorial_subdescription_fontsize">29pt</dimen>-->
     <dimen name="tutorial_subdescription_fontsize">14dp</dimen>
     <!--<dimen name="tutorial_skip_fontsize">12pt</dimen>-->
-    <dimen name="tutorial_skip_fontsize">12dp</dimen>
+    <dimen name="tutorial_skip_fontsize">16dp</dimen>
     <!--<dimen name="tutorial_description_bottommargin">32dp</dimen>-->
     <dimen name="tutorial_subdescription_topmargin">8.67dp</dimen>
     <!--<dimen name="tutorial_subdescription_bottommargin">141dp</dimen>-->
