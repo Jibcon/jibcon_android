@@ -6,7 +6,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
@@ -23,7 +23,8 @@
         android:fitsSystemWindows="true"
         android:foregroundGravity="center_vertical"
         app:headerLayout="@layout/sidebar_null_layout_profile"
-        app:menu="@menu/activity_main_drawer">
+        app:menu="@menu/activity_main_drawer"
+        android:background="@color/white">
 
         <ImageButton
             android:background="@color/white"
