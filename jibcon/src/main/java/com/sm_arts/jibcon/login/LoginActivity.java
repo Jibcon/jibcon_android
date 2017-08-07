@@ -25,6 +25,7 @@ import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
+import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 
 
@@ -116,11 +117,18 @@ public class LoginActivity extends BaseActivity {
                 v -> {
                     Log.d(TAG, "initSampleSignInBtn: btnSampleSignIn clicked");
                     JibconLoginManager.getInstance().loginWithSampleUser(
-                            this::gotoMakeConStartActivity
+//                            this::gotoMakeConStartActivity
+                            //// TODO: 2017-08-07 교체하기 
+                            this::gotoMainActivity
                     );
                 }
         );
     }
+
+    private void gotoMainActivity() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();    }
 
     private void gotoMakeConStartActivity() {
         Intent intent = new Intent(getApplicationContext(), MakeconStartActivity.class);
