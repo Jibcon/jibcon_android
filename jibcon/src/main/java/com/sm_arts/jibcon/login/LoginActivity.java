@@ -25,6 +25,7 @@ import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.app.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
+import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 
 
@@ -67,18 +68,18 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.login_loginactivity_activity);
 
 
-        mVideoView = (VideoView) findViewById(R.id.videoView);
-
-        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                mVideoView.start();
-            }
-        });
-
-        String videoPath = "android.resource://"+getPackageName()+"/"+R.raw.login_video;
-        mVideoView.setVideoURI(Uri.parse(videoPath));
-        mVideoView.start();
+//        mVideoView = (VideoView) findViewById(R.id.videoView);
+//
+//        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//            @Override
+//            public void onCompletion(MediaPlayer mp) {
+//                mVideoView.start();
+//            }
+//        });
+//
+//        String videoPath = "android.resource://"+getPackageName()+"/"+R.raw.login_video;
+//        mVideoView.setVideoURI(Uri.parse(videoPath));
+//        mVideoView.start();
 
         mOAuthLoginHandler = JibconLoginManager.getInstance()
                                         .getNaverOAuthLoginHandler(LoginActivity.this);
@@ -116,11 +117,18 @@ public class LoginActivity extends BaseActivity {
                 v -> {
                     Log.d(TAG, "initSampleSignInBtn: btnSampleSignIn clicked");
                     JibconLoginManager.getInstance().loginWithSampleUser(
-                            this::gotoMakeConStartActivity
+//                            this::gotoMakeConStartActivity
+                            //// TODO: 2017-08-07 교체하기 
+                            this::gotoMainActivity
                     );
                 }
         );
     }
+
+    private void gotoMainActivity() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();    }
 
     private void gotoMakeConStartActivity() {
         Intent intent = new Intent(getApplicationContext(), MakeconStartActivity.class);

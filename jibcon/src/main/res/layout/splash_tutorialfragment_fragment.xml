@@ -42,7 +42,7 @@
         android:id="@+id/iv_tutorial_sampleui"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/tutorial_sampleui_01"
+        android:src="@drawable/tutorial_sampleui_02"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,6 +50,10 @@
 
     <Button
         android:id="@+id/btn_tutorial_makejibcon"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
         android:visibility="gone"
         android:layout_width="240dp"
         android:layout_height="48dp"
@@ -57,6 +61,7 @@
         android:text="집콘 시작하기"
         android:textColor="@color/white"
         android:textSize="16dp"
-        />
+        app:layout_constraintBottom_toBottomOf="@+id/iv_tutorial_sampleui"
+        android:layout_marginBottom="16dp" />
 
 </android.support.constraint.ConstraintLayout>

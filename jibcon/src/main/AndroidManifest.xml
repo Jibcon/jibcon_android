@@ -30,37 +30,37 @@
             />
         <activity
             android:name=".ui.main.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".ui.splash.IntroActivity"
-            android:label="@string/app_name"
-            android:theme="@style/myAppTheme.IntroNoActionBar">
+            android:theme="@style/myAppTheme.TutorialNoActionBar" >
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
 
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
+
+        <activity
+            android:name=".ui.splash.IntroActivity"
+            android:label="@string/app_name"
+            android:theme="@style/myAppTheme.IntroNoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.splash.TutorialMainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.TutorialNoActionBar" />
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.TutorialNoActionBar" />
         <activity
             android:name=".app.makecon.MakeconStartActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".app.makecon.MakeconMainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.TutorialNoActionBar" />
         <activity
             android:name=".device.adddevice.AddDeviceActivity"
             android:theme="@style/AppTheme.NoActionBar" />

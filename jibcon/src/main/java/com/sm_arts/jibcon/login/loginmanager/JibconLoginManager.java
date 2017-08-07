@@ -304,6 +304,11 @@ public class JibconLoginManager {
                     );
         } else {
             Log.e(TAG, "loginWithSampleUser: already user signed in");
+            try {
+                action.run();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

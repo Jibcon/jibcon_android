@@ -6,7 +6,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
@@ -23,16 +23,18 @@
         android:fitsSystemWindows="true"
         android:foregroundGravity="center_vertical"
         app:headerLayout="@layout/sidebar_null_layout_profile"
-        app:menu="@menu/activity_main_drawer">
+        app:menu="@menu/activity_main_drawer"
+        android:background="@color/white">
 
         <ImageButton
             android:background="@color/white"
             android:id="@+id/Btn_Setting"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginTop="20dp"
-            android:src="@mipmap/three_dots_grey"/>
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="18dp"
+            android:src="@drawable/ic_settings_black_24dp" />
     </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

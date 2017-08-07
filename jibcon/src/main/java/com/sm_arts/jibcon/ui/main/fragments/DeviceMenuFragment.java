@@ -52,18 +52,18 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
 
         Log.d(TAG, "onViewCreated: ");
         attachUI();
-        // TODO: 2017-08-04 remove samplelogin
-        sampleLogin();
-        //loadData();
+//        // TODO: 2017-08-04 remove samplelogin
+//        sampleLogin();
+        loadData();
     }
 
-    private void sampleLogin() {
-        Log.d(TAG, "sampleLogin: ");
-
-        JibconLoginManager.getInstance().loginWithSampleUser(
-                this::loadData
-        );
-    }
+//    private void sampleLogin() {
+//        Log.d(TAG, "sampleLogin: ");
+//
+//        JibconLoginManager.getInstance().loginWithSampleUser(
+//                this::loadData
+//        );
+//    }
 
     @Override
     public void onDestroyView() {
