@@ -40,6 +40,12 @@
         <item name="colorPrimary">@color/statusbar_gray</item>
         <item name="colorPrimaryDark">#FFFFFF</item>
     </style>
+    <style name="myAppTheme.TutorialNoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/tutorial_background</item>
+        <item name="colorPrimaryDark">@color/tutorial_background</item>
+    </style>
 
     <style name="Theme.AppCompat.Translucent">
         <item name="android:background">@color/black_opaque</item>

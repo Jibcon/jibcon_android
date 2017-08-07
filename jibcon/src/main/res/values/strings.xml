@@ -10,6 +10,8 @@
     <string name="naver_client_secret">uldOlbBiia</string>
     <string name="google_places_api">AIzaSyACPuDdfYh-OQqkLbeelGAguZ-6fgiwYQI</string>
 
+    <string name="intro_text">처음 만나는 스마트 홈</string>
+
     <string name="tutorial_skip">SKIP</string>
 
     <string name="tutorial_description_1">스마트홈 기기를 등록하세요</string>
