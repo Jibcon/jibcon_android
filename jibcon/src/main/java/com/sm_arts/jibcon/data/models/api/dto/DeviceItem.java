@@ -1,25 +1,43 @@
 package com.sm_arts.jibcon.data.models.api.dto;
 
+import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
+
 /**
  * Created by admin on 2017-04-06.
  */
 
 public class DeviceItem {
-    String roomName;
-    String deviceType;//디바이스 메뉴의 int 값. int 값으로 판별
-    String deviceName;//디바이스 메뉴 아이템 이름 ex) 전등 알람 등등..
-    String deviceWifiAddr;
-    String id;
-    String deviceCom;
-    boolean deviceOnOffState;
-    String user;
-    String subscriptionSur;
-    String aeName;
-    String cntName;
-    String content;
+    private String id;
+    private String user;
+    private String deviceCom;
+    private String deviceName;
+    private String deviceType;
+    private String deviceWifiAddr;
+    private boolean deviceOnOffState;
+    private boolean subscribeOnOffState;
+    private String roomName;
+    private String aeName;
+    private String cntName;
+    private String content;
+
+    public String getDeviceWifiAddr() {
+        return deviceWifiAddr;
+    }
+
+    public boolean isSubscribeOnOffState() {
+        return subscribeOnOffState;
+    }
+
+    public void setSubscribeOnOffState(boolean subscribeOnOffState) {
+        this.subscribeOnOffState = subscribeOnOffState;
+    }
 
     public String getRoomName() {
-        return "Living Room";
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
     }
 
     public String getContent() {
@@ -36,8 +54,7 @@ public class DeviceItem {
     }
 
     public String getAeName() {
-        return "ae-firstled";
-//        return aeName;
+        return aeName;
     }
 
     public void setAeName(String aeName) {
@@ -45,8 +62,7 @@ public class DeviceItem {
     }
 
     public String getCntName() {
-//        return cntName;
-        return "cnt-led";
+        return cntName;
     }
 
     public void setCntName(String cntName) {
@@ -54,18 +70,12 @@ public class DeviceItem {
     }
 
     public String getSubscriptionSur() {
-        return subscriptionSur;
-    }
-
-    public void setSubscriptionSur(String subscriptionSur) {
-        this.subscriptionSur = subscriptionSur;
+        return MqttTopicUtils.makeSubscriptionSur(this);
     }
 
     public void setDeviceWifiAddr(String deviceWifiAddr) {
         this.deviceWifiAddr = deviceWifiAddr;
     }
-
-
 
     public String getDeviceType() {
         return deviceType;

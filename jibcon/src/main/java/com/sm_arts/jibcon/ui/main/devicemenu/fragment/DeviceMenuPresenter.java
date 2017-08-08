@@ -156,7 +156,6 @@ class DeviceMenuPresenter {
                     Log.d(TAG, "activateDevice: responseSub = " + responseSub);
                     String subscriptionSur = MqttTopicUtils.makeSubscriptionSur(item);
                     setItemDeviceOnoffState(item, true);
-                    item.setSubscriptionSur(subscriptionSur);
                     MqttManager.getInstance().addSubscriptionSur(subscriptionSur);
                 }
         );
