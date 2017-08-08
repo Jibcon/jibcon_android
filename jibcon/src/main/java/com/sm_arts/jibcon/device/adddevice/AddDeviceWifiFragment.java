@@ -144,7 +144,7 @@ public class AddDeviceWifiFragment extends Fragment {
             public void onClick(View v) {
                 Log.d(TAG, "mNextPage/onClick: unregisterReceiver WIFI");
                 getActivity().getApplicationContext().unregisterReceiver(mReceiver);
-                mMakeDeviceListener.NextPage(1);
+                mMakeDeviceListener.nextPage(1);
             }
         });
     }

@@ -42,9 +42,6 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
         //2 : 선풍기
         //3 : 냉장고
 
-
-
-
         if (mDeviceName.equals("에어컨")) {
             mDeviceItem = new DeviceItem(0,mDeviceName);
             mDeviceItem.setDeviceWifiAddr(getWifiAddr());
@@ -97,7 +94,7 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
     }
 
     @Override
-    public void NextPage(int num) {
+    public void nextPage(int num) {
         this.mPageNum += num;
         if (this.mPageNum < 0) {
             this.mPageNum = 0;
@@ -133,6 +130,7 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
     public void setDeviceCom(String deviceCom) {
         this.mDeviceCom = deviceCom;
     }
+
 
     @Override
     public void setDeviceName(String deviceName) {

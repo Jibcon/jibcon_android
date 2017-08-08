@@ -10,5 +10,6 @@ public interface AddDeviceListner {
     void setDeviceCom(String deviceCom);
     void setDeviceName(String deviceName);
     void setWifi(ScanResult wifi);
-    void NextPage(int num);
+    void nextPage(int num);
+
 }
