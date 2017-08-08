@@ -14,16 +14,16 @@ import android.util.Log;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
-import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.device.service.DeviceServiceImpl;
+import com.sm_arts.jibcon.ui.BaseActivity;
+import com.sm_arts.jibcon.data.repository.helper.DeviceServiceImpl;
 import com.sm_arts.jibcon.GlobalApplication;
-import com.sm_arts.jibcon.login.LoginActivity;
-import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
-import com.sm_arts.jibcon.login.user.domain.User;
-import com.sm_arts.jibcon.login.user.domain.UserInfo;
+import com.sm_arts.jibcon.ui.login.LoginActivity;
+import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
+import com.sm_arts.jibcon.data.models.api.dto.User;
+import com.sm_arts.jibcon.data.models.api.dto.UserInfo;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.data.repository.network.UserService;
+import com.sm_arts.jibcon.data.repository.network.api.UserService;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 

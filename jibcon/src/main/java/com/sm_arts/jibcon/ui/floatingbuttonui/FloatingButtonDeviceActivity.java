@@ -13,8 +13,8 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.device.adddevice.AddDeviceActivity;
+import com.sm_arts.jibcon.ui.BaseActivity;
+import com.sm_arts.jibcon.ui.adddevice.AddDeviceActivity;
 import com.sm_arts.jibcon.R;
 
 public class FloatingButtonDeviceActivity extends BaseActivity {

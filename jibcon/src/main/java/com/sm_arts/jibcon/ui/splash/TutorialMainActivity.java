@@ -8,8 +8,8 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.sm_arts.jibcon.app.BaseActivity;
-import com.sm_arts.jibcon.login.LoginActivity;
+import com.sm_arts.jibcon.ui.BaseActivity;
+import com.sm_arts.jibcon.ui.login.LoginActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.splash.adapter.TutorialMainPageAdapter;
 

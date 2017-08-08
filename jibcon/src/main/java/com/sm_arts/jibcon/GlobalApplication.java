@@ -10,7 +10,7 @@ import android.util.Log;
 import com.kakao.auth.KakaoSDK;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
-import com.sm_arts.jibcon.login.KaKaoSDKAdpater;
+import com.sm_arts.jibcon.ui.login.KaKaoSDKAdpater;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 import com.tsengvn.typekit.Typekit;
 
