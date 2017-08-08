@@ -68,18 +68,18 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.login_loginactivity_activity);
 
 
-//        mVideoView = (VideoView) findViewById(R.id.videoView);
-//
-//        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-//            @Override
-//            public void onCompletion(MediaPlayer mp) {
-//                mVideoView.start();
-//            }
-//        });
-//
-//        String videoPath = "android.resource://"+getPackageName()+"/"+R.raw.login_video;
-//        mVideoView.setVideoURI(Uri.parse(videoPath));
-//        mVideoView.start();
+        mVideoView = (VideoView) findViewById(R.id.videoView);
+
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mVideoView.start();
+            }
+      });
+
+        String videoPath = "android.resource://"+getPackageName()+"/"+R.raw.login_video;
+        mVideoView.setVideoURI(Uri.parse(videoPath));
+        mVideoView.start();
 
         mOAuthLoginHandler = JibconLoginManager.getInstance()
                                         .getNaverOAuthLoginHandler(LoginActivity.this);

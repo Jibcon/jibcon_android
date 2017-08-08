@@ -10,87 +10,10 @@
     android:background="@color/tutorial_background"
     tools:context="com.sm_arts.jibcon.login.LoginActivity">
 
-    <!--<VideoView-->
-        <!--android:id="@+id/videoView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--/>-->
-
-    <LinearLayout
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:paddingBottom="32dp"
-
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp">
-
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/btn_login_facebook"
-            android:layout_width="280dp"
-            android:layout_height="60dp"
-            android:layout_weight="2.19"
-            android:padding="8dp"
-            android:visibility="gone"/>
-
-        <com.kakao.usermgmt.LoginButton
-            android:id="@+id/Btn_Login_Kakao"
-            android:layout_width="294dp"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:visibility="gone"/>
-
-        <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
-            android:id="@+id/btn_naver_login"
-            android:layout_height="60dp"
-            android:layout_width="280dp"
-            android:padding="8dp"
-            android:visibility="gone" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textview_login1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login_text"
-        android:textColor="@color/white"
-        android:layout_marginBottom="8dp"
-        fb:layout_constraintBottom_toTopOf="@+id/textview_login2"
-        android:layout_marginLeft="24dp"
-        fb:layout_constraintLeft_toLeftOf="parent" />
-
-    <TextView
-        android:id="@+id/textview_login2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="JIBCON"
-        android:textColor="@color/white"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:layout_above="@+id/linearLayout"
-        android:layout_alignParentStart="true"
-        android:layout_marginRight="8dp"
-        fb:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="24dp"
-        fb:layout_constraintLeft_toLeftOf="parent"
-        fb:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="100dp"
-        fb:layout_constraintHorizontal_bias="0.0" />
-
     <Button
         android:id="@+id/btnSampleSignIn"
         android:layout_width="280dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:background="@drawable/corner_btn"
         android:text="SAMPLE LOGIN"
         android:textColor="@color/white"
@@ -102,7 +25,76 @@
         android:layout_marginRight="8dp"
         fb:layout_constraintRight_toRightOf="parent"
         fb:layout_constraintHorizontal_bias="0.504"
-        />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="32dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btn_login_facebook"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_weight="2.19"
+            android:padding="8dp"
+            android:visibility="gone" />
+
+        <com.kakao.usermgmt.LoginButton
+            android:id="@+id/Btn_Login_Kakao"
+            android:layout_width="294dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:visibility="gone" />
+
+        <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
+            android:id="@+id/btn_naver_login"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textview_login2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JIBCON"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        fb:layout_constraintLeft_toLeftOf="parent"
+        fb:layout_constraintTop_toTopOf="@+id/videoView"
+        android:layout_marginTop="160dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp" />
+
+    <TextView
+        android:id="@+id/textview_login1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="처음 만나는 스마트홈 플랫폼, 집콘"
+        android:textColor="@color/white"
+        android:layout_marginLeft="24dp"
+        fb:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="16dp"
+        fb:layout_constraintBottom_toTopOf="@+id/textview_login2"
+        android:layout_marginStart="24dp" />
 
 
 </android.support.constraint.ConstraintLayout>
