@@ -121,15 +121,6 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
     }
 
     @Override
-    public void setWifi(ScanResult wifi) {
-
-        if(wifi==null)
-            mDeviceItem.setDeviceWifiAddr(wifi.SSID);
-        else
-            mDeviceItem.setDeviceWifiAddr(wifi.SSID);
-    }
-
-    @Override
     public void setRoomName(String roomName) {
 
     }

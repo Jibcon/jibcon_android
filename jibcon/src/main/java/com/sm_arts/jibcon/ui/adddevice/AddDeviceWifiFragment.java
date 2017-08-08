@@ -128,12 +128,12 @@ public class AddDeviceWifiFragment extends Fragment {
         mAdapter.setWifilist(new ArrayList<ScanResult>());
 
 
-        mListView= (ListView)mLinearLayout.findViewById(R.id.ListView_adddevice1);
+        mListView = (ListView)mLinearLayout.findViewById(R.id.ListView_adddevice1);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemClick: position "+position);
-                mMakeDeviceListener.setWifi(mArr.get(position));
+//                mMakeDeviceListener.setWifi(mArr.get(position));
             }
         });
         mListView.setAdapter(mAdapter);

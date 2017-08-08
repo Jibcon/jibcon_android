@@ -1,9 +1,9 @@
 package com.sm_arts.jibcon.ui.login;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.VideoView;
 
 import com.facebook.AccessTokenTracker;
@@ -44,13 +44,13 @@ public class LoginActivity extends BaseActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
 
         mFacebookCallback = JibconLoginManager.getInstance()
-                                    .makeFacebookLoginManager(
-                                            this::gotoMakeConStartActivity
-                                    );
+                .makeFacebookLoginManager(
+                        this::gotoMakeConStartActivity
+                );
         mCallbackManager = JibconLoginManager.getInstance()
-                                    .makeFacebookCallbackManager();
+                .makeFacebookCallbackManager();
         mAccessTokenTracker = JibconLoginManager.getInstance()
-                                    .makeFacebookAccessTokenTracker();
+                .makeFacebookAccessTokenTracker();
 
 
         LoginButton loginButton = (LoginButton) findViewById(R.id.btn_login_facebook);
@@ -68,37 +68,32 @@ public class LoginActivity extends BaseActivity {
 
         mVideoView = (VideoView) findViewById(R.id.videoView);
 
-        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                mVideoView.start();
-            }
-      });
+        mVideoView.setOnCompletionListener(
+                (mp) -> mVideoView.start()
+        );
 
-        String videoPath = "android.resource://"+getPackageName()+"/"+R.raw.login_video;
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.login_video;
         mVideoView.setVideoURI(Uri.parse(videoPath));
         mVideoView.start();
 
         mOAuthLoginHandler = JibconLoginManager.getInstance()
-                                        .getNaverOAuthLoginHandler(LoginActivity.this);
+                .getNaverOAuthLoginHandler(LoginActivity.this);
         mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.btn_naver_login);
 
         mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
-        mOAuthLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferenceHelper.saveSharedPreference("pref","LOGINTYPE","NAVER");
-                GlobalApplication.getNaverOAuthLogin().startOauthLoginActivity(LoginActivity.this, mOAuthLoginHandler);
-            }
-        });
-
+        mOAuthLoginButton.setOnClickListener(
+                v -> {
+                    SharedPreferenceHelper.saveSharedPreference("pref","LOGINTYPE","NAVER");
+                    GlobalApplication.getNaverOAuthLogin().startOauthLoginActivity(LoginActivity.this, mOAuthLoginHandler);
+                }
+        );
 
         facebookLoginSetup();
         initSampleSignInBtn();
         kakaoSetup();
     }
 
-    void kakaoSetup() {
+    private void kakaoSetup() {
         if (!Session.getCurrentSession().isClosed()) {
             redirectSignupActivity();
         }
@@ -109,7 +104,7 @@ public class LoginActivity extends BaseActivity {
     }
 
 
-    void initSampleSignInBtn() {
+    private void initSampleSignInBtn() {
         Log.d(TAG, "initSampleSignInBtn: ");
         findViewById(R.id.btnSampleSignIn).setOnClickListener(
                 v -> {
