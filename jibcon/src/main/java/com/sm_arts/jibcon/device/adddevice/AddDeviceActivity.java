@@ -26,15 +26,15 @@ import retrofit2.Response;
 public class AddDeviceActivity extends AppCompatActivity implements AddDeviceListner {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
-    String mDeviceCom;
-    String mDeviceName;
-    ScanResult mWifi;
-    int mPageNum;
-    Fragment mAddDevice0;
-    Fragment mAddDevice1;
-    Fragment mAddDevice2;
-    GlobalApplication mApp;
-    DeviceItem mDeviceItem;
+    private String mDeviceCom;
+    private String mDeviceName;
+    private ScanResult mWifi;
+    private int mPageNum;
+    private Fragment mAddDevice0;
+    private Fragment mAddDevice1;
+    private Fragment mAddDevice2;
+    private GlobalApplication mApp;
+    private DeviceItem mDeviceItem;
 
     public void sendDevice() {
         //0 : 에어컨
