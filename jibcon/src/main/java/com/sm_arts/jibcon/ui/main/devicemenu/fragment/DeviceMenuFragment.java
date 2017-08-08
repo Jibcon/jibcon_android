@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.ui.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.ui.floatingbuttonui.FloatingButtonDeviceActivity;
@@ -78,7 +77,8 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
                 v -> mPresenter.fabDeviceBehindBtnClicked()
         );
         // TODO: 8/7/17 REMOVE THIS VIEW.GONE
-        mFabDeviceBehindBtn.setVisibility(View.GONE);
+        /*플로팅 버튼 */
+        //mFabDeviceBehindBtn.setVisibility(View.GONE);
 
         mSwiperefreshlayout = (SwipeRefreshLayout) getView().findViewById(R.id.swipelayout_menu_deivce);
         mSwiperefreshlayout.setOnRefreshListener(

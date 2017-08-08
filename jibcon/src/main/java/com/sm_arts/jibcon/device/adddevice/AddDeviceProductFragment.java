@@ -38,15 +38,18 @@ public class AddDeviceProductFragment extends Fragment {
     private  void initLayout() {
         //제조사 제품 서버로부터 받아야함
         mArr1 = new ArrayList<>();
-        mArr1.add("삼성");
-        mArr1.add("LG");
-        mArr1.add("SK");
+
+        mArr1.add("smArts");
 
         mArr2 = new ArrayList<>();
-        mArr2.add("에어컨");
-        mArr2.add("전구");
-        mArr2.add("선풍기");
-        mArr2.add("냉장고");
+
+        mArr2.add("BULB");
+        mArr2.add("SENSOR");
+
+//        mArr2.add("에어컨");
+//        mArr2.add("전구");
+//        mArr2.add("선풍기");
+//        mArr2.add("냉장고");
 
         mSpinner1 = (Spinner) mLinearLayout.findViewById(R.id.Spinner_adddevice0_1);
         mSpinner2 = (Spinner) mLinearLayout.findViewById(R.id.Spinner_adddevice0_2);

@@ -41,6 +41,10 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
         //1 : 전구
         //2 : 선풍기
         //3 : 냉장고
+
+
+
+
         if (mDeviceName.equals("에어컨")) {
             mDeviceItem = new DeviceItem(0,mDeviceName);
             mDeviceItem.setDeviceWifiAddr(getWifiAddr());
@@ -70,12 +74,7 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
                 @Override
                 public void onResponse(Call<DeviceItem> call, Response<DeviceItem> response) {
                     DeviceServiceImpl.getInstance().notifyDeviceItemsChanged();
-//                    DeviceServiceImpl.getInstance().reloadDeviceItems();
 
-//                    arr= mApp.getDeviceItemArrayList();
-
-//                    arr.add(response.body());
-//                    mApp.setDeviceItemArrayList(arr);
                 }
 
                 @Override
