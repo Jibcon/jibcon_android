@@ -17,21 +17,29 @@
         android:theme="@style/AppTheme">
 
         <!-- For Google Maps -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBZWQYb4N-vR8Cdx_zyMHNh3SQytrpLtfQ" />
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_places_api"
+            />
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:theme="@style/myAppTheme.TutorialNoActionBar" >
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
 
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".app.Splash.IntroActivity"
+            android:name=".ui.splash.IntroActivity"
             android:label="@string/app_name"
             android:theme="@style/myAppTheme.IntroNoActionBar">
             <intent-filter>
@@ -41,20 +49,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".app.Splash.TutorialActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".ui.splash.TutorialMainActivity"
+            android:theme="@style/myAppTheme.TutorialNoActionBar" />
         <activity
-            android:name=".Login.LoginActivity"
+            android:name=".login.LoginActivity"
             android:label="@string/app_name"
+            android:theme="@style/myAppTheme.TutorialNoActionBar" />
+        <activity
+            android:name=".app.makecon.MakeconStartActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".app.MakeCon.MakeConStartActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".app.makecon.MakeconMainActivity"
+            android:theme="@style/myAppTheme.TutorialNoActionBar" />
         <activity
-            android:name=".app.MakeCon.MakeCon0Fragment"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Device.AddDevice.AddDeviceActivity"
+            android:name=".device.adddevice.AddDeviceActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".app.sidebar.ConnectedDevicesActivity"
@@ -72,50 +80,56 @@
             android:name=".app.sidebar.UserAuthorityActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.GetOtherCon.GetOtherConActivity"
+            android:name=".app.getothercon.GetOtherConActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".app.GetOtherCon.GetOtherConFinishActivity"
+            android:name=".app.getothercon.GetOtherConEndActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".app.setting.SettingActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.alarm.Alarm"
+            android:name=".app.setting.alarm.AlarmActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.personsecure.PersonSecure"
+            android:name=".app.setting.personsecure.PersonSecureActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.usercenter.AskEnrollCompany"
+            android:name=".app.setting.usercenter.AskEnrollCompanyActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.usercenter.FAQ"
+            android:name=".app.setting.usercenter.FaqActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.usercenter.JibconAsk"
+            android:name=".app.setting.usercenter.JibconAskActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-            android:name=".app.setting.usercenter.UserCenter"
+            android:name=".app.setting.usercenter.UserCenterActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
-       <activity android:name=".Login.KakaoSignupActivity"
-           android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".app.BaseActivity"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity android:name=".login.KakaoSignupActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
-       </activity>
+        </activity>
+
 
         <activity
-            android:name=".app.GetOtherCon.GetOtherConActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".app.GetOtherCon.GetOtherConFinishActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.FloatingButtonUi.FloatingButtonDeviceActivity"
+            android:name=".ui.floatingbuttonui.FloatingButtonDeviceActivity"
             android:theme="@style/Theme.AppCompat.Translucent" />
-        <activity android:name=".ui.FloatingButtonUi.FlotingButtonActiveActivity"
+        <activity android:name=".ui.floatingbuttonui.FloatingButtonActiveActivity"
             android:theme="@style/Theme.AppCompat.Translucent"/>
-        <activity android:name=".ui.FloatingButtonUi.FlotingButtonPassiveActivity"
+        <activity android:name=".ui.floatingbuttonui.FloatingButtonPassiveActivity"
             android:theme="@style/Theme.AppCompat.Translucent"></activity>
+
+
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"
+            android:label="OAuth2.0 In-app"/>
+
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
     </application>
 
 </manifest>

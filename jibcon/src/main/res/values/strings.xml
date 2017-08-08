@@ -1,8 +1,41 @@
 <resources>
+    
     <string name="app_name">jibcon</string>
     <string name="kakao_app_key"> b7098b8b9fbec51fc6116d5c51946e5e</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="facebook_app_id">440498979632151</string>
     <string name="action_settings">Settings</string>
+    <string name="naver_client_id">f2VZgOgRx7HzZaCUzN_D</string>
+    <string name="naver_client_secret">uldOlbBiia</string>
+    <string name="google_places_api">AIzaSyACPuDdfYh-OQqkLbeelGAguZ-6fgiwYQI</string>
+
+    <string name="intro_text">처음 만나는 스마트 홈</string>
+
+    <string name="tutorial_skip">SKIP</string>
+
+    <string name="tutorial_description_1">스마트홈 기기를 등록하세요</string>
+    <string name="tutorial_description_2">내 스마트홈 습관을 확인하세요</string>
+    <string name="tutorial_description_3">혁신적 제품들을 만나보세요</string>
+    <string name="tutorial_description_4">실내의 스마트홈 습관을 확인해봐요</string>
+    <string-array name="tutorial_description_array">
+        <item>@string/tutorial_description_1</item>
+        <item>@string/tutorial_description_2</item>
+        <item>@string/tutorial_description_3</item>
+        <item>@string/tutorial_description_4</item>
+    </string-array>
+
+    <string name="tutorial_subdescription_1">어떠한 기기든 빠르게 연결하고\n 쉽고 간편하게 사용해보세요</string>
+    <string name="tutorial_subdescription_2">낭비되는 전기세부터 나에게 맞는 온도까지!\n내 스마트홈 데이터로 알아보세요</string>
+    <string name="tutorial_subdescription_3">콘샾에서 당신에게 맞는 제품을\n 가장 저렴하게 만나볼 수 있습니다</string>
+    <string name="tutorial_subdescription_4">낭비되는 전기세부터\n 나에게 맞는 온도까지! 데이터로 알아보세요</string>
+    <string-array name="tutorial_subdescription_array">
+        <item>@string/tutorial_subdescription_1</item>
+        <item>@string/tutorial_subdescription_2</item>
+        <item>@string/tutorial_subdescription_3</item>
+        <item>@string/tutorial_subdescription_4</item>
+    </string-array>
+
+    <string name="login_text">처음 만나는 스마트폰 플랫폼, 집콘</string>
+
 </resources>

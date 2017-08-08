@@ -1,48 +1,42 @@
 package com.sm_arts.jibcon.app.sidebar;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 
-public class MyJibconActivity extends AppCompatActivity {
+import butterknife.BindString;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-    ListView mSidebarMyJibconLV;
-    static final String[] mSidebarMyJibconList={"집소개 수정","주거 환경","주소 설정"};
+public class MyJibconActivity extends BaseActivity {
+    @BindView(R.id.lv_my_jibcon) ListView mSidebarMyJibconLv;
+    @OnClick(R.id.imageview_sidebar_myjibcon) void imageview_sidebar_myjibcon() {
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_my_jibcon);
+        setContentView(R.layout.sidebar_myjibconactivity_activity);
+        ButterKnife.bind(this);
 
-        /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSidebarMyJibconList);
+        final String[] myjibconOptionList = getResources().getStringArray(R.array.sidebar_myjibcon_option_array);
 
-        mSidebarMyJibconLV = (ListView)findViewById(R.id.listview_my_jibcon);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, myjibconOptionList);
+        mSidebarMyJibconLv.setAdapter(adapter);
 
-        mSidebarMyJibconLV.setAdapter(adapter);
-        /* add onItemClickListener to ListView*/
-        mSidebarMyJibconLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mSidebarMyJibconLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-
-                String settingClickedItem = (String) mSidebarMyJibconLV.getItemAtPosition(position);
+                String settingClickedItem = (String) mSidebarMyJibconLv.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
-            }
-        }) ;
-
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_sidebar_myjibcon);
-        mImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
             }
         });
     }

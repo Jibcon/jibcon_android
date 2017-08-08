@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/passive_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:scrollbars="vertical"
+        android:layout_gravity="top"/>
+
+    <ImageButton
+        android:id="@+id/fab_cheatkey_passive_behind"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:paddingBottom="24dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_add_circle_blue_48dp"
+        android:visibility="visible" />
+
+</RelativeLayout>
