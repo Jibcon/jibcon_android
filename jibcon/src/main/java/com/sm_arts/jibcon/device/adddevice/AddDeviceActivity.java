@@ -26,36 +26,19 @@ import retrofit2.Response;
 public class AddDeviceActivity extends AppCompatActivity implements AddDeviceListner {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
-    String mDeviceCom;
-    String mDeviceName;
-    ScanResult mWifi;
-    int mPageNum;
-    Fragment mAddDevice0;
-    Fragment mAddDevice1;
-    Fragment mAddDevice2;
-    GlobalApplication mApp;
-    DeviceItem mDeviceItem;
+    private String mDeviceCom;
+    private String mDeviceName;
+    private ScanResult mWifi;
+    private int mPageNum;
+    private Fragment mAddDevice0;
+    private Fragment mAddDevice1;
+    private Fragment mAddDevice2;
+    private GlobalApplication mApp;
+    private DeviceItem mDeviceItem;
 
     public void sendDevice() {
-        //0 : 에어컨
-        //1 : 전구
-        //2 : 선풍기
-        //3 : 냉장고
 
-        if (mDeviceName.equals("에어컨")) {
-            mDeviceItem = new DeviceItem(0,mDeviceName);
-            mDeviceItem.setDeviceWifiAddr(getWifiAddr());
-        } else if(mDeviceName.equals("전구")) {
-            mDeviceItem = new DeviceItem(1,mDeviceName);
-            mDeviceItem.setDeviceWifiAddr(getWifiAddr());
-        } else if(mDeviceName.equals("선풍기")) {
-            mDeviceItem = new DeviceItem(2,mDeviceName);
 
-            mDeviceItem.setDeviceWifiAddr(getWifiAddr());
-        } else if(mDeviceName.equals("냉장고")) {
-            mDeviceItem = new DeviceItem(3,mDeviceName);
-            mDeviceItem.setDeviceWifiAddr(getWifiAddr());
-        }
 
         /*set device state on*/
         mDeviceItem.setDeviceOnOffState(true);
@@ -128,18 +111,42 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
 
     @Override
     public void setDeviceCom(String deviceCom) {
-        this.mDeviceCom = deviceCom;
+        mDeviceItem.setDeviceCom(deviceCom);
     }
 
 
     @Override
     public void setDeviceName(String deviceName) {
-        this.mDeviceName = deviceName;
+        mDeviceItem.setDeviceName(deviceName);
     }
 
     @Override
     public void setWifi(ScanResult wifi) {
-        this.mWifi = wifi;
+
+        if(wifi==null)
+            mDeviceItem.setDeviceWifiAddr(wifi.SSID);
+        else
+            mDeviceItem.setDeviceWifiAddr(wifi.SSID);
+    }
+
+    @Override
+    public void setRoomName(String roomName) {
+
+    }
+
+    @Override
+    public void setAeName(String aeName) {
+
+    }
+
+    @Override
+    public void setCntName(String setCntName) {
+
+    }
+
+    @Override
+    public void setContent(String content) {
+
     }
 
     @Override
@@ -150,6 +157,7 @@ public class AddDeviceActivity extends AppCompatActivity implements AddDeviceLis
         mAddDevice1 = new AddDeviceWifiFragment();
         mAddDevice2 = new AddDevicePhoneFragment();
         mApp = (GlobalApplication) getApplicationContext();
+        mDeviceItem = new DeviceItem();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice0).commit();
     }
