@@ -21,17 +21,17 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.app.BaseActivity;
+import com.sm_arts.jibcon.ui.BaseActivity;
 import com.sm_arts.jibcon.GlobalApplication;
-import com.sm_arts.jibcon.app.cheatkey.CheatkeyMenuFragment;
-import com.sm_arts.jibcon.app.conshop.ConshopFragment;
-import com.sm_arts.jibcon.app.datacontrol.DataControlFragment;
-import com.sm_arts.jibcon.app.sidebar.AboutJibconActivity;
-import com.sm_arts.jibcon.app.sidebar.ConnectedDevicesActivity;
-import com.sm_arts.jibcon.app.sidebar.MyJibconActivity;
-import com.sm_arts.jibcon.app.sidebar.UserAuthorityActivity;
-import com.sm_arts.jibcon.app.sidebar.WidgetActivity;
-import com.sm_arts.jibcon.login.loginmanager.JibconLoginManager;
+import com.sm_arts.jibcon.ui.cheatkey.CheatkeyMenuFragment;
+import com.sm_arts.jibcon.ui.conshop.ConshopFragment;
+import com.sm_arts.jibcon.ui.datacontrol.DataControlFragment;
+import com.sm_arts.jibcon.ui.sidebar.AboutJibconActivity;
+import com.sm_arts.jibcon.ui.sidebar.ConnectedDevicesActivity;
+import com.sm_arts.jibcon.ui.sidebar.MyJibconActivity;
+import com.sm_arts.jibcon.ui.sidebar.UserAuthorityActivity;
+import com.sm_arts.jibcon.ui.sidebar.WidgetActivity;
+import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.ui.dialogs.SidebarDialog;
 import com.sm_arts.jibcon.ui.main.devicemenu.fragment.DeviceMenuFragment;
 

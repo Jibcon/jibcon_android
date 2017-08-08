@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#FFF"
     android:orientation="vertical"
-    tools:context=".app.makecon.MakeconStartActivity"
+    tools:context=".ui.makecon.MakeconStartActivity"
     android:weightSum="1">
 
     <LinearLayout

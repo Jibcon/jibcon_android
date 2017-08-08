@@ -1,7 +1,7 @@
 package com.sm_arts.jibcon.utils.consts;
 
 import com.sm_arts.jibcon.BuildConfig;
-import com.sm_arts.jibcon.data.repository.network.UserService;
+import com.sm_arts.jibcon.data.repository.network.api.UserService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusAeService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCntService;

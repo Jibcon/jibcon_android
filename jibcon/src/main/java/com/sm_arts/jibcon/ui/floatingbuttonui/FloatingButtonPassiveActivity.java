@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.app.BaseActivity;
+import com.sm_arts.jibcon.ui.BaseActivity;
 
 public class FloatingButtonPassiveActivity extends BaseActivity {
     private View mFabItem1;
