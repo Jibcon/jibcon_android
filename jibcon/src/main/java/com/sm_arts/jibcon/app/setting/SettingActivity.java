@@ -1,79 +1,65 @@
 package com.sm_arts.jibcon.app.setting;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.app.setting.alarm.Alarm;
-import com.sm_arts.jibcon.app.setting.personsecure.PersonSecure;
-import com.sm_arts.jibcon.app.setting.usercenter.UserCenter;
-import com.tsengvn.typekit.TypekitContextWrapper;
+import com.sm_arts.jibcon.app.BaseActivity;
+import com.sm_arts.jibcon.app.setting.alarm.AlarmActivity;
+import com.sm_arts.jibcon.app.setting.personsecure.PersonSecureActivity;
+
+import com.sm_arts.jibcon.app.setting.usercenter.UserCenterActivity;
+
+import butterknife.BindString;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
+public class SettingActivity extends BaseActivity {
+    interface OptionMenus {
+        int SECURITY = 0;
+        int NOTICE = 1;
+    }
 
-public class SettingActivity extends AppCompatActivity {
-
-    ListView mSettingLv;
-    static final String[] mSettingList={"개인/보안","알림","고객센터"};
+    @BindView(R.id.lv_setting) ListView mSettingLv;
+    @OnClick(R.id.imageview_setting) void imageview_setting() {
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting);
+        setContentView(R.layout.setting_settingactivity_activity);
+        ButterKnife.bind(this);
 
-        /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSettingList);
+        final String[] settingOptionmenuList = getResources().getStringArray(R.array.setting_option_array);
 
-        mSettingLv = (ListView)findViewById(R.id.Lv_setting);
-
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, settingOptionmenuList);
         mSettingLv.setAdapter(adapter);
-        /* add onItemClickListener to ListView*/
+
         mSettingLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
+                Intent intent;
 
-                String settingClickedItem = (String) mSettingLv.getItemAtPosition(position);
-
-                if(settingClickedItem == "개인/보안"){
-                    Intent intent = new Intent(SettingActivity.this, PersonSecure.class);
-                    startActivity(intent);
-                    finish();
+                if (position == OptionMenus.SECURITY) {
+                    intent = new Intent(SettingActivity.this, PersonSecureActivity.class);
                 }
-                else if(settingClickedItem=="알림"){
-                    Intent intent = new Intent(SettingActivity.this, Alarm.class);
-                    startActivity(intent);
-                    finish();
+                else if (position == OptionMenus.NOTICE) {
+                    intent = new Intent(SettingActivity.this, AlarmActivity.class);
                 }
-                else {
-                    Intent intent = new Intent(SettingActivity.this, UserCenter.class);
-                    startActivity(intent);
-                    finish();
+                else{
+                    intent = new Intent(SettingActivity.this, UserCenterActivity.class);
                 }
-            }
-        }) ;
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_setting);
-        mImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                startActivity(intent);
                 finish();
             }
         });
-
-        /**/
-    }
-
-
-
-    @Override
-    protected void attachBaseContext(Context newBase){
-        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }

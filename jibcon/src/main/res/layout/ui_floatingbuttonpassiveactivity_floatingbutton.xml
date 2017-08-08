@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.floatingbuttonui.FloatingButtonPassiveActivity"
+    android:background="@color/black_opaque"
+    android:id="@+id/fab_container_cheatkey_passive">
+
+    <TextView
+        android:id="@+id/Txt_floating_cheatkey_passive"
+        android:text="패시브 루틴 추가하기"
+        android:layout_toLeftOf="@+id/fab_action_1_cheatkey_passive"
+        android:layout_alignBottom="@id/fab_action_1_cheatkey_passive"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:visibility="invisible"
+        android:background="@null"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:id="@id/fab_action_1_cheatkey_passive"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/fab_cheatkey_passive"
+        android:layout_alignParentRight="true"
+        android:layout_alignRight="@+id/fab_cheatkey_passive"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@null"
+        android:visibility="invisible"
+        android:background="@null"
+        android:src="@drawable/ic_add_circle_white_48dp" />
+
+    <ImageButton
+        android:id="@+id/fab_cheatkey_passive"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:paddingBottom="24dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_add_circle_blue_48dp"
+        android:visibility="visible" />
+
+</RelativeLayout>

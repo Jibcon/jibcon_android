@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:id="@+id/txt_sidebardialog_setting"
+        android:text="설정"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:id="@+id/txt_sidebardialog_change_home"
+        android:text="집 바꾸기"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:id="@+id/txt_sidebardialog_logout"
+        android:text="로그아웃"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

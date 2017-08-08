@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/tutorial_background"
+    android:id="@+id/tutorial1">
+
+    <TextView
+        android:id="@+id/tv_tutorial_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/tutorial_fontcolor"
+        android:textSize="@dimen/tutorial_description_fontsize"
+        android:text="@string/tutorial_description_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_tutorial_subdescription"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/tv_tutorial_subdescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/tutorial_fontcolor"
+        android:text="@string/tutorial_subdescription_1"
+        android:textSize="@dimen/tutorial_subdescription_fontsize"
+        android:layout_marginBottom="@dimen/tutorial_subdescription_bottommargin"
+        app:font="custom1"
+        android:layout_marginTop="@dimen/tutorial_subdescription_topmargin"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tutorial_description"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/iv_tutorial_sampleui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tutorial_sampleui_02"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btn_tutorial_makejibcon"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:visibility="gone"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        android:text="집콘 시작하기"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_tutorial_sampleui"
+        android:layout_marginBottom="16dp" />
+
+</android.support.constraint.ConstraintLayout>

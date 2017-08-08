@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include
+        layout="@layout/makecon_makeconmainactivity_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="집 이름"
+                android:textSize="16dp"
+                android:textColor="@color/default_text_color"/>
+
+            <EditText
+                android:id="@+id/EditTxt_makecon1_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="(입력)"
+                android:textSize="16dp"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/txt3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="사용자 이름"
+                android:textSize="16dp"
+                android:textColor="@color/default_text_color"/>
+
+            <EditText
+                android:id="@+id/EditTxt_makecon1_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="(입력)"
+                android:textSize="16dp"
+                android:textColor="@color/default_text_color"/>
+
+            <TextView
+                android:id="@+id/txt4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="집 소개(20글자 내)"
+                android:textSize="16dp"
+                android:textColor="@color/default_text_color"/>
+
+            <EditText
+                android:id="@+id/EditTxt_makecon1_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="(입력)"
+                android:textSize="16dp"
+                android:textColor="@color/default_text_color"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/Btn_makeCon1_1"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="16dp"
+                android:text="다음"
+                android:textColor="@color/white"
+                android:textSize="16dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

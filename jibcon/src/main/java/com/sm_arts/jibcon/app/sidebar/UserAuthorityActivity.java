@@ -1,50 +1,42 @@
 package com.sm_arts.jibcon.app.sidebar;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.app.BaseActivity;
 
-public class UserAuthorityActivity extends AppCompatActivity {
+import butterknife.BindString;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-    ListView mSidebarUserAuthorityLV;
-    static final String[] mSidebarUserAuthorityList={"집에 연결된 사용자 관리","내 집콘에 초대하기","초대받은 목록"};
+public class UserAuthorityActivity extends BaseActivity {
+    @BindView(R.id.lv_user_authority) ListView mSidebarUserAuthorityLv;
+    @OnClick(R.id.imageview_sidebar_userauthority) void imageview_sidebar_userauthority() {
+        finish();}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sidebar_user_authority);
+        setContentView(R.layout.sidebar_userauthorityactivity_activity);
+        ButterKnife.bind(this);
 
-        /* add String[] to ListView*/
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, mSidebarUserAuthorityList);
+        final String[] userauthorityOptionList = getResources().getStringArray(R.array.sidebar_userauthority_option_array);
 
-        mSidebarUserAuthorityLV = (ListView)findViewById(R.id.Lv_user_authority);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, userauthorityOptionList);
+        mSidebarUserAuthorityLv.setAdapter(adapter);
 
-        mSidebarUserAuthorityLV.setAdapter(adapter);
-        /* add onItemClickListener to ListView*/
-        mSidebarUserAuthorityLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mSidebarUserAuthorityLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
-
-                String settingClickedItem = (String) mSidebarUserAuthorityLV.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
-            }
-        }) ;
-
-        ImageView mImageView = (ImageView)findViewById(R.id.imageview_sidebar_userauthority);
-        mImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
+                String settingClickedItem = (String) mSidebarUserAuthorityLv.getItemAtPosition(position);
+                Toast.makeText(getApplicationContext(), settingClickedItem, Toast.LENGTH_LONG).show();
             }
         });
-
     }
 }

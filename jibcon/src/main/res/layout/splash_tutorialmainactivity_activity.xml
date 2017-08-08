@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_tutorial"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.splash.TutorialMainActivity"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="12"
+        >
+    <include
+        layout="@layout/splash_tutorialmainactivity_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    </FrameLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_tutorial"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="88">
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>
