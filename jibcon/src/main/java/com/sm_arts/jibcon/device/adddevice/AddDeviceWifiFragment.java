@@ -34,16 +34,16 @@ import static android.Manifest.permission.CHANGE_WIFI_STATE;
 
 public class AddDeviceWifiFragment extends Fragment {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
-    LinearLayout mLinearLayout;
-    Button mNextPage;
-    ListView mListView;
-    AddDeviceListner mMakeDeviceListener;
-    List<ScanResult> mArr;
-    ArrayList<String> mWifiNames;
-    ArrayList<String> mWifiLevels;
-    ArrayList<String> mWifiSeceret;
-    WifiManager mWifiManager;
-    WifiListAdpater mAdapter;
+    private LinearLayout mLinearLayout;
+    private Button mNextPage;
+    private ListView mListView;
+    private AddDeviceListner mMakeDeviceListener;
+    private List<ScanResult> mArr;
+    private ArrayList<String> mWifiNames;
+    private ArrayList<String> mWifiLevels;
+    private ArrayList<String> mWifiSeceret;
+    private WifiManager mWifiManager;
+    private WifiListAdpater mAdapter;
 
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override

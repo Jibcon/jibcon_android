@@ -15,7 +15,7 @@ import com.sm_arts.jibcon.R;
  */
 
 public class AddDevicePhoneFragment extends Fragment {
-    AddDeviceListner mMakeDeviceListener;
+    private AddDeviceListner mMakeDeviceListener;
 
     @Override
     public void onAttach(Context context) {

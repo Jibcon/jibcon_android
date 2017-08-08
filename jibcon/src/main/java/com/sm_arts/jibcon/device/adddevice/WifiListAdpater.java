@@ -24,8 +24,8 @@ import java.util.List;
 
 public class WifiListAdpater extends BaseAdapter {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
-    Context mContext;
-    List<ScanResult> mWifilist;
+    private Context mContext;
+    private List<ScanResult> mWifilist;
 
     public List<ScanResult> getWifilist() {
         return mWifilist;

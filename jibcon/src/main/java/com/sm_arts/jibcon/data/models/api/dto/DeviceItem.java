@@ -12,7 +12,6 @@ public class DeviceItem {
     private String deviceCom;
     private String deviceName;
     private String deviceType;
-    private String deviceWifiAddr;
     private boolean deviceOnOffState;
     private boolean subscribeOnOffState;
     private String roomName;
@@ -20,8 +19,7 @@ public class DeviceItem {
     private String cntName;
     private String content;
 
-    public String getDeviceWifiAddr() {
-        return deviceWifiAddr;
+    public DeviceItem() {
     }
 
     public boolean isSubscribeOnOffState() {
@@ -73,9 +71,6 @@ public class DeviceItem {
         return MqttTopicUtils.makeSubscriptionSur(this);
     }
 
-    public void setDeviceWifiAddr(String deviceWifiAddr) {
-        this.deviceWifiAddr = deviceWifiAddr;
-    }
 
     public String getDeviceType() {
         return deviceType;

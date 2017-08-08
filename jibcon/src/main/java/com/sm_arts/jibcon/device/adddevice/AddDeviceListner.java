@@ -12,4 +12,11 @@ public interface AddDeviceListner {
     void setWifi(ScanResult wifi);
     void nextPage(int num);
 
+    void setRoomName(String roomName);
+    void setAeName(String aeName);
+
+    void setCntName(String setCntName);
+    void setContent(String content);
+
 }
+

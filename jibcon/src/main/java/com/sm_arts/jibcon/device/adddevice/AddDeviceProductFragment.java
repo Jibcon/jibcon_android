@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.utils.consts.Configs;
 
 import java.util.ArrayList;
 
@@ -24,16 +25,16 @@ import java.util.ArrayList;
 public class AddDeviceProductFragment extends Fragment {
     LinearLayout mLinearLayout;
 
-    Spinner mSpinner1;
-    Spinner mSpinner2;
-    Button mNextButton;
-    ArrayList<String> mArr1;
-    ArrayList<String> mArr2;
-    ArrayAdapter<String> mAdapter1;
-    ArrayAdapter<String> mAdapter2;
-    AddDeviceListner mMakeDeviceListener;
-    String mSelectedCompany;
-    String mSelectedDevicename;
+    private Spinner mSpinner1;
+    private Spinner mSpinner2;
+    private Button mNextButton;
+    private ArrayList<String> mArr1;
+    private ArrayList<String> mArr2;
+    private ArrayAdapter<String> mAdapter1;
+    private ArrayAdapter<String> mAdapter2;
+    private AddDeviceListner mMakeDeviceListener;
+    private String mSelectedCompany;
+    private String mSelectedDevicename;
 
     private  void initLayout() {
         //제조사 제품 서버로부터 받아야함
@@ -66,6 +67,7 @@ public class AddDeviceProductFragment extends Fragment {
         mSpinner1.setAdapter(mAdapter1);
         mSpinner2.setAdapter(mAdapter2);
 
+
         mNextButton = (Button) mLinearLayout.findViewById(R.id.Btn_addDevice0);
 
         mNextButton.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +84,7 @@ public class AddDeviceProductFragment extends Fragment {
 
 
                 mMakeDeviceListener.setDeviceCom(mSelectedCompany);
+
             }
 
             @Override
@@ -94,9 +97,7 @@ public class AddDeviceProductFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 mSelectedDevicename = mArr2.get(position);
-
-
-                mMakeDeviceListener.setDeviceName(mSelectedDevicename);
+                setDeviceConf(mSelectedDevicename);
             }
 
             @Override
@@ -104,6 +105,19 @@ public class AddDeviceProductFragment extends Fragment {
 
             }
         });
+    }
+
+    private void setDeviceConf(String mSelectedDevicename) {
+
+        // TODO: 2017-08-08 센서 종류대로 정보 넣기 mMakeDeviceListener.method()
+        if(mSelectedDevicename == Configs.DEVICES_SUPPORTABLE.DEVICETYPE_CHOICES.BULB) {
+
+        }
+        else if(mSelectedDevicename == Configs.DEVICES_SUPPORTABLE.DEVICETYPE_CHOICES.SENSOR) {
+
+        }
+
+
     }
 
     @Override
