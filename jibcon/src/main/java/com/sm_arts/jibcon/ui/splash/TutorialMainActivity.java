@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.sm_arts.jibcon.app.BaseActivity;
 import com.sm_arts.jibcon.login.LoginActivity;
@@ -20,6 +21,8 @@ import butterknife.OnClick;
 public class TutorialMainActivity extends BaseActivity {
     private static final String TAG = "TutorialMainActivity";
 
+    @BindView(R.id.btn_skip_tutorial)
+    TextView mBtnSkiptutorial;
     @BindView(R.id.progress)
     ImageView mIvProgress;
     @BindArray(R.array.drawable_progresscircles)
@@ -62,5 +65,13 @@ public class TutorialMainActivity extends BaseActivity {
 
     private void showIvProgress(int position) {
         mIvProgress.setImageResource(drawableProgresscircles.getResourceId(position, -1));
+        if (position == (drawableProgresscircles.length() - 1)) {
+            Log.d(TAG, "showIvProgress: position = " + position);
+            mBtnSkiptutorial.setText("START");
+        } else {
+            Log.d(TAG, "showIvProgress: position = " + position);
+            mBtnSkiptutorial.setText("SKIP");
+        }
+
     }
 }
