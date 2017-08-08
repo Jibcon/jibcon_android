@@ -1,24 +1,21 @@
 package com.sm_arts.jibcon.ui.adddevice;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.wifi.ScanResult;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
-import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.data.repository.network.api.DeviceService;
 import com.sm_arts.jibcon.ui.BaseActivity;
+import com.sm_arts.jibcon.ui.adddevice.phone.AddDevicePhoneFragment;
+import com.sm_arts.jibcon.ui.adddevice.wifi.AddDeviceWifiFragment;
+import com.sm_arts.jibcon.ui.adddevice.product.AddDeviceProductFragment;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.data.repository.network.api.UserService;
-import com.sm_arts.jibcon.utils.network.RetrofiClients;
-import com.sm_arts.jibcon.data.repository.helper.DeviceServiceImpl;
-import com.tsengvn.typekit.TypekitContextWrapper;
+import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,34 +24,26 @@ import retrofit2.Response;
 public class AddDeviceActivity extends BaseActivity implements AddDeviceListner {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
-    private String mDeviceCom;
-    private String mDeviceName;
-    private ScanResult mWifi;
     private int mPageNum;
     private Fragment mAddDevice0;
     private Fragment mAddDevice1;
     private Fragment mAddDevice2;
-    private GlobalApplication mApp;
     private DeviceItem mDeviceItem;
 
     public void sendDevice() {
-
-
-
         /*set device state on*/
         mDeviceItem.setDeviceOnOffState(true);
-        UserService userService = RetrofiClients.getInstance().getService(UserService.class);
-        Log.d(TAG, "sendDevice: Call.enqueue DeviceItem "+mDeviceItem.toString());
+        DeviceService deviceService = RetrofitClients.getInstance().getService(DeviceService.class);
+        Log.d(TAG, "sendDevice: Call.enqueue DeviceItem " + mDeviceItem.toString());
       
-        Call<DeviceItem> c = userService.addDevice("Token " +
-                JibconLoginManager.getInstance().getUserToken(), mDeviceItem);
-        Log.d("TAG", "sendDevice: " + c.toString());
+        Call<DeviceItem> call = deviceService.addDevice(
+                JibconLoginManager.getInstance().getUserTokenAsHeader(), mDeviceItem);
+        Log.d("TAG", "sendDevice: " + call.toString());
 
         try {
-            c.enqueue(new Callback<DeviceItem>() {
+            call.enqueue(new Callback<DeviceItem>() {
                 @Override
                 public void onResponse(Call<DeviceItem> call, Response<DeviceItem> response) {
-                    DeviceServiceImpl.getInstance().notifyDeviceItemsChanged();
 
                 }
 
@@ -69,14 +58,6 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
         }
     }
 
-    private String getWifiAddr() { // todo implements
-        if (mWifi == null) {
-            return "127.0.0.1";
-        } else {
-            return mWifi.BSSID;
-        }
-    }
-
     @Override
     public void nextPage(int num) {
         this.mPageNum += num;
@@ -86,13 +67,13 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
 
         switch (this.mPageNum % 3) {
             case 0:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice0).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice,mAddDevice0).commit();
                 break;
             case 1:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice1).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice,mAddDevice1).commit();
                 break;
             case 2:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice2).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice,mAddDevice2).commit();
                 sendDevice();
                 Runnable runnable = new Runnable() {
                     @Override
@@ -123,22 +104,17 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
 
     @Override
     public void setRoomName(String roomName) {
-
+        mDeviceItem.setRoomName(roomName);
     }
 
     @Override
     public void setAeName(String aeName) {
-
+        mDeviceItem.setAeName(aeName);
     }
 
     @Override
-    public void setCntName(String setCntName) {
-
-    }
-
-    @Override
-    public void setContent(String content) {
-
+    public void setCntName(String cntName) {
+        mDeviceItem.setCntName(cntName);
     }
 
     @Override
@@ -148,9 +124,8 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
         mAddDevice0 = new AddDeviceProductFragment();
         mAddDevice1 = new AddDeviceWifiFragment();
         mAddDevice2 = new AddDevicePhoneFragment();
-        mApp = (GlobalApplication) getApplicationContext();
         mDeviceItem = new DeviceItem();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.Frame_addDevice,mAddDevice0).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mAddDevice0).commit();
     }
 }

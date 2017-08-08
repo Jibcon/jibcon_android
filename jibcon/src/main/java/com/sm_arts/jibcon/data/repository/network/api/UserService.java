@@ -19,11 +19,6 @@ public interface UserService {
     @GET("/api/samples/sign_in/")
     retrofit2.Call<User> getSampleUser();
 
-    @POST("/api/devices/")
-    retrofit2.Call<DeviceItem> addDevice(@Header("Authorization") String token,@Body DeviceItem deviceItem);
-    @GET("/api/devices/")
-    retrofit2.Call<List<DeviceItem>> getDevices(@Header("Authorization")String token);
-
     @POST("/api/social_sign_up_or_in/")
     retrofit2.Call<User> login(@Body UserInfo userInfo);
 

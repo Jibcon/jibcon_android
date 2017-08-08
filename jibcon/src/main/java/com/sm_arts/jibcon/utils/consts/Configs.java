@@ -1,5 +1,9 @@
 package com.sm_arts.jibcon.utils.consts;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * Created by jaeyoung on 8/2/17.
  */
@@ -27,32 +31,31 @@ public interface Configs {
 
 
     interface DEVICES_SUPPORTABLE {
-        
+
         interface DEVICENAME_CHOCIED {
             String LED = "led";
             String ULTRA = "ultra";
 
         }
 
-        interface DEVICECOM_CHOICES {
-            String SMARTS = "smarts";
-        }
+        List<String> DEVICECOM_CHOICES = Collections.singletonList(
+                "smarts"
+        );
 
-        interface DEVICETYPE_CHOICES {
-            String BULB = "bulb";
-            String SENSOR = "sensor";
+        List<String> DEVICETYPE_CHOICES = Arrays.asList(
+                "bulb",
+                "sensor"
+        );
 
-        }
+        List<String> AENAME_CHOICES = Arrays.asList(
+                "ae-secondled",
+                "ae-jyp"
+        );
 
-        interface AENAME_CHOICES {
-            String AE_SECONDLED = "ae-secondled";
-            String AE_JYP = "ae-jyp";
-        }
-
-        interface CNTNAME_CHOICES {
-            String CNT_LED = "cnt-led";
-            String CNT_ULTRA = "cnt-ultra";
-        }
+        List<String> CNTNAME_CHOICES = Arrays.asList(
+                "cnt-led",
+                "cnt-ultra"
+        );
     }
 
 

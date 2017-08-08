@@ -10,7 +10,7 @@ import com.sm_arts.jibcon.data.repository.network.mobius.MobiusAeService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusSubService;
 import com.sm_arts.jibcon.utils.consts.Configs;
 import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
-import com.sm_arts.jibcon.utils.network.RetrofiClients;
+import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
@@ -42,7 +42,7 @@ public class MobiusNetworkHelper {
     }
 
     public void createAe(Consumer<ResponseAe> finished) {
-        MobiusAeService service = RetrofiClients.getInstance().getService(MobiusAeService.class);
+        MobiusAeService service = RetrofitClients.getInstance().getService(MobiusAeService.class);
 
         RequestAe requestAe = new RequestAe();
         requestAe.m2mae.rn = Configs.AE.NAME;
@@ -93,7 +93,7 @@ public class MobiusNetworkHelper {
     }
 
     public void retrieveAe(Consumer<ResponseAe> finished) {
-        MobiusAeService service = RetrofiClients.getInstance().getService(MobiusAeService.class);
+        MobiusAeService service = RetrofitClients.getInstance().getService(MobiusAeService.class);
 
         RequestAe requestAe = new RequestAe();
         requestAe.m2mae.rn = Configs.AE.NAME;
@@ -133,7 +133,7 @@ public class MobiusNetworkHelper {
     }
 
     public void createSub(String deviceAe, String deviceCnt, Consumer<ResponseSub> finished) {
-        MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
+        MobiusSubService service = RetrofitClients.getInstance().getService(MobiusSubService.class);
 
         RequestSub requestSub = new RequestSub();
         requestSub.m2msub.rn = MqttTopicUtils.getEndpointOfSubscription();
@@ -193,7 +193,7 @@ public class MobiusNetworkHelper {
     }
 
     public void retrieveSub(String deviceAe, String deviceCnt, Consumer<ResponseSub> finished) {
-        MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
+        MobiusSubService service = RetrofitClients.getInstance().getService(MobiusSubService.class);
 
         String deviceSub = MqttTopicUtils.getEndpointOfSubscription();
         Call<ResponseSub> call = service.getSub(
@@ -240,7 +240,7 @@ public class MobiusNetworkHelper {
     }
 
     public void deleteSub(String deviceAe, String deviceCnt, Action finished) {
-        MobiusSubService service = RetrofiClients.getInstance().getService(MobiusSubService.class);
+        MobiusSubService service = RetrofitClients.getInstance().getService(MobiusSubService.class);
 
         String deviceSub = MqttTopicUtils.getEndpointOfSubscription();
         Call<ResponseBody> call = service.deleteSub(

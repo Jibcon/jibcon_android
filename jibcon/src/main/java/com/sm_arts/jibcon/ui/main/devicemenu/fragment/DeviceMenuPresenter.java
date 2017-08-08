@@ -4,8 +4,8 @@ import android.util.Log;
 
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
+import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
-import com.sm_arts.jibcon.data.repository.helper.DeviceServiceImpl;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
 import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
@@ -52,16 +52,8 @@ class DeviceMenuPresenter {
 
     public void loadData(Consumer<List<DeviceItem>> finished) {
         Log.d(TAG, "loadData: ");
-        DeviceServiceImpl.getInstance().getDeviceItems(
-                deviceItems -> {
-                    Log.d(TAG, "onSuccessGetDeviceItems: deviceItems=" + deviceItems);
-                    try {
-                        finished.accept(deviceItems);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-        );
+        DeviceNetworkHelper.getInstance()
+                .getDevices(finished);
     }
 
     public void deviceItemIvClicked(DeviceItem item) {
@@ -90,7 +82,8 @@ class DeviceMenuPresenter {
     //region Calling Model Layer
 
     private void reloadData(Action finished) {
-        DeviceServiceImpl.getInstance().reloadDeviceItems(
+        DeviceNetworkHelper.getInstance()
+                .getDevices(
                 (deviceItems) -> {
                     mView.refreshDeviceItems(deviceItems);
                     try {

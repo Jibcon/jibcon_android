@@ -11,16 +11,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by admin on 2017-04-10.
  */
 
-public class RetrofiClients {
-    private static RetrofiClients sInstance;
+public class RetrofitClients {
+    private static RetrofitClients sInstance;
 
     private HashMap<Class, Object> services = new HashMap<>();
 
-    public static RetrofiClients getInstance() {
+    public static RetrofitClients getInstance() {
         if (sInstance == null) {
-            synchronized(RetrofiClients.class) {
+            synchronized(RetrofitClients.class) {
                 if (sInstance == null) {
-                    sInstance = new RetrofiClients();
+                    sInstance = new RetrofitClients();
                 }
             }
         }

@@ -15,7 +15,6 @@ import android.util.Log;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.sm_arts.jibcon.ui.BaseActivity;
-import com.sm_arts.jibcon.data.repository.helper.DeviceServiceImpl;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.ui.login.LoginActivity;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
@@ -25,7 +24,7 @@ import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
-import com.sm_arts.jibcon.utils.network.RetrofiClients;
+import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -63,7 +62,7 @@ public class IntroActivity extends BaseActivity {
                 //intro->login success->main
                 accesstoken.getToken();
 
-                UserService service = RetrofiClients.getInstance().getService(UserService.class);
+                UserService service = RetrofitClients.getInstance().getService(UserService.class);
                 UserInfo userInfo = new UserInfo("facebook", accesstoken.getToken());
                 Call<User> c = service.logincheck(userInfo);
 
@@ -77,7 +76,6 @@ public class IntroActivity extends BaseActivity {
                             SharedPreferenceHelper.saveSharedPreference("pref","LOGINTYPE","FACEBOOK");
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             // prepare deviceItems
-                            DeviceServiceImpl.getInstance().prepareDeviceItems();
                             startActivity(intent);
 
                             finish();

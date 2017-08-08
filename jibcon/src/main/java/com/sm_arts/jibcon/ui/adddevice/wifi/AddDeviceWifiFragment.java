@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.adddevice;
+package com.sm_arts.jibcon.ui.adddevice.wifi;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -20,6 +20,8 @@ import android.widget.ListView;
 
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.ui.adddevice.AddDeviceListner;
+import com.sm_arts.jibcon.ui.adddevice.WifiListAdpater;
 
 import java.util.ArrayList;
 import java.util.List;

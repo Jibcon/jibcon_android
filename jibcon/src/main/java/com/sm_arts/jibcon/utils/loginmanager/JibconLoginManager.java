@@ -22,13 +22,12 @@ import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.ui.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.ui.splash.IntroActivity;
-import com.sm_arts.jibcon.data.repository.helper.DeviceServiceImpl;
 import com.sm_arts.jibcon.data.models.api.dto.User;
 import com.sm_arts.jibcon.data.models.api.dto.UserInfo;
 import com.sm_arts.jibcon.data.repository.helper.network.UserNetworkImpl;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
 import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
-import com.sm_arts.jibcon.utils.network.RetrofiClients;
+import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import org.json.JSONObject;
 
@@ -71,6 +70,10 @@ public class JibconLoginManager {
     public void setUser(User mUser) {
         Log.d(TAG, "setUser: mUser=" + mUser);
         this.mUser = mUser;
+    }
+
+    public String getUserTokenAsHeader() {
+        return "Token " + getUserToken();
     }
 
     public String getUserToken() {
@@ -195,7 +198,7 @@ public class JibconLoginManager {
                 userTokenFacebook = loginResult.getAccessToken().getToken();
                 UserInfo userInfo = new UserInfo("facebook",userTokenFacebook);
                 Log.d("MYTOKEN", userTokenFacebook);
-                UserService userService = RetrofiClients.getInstance()
+                UserService userService = RetrofitClients.getInstance()
                         .getService(UserService.class);;
 
                 Call<User> c = userService.login(userInfo);
@@ -206,9 +209,6 @@ public class JibconLoginManager {
                             JibconLoginManager.getInstance()
                                     .setUser(response.body());
                             Log.d(TAG, "onResponse: "+"success");
-
-                            // prepare deviceItems
-                            DeviceServiceImpl.getInstance().prepareDeviceItems();
 
                             try {
                                 action.run();
