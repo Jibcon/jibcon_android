@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.utils.ToastHelper;
+import com.sm_arts.jibcon.utils.helper.ToastHelper;
 
 /**
  * Created by admin on 2017-05-27.

@@ -23,7 +23,7 @@ import com.sm_arts.jibcon.data.models.api.dto.UserInfo;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
-import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
+import com.sm_arts.jibcon.utils.helper.SharedPreferenceHelper;
 import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import java.security.MessageDigest;

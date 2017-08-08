@@ -26,7 +26,7 @@ import com.sm_arts.jibcon.data.models.api.dto.User;
 import com.sm_arts.jibcon.data.models.api.dto.UserInfo;
 import com.sm_arts.jibcon.data.repository.helper.network.UserNetworkImpl;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
-import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
+import com.sm_arts.jibcon.utils.helper.SharedPreferenceHelper;
 import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import org.json.JSONObject;
