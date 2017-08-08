@@ -8,8 +8,10 @@
     <string name="action_settings">Settings</string>
     <string name="naver_client_id">f2VZgOgRx7HzZaCUzN_D</string>
     <string name="naver_client_secret">uldOlbBiia</string>
-    <string name="google_places_api">AIzaSyACPuDdfYh-OQqkLbeelGAguZ-6fgiwYQI</string>
-
+    <!--<string name="google_places_api">AIzaSyACPuDdfYh-OQqkLbeelGAguZ-6fgiwYQI</string>-->
+    <!--디버그용-->
+    <string name="google_places_api">AIzaSyDQRvFxVx6XBTmQZ-xfuZunVsNF2V7Kz3A</string>
+    <!--릴리즈용-->
     <string name="intro_text">처음 만나는 스마트 홈</string>
 
     <string name="tutorial_skip">SKIP</string>

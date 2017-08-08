@@ -24,6 +24,7 @@ import com.sm_arts.jibcon.login.user.domain.UserInfo;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.repository.network.UserService;
+import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import java.security.MessageDigest;
@@ -72,8 +73,9 @@ public class IntroActivity extends BaseActivity {
                         public void onResponse(Call<User> call, Response<User> response) {
                             JibconLoginManager.getInstance().setUser(response.body());
                             Log.d(TAG, "onResponse: "+"Success");
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
+                            SharedPreferenceHelper.saveSharedPreference("pref","LOGINTYPE","FACEBOOK");
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             // prepare deviceItems
                             DeviceServiceImpl.getInstance().prepareDeviceItems();
                             startActivity(intent);
