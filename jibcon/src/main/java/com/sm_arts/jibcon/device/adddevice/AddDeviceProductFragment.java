@@ -71,7 +71,7 @@ public class AddDeviceProductFragment extends Fragment {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mMakeDeviceListener.NextPage(1);
+                mMakeDeviceListener.nextPage(1);
             }
         });
 
@@ -79,6 +79,8 @@ public class AddDeviceProductFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 mSelectedCompany = mArr1.get(position);
+
+
                 mMakeDeviceListener.setDeviceCom(mSelectedCompany);
             }
 
@@ -92,6 +94,8 @@ public class AddDeviceProductFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 mSelectedDevicename = mArr2.get(position);
+
+
                 mMakeDeviceListener.setDeviceName(mSelectedDevicename);
             }
 
