@@ -10,6 +10,11 @@
     android:background="@color/tutorial_background"
     tools:context=".ui.login.LoginActivity">
 
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <Button
         android:id="@+id/btnSampleSignIn"
         android:layout_width="280dp"
@@ -27,11 +32,6 @@
         fb:layout_constraintHorizontal_bias="0.504"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
-
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
