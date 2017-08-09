@@ -5,7 +5,7 @@
     android:paddingLeft="12dp"
     android:paddingRight="12dp"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="#eaeaea">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/active_cardview"
