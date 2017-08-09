@@ -20,7 +20,7 @@
             android:theme="@style/ToolbarColoredBackArrow"
             android:popupTheme="@style/AppTheme.NoActionBar"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_height="40dp"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
             android:background="#FFFFFF"
             app:popupTheme="@style/AppTheme.PopupOverlay">
@@ -38,7 +38,8 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/main_mainactivity_content"
+    <include
+        layout="@layout/main_mainactivity_content"
         android:id="@+id/include" />
 
     <!--<include layout="@layout/floatingbutton"/>-->
