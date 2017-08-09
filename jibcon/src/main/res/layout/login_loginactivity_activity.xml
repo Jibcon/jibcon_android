@@ -10,28 +10,37 @@
     android:background="@color/tutorial_background"
     tools:context=".ui.login.LoginActivity">
 
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="0dp"
+        android:layout_height="643dp"
+        android:layout_marginLeft="0dp"
+        fb:layout_constraintLeft_toLeftOf="parent"
+        fb:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp"
+        fb:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="0dp"
+        fb:layout_constraintVertical_bias="0.0"
+        android:layout_marginRight="0dp"
+        fb:layout_constraintRight_toRightOf="parent" />
+
     <Button
         android:id="@+id/btnSampleSignIn"
         android:layout_width="280dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:background="@drawable/corner_btn"
         android:text="SAMPLE LOGIN"
         android:textColor="@color/white"
         android:textSize="16dp"
         fb:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="64dp"
-        android:layout_marginLeft="8dp"
-        fb:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        fb:layout_constraintRight_toRightOf="parent"
         fb:layout_constraintHorizontal_bias="0.504"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
-
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        fb:layout_constraintLeft_toLeftOf="parent"
+        fb:layout_constraintRight_toRightOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
