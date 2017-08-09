@@ -23,14 +23,17 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
     private List<DeviceItem> mDeviceItems;
 
     private CustomItemClickListener mDeviceItemIvClickedListener;
+    private CustomItemClickListener mSubscribeIvClickedListener;
     private CustomItemClickListener mThreedotIvClickedListener;
 
     public DeviceMenuAdapter(List<DeviceItem> deviceItems,
                              CustomItemClickListener deviceItemIvClickedListener,
+                             CustomItemClickListener subscribeIvClickedListener,
                              CustomItemClickListener threedotIvClicked) {
 //        Log.d(TAG, "DeviceMenuAdapter: ");
         this.mDeviceItems = deviceItems;
         this.mDeviceItemIvClickedListener = deviceItemIvClickedListener;
+        this.mSubscribeIvClickedListener = subscribeIvClickedListener;
         this.mThreedotIvClickedListener = threedotIvClicked;
     }
 
@@ -50,6 +53,7 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
         final DeviceMenuViewHolder deviceMenuViewHolder =
                 new DeviceMenuViewHolder(deviceMenuView,
                         mDeviceItemIvClickedListener,
+                        mSubscribeIvClickedListener,
                         mThreedotIvClickedListener);
 
         return deviceMenuViewHolder;

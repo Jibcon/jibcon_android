@@ -72,4 +72,77 @@ public class DeviceNetworkHelper {
             }
         });
     }
+
+    public void postDevice(DeviceItem deviceItem, final Consumer<DeviceItem> finished) {
+        Call<DeviceItem> call = service.postDevice(
+                JibconLoginManager.getInstance().getUserTokenAsHeader(),
+                deviceItem
+        );
+
+        call.enqueue(new Callback<DeviceItem>() {
+            @Override
+            public void onResponse(Call<DeviceItem> call, Response<DeviceItem> response) {
+                DeviceItem result = null;
+                if (response.isSuccessful()) {
+                    result = response.body();
+                } else {
+                    Log.d(TAG, "onResponse() called with: code = [" + response.code() + "]," +
+                            " message = [" + response.message() + "]");
+                    Log.d(TAG, "onResponse: postDevice failed with " + deviceItem);
+                }
+
+                try {
+                    finished.accept(result);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DeviceItem> call, Throwable t) {
+                try {
+                    finished.accept(null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void putDevice(DeviceItem deviceItem, final Consumer<DeviceItem> finished) {
+        Call<DeviceItem> call = service.putDevice(
+                JibconLoginManager.getInstance().getUserTokenAsHeader(),
+                deviceItem.getId(),
+                deviceItem
+        );
+
+        call.enqueue(new Callback<DeviceItem>() {
+            @Override
+            public void onResponse(Call<DeviceItem> call, Response<DeviceItem> response) {
+                DeviceItem result = null;
+                if (response.isSuccessful()) {
+                    result = response.body();
+                } else {
+                    Log.d(TAG, "onResponse() called with: code = [" + response.code() + "]," +
+                            " message = [" + response.message() + "]");
+                    Log.d(TAG, "onResponse: putDevice failed with " + deviceItem);
+                }
+
+                try {
+                    finished.accept(result);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DeviceItem> call, Throwable t) {
+                try {
+                    finished.accept(null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 }

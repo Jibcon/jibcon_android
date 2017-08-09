@@ -92,11 +92,19 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     private void initializeRecyclerView() {
         mAdapter = new DeviceMenuAdapter(
                 new ArrayList<>(),
+                // Onoff clicked
                 (v, position) -> {
                     Log.d(TAG, "onItemClick: position=[" + position + "]");
                     DeviceItem item = mAdapter.getItemWithPosition(position);
                     mPresenter.deviceItemIvClicked(item);
                 },
+                // Subscribe clicked
+                (v, position) -> {
+                    Log.d(TAG, "onItemClick: position=[" + position + "]");
+                    DeviceItem item = mAdapter.getItemWithPosition(position);
+                    mPresenter.subscribeIvClicked(item);
+                },
+                // Option clicked
                 (v, position) -> {
                     Log.d(TAG, "onItemClick: position=[" + position + "]");
                     mPresenter.threedotIvClicked(position);
@@ -165,7 +173,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     }
     @Override
     public void updateDevicesOnOffState() {
-        mAdapter.notifyDataSetChanged();
+        loadData();
     }
 
     @Override

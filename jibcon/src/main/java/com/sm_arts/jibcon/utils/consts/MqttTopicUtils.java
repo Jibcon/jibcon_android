@@ -28,6 +28,13 @@ public class MqttTopicUtils {
     }
 
     public static String makeSubscriptionSur(DeviceItem item) {
-        return makeSubscriptionSur(item.getAeName(), item.getCntName());
+        return makeSubscriptionSur(item.getAeName(), getResponseCnt(item.getCntName()));
+    }
+
+    public static String getRequestCnt(String cntName) {
+        return cntName + "_req";
+    }
+    public static String getResponseCnt(String cntName) {
+        return cntName + "_res";
     }
 }

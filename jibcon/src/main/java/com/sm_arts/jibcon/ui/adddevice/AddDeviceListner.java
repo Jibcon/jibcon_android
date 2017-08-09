@@ -14,5 +14,7 @@ public interface AddDeviceListner {
     void setCntName(String setCntName);
 
     void nextPage(int num);
+
+    void setDeviceType(String type);
 }
 

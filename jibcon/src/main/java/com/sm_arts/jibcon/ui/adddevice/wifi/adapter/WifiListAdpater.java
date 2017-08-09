@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.adddevice;
+package com.sm_arts.jibcon.ui.adddevice.wifi.adapter;
 
 
 import android.content.Context;

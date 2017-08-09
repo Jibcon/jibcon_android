@@ -132,7 +132,8 @@ public class MobiusNetworkHelper {
         });
     }
 
-    public void createSub(String deviceAe, String deviceCnt, Consumer<ResponseSub> finished) {
+    public void createSub(String deviceAe, String deviceCnt,
+                          Consumer<ResponseSub> finished, Action failed) {
         MobiusSubService service = RetrofitClients.getInstance().getService(MobiusSubService.class);
 
         RequestSub requestSub = new RequestSub();
@@ -172,7 +173,7 @@ public class MobiusNetworkHelper {
                 } else {
                     Log.d(TAG, "createSub/onResponse: code=[" + response.code() + "] message=[" + response.message()+ "]");
                     try {
-                        finished.accept(null);
+                        failed.run();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -184,7 +185,7 @@ public class MobiusNetworkHelper {
             public void onFailure(Call<ResponseSub> call, Throwable t) {
                 Log.d(TAG, "createSub/onFailure: " + t);
                 try {
-                    finished.accept(null);
+                    failed.run();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -239,7 +240,7 @@ public class MobiusNetworkHelper {
         });
     }
 
-    public void deleteSub(String deviceAe, String deviceCnt, Action finished) {
+    public void deleteSub(String deviceAe, String deviceCnt, Consumer<Boolean> finished) {
         MobiusSubService service = RetrofitClients.getInstance().getService(MobiusSubService.class);
 
         String deviceSub = MqttTopicUtils.getEndpointOfSubscription();
@@ -260,14 +261,14 @@ public class MobiusNetworkHelper {
                     Log.d(TAG, "deleteSub/onResponse: code=[" + response.code() + "]");
                     Log.d(TAG, "deleteSub/onResponse: body = [" + response.body() + "]");
                     try {
-                        finished.run();
+                        finished.accept(true);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 } else {
                     Log.d(TAG, "deleteSub/onResponse: code=[" + response.code() + "] message=[" + response.message()+ "]");
                     try {
-                        finished.run();
+                        finished.accept(false);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -278,7 +279,7 @@ public class MobiusNetworkHelper {
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Log.d(TAG, "deleteSub/onFailure: " + t);
                 try {
-                    finished.run();
+                    finished.accept(false);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -43,15 +43,19 @@ public class AddDeviceProductFragment extends Fragment {
     private void initLayout() {
         ArrayAdapter<String> devicecompanySpinnerAdapter = new ArrayAdapter<String>(
                 getActivity().getApplicationContext(),
-                android.R.layout.simple_spinner_dropdown_item,
+                android.R.layout.simple_spinner_item,
                 Configs.DEVICES_SUPPORTABLE.DEVICECOM_CHOICES
         );
         ArrayAdapter<String> devicetypeSpinnerAdapter = new ArrayAdapter<String>(
                 getActivity().getApplicationContext(),
-                android.R.layout.simple_spinner_dropdown_item,
+                android.R.layout.simple_spinner_item,
                 Configs.DEVICES_SUPPORTABLE.DEVICETYPE_CHOICES
         );
 
+        devicecompanySpinnerAdapter.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item);
+        devicetypeSpinnerAdapter.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item);
         mSpinnerDevicecompany.setAdapter(devicecompanySpinnerAdapter);
         mSpinnerDevicetype.setAdapter(devicetypeSpinnerAdapter);
 
@@ -62,8 +66,9 @@ public class AddDeviceProductFragment extends Fragment {
         mSpinnerDevicecompany.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(TAG, "mSpinnerDevicecompany/onItemSelected: ");
                 if (mMakeDeviceListener != null) {
-                    String company = (String) mSpinnerDevicecompany.getAdapter().getItem(position);
+                    String company = (String) parent.getItemAtPosition(position);
                     mMakeDeviceListener.setDeviceCom(company);
                 } else {
                     Log.w(TAG, "onItemSelected: mMakeDeviceListener is null");
@@ -79,7 +84,8 @@ public class AddDeviceProductFragment extends Fragment {
         mSpinnerDevicetype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String type = (String) mSpinnerDevicetype.getAdapter().getItem(position);
+                Log.d(TAG, "mSpinnerDevicetype/onItemSelected: ");
+                String type = (String) parent.getItemAtPosition(position);
                 deviceChoosed(type);
             }
 
@@ -92,10 +98,13 @@ public class AddDeviceProductFragment extends Fragment {
 
     private void deviceChoosed(String type) {
         if (mMakeDeviceListener != null) {
-            mMakeDeviceListener.setDeviceName(type);
+            mMakeDeviceListener.setDeviceType(type);
             for (int i = 0; i < Configs.DEVICES_SUPPORTABLE.DEVICETYPE_CHOICES.size(); i++) {
                 String item = Configs.DEVICES_SUPPORTABLE.DEVICETYPE_CHOICES.get(i);
                 if (TextUtils.equals(item, type)) {
+                    mMakeDeviceListener.setDeviceName(
+                            Configs.DEVICES_SUPPORTABLE.DEVICENAME_CHOCIED.get(i)
+                    );
                     mMakeDeviceListener.setAeName(
                             Configs.DEVICES_SUPPORTABLE.AENAME_CHOICES.get(i)
                     );

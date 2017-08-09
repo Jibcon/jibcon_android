@@ -30,6 +30,13 @@
             />
 
         <ImageView
+            android:id="@+id/iv_devicemenuviewholder_subscribe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/maindevicemenu_recycleritem_notificationsnone24dp"
+            />
+
+        <ImageView
             android:id="@+id/iv_devicemenuviewholder_option"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

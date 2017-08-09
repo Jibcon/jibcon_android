@@ -59,7 +59,6 @@ class DeviceMenuPresenter {
     public void deviceItemIvClicked(DeviceItem item) {
         Log.d(TAG, "deviceItemIvClicked() called with: item = [" + item + "]");
 
-        activateDevice(item);
     }
 
     public void threedotIvClicked(int position) {
@@ -95,63 +94,32 @@ class DeviceMenuPresenter {
         );
     }
 
-    private void activateDevice(DeviceItem item) {
-        Log.d(TAG, "activateDevice() called with: position = [" + item + "]");
+    private void subscriptionActivateDevice(DeviceItem item) {
+        Log.d(TAG, "subscriptionActivateDevice() called with: position = [" + item + "]");
 
-        /*--->change device's onoff state*/
-        if(item.isDeviceOnOffState()) {
-            setItemDeviceOnoffState(item, false);
-            String sur = item.getSubscriptionSur();
-            MqttManager.getInstance().delSubscriptionSur(sur);
+        if(item.isSubscribeOnOffState()) {
+            MqttManager.getInstance().delSubscriptionSur(item,
+                    () -> setItemdeviceSubscriptionState(item, false));
         } else {
-            createMqttSubscription(item);
+            MqttManager.getInstance().addSubscriptionSur(item,
+                    () -> setItemdeviceSubscriptionState(item, true));
         }
     }
 
-    private void setItemDeviceOnoffState(DeviceItem item, boolean b) {
-        item.setDeviceOnOffState(b);
-        mView.updateDevicesOnOffState();
+    private void setItemdeviceSubscriptionState(DeviceItem item, boolean b) {
+        item.setSubscribeOnOffState(b);
+        DeviceNetworkHelper.getInstance().putDevice(item,
+                                                    (result) -> {
+                                                        if (result != null) {
+                                                            mView.updateDevicesOnOffState();
+                                                        } else {
+                                                            Log.w(TAG, "setItemdeviceSubscriptionState: put device failed");
+                                                        }
+                                                    });
     }
 
-    private void createMqttSubscription(DeviceItem item) {
-        MobiusNetworkHelper.getInstance().retrieveSub(
-                item.getAeName(),
-                item.getCntName(),
-                responseSub -> {
-                    Log.d(TAG, "activateDevice: responseSub = " + responseSub);
-                    if (responseSub == null) {
-                        createSub(item);
-                    } else {
-                        removeSub(item,
-                                () -> createSub(item)
-                        );
-                    }
-                }
-        );
-    }
-
-    private void removeSub(DeviceItem item, Action finished) {
-        MobiusNetworkHelper.getInstance().deleteSub(
-                item.getAeName(),
-                item.getCntName(),
-                () -> {
-                    Log.d(TAG, "removeSub: response");
-                    finished.run();
-                }
-        );
-    }
-
-    private void createSub(DeviceItem item) {
-        MobiusNetworkHelper.getInstance().createSub(
-                item.getAeName(),
-                item.getCntName(),
-                responseSub -> {
-                    Log.d(TAG, "activateDevice: responseSub = " + responseSub);
-                    String subscriptionSur = MqttTopicUtils.makeSubscriptionSur(item);
-                    setItemDeviceOnoffState(item, true);
-                    MqttManager.getInstance().addSubscriptionSur(subscriptionSur);
-                }
-        );
+    public void subscribeIvClicked(DeviceItem item) {
+        subscriptionActivateDevice(item);
     }
 
     //endregion

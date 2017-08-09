@@ -32,14 +32,13 @@ public interface Configs {
 
     interface DEVICES_SUPPORTABLE {
 
-        interface DEVICENAME_CHOCIED {
-            String LED = "led";
-            String ULTRA = "ultra";
-
-        }
+        List<String> DEVICENAME_CHOCIED = Arrays.asList(
+                "led",
+                "ultra"
+        );
 
         List<String> DEVICECOM_CHOICES = Collections.singletonList(
-                "smarts"
+                "smArts"
         );
 
         List<String> DEVICETYPE_CHOICES = Arrays.asList(

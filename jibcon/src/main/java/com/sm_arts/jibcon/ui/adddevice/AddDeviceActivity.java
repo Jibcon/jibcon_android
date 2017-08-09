@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
+import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.data.repository.network.api.DeviceService;
 import com.sm_arts.jibcon.ui.BaseActivity;
 import com.sm_arts.jibcon.ui.adddevice.phone.AddDevicePhoneFragment;
@@ -31,31 +32,21 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
     private DeviceItem mDeviceItem;
 
     public void sendDevice() {
-        /*set device state on*/
-        mDeviceItem.setDeviceOnOffState(true);
-        DeviceService deviceService = RetrofitClients.getInstance().getService(DeviceService.class);
-        Log.d(TAG, "sendDevice: Call.enqueue DeviceItem " + mDeviceItem.toString());
-      
-        Call<DeviceItem> call = deviceService.addDevice(
-                JibconLoginManager.getInstance().getUserTokenAsHeader(), mDeviceItem);
-        Log.d("TAG", "sendDevice: " + call.toString());
-
-        try {
-            call.enqueue(new Callback<DeviceItem>() {
-                @Override
-                public void onResponse(Call<DeviceItem> call, Response<DeviceItem> response) {
-
-                }
-
-                @Override
-                public void onFailure(Call<DeviceItem> call, Throwable t) {
-                    Log.d(TAG, "onFailure: device send fail");
-//                    Toast.makeText(getApplicationContext(),"device send fail",Toast.LENGTH_SHORT).show();
-                }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        DeviceNetworkHelper.getInstance().postDevice(mDeviceItem,
+                (deviceItem) -> {
+                    if (deviceItem == null) {
+                        Log.d(TAG, "sendDevice: failed to send device. device = " + mDeviceItem.toString());
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice,mAddDevice0).commit();
+                    } else {
+                        Handler handler = new Handler();
+                        handler.postDelayed(
+                                () -> {
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }, 1500);
+                    }
+                });
     }
 
     @Override
@@ -75,18 +66,6 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
             case 2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice,mAddDevice2).commit();
                 sendDevice();
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        //장치 추가하고 메인으로
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                };
-
-                Handler handler=new Handler();
-                handler.postDelayed(runnable,1500);
                 break;
         }
     }
@@ -100,6 +79,11 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
     @Override
     public void setDeviceName(String deviceName) {
         mDeviceItem.setDeviceName(deviceName);
+    }
+
+    @Override
+    public void setDeviceType(String deviceType) {
+        mDeviceItem.setDeviceType(deviceType);
     }
 
     @Override

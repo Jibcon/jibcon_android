@@ -9,6 +9,8 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 /**
  * Created by jaeyoung on 8/8/17.
@@ -16,9 +18,14 @@ import retrofit2.http.POST;
 
 public interface DeviceService {
     @POST("/api/devices/")
-    Call<DeviceItem> addDevice(@Header("Authorization") String token,
+    Call<DeviceItem> postDevice(@Header("Authorization") String token,
                                @Body DeviceItem deviceItem);
 
     @GET("/api/devices/")
     Call<List<DeviceItem>> getDevices(@Header("Authorization")String token);
+
+    @PUT("/api/devices/{id}/")
+    Call<DeviceItem> putDevice(@Header("Authorization") String token,
+                               @Path("id") String id,
+                               @Body DeviceItem deviceItem);
 }

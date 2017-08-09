@@ -70,15 +70,19 @@ public class IntroActivity extends BaseActivity {
                     c.enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
-                            JibconLoginManager.getInstance().setUser(response.body());
-                            Log.d(TAG, "onResponse: "+"Success");
+                            if (response.isSuccessful()) {
+                                JibconLoginManager.getInstance().setUserOnSuccess(response.body());
+                                Log.d(TAG, "onResponse: "+"Success");
 
-                            SharedPreferenceHelper.saveSharedPreference("pref","LOGINTYPE","FACEBOOK");
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            // prepare deviceItems
-                            startActivity(intent);
+                                SharedPreferenceHelper.saveSharedPreference("pref","LOGINTYPE","FACEBOOK");
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                // prepare deviceItems
+                                startActivity(intent);
 
-                            finish();
+                                finish();
+                            } else {
+
+                            }
                         }
 
                         @Override
