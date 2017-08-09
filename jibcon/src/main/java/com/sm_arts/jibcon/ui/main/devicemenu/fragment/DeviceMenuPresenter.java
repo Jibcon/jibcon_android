@@ -42,9 +42,12 @@ class DeviceMenuPresenter {
     private void receiveMqttNotification(MqttSurCon mqttSurCon) {
         Log.d(TAG, "receiveMqttNotification() called with: mqttSurCon = [" + mqttSurCon.toString() + "]");
         DeviceMenuAdapter adapter = mView.getAdapter();
-        int position = adapter.findDeviceItemPositionWithSur(mqttSurCon.getSur());
-        if (position != -1) {
-            mView.showContent(position, mqttSurCon.getCon());
+        List<Integer> positions = adapter.findDeviceItemPositionsWithSur(mqttSurCon.getSur());
+        if (positions.size() > 0) {
+            for (Integer position :
+                    positions) {
+                mView.showContent(position, mqttSurCon.getCon());
+            }
         } else {
             Log.w(TAG, "receiveMqttNotification: cannot find mqttsur, sur = [" + mqttSurCon.getSur() + "]");
         }
