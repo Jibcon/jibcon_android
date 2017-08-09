@@ -1,7 +1,7 @@
-package com.sm_arts.jibcon.data.models.mobius.dto;
+package com.sm_arts.jibcon.data.models.mobius;
 
 /**
- * Created by jaeyoung on 8/2/17.
+ * Created by jaeyoung on 8/9/17.
  */
 
 public class MqttCi {

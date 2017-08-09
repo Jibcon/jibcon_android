@@ -61,13 +61,17 @@ class DeviceMenuPresenter {
 
     public void deviceItemIvClicked(DeviceItem item) {
         Log.d(TAG, "deviceItemIvClicked() called with: item = [" + item + "]");
-
+        toggleActivate(item);
     }
 
     public void threedotIvClicked(int position) {
         Log.d(TAG, "threedotIvClicked() called with: " +
                 "position = [" + position + "]");
         mView.showDeviceDialog();
+    }
+
+    public void subscribeIvClicked(DeviceItem item) {
+        toggleSubscriptionWith(item);
     }
 
     public void swipeRefreshed() {
@@ -97,8 +101,34 @@ class DeviceMenuPresenter {
         );
     }
 
-    private void subscriptionActivateDevice(DeviceItem item) {
-        Log.d(TAG, "subscriptionActivateDevice() called with: position = [" + item + "]");
+    private void toggleActivate(DeviceItem item) {
+        String con;
+
+        if (!item.isDeviceOnOffState()) {
+            con = "on";
+        } else {
+            con = "off";
+        }
+
+            MobiusNetworkHelper.getInstance().createCi(
+                    item.getAeName(),
+                    MqttTopicUtils.getRequestCnt(item.getCntName()),
+                    con,
+                    // success
+                    (responseCi) -> {
+                        Log.d(TAG, "toggleActivate: onSuccess postCi");
+                        item.setDeviceOnOffState(!item.isDeviceOnOffState());
+                        updateItem(item);
+                    },
+                    // failed
+                    () -> {
+                        Log.d(TAG, "toggleActivate: onFail postCi");
+                    }
+            );
+    }
+
+    private void toggleSubscriptionWith(DeviceItem item) {
+        Log.d(TAG, "toggleSubscriptionWith() called with: position = [" + item.toString() + "]");
 
         if(item.isSubscribeOnOffState()) {
             MqttManager.getInstance().delSubscriptionSur(item,
@@ -111,18 +141,18 @@ class DeviceMenuPresenter {
 
     private void setItemdeviceSubscriptionState(DeviceItem item, boolean b) {
         item.setSubscribeOnOffState(b);
-        DeviceNetworkHelper.getInstance().putDevice(item,
-                                                    (result) -> {
-                                                        if (result != null) {
-                                                            mView.updateDevicesOnOffState();
-                                                        } else {
-                                                            Log.w(TAG, "setItemdeviceSubscriptionState: put device failed");
-                                                        }
-                                                    });
+        updateItem(item);
     }
 
-    public void subscribeIvClicked(DeviceItem item) {
-        subscriptionActivateDevice(item);
+    private void updateItem(DeviceItem item) {
+        DeviceNetworkHelper.getInstance().putDevice(item,
+                (result) -> {
+                    if (result != null) {
+                        mView.updateDevicesOnOffState();
+                    } else {
+                        Log.w(TAG, "setItemdeviceSubscriptionState: put device failed");
+                    }
+                });
     }
 
     //endregion

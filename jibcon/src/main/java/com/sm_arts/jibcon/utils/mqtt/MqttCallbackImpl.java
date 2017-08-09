@@ -5,8 +5,8 @@ import android.util.Log;
 
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
+import com.sm_arts.jibcon.data.models.mobius.MqttCi;
 import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
-import com.sm_arts.jibcon.data.models.mobius.dto.MqttCi;
 import com.sm_arts.jibcon.utils.network.GsonUtils;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;

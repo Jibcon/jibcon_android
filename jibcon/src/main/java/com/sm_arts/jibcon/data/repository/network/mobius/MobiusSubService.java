@@ -1,11 +1,10 @@
 package com.sm_arts.jibcon.data.repository.network.mobius;
 
-import com.sm_arts.jibcon.data.models.mobius.dto.RequestSub;
-import com.sm_arts.jibcon.data.models.mobius.dto.ResponseSub;
+import com.sm_arts.jibcon.data.models.mobius.dto.request.RequestSub;
+import com.sm_arts.jibcon.data.models.mobius.dto.response.ResponseSub;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;

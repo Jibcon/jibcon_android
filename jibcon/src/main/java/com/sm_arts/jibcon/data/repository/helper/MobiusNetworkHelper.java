@@ -2,11 +2,14 @@ package com.sm_arts.jibcon.data.repository.helper;
 
 import android.util.Log;
 
-import com.sm_arts.jibcon.data.models.mobius.dto.RequestAe;
-import com.sm_arts.jibcon.data.models.mobius.dto.RequestSub;
-import com.sm_arts.jibcon.data.models.mobius.dto.ResponseAe;
-import com.sm_arts.jibcon.data.models.mobius.dto.ResponseSub;
+import com.sm_arts.jibcon.data.models.mobius.dto.request.RequestAe;
+import com.sm_arts.jibcon.data.models.mobius.dto.request.RequestCi;
+import com.sm_arts.jibcon.data.models.mobius.dto.request.RequestSub;
+import com.sm_arts.jibcon.data.models.mobius.dto.response.ResponseAe;
+import com.sm_arts.jibcon.data.models.mobius.dto.response.ResponseCi;
+import com.sm_arts.jibcon.data.models.mobius.dto.response.ResponseSub;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusAeService;
+import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusSubService;
 import com.sm_arts.jibcon.utils.consts.Configs;
 import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
@@ -132,6 +135,7 @@ public class MobiusNetworkHelper {
         });
     }
 
+    //region ---------------------------------------- Sub ----------------------------------------
     public void createSub(String deviceAe, String deviceCnt,
                           Consumer<ResponseSub> finished, Action failed) {
         MobiusSubService service = RetrofitClients.getInstance().getService(MobiusSubService.class);
@@ -286,6 +290,60 @@ public class MobiusNetworkHelper {
             }
         });
     }
+    //endregion ---------------------------------------- CI ----------------------------------------
+
+    //region ---------------------------------------- CI ----------------------------------------
+    public void createCi(String deviceAe, String deviceCnt, String con,
+                          Consumer<ResponseCi> finished, Action failed) {
+        MobiusCiService service = RetrofitClients.getInstance().getService(MobiusCiService.class);
+
+        RequestCi body = new RequestCi();
+        body.m2mcin.con = con;
+
+        Call<ResponseCi> call = service.postCi(
+                Configs.CSE.NAME,
+                deviceAe,
+                deviceCnt,
+                "application/json",
+                requestIdGenerate(),
+                Configs.AE.AID,
+                "application/vnd.onem2m-res+json; ty=4",
+                body
+        );
+
+        call.enqueue(new Callback<ResponseCi>() {
+            @Override
+            public void onResponse(Call<ResponseCi> call, Response<ResponseCi> response) {
+                if (response.isSuccessful()) {
+                    Log.d(TAG, "createSub/onResponse: code=[" + response.code() + "]");
+                    Log.d(TAG, "createSub/onResponse: body = [" + response.body() + "]");
+                    try {
+                        finished.accept(response.body());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Log.d(TAG, "createSub/onResponse: code=[" + response.code() + "] message=[" + response.message()+ "]");
+                    try {
+                        failed.run();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseCi> call, Throwable t) {
+                Log.d(TAG, "createSub/onFailure: " + t);
+                try {
+                    failed.run();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
     private String requestIdGenerate() {
         String requestId = "req" + mRequestNumber;
@@ -293,4 +351,5 @@ public class MobiusNetworkHelper {
 
         return requestId;
     }
+    //endregion ---------------------------------------- CI ----------------------------------------
 }

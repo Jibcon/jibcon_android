@@ -1,6 +1,7 @@
-package com.sm_arts.jibcon.data.models.mobius.dto;
+package com.sm_arts.jibcon.data.models.mobius.dto.response;
 
 import com.google.gson.annotations.SerializedName;
+import com.sm_arts.jibcon.data.models.mobius.dto.request.RequestAe;
 
 /**
  * Created by jaeyoung on 8/2/17.
