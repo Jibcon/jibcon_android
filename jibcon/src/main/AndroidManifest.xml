@@ -57,16 +57,16 @@
             android:theme="@style/myAppTheme.TutorialNoActionBar" />
         <activity
             android:name=".ui.makecon.MakeconStartActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.TutorialNoActionBar" />
         <activity
             android:name=".ui.makecon.MakeconMainActivity"
             android:theme="@style/myAppTheme.TutorialNoActionBar" />
         <activity
             android:name=".ui.adddevice.AddDeviceActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.TutorialNoActionBar" />
         <activity
             android:name=".ui.sidebar.ConnectedDevicesActivity"
-            android:theme="@style/myAppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.TutorialNoActionBar" />
         <activity
             android:name=".ui.sidebar.WidgetActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
