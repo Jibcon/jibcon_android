@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.utils;
+package com.sm_arts.jibcon.utils.helper;
 
 import android.content.Context;
 import android.widget.Toast;

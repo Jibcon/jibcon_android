@@ -119,4 +119,12 @@ public class DeviceItem {
     public void setUser(String user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return "DeviceItem{" +
+                "id='" + id + '\'' +
+                ", deviceName='" + deviceName + '\'' +
+                '}';
+    }
 }

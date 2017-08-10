@@ -24,7 +24,7 @@ import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.ui.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.ui.main.MainActivity;
-import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
+import com.sm_arts.jibcon.utils.helper.SharedPreferenceHelper;
 
 
 public class LoginActivity extends BaseActivity {

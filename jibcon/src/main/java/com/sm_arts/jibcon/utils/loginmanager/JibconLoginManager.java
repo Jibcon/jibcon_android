@@ -22,16 +22,19 @@ import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.ui.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.ui.splash.IntroActivity;
-import com.sm_arts.jibcon.data.repository.helper.DeviceServiceImpl;
 import com.sm_arts.jibcon.data.models.api.dto.User;
 import com.sm_arts.jibcon.data.models.api.dto.UserInfo;
 import com.sm_arts.jibcon.data.repository.helper.network.UserNetworkImpl;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
-import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
-import com.sm_arts.jibcon.utils.network.RetrofiClients;
+import com.sm_arts.jibcon.utils.helper.SharedPreferenceHelper;
+import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Action;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,6 +55,7 @@ public class JibconLoginManager {
     private static JibconLoginManager mInstance = null;
 
     private User mUser;
+    private List<Action> mAftersigninActions = new ArrayList<>();
 
     public static JibconLoginManager getInstance() {
         if (mInstance == null) {
@@ -68,9 +72,30 @@ public class JibconLoginManager {
         return mUser;
     }
 
-    public void setUser(User mUser) {
-        Log.d(TAG, "setUser: mUser=" + mUser);
+    public void setUserOnSuccess(@NonNull User mUser) {
+        Log.d(TAG, "setUserOnSuccess: mUser=" + mUser);
         this.mUser = mUser;
+        runAftersigninActions();
+    }
+
+    private void runAftersigninActions() {
+        Log.d(TAG, "runAftersigninActions: with mAftersigninActions.size = "
+                + mAftersigninActions.size());
+
+        for (Action action :
+                mAftersigninActions) {
+            try {
+                action.run();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+         mAftersigninActions.clear();
+    }
+
+    public String getUserTokenAsHeader() {
+        return "Token " + getUserToken();
     }
 
     public String getUserToken() {
@@ -195,25 +220,26 @@ public class JibconLoginManager {
                 userTokenFacebook = loginResult.getAccessToken().getToken();
                 UserInfo userInfo = new UserInfo("facebook",userTokenFacebook);
                 Log.d("MYTOKEN", userTokenFacebook);
-                UserService userService = RetrofiClients.getInstance()
-                        .getService(UserService.class);;
+                UserService userService = RetrofitClients.getInstance()
+                        .getService(UserService.class);
 
                 Call<User> c = userService.login(userInfo);
                 try {
                     c.enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
-                            JibconLoginManager.getInstance()
-                                    .setUser(response.body());
-                            Log.d(TAG, "onResponse: "+"success");
+                            if (response.isSuccessful()) {
+                                JibconLoginManager.getInstance()
+                                        .setUserOnSuccess(response.body());
+                                Log.d(TAG, "onResponse: "+"success");
 
-                            // prepare deviceItems
-                            DeviceServiceImpl.getInstance().prepareDeviceItems();
-
-                            try {
-                                action.run();
-                            } catch (Exception e) {
-                                e.printStackTrace();
+                                try {
+                                    action.run();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            } else {
+                                Log.w(TAG, "makeFacebookLoginManager/onResponse: failed to signin with usreinfo");
                             }
                         }
 
@@ -291,14 +317,18 @@ public class JibconLoginManager {
             UserNetworkImpl.getInstance()
                     .getSampleUserInfoFromServerAsynchronisely(
                             (user) -> {
-                                setUser(user);
-                                Log.d(TAG, "getSampleUser: user=" + user.toString());
-                                saveSharedPrefWithSampleUser();
+                                if (user != null) {
+                                    setUserOnSuccess(user);
+                                    Log.d(TAG, "getSampleUser: user=" + user.toString());
+                                    saveSharedPrefWithSampleUser();
 
-                                try {
-                                    action.run();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
+                                    try {
+                                        action.run();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                } else {
+                                    Log.w(TAG, "loginWithSampleUser: user is null");
                                 }
                             }
                     );
@@ -322,5 +352,13 @@ public class JibconLoginManager {
 
     public boolean userSignin() {
         return (mUser != null);
+    }
+
+    public void addOnSigninAction() {
+
+    }
+
+    public void addOnSigninAction(Action aftersigninAction) {
+        mAftersigninActions.add(aftersigninAction);
     }
 }

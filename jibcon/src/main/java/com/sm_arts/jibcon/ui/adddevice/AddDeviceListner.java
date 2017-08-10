@@ -9,13 +9,12 @@ import android.net.wifi.ScanResult;
 public interface AddDeviceListner {
     void setDeviceCom(String deviceCom);
     void setDeviceName(String deviceName);
-    void nextPage(int num);
-
     void setRoomName(String roomName);
     void setAeName(String aeName);
-
     void setCntName(String setCntName);
-    void setContent(String content);
 
+    void nextPage(int num);
+
+    void setDeviceType(String type);
 }
 

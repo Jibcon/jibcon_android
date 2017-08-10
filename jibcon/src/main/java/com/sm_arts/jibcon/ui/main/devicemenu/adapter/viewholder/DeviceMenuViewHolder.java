@@ -7,7 +7,11 @@ import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
+import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by jaeyoung on 7/18/17.
@@ -16,45 +20,62 @@ import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
 public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
     private static final String TAG = "DeviceMenuViewHolder";
 
-    private final ImageView mIvThreedot;
-    private final ImageView mIvDeviceItem;
-    private final TextView mTvDevicename;
-    private final TextView mTvDevicecontent;
-    private final TextView mTvPlacename;
+    @BindView(R.id.iv_devicemenuviewholder_subscribe)
+    ImageView mIvSubscribe;
+    @BindView(R.id.iv_devicemenuviewholder_option)
+    ImageView mIvThreedot;
+    @BindView(R.id.iv_devicemenuviewholder_icon)
+    ImageView mIvDeviceItem;
+
+    @BindView(R.id.tv_devicemenuviewholder_devicename)
+    TextView mTvDevicename;
+    @BindView(R.id.tv_devicemenuviewholder_status)
+    TextView mTvDevicecontent;
+    @BindView(R.id.tv_devicemenuviewholder_placename)
+    TextView mTvPlacename;
     private final View mMotherView;
 
     public DeviceMenuViewHolder(View itemView,
-                                CustomItemClickListener mDeviceItemIvClickedListener,
-                                CustomItemClickListener mThreedotIvClickedListener) {
+                                CustomItemClickListener deviceItemIvClickedListener,
+                                CustomItemClickListener subscribeIvClickedListener,
+                                CustomItemClickListener threedotIvClickedListener) {
         super(itemView);
 //        Log.d(TAG, "DeviceMenuViewHolder: ");
 
+        ButterKnife.bind(this, itemView);
         mMotherView = itemView;
-        mIvThreedot = (ImageView) itemView.findViewById(R.id.iv_devicemenuviewholder_option);
         mIvThreedot.setOnClickListener(
                 v ->
-                    mThreedotIvClickedListener.onItemClick(v,
+                    threedotIvClickedListener.onItemClick(v,
                             getAdapterPosition())
         );
 
-        mIvDeviceItem = (ImageView) itemView.findViewById(R.id.iv_devicemenuviewholder_icon);
+        mIvSubscribe.setOnClickListener(
+                v ->
+                        subscribeIvClickedListener.onItemClick(v,
+                                getAdapterPosition())
+        );
+
         mMotherView.setOnClickListener(
                 v->
-                    mDeviceItemIvClickedListener.onItemClick(v,
+                    deviceItemIvClickedListener.onItemClick(v,
                             getAdapterPosition())
         );
-        mTvPlacename = (TextView) itemView.findViewById(R.id.tv_devicemenuviewholder_placename);
-        mTvDevicename = (TextView) itemView.findViewById(R.id.tv_devicemenuviewholder_devicename);
-        mTvDevicecontent = (TextView) itemView.findViewById(R.id.tv_devicemenuviewholder_status);
     }
 
     public void configureWith(DeviceItem deviceItem) {
         String deviceType = deviceItem.getDeviceType();
 
-        if(!deviceItem.isDeviceOnOffState()) {
+        if(deviceItem.isDeviceOnOffState()) {
             mMotherView.setBackgroundResource(R.drawable.maindevicemenu_recycleritem_backgroundon);
         } else {
             mMotherView.setBackgroundResource(R.drawable.maindevicemenu_recycleritem_backgroundoff);
+        }
+
+        if(deviceItem.isSubscribeOnOffState()) {
+            mIvSubscribe.setImageResource(R.drawable.maindevicemenu_recycleritem_notificationson24dp);
+        } else {
+            mIvSubscribe.setImageResource(R.drawable.maindevicemenu_recycleritem_notificationsnone24dp);
         }
 
         if(DeviceType.AIRCONDITIONER.equals(deviceType)) {

@@ -8,7 +8,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.utils.ToastHelper;
+import com.sm_arts.jibcon.utils.helper.ToastHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

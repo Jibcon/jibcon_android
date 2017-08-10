@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.adddevice;
+package com.sm_arts.jibcon.ui.adddevice.phone;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.ui.adddevice.AddDeviceListner;
 
 /**
  * Created by admin on 2017-04-15.

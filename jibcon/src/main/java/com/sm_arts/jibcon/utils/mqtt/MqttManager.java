@@ -2,15 +2,21 @@ package com.sm_arts.jibcon.utils.mqtt;
 
 import android.util.Log;
 import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
+import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
+import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
 import com.sm_arts.jibcon.utils.consts.Configs;
 import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
+import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
+
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 
 /**
@@ -33,11 +39,35 @@ public class MqttManager {
     }
 
     public static void init() {
-        sInstance = new MqttManager();
+        if (JibconLoginManager.getInstance().userSignin()) {
+            sInstance = new MqttManager();
+        } else {
+            Log.e(TAG, "init: must call init() after signin");
+        }
     }
 
     public MqttManager() {
         initClient();
+        initSubscriptionSurs();
+    }
+
+    private void initSubscriptionSurs() {
+        DeviceNetworkHelper.getInstance().getDevices(
+                (deviceItems -> {
+                    if (deviceItems != null) {
+                        for (DeviceItem item :
+                                deviceItems) {
+                            if (item.isSubscribeOnOffState()) {
+                                Log.d(TAG, "initSubscriptionSurs: addSubscriptionSur with Item="
+                                        + item.toString());
+                                addSubscriptionSur(item, () -> {});
+                            }
+                        }
+                    } else {
+                        Log.d(TAG, "initSubscriptionSurs: fail to get deviceitems");
+                    }
+                })
+        );
     }
 
     private void subscribe() {
@@ -95,13 +125,74 @@ public class MqttManager {
         }
     }
 
-    public void addSubscriptionSur(String subscriptionSur) {
-        Log.d(TAG, "addSubscriptionSur() called with: subscriptionSur = [" + subscriptionSur + "]");
-        mMqttCallback.addSubscriptionSur(subscriptionSur);
+    public void delSubscriptionSur(DeviceItem item, Action finished) {
+        String subscriptionSur = item.getSubscriptionSur();
+        Log.d(TAG, "delSubscriptionSur() called with: subscriptionSur = [" + subscriptionSur + "]");
+        mMqttCallback.delSubscriptionSur(subscriptionSur);
+        try {
+            finished.run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public void delSubscriptionSur(String subscriptionSur) {
+    public void addSubscriptionSur(DeviceItem item, Action finished) {
+        String subscriptionSur = item.getSubscriptionSur();
         Log.d(TAG, "addSubscriptionSur() called with: subscriptionSur = [" + subscriptionSur + "]");
-        mMqttCallback.delSubscriptionSur(subscriptionSur);
+        createMqttSubscription(item,
+                () -> {
+                    mMqttCallback.addSubscriptionSur(subscriptionSur);
+                    finished.run();
+                }
+        );
+    }
+
+    private void createMqttSubscription(DeviceItem item, Action finished) {
+        createSub(item, finished);
+//            MobiusNetworkHelper.getInstance().retrieveSub(
+//                    item.getAeName(),
+//                    item.getCntName(),
+//                    responseSub -> {
+//                        Log.d(TAG, "subscriptionActivateDevice: responseSub = " + responseSub);
+//                        if (responseSub == null) {
+//                        } else {
+//                            removeSub(item,
+//                                    () -> createSub(item, finished)
+//                            );
+//                        }
+//                    }
+//            );
+    }
+
+    private void removeSub(DeviceItem item, Consumer<Boolean> finished) {
+        MobiusNetworkHelper.getInstance().deleteSub(
+                item.getAeName(),
+                MqttTopicUtils.getResponseCnt(item.getCntName()),
+                finished
+        );
+    }
+
+    private void createSub(DeviceItem item, Action finished) {
+        MobiusNetworkHelper.getInstance().createSub(
+                item.getAeName(),
+                MqttTopicUtils.getResponseCnt(item.getCntName()),
+                // OnSuccess
+                responseSub -> {
+                    Log.d(TAG, "subscriptionActivateDevice: responseSub = " + responseSub);
+                    finished.run();
+                },
+                () -> {
+                    removeSub(item,
+                            (isSuccessful) -> {
+                                Log.d(TAG, "removeSub: response");
+                                if (isSuccessful) {
+                                    createSub(item, finished);
+                                } else {
+                                    Log.d(TAG, "createSub: fail to create");
+                                }
+                            }
+                    );
+                }
+        );
     }
 }

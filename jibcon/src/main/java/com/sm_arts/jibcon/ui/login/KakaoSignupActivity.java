@@ -12,7 +12,7 @@ import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.helper.log.Logger;
 import com.sm_arts.jibcon.ui.BaseActivity;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
-import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
+import com.sm_arts.jibcon.utils.helper.SharedPreferenceHelper;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 
 

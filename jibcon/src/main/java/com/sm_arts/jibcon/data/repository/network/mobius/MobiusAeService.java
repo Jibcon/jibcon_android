@@ -1,8 +1,7 @@
 package com.sm_arts.jibcon.data.repository.network.mobius;
 
-import com.google.gson.annotations.SerializedName;
-import com.sm_arts.jibcon.data.models.mobius.dto.RequestAe;
-import com.sm_arts.jibcon.data.models.mobius.dto.ResponseAe;
+import com.sm_arts.jibcon.data.models.mobius.dto.request.RequestAe;
+import com.sm_arts.jibcon.data.models.mobius.dto.response.ResponseAe;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

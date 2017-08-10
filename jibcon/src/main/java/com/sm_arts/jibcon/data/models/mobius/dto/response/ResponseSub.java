@@ -1,6 +1,6 @@
-package com.sm_arts.jibcon.data.models.mobius.dto;
+package com.sm_arts.jibcon.data.models.mobius.dto.response;
 
-import java.util.List;
+import com.sm_arts.jibcon.data.models.mobius.dto.request.RequestSub;
 
 /**
  * Created by jaeyoung on 8/2/17.

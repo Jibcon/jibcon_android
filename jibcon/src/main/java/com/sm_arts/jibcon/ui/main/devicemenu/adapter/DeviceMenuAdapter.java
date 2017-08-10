@@ -12,6 +12,8 @@ import com.sm_arts.jibcon.ui.main.devicemenu.adapter.viewholder.DeviceMenuViewHo
 import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
 import com.sm_arts.jibcon.R;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,14 +25,17 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
     private List<DeviceItem> mDeviceItems;
 
     private CustomItemClickListener mDeviceItemIvClickedListener;
+    private CustomItemClickListener mSubscribeIvClickedListener;
     private CustomItemClickListener mThreedotIvClickedListener;
 
     public DeviceMenuAdapter(List<DeviceItem> deviceItems,
                              CustomItemClickListener deviceItemIvClickedListener,
+                             CustomItemClickListener subscribeIvClickedListener,
                              CustomItemClickListener threedotIvClicked) {
 //        Log.d(TAG, "DeviceMenuAdapter: ");
         this.mDeviceItems = deviceItems;
         this.mDeviceItemIvClickedListener = deviceItemIvClickedListener;
+        this.mSubscribeIvClickedListener = subscribeIvClickedListener;
         this.mThreedotIvClickedListener = threedotIvClicked;
     }
 
@@ -50,6 +55,7 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
         final DeviceMenuViewHolder deviceMenuViewHolder =
                 new DeviceMenuViewHolder(deviceMenuView,
                         mDeviceItemIvClickedListener,
+                        mSubscribeIvClickedListener,
                         mThreedotIvClickedListener);
 
         return deviceMenuViewHolder;
@@ -89,6 +95,24 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
         }
 
         return -1;
+    }
+
+    // TODO: 8/9/17 같은 기기를 등록해서 여러개의 센서값이 같이변함 실제론 같은기기 등록될 일 없으므로 지워야함
+    public List<Integer> findDeviceItemPositionsWithSur(String sur) {
+        List<Integer> results = new ArrayList<>();
+        Log.d(TAG, "findDeviceItemPositionWithSur() called with: topic = [" + sur + "]");
+        for (int idx = 0; idx < mDeviceItems.size(); idx++) {
+            DeviceItem item = mDeviceItems.get(idx);
+            if (item.isSubscribeOnOffState()) {
+                String itemSur = item.getSubscriptionSur();
+                if (TextUtils.equals(itemSur, sur)) {
+                    Log.d(TAG, "findDeviceItemPositionWithSur: found idx=" + idx);
+                    results.add(idx);
+                }
+            }
+        }
+
+        return results;
     }
 
     public void showContent(int position, String con) {

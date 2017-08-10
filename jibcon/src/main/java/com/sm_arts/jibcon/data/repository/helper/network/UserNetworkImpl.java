@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.sm_arts.jibcon.data.models.api.dto.User;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
-import com.sm_arts.jibcon.utils.network.RetrofiClients;
+import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,7 +21,7 @@ public class UserNetworkImpl implements UserNetwork {
 
 
     private UserNetworkImpl() {
-        mUserService = RetrofiClients.getInstance().getService(UserService.class);
+        mUserService = RetrofitClients.getInstance().getService(UserService.class);
     }
 
     public static UserNetwork getInstance() {

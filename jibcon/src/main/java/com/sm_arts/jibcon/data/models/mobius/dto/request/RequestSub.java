@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.data.models.mobius.dto;
+package com.sm_arts.jibcon.data.models.mobius.dto.request;
 
 import com.google.gson.annotations.SerializedName;
 

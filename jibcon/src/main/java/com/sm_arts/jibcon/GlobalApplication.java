@@ -11,6 +11,7 @@ import com.kakao.auth.KakaoSDK;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
 import com.sm_arts.jibcon.ui.login.KaKaoSDKAdpater;
+import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 import com.tsengvn.typekit.Typekit;
 
@@ -39,7 +40,9 @@ public class GlobalApplication extends MultiDexApplication {
 
         initTypekit();
         initMobius();
-        initMqttManager();
+        JibconLoginManager.getInstance().addOnSigninAction(
+                this::initMqttManager
+        );
     }
 
     private void initTypekit() {

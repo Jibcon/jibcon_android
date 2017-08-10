@@ -1,40 +1,29 @@
 package com.sm_arts.jibcon.data.repository.network.mobius;
 
 import com.google.gson.annotations.SerializedName;
+import com.sm_arts.jibcon.data.models.mobius.dto.request.RequestCi;
+import com.sm_arts.jibcon.data.models.mobius.dto.response.ResponseCi;
 
+import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 /**
  * Created by jaeyoung on 7/14/17.
  */
 
-// todo remove this file
 public interface MobiusCiService {
-    @POST("/mobius-yt/ae-ledapp/cnt-ledonoff")
-    retrofit2.Call<Object> turnOnLed(
+    @POST("/{cse}/{device_ae}/{device_cnt}")
+    Call<ResponseCi> postCi(
+            @Path("cse") String cse,
+            @Path("device_ae") String deviceAe,
+            @Path("device_cnt") String deviceCnt,
             @Header("Accept") String accept,
             @Header("X-M2M-RI") String ri,
             @Header("X-M2M-Origin") String origin,
             @Header("Content-Type") String contentType,
-            @Body ApiCinC apiCinC
-            );
-
-    class ApiCinC {
-        @SerializedName("m2m:cin")
-        M2mcin m2mcin;
-
-        public ApiCinC(int con) {
-            this.m2mcin = new M2mcin(con);
-        }
-    }
-
-    class M2mcin {
-        int con;
-
-        public M2mcin(int con) {
-            this.con = con;
-        }
-    }
+            @Body RequestCi requestCi
+    );
 }
