@@ -10,7 +10,7 @@
     <!--Tutorial Activity-->
     <dimen name="tutorial_description_fontsize">24sp</dimen>
     <dimen name="tutorial_subdescription_fontsize">14.535sp</dimen>
-    <dimen name="tutorial_btnskip_fontsize">7.5sp</dimen>
+    <dimen name="tutorial_btnskip_fontsize">15sp</dimen>
     <item name="tutorial_btnskip_letterspacing" format="float" type="dimen">0.05</item>
     <!--tutorial_subdescription_linespacingextra = 임시값-->
     <dimen name="tutorial_subdescription_linespacingextra">10sp</dimen>

@@ -26,13 +26,11 @@
         android:text="@string/tutorial_skip"
         android:textStyle="bold"
         android:textSize="@dimen/tutorial_btnskip_fontsize"
-        android:textColor="@color/tutorial_background"
+        android:textColor="@color/white"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/progress"
         app:layout_constraintTop_toTopOf="@id/progress"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.933"
-        android:background="@drawable/tutorial_skip"
-        />
+        app:layout_constraintHorizontal_bias="0.933" />
 
 </android.support.constraint.ConstraintLayout>

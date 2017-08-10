@@ -20,12 +20,12 @@ public class UrlUtils {
     static {
         urls = new HashMap<>();
 
-//        String apiUrl = BuildConfig.DEBUG ?
-//                "http://52.79.142.130/" :
-//                "http://52.79.142.130/";
         String apiUrl = BuildConfig.DEBUG ?
-                "http://192.168.1.120:8000/" :
-                "http://192.168.1.120:8000/";
+                "http://52.79.142.130/" :
+                "http://52.79.142.130/";
+//        String apiUrl = BuildConfig.DEBUG ?
+//                "http://192.168.1.120:8000/" :
+//                "http://192.168.1.120:8000/";
         urls.put(UserService.class.getName(), apiUrl);
         urls.put(DeviceService.class.getName(), apiUrl);
 

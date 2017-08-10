@@ -19,7 +19,7 @@
     <string name="tutorial_description_1">스마트홈 기기를 등록하세요</string>
     <string name="tutorial_description_2">내 스마트홈 습관을 확인하세요</string>
     <string name="tutorial_description_3">혁신적 제품들을 만나보세요</string>
-    <string name="tutorial_description_4">실내의 스마트홈 습관을 확인해봐요</string>
+    <string name="tutorial_description_4">스마트홈 습관을 확인해봐요</string>
     <string-array name="tutorial_description_array">
         <item>@string/tutorial_description_1</item>
         <item>@string/tutorial_description_2</item>
