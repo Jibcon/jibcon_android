@@ -43,6 +43,11 @@ public class GlobalApplication extends MultiDexApplication {
         JibconLoginManager.getInstance().addOnSigninAction(
                 this::initMqttManager
         );
+
+        // TODO: 8/11/17 remove
+        JibconLoginManager.getInstance().loginWithSampleUser(
+                () -> {}
+        );
     }
 
     private void initTypekit() {
