@@ -35,6 +35,13 @@ public class AddDeviceWifiFragment extends Fragment {
         mMakeDeviceListener = (AddDeviceListner) context;
     }
 
+    @Override
+    public void onDetach() {
+        Log.d(TAG, "onDetach: ");
+        super.onDetach();
+        mMakeDeviceListener = null;
+    }
+
     private void initlayout() {
         Log.d(TAG, "initlayout: ");
     }
