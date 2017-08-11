@@ -46,6 +46,9 @@ public class PermissionHelper {
         } else if (activityOrFragment instanceof Fragment ){
             fragment = (Fragment) activityOrFragment;
             context = fragment.getContext();
+        } else {
+            throw new IllegalArgumentException("Argment activityOrFragment " +
+                    "should be Activity or Fragment instance.");
         }
 
 
