@@ -19,7 +19,7 @@ public class GetOtherConAdapter extends RecyclerView.Adapter<GetOtherConAdapter.
     private ArrayList<getOtherConData> mDataset;
 
     // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
+    // Complex data mItems may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView userImg;

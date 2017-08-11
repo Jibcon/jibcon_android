@@ -8,20 +8,13 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
-import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.ui.BaseActivity;
 import com.sm_arts.jibcon.ui.adddevice.phone.AddDevicePhoneFragment;
 import com.sm_arts.jibcon.ui.adddevice.product.AddDeviceProductFragment;
-import com.sm_arts.jibcon.ui.adddevice.wifi.AddDeviceWifiFragment;
-import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
+import com.sm_arts.jibcon.ui.adddevice.wifi.WifiFragment;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.utils.network.RetrofitClients;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class AddDeviceActivity extends BaseActivity implements AddDeviceListner {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
@@ -107,7 +100,7 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.device_adddeviceactivity_activity);
         mAddDevice0 = new AddDeviceProductFragment();
-        mAddDevice1 = new AddDeviceWifiFragment();
+        mAddDevice1 = new WifiFragment();
         mAddDevice2 = new AddDevicePhoneFragment();
         mDeviceItem = new DeviceItem();
 
