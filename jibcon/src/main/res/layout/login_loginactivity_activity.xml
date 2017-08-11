@@ -42,42 +42,37 @@
         fb:layout_constraintLeft_toLeftOf="parent"
         fb:layout_constraintRight_toRightOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingBottom="32dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp">
-
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/btn_login_facebook"
-            android:layout_width="280dp"
-            android:layout_height="60dp"
-            android:layout_weight="2.19"
-            android:padding="8dp"
-            android:visibility="gone" />
-
-        <com.kakao.usermgmt.LoginButton
-            android:id="@+id/Btn_Login_Kakao"
-            android:layout_width="294dp"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:visibility="gone" />
-
-        <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
+    <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
             android:id="@+id/btn_naver_login"
             android:layout_width="280dp"
             android:layout_height="60dp"
             android:padding="8dp"
             android:visibility="gone" />
 
-    </LinearLayout>
+    <FrameLayout
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        fb:layout_constraintBottom_toTopOf="@+id/btnSampleSignIn"
+        android:layout_marginRight="8dp"
+        fb:layout_constraintRight_toRightOf="@+id/videoView"
+        android:layout_marginLeft="8dp"
+        fb:layout_constraintLeft_toLeftOf="@+id/videoView"
+        android:id="@+id/frameLayout">
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btn_login_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            fb:srcCompat="@drawable/login_btn_facebook" />
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/textview_login2"
@@ -105,5 +100,28 @@
         fb:layout_constraintBottom_toTopOf="@+id/textview_login2"
         android:layout_marginStart="24dp" />
 
+    <FrameLayout
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        fb:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        android:layout_marginRight="8dp"
+        fb:layout_constraintRight_toRightOf="@+id/videoView"
+        android:layout_marginLeft="8dp"
+        fb:layout_constraintLeft_toLeftOf="@+id/videoView"
+        android:layout_marginBottom="24dp">
+
+        <com.kakao.usermgmt.LoginButton
+            android:id="@+id/Btn_Login_Kakao"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"/>
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            fb:srcCompat="@drawable/login_btn_kakao" />
+
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>
