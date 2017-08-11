@@ -30,7 +30,7 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
                 (deviceItem) -> {
                     if (deviceItem == null) {
                         Log.d(TAG, "sendDevice: failed to send device. device = " + mDeviceItem.toString());
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice,mAddDevice0).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mAddDevice0).commit();
                     } else {
                         Handler handler = new Handler();
                         handler.postDelayed(
@@ -52,13 +52,13 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
 
         switch (this.mPageNum % 3) {
             case 0:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice,mAddDevice0).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mAddDevice0).commit();
                 break;
             case 1:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice,mAddDevice1).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mAddDevice1).commit();
                 break;
             case 2:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice,mAddDevice2).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mAddDevice2).commit();
                 sendDevice();
                 break;
         }
@@ -99,8 +99,9 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.device_adddeviceactivity_activity);
-        mAddDevice0 = new AddDeviceProductFragment();
-        mAddDevice1 = new WifiFragment();
+        // TODO: 8/11/17 와이파이 화면 개발을위해 순서 바꿔놨음 순서 다시 바꿔야함
+        mAddDevice0 = new WifiFragment();
+        mAddDevice1 = new AddDeviceProductFragment();
         mAddDevice2 = new AddDevicePhoneFragment();
         mDeviceItem = new DeviceItem();
 

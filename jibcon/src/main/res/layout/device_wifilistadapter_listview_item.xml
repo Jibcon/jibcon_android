@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFF">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="wifiitemviewmodel"
+            type="com.sm_arts.jibcon.ui.adddevice.wifi.viewmodels.WifiItemViewModel"/>
+    </data>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
-    <TextView
-        android:id="@+id/tvWifi"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:layout_weight="4"
-        android:text="와이파이 리스트" />
+        <TextView
+            android:id="@+id/tv_wifiname"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_weight="4"
+            tools:text="와이파이 이름"
+            android:text="@{wifiitemviewmodel.mItem.getWifiname()}" />
 
-    <ImageView
-        android:id="@+id/imgViewWifi"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:cropToPadding="true"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter" />
+        <ImageView
+            android:id="@+id/iv_wifitype"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:cropToPadding="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@{wifiitemviewmodel.mItem.getWifitype()}"
+            />
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

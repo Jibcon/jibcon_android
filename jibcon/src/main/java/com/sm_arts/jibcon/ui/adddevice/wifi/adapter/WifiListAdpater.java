@@ -83,8 +83,8 @@ public class WifiListAdpater extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View root = View.inflate(parent.getContext(), R.layout.device_wifilistadapter_listview_item,null);
 
-        TextView textView = (TextView)root.findViewById(R.id.tvWifi);
-        ImageView imgView = (ImageView)root.findViewById(R.id.imgViewWifi);
+        TextView textView = (TextView)root.findViewById(R.id.tv_wifiname);
+        ImageView imgView = (ImageView)root.findViewById(R.id.iv_wifitype);
         textView.setText(mWifilist.get(position).SSID);
 
         switch (getType(mWifilist.get(position))) { // todo get wifi pic

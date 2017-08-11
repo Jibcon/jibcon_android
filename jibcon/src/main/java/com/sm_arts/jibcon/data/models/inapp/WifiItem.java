@@ -6,6 +6,7 @@ package com.sm_arts.jibcon.data.models.inapp;
 
 public class WifiItem {
     private String wifiname;
+    private int wifitype;
 
     public WifiItem(String wifiname) {
         this.wifiname = wifiname;
@@ -17,5 +18,13 @@ public class WifiItem {
 
     public void setWifiname(String wifiname) {
         this.wifiname = wifiname;
+    }
+
+    public int getWifitype() {
+        return wifitype;
+    }
+
+    public void setWifitype(int wifitype) {
+        this.wifitype = wifitype;
     }
 }

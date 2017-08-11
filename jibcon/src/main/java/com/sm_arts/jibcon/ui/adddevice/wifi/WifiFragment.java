@@ -9,7 +9,8 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.view.ViewGroup;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.databinding.DeviceAdddevicewififragmentFragmentBinding;
 import com.sm_arts.jibcon.ui.adddevice.AddDeviceListner;
+import com.sm_arts.jibcon.ui.adddevice.wifi.adapter.WifiAdapter;
 import com.sm_arts.jibcon.ui.adddevice.wifi.viewmodels.WifiViewModel;
 import com.sm_arts.jibcon.utils.broadcastreceiver.WifiscanManager;
 import com.sm_arts.jibcon.utils.helper.PermissionHelper;
@@ -52,14 +54,19 @@ public class WifiFragment extends LifecycleFragment {
         View v = binding.getRoot();
         mViewModel = ViewModelProviders.of(this).get(WifiViewModel.class);
         binding.setWifiviewmodel(mViewModel);
+        initView(binding);
 
         chkPermissionForScanWifi();
-        initlayout();
         return v;
     }
 
-    private void initlayout() {
-        Log.d(TAG, "initlayout: ");
+    private void initView(DeviceAdddevicewififragmentFragmentBinding binding) {
+        Log.d(TAG, "initView: ");
+        binding.recyclerviewWifilist.setAdapter(
+                new WifiAdapter()
+        );
+        binding.recyclerviewWifilist.setLayoutManager(
+                new LinearLayoutManager(getContext()));
     }
 
     private void chkPermissionForScanWifi() {
