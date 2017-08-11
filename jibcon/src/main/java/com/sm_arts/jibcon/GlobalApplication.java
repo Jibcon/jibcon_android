@@ -95,28 +95,4 @@ public class GlobalApplication extends MultiDexApplication {
     public Activity getCurrentActivity() {
         return sCurrentActivity.get();
     }
-
-    public boolean chkPermission(String permission, Activity currentActivity) {
-        Log.d(TAG, "chkPermission: ");
-        int permissionCheck = ContextCompat.checkSelfPermission(this, permission);
-
-        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
-            Log.d(TAG, "chkPermission: Granted");
-        } else {
-            Log.d(TAG, "chkPermission: Getting Permission");
-            String[] permissions = {permission};
-            ActivityCompat.requestPermissions(currentActivity, permissions, 1);
-
-            permissionCheck = ContextCompat.checkSelfPermission(this, permission);
-            if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
-                Log.d(TAG, "chkPermission: Success to get permission");
-            }
-            else {
-                Log.d(TAG, "chkPermission: Fail to get permission");
-                return false;
-            }
-        }
-
-        return true;
-    }
 }

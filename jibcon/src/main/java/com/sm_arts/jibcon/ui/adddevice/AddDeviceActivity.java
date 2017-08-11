@@ -3,6 +3,7 @@ package com.sm_arts.jibcon.ui.adddevice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
@@ -111,5 +112,11 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
         mDeviceItem = new DeviceItem();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mAddDevice0).commit();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        mAddDevice1.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }
