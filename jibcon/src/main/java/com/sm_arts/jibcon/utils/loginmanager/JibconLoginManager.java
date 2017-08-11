@@ -20,14 +20,14 @@ import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.sm_arts.jibcon.GlobalApplication;
-import com.sm_arts.jibcon.ui.makecon.MakeconStartActivity;
-import com.sm_arts.jibcon.ui.splash.IntroActivity;
+import com.sm_arts.jibcon.ui.splash.makecon.MakeconStartActivity;
+import com.sm_arts.jibcon.ui.splash.tutorial.IntroActivity;
 import com.sm_arts.jibcon.data.repository.helper.DeviceServiceImpl;
 import com.sm_arts.jibcon.data.models.api.dto.User;
 import com.sm_arts.jibcon.data.models.api.dto.UserInfo;
 import com.sm_arts.jibcon.data.repository.helper.network.UserNetworkImpl;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
-import com.sm_arts.jibcon.utils.SharedPreferenceHelper;
+import com.sm_arts.jibcon.utils.helper.SharedPreferenceHelper;
 import com.sm_arts.jibcon.utils.network.RetrofiClients;
 
 import org.json.JSONObject;

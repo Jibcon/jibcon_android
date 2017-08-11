@@ -11,6 +11,7 @@ import android.util.Log;
 
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.ui.BaseActivity;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
@@ -23,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddDeviceActivity extends AppCompatActivity implements AddDeviceListner {
+public class AddDeviceActivity extends BaseActivity implements AddDeviceListner {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
     private String mDeviceCom;

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/tutorial_background"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".ui.splash.login.LoginActivity">
 
     <Button
         android:id="@+id/btnSampleSignIn"
