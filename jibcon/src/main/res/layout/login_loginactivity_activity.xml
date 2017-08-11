@@ -83,6 +83,15 @@
             android:layout_height="match_parent"
             fb:srcCompat="@drawable/login_btn_facebook" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/login_facebook_btn"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+
     </FrameLayout>
 
     <!--Kakao Login Button-->
@@ -108,22 +117,32 @@
             android:layout_height="match_parent"
             fb:srcCompat="@drawable/login_btn_kakao" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/login_kakao_btn"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
     </FrameLayout>
 
     <!--Sample Login Button-->
     <Button
         android:id="@+id/btnSampleSignIn"
         android:layout_width="280dp"
-        android:layout_height="48dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="64dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/corner_btn"
-        android:text="SAMPLE LOGIN"
+        android:background="@color/tutorial_background"
+        android:text="@string/login_sample_btn"
         android:textColor="@color/white"
         android:textSize="16dp"
+        android:textStyle="bold"
+        android:fontFamily="gotham_black"
         fb:layout_constraintBottom_toBottomOf="parent"
         fb:layout_constraintHorizontal_bias="0.504"
         fb:layout_constraintLeft_toLeftOf="parent"
