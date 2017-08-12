@@ -16,21 +16,23 @@ import com.sm_arts.jibcon.ui.adddevice.wifi.WifiFragment;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AddDeviceActivity extends BaseActivity implements AddDeviceListner {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
-    private int mPageNum;
-    private Fragment mProductFragment;
-    private Fragment mWifiFragment;
-    private Fragment mProgressFragment;
+    private List<Fragment> mFragments = new ArrayList<>();
     private DeviceItem mDeviceItem;
+    private int mWifiFragmentIdx;
 
     public void sendDevice() {
         DeviceNetworkHelper.getInstance().postDevice(mDeviceItem,
                 (deviceItem) -> {
                     if (deviceItem == null) {
                         Log.d(TAG, "sendDevice: failed to send device. device = " + mDeviceItem.toString());
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mProductFragment).commit();
+                        goFirstPage();
+
                     } else {
                         Handler handler = new Handler();
                         handler.postDelayed(
@@ -43,25 +45,24 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
                 });
     }
 
+    private void goPage(int i) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_adddevice, mFragments.get(i)).commit();
+    }
+
     @Override
-    public void nextPage(int num) {
-        this.mPageNum += num;
-        if (this.mPageNum < 0) {
-            this.mPageNum = 0;
+    public void nextPage(@NonNull final Fragment fragment) {
+        final int page = mFragments.indexOf(fragment);
+        if (page == (mFragments.size() - 1)) {
+            // last page
+        } else if (page == (mFragments.size() - 2)) {
+            // last-1 page
+            sendDevice();
         }
 
-        switch (this.mPageNum % 3) {
-            case 0:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mProductFragment).commit();
-                break;
-            case 1:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mWifiFragment).commit();
-                break;
-            case 2:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mProgressFragment).commit();
-                sendDevice();
-                break;
-        }
+        final int nextPage = (page + 1) % mFragments.size();
+
+        goPage(nextPage);
     }
 
     @Override
@@ -98,17 +99,25 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.device_adddeviceactivity_activity);
-        mProductFragment = new ProductFragment();
-        mWifiFragment = new WifiFragment();
-        mProgressFragment = new ProgressFragment();
+        mFragments.add(new ProductFragment());
+
+        WifiFragment wifiFragment = new WifiFragment();
+        mFragments.add(wifiFragment);
+        mWifiFragmentIdx = mFragments.indexOf(wifiFragment);
+
+        mFragments.add(new ProgressFragment());
         mDeviceItem = new DeviceItem();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mProductFragment).commit();
+        goFirstPage();
+    }
+
+    private void goFirstPage() {
+        goPage(0);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        mWifiFragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        mFragments.get(mWifiFragmentIdx).onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

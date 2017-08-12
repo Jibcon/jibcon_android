@@ -37,8 +37,6 @@ public class WifiscanManager extends BroadcastReceiver {
         mWifiManager = wifiManager;
 
         IntentFilter intentFilter = new IntentFilter(RECEIVE_ACTION);
-        intentFilter.addAction(WifiManager.RSSI_CHANGED_ACTION);
-        intentFilter.addAction(WifiManager.ACTION_REQUEST_SCAN_ALWAYS_AVAILABLE);
         mContext.registerReceiver(this,
                 intentFilter);
     }
