@@ -1,10 +1,7 @@
 package com.sm_arts.jibcon.ui.adddevice.wifi.adapter;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +10,6 @@ import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.inapp.WifiItem;
 import com.sm_arts.jibcon.databinding.DeviceWifilistadapterListviewItemBinding;
 import com.sm_arts.jibcon.ui.adddevice.wifi.adapter.viewholder.WifiViewHolder;
-import com.sm_arts.jibcon.ui.adddevice.wifi.viewmodels.WifiItemViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +19,7 @@ import java.util.List;
  */
 
 public class WifiAdapter extends RecyclerView.Adapter<WifiViewHolder> {
-    private static final String TAG = "DeviceMenuAdapter";
+    private static final String TAG = "WifiAdapter";
     private List<WifiItem> mItems;
 
     public WifiAdapter() {
@@ -46,7 +42,7 @@ public class WifiAdapter extends RecyclerView.Adapter<WifiViewHolder> {
     }
 
     public void setItems(List<WifiItem> items) {
-        Log.d(TAG, "setItems() called with: items = [" + items + "]");
+//        Log.d(TAG, "setItems() called with: items = [" + items + "]");
         mItems = items;
         notifyDataSetChanged();
     }

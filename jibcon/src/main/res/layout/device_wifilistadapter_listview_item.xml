@@ -5,7 +5,7 @@
         <import type="android.view.View"/>
         <variable
             name="wifiitemviewmodel"
-            type="com.sm_arts.jibcon.ui.adddevice.wifi.viewmodels.WifiItemViewModel"/>
+            type="com.sm_arts.jibcon.ui.adddevice.wifi.adapter.viewholder.WifiItemViewModel"/>
     </data>
     <LinearLayout
         android:orientation="horizontal"
@@ -14,13 +14,21 @@
         >
 
         <TextView
-            android:id="@+id/tv_wifiname"
+            android:id="@+id/tv_ssid"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:gravity="center"
             android:layout_weight="4"
-            tools:text="와이파이 이름"
-            android:text="@{wifiitemviewmodel.mItem.getWifiname()}" />
+            tools:text="SSID"
+            android:text="@{wifiitemviewmodel.mSsid}" />
+        <TextView
+            android:id="@+id/tv_bandwidth"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            tools:text="2.4Ghz"
+            android:text="@{wifiitemviewmodel.mBandwidth}" />
 
         <ImageView
             android:id="@+id/iv_wifitype"
@@ -30,7 +38,7 @@
             android:cropToPadding="true"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@{wifiitemviewmodel.mItem.getWifitype()}"
+            android:src="@{wifiitemviewmodel.mSecureSrc}"
             />
 
     </LinearLayout>

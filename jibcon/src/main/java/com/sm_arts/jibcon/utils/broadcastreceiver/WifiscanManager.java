@@ -6,10 +6,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.sm_arts.jibcon.data.models.inapp.WifiItem;
-import com.sm_arts.jibcon.utils.ObjectConvertUtils;
+import com.sm_arts.jibcon.utils.converter.WifiItemConvertUtils;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ import io.reactivex.subjects.ReplaySubject;
 
 public class WifiscanManager extends BroadcastReceiver {
     private static final String TAG = "WifiscanManager";
+    private static final String RECEIVE_ACTION = WifiManager.SCAN_RESULTS_AVAILABLE_ACTION;
     private static WifiscanManager sInstance;
     private final WifiManager mWifiManager;
     private ReplaySubject<List<WifiItem>> mNotifier = ReplaySubject.create();
@@ -34,9 +36,9 @@ public class WifiscanManager extends BroadcastReceiver {
                 .getSystemService(Context.WIFI_SERVICE);
         mWifiManager = wifiManager;
 
-        IntentFilter intentFilter = new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
-//        intentFilter.addAction(WifiManager.RSSI_CHANGED_ACTION);
-//        intentFilter.addAction(WifiManager.ACTION_REQUEST_SCAN_ALWAYS_AVAILABLE);
+        IntentFilter intentFilter = new IntentFilter(RECEIVE_ACTION);
+        intentFilter.addAction(WifiManager.RSSI_CHANGED_ACTION);
+        intentFilter.addAction(WifiManager.ACTION_REQUEST_SCAN_ALWAYS_AVAILABLE);
         mContext.registerReceiver(this,
                 intentFilter);
     }
@@ -55,12 +57,15 @@ public class WifiscanManager extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d(TAG, "onReceive: ");
-        //// TODO: 8/11/17 IMPLEMENT INTENT VALIDATION
+//        Log.d(TAG, "onReceive: ");
         List<ScanResult> scanResults = mWifiManager.getScanResults();
-        mWifiManager.startScan();
-        List<WifiItem> wifiItems = ObjectConvertUtils.convertToWifiItem(scanResults);
-        mNotifier.onNext(wifiItems);
+        List<WifiItem> wifiItems = WifiItemConvertUtils.convertToWifiItem(scanResults);
+        if (TextUtils.equals(intent.getAction(), RECEIVE_ACTION)) {
+            mNotifier.onNext(wifiItems);
+        } else {
+            Log.d(TAG, "onReceive() called with: action = [" + intent.getAction() + "]," +
+                    " items = [" + wifiItems + "]");
+        }
     }
 
     public static void init(Context context) {

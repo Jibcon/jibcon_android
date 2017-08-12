@@ -5,26 +5,15 @@ package com.sm_arts.jibcon.data.models.inapp;
  */
 
 public class WifiItem {
-    private String wifiname;
-    private int wifitype;
+    public boolean is5GHz;
+    public boolean isSecured;
+    public String ssid;
+    public String bssid;
 
-    public WifiItem(String wifiname) {
-        this.wifiname = wifiname;
-    }
-
-    public String getWifiname() {
-        return wifiname;
-    }
-
-    public void setWifiname(String wifiname) {
-        this.wifiname = wifiname;
-    }
-
-    public int getWifitype() {
-        return wifitype;
-    }
-
-    public void setWifitype(int wifitype) {
-        this.wifitype = wifitype;
+    public WifiItem(String ssid, String bssid, boolean is5GHz, boolean isSecured) {
+        this.ssid = ssid;
+        this.bssid = bssid;
+        this.is5GHz = is5GHz;
+        this.isSecured = isSecured;
     }
 }
