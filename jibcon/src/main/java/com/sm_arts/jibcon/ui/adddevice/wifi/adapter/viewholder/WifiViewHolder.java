@@ -2,15 +2,9 @@ package com.sm_arts.jibcon.ui.adddevice.wifi.adapter.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.inapp.WifiItem;
 import com.sm_arts.jibcon.databinding.DeviceWifilistadapterListviewItemBinding;
-import com.sm_arts.jibcon.ui.adddevice.wifi.viewmodels.WifiItemViewModel;
-
-import butterknife.BindView;
 
 /**
  * Created by jaeyoung on 8/11/17.

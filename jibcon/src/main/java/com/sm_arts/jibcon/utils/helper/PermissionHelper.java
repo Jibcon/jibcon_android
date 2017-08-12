@@ -5,11 +5,15 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.functions.Action;
@@ -90,7 +94,7 @@ public class PermissionHelper {
                                      int requestCode,
                                      Action onAlreadyGranted) {
 
-        List<String> permissions = Arrays.asList(permission);
+        List<String> permissions = Collections.singletonList(permission);
         chkPermissions(permissions, activityOrFragment, requestCode, onAlreadyGranted);
     }
 }

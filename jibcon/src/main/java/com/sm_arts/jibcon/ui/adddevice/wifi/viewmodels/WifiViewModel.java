@@ -41,7 +41,10 @@ public class WifiViewModel extends ViewModel{
                 .map(List::size)
                 .filter((sz) -> sz < 0)
                 .subscribe(
-                        (len) -> this.startScan()
+                        (len) -> {
+                            Log.d(TAG, "onWifireceiverInitialized: Do rescan, len=" + len);
+                            this.startScan();
+                        }
                 );
 
         startScan();

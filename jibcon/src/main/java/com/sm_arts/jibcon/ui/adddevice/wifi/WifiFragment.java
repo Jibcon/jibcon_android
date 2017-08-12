@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +23,6 @@ import com.sm_arts.jibcon.ui.adddevice.wifi.viewmodels.WifiViewModel;
 import com.sm_arts.jibcon.utils.broadcastreceiver.WifiscanManager;
 import com.sm_arts.jibcon.utils.helper.PermissionHelper;
 
-import static com.sm_arts.jibcon.utils.helper.PermissionHelper.ACCESSCOARSELOCATION_REQUEST_CODE;
 
 /**
  * Created by admin on 2017-04-15.
@@ -83,11 +81,12 @@ public class WifiFragment extends LifecycleFragment {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         Log.d(TAG, "onRequestPermissionsResult: requestCode = " + requestCode);
 
-        if (requestCode == ACCESSCOARSELOCATION_REQUEST_CODE) {
+        if (requestCode == PermissionHelper.ACCESSCOARSELOCATION_REQUEST_CODE) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Log.d(TAG, "onRequestPermissionsResult: PERMISSION_GRANTED");
                 initWifiManager();

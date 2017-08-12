@@ -69,7 +69,6 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
         mDeviceItem.setDeviceCom(deviceCom);
     }
 
-
     @Override
     public void setDeviceName(String deviceName) {
         mDeviceItem.setDeviceName(deviceName);
