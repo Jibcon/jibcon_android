@@ -1,90 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:gravity="center"
-    android:background="#FFF">
-
-    <!--상단 진행 상황-->
-    <LinearLayout
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="wifiviewmodel"
+            type="com.sm_arts.jibcon.ui.adddevice.wifi.viewmodels.WifiViewModel"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@drawable/xml_boreder"
-            android:text="제품 선택"
-            android:textColor="@color/default_text_color"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@drawable/xml_boreder"
-            android:text="와이파이 연결"
-            android:textColor="@color/default_text_color"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="핸드폰 연결"
-            android:textColor="@color/default_text_color"/>
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:paddingBottom="16dp"
+        android:gravity="center"
+        android:background="#FFF">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.8"
-        android:gravity="center">
+        <!--상단 진행 상황-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/xml_boreder"
+                android:text="제품 선택"
+                android:textColor="@color/default_text_color"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/xml_boreder"
+                android:text="와이파이 연결"
+                android:textColor="@color/default_text_color"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="핸드폰 연결"
+                android:textColor="@color/default_text_color"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="와이파이 연결"
+                android:textColor="@color/default_text_color"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <TextView
+            android:id="@+id/Txt_adddevice1_1"
+            android:gravity="center"
+            android:text="가정 내 와이파이를 선택해 주세요"
+            android:textColor="@color/default_text_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="와이파이 연결"
-            android:textColor="@color/default_text_color"
-            android:textSize="24dp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/Txt_adddevice1_1"
-        android:gravity="center"
-        android:text="가정 내 와이파이를 선택해 주세요"
-        android:textColor="@color/default_text_color"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            style="@android:style/Widget.ProgressBar.Small"
+            android:visibility="@{wifiviewmodel.searchProgress ? View.VISIBLE : View.GONE}"
+            />
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3">
-
-        <ListView
-            android:id="@+id/ListView_adddevice1"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/Btn_addDevice1"
-            android:foregroundGravity="top" />
+            android:layout_height="0dp"
+            android:layout_weight="3">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_wifilist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/btn_next"
+                bind:items="@{wifiviewmodel.mItems}"
+                android:foregroundGravity="top" />
 
-        <Button
-            android:id="@+id/Btn_addDevice1"
-            android:layout_width="240dp"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="24dp"
-            android:background="@color/colorPrimary"
-            android:text="다음"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
-    </RelativeLayout>
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="240dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="24dp"
+                android:background="@color/colorPrimary"
+                android:text="다음"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
 
-</LinearLayout>
+            <!--<ProgressBar-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="@android:style/Widget.ProgressBar.Small"-->
+                <!--android:layout_above="@+id/btn_next"-->
+                <!--android:visibility="@{wifiviewmodel.searchProgress ? View.VISIBLE : View.GONE}"-->
+                <!--/>-->
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
