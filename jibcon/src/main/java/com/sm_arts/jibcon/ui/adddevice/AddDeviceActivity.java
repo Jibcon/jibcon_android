@@ -10,8 +10,8 @@ import android.util.Log;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.ui.BaseActivity;
-import com.sm_arts.jibcon.ui.adddevice.phone.AddDevicePhoneFragment;
-import com.sm_arts.jibcon.ui.adddevice.product.AddDeviceProductFragment;
+import com.sm_arts.jibcon.ui.adddevice.progress.ProgressFragment;
+import com.sm_arts.jibcon.ui.adddevice.product.ProductFragment;
 import com.sm_arts.jibcon.ui.adddevice.wifi.WifiFragment;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
@@ -20,9 +20,9 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
     private final String TAG = "jibcon/" + getClass().getSimpleName();
 
     private int mPageNum;
-    private Fragment mAddDevice0;
-    private Fragment mAddDevice1;
-    private Fragment mAddDevice2;
+    private Fragment mProductFragment;
+    private Fragment mWifiFragment;
+    private Fragment mProgressFragment;
     private DeviceItem mDeviceItem;
 
     public void sendDevice() {
@@ -30,7 +30,7 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
                 (deviceItem) -> {
                     if (deviceItem == null) {
                         Log.d(TAG, "sendDevice: failed to send device. device = " + mDeviceItem.toString());
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mAddDevice0).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mProductFragment).commit();
                     } else {
                         Handler handler = new Handler();
                         handler.postDelayed(
@@ -52,13 +52,13 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
 
         switch (this.mPageNum % 3) {
             case 0:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mAddDevice0).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mProductFragment).commit();
                 break;
             case 1:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mAddDevice1).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mWifiFragment).commit();
                 break;
             case 2:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mAddDevice2).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mProgressFragment).commit();
                 sendDevice();
                 break;
         }
@@ -98,18 +98,17 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.device_adddeviceactivity_activity);
-        // TODO: 8/11/17 와이파이 화면 개발을위해 순서 바꿔놨음 순서 다시 바꿔야함
-        mAddDevice0 = new WifiFragment();
-        mAddDevice1 = new AddDeviceProductFragment();
-        mAddDevice2 = new AddDevicePhoneFragment();
+        mProductFragment = new ProductFragment();
+        mWifiFragment = new WifiFragment();
+        mProgressFragment = new ProgressFragment();
         mDeviceItem = new DeviceItem();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mAddDevice0).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_adddevice, mProductFragment).commit();
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        mAddDevice1.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        mWifiFragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

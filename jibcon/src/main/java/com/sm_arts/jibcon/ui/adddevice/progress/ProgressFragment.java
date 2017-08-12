@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.adddevice.phone;
+package com.sm_arts.jibcon.ui.adddevice.progress;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import com.sm_arts.jibcon.ui.adddevice.AddDeviceListner;
  * Created by admin on 2017-04-15.
  */
 
-public class AddDevicePhoneFragment extends Fragment {
+public class ProgressFragment extends Fragment {
     private AddDeviceListner mMakeDeviceListener;
 
     @Override

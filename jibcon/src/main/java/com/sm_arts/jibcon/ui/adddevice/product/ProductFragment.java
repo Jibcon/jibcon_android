@@ -27,7 +27,7 @@ import butterknife.Unbinder;
  * Created by admin on 2017-04-15.
  */
 
-public class AddDeviceProductFragment extends Fragment {
+public class ProductFragment extends Fragment {
     private static final String TAG = "AddDeviceProductFragmen";
 
     @BindView(R.id.spinner_devicecompany)

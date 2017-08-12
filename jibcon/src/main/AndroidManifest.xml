@@ -37,11 +37,11 @@
             android:name=".ui.splash.tutorial.IntroActivity"
             android:label="@string/app_name"
             android:theme="@style/myAppTheme.IntroNoActionBar">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ui.splash.tutorial.TutorialMainActivity"
@@ -106,7 +106,6 @@
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity android:name=".ui.splash.login.KakaoSignupActivity"
             android:theme="@style/myAppTheme.LoginNoActionBar">
-
         </activity>
 
 
