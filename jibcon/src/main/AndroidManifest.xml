@@ -30,7 +30,7 @@
             />
         <activity
             android:name=".ui.main.MainActivity"
-            android:theme="@style/myAppTheme.TutorialNoActionBar" >
+            android:theme="@style/myAppTheme.JibconNoActionBar" >
         </activity>
 
         <activity
@@ -45,7 +45,7 @@
         </activity>
         <activity
             android:name=".ui.splash.tutorial.TutorialMainActivity"
-            android:theme="@style/myAppTheme.TutorialNoActionBar" />
+            android:theme="@style/myAppTheme.JibconNoActionBar" />
         <activity
             android:name=".ui.splash.login.LoginActivity"
             android:label="@string/app_name"
@@ -55,17 +55,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.splash.makecon.MakeconMainActivity"
-            android:theme="@style/myAppTheme.TutorialNoActionBar" />
+            android:theme="@style/myAppTheme.JibconNoActionBar" />
         <activity
             android:name=".ui.adddevice.AddDeviceActivity"
-            android:theme="@style/myAppTheme.TutorialNoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+            android:theme="@style/myAppTheme.JibconNoActionBar" />
         <activity
             android:name=".ui.additional.sidebar.ConnectedDevicesActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
@@ -112,7 +105,7 @@
             android:name=".ui.BaseActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity android:name=".ui.splash.login.KakaoSignupActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/myAppTheme.LoginNoActionBar">
 
         </activity>
 

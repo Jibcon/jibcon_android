@@ -39,5 +39,8 @@
     </string-array>
 
     <string name="login_text">처음 만나는 스마트폰 플랫폼, 집콘</string>
+    <string name="login_kakao_btn">카카오톡으로 로그인</string>
+    <string name="login_facebook_btn">페이스북으로 로그인</string>
+    <string name="login_sample_btn">샘플 로그인</string>
 
 </resources>

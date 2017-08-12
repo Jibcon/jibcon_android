@@ -24,60 +24,18 @@
         android:layout_marginRight="0dp"
         fb:layout_constraintRight_toRightOf="parent" />
 
-    <Button
-        android:id="@+id/btnSampleSignIn"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="64dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/corner_btn"
-        android:text="SAMPLE LOGIN"
-        android:textColor="@color/white"
-        android:textSize="16dp"
-        fb:layout_constraintBottom_toBottomOf="parent"
-        fb:layout_constraintHorizontal_bias="0.504"
-        fb:layout_constraintLeft_toLeftOf="parent"
-        fb:layout_constraintRight_toRightOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="395dp"
+    <!--App Name TextView-->
+    <TextView
+        android:id="@+id/textview_login1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingBottom="32dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp">
-
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/btn_login_facebook"
-            android:layout_width="280dp"
-            android:layout_height="60dp"
-            android:layout_weight="2.19"
-            android:padding="8dp"
-            android:visibility="gone" />
-
-        <com.kakao.usermgmt.LoginButton
-            android:id="@+id/Btn_Login_Kakao"
-            android:layout_width="294dp"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:visibility="gone" />
-
-        <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
-            android:id="@+id/btn_naver_login"
-            android:layout_width="280dp"
-            android:layout_height="60dp"
-            android:padding="8dp"
-            android:visibility="gone" />
-
-    </LinearLayout>
+        android:text="처음 만나는 스마트홈 플랫폼, 집콘"
+        android:textColor="@color/white"
+        android:layout_marginLeft="24dp"
+        fb:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="16dp"
+        fb:layout_constraintBottom_toTopOf="@+id/textview_login2"
+        android:layout_marginStart="24dp" />
 
     <TextView
         android:id="@+id/textview_login2"
@@ -93,17 +51,101 @@
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp" />
 
-    <TextView
-        android:id="@+id/textview_login1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="처음 만나는 스마트홈 플랫폼, 집콘"
-        android:textColor="@color/white"
-        android:layout_marginLeft="24dp"
-        fb:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="16dp"
-        fb:layout_constraintBottom_toTopOf="@+id/textview_login2"
-        android:layout_marginStart="24dp" />
+    <!--Naver Login Button-->
+    <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
+            android:id="@+id/btn_naver_login"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:padding="8dp"
+            android:visibility="gone" />
 
+    <!--Facebook Login Button-->
+    <FrameLayout
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        fb:layout_constraintBottom_toTopOf="@+id/btnSampleSignIn"
+        android:layout_marginRight="8dp"
+        fb:layout_constraintRight_toRightOf="@+id/videoView"
+        android:layout_marginLeft="8dp"
+        fb:layout_constraintLeft_toLeftOf="@+id/videoView"
+        android:id="@+id/frameLayout">
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btn_login_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp" />
+
+        <ImageView
+            android:id="@+id/iv_facebooklogin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            fb:srcCompat="@drawable/login_btn_facebook" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/login_facebook_btn"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+
+    </FrameLayout>
+
+    <!--Kakao Login Button-->
+    <FrameLayout
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        fb:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        android:layout_marginRight="8dp"
+        fb:layout_constraintRight_toRightOf="@+id/videoView"
+        android:layout_marginLeft="8dp"
+        fb:layout_constraintLeft_toLeftOf="@+id/videoView"
+        android:layout_marginBottom="8dp">
+
+        <com.kakao.usermgmt.LoginButton
+            android:id="@+id/Btn_Login_Kakao"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"/>
+
+        <ImageView
+            android:id="@+id/iv_kakaologin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            fb:srcCompat="@drawable/login_btn_kakao" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/login_kakao_btn"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+    </FrameLayout>
+
+    <!--Sample Login Button-->
+    <Button
+        android:id="@+id/btnSampleSignIn"
+        android:layout_width="280dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/tutorial_background"
+        android:text="@string/login_sample_btn"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:fontFamily="gotham_black"
+        fb:layout_constraintBottom_toBottomOf="parent"
+        fb:layout_constraintHorizontal_bias="0.504"
+        fb:layout_constraintLeft_toLeftOf="parent"
+        fb:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
