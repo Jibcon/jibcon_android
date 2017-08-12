@@ -43,7 +43,8 @@ public class WifiFragment extends LifecycleFragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: ");
 
         DeviceAdddevicewififragmentFragmentBinding binding =
@@ -60,11 +61,14 @@ public class WifiFragment extends LifecycleFragment {
 
     private void initView(DeviceAdddevicewififragmentFragmentBinding binding) {
         Log.d(TAG, "initView: ");
+
         binding.recyclerviewWifilist.setAdapter(
-                new WifiAdapter()
-        );
+                new WifiAdapter());
         binding.recyclerviewWifilist.setLayoutManager(
                 new LinearLayoutManager(getContext()));
+
+        binding.btnNext.setOnClickListener(
+                (btn) -> mMakeDeviceListener.nextPage(this));
     }
 
     private void chkPermissionForScanWifi() {

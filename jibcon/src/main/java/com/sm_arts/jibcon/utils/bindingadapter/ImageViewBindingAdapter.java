@@ -13,8 +13,8 @@ public class ImageViewBindingAdapter {
 
     @BindingAdapter("android:src")
     public static void setImageWithResourceId(ImageView imageView, int resourceId) {
-        Log.d(TAG, "setImageWithResourceId() called with: imageView = [" + imageView + "]," +
-                " resourceId = [" + resourceId + "]");
+//        Log.d(TAG, "setImageWithResourceId() called with: imageView = [" + imageView + "]," +
+//                " resourceId = [" + resourceId + "]");
 
         imageView.setImageResource(resourceId);
     }

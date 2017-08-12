@@ -60,7 +60,7 @@ public class ProductFragment extends Fragment {
         mSpinnerDevicetype.setAdapter(devicetypeSpinnerAdapter);
 
         mBtnNext.setOnClickListener(
-                (v) -> mMakeDeviceListener.nextPage(1)
+                (v) -> mMakeDeviceListener.nextPage(this)
         );
 
         mSpinnerDevicecompany.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

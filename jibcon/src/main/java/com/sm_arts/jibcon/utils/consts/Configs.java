@@ -34,7 +34,8 @@ public interface Configs {
 
         List<String> DEVICENAME_CHOCIED = Arrays.asList(
                 "led",
-                "ultra"
+                "ultra",
+                "humitidy"
         );
 
         List<String> DEVICECOM_CHOICES = Collections.singletonList(
@@ -43,17 +44,20 @@ public interface Configs {
 
         List<String> DEVICETYPE_CHOICES = Arrays.asList(
                 "bulb",
-                "sensor"
+                "ultrasensor",
+                "humiditysensor"
         );
 
         List<String> AENAME_CHOICES = Arrays.asList(
-                "ae-secondled",
-                "ae-jyp"
+                "ae-smarts",
+                "ae-smarts",
+                "ae-smarts"
         );
 
         List<String> CNTNAME_CHOICES = Arrays.asList(
                 "cnt-led",
-                "cnt-ultra"
+                "cnt-ultra",
+                "cnt-dht"
         );
     }
 
