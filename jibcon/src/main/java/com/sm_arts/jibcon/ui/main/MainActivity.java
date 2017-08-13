@@ -20,6 +20,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetSequence;
+import com.getkeepsafe.taptargetview.TapTargetView;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.BaseActivity;
 import com.sm_arts.jibcon.GlobalApplication;
@@ -231,6 +234,8 @@ public class MainActivity extends BaseActivity
         userEmail.setText(JibconLoginManager.getInstance().getUserEmail());
         
         initLayout();
+
+        setTapTargetView();
     }
 
 
@@ -288,5 +293,15 @@ public class MainActivity extends BaseActivity
         mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
     }
 
+    public void setTapTargetView() {
+        TapTargetSequence mTapTargetSequence = new TapTargetSequence(this)
+                .targets(
+                        TapTarget.forView(mDeviceBtn, "디바이스 메뉴", "등록된 디바이스들을 한눈에!\n하나의 창에서 조작해보세요."),
+                        TapTarget.forView(mCheatkeyBtn, "치트키 메뉴", "등록된 디바이스들로\n액티브, 패시브 치트키를\n만들어보세요."),
+                        TapTarget.forView(mConshopBtn, "콘샾 메뉴", "혁신적 제품들을 만나보세요."),
+                        TapTarget.forView(mDataControlBtn, "데이터 메뉴", "낭비되는 전기세부터\n나에게 맞는 온도까지!\n데이터로 알아보세요.")
+                ); // sorry for hard coding
 
+        mTapTargetSequence.start();
+    }
 }
