@@ -33,7 +33,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     private SwipeRefreshLayout mSwiperefreshlayout;
     private RecyclerView mRecyclerView;
     private DeviceMenuAdapter mAdapter;
-    private ImageButton mFabDeviceBehindBtn;
+    public ImageButton mFabDeviceBehindBtn;
     private DeviceMenuPresenter mPresenter;
 
     //region Fragment role

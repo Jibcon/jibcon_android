@@ -235,7 +235,7 @@ public class MainActivity extends BaseActivity
         
         initLayout();
 
-        setTapTargetView();
+        setTapTargetView(); // 초기 도움말 View
     }
 
 
@@ -296,11 +296,31 @@ public class MainActivity extends BaseActivity
     public void setTapTargetView() {
         TapTargetSequence mTapTargetSequence = new TapTargetSequence(this)
                 .targets(
-                        TapTarget.forView(mDeviceBtn, "디바이스 메뉴", "등록된 디바이스들을 한눈에!\n하나의 창에서 조작해보세요."),
-                        TapTarget.forView(mCheatkeyBtn, "치트키 메뉴", "등록된 디바이스들로\n액티브, 패시브 치트키를\n만들어보세요."),
-                        TapTarget.forView(mConshopBtn, "콘샾 메뉴", "혁신적 제품들을 만나보세요."),
-                        TapTarget.forView(mDataControlBtn, "데이터 메뉴", "낭비되는 전기세부터\n나에게 맞는 온도까지!\n데이터로 알아보세요.")
-                ); // sorry for hard coding
+                        TapTarget.forView(mDeviceBtn, "디바이스 메뉴", "등록된 디바이스들을 한눈에!\n하나의 창에서 조작해보세요.")
+                                .cancelable(false),
+                        TapTarget.forView(mCheatkeyBtn, "치트키 메뉴", "등록된 디바이스들로\n액티브, 패시브 치트키를\n만들어보세요.")
+                                .cancelable(false),
+                        TapTarget.forView(mConshopBtn, "콘샾 메뉴", "혁신적 제품들을 만나보세요.")
+                                .cancelable(false),
+                        TapTarget.forView(mDataControlBtn, "데이터 메뉴", "낭비되는 전기세부터\n나에게 맞는 온도까지!\n데이터로 알아보세요."))
+                .listener(new TapTargetSequence.Listener() {
+                    // This listener will tell us when interesting(tm) events happen in regards
+                    // to the sequence
+                    @Override
+                    public void onSequenceFinish() {
+                        // Yay
+                    }
+
+                    @Override
+                    public void onSequenceStep(TapTarget lastTarget, boolean targetClicked) {
+
+                    }
+
+                    @Override
+                    public void onSequenceCanceled(TapTarget lastTarget) {
+                        // Boo
+                    }
+                });
 
         mTapTargetSequence.start();
     }
