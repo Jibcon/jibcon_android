@@ -1,10 +1,7 @@
 package com.sm_arts.jibcon;
 
 import android.app.Activity;
-import android.content.pm.PackageManager;
 import android.support.multidex.MultiDexApplication;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.kakao.auth.KakaoSDK;
@@ -46,7 +43,8 @@ public class GlobalApplication extends MultiDexApplication {
 
         // TODO: 8/11/17 remove
         JibconLoginManager.getInstance().loginWithSampleUser(
-                () -> {}
+                () -> {
+                }
         );
     }
 

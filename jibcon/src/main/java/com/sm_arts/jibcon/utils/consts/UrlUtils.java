@@ -3,6 +3,7 @@ package com.sm_arts.jibcon.utils.consts;
 import com.sm_arts.jibcon.BuildConfig;
 import com.sm_arts.jibcon.data.repository.network.api.DeviceService;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
+import com.sm_arts.jibcon.data.repository.network.hue.HueService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusAeService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCntService;
@@ -35,6 +36,10 @@ public class UrlUtils {
         urls.put(MobiusAeService.class.getName(), mobiusUrl);
         urls.put(MobiusCntService.class.getName(), mobiusUrl);
         urls.put(MobiusSubService.class.getName(), mobiusUrl);
+
+        String hueUrl =
+                "http:/192.168.1.83";
+        urls.put(HueService.class.getName(), hueUrl);
     }
 
     public static String getUrlWithClassName(String clsName) {
