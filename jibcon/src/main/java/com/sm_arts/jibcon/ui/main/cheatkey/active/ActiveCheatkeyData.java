@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey;
+package com.sm_arts.jibcon.ui.main.cheatkey.active;
 
 /**
  * Created by woojinkim on 2017. 7. 17..

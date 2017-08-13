@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey;
+package com.sm_arts.jibcon.ui.main.cheatkey.active;
 
 import android.content.Context;
 import android.content.Intent;

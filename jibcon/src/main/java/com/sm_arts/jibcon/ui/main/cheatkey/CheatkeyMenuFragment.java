@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.ui.main.cheatkey.active.CheatkeyActiveFragment;
+import com.sm_arts.jibcon.ui.main.cheatkey.routine.RoutineFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -71,7 +73,7 @@ public class CheatkeyMenuFragment extends Fragment{
                 case 0:
                     return new CheatkeyActiveFragment();
                 case 1:
-                    return new CheatkeyPassiveFragment();
+                    return new RoutineFragment();
                 default:
                     return null;
             }
