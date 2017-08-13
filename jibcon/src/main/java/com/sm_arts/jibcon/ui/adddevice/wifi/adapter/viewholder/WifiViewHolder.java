@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.sm_arts.jibcon.data.models.inapp.WifiItem;
-import com.sm_arts.jibcon.databinding.DeviceWifilistadapterListviewItemBinding;
+import com.sm_arts.jibcon.databinding.AdddeviceWifiItemBinding;
 
 /**
  * Created by jaeyoung on 8/11/17.
@@ -16,7 +16,7 @@ public class WifiViewHolder extends RecyclerView.ViewHolder {
     private final WifiItemViewModel mViewModel;
 
 
-    public WifiViewHolder(View view, DeviceWifilistadapterListviewItemBinding binding) {
+    public WifiViewHolder(View view, AdddeviceWifiItemBinding binding) {
         super(view);
         mViewModel = new WifiItemViewModel();
         binding.setWifiitemviewmodel(mViewModel);
