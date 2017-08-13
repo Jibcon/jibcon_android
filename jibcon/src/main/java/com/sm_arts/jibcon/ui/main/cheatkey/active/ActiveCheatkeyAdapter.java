@@ -62,7 +62,6 @@ public class ActiveCheatkeyAdapter
     public void onBindViewHolder(ActiveCheatkeyAdapter.ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.cheatkeySettingBtn.setId(R.id.btn_passive_cheatkey_setting);
         holder.cheatkeyImg.setId(R.id.img_active_cheatkey);
         holder.cheatkeyName.setText(mActiveCheatkeyDataset.get(position).activeCheatkeyName);
 

@@ -61,37 +61,30 @@ public class CheatkeyActiveFragment extends android.support.v4.app.Fragment {
         // 치트키 수동 입력, 추후 사용자가 치트키 등록시 추가되도록 구현해야
         // cardview #1
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank,"출근"
         ));
         // cardview #2
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank, "퇴근"
                 ));
         // cardview #3
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank, "굿나잇"
         ));
         // cardview #4
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank, "출장 & 휴가"
         ));
         // cardview #5
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank, "등교"
         ));
         // cardview #6
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank, "아침 기상"
                 ));
         // cardview #7
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank, "현호 재울 때"
         ));
 

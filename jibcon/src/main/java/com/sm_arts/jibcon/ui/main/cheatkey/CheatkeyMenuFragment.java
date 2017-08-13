@@ -23,6 +23,8 @@ import butterknife.ButterKnife;
  */
 
 public class CheatkeyMenuFragment extends Fragment{
+    private static final String TAG = "CheatkeyMenuFragment";
+    
     // Viewpager
     ViewPager mVp;
 
@@ -33,6 +35,7 @@ public class CheatkeyMenuFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView: ");
         RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.maincheatkey_cheatkeymenu_fragment, container, false);
         ButterKnife.bind(this, layout);
 
@@ -71,8 +74,10 @@ public class CheatkeyMenuFragment extends Fragment{
             Log.w("CJ","movePageListener");
             switch(position) {
                 case 0:
+                    Log.d(TAG, "getItem: CheatkeyActiveFragment");
                     return new CheatkeyActiveFragment();
                 case 1:
+                    Log.d(TAG, "getItem: ");
                     return new RoutineFragment();
                 default:
                     return null;

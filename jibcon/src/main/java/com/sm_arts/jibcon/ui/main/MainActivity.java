@@ -60,6 +60,7 @@ public class MainActivity extends BaseActivity
     //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
     //속도 너무 느림 ㅠ
     private class pagerAdapter extends FragmentStatePagerAdapter{
+        private static final String TAG = "pagerAdapter";
         public pagerAdapter(android.support.v4.app.FragmentManager fm) {
             super(fm);
         }
@@ -70,6 +71,7 @@ public class MainActivity extends BaseActivity
                 case 0:
                     return mDeviceFragment;
                 case 1:
+                    Log.d(TAG, "getItem: mCheatkeyFragment");
                     return mCheatkeyFragment;
                 case 2:
                     return mConshopFragment;
