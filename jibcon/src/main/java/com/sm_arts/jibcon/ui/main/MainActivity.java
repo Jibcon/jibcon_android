@@ -143,9 +143,13 @@ public class MainActivity extends BaseActivity
 
     private void setDefaultMainMenuBtn() {
         mDeviceBtn.setTextColor(R.color.white);
+        mDeviceBtn.setBackgroundResource(R.color.tutorial_background);
         mCheatkeyBtn.setTextColor(R.color.white);
+        mCheatkeyBtn.setBackgroundResource(R.color.tutorial_background);
         mConshopBtn.setTextColor(R.color.white);
+        mConshopBtn.setBackgroundResource(R.color.tutorial_background);
         mDataControlBtn.setTextColor(R.color.white);
+        mDataControlBtn.setBackgroundResource(R.color.tutorial_background);
     }
 
     private void setSelectedMainMenuBtn(int position) {
@@ -153,26 +157,26 @@ public class MainActivity extends BaseActivity
             case 0 :
                 setDefaultMainMenuBtn();
 //                mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
-                mDeviceBtn.setBackgroundResource(R.color.white);
                 mDeviceBtn.setTextColor(R.color.tutorial_background);
+                mDeviceBtn.setBackgroundResource(R.color.white);
                 break;
             case 1:
                 setDefaultMainMenuBtn();
 //                mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
-                mDeviceBtn.setBackgroundResource(R.color.white);
                 mDeviceBtn.setTextColor(R.color.tutorial_background);
+                mDeviceBtn.setBackgroundResource(R.color.white);
                 break;
             case 2:
                 setDefaultMainMenuBtn();
 //                mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
-                mDeviceBtn.setBackgroundResource(R.color.white);
                 mDeviceBtn.setTextColor(R.color.tutorial_background);
+                mDeviceBtn.setBackgroundResource(R.color.white);
                 break;
             case 3:
-                setDefaultMainMenuBtn();
+//                setDefaultMainMenuBtn();
 //                mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
-                mDeviceBtn.setBackgroundResource(R.color.white);
                 mDeviceBtn.setTextColor(R.color.tutorial_background);
+                mDeviceBtn.setBackgroundResource(R.color.white);
                 break;
         }
     }
