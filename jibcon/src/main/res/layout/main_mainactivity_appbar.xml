@@ -22,15 +22,15 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
-            android:background="#FFFFFF"
+            android:background="@color/tutorial_background"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="JibCon"
-                android:textColor="@color/deep_blue"
+                android:text="JIBCON"
+                android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 

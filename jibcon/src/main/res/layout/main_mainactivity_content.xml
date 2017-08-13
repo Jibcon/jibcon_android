@@ -13,51 +13,63 @@
     <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="44dp"
         android:orientation="horizontal"
-        android:background="@color/white"
-        android:paddingTop="9dp"
-        android:paddingBottom="5dp">
+        android:background="@color/tutorial_background"
+        android:gravity="center"
+        >
         <!--기기등록-->
-        <ImageButton
+        <TextView
             android:id="@+id/btn1"
-            android:layout_width="0dip"
-            android:layout_height="40dp"
-            android:paddingBottom="3dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:scaleType="centerInside"
-            android:background="@null"
-            android:src="@drawable/ic_home_blue_48dp"/>
+            android:text="DEVICE"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            />
+
         <!--트릭-->
-        <ImageButton
+        <TextView
             android:id="@+id/btn2"
-            android:layout_width="77dp"
-            android:layout_height="40dp"
-            android:paddingBottom="3dp"
-            android:scaleType="centerInside"
-            android:background="@null"
-            android:src="@drawable/ic_link_gray_48dp"
-            android:layout_weight="0.12" />
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="CHEAT KEY"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            />
+
         <!--콘샵-->
-        <ImageButton
+        <TextView
             android:id="@+id/btn3"
-            android:layout_width="0dip"
-            android:layout_height="35dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@null"
-            android:paddingBottom="1dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_shopping_cart_gray_48dp" />
-        <!--사용자 정보-->
-        <ImageButton
+            android:text="CONSHOP"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            />
+
+        <!--데이터-->
+        <TextView
             android:id="@+id/btn4"
-            android:layout_width="0dip"
-            android:layout_height="35dp"
-            android:paddingBottom="3dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@null"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_pie_chart_gray_48dp" />
+            android:text="DATA"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            />
+
     </LinearLayout>
     <!-- ViewPager -->
     <android.support.v4.view.ViewPager

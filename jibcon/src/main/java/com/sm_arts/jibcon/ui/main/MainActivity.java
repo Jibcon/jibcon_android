@@ -53,10 +53,10 @@ public class MainActivity extends BaseActivity
     Fragment mDataControlFragment;
     ImageView mUserProfileImage;
 
-    @BindView(R.id.btn1) ImageButton mDeviceBtn;
-    @BindView(R.id.btn2) ImageButton mCheatkeyBtn;
-    @BindView(R.id.btn3) ImageButton mConshopBtn;
-    @BindView(R.id.btn4) ImageButton mDataControlBtn;
+    @BindView(R.id.btn1) TextView mDeviceBtn;
+    @BindView(R.id.btn2) TextView mCheatkeyBtn;
+    @BindView(R.id.btn3) TextView mConshopBtn;
+    @BindView(R.id.btn4) TextView mDataControlBtn;
 
     ImageButton mtoSettingBtn;
 
@@ -142,29 +142,37 @@ public class MainActivity extends BaseActivity
     }
 
     private void setDefaultMainMenuBtn() {
-        mDeviceBtn.setImageResource(R.drawable.ic_home_gray_48dp);
-        mCheatkeyBtn.setImageResource(R.drawable.ic_link_gray_48dp);
-        mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-        mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
+        mDeviceBtn.setTextColor(R.color.white);
+        mCheatkeyBtn.setTextColor(R.color.white);
+        mConshopBtn.setTextColor(R.color.white);
+        mDataControlBtn.setTextColor(R.color.white);
     }
 
     private void setSelectedMainMenuBtn(int position) {
         switch (position) {
             case 0 :
                 setDefaultMainMenuBtn();
-                mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
+//                mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
+                mDeviceBtn.setBackgroundResource(R.color.white);
+                mDeviceBtn.setTextColor(R.color.tutorial_background);
                 break;
             case 1:
                 setDefaultMainMenuBtn();
-                mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
+//                mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
+                mDeviceBtn.setBackgroundResource(R.color.white);
+                mDeviceBtn.setTextColor(R.color.tutorial_background);
                 break;
             case 2:
                 setDefaultMainMenuBtn();
-                mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
+//                mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
+                mDeviceBtn.setBackgroundResource(R.color.white);
+                mDeviceBtn.setTextColor(R.color.tutorial_background);
                 break;
             case 3:
                 setDefaultMainMenuBtn();
-                mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
+//                mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
+                mDeviceBtn.setBackgroundResource(R.color.white);
+                mDeviceBtn.setTextColor(R.color.tutorial_background);
                 break;
         }
     }
@@ -286,12 +294,12 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
-    private void setDefaultImages() {
-        mDeviceBtn.setImageResource(R.drawable.ic_home_gray_48dp);
-        mCheatkeyBtn.setImageResource(R.drawable.ic_link_gray_48dp);
-        mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-        mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
-    }
+//    private void setDefaultImages() {
+//        mDeviceBtn.setImageResource(R.drawable.ic_home_gray_48dp);
+//        mCheatkeyBtn.setImageResource(R.drawable.ic_link_gray_48dp);
+//        mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
+//        mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
+//    }
 
     public void setTapTargetView() {
         TapTargetSequence mTapTargetSequence = new TapTargetSequence(this)
