@@ -155,7 +155,7 @@ public class MakeconHouseaddressFragment extends android.support.v4.app.Fragment
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon_makeconhouseaddressfragment_fragment,container,false);
+        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.splashmakecon_makeconhouseaddress_fragment,container,false);
         mUnderLinerLayout = (LinearLayout) mLinearLayout.findViewById(R.id.makeconhouseaddress_fragemnt_bottom);
         mGoogleApiClient = new GoogleApiClient.Builder(getContext())
                 .addApi(Places.GEO_DATA_API)

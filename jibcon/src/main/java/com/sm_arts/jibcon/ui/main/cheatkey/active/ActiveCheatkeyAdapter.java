@@ -50,7 +50,7 @@ public class ActiveCheatkeyAdapter
 
     @Override
     public ActiveCheatkeyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cheatkey_cheatkeyactivefragment_cardview, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.maincheatkeyactive_activecheatkey_cardview, parent, false);
 
         ViewHolder vh = new ViewHolder(v,parent.getContext());
 

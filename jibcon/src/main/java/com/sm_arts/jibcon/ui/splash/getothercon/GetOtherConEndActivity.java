@@ -16,7 +16,7 @@ public class GetOtherConEndActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.getothercon_getotherconendactivity_activity);
+        setContentView(R.layout.splashgetothercon_getotherconend_activity);
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

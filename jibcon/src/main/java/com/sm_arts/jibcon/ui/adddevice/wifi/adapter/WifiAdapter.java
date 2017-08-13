@@ -30,7 +30,7 @@ public class WifiAdapter extends RecyclerView.Adapter<WifiViewHolder> {
     public WifiViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         DeviceWifilistadapterListviewItemBinding binding =
                 DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
-                        R.layout.device_wifilistadapter_listview_item,
+                        R.layout.adddevice_wifi_item,
                         parent,
                         false);
         View v = binding.getRoot();

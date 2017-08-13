@@ -127,7 +127,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.device_devicemenufragment_fragment, container, false);
+        View root = inflater.inflate(R.layout.maindevicemenu_devicemenu_fragment, container, false);
         Log.d(TAG, "onCreateView: ");
 
         return root;

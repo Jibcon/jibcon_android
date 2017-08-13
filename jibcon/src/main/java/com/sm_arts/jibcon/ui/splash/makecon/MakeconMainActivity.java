@@ -87,7 +87,7 @@ public class MakeconMainActivity extends BaseActivity implements HouseInfoListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.makecon_makeconmainactivity_activity);
+        setContentView(R.layout.splashmakecon_makeconmain_activity);
 
         mMakecon1 = new MakeconHousenameFragment();
         mMakecon2 = new MakeconHousetypeFragment();

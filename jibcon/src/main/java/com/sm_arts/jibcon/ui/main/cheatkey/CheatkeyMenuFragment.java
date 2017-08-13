@@ -33,7 +33,7 @@ public class CheatkeyMenuFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.cheatkey_cheatkeymenufragment_fragment, container, false);
+        RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.maincheatkey_cheatkeymenu_fragment, container, false);
         ButterKnife.bind(this, layout);
 
         mVp = (ViewPager) layout.findViewById(R.id.vp_cheatkey);

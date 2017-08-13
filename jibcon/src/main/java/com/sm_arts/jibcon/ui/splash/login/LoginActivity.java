@@ -63,7 +63,7 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_loginactivity_activity);
+        setContentView(R.layout.splashlogin_login_activity);
 
 
         mVideoView = (VideoView) findViewById(R.id.videoView);
@@ -158,7 +158,7 @@ public class LoginActivity extends BaseActivity {
             if(exception != null) {
                 Logger.e(exception);
             }
-            setContentView(R.layout.login_loginactivity_activity); // 세션 연결이 실패했을때
+            setContentView(R.layout.splashlogin_login_activity); // 세션 연결이 실패했을때
         }                                            // 로그인화면을 다시 불러옴
     }
 

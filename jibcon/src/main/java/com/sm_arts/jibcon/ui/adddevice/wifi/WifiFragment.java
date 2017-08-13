@@ -48,7 +48,7 @@ public class WifiFragment extends LifecycleFragment {
         Log.d(TAG, "onCreateView: ");
 
         DeviceAdddevicewififragmentFragmentBinding binding =
-                DataBindingUtil.inflate(inflater, R.layout.device_adddevicewififragment_fragment,
+                DataBindingUtil.inflate(inflater, R.layout.adddevice_wifi_fragment,
                         container, false);
         View v = binding.getRoot();
         mViewModel = ViewModelProviders.of(this).get(WifiViewModel.class);
