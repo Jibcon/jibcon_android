@@ -7,6 +7,8 @@ import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
 import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
 
+import io.reactivex.functions.Action;
+
 /**
  * Created by jaeyoung on 8/13/17.
  */
@@ -27,7 +29,7 @@ public class MobiusActuator {
         return sInstance;
     }
 
-    public void turnItemOn(DeviceItem item) {
+    public void toggleItem(DeviceItem item, Action onSuccess) {
         String con;
 
         if (!item.isDeviceOnOffState()) {
@@ -44,16 +46,12 @@ public class MobiusActuator {
                 (responseCi) -> {
                     Log.d(TAG, "toggleActivate: onSuccess postCi");
                     item.setDeviceOnOffState(!item.isDeviceOnOffState());
-                    updateItem(item);
+                    DeviceNetworkHelper.getInstance().putDevice(item, deviceItem -> onSuccess.run());
                 },
                 // failed
                 () -> {
                     Log.d(TAG, "toggleActivate: onFail postCi");
                 }
         );
-    }
-
-    private void updateItem(DeviceItem item) {
-        DeviceNetworkHelper.getInstance().putDevice(item, deviceItem -> {});
     }
 }

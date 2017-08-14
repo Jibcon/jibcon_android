@@ -2,11 +2,14 @@ package com.sm_arts.jibcon.services.actuator;
 
 import android.util.Log;
 
+import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
+import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.data.repository.network.hue.HueService;
 import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import java.util.List;
 
+import io.reactivex.functions.Action;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,7 +38,7 @@ public class HueActuator {
     private HueActuator() {
     }
 
-    public void turnOff() {
+    public void turnOff(Action onSuccess) {
         Log.d(TAG, "turnOff: ");
         HueService service = RetrofitClients.getInstance().getService(HueService.class);
         Call<List<HueService.HueResponse>> c = service.putDevice(
@@ -47,6 +50,11 @@ public class HueActuator {
             @Override
             public void onResponse(Call<List<HueService.HueResponse>> call, Response<List<HueService.HueResponse>> response) {
                 Log.d(TAG, "onResponse: ");
+                try {
+                    onSuccess.run();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -56,7 +64,7 @@ public class HueActuator {
         });
     }
 
-    public void turnOn() {
+    public void turnOn(Action onSuccess) {
         Log.d(TAG, "turnOn: ");
         HueService service = RetrofitClients.getInstance().getService(HueService.class);
         Call<List<HueService.HueResponse>> c = service.putDevice(
@@ -69,6 +77,11 @@ public class HueActuator {
             @Override
             public void onResponse(Call<List<HueService.HueResponse>> call, Response<List<HueService.HueResponse>> response) {
                 Log.d(TAG, "onResponse: ");
+                try {
+                    onSuccess.run();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -76,5 +89,23 @@ public class HueActuator {
                 Log.d(TAG, "onFailure: ");
             }
         });
+    }
+
+    public void toggleItem(DeviceItem item, Action onSuccess) {
+        if (!item.isDeviceOnOffState()) {
+            turnOn(
+                    () -> {
+                        item.setDeviceOnOffState(!item.isDeviceOnOffState());
+                        DeviceNetworkHelper.getInstance().putDevice(item, deviceItem -> onSuccess.run());
+                    }
+            );
+        } else {
+            turnOff(
+                    () -> {
+                        item.setDeviceOnOffState(!item.isDeviceOnOffState());
+                        DeviceNetworkHelper.getInstance().putDevice(item, deviceItem -> onSuccess.run());
+                    }
+            );
+        }
     }
 }

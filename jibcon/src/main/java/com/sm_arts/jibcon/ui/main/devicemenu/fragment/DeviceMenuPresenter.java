@@ -5,6 +5,7 @@ import android.util.Log;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
 import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
+import com.sm_arts.jibcon.services.actuator.ActuatorManager;
 import com.sm_arts.jibcon.services.actuator.MobiusActuator;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
@@ -101,7 +102,7 @@ class DeviceMenuPresenter {
     }
 
     private void toggleActivate(DeviceItem item) {
-        MobiusActuator.getInstance().turnItemOn(item);
+        ActuatorManager.getInstance().toggleItem(item, mView::updateDevicesOnOffState);
     }
 
     private void toggleSubscriptionWith(DeviceItem item) {
@@ -122,7 +123,7 @@ class DeviceMenuPresenter {
     }
 
     private void updateItem(DeviceItem item) {
-        DeviceNetworkHelper.getInstance().putDevice(item, deviceItem -> {});
+        DeviceNetworkHelper.getInstance().putDevice(item, deviceItem -> mView.updateDevicesOnOffState());
     }
 
     //endregion
