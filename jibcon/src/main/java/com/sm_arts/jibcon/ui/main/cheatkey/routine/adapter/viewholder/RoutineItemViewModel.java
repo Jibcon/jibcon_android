@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 
-import com.sm_arts.jibcon.data.models.inapp.Routine;
+import com.sm_arts.jibcon.data.models.api.dto.Routine;
 
 /**
  * Created by jaeyoung on 8/13/17.

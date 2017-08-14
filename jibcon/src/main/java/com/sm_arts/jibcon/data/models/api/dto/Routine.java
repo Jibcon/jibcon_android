@@ -1,10 +1,11 @@
-package com.sm_arts.jibcon.data.models.inapp;
+package com.sm_arts.jibcon.data.models.api.dto;
 
 /**
  * Created by jaeyoung on 8/13/17.
  */
 
 public class Routine {
+    public String id;
     public String title;
     public String sensor;
     public String sensorCnt;

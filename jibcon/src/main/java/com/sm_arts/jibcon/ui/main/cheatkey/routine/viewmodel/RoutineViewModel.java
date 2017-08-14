@@ -1,18 +1,14 @@
 package com.sm_arts.jibcon.ui.main.cheatkey.routine.viewmodel;
 
 import android.arch.lifecycle.ViewModel;
-import android.databinding.ObservableArrayList;
 import android.databinding.ObservableField;
-import android.databinding.ObservableList;
 import android.util.Log;
 import android.view.View;
 
 import com.sm_arts.jibcon.data.models.inapp.ObservableArrayListField;
-import com.sm_arts.jibcon.data.models.inapp.Routine;
+import com.sm_arts.jibcon.data.models.api.dto.Routine;
 import com.sm_arts.jibcon.data.repository.dummy.RoutineDummy;
-import com.sm_arts.jibcon.utils.converter.ObservableFieldConvertUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observable;

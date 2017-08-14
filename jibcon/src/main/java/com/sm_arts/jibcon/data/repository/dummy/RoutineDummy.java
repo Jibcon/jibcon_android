@@ -1,6 +1,6 @@
 package com.sm_arts.jibcon.data.repository.dummy;
 
-import com.sm_arts.jibcon.data.models.inapp.Routine;
+import com.sm_arts.jibcon.data.models.api.dto.Routine;
 
 import java.util.ArrayList;
 import java.util.List;

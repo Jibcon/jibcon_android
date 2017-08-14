@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.data.models.inapp.Routine;
+import com.sm_arts.jibcon.data.models.api.dto.Routine;
 import com.sm_arts.jibcon.databinding.MaincheatkeyroutineRoutineItemBinding;
 import com.sm_arts.jibcon.ui.main.cheatkey.routine.adapter.viewholder.RoutineViewHolder;
 import com.sm_arts.jibcon.ui.main.cheatkey.routine.adapter.viewholder.RoutineItemViewModel;
