@@ -100,6 +100,8 @@ public class DeviceNetworkHelper {
 
             @Override
             public void onFailure(Call<DeviceItem> call, Throwable t) {
+                t.printStackTrace();
+                Log.d(TAG, "onFailure: ");
                 try {
                     finished.accept(null);
                 } catch (Exception e) {

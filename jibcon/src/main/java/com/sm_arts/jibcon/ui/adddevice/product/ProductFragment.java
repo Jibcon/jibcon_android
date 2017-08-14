@@ -136,7 +136,7 @@ public class ProductFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        LinearLayout layout = (LinearLayout)inflater.inflate(R.layout.device_adddeviceproductfragment_fragment, container, false);
+        LinearLayout layout = (LinearLayout)inflater.inflate(R.layout.adddevice_product_fragment, container, false);
 
         mUnbinder = ButterKnife.bind(this, layout);
         initLayout();

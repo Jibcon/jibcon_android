@@ -1,15 +1,13 @@
 package com.sm_arts.jibcon;
 
 import android.app.Activity;
-import android.content.pm.PackageManager;
 import android.support.multidex.MultiDexApplication;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.kakao.auth.KakaoSDK;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
+import com.sm_arts.jibcon.services.sensor.SensorManager;
 import com.sm_arts.jibcon.ui.splash.login.KaKaoSDKAdpater;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
@@ -41,12 +39,13 @@ public class GlobalApplication extends MultiDexApplication {
         initTypekit();
         initMobius();
         JibconLoginManager.getInstance().addOnSigninAction(
-                this::initMqttManager
+                this::initSensorManager
         );
 
         // TODO: 8/11/17 remove
         JibconLoginManager.getInstance().loginWithSampleUser(
-                () -> {}
+                () -> {
+                }
         );
     }
 
@@ -58,9 +57,9 @@ public class GlobalApplication extends MultiDexApplication {
                 .addCustom1(Typekit.createFromAsset(this, "fonts/NanumSquareLight.ttf"));
     }
 
-    private void initMqttManager() {
-        Log.d(TAG, "initMqttManager: ");
-        MqttManager.init();
+    private void initSensorManager() {
+        Log.d(TAG, "initSensorManager: ");
+        SensorManager.init();
     }
 
     private void initMobius() {

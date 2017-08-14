@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.ui.main.cheatkey.active.CheatkeyActiveFragment;
+import com.sm_arts.jibcon.ui.main.cheatkey.routine.RoutineFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +23,8 @@ import butterknife.ButterKnife;
  */
 
 public class CheatkeyMenuFragment extends Fragment{
+    private static final String TAG = "CheatkeyMenuFragment";
+    
     // Viewpager
     ViewPager mVp;
 
@@ -31,7 +35,8 @@ public class CheatkeyMenuFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.cheatkey_cheatkeymenufragment_fragment, container, false);
+        Log.d(TAG, "onCreateView: ");
+        RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.maincheatkey_cheatkeymenu_fragment, container, false);
         ButterKnife.bind(this, layout);
 
         mVp = (ViewPager) layout.findViewById(R.id.vp_cheatkey);
@@ -69,9 +74,11 @@ public class CheatkeyMenuFragment extends Fragment{
             Log.w("CJ","movePageListener");
             switch(position) {
                 case 0:
+                    Log.d(TAG, "getItem: CheatkeyActiveFragment");
                     return new CheatkeyActiveFragment();
                 case 1:
-                    return new CheatkeyPassiveFragment();
+                    Log.d(TAG, "getItem: ");
+                    return new RoutineFragment();
                 default:
                     return null;
             }

@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.databinding.DeviceAdddevicewififragmentFragmentBinding;
+import com.sm_arts.jibcon.databinding.AdddeviceWifiFragmentBinding;
 import com.sm_arts.jibcon.ui.adddevice.AddDeviceListner;
 import com.sm_arts.jibcon.ui.adddevice.wifi.adapter.WifiAdapter;
 import com.sm_arts.jibcon.ui.adddevice.wifi.viewmodels.WifiViewModel;
@@ -33,7 +33,6 @@ public class WifiFragment extends LifecycleFragment {
 
     private AddDeviceListner mMakeDeviceListener;
     private WifiViewModel mViewModel;
-    private WifiscanManager mWifiManager;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,8 +46,8 @@ public class WifiFragment extends LifecycleFragment {
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: ");
 
-        DeviceAdddevicewififragmentFragmentBinding binding =
-                DataBindingUtil.inflate(inflater, R.layout.device_adddevicewififragment_fragment,
+        AdddeviceWifiFragmentBinding binding =
+                DataBindingUtil.inflate(inflater, R.layout.adddevice_wifi_fragment,
                         container, false);
         View v = binding.getRoot();
         mViewModel = ViewModelProviders.of(this).get(WifiViewModel.class);
@@ -59,7 +58,7 @@ public class WifiFragment extends LifecycleFragment {
         return v;
     }
 
-    private void initView(DeviceAdddevicewififragmentFragmentBinding binding) {
+    private void initView(AdddeviceWifiFragmentBinding binding) {
         Log.d(TAG, "initView: ");
 
         binding.recyclerviewWifilist.setAdapter(

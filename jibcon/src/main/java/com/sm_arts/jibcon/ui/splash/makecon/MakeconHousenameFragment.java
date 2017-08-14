@@ -63,7 +63,7 @@ public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.makecon_makeconhousenamefragment_fragment,container,false);
+        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.splashmakecon_makeconhousename_fragment,container,false);
       
         initLayout();
 

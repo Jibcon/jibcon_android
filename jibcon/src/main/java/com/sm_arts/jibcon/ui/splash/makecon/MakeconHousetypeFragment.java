@@ -45,7 +45,7 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.makecon_makeconhousetypefragment_fragment,container,false);
+        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.splashmakecon_makeconhousetype_fragment,container,false);
       
         // 공간 리스트
         final String[] list_place = {

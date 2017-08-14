@@ -35,20 +35,24 @@ public interface Configs {
         List<String> DEVICENAME_CHOCIED = Arrays.asList(
                 "led",
                 "ultra",
-                "humitidy"
+                "humitidy",
+                "Philips Hue 전구"
         );
 
-        List<String> DEVICECOM_CHOICES = Collections.singletonList(
-                "smArts"
+        List<String> DEVICECOM_CHOICES = Arrays.asList(
+                "smArts",
+                "Philips"
         );
 
         List<String> DEVICETYPE_CHOICES = Arrays.asList(
                 "bulb",
                 "ultrasensor",
-                "humiditysensor"
+                "humiditysensor",
+                "hue-bulb"
         );
 
         List<String> AENAME_CHOICES = Arrays.asList(
+                "ae-smarts",
                 "ae-smarts",
                 "ae-smarts",
                 "ae-smarts"
@@ -57,7 +61,8 @@ public interface Configs {
         List<String> CNTNAME_CHOICES = Arrays.asList(
                 "cnt-led",
                 "cnt-ultra",
-                "cnt-dht"
+                "cnt-dht",
+                "cnt-hue"
         );
     }
 

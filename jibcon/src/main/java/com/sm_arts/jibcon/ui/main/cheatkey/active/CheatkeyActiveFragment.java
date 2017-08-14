@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey;
+package com.sm_arts.jibcon.ui.main.cheatkey.active;
 
 import android.content.Context;
 import android.content.Intent;
@@ -36,7 +36,7 @@ public class CheatkeyActiveFragment extends android.support.v4.app.Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View rootView = inflater.inflate(R.layout.cheatkey_cheatkeyactivefragment_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.maincheatkeyactive_activecheatkey_fragment, container, false);
 
         // 햄버거 버튼
         ImageButton imageButton = (ImageButton) rootView.findViewById(R.id.fab_cheatkey_active_behind);
@@ -61,37 +61,30 @@ public class CheatkeyActiveFragment extends android.support.v4.app.Fragment {
         // 치트키 수동 입력, 추후 사용자가 치트키 등록시 추가되도록 구현해야
         // cardview #1
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank,"출근"
         ));
         // cardview #2
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank, "퇴근"
                 ));
         // cardview #3
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank, "굿나잇"
         ));
         // cardview #4
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank, "출장 & 휴가"
         ));
         // cardview #5
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank, "등교"
         ));
         // cardview #6
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank, "아침 기상"
                 ));
         // cardview #7
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.id.btn_passive_cheatkey_setting,
                 R.drawable.blank, "현호 재울 때"
         ));
 

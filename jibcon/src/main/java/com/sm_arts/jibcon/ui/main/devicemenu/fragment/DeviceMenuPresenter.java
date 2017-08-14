@@ -5,9 +5,9 @@ import android.util.Log;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
 import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
-import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
+import com.sm_arts.jibcon.services.actuator.ActuatorManager;
+import com.sm_arts.jibcon.services.actuator.MobiusActuator;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
-import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 
 import java.util.List;
@@ -102,29 +102,7 @@ class DeviceMenuPresenter {
     }
 
     private void toggleActivate(DeviceItem item) {
-        String con;
-
-        if (!item.isDeviceOnOffState()) {
-            con = "on";
-        } else {
-            con = "off";
-        }
-
-            MobiusNetworkHelper.getInstance().createCi(
-                    item.getAeName(),
-                    MqttTopicUtils.getRequestCnt(item.getCntName()),
-                    con,
-                    // success
-                    (responseCi) -> {
-                        Log.d(TAG, "toggleActivate: onSuccess postCi");
-                        item.setDeviceOnOffState(!item.isDeviceOnOffState());
-                        updateItem(item);
-                    },
-                    // failed
-                    () -> {
-                        Log.d(TAG, "toggleActivate: onFail postCi");
-                    }
-            );
+        ActuatorManager.getInstance().toggleItem(item, mView::updateDevicesOnOffState);
     }
 
     private void toggleSubscriptionWith(DeviceItem item) {
@@ -145,14 +123,7 @@ class DeviceMenuPresenter {
     }
 
     private void updateItem(DeviceItem item) {
-        DeviceNetworkHelper.getInstance().putDevice(item,
-                (result) -> {
-                    if (result != null) {
-                        mView.updateDevicesOnOffState();
-                    } else {
-                        Log.w(TAG, "setItemdeviceSubscriptionState: put device failed");
-                    }
-                });
+        DeviceNetworkHelper.getInstance().putDevice(item, deviceItem -> mView.updateDevicesOnOffState());
     }
 
     //endregion
