@@ -163,20 +163,20 @@ public class MainActivity extends BaseActivity
             case 1:
                 setDefaultMainMenuBtn();
 //                mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
-                mDeviceBtn.setTextColor(R.color.tutorial_background);
-                mDeviceBtn.setBackgroundResource(R.color.white);
+                mCheatkeyBtn.setTextColor(R.color.tutorial_background);
+                mCheatkeyBtn.setBackgroundResource(R.color.white);
                 break;
             case 2:
                 setDefaultMainMenuBtn();
 //                mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
-                mDeviceBtn.setTextColor(R.color.tutorial_background);
-                mDeviceBtn.setBackgroundResource(R.color.white);
+                mConshopBtn.setTextColor(R.color.tutorial_background);
+                mConshopBtn.setBackgroundResource(R.color.white);
                 break;
             case 3:
-//                setDefaultMainMenuBtn();
+                setDefaultMainMenuBtn();
 //                mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
-                mDeviceBtn.setTextColor(R.color.tutorial_background);
-                mDeviceBtn.setBackgroundResource(R.color.white);
+                mDataControlBtn.setTextColor(R.color.tutorial_background);
+                mDataControlBtn.setBackgroundResource(R.color.white);
                 break;
         }
     }
