@@ -129,7 +129,7 @@ public class MainActivity extends BaseActivity
             }
         });
 
-        mVp.setCurrentItem(0); // 첫 뷰페이저로는 기기 목록이 나오도록 설정.
+        mVp.setCurrentItem(0);
 
         mDeviceBtn.setTag(0);
         mDeviceBtn.setOnClickListener(movePageListener);
