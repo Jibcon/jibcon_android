@@ -13,7 +13,6 @@ import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
 import com.sm_arts.jibcon.R;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -49,7 +48,7 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
     public DeviceMenuViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //        Log.d(TAG, "onCreateViewHolder: ");
         View deviceMenuView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.device_devicemenuadapter_item,
+                .inflate(R.layout.maindevicemenu_devicemenu_item,
                         parent, false);
 
         final DeviceMenuViewHolder deviceMenuViewHolder =

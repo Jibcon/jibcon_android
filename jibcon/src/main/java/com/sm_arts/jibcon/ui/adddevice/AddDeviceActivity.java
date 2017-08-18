@@ -98,7 +98,7 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.device_adddeviceactivity_activity);
+        setContentView(R.layout.adddevice_adddevice_activity);
         mFragments.add(new ProductFragment());
 
         WifiFragment wifiFragment = new WifiFragment();

@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey;
+package com.sm_arts.jibcon.ui.main.cheatkey.active;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -50,7 +50,7 @@ public class ActiveCheatkeyAdapter
 
     @Override
     public ActiveCheatkeyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cheatkey_cheatkeyactivefragment_cardview, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.maincheatkeyactive_activecheatkey_cardview, parent, false);
 
         ViewHolder vh = new ViewHolder(v,parent.getContext());
 
@@ -62,7 +62,6 @@ public class ActiveCheatkeyAdapter
     public void onBindViewHolder(ActiveCheatkeyAdapter.ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.cheatkeySettingBtn.setId(R.id.btn_passive_cheatkey_setting);
         holder.cheatkeyImg.setId(R.id.img_active_cheatkey);
         holder.cheatkeyName.setText(mActiveCheatkeyDataset.get(position).activeCheatkeyName);
 

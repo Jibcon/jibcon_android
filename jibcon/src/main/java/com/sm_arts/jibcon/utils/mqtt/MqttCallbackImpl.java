@@ -21,7 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import io.reactivex.Observable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.subjects.ReplaySubject;
 
 /**
  * Created by jaeyoung on 8/4/17.
@@ -32,6 +34,7 @@ public class MqttCallbackImpl implements MqttCallback {
     private final MqttManager mMqttManager;
     private Consumer<MqttSurCon> mListener;
     private List<String> mSubscribeSurs;
+    private ReplaySubject<MqttSurCon> mNotifier = ReplaySubject.create();
 
     public MqttCallbackImpl(MqttManager mqttManager) {
         // save for connectionLost
@@ -62,6 +65,7 @@ public class MqttCallbackImpl implements MqttCallback {
                 e.printStackTrace();
             }
         }
+        mNotifier.onNext(surCon);
     }
 
     @Override
@@ -131,5 +135,9 @@ public class MqttCallbackImpl implements MqttCallback {
                 return;
             }
         }
+    }
+
+    public Observable<MqttSurCon> asObservable() {
+        return mNotifier;
     }
 }

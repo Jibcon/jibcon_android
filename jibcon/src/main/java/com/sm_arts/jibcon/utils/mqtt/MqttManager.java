@@ -16,8 +16,10 @@ import org.eclipse.paho.client.mqttv3.IMqttToken;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
+import io.reactivex.Observable;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
+import io.reactivex.subjects.ReplaySubject;
 
 /**
  * Created by admin on 2017-08-02.
@@ -29,6 +31,7 @@ public class MqttManager {
 
     private MqttAndroidClient mMqttClient;
     private MqttCallbackImpl mMqttCallback;
+    private ReplaySubject<MqttSurCon> mNotifier = ReplaySubject.create();
 
     public static MqttManager getInstance() {
         if (sInstance == null) {
@@ -79,12 +82,19 @@ public class MqttManager {
         }
     }
 
+    public Observable<MqttSurCon> asObservable() {
+        return mNotifier;
+    }
+
     private void initClient() {
         Log.d(TAG, "initClient: ");
 
         mMqttClient = new MqttAndroidClient(GlobalApplication.getGlobalApplicationContext(),
                 "tcp://" + Configs.Mqtt.HOST + ":" + Configs.Mqtt.PORT, MqttClient.generateClientId());
         mMqttCallback = new MqttCallbackImpl(this);
+        mMqttCallback.asObservable().subscribe(
+                mNotifier::onNext
+        );
 
         startClient();
     }

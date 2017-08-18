@@ -1,6 +1,7 @@
 package com.sm_arts.jibcon.ui.adddevice.wifi.adapter;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.inapp.WifiItem;
-import com.sm_arts.jibcon.databinding.DeviceWifilistadapterListviewItemBinding;
+import com.sm_arts.jibcon.databinding.AdddeviceWifiItemBinding;
 import com.sm_arts.jibcon.ui.adddevice.wifi.adapter.viewholder.WifiViewHolder;
 
 import java.util.ArrayList;
@@ -28,12 +29,12 @@ public class WifiAdapter extends RecyclerView.Adapter<WifiViewHolder> {
 
     @Override
     public WifiViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        DeviceWifilistadapterListviewItemBinding binding =
-                DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
-                        R.layout.device_wifilistadapter_listview_item,
-                        parent,
-                        false);
+        AdddeviceWifiItemBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
+                R.layout.adddevice_wifi_item,
+                parent,
+                false);
         View v = binding.getRoot();
+
 
         final WifiViewHolder viewholder =
                 new WifiViewHolder(v, binding);
