@@ -74,7 +74,6 @@ public class MainActivity extends BaseActivity
                 case 0:
                     return mDeviceFragment;
                 case 1:
-                    Log.d(TAG, "getItem: mCheatkeyFragment");
                     return mCheatkeyFragment;
                 case 2:
                     return mConshopFragment;
@@ -131,7 +130,7 @@ public class MainActivity extends BaseActivity
             }
         });
 
-        mVp.setCurrentItem(0);
+//        mVp.setCurrentItem(0);
 
         mDeviceBtn.setTag(0);
         mDeviceBtn.setOnClickListener(movePageListener);
@@ -322,7 +321,7 @@ public class MainActivity extends BaseActivity
                     // to the sequence
                     @Override
                     public void onSequenceFinish() {
-                        // Yay
+                        setSelectedMainMenuBtn(0);
                     }
 
                     @Override
