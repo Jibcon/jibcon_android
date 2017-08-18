@@ -17,13 +17,12 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar_main"
-            android:theme="@style/ToolbarColoredBackArrow"
-            android:popupTheme="@style/AppTheme.NoActionBar"
+            android:theme="@style/WhiteToolbarMenuIcon"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
             android:background="@color/tutorial_background"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            >
 
             <TextView
                 android:layout_width="wrap_content"
