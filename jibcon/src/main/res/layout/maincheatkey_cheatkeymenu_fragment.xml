@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF">
+    android:background="@color/white">
 
     <!-- Edited by ChanJoo 20170413 -->
     <LinearLayout
@@ -19,7 +19,7 @@
         <LinearLayout
             android:id="@+id/layout"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="44dp"
             android:orientation="horizontal"
             android:paddingTop="4dp"
             android:paddingBottom="4dp">
@@ -31,7 +31,7 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:text="Active"
-                android:textSize="16dp"
+                android:textSize="12dp"
                 android:textStyle="bold"/>
             <!--Passive-->
             <Button
@@ -41,7 +41,7 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:text="Passive"
-                android:textSize="16dp"
+                android:textSize="12dp"
                 android:textStyle="bold"/>
 
         </LinearLayout>

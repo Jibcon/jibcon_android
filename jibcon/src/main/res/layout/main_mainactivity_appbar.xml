@@ -7,30 +7,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="#FFF"
+    android:background="@color/white"
     tools:context="com.sm_arts.jibcon.ui.main.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0dp"
+        >
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar_main"
-            android:theme="@style/ToolbarColoredBackArrow"
-            android:popupTheme="@style/AppTheme.NoActionBar"
+            android:theme="@style/WhiteToolbarMenuIcon"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
-            android:background="#FFFFFF"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            android:background="@color/tutorial_background"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="JibCon"
-                android:textColor="@color/deep_blue"
+                android:text="JIBCON"
+                android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
