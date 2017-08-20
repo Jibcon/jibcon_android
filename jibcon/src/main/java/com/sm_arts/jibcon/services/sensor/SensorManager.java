@@ -51,10 +51,17 @@ public class SensorManager {
         mDisposables.add(
                 mMqttSurConObservable.subscribe(
                         (surCon) -> {
-                            Log.d(TAG, "SensorManager: surCon=" + surCon.toString());
-                            float con = Float.parseFloat(surCon.getCon());
-                            if (con < 0.5) {
-                                HueActuator.getInstance().turnOn(() -> {});
+                            String sur = surCon.getSur();
+                            if (TextUtils.equals(sur, "/Mobius/ae-smarts/cnt-ultra_res/aei-jibcon_subscription")) {
+                                Log.d(TAG, "SensorManager: surCon=" + surCon.toString());
+                                float con = Float.parseFloat(surCon.getCon());
+                                if (con < 0.5) {
+                                    HueActuator.getInstance().turnOn("2", () -> {
+                                    });
+                                }
+                            } else {
+                                Log.d(TAG, "SensorManager: surCon=" + surCon.toString());
+//                                "temperature is [26C] and humidity is [54%]"
                             }
                         }
                 )
