@@ -1,6 +1,8 @@
 package com.sm_arts.jibcon.ui.main;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -248,7 +250,7 @@ public class MainActivity extends BaseActivity
         
         initLayout();
 
-        setTapTargetView(); // 초기 도움말 View
+        startTapTargetView();
     }
 
 
@@ -336,5 +338,30 @@ public class MainActivity extends BaseActivity
                 });
 
         mTapTargetSequence.start();
+    }
+
+    public void startTapTargetView() {
+        try{
+            SharedPreferences mPref = getSharedPreferences("isFirst", Activity.MODE_PRIVATE);
+
+            Boolean bFirst = mPref.getBoolean("isFirst", false);
+            if(bFirst == false)
+            {
+                Log.d("CJ : ", "It's first time this App started.");
+                SharedPreferences.Editor editor = mPref.edit();
+                editor.putBoolean("isFirst", true);
+                editor.commit();
+
+                //최초 실행시 필요한 코드를 여기에 작성
+                setTapTargetView(); // 초기 도움말 View
+            }
+            if(bFirst == true)
+            {
+                Log.d("CJ : ", "It isn't first time this App started.");
+            }
+
+        } catch(Exception e) {
+
+        }
     }
 }

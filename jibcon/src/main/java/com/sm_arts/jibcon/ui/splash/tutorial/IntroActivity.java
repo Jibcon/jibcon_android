@@ -49,8 +49,7 @@ public class IntroActivity extends BaseActivity {
             mCallbackManager = CallbackManager.Factory.create();
             final AccessToken accesstoken = AccessToken.getCurrentAccessToken();
 
-            if(accesstoken != null && accesstoken.isExpired())
-            {//accesstoken만료기간 60일
+            if(accesstoken != null && accesstoken.isExpired()) { //accesstoken만료기간 60일
                 //만료되면 로그인창으로
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
