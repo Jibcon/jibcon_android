@@ -1,6 +1,7 @@
 package com.sm_arts.jibcon.ui.main;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -304,12 +305,20 @@ public class MainActivity extends BaseActivity
         TapTargetSequence mTapTargetSequence = new TapTargetSequence(this)
                 .targets(
                         TapTarget.forView(mDeviceBtn, "디바이스 메뉴", "등록된 디바이스들을 한눈에!\n하나의 창에서 조작해보세요.")
-                                .cancelable(false),
+                                .cancelable(false)
+                                .outerCircleColor(R.color.tutorial_background)
+                                .targetRadius(50),
                         TapTarget.forView(mCheatkeyBtn, "치트키 메뉴", "등록된 디바이스들로\n액티브, 패시브 치트키를\n만들어보세요.")
-                                .cancelable(false),
+                                .cancelable(false)
+                                .outerCircleColor(R.color.tutorial_background)
+                                .targetRadius(50),
                         TapTarget.forView(mConshopBtn, "콘샾 메뉴", "혁신적 제품들을 만나보세요.")
-                                .cancelable(false),
-                        TapTarget.forView(mDataControlBtn, "데이터 메뉴", "낭비되는 전기세부터\n나에게 맞는 온도까지!\n데이터로 알아보세요."))
+                                .cancelable(false)
+                                .outerCircleColor(R.color.tutorial_background)
+                                .targetRadius(50),
+                        TapTarget.forView(mDataControlBtn, "데이터 메뉴", "낭비되는 전기세부터\n나에게 맞는 온도까지!\n데이터로 알아보세요.")
+                                .outerCircleColor(R.color.tutorial_background)
+                                .targetRadius(80))
                 .listener(new TapTargetSequence.Listener() {
                     // This listener will tell us when interesting(tm) events happen in regards
                     // to the sequence
