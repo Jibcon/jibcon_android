@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eaeaea">
+    android:background="@color/mainactivity_main_color">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
@@ -41,6 +41,7 @@
         android:paddingBottom="24dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_add_circle_blue_48dp"
-        android:visibility="visible" />
+        android:visibility="gone"
+        />
 
 </RelativeLayout>

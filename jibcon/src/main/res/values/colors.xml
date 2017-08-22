@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
-
     <color name="colorPrimary">#36C3FF</color>
     <color name="colorPrimaryDark">#3498DB</color>
     <color name="colorAccent">#3498DB</color>
@@ -21,17 +19,6 @@
     <color name="default_text_color">#262626</color>
     <!--좌메뉴 상단 색 #404040 -> style toolbar_common에서 설정-->
 
-
-    <!--default_text #282828-->
-    <!--main_blue #36C3FF-->
-    <!--status_menu_blue #3498DB-->
-    <!--main_menu_gray #BFBFBF-->
-    <!--hamberger_explorer #6E6E6E-->
-    <!--device_control_inactive #BFBFBF-->
-    <!--device_control_active #36C3FF-->
-    <!--leftmenu_menubar_gray #404040-->
-    <!--text_default_black #262626-->
-
     <!--Tutorial Activity-->
     <color name="tutorial_background">#2192fc</color>
     <color name="tutorial_skip">#ffffff</color>
@@ -43,5 +30,4 @@
     <color name="mainactivity_font_color_pressed">#4A4A4A</color>
     <color name="mainactivity_background_color">#D7D7D7</color>
 
-    <color name="mainactivity_test_color">#b91414</color>
 </resources>

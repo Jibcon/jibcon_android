@@ -17,7 +17,7 @@
         android:orientation="horizontal"
         android:background="@color/mainactivity_main_color"
         android:gravity="center"
-        android:elevation="1dp"
+        android:elevation="3dp"
         >
         <!--기기등록-->
         <TextView
