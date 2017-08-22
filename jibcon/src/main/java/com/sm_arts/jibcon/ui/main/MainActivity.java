@@ -62,8 +62,8 @@ public class MainActivity extends BaseActivity
 
     ImageButton mtoSettingBtn;
 
-    int backgroundColor;
-    int backgroundColorWhite;
+    int fontColor;
+    int fontColorPressed;
 
     //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
     //속도 너무 느림 ㅠ
@@ -148,41 +148,31 @@ public class MainActivity extends BaseActivity
     }
 
     private void setDefaultMainMenuBtn() {
-        mDeviceBtn.setTextColor(backgroundColorWhite);
-        mDeviceBtn.setBackgroundColor(backgroundColor);
-        mCheatkeyBtn.setTextColor(backgroundColorWhite);
-        mCheatkeyBtn.setBackgroundColor(backgroundColor);
-        mConshopBtn.setTextColor(backgroundColorWhite);
-        mConshopBtn.setBackgroundColor(backgroundColor);
-        mDataControlBtn.setTextColor(backgroundColorWhite);
-        mDataControlBtn.setBackgroundColor(backgroundColor);
+        mDeviceBtn.setTextColor(fontColor);
+        mCheatkeyBtn.setTextColor(fontColor);
+        mConshopBtn.setTextColor(fontColor);
+        mDataControlBtn.setTextColor(fontColor);
     }
 
     private void setSelectedMainMenuBtn(int position) {
         switch (position) {
             case 0 :
                 setDefaultMainMenuBtn();
-//                mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
-                mDeviceBtn.setTextColor(backgroundColor);
-                mDeviceBtn.setBackgroundColor(backgroundColorWhite);
+                mDeviceBtn.setTextColor(fontColorPressed);
                 break;
             case 1:
                 setDefaultMainMenuBtn();
-//                mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
-                mCheatkeyBtn.setTextColor(backgroundColor);
-                mCheatkeyBtn.setBackgroundColor(backgroundColorWhite);
+                mCheatkeyBtn.setTextColor(fontColorPressed);
                 break;
             case 2:
                 setDefaultMainMenuBtn();
-//                mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
-                mConshopBtn.setTextColor(backgroundColor);
-                mConshopBtn.setBackgroundColor(backgroundColorWhite);
+                mConshopBtn.setTextColor(fontColorPressed);
                 break;
             case 3:
                 setDefaultMainMenuBtn();
 //                mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
-                mDataControlBtn.setTextColor(backgroundColor);
-                mDataControlBtn.setBackgroundColor(backgroundColorWhite);
+                mDataControlBtn.setTextColor(R.color.tutorial_background);
+                mDataControlBtn.setBackgroundResource(R.color.white);
                 break;
         }
     }
@@ -193,8 +183,8 @@ public class MainActivity extends BaseActivity
         setContentView(R.layout.main_mainactivity_activity);
         ButterKnife.bind(this);
 
-        backgroundColor = getResources().getColor(R.color.tutorial_background);
-        backgroundColorWhite = getResources().getColor(R.color.white);
+        fontColor = getResources().getColor(R.color.mainactivity_font_color);
+        fontColorPressed = getResources().getColor(R.color.mainactivity_font_color_pressed);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         //toolbar search tab  : res-> menu
@@ -318,12 +308,20 @@ public class MainActivity extends BaseActivity
         TapTargetSequence mTapTargetSequence = new TapTargetSequence(this)
                 .targets(
                         TapTarget.forView(mDeviceBtn, "디바이스 메뉴", "등록된 디바이스들을 한눈에!\n하나의 창에서 조작해보세요.")
-                                .cancelable(false),
+                                .cancelable(false)
+                                .outerCircleColor(R.color.tutorial_background)
+                                .targetRadius(50),
                         TapTarget.forView(mCheatkeyBtn, "치트키 메뉴", "등록된 디바이스들로\n액티브, 패시브 치트키를\n만들어보세요.")
-                                .cancelable(false),
+                                .cancelable(false)
+                                .outerCircleColor(R.color.tutorial_background)
+                                .targetRadius(50),
                         TapTarget.forView(mConshopBtn, "콘샾 메뉴", "혁신적 제품들을 만나보세요.")
-                                .cancelable(false),
-                        TapTarget.forView(mDataControlBtn, "데이터 메뉴", "낭비되는 전기세부터\n나에게 맞는 온도까지!\n데이터로 알아보세요."))
+                                .cancelable(false)
+                                .outerCircleColor(R.color.tutorial_background)
+                                .targetRadius(50),
+                        TapTarget.forView(mDataControlBtn, "데이터 메뉴", "낭비되는 전기세부터\n나에게 맞는 온도까지!\n데이터로 알아보세요.")
+                                .outerCircleColor(R.color.tutorial_background)
+                                .targetRadius(80))
                 .listener(new TapTargetSequence.Listener() {
                     // This listener will tell us when interesting(tm) events happen in regards
                     // to the sequence

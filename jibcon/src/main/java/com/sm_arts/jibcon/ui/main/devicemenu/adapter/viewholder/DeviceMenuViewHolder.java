@@ -1,5 +1,6 @@
 package com.sm_arts.jibcon.ui.main.devicemenu.adapter.viewholder;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -33,17 +34,21 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
     TextView mTvDevicecontent;
     @BindView(R.id.tv_devicemenuviewholder_placename)
     TextView mTvPlacename;
+    @BindView(R.id.iv_devicemenuviewholder_onoff)
+    ImageView mIvDeviceOnOff;
+
     private final View mMotherView;
+    private CardView mCardView;
 
     public DeviceMenuViewHolder(View itemView,
                                 CustomItemClickListener deviceItemIvClickedListener,
                                 CustomItemClickListener subscribeIvClickedListener,
                                 CustomItemClickListener threedotIvClickedListener) {
         super(itemView);
-//        Log.d(TAG, "DeviceMenuViewHolder: ");
 
         ButterKnife.bind(this, itemView);
         mMotherView = itemView;
+        mCardView = (CardView) mMotherView.findViewById(R.id.cardview_devicemenuviewholder);
         mIvThreedot.setOnClickListener(
                 v ->
                     threedotIvClickedListener.onItemClick(v,
@@ -67,9 +72,9 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
         String deviceType = deviceItem.getDeviceType();
 
         if(deviceItem.isDeviceOnOffState()) {
-            mMotherView.setBackgroundResource(R.drawable.maindevicemenu_recycleritem_backgroundon);
+            mIvDeviceOnOff.setImageResource(R.drawable.maindevicemenu_recycleritem_backgroundon);
         } else {
-            mMotherView.setBackgroundResource(R.drawable.maindevicemenu_recycleritem_backgroundoff);
+            mIvDeviceOnOff.setImageResource(R.drawable.maindevicemenu_recycleritem_backgroundoff);
         }
 
         if(deviceItem.isSubscribeOnOffState()) {

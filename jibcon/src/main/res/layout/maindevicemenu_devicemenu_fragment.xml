@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eaeaea">
+    android:background="@color/mainactivity_main_color">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
@@ -12,7 +12,10 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        >
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/deviceRecyclerView"
@@ -20,7 +23,8 @@
             android:layout_height="match_parent"
             android:scrollbars="vertical"
             android:clipToPadding="false"
-            android:scrollbarStyle="outsideOverlay" />
+            android:scrollbarStyle="outsideOverlay"
+            />
 
     </ScrollView>
 
@@ -37,6 +41,7 @@
         android:paddingBottom="24dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_add_circle_blue_48dp"
-        android:visibility="visible" />
+        android:visibility="gone"
+        />
 
 </RelativeLayout>

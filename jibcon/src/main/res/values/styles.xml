@@ -53,6 +53,13 @@
         <item name="android:statusBarColor">@color/transparent</item>
         <item name="colorPrimaryDark">@color/tutorial_background</item>
     </style>
+    <style name="myAppTheme.MainNoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/mainactivity_main_color</item>
+        <item name="colorPrimaryDark">@color/mainactivity_main_color</item>
+    </style>
+
 
     <style name="Theme.AppCompat.Translucent">
         <item name="android:background">@color/black_opaque</item>
@@ -82,8 +89,8 @@
         <item name="android:background">@color/white</item>
     </style>
 
-    <style name="WhiteToolbarMenuIcon">
-        <item name="android:tint">@color/white</item>
+    <style name="MainToolbarMenuIconColor">
+        <item name="android:textColorPrimary">@color/mainactivity_font_color_pressed</item>
     </style>
 
 </resources>

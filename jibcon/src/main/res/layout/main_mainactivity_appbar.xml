@@ -19,11 +19,11 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar_main"
-            android:theme="@style/WhiteToolbarMenuIcon"
+            android:theme="@style/MainToolbarMenuIconColor"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
-            android:background="@color/tutorial_background"
+            android:background="@color/mainactivity_main_color"
             >
 
             <TextView
@@ -31,9 +31,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="JIBCON"
-                android:textColor="@color/white"
+                android:textColor="@color/mainactivity_font_color_pressed"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
         </android.support.v7.widget.Toolbar>
 
