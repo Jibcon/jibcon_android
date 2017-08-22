@@ -62,6 +62,9 @@ public class MainActivity extends BaseActivity
 
     ImageButton mtoSettingBtn;
 
+    int backgroundColor;
+    int backgroundColorWhite;
+
     //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
     //속도 너무 느림 ㅠ
     private class pagerAdapter extends FragmentStatePagerAdapter{
@@ -145,14 +148,14 @@ public class MainActivity extends BaseActivity
     }
 
     private void setDefaultMainMenuBtn() {
-        mDeviceBtn.setTextColor(R.color.white);
-        mDeviceBtn.setBackgroundResource(R.color.tutorial_background);
-        mCheatkeyBtn.setTextColor(R.color.white);
-        mCheatkeyBtn.setBackgroundResource(R.color.tutorial_background);
-        mConshopBtn.setTextColor(R.color.white);
-        mConshopBtn.setBackgroundResource(R.color.tutorial_background);
-        mDataControlBtn.setTextColor(R.color.white);
-        mDataControlBtn.setBackgroundResource(R.color.tutorial_background);
+        mDeviceBtn.setTextColor(backgroundColorWhite);
+        mDeviceBtn.setBackgroundColor(backgroundColor);
+        mCheatkeyBtn.setTextColor(backgroundColorWhite);
+        mCheatkeyBtn.setBackgroundColor(backgroundColor);
+        mConshopBtn.setTextColor(backgroundColorWhite);
+        mConshopBtn.setBackgroundColor(backgroundColor);
+        mDataControlBtn.setTextColor(backgroundColorWhite);
+        mDataControlBtn.setBackgroundColor(backgroundColor);
     }
 
     private void setSelectedMainMenuBtn(int position) {
@@ -160,26 +163,26 @@ public class MainActivity extends BaseActivity
             case 0 :
                 setDefaultMainMenuBtn();
 //                mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
-                mDeviceBtn.setTextColor(R.color.tutorial_background);
-                mDeviceBtn.setBackgroundResource(R.color.white);
+                mDeviceBtn.setTextColor(backgroundColor);
+                mDeviceBtn.setBackgroundColor(backgroundColorWhite);
                 break;
             case 1:
                 setDefaultMainMenuBtn();
 //                mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
-                mCheatkeyBtn.setTextColor(R.color.tutorial_background);
-                mCheatkeyBtn.setBackgroundResource(R.color.white);
+                mCheatkeyBtn.setTextColor(backgroundColor);
+                mCheatkeyBtn.setBackgroundColor(backgroundColorWhite);
                 break;
             case 2:
                 setDefaultMainMenuBtn();
 //                mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
-                mConshopBtn.setTextColor(R.color.tutorial_background);
-                mConshopBtn.setBackgroundResource(R.color.white);
+                mConshopBtn.setTextColor(backgroundColor);
+                mConshopBtn.setBackgroundColor(backgroundColorWhite);
                 break;
             case 3:
                 setDefaultMainMenuBtn();
 //                mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
-                mDataControlBtn.setTextColor(R.color.tutorial_background);
-                mDataControlBtn.setBackgroundResource(R.color.white);
+                mDataControlBtn.setTextColor(backgroundColor);
+                mDataControlBtn.setBackgroundColor(backgroundColorWhite);
                 break;
         }
     }
@@ -189,6 +192,9 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_mainactivity_activity);
         ButterKnife.bind(this);
+
+        backgroundColor = getResources().getColor(R.color.tutorial_background);
+        backgroundColorWhite = getResources().getColor(R.color.white);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         //toolbar search tab  : res-> menu
