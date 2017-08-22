@@ -90,7 +90,7 @@
     </style>
 
     <style name="MainToolbarMenuIconColor">
-        <item name="android:tint">@color/mainactivity_font_color_pressed</item>
+        <item name="android:textColorPrimary">@color/mainactivity_font_color_pressed</item>
     </style>
 
 </resources>
