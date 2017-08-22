@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:orientation="horizontal"
-        android:background="@color/tutorial_background"
+        android:background="@color/mainactivity_main_color"
         android:gravity="center"
         >
         <!--기기등록-->

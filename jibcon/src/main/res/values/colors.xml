@@ -37,4 +37,10 @@
     <color name="tutorial_skip">#ffffff</color>
     <color name="tutorial_fontcolor">#ffffff</color>
 
+    <!--Main Activity-->
+    <color name="mainactivity_main_color">#FAFAFA</color>
+    <color name="mainactivity_font_color">#C0C0C0</color>
+    <color name="mainactivity_font_color_pressed">#4A4A4A</color>
+    <color name="mainactivity_background_color">#D7D7D7</color>
+
 </resources>
