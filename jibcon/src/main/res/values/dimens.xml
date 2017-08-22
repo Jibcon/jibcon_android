@@ -18,8 +18,8 @@
     <dimen name="tutorial_subdescription_bottommargin">40.67dp</dimen>
 
     <!--Main/DeviceMenu Fragment-->
-    <dimen name="maindevicemenuadapter_width">200dp</dimen>
-    <dimen name="maindevicemenuadapter_height">200dp</dimen>
+    <dimen name="maindevicemenuadapter_width">148.5dp</dimen>
+    <dimen name="maindevicemenuadapter_height">107.5dp</dimen>
     <dimen name="maindevicemenuadapter_margintop">14.665dp</dimen>
     <dimen name="maindevicemenuadapter_marginbottom">14.665dp</dimen>
     <dimen name="maindevicemenuadapter_marginstart">13dp</dimen>
