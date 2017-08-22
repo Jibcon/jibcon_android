@@ -143,14 +143,10 @@ public class MainActivity extends BaseActivity
     }
 
     private void setDefaultMainMenuBtn() {
-        mDeviceBtn.setTextColor(R.color.white);
-        mDeviceBtn.setBackgroundResource(R.color.tutorial_background);
-        mCheatkeyBtn.setTextColor(R.color.white);
-        mCheatkeyBtn.setBackgroundResource(R.color.tutorial_background);
-        mConshopBtn.setTextColor(R.color.white);
-        mConshopBtn.setBackgroundResource(R.color.tutorial_background);
-        mDataControlBtn.setTextColor(R.color.white);
-        mDataControlBtn.setBackgroundResource(R.color.tutorial_background);
+        mDeviceBtn.setTextColor(R.color.mainactivity_font_color);
+        mCheatkeyBtn.setTextColor(R.color.mainactivity_font_color);
+        mConshopBtn.setTextColor(R.color.mainactivity_font_color);
+        mDataControlBtn.setTextColor(R.color.mainactivity_font_color);
     }
 
     private void setSelectedMainMenuBtn(int position) {
@@ -158,26 +154,22 @@ public class MainActivity extends BaseActivity
             case 0 :
                 setDefaultMainMenuBtn();
 //                mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
-                mDeviceBtn.setTextColor(R.color.tutorial_background);
-                mDeviceBtn.setBackgroundResource(R.color.white);
+                mDeviceBtn.setTextColor(R.color.mainactivity_font_color_pressed);
                 break;
             case 1:
                 setDefaultMainMenuBtn();
 //                mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
-                mCheatkeyBtn.setTextColor(R.color.tutorial_background);
-                mCheatkeyBtn.setBackgroundResource(R.color.white);
+                mCheatkeyBtn.setTextColor(R.color.mainactivity_font_color_pressed);
                 break;
             case 2:
                 setDefaultMainMenuBtn();
 //                mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
-                mConshopBtn.setTextColor(R.color.tutorial_background);
-                mConshopBtn.setBackgroundResource(R.color.white);
+                mConshopBtn.setTextColor(R.color.mainactivity_font_color_pressed);
                 break;
             case 3:
                 setDefaultMainMenuBtn();
 //                mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
-                mDataControlBtn.setTextColor(R.color.tutorial_background);
-                mDataControlBtn.setBackgroundResource(R.color.white);
+                mDataControlBtn.setTextColor(R.color.mainactivity_font_color_pressed);
                 break;
         }
     }
