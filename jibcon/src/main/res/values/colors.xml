@@ -43,4 +43,5 @@
     <color name="mainactivity_font_color_pressed">#4A4A4A</color>
     <color name="mainactivity_background_color">#D7D7D7</color>
 
+    <color name="mainactivity_test_color">#b91414</color>
 </resources>

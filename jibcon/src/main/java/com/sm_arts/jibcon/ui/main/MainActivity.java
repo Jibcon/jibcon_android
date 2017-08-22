@@ -60,6 +60,9 @@ public class MainActivity extends BaseActivity
 
     ImageButton mtoSettingBtn;
 
+    int fontColor;
+    int fontColorPressed;
+
     //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
     //속도 너무 느림 ㅠ
     private class pagerAdapter extends FragmentStatePagerAdapter{
@@ -143,33 +146,29 @@ public class MainActivity extends BaseActivity
     }
 
     private void setDefaultMainMenuBtn() {
-        mDeviceBtn.setTextColor(R.color.mainactivity_font_color);
-        mCheatkeyBtn.setTextColor(R.color.mainactivity_font_color);
-        mConshopBtn.setTextColor(R.color.mainactivity_font_color);
-        mDataControlBtn.setTextColor(R.color.mainactivity_font_color);
+        mDeviceBtn.setTextColor(fontColor);
+        mCheatkeyBtn.setTextColor(fontColor);
+        mConshopBtn.setTextColor(fontColor);
+        mDataControlBtn.setTextColor(fontColor);
     }
 
     private void setSelectedMainMenuBtn(int position) {
         switch (position) {
             case 0 :
                 setDefaultMainMenuBtn();
-//                mDeviceBtn.setImageResource(R.drawable.ic_home_blue_48dp);
-                mDeviceBtn.setTextColor(R.color.mainactivity_font_color_pressed);
+                mDeviceBtn.setTextColor(fontColorPressed);
                 break;
             case 1:
                 setDefaultMainMenuBtn();
-//                mCheatkeyBtn.setImageResource(R.drawable.ic_link_blue_48dp);
-                mCheatkeyBtn.setTextColor(R.color.mainactivity_font_color_pressed);
+                mCheatkeyBtn.setTextColor(fontColorPressed);
                 break;
             case 2:
                 setDefaultMainMenuBtn();
-//                mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_blue_48dp);
-                mConshopBtn.setTextColor(R.color.mainactivity_font_color_pressed);
+                mConshopBtn.setTextColor(fontColorPressed);
                 break;
             case 3:
                 setDefaultMainMenuBtn();
-//                mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
-                mDataControlBtn.setTextColor(R.color.mainactivity_font_color_pressed);
+                mDataControlBtn.setTextColor(fontColorPressed);
                 break;
         }
     }
@@ -179,6 +178,9 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_mainactivity_activity);
         ButterKnife.bind(this);
+
+        fontColor = getResources().getColor(R.color.mainactivity_font_color);
+        fontColorPressed = getResources().getColor(R.color.mainactivity_font_color_pressed);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
         //toolbar search tab  : res-> menu
