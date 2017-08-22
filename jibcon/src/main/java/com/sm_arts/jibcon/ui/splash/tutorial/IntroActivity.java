@@ -46,11 +46,10 @@ public class IntroActivity extends BaseActivity {
         public void run() {
 
             Log.d(TAG, "run: ");
-            mCallbackManager= CallbackManager.Factory.create();
+            mCallbackManager = CallbackManager.Factory.create();
             final AccessToken accesstoken = AccessToken.getCurrentAccessToken();
 
-            if(accesstoken!=null&&accesstoken.isExpired())
-            {//accesstoken만료기간 60일
+            if(accesstoken != null && accesstoken.isExpired()) { //accesstoken만료기간 60일
                 //만료되면 로그인창으로
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
@@ -58,7 +57,7 @@ public class IntroActivity extends BaseActivity {
             }
 
             //기존에 로그인된 상태 체크하기
-            if(accesstoken!=null) {
+            if(accesstoken != null) {
                 //intro->login success->main
                 accesstoken.getToken();
 
@@ -95,7 +94,7 @@ public class IntroActivity extends BaseActivity {
                 }
             }
             else {//intro->login success->tutorial
-                Intent intent = new Intent(getApplicationContext(),TutorialMainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), TutorialMainActivity.class);
                 startActivity(intent);
                 finish();
             }
