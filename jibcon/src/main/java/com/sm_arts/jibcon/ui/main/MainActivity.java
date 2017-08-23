@@ -135,7 +135,7 @@ public class MainActivity extends BaseActivity
             }
         });
 
-//        mVp.setCurrentItem(0);
+        setSelectedMainMenuBtn(0);
 
         mDeviceBtn.setTag(0);
         mDeviceBtn.setOnClickListener(movePageListener);
@@ -170,9 +170,7 @@ public class MainActivity extends BaseActivity
                 break;
             case 3:
                 setDefaultMainMenuBtn();
-//                mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_blue_48dp);
-                mDataControlBtn.setTextColor(R.color.tutorial_background);
-                mDataControlBtn.setBackgroundResource(R.color.white);
+                mDataControlBtn.setTextColor(fontColorPressed);
                 break;
         }
     }
