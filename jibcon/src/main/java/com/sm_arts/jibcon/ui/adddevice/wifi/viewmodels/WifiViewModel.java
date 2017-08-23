@@ -23,7 +23,7 @@ public class WifiViewModel extends ViewModel{
 
     private WifiscanManager mWifiManager;
 
-    WifiViewModel() {
+    public WifiViewModel() {
     }
 
     public void onWifireceiverInitialized(WifiscanManager wifiscanManager) {
