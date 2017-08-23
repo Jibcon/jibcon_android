@@ -112,6 +112,7 @@ public class DeviceNetworkHelper {
     }
 
     public void putDevice(DeviceItem deviceItem, final Consumer<DeviceItem> finished) {
+        Log.d(TAG, "putDevice: "+"putDevice");
         Call<DeviceItem> call = service.putDevice(
                 JibconLoginManager.getInstance().getUserTokenAsHeader(),
                 deviceItem.getId(),

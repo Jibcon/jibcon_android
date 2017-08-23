@@ -25,11 +25,15 @@ public class UrlUtils {
         String apiUrl = BuildConfig.DEBUG ?
                 "http://52.79.142.130/" :
                 "http://52.79.142.130/";
+
+        String nodeApiUrl = BuildConfig.DEBUG ?
+                "http://13.124.172.12:3001/" :
+                "http://13.124.172.12:3001/";
 //        String apiUrl = BuildConfig.DEBUG ?
 //                "http://192.168.1.120:8000/" :
 //                "http://192.168.1.120:8000/";
-        urls.put(UserService.class.getName(), apiUrl);
-        urls.put(DeviceService.class.getName(), apiUrl);
+        urls.put(UserService.class.getName(), nodeApiUrl);
+        urls.put(DeviceService.class.getName(), nodeApiUrl);
         urls.put(RoutineService.class.getName(), apiUrl);
 
         String mobiusUrl =
