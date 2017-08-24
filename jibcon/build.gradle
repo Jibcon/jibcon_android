@@ -14,11 +14,11 @@ android {
 
         minSdkVersion 17
         targetSdkVersion 25
-//        versionCode 3
-//        versionName "1.2"
+        versionCode 3
+        versionName "1.1"
         multiDexEnabled true // For multidex error
-        versionCode 4
-        versionName "1.3"
+        versionCode 1
+        versionName "3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 

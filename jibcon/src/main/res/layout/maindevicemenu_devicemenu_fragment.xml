@@ -41,8 +41,7 @@
         android:paddingBottom="24dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_add_circle_blue_48dp"
-    />
-    <!--android:visibility="gone"-->
-
+        android:visibility="gone"
+        />
 
 </RelativeLayout>
