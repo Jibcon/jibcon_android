@@ -10,7 +10,6 @@ import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
 import com.sm_arts.jibcon.services.sensor.SensorManager;
 import com.sm_arts.jibcon.ui.splash.login.KaKaoSDKAdpater;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
-import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 import com.tsengvn.typekit.Typekit;
 
 import java.lang.ref.WeakReference;
@@ -22,6 +21,9 @@ import java.lang.ref.WeakReference;
 
 public class GlobalApplication extends MultiDexApplication {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
+
+
+
 
     private static volatile GlobalApplication sObj = null;
     private volatile WeakReference<Activity> sCurrentActivity = null;
