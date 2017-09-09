@@ -21,20 +21,10 @@
             android:id="@+id/toolbar_main"
             android:theme="@style/MainToolbarMenuIconColor"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="67dp"
             android:scrollbarAlwaysDrawHorizontalTrack="true"
             android:background="@color/mainactivity_main_color"
             >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="JIBCON"
-                android:textColor="@color/mainactivity_font_color_pressed"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                />
 
         </android.support.v7.widget.Toolbar>
 
