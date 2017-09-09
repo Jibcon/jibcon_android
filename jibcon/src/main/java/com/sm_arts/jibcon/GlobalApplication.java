@@ -26,7 +26,7 @@ public class GlobalApplication extends MultiDexApplication {
 
 
 
-    
+
 
     private static volatile GlobalApplication sObj = null;
     private volatile WeakReference<Activity> sCurrentActivity = null;
