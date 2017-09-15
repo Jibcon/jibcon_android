@@ -56,14 +56,6 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         loadData();
     }
 
-//    private void sampleLogin() {
-//        Log.d(TAG, "sampleLogin: ");
-//
-//        JibconLoginManager.getInstance().loginWithSampleUser(
-//                this::loadData
-//        );
-//    }
-
     @Override
     public void onDestroyView() {
         detachUI();
