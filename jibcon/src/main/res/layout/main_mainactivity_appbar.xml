@@ -26,6 +26,15 @@
             android:background="@color/mainactivity_main_color"
             >
 
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="250dp"
+                android:background="@color/mainactivity_main_color"
+                app:srcCompat="@drawable/places_ic_search" />
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
