@@ -18,8 +18,8 @@
         android:layout_width="@dimen/maindevicemenuadapter_width"
         android:layout_height="@dimen/maindevicemenuadapter_height"
         android:background="@color/white"
-        android:layout_marginTop="11.5dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
         app:cardCornerRadius="9dp">
 
         <android.support.constraint.ConstraintLayout
