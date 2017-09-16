@@ -13,8 +13,8 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
+        android:paddingLeft="27dp"
+        android:paddingRight="27dp"
         >
 
         <android.support.v7.widget.RecyclerView
