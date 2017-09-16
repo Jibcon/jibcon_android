@@ -115,6 +115,13 @@
         android:background="#f6f6f6">
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="8.3dp"
+        android:orientation="horizontal"
+        android:background="@color/mainactivity_main_color">
+    </LinearLayout>
+
     <!-- ViewPager -->
     <android.support.v4.view.ViewPager
         android:id="@+id/vp"

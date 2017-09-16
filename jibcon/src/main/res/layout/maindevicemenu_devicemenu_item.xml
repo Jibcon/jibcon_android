@@ -18,12 +18,8 @@
         android:layout_width="@dimen/maindevicemenuadapter_width"
         android:layout_height="@dimen/maindevicemenuadapter_height"
         android:background="@color/white"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="11.5dp"
         android:layout_marginBottom="8dp"
-        android:paddingTop="@dimen/maindevicemenuadapter_paddingtop"
-        android:paddingBottom="@dimen/maindevicemenuadapter_paddingbottom"
-        android:paddingStart="@dimen/maindevicemenuadapter_paddingstart"
-        android:paddingEnd="@dimen/maindevicemenuadapter_paddingend"
         app:cardCornerRadius="9dp">
 
         <android.support.constraint.ConstraintLayout
@@ -32,17 +28,17 @@
 
             <TextView
                 android:id="@+id/tv_devicemenuviewholder_placename"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="Living Room"
-                android:textSize="8dp"
+                android:textSize="11dp"
                 android:layout_gravity="start"
-                android:layout_marginLeft="12dp"
+                android:textColor="@color/mainactivity_font_color"
+                android:layout_marginLeft="24dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="21dp" />
 
             <ImageView
                 android:id="@+id/iv_devicemenuviewholder_option"
@@ -50,8 +46,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/maindevicemenu_recycleritem_option"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginRight="15.2dp"
                 app:layout_constraintRight_toRightOf="parent" />
 
             <TextView
@@ -60,11 +56,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="Air conditioner"
-                android:textSize="12dp"
-                android:textStyle="bold"
-                android:layout_marginLeft="12dp"
+                android:textSize="16dp"
+                android:layout_marginLeft="24dp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/mainactivity_font_color_pressed"
                 app:layout_constraintTop_toBottomOf="@+id/tv_devicemenuviewholder_placename" />
 
             <ImageView
@@ -75,6 +71,7 @@
                 android:layout_marginRight="8dp"
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="8dp"
+                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@+id/iv_devicemenuviewholder_option" />
 
             <ImageView
@@ -85,6 +82,7 @@
                 android:layout_marginRight="9dp"
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="8dp"
+                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@+id/iv_devicemenuviewholder_subscribe" />
 
             <TextView
@@ -104,10 +102,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 card:srcCompat="@drawable/maindevicemenu_recycleritem_backgroundoff"
-                android:layout_marginLeft="12dp"
+                android:layout_marginLeft="24dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="18.5dp" />
 
         </android.support.constraint.ConstraintLayout>
 
