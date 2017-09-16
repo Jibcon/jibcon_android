@@ -19,26 +19,37 @@
         android:gravity="center"
         android:elevation="3dp"
         >
-        <!--기기등록-->
+
+        <TextView
+            android:id="@+id/blank1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="31.5"
+            android:text="" />
+
         <TextView
             android:id="@+id/btn1"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="기기제어"
             android:textColor="@color/white"
-            android:textSize="16dp"
+            android:textSize="12dp"
             android:textStyle="" />
 
-        <!--트릭-->
+        <TextView
+            android:id="@+id/blank2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="49"
+            android:text="" />
+
         <TextView
             android:id="@+id/btn2"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:layout_weight="1"
             android:text="루틴"
-            android:textSize="16dp"
+            android:textSize="12dp"
             android:textStyle=""
             android:textColor="@color/white"
             android:gravity="center"
@@ -46,29 +57,47 @@
 
         <!--콘샵-->
         <TextView
-            android:id="@+id/btn3"
+            android:id="@+id/blank3"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="63"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:layout_weight="1"
             android:text="콘샵"
-            android:textSize="16dp"
+            android:textSize="12dp"
             android:textStyle=""
             android:textColor="@color/white"
             android:gravity="center"
             />
 
-        <!--데이터-->
+        <TextView
+            android:id="@+id/blank4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="63"
+            android:text="" />
+
         <TextView
             android:id="@+id/btn4"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:layout_weight="1"
             android:text="데이터"
-            android:textSize="16dp"
+            android:textSize="12dp"
             android:textStyle=""
             android:textColor="@color/white"
             android:gravity="center"
             />
+
+        <TextView
+            android:id="@+id/blank5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="32.5"
+            android:text="" />
 
     </LinearLayout>
     <!-- ViewPager -->
