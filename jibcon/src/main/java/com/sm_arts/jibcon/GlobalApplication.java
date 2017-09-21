@@ -27,6 +27,7 @@ public class GlobalApplication extends MultiDexApplication {
     private volatile WeakReference<Activity> sCurrentActivity = null;
     //카톡 로그인
 
+
     private static OAuthLogin mOAuthLoginModule = null;
 
     @Override
