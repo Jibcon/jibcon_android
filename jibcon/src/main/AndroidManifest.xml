@@ -111,11 +111,11 @@
 
         <activity
             android:name=".ui.additional.floatingbuttonui.FloatingButtonDeviceActivity"
-            android:theme="@style/Theme.AppCompat.Translucent" />
+            android:theme="@style/myAppTheme.NoActionBar" />
         <activity android:name=".ui.additional.floatingbuttonui.FloatingButtonActiveActivity"
-            android:theme="@style/Theme.AppCompat.Translucent"/>
+            android:theme="@style/myAppTheme.NoActionBar"/>
         <activity android:name=".ui.additional.floatingbuttonui.FloatingButtonPassiveActivity"
-            android:theme="@style/Theme.AppCompat.Translucent"></activity>
+            android:theme="@style/myAppTheme.NoActionBar"></activity>
 
 
         <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"

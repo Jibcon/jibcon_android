@@ -27,8 +27,8 @@ public class UrlUtils {
                 "http://52.79.142.130/";
 
         String nodeApiUrl = BuildConfig.DEBUG ?
-                "http://13.124.172.12:8080/" :
-                "http://13.124.172.12:8080/";
+                "http://52.79.180.194:8080/" :
+                "http://52.79.180.194:8080/";
 //        String apiUrl = BuildConfig.DEBUG ?
 //                "http://192.168.1.120:8000/" :
 //                "http://192.168.1.120:8000/";

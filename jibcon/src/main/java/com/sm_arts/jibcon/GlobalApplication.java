@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.kakao.auth.KakaoSDK;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
 import com.sm_arts.jibcon.services.sensor.SensorManager;
 import com.sm_arts.jibcon.ui.splash.login.KaKaoSDKAdpater;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
-import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 import com.tsengvn.typekit.Typekit;
 
 import java.lang.ref.WeakReference;
@@ -47,6 +47,9 @@ public class GlobalApplication extends MultiDexApplication {
                 () -> {
                 }
         );
+
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Log.d(TAG, "onCreate: FirebaseToken : "+token);
     }
 
     private void initTypekit() {
