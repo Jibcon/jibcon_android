@@ -16,10 +16,10 @@
 
     <string name="tutorial_skip">SKIP</string>
 
-    <string name="tutorial_description_1">스마트홈 기기를 등록하세요</string>
-    <string name="tutorial_description_2">내 스마트홈 습관을 확인하세요</string>
-    <string name="tutorial_description_3">혁신적 제품들을 만나보세요</string>
-    <string name="tutorial_description_4">스마트홈 습관을 확인해봐요</string>
+    <string name="tutorial_description_1">스<b>마트홈 기기</b>를 등록하세요</string>
+    <string name="tutorial_description_2"><b>나의 루틴</b>을 등록해두세요</string>
+    <string name="tutorial_description_3"><b>혁신적 제품</b>들을 만나보세요</string>
+    <string name="tutorial_description_4"><b>나의 그래프</b>를 확인해보세요</string>
     <string-array name="tutorial_description_array">
         <item>@string/tutorial_description_1</item>
         <item>@string/tutorial_description_2</item>
@@ -27,8 +27,8 @@
         <item>@string/tutorial_description_4</item>
     </string-array>
 
-    <string name="tutorial_subdescription_1">어떠한 기기든 빠르게 연결하고\n 쉽고 간편하게 사용해보세요</string>
-    <string name="tutorial_subdescription_2">낭비되는 전기세부터 나에게 맞는 온도까지!\n내 스마트홈 데이터로 알아보세요</string>
+    <string name="tutorial_subdescription_1">어떠한 기기든 빠르게 연결하고\n 쉽게 간편하게 사용해보세요.</string>
+    <string name="tutorial_subdescription_2">한번만 등록해두면 신경쓰지 않아도\n 알아서 척척해냅니다.</string>
     <string name="tutorial_subdescription_3">콘샾에서 당신에게 맞는 제품을\n 가장 저렴하게 만나볼 수 있습니다</string>
     <string name="tutorial_subdescription_4">낭비되는 전기세부터\n 나에게 맞는 온도까지! 데이터로 알아보세요</string>
     <string-array name="tutorial_subdescription_array">

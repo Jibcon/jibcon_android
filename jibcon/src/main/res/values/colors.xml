@@ -15,14 +15,15 @@
 
     <color name="light_blue">#36C3FF</color>
     <color name="deep_blue">#3498DB</color>
+    <color name = "tutorial_background">#fafafa</color>
 
     <color name="default_text_color">#262626</color>
     <!--좌메뉴 상단 색 #404040 -> style toolbar_common에서 설정-->
 
     <!--Tutorial Activity-->
-    <color name="tutorial_background">#2192fc</color>
-    <color name="tutorial_skip">#ffffff</color>
-    <color name="tutorial_fontcolor">#ffffff</color>
+    <color name="tutorial_button_background">#2192fc</color>
+    <color name="tutorial_skip">#c2c2c2</color>
+    <color name="tutorial_fontcolor">#747474</color>
 
     <!--Main Activity-->
     <color name="mainactivity_main_color">#FAFAFA</color>
