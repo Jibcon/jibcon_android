@@ -12,12 +12,8 @@
 
     <VideoView
         android:id="@+id/videoView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         fb:layout_constraintBottom_toBottomOf="parent"
         fb:layout_constraintLeft_toLeftOf="parent"
         fb:layout_constraintRight_toRightOf="parent"
@@ -54,10 +50,12 @@
     <!--Naver Login Button-->
     <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
             android:id="@+id/btn_naver_login"
-            android:layout_width="280dp"
-            android:layout_height="60dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:padding="8dp"
-            android:visibility="gone" />
+            android:visibility="gone"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <!--Facebook Login Button-->
     <FrameLayout
@@ -69,7 +67,9 @@
         fb:layout_constraintRight_toRightOf="@+id/videoView"
         android:layout_marginLeft="8dp"
         fb:layout_constraintLeft_toLeftOf="@+id/videoView"
-        android:id="@+id/frameLayout">
+        android:id="@+id/frameLayout"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/btn_login_facebook"
@@ -103,7 +103,9 @@
         fb:layout_constraintRight_toRightOf="@+id/videoView"
         android:layout_marginLeft="8dp"
         fb:layout_constraintLeft_toLeftOf="@+id/videoView"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
 
         <com.kakao.usermgmt.LoginButton
             android:id="@+id/Btn_Login_Kakao"
@@ -131,13 +133,13 @@
     <Button
         android:id="@+id/btnSampleSignIn"
         android:layout_width="280dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="64dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:background="@color/tutorial_background"
+        android:background="@color/tutorial_button_background"
         android:text="@string/login_sample_btn"
         android:textColor="@color/white"
         android:textSize="16dp"

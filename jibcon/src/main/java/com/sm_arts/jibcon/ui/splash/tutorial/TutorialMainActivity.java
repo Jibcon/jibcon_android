@@ -70,7 +70,7 @@ public class TutorialMainActivity extends BaseActivity {
             mBtnSkiptutorial.setText("START");
         } else {
             Log.d(TAG, "showIvProgress: position = " + position);
-            mBtnSkiptutorial.setText("SKIP");
+            mBtnSkiptutorial.setText(" ");
         }
 
     }
