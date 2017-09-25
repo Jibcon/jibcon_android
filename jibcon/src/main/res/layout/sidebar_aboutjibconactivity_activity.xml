@@ -25,18 +25,19 @@
     <ImageView
         android:id="@+id/imageView4"
         android:layout_gravity="center"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="180dp"
         app:srcCompat="@drawable/jibcon_logo_en" />
 
     <TextView
+        android:layout_marginTop="40dp"
         android:id="@+id/textView4"
-        android:layout_gravity="center"
-        android:layout_width="200dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:text="하드웨어와 소프트웨어의\n경계가 사라진 세상\n\n우리가 만들어갑니다"
         android:textAlignment="center"
-        android:text="처음 만나는 스마트홈\n쉬운 스마트홈\n재밌는 스마트홈\n\n우리가 만들어갑니다"
-        android:textColor="@color/deep_blue"/>
+        android:textColor="@color/deep_blue"
+        android:textSize="20dp" />
 
 </LinearLayout>
