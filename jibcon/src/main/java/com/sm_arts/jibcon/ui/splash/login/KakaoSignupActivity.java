@@ -5,15 +5,15 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.kakao.auth.ErrorCode;
+import com.kakao.auth.Session;
 import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.helper.log.Logger;
 import com.sm_arts.jibcon.ui.BaseActivity;
-import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
-import com.sm_arts.jibcon.utils.helper.SharedPreferenceHelper;
 import com.sm_arts.jibcon.ui.main.MainActivity;
+import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 
 
 /**
@@ -25,12 +25,13 @@ public class KakaoSignupActivity extends BaseActivity {
      * Main으로 넘길지 가입 페이지를 그릴지 판단하기 위해 me를 호출한다.
      * @param savedInstanceState 기존 session 정보가 저장된 객체
      */
+    static final String TAG = KakaoSignupActivity.class.getName();
 
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("testing","KaKaoSignUpActivity_onCreate()");
+        Log.d(TAG,"KaKaoSignUpActivity_onCreate()");
         requestMe();
     }
 
@@ -42,7 +43,7 @@ public class KakaoSignupActivity extends BaseActivity {
             @Override
             public void onFailure(ErrorResult errorResult) {
 
-                Log.d("testing","KaKaoSignUpActivity_onFailure()");
+                Log.d(TAG,"KaKaoSignUpActivity_onFailure()");
                 String message = "failed to get user info. msg=" + errorResult;
                 Logger.d(message);
 
@@ -56,21 +57,20 @@ public class KakaoSignupActivity extends BaseActivity {
 
             @Override
             public void onSessionClosed(ErrorResult errorResult) {
-                Log.d("testing","KakaoSignupActivity_onSessionClosed");
+                Log.d(TAG,"KakaoSignupActivity_onSessionClosed");
                 redirectLoginActivity();
             }
 
             @Override
             public void onNotSignedUp() {
-                Log.d("testing","KaKaoSignUpActivity_onNotSignedUp()");
+                Log.d(TAG,"KaKaoSignUpActivity_onNotSignedUp()");
 
             } // 카카오톡 회원이 아닐 시 showSignup(); 호출해야함
 
             @Override
             public void onSuccess(UserProfile userProfile) {  //성공 시 userProfile 형태로 반환
-                Log.d("testing","KaKaoSignUpActivity_onSuccess()");
-                Log.d("testing","KaKaoSignUpActivity_onSuccess()"+userProfile);
-
+                Log.d(TAG,"KaKaoSignUpActivity_onSuccess()");
+                Log.d(TAG, "onSuccess: Access Token : "+ Session.getCurrentSession().getAccessToken());
                 redirectMainActivity(); // 로그인 성공시 MainActivity로
             }
         });
@@ -78,21 +78,28 @@ public class KakaoSignupActivity extends BaseActivity {
 
     private void redirectMainActivity() {
         //성공시 Main
-        Log.d("testing","KaKaoSignUpActivit_redirectMainActivity()");
+        Log.d(TAG,"KaKaoSignUpActivit_redirectMainActivity()");
 
         // TODO: 2017-05-24 facebook과 유사하게 토큰 처리
-        // TODO: 2017-05-24 현재 sample 계정 로그인  
-        JibconLoginManager.getInstance().loginWithSampleUser(
-                () -> {
-                    SharedPreferenceHelper.saveSharedPreference("pref", "LOGINTYPE", "KAKAO");
-                    startActivity(new Intent(this, MainActivity.class));
-                    finish();
-                }
-        );
+        // TODO: 2017-05-24 현재 sample 계정 로그인
+
+        JibconLoginManager.getInstance().loginWithKakao(Session.getCurrentSession().getAccessToken(), this::startAfterKakaoLogin);
+
+//        JibconLoginManager.getInstance().loginWithSampleUser(
+//                () -> {
+//                    SharedPreferenceHelper.saveSharedPreference("pref", "LOGINTYPE", "KAKAO");
+//                    startActivity(new Intent(this, MainActivity.class));
+//                    finish();
+//                }
+//        );
     }
 
+    private void startAfterKakaoLogin(){
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
+    }
     protected void redirectLoginActivity() {
-        Log.d("testing","KaKaoSignUpActivity_redirectLoginActivity()");
+        Log.d(TAG,"KaKaoSignUpActivity_redirectLoginActivity()");
 
         final Intent intent = new Intent(this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);

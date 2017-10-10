@@ -1,7 +1,6 @@
 package com.sm_arts.jibcon.utils.consts;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -10,12 +9,12 @@ import java.util.List;
 
 public interface Configs {
     interface Mobius {
-        String HOST = "13.124.172.12";
+        String HOST = "52.79.180.194";
         String PORT = "7579";
     }
 
     interface Mqtt {
-        String HOST = "13.124.172.12";
+        String HOST = "52.79.180.194";
         String PORT = "1883";
         int QOS = 1; /* 0: NO QoS, 1: No Check , 2: Each Check */
     }
@@ -25,8 +24,8 @@ public interface Configs {
     }
 
     interface AE {
-        String NAME = "ae-jibcon";
-        String AID = "aei-jibcon";
+        String NAME = "ae-smarts";
+        String AID = "aei-smarts";
     }
 
 

@@ -36,7 +36,6 @@ public class GlobalApplication extends MultiDexApplication {
         Log.d(TAG, "onCreate: allocate GlobalApplication sObj");
         sObj = this;
         KakaoSDK.init(new KaKaoSDKAdpater());
-
         initTypekit();
         initMobius();
         JibconLoginManager.getInstance().addOnSigninAction(

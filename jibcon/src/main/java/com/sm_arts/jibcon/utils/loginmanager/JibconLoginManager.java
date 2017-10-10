@@ -15,17 +15,18 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.sm_arts.jibcon.GlobalApplication;
-import com.sm_arts.jibcon.ui.splash.makecon.MakeconStartActivity;
-import com.sm_arts.jibcon.ui.splash.tutorial.IntroActivity;
 import com.sm_arts.jibcon.data.models.api.dto.User;
 import com.sm_arts.jibcon.data.models.api.dto.UserInfo;
 import com.sm_arts.jibcon.data.repository.helper.network.UserNetworkImpl;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
+import com.sm_arts.jibcon.ui.splash.makecon.MakeconStartActivity;
+import com.sm_arts.jibcon.ui.splash.tutorial.IntroActivity;
 import com.sm_arts.jibcon.utils.helper.SharedPreferenceHelper;
 import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
@@ -45,7 +46,7 @@ import retrofit2.Response;
  */
 
 public class JibconLoginManager {
-    private static final String TAG =  "JibconLoginManager";
+    private static final String TAG = "JibconLoginManager";
     private final String PREF_NAME = "pref";
     private final String PREF_LOGINTYPE = "LOGINTYPE";
     private final String PREF_TYPE_NAVER = "NAVER";
@@ -59,7 +60,7 @@ public class JibconLoginManager {
 
     public static JibconLoginManager getInstance() {
         if (mInstance == null) {
-            synchronized(JibconLoginManager.class) {
+            synchronized (JibconLoginManager.class) {
                 if (mInstance == null) {
                     mInstance = new JibconLoginManager();
                 }
@@ -91,7 +92,7 @@ public class JibconLoginManager {
             }
         }
 
-         mAftersigninActions.clear();
+        mAftersigninActions.clear();
     }
 
     public String getUserTokenAsHeader() {
@@ -174,7 +175,7 @@ public class JibconLoginManager {
 
                     //일단 샘플계정 로그인으로
                     JibconLoginManager.getInstance().loginWithSampleUser(
-                            () -> context.startActivity(new Intent(context,MakeconStartActivity.class))
+                            () -> context.startActivity(new Intent(context, MakeconStartActivity.class))
                     );
                 } else {
 
@@ -184,32 +185,28 @@ public class JibconLoginManager {
     }
 
 
-
     public FacebookCallback<LoginResult> makeFacebookLoginManager(Action action) {
 
         FacebookCallback<LoginResult> mFacebookCallback = new FacebookCallback<LoginResult>() {
             String userEmail;
             String name;
-
             @Override
             public void onSuccess(LoginResult loginResult) {
                 //유저 정보 받아오기
                 GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
-                        if(response.getError() != null) {
-                            Log.d("profilecheck","onCompleted() error");
+                        if (response.getError() != null) {
+                            Log.d("profilecheck", "onCompleted() error");
                             //error handle
                         } else {
                             String userid;
-
                             userid = object.optString("id");
                             userEmail = object.optString("email");
                             name = object.optString("name");
                             Log.d(TAG, "onCompleted: " + userEmail + "/" + name);
-                            Log.d("profilecheck","useremail :" + userEmail);
-                            Log.d("profilecheck","name : " + name);
-
+                            Log.d("profilecheck", "useremail :" + userEmail);
+                            Log.d("profilecheck", "name : " + name);
                             SharedPreferenceHelper.saveSharedPreference(PREF_NAME, PREF_LOGINTYPE, PREF_TYPE_FACEBOOK);
                         }
                     }
@@ -218,7 +215,7 @@ public class JibconLoginManager {
 
                 final String userTokenFacebook;
                 userTokenFacebook = loginResult.getAccessToken().getToken();
-                UserInfo userInfo = new UserInfo("facebook",userTokenFacebook);
+                UserInfo userInfo = new UserInfo("facebook", userTokenFacebook);
                 Log.d("MYTOKEN", userTokenFacebook);
                 UserService userService = RetrofitClients.getInstance()
                         .getService(UserService.class);
@@ -231,8 +228,8 @@ public class JibconLoginManager {
                             if (response.isSuccessful()) {
                                 JibconLoginManager.getInstance()
                                         .setUserOnSuccess(response.body());
-                                Log.d(TAG, "onResponse: "+"success");
-
+                                Log.d(TAG, "onResponse: " + "success");
+                                updateFcmToken();
                                 try {
                                     action.run();
                                 } catch (Exception e) {
@@ -246,7 +243,7 @@ public class JibconLoginManager {
                         @Override
                         public void onFailure(Call<User> call, Throwable t) {
                             t.printStackTrace();
-                            Log.d(TAG, "onFailure: "+"fail");
+                            Log.d(TAG, "onFailure: " + "fail");
                         }
                     });
                 } catch (Exception e) {
@@ -264,10 +261,33 @@ public class JibconLoginManager {
 
             }
         };
-
         return mFacebookCallback;
     }
 
+    public void updateFcmToken() {
+
+
+        UserService userService = RetrofitClients.getInstance()
+                .getService(UserService.class);
+
+        String fcm_token = FirebaseInstanceId.getInstance().getToken();
+        Log.d(TAG, "onCreate: FirebaseToken : " + fcm_token);
+
+        Call<User> c = userService.updateFcmToken(JibconLoginManager.getInstance().getUserToken(), fcm_token);
+        c.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                JibconLoginManager.getInstance().setUserOnSuccess(response.body());
+                Log.d(TAG, "onResponse: "+"fcm 등록 성공");
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                t.printStackTrace();
+                Log.d(TAG, "onResponse: "+"fcm 등록 실패");
+            }
+        });
+    }
 
 
     public void logout(Context context) {
@@ -282,26 +302,23 @@ public class JibconLoginManager {
         mUser = null;
 
         Log.d(TAG, "logout: LoginType : " + logintype);
-        if(logintype.equals("")) {
+        if (logintype.equals("")) {
             Log.d(TAG, "logout: logintype null");
             return;
-        } else if(TextUtils.equals(logintype, PREF_TYPE_SAMPLE)) {
+        } else if (TextUtils.equals(logintype, PREF_TYPE_SAMPLE)) {
             // TODO: 7/21/17 implement
             Log.d(TAG, "logout: SAMPLE");
-        }
-        else if(logintype.equals(PREF_TYPE_FACEBOOK)) {
+        } else if (logintype.equals(PREF_TYPE_FACEBOOK)) {
             Log.d(TAG, "logout: facebook logout");
             LoginManager.getInstance().logOut();
-        }
-        else if(logintype.equals(PREF_TYPE_KAKAO)) {
+        } else if (logintype.equals(PREF_TYPE_KAKAO)) {
             UserManagement.requestLogout(new LogoutResponseCallback() {
                 @Override
                 public void onCompleteLogout() {
 
                 }
             });
-        }
-        else if(logintype.equals(PREF_TYPE_NAVER)) {
+        } else if (logintype.equals(PREF_TYPE_NAVER)) {
             OAuthLogin.getInstance().logout(context);
             // TODO: 2017-07-19 naver logout
         }
@@ -310,6 +327,32 @@ public class JibconLoginManager {
         context.startActivity(intent);
 
         ((Activity) context).finish();
+    }
+
+    public void loginWithKakao(String accessToken, Action action) {
+        UserInfo userInfo = new UserInfo("kakao", accessToken);
+        UserService userService = RetrofitClients.getInstance()
+                .getService(UserService.class);
+        Call<User> c = userService.login(userInfo);
+        c.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                JibconLoginManager.getInstance().setUserOnSuccess(response.body());
+                SharedPreferenceHelper.saveSharedPreference(PREF_NAME, PREF_LOGINTYPE, PREF_TYPE_KAKAO);
+                updateFcmToken();
+                try {
+                    action.run();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+
     }
 
     public void loginWithSampleUser(Action action) {
@@ -321,7 +364,7 @@ public class JibconLoginManager {
                                     setUserOnSuccess(user);
                                     Log.d(TAG, "getSampleUser: user=" + user.toString());
                                     saveSharedPrefWithSampleUser();
-
+                                    updateFcmToken();
                                     try {
                                         action.run();
                                     } catch (Exception e) {

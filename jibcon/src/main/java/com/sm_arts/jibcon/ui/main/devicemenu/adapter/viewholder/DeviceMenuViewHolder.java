@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
-import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
 
 import butterknife.BindView;
@@ -51,9 +50,10 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
         mCardView = (CardView) mMotherView.findViewById(R.id.cardview_devicemenuviewholder);
         mIvThreedot.setOnClickListener(
                 v ->
-                    threedotIvClickedListener.onItemClick(v,
-                            getAdapterPosition())
+                        threedotIvClickedListener.onItemClick(v,
+                                getAdapterPosition())
         );
+
 
         mIvSubscribe.setOnClickListener(
                 v ->
@@ -62,28 +62,28 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
         );
 
         mMotherView.setOnClickListener(
-                v->
-                    deviceItemIvClickedListener.onItemClick(v,
-                            getAdapterPosition())
+                v ->
+                        deviceItemIvClickedListener.onItemClick(v,
+                                getAdapterPosition())
         );
     }
 
     public void configureWith(DeviceItem deviceItem) {
         String deviceType = deviceItem.getDeviceType();
 
-        if(deviceItem.isDeviceOnOffState()) {
+        if (deviceItem.isDeviceOnOffState()) {
             mIvDeviceOnOff.setImageResource(R.drawable.maindevicemenu_recycleritem_backgroundon);
         } else {
             mIvDeviceOnOff.setImageResource(R.drawable.maindevicemenu_recycleritem_backgroundoff);
         }
 
-        if(deviceItem.isSubscribeOnOffState()) {
+        if (deviceItem.isSubscribeOnOffState()) {
             mIvSubscribe.setImageResource(R.drawable.maindevicemenu_recycleritem_notificationson24dp);
         } else {
             mIvSubscribe.setImageResource(R.drawable.maindevicemenu_recycleritem_notificationsnone24dp);
         }
 
-        if(DeviceType.AIRCONDITIONER.equals(deviceType)) {
+        if (DeviceType.AIRCONDITIONER.equals(deviceType)) {
             mIvDeviceItem.setImageResource(R.drawable.maindevicemenu_recycleritem_monitor_vector24dp);
         } else if (DeviceType.LIGHTBULB.equals(deviceType)) {
             mIvDeviceItem.setImageResource(R.drawable.maindevicemenu_recycleritem_lightbulb_vector24dp);

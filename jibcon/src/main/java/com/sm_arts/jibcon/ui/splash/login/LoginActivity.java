@@ -101,6 +101,7 @@ public class LoginActivity extends BaseActivity {
         mKakaoCallback = new SessionCallback();                  // 이 두개의 함수 중요함
         Session.getCurrentSession().addCallback(mKakaoCallback);
 
+
     }
 
 

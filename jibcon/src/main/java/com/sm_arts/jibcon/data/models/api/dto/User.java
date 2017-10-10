@@ -11,6 +11,7 @@ public class User {
     UserInfo userinfo;
     String last_name;
     String first_name;
+    String fcm_token;
 
     public UserInfo getUserinfo() {
         return userinfo;

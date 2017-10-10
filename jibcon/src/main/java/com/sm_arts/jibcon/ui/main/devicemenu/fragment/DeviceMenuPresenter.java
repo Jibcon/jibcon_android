@@ -6,7 +6,6 @@ import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
 import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.services.actuator.ActuatorManager;
-import com.sm_arts.jibcon.services.actuator.MobiusActuator;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 
@@ -108,6 +107,7 @@ class DeviceMenuPresenter {
     private void toggleSubscriptionWith(DeviceItem item) {
         Log.d(TAG, "toggleSubscriptionWith() called with: position = [" + item.toString() + "]");
 
+        // TODO: 2017-09-22 NODE_SERVER로 이전
         if(item.isSubscribeOnOffState()) {
             MqttManager.getInstance().delSubscriptionSur(item,
                     () -> setItemdeviceSubscriptionState(item, false));
