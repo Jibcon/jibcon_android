@@ -2,23 +2,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single"
-
+        android:layout_centerInParent="true"
             >
         <item
             android:id="@+id/Sidebar_myjibcon"
             android:title="내 집콘" />
+        <u></u>
         <item
             android:id="@+id/Sidebar_userAuthority"
             android:title="사용자 권한" />
+        <u></u>
         <item
             android:id="@+id/Sidebar_connectedDevices"
             android:title="연결된 디바이스" />
+        <u></u>
         <item
             android:id="@+id/Sidebar_widget"
-            android:title="위젯" />
+            android:title="설정" />
+        <u></u>
         <item
             android:id="@+id/Sidebar_aboutJibcon"
             android:title="About 집콘" />
+        <u></u>
     </group>
 
     <!--<item android:title="Communicate">-->
