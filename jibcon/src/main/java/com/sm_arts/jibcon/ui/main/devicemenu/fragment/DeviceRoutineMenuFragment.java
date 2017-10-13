@@ -3,6 +3,7 @@ package com.sm_arts.jibcon.ui.main.devicemenu.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,12 +12,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.ui.additional.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.ui.additional.floatingbuttonui.FloatingButtonDeviceActivity;
+import com.sm_arts.jibcon.ui.main.cheatkey.routine.calendar.DatePickerFragment;
+import com.sm_arts.jibcon.ui.main.cheatkey.routine.calendar.TimePickerFragment;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
 
 import java.util.ArrayList;
@@ -26,7 +30,7 @@ import java.util.List;
  * Created by user on 2017-03-30.
  */
 
-public class DeviceRoutineMenuFragment extends Fragment implements DeviceMenuView {
+public class DeviceRoutineMenuFragment extends Fragment implements DeviceMenuView  {
     private static final String TAG = "DeviceMenuFragment";
     private static final int GRID_COLUMN_COUNT = 6;
 
@@ -37,13 +41,39 @@ public class DeviceRoutineMenuFragment extends Fragment implements DeviceMenuVie
     private DeviceMenuPresenter mPresenter;
 
     //region Fragment role
+
+
+    Button date;
+    Button time;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Log.d(TAG, "onCreate: ");
         mPresenter = new DeviceMenuPresenter(this);
+
+
     }
+
+
+    /* ↓뷰 페이저(액티비티 슬라이드)↓ */
+    View.OnClickListener showDatePickerDialog = new View.OnClickListener() {
+        @Override
+        public void onClick(View v){
+            DialogFragment newFragment = new DatePickerFragment();
+            newFragment.show(getActivity().getSupportFragmentManager(), "datePicker");
+        }
+    };
+
+
+    /* ↓뷰 페이저(액티비티 슬라이드)↓ */
+    View.OnClickListener showTimePickerDialog = new View.OnClickListener() {
+        @Override
+        public void onClick(View v){
+            DialogFragment newFragment = new TimePickerFragment();
+            newFragment.show(getActivity().getSupportFragmentManager(), "timePicker");
+        }
+    };
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -70,6 +100,17 @@ public class DeviceRoutineMenuFragment extends Fragment implements DeviceMenuVie
         super.onDestroyView();
     }
 
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getActivity().getSupportFragmentManager(), "datePicker");
+    }
+
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getActivity().getSupportFragmentManager(), "timePicker");
+    }
+
+
     private void attachUI() {
         Log.d(TAG, "attachUI: ");
         mFabDeviceBehindBtn = (ImageButton) getView().findViewById(R.id.fab_device_behind);
@@ -88,6 +129,7 @@ public class DeviceRoutineMenuFragment extends Fragment implements DeviceMenuVie
         mRecyclerView = (RecyclerView) getView().findViewById(R.id.deviceRecyclerView);
         initializeRecyclerView();
     }
+
 
     private void initializeRecyclerView() {
         mAdapter = new DeviceMenuAdapter(
@@ -128,7 +170,15 @@ public class DeviceRoutineMenuFragment extends Fragment implements DeviceMenuVie
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.routinedevicemenu_devicemenu_fragment, container, false);
+        Button date= (Button) root.findViewById(R.id.date);
+        date.setOnClickListener(showDatePickerDialog);
+
+        Button time= (Button) root.findViewById(R.id.time);
+        time.setOnClickListener(showTimePickerDialog);
+
         Log.d(TAG, "onCreateView: ");
+
+
 
         return root;
     }
@@ -185,6 +235,9 @@ public class DeviceRoutineMenuFragment extends Fragment implements DeviceMenuVie
     public void showContent(int position, String con) {
         mAdapter.showContent(position, con);
     }
+
+
+
 
     //endregion
 

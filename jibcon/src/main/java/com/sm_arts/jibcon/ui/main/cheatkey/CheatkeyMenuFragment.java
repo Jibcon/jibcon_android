@@ -13,8 +13,6 @@ import android.widget.RelativeLayout;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.main.cheatkey.active.CheatkeyActiveFragment;
-import com.sm_arts.jibcon.ui.main.cheatkey.routine.RoutineFragment;
-import com.sm_arts.jibcon.ui.main.devicemenu.fragment.DeviceMenuFragment;
 import com.sm_arts.jibcon.ui.main.devicemenu.fragment.DeviceRoutineMenuFragment;
 
 import butterknife.BindView;
@@ -80,7 +78,7 @@ public class CheatkeyMenuFragment extends Fragment{
                     return new CheatkeyActiveFragment();
                 case 1:
                     Log.d(TAG, "getItem: ");
-                    return new DeviceRoutineMenuFragment();
+                    return new  DeviceRoutineMenuFragment();
                 default:
                     return null;
             }
