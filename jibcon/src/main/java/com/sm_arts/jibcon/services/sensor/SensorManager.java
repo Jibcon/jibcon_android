@@ -8,6 +8,8 @@ import com.sm_arts.jibcon.data.models.api.dto.Routine;
 import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
 import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.data.repository.helper.RoutineNetworkHelper;
+import com.sm_arts.jibcon.services.actuator.ActuatorManager;
+import com.sm_arts.jibcon.services.actuator.HueActuator;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 
@@ -48,7 +50,20 @@ public class SensorManager {
 
         mDisposables.add(
                 mMqttSurConObservable.subscribe(
-                        (surCon) -> Log.d(TAG, "SensorManager: surCon=" + surCon.toString())
+                        (surCon) -> {
+                            String sur = surCon.getSur();
+                            if (TextUtils.equals(sur, "/Mobius/ae-smarts/cnt-ultra_res/aei-jibcon_subscription")) {
+                                Log.d(TAG, "SensorManager: surCon=" + surCon.toString());
+                                float con = Float.parseFloat(surCon.getCon());
+                                if (con < 0.5) {
+                                    HueActuator.getInstance().turnOn("2", () -> {
+                                    });
+                                }
+                            } else {
+                                Log.d(TAG, "SensorManager: surCon=" + surCon.toString());
+//                                "temperature is [26C] and humidity is [54%]"
+                            }
+                        }
                 )
         );
 
@@ -58,54 +73,5 @@ public class SensorManager {
     private void initRoutines() {
         // TODO: 8/14/17 GET Routines, Add Disposable routine by routine
         Log.d(TAG, "initRoutines: ");
-
-
-        DeviceNetworkHelper.getInstance().getDevices(
-                (items) -> {
-                    Log.d(TAG, "initRoutines: items=" + items.toString());
-                    String sensorId = null, actuatorId = null;
-                    for (DeviceItem item:
-                         items) {
-                        if (TextUtils.equals(item.getDeviceName(), "ultra")) {
-                            sensorId = item.getId();
-                            break;
-                        }
-                    }
-
-                    for (DeviceItem item:
-                            items) {
-                        if (TextUtils.equals(item.getDeviceName(), "Philips Hue 전구")) {
-                            actuatorId = item.getId();
-                            break;
-                        }
-                    }
-
-                    if (sensorId != null && actuatorId != null) {
-                        makeRoutine(sensorId, actuatorId, () -> {
-                            RoutineNetworkHelper.getInstance().getRoutines(
-                                    routines -> {
-                                        Log.d(TAG, "initRoutines: routines.size=" + routines.size());
-                                    }
-                            );
-                        });
-                    }
-                }
-        );
-
-
-    }
-
-    private void makeRoutine(String sensorId, String actuatorId, Action finished) {
-        Routine routine = new Routine("누구시죠",
-                "출입감지센서", "",
-                "smaller", "0.5", "meter",
-                "", "", "");
-        RoutineNetworkHelper.getInstance().postRoutine(
-                routine,
-                result -> {
-                    Log.d(TAG, "initRoutines: result routine=" + result);
-                    finished.run();
-                }
-        );
     }
 }

@@ -2,6 +2,7 @@ package com.sm_arts.jibcon.ui.main.devicemenu.adapter.viewholder;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -95,6 +96,20 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
 
         mTvPlacename.setText(deviceItem.getRoomName());
         mTvDevicename.setText(deviceItem.getDeviceName());
-        mTvDevicecontent.setText(deviceItem.getContent());
+        if (TextUtils.equals(deviceItem.getDeviceName(), "ultra")) {
+            if (deviceItem.getContent() != null) {
+                float cm = Float.parseFloat(deviceItem.getContent()) * 100;
+                String cmstr = "" + cm;
+                if (cm < 50) {
+                    mMotherView.setBackgroundResource(R.drawable.maindevicemenu_recycleritem_backgroundon);
+                } else {
+                    mMotherView.setBackgroundResource(R.drawable.maindevicemenu_recycleritem_backgroundoff);
+                }
+
+                mTvDevicecontent.setText(cmstr + " cm");
+            }
+        } else {
+            mTvDevicecontent.setText(deviceItem.getContent());
+        }
     }
 }

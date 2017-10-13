@@ -1,10 +1,12 @@
 package com.sm_arts.jibcon.services.actuator;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.data.repository.network.hue.HueService;
+import com.sm_arts.jibcon.utils.consts.Configs;
 import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import java.util.List;
@@ -38,12 +40,12 @@ public class HueActuator {
     private HueActuator() {
     }
 
-    public void turnOff(Action onSuccess) {
+    public void turnOff(String bulbnum, Action onSuccess) {
         Log.d(TAG, "turnOff: ");
         HueService service = RetrofitClients.getInstance().getService(HueService.class);
         Call<List<HueService.HueResponse>> c = service.putDevice(
                 AUTH,
-                "1",
+                bulbnum,
                 new HueService.HueCi(false)
         );
         c.enqueue(new Callback<List<HueService.HueResponse>>() {
@@ -64,12 +66,12 @@ public class HueActuator {
         });
     }
 
-    public void turnOn(Action onSuccess) {
+    public void turnOn(String bulbnum, Action onSuccess) {
         Log.d(TAG, "turnOn: ");
         HueService service = RetrofitClients.getInstance().getService(HueService.class);
         Call<List<HueService.HueResponse>> c = service.putDevice(
                 AUTH,
-                "1",
+                bulbnum,
                 new HueService.HueCi(true)
         );
 
@@ -91,21 +93,32 @@ public class HueActuator {
         });
     }
 
-    public void toggleItem(DeviceItem item, Action onSuccess) {
+    public void toggleItem(DeviceItem item, String bulbnum, Action onSuccess) {
         if (!item.isDeviceOnOffState()) {
-            turnOn(
+            turnOn(bulbnum,
                     () -> {
                         item.setDeviceOnOffState(!item.isDeviceOnOffState());
                         DeviceNetworkHelper.getInstance().putDevice(item, deviceItem -> onSuccess.run());
                     }
             );
         } else {
-            turnOff(
+            turnOff(bulbnum,
                     () -> {
                         item.setDeviceOnOffState(!item.isDeviceOnOffState());
                         DeviceNetworkHelper.getInstance().putDevice(item, deviceItem -> onSuccess.run());
                     }
             );
         }
+    }
+
+    public void toggleItem(DeviceItem item, Action onSuccess) {
+        String bulbnum = "1";
+        toggleItem(item, bulbnum, onSuccess);
+    }
+
+
+    public void toggleBulb2Item(DeviceItem item, Action onSuccess) {
+        String bulbnum = "2";
+        toggleItem(item, bulbnum, onSuccess);
     }
 }

@@ -34,8 +34,9 @@ public interface Configs {
         List<String> DEVICENAME_CHOCIED = Arrays.asList(
                 "led",
                 "ultra",
-                "humitidy",
-                "Philips Hue 전구"
+                "humidity",
+                "Philips Hue 전구",
+                "Philips Hue 전구 - 현관"
         );
 
         List<String> DEVICECOM_CHOICES = Arrays.asList(
@@ -47,10 +48,12 @@ public interface Configs {
                 "bulb",
                 "ultrasensor",
                 "humiditysensor",
-                "hue-bulb"
+                "hue-bulb",
+                "hue-bulb-현관"
         );
 
         List<String> AENAME_CHOICES = Arrays.asList(
+                "ae-smarts",
                 "ae-smarts",
                 "ae-smarts",
                 "ae-smarts",
@@ -61,6 +64,7 @@ public interface Configs {
                 "cnt-led",
                 "cnt-ultra",
                 "cnt-dht",
+                "cnt-hue",
                 "cnt-hue"
         );
     }

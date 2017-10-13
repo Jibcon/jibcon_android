@@ -16,6 +16,7 @@ public class ActuatorManager {
 
     private final String DEVICENAME_HUE = Configs.DEVICES_SUPPORTABLE.DEVICENAME_CHOCIED.get(3);
     private final String ACTUATORTYPE_HUE = "HUE";
+    private final String ACTUATORTYPE_HUE_BULB2 = "HUE2";
     private final String ACTUATORTYPE_MOBIUS = "MOBIUS";
 
     public static ActuatorManager getInstance() {
@@ -36,6 +37,8 @@ public class ActuatorManager {
             MobiusActuator.getInstance().toggleItem(item, onSuccess);
         } else if (TextUtils.equals(type, ACTUATORTYPE_HUE)) {
             HueActuator.getInstance().toggleItem(item, onSuccess);
+        } else if (TextUtils.equals(type, ACTUATORTYPE_HUE_BULB2)) {
+            HueActuator.getInstance().toggleBulb2Item(item, onSuccess);
         }
     }
 
@@ -43,6 +46,8 @@ public class ActuatorManager {
         String deviceName = item.getDeviceName();
         if (TextUtils.equals(deviceName, DEVICENAME_HUE)) {
             return ACTUATORTYPE_HUE;
+        } else if (TextUtils.equals(deviceName, "Philips Hue 전구 - 현관")) {
+            return ACTUATORTYPE_HUE_BULB2;
         } else {
             return ACTUATORTYPE_MOBIUS;
         }
