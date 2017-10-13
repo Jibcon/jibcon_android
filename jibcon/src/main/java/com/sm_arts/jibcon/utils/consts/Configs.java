@@ -25,7 +25,8 @@ public interface Configs {
 
     interface AE {
         String NAME = "ae-smarts";
-        String AID = "aei-smarts";
+
+        String AID = "aei-jibcon";
     }
 
 
