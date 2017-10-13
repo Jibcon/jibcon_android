@@ -72,6 +72,25 @@ public class DeviceNetworkHelper {
             }
         });
     }
+    public void deleteDevice(DeviceItem deviceItem, final Consumer<Void> finished){
+        Log.d(TAG, "deleteDevice: ");
+        Call<String> call = service.deleteDevice(
+                JibconLoginManager.getInstance().getUserTokenAsHeader(),
+                deviceItem.getId()
+        );
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Log.d(TAG, "onResponse() called with: call = [" + call + "], response = [" + response + "]");
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+    }
 
     public void postDevice(DeviceItem deviceItem, final Consumer<DeviceItem> finished) {
         Call<DeviceItem> call = service.postDevice(

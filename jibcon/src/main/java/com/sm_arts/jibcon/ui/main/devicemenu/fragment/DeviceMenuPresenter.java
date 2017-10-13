@@ -66,7 +66,7 @@ class DeviceMenuPresenter {
     public void threedotIvClicked(int position) {
         Log.d(TAG, "threedotIvClicked() called with: " +
                 "position = [" + position + "]");
-        mView.showDeviceDialog();
+        mView.showDeviceDialog(position);
     }
 
     public void subscribeIvClicked(DeviceItem item) {
@@ -89,15 +89,15 @@ class DeviceMenuPresenter {
     private void reloadData(Action finished) {
         DeviceNetworkHelper.getInstance()
                 .getDevices(
-                (deviceItems) -> {
-                    mView.refreshDeviceItems(deviceItems);
-                    try {
-                        finished.run();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-        );
+                        (deviceItems) -> {
+                            mView.refreshDeviceItems(deviceItems);
+                            try {
+                                finished.run();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                );
     }
 
     private void toggleActivate(DeviceItem item) {
@@ -108,7 +108,7 @@ class DeviceMenuPresenter {
         Log.d(TAG, "toggleSubscriptionWith() called with: position = [" + item.toString() + "]");
 
         // TODO: 2017-09-22 NODE_SERVER로 이전
-        if(item.isSubscribeOnOffState()) {
+        if (item.isSubscribeOnOffState()) {
             MqttManager.getInstance().delSubscriptionSur(item,
                     () -> setItemdeviceSubscriptionState(item, false));
         } else {

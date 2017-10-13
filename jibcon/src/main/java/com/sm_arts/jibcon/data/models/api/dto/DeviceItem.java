@@ -7,7 +7,7 @@ import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
  */
 
 public class DeviceItem {
-    private String id;
+    private String _id;
     private String user;
     private String deviceCom;
     private String deviceName;
@@ -81,11 +81,11 @@ public class DeviceItem {
     }
 
     public String getId() {
-        return id;
+        return _id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this._id = id;
     }
 
     public String getDeviceName() {
@@ -123,7 +123,7 @@ public class DeviceItem {
     @Override
     public String toString() {
         return "DeviceItem{" +
-                "id='" + id + '\'' +
+                "id='" + _id + '\'' +
                 ", deviceName='" + deviceName + '\'' +
                 '}';
     }

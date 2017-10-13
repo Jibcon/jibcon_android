@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
+import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.utils.helper.ToastHelper;
 
 /**
@@ -15,7 +17,7 @@ import com.sm_arts.jibcon.utils.helper.ToastHelper;
 
 public class DeviceDialog extends Dialog {
 
-    public DeviceDialog(@NonNull final Context context) {
+    public DeviceDialog(@NonNull final Context context, DeviceItem deviceItem) {
         super(context);
         setContentView(R.layout.ui_devicedialog_dialog);
         TextView mTextView1 = (TextView) findViewById(R.id.Txt_dialog_device_txt1);
@@ -40,6 +42,11 @@ public class DeviceDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 ToastHelper.toast(context, "연동 해제하기");
+                DeviceNetworkHelper.getInstance().deleteDevice(deviceItem,
+                        (Void)->{
+
+                        });
+
             }
         });
     }

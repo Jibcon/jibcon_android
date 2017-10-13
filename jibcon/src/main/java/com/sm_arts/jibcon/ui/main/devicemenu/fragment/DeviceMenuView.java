@@ -10,7 +10,7 @@ import java.util.List;
  */
 
 interface DeviceMenuView {
-    void showDeviceDialog();
+    void showDeviceDialog(int position);
 
     void gotoFloatingButtonDeviceActivity();
 

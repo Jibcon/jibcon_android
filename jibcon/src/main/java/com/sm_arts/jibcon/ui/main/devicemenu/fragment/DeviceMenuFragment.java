@@ -151,9 +151,10 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         updateRecyclerView(deviceItems);
     }
 
-    public void showDeviceDialog() {
+    public void showDeviceDialog(int position) {
         Log.d(TAG, "showDeviceDialog: ");
-        DeviceDialog deviceDialog = new DeviceDialog(getContext());
+        DeviceItem deviceItem = mAdapter.getItemWithPosition(position);
+        DeviceDialog deviceDialog = new DeviceDialog(getContext(), deviceItem);
         deviceDialog.show();
     }
 
