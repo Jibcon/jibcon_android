@@ -25,11 +25,13 @@ public interface DeviceService {
     @GET("/api/devices/")
     Call<List<DeviceItem>> getDevices(@Header("Authorization")String token);
 
-    @PUT("/api/devices/{id}/")
+    @PUT("/api/devices/{id}}")
     Call<DeviceItem> putDevice(@Header("Authorization") String token,
                                @Path("id") String id,
                                @Body DeviceItem deviceItem);
     @DELETE("/api/deleteDevice/{id}")
     Call<String> deleteDevice(@Header("Authorization") String token,
                             @Path("id") String id);
+
+
 }

@@ -78,7 +78,7 @@ public class CheatkeyMenuFragment extends Fragment{
                     return new CheatkeyActiveFragment();
                 case 1:
                     Log.d(TAG, "getItem: ");
-                    return new DeviceRoutineMenuFragment();
+                    return new  DeviceRoutineMenuFragment();
                 default:
                     return null;
             }

@@ -45,7 +45,8 @@ public class LoginActivity extends BaseActivity {
 
         mFacebookCallback = JibconLoginManager.getInstance()
                 .makeFacebookLoginManager(
-                        this::gotoMakeConStartActivity
+                        // TODO: 2017-10-14 집콘만들기 생략
+                        this::gotoMainActivity
                 );
         mCallbackManager = JibconLoginManager.getInstance()
                 .makeFacebookCallbackManager();

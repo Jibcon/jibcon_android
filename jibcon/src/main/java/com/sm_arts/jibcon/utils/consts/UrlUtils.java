@@ -48,6 +48,7 @@ public class UrlUtils {
         urls.put(HueService.class.getName(), hueUrl);
     }
 
+
     public static String getUrlWithClassName(String clsName) {
         return urls.get(clsName);
     }

@@ -8,6 +8,11 @@ import java.util.List;
  */
 
 public interface Configs {
+    interface HouseConfigs{
+        String HouseName = "smArtsOffice";
+    }
+
+
     interface Mobius {
         String HOST = "52.79.180.194";
         String PORT = "7579";

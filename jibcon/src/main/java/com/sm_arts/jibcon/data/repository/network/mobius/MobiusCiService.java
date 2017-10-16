@@ -1,6 +1,5 @@
 package com.sm_arts.jibcon.data.repository.network.mobius;
 
-import com.google.gson.annotations.SerializedName;
 import com.sm_arts.jibcon.data.models.mobius.dto.request.RequestCi;
 import com.sm_arts.jibcon.data.models.mobius.dto.response.ResponseCi;
 
@@ -26,4 +25,5 @@ public interface MobiusCiService {
             @Header("Content-Type") String contentType,
             @Body RequestCi requestCi
     );
+
 }

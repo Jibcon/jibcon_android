@@ -7,6 +7,7 @@ import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
 import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.services.actuator.ActuatorManager;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
+import com.sm_arts.jibcon.utils.mobius.MobiusManager;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
 
 import java.util.List;
@@ -109,11 +110,15 @@ class DeviceMenuPresenter {
 
         // TODO: 2017-09-22 NODE_SERVER로 이전
         if (item.isSubscribeOnOffState()) {
-            MqttManager.getInstance().delSubscriptionSur(item,
-                    () -> setItemdeviceSubscriptionState(item, false));
+
+            MobiusManager.getInstance().deleteSubscription(item);
+
+//            MqttManager.getInstance().delSubscriptionSur(item,
+//                    () -> setItemdeviceSubscriptionState(item, false));
         } else {
-            MqttManager.getInstance().addSubscriptionSur(item,
-                    () -> setItemdeviceSubscriptionState(item, true));
+            MobiusManager.getInstance().addSubscription(item);
+//            MqttManager.getInstance().addSubscriptionSur(item,
+//                    () -> setItemdeviceSubscriptionState(item, true));
         }
     }
 

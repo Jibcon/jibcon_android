@@ -80,7 +80,7 @@
             android:weightSum="1">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/date"
                 android:layout_width="118dp"
                 android:layout_height="match_parent"
                 android:text="DATE    +"
@@ -96,6 +96,7 @@
                 android:background="@drawable/corner_round2_btn"
                 android:text="PM2:00 - PM6:30"
                 android:textColor="#FFFFFF"
+                android:id="@+id/time"
                 android:textSize="14sp" />
 
             <TextView

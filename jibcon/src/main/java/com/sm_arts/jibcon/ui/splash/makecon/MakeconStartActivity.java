@@ -23,6 +23,7 @@ public class MakeconStartActivity extends BaseActivity {
         //집콘 초대받기
         Intent intent = new Intent(getApplicationContext(), GetOtherConActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @OnClick(R.id.makeconstart_skip) void makeconstart_skip() {

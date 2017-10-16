@@ -149,6 +149,9 @@ public class MqttManager {
     public void addSubscriptionSur(DeviceItem item, Action finished) {
         String subscriptionSur = item.getSubscriptionSur();
         Log.d(TAG, "addSubscriptionSur() called with: subscriptionSur = [" + subscriptionSur + "]");
+
+
+
         createMqttSubscription(item,
                 () -> {
                     mMqttCallback.addSubscriptionSur(subscriptionSur);

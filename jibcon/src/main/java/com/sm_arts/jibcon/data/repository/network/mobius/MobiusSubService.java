@@ -17,6 +17,14 @@ import retrofit2.http.Path;
  */
 
 public interface MobiusSubService {
+
+    //node server
+    @POST("/api/addSub")
+    Call<ResponseSub> addSub();
+    @POST("/api/deleteSub")
+    Call<ResponseSub> deleteSub();
+    //node server
+
     @POST("/{cse}/{device_ae}/{device_cnt}")
     Call<ResponseSub> postSub(
             @Path("cse") String cse,

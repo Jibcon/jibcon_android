@@ -60,6 +60,7 @@ public class GetOtherConActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GetOtherConActivity.this, GetOtherConEndActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -69,6 +70,7 @@ public class GetOtherConActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GetOtherConActivity.this, MakeconStartActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

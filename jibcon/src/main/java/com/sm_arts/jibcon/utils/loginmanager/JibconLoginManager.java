@@ -69,6 +69,10 @@ public class JibconLoginManager {
         return mInstance;
     }
 
+    public void setUserFcmToken(String fcm_token){
+        mUser.setFcm_token(fcm_token);
+    }
+
     public User getCurrentUser() {
         return mUser;
     }
@@ -270,14 +274,17 @@ public class JibconLoginManager {
         UserService userService = RetrofitClients.getInstance()
                 .getService(UserService.class);
 
+
         String fcm_token = FirebaseInstanceId.getInstance().getToken();
         Log.d(TAG, "onCreate: FirebaseToken : " + fcm_token);
 
-        Call<User> c = userService.updateFcmToken(JibconLoginManager.getInstance().getUserToken(), fcm_token);
+        Call<User> c = userService.updateFcmToken(JibconLoginManager.getInstance().getUserToken(),
+                fcm_token);
         c.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 JibconLoginManager.getInstance().setUserOnSuccess(response.body());
+
                 Log.d(TAG, "onResponse: "+"fcm 등록 성공");
             }
 

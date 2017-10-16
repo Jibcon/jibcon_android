@@ -8,7 +8,7 @@ import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
 
 public class DeviceItem {
     private String _id;
-    private String user;
+    private String user_id;
     private String deviceCom;
     private String deviceName;
     private String deviceType;
@@ -113,11 +113,11 @@ public class DeviceItem {
     }
 
     public String getUser() {
-        return user;
+        return user_id;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUser(String user_id) {
+        this.user_id = user_id;
     }
 
     @Override
