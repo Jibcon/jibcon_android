@@ -41,7 +41,7 @@ public class UrlUtils {
         urls.put(MobiusCiService.class.getName(), mobiusUrl);
         urls.put(MobiusAeService.class.getName(), mobiusUrl);
         urls.put(MobiusCntService.class.getName(), mobiusUrl);
-        urls.put(MobiusSubService.class.getName(), mobiusUrl);
+        urls.put(MobiusSubService.class.getName(), nodeApiUrl);
 
         String hueUrl =
                 "http:/192.168.1.83";

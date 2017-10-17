@@ -112,11 +112,13 @@ class DeviceMenuPresenter {
         if (item.isSubscribeOnOffState()) {
 
             MobiusManager.getInstance().deleteSubscription(item);
-
+            setItemdeviceSubscriptionState(item, false);
 //            MqttManager.getInstance().delSubscriptionSur(item,
 //                    () -> setItemdeviceSubscriptionState(item, false));
         } else {
             MobiusManager.getInstance().addSubscription(item);
+            setItemdeviceSubscriptionState(item,true);
+
 //            MqttManager.getInstance().addSubscriptionSur(item,
 //                    () -> setItemdeviceSubscriptionState(item, true));
         }

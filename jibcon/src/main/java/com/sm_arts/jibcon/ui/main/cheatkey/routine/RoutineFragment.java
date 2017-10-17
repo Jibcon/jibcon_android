@@ -34,6 +34,7 @@ public class RoutineFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         Log.d(TAG, "onAttach: ");
+
         super.onAttach(context);
     }
 

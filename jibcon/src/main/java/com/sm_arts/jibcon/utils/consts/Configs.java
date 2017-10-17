@@ -11,6 +11,12 @@ public interface Configs {
     interface HouseConfigs{
         String HouseName = "smArtsOffice";
     }
+    interface SubName{
+        String subName = "smArtsOffice_subscription";
+    }
+    interface SubscriptionTopic{
+        String topic = "/oneM2M/req/Mobius/"+ SubName.subName+"/json";
+    }
 
 
     interface Mobius {

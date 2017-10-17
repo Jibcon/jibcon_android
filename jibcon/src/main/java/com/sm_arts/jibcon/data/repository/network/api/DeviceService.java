@@ -18,6 +18,9 @@ import retrofit2.http.Path;
  */
 
 public interface DeviceService {
+
+
+
     @POST("/api/devices/")
     Call<DeviceItem> postDevice(@Header("Authorization") String token,
                                @Body DeviceItem deviceItem);

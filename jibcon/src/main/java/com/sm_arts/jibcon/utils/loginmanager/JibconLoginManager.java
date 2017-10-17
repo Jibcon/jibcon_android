@@ -69,9 +69,7 @@ public class JibconLoginManager {
         return mInstance;
     }
 
-    public void setUserFcmToken(String fcm_token){
-        mUser.setFcm_token(fcm_token);
-    }
+
 
     public User getCurrentUser() {
         return mUser;
@@ -268,15 +266,19 @@ public class JibconLoginManager {
         return mFacebookCallback;
     }
 
+
     public void updateFcmToken() {
 
+        String fcm_token = FirebaseInstanceId.getInstance().getToken();
+        if(fcm_token == null)
+            return;
+
+        Log.d(TAG, "onCreate: FirebaseToken : " + fcm_token);
+
+        mUser.setFcm_token(fcm_token);
 
         UserService userService = RetrofitClients.getInstance()
                 .getService(UserService.class);
-
-
-        String fcm_token = FirebaseInstanceId.getInstance().getToken();
-        Log.d(TAG, "onCreate: FirebaseToken : " + fcm_token);
 
         Call<User> c = userService.updateFcmToken(JibconLoginManager.getInstance().getUserToken(),
                 fcm_token);
@@ -410,5 +412,9 @@ public class JibconLoginManager {
 
     public void addOnSigninAction(Action aftersigninAction) {
         mAftersigninActions.add(aftersigninAction);
+    }
+
+    public String getUserFcmToken() {
+        return mUser.getFcm_token();
     }
 }

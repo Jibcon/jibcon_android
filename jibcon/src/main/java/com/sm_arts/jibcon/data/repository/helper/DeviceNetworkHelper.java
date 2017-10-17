@@ -131,39 +131,39 @@ public class DeviceNetworkHelper {
     }
 
     public void putDevice(DeviceItem deviceItem, final Consumer<DeviceItem> finished) {
+        Log.d(TAG, "putDevice: deviceItem.getId()"+deviceItem.getId());
         Call<DeviceItem> call = service.putDevice(
                 JibconLoginManager.getInstance().getUserTokenAsHeader(),
                 deviceItem.getId(),
                 deviceItem
         );
+        call.enqueue(new Callback<DeviceItem>() {
+            @Override
+            public void onResponse(Call<DeviceItem> call, Response<DeviceItem> response) {
+                DeviceItem result = null;
+                if (response.isSuccessful()) {
+                    result = response.body();
+                } else {
+                    Log.d(TAG, "onResponse() called with: code = [" + response.code() + "]," +
+                            " message = [" + response.message() + "]");
+                    Log.d(TAG, "onResponse: putDevice failed with " + deviceItem);
+                }
 
-//        call.enqueue(new Callback<DeviceItem>() {
-//            @Override
-//            public void onResponse(Call<DeviceItem> call, Response<DeviceItem> response) {
-//                DeviceItem result = null;
-//                if (response.isSuccessful()) {
-//                    result = response.body();
-//                } else {
-//                    Log.d(TAG, "onResponse() called with: code = [" + response.code() + "]," +
-//                            " message = [" + response.message() + "]");
-//                    Log.d(TAG, "onResponse: putDevice failed with " + deviceItem);
-//                }
-//
-//                try {
-//                    finished.accept(result);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<DeviceItem> call, Throwable t) {
-//                try {
-//                    finished.accept(null);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
+                try {
+                    finished.accept(result);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DeviceItem> call, Throwable t) {
+                try {
+                    finished.accept(null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

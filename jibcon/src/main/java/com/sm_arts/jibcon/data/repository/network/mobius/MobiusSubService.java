@@ -1,6 +1,7 @@
 package com.sm_arts.jibcon.data.repository.network.mobius;
 
 import com.sm_arts.jibcon.data.models.mobius.dto.request.RequestSub;
+import com.sm_arts.jibcon.data.models.mobius.dto.request.RequestSubscription;
 import com.sm_arts.jibcon.data.models.mobius.dto.response.ResponseSub;
 
 import okhttp3.ResponseBody;
@@ -20,9 +21,9 @@ public interface MobiusSubService {
 
     //node server
     @POST("/api/addSub")
-    Call<ResponseSub> addSub();
+    Call<Void> addSub(@Body RequestSubscription requestSubscription);
     @POST("/api/deleteSub")
-    Call<ResponseSub> deleteSub();
+    Call<Void> deleteSub(@Body RequestSubscription requestSubscription);
     //node server
 
     @POST("/{cse}/{device_ae}/{device_cnt}")
