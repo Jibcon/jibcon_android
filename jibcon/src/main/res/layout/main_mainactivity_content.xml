@@ -16,18 +16,21 @@
 
         android:id="@+id/vp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottmStatus">
+
     </android.support.v4.view.ViewPager>
 
     <LinearLayout
-        android:id="@+id/layout"
+        android:id="@+id/bottmStatus"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:orientation="horizontal"
         android:background="@color/mainactivity_main_color"
         android:gravity="center"
         android:elevation="3dp"
-        android:layout_alignBottom="@+id/vp"
+
         >
         <!--기기등록-->
         <TextView
