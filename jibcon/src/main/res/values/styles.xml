@@ -72,13 +72,13 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parzent="ThemeOverlay.AppCompat.Light" />
 
     <style name="setting_head">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/black_opaque</item>
         <item name="android:textSize">20dp</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -86,7 +86,7 @@
     <style name="toolbar_common">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">56dp</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/tutorial_background</item>
     </style>
 
     <style name="MainToolbarMenuIconColor">
