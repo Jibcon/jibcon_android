@@ -6,15 +6,77 @@
     <TextView
         android:id="@+id/pr_trigger_general_weather_tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:text="pr_trigger_general_weather" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textSize="24dp"
+        android:text="날씨" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:text="날씨탭에는\n아래의 트리거들이 있습니다."
+        android:layout_margin="20dp"
+        android:textSize="24dp"
+        android:textStyle="bold"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+
+            <Button
+                android:id="@+id/pr_trigger_general_weather_forecast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:text="just forecast me at" />
+
+            <Button
+                android:id="@+id/button31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:text="not prepared yet " />
+
+            <Button
+                android:id="@+id/button30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:text="im so tired " />
+
+            <Button
+                android:id="@+id/button29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@color/white"
+                android:text="come on " />
+
+        </LinearLayout>
+    </ScrollView>
 
 
     <Button
-        android:id="@+id/pr_trigger_general_weather_forecast"
+        android:id="@+id/button19"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="just forecast me at" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:text="OK" />
 
 </LinearLayout>

@@ -10,9 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:layout_margin="8dp"
         android:text="새 루틴 만들기"
         android:gravity="center"
-        android:textSize="30dp" />
+        android:textSize="24dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -21,6 +21,9 @@ public class PrTriggerGeneralWeather extends BaseActivity {
 
     @OnClick(R.id.pr_trigger_general_weather_forecast) void gototrigger() {
         Intent intent = new Intent(this, PrTriggerSpecific.class);
+        NotiData notidata = new NotiData(time,token,message);
+        intent.putExtra("come", notidata);
+        finish();
         startActivity(intent);
     }
 
