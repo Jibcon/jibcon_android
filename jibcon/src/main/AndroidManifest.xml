@@ -61,19 +61,19 @@
             android:theme="@style/myAppTheme.JibconNoActionBar" />
         <activity
             android:name=".ui.additional.sidebar.ConnectedDevicesActivity"
-            android:theme="@style/myAppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.JibconNoActionBar" />
         <activity
             android:name=".ui.additional.sidebar.WidgetActivity"
-            android:theme="@style/myAppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.JibconNoActionBar" />
         <activity
             android:name=".ui.additional.sidebar.AboutJibconActivity"
-            android:theme="@style/myAppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.JibconNoActionBar" />
         <activity
             android:name=".ui.additional.sidebar.MyJibconActivity"
-            android:theme="@style/myAppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.JibconNoActionBar" />
         <activity
             android:name=".ui.additional.sidebar.UserAuthorityActivity"
-            android:theme="@style/myAppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.JibconNoActionBar" />
         <activity
             android:name=".ui.splash.getothercon.GetOtherConActivity"
             android:theme="@style/AppTheme.NoActionBar" />

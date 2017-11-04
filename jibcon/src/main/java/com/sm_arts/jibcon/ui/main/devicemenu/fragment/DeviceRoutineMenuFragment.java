@@ -19,8 +19,8 @@ import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.ui.additional.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.ui.additional.floatingbuttonui.FloatingButtonDeviceActivity;
-import com.sm_arts.jibcon.ui.main.cheatkey.routine.calendar.DatePickerFragment;
-import com.sm_arts.jibcon.ui.main.cheatkey.routine.calendar.TimePickerFragment;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.calendar.DatePickerFragment;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.calendar.TimePickerFragment;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
 
 import java.util.ArrayList;

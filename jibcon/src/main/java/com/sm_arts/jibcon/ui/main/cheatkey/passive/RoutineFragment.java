@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.routine;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.databinding.MaincheatkeyroutineRoutineFragmentBinding;
-import com.sm_arts.jibcon.ui.main.cheatkey.routine.adapter.RoutineAdapter;
-import com.sm_arts.jibcon.ui.main.cheatkey.routine.viewmodel.RoutineViewModel;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.adapter.RoutineAdapter;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.viewmodel.RoutineViewModel;
 
 /**
  * Created by jaeyoung on 8/13/17.

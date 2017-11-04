@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.routine.adapter.viewholder;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive.adapter.viewholder;
 
 import android.arch.lifecycle.ViewModel;
 import android.databinding.ObservableField;

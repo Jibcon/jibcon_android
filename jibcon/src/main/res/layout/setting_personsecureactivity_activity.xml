@@ -13,7 +13,7 @@
             android:id="@+id/imageview_setting_personsecure"
             android:layout_height="match_parent"
             android:layout_width="40dp"
-            android:src="@mipmap/arrow_back_white" />
+            android:src="@drawable/ic_arrow_back_black_48dp" />
 
         <TextView
             android:text=" 개인/보안 "

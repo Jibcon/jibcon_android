@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.routine.adapter.viewholder;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive.adapter.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

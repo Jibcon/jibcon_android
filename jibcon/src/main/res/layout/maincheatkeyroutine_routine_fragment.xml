@@ -5,7 +5,7 @@
         <import type="android.view.View"/>
         <variable
             name="routineviewmodel"
-            type="com.sm_arts.jibcon.ui.main.cheatkey.routine.viewmodel.RoutineViewModel"/>
+            type="com.sm_arts.jibcon.ui.main.cheatkey.passive.viewmodel.RoutineViewModel"/>
     </data>
     <LinearLayout
         android:layout_width="match_parent"

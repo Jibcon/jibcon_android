@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.routine.calendar;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive.calendar;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;

@@ -8,13 +8,13 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_setting"
         style="@style/toolbar_common"
-        app:popupTheme="@style/AppTheme.PopupOverlay">
+        app:popupTheme="@style/AppTheme.AppBarOverlay">
 
         <ImageView
             android:id="@+id/imageview_setting_alarm"
             android:layout_height="match_parent"
             android:layout_width="40dp"
-            android:src="@mipmap/arrow_back_white" />
+            android:src="@drawable/ic_arrow_back_black_48dp" />
 
         <TextView
             style="@style/setting_head"

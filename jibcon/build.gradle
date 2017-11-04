@@ -23,7 +23,7 @@ android {
 
     productFlavors {
         dev {
-            minSdkVersion 21
+            minSdkVersion 23
         }
         prod {
             minSdkVersion 17

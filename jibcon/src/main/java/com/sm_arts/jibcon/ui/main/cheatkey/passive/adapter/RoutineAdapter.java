@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.routine.adapter;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive.adapter;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.Routine;
 import com.sm_arts.jibcon.databinding.MaincheatkeyroutineRoutineItemBinding;
-import com.sm_arts.jibcon.ui.main.cheatkey.routine.adapter.viewholder.RoutineViewHolder;
-import com.sm_arts.jibcon.ui.main.cheatkey.routine.adapter.viewholder.RoutineItemViewModel;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.adapter.viewholder.RoutineViewHolder;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.adapter.viewholder.RoutineItemViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
