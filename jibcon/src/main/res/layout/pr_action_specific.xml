@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/pr_action_specific_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="pr_action_specific" />
+
+
+    <EditText
+        android:id="@+id/pr_action_specific_et"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:hint="make noti String">
+    </EditText>
+
+    <Button
+        android:id="@+id/pr_action_specific_setnoti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="setNoti" />
+</LinearLayout>

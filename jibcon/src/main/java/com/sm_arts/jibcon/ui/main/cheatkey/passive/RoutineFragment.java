@@ -2,6 +2,7 @@ package com.sm_arts.jibcon.ui.main.cheatkey.passive;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,11 +12,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.databinding.MaincheatkeyroutineRoutineFragmentBinding;
 import com.sm_arts.jibcon.ui.main.cheatkey.passive.adapter.RoutineAdapter;
 import com.sm_arts.jibcon.ui.main.cheatkey.passive.viewmodel.RoutineViewModel;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by jaeyoung on 8/13/17.
@@ -29,6 +35,7 @@ public class RoutineFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: ");
         super.onCreate(savedInstanceState);
+        ButterKnife.bind(getActivity());
     }
 
     @Override
@@ -46,6 +53,7 @@ public class RoutineFragment extends Fragment {
                 DataBindingUtil.inflate(inflater,
                         R.layout.maincheatkeyroutine_routine_fragment,
                         container, false);
+        ButterKnife.bind(getActivity());
 
         View view = binding.getRoot();
         mViewModel = ViewModelProviders.of(this).get(RoutineViewModel.class);

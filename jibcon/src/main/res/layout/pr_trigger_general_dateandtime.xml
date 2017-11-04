@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/pr_trigger_general_dateandtime_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="pr_trigger_general_dateandtime" />
+
+
+    <Button
+        android:id="@+id/pr_trigger_general_dateandtime_everyday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Everyday at" />
+
+    <Button
+        android:id="@+id/pr_trigger_general_dateandtime_everyhour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Every hour at" />
+
+</LinearLayout>

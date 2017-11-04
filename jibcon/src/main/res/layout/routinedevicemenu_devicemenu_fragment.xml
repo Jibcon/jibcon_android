@@ -189,7 +189,8 @@
         android:layout_marginLeft="23dp"
     android:layout_width="wrap_content"
     android:layout_height="50dp"
-        android:layout_below="@+id/detailview">
+        android:layout_below="@+id/detailview"
+        android:id="@+id/linearLayout">
     <Button
         android:layout_width="118dp"
         android:layout_height="match_parent"
@@ -198,4 +199,14 @@
         android:textColor="#747474"
         android:textSize="14sp" />
 </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_passive_routine_makepr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailview"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="11dp"
+        android:layout_toEndOf="@+id/linearLayout"
+        android:text="Button" />
 </RelativeLayout>

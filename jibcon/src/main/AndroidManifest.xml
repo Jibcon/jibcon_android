@@ -108,6 +108,8 @@
             android:theme="@style/myAppTheme.LoginNoActionBar">
         </activity>
 
+        <activity android:name=".ui.main.cheatkey.passive.createpassiveroutine.MakePrActivity"
+            android:theme = "@style/myAppTheme.JibconNoActionBar"></activity>
 
         <activity
             android:name=".ui.additional.floatingbuttonui.FloatingButtonDeviceActivity"
@@ -117,6 +119,24 @@
         <activity android:name=".ui.additional.floatingbuttonui.FloatingButtonPassiveActivity"
             android:theme="@style/myAppTheme.NoActionBar"></activity>
 
+        <activity android:name=".ui.main.cheatkey.passive.createpassiveroutine.practivities.PrMakeNew"
+            android:theme="@style/myAppTheme.JibconNoActionBar"/>
+        <activity android:name=".ui.main.cheatkey.passive.createpassiveroutine.practivities.PrActionSelect"
+            android:theme="@style/myAppTheme.JibconNoActionBar"/>
+        <activity android:name=".ui.main.cheatkey.passive.createpassiveroutine.practivities.PrTriggerSelect"
+            android:theme="@style/myAppTheme.JibconNoActionBar"/>
+        <activity android:name=".ui.main.cheatkey.passive.createpassiveroutine.practivities.PrTriggerGeneralWeather"
+            android:theme="@style/myAppTheme.JibconNoActionBar"/>
+        <activity android:name=".ui.main.cheatkey.passive.createpassiveroutine.practivities.PrTriggerGeneralDate"
+            android:theme="@style/myAppTheme.JibconNoActionBar"/>
+        <activity android:name=".ui.main.cheatkey.passive.createpassiveroutine.practivities.PrTriggerSpecific"
+            android:theme="@style/myAppTheme.JibconNoActionBar"/>
+        <activity android:name=".ui.main.cheatkey.passive.createpassiveroutine.practivities.PrConfirm"
+            android:theme="@style/myAppTheme.JibconNoActionBar"/>
+        <activity android:name=".ui.main.cheatkey.passive.createpassiveroutine.practivities.PrActionGeneralNoti"
+            android:theme="@style/myAppTheme.JibconNoActionBar"/>
+        <activity android:name=".ui.main.cheatkey.passive.createpassiveroutine.practivities.PrActionSpecific"
+            android:theme="@style/myAppTheme.JibconNoActionBar"/>
 
         <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>

@@ -21,10 +21,15 @@ import com.sm_arts.jibcon.ui.additional.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.ui.additional.floatingbuttonui.FloatingButtonDeviceActivity;
 import com.sm_arts.jibcon.ui.main.cheatkey.passive.calendar.DatePickerFragment;
 import com.sm_arts.jibcon.ui.main.cheatkey.passive.calendar.TimePickerFragment;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.createpassiveroutine.MakePrActivity;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by user on 2017-03-30.
@@ -39,7 +44,12 @@ public class DeviceRoutineMenuFragment extends Fragment implements DeviceMenuVie
     private DeviceMenuAdapter mAdapter;
     public ImageButton mFabDeviceBehindBtn;
     private DeviceMenuPresenter mPresenter;
-
+    @BindView(R.id.btn_passive_routine_makepr) Button makePrBtn;
+    @OnClick(R.id.btn_passive_routine_makepr) void makePr() {
+        Log.d("come","on");
+        Intent intent = new Intent(getActivity(), MakePrActivity.class);
+        startActivity(intent);
+    }
     //region Fragment role
 
 
@@ -48,7 +58,6 @@ public class DeviceRoutineMenuFragment extends Fragment implements DeviceMenuVie
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Log.d(TAG, "onCreate: ");
         mPresenter = new DeviceMenuPresenter(this);
 
@@ -78,7 +87,6 @@ public class DeviceRoutineMenuFragment extends Fragment implements DeviceMenuVie
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         Log.d(TAG, "onViewCreated: ");
         attachUI();
 //        // TODO: 2017-08-04 remove samplelogin
@@ -172,11 +180,13 @@ public class DeviceRoutineMenuFragment extends Fragment implements DeviceMenuVie
         View root = inflater.inflate(R.layout.routinedevicemenu_devicemenu_fragment, container, false);
         Button date= (Button) root.findViewById(R.id.date);
         date.setOnClickListener(showDatePickerDialog);
-
+        ButterKnife.bind(this,root);
         Button time= (Button) root.findViewById(R.id.time);
         time.setOnClickListener(showTimePickerDialog);
 
         Log.d(TAG, "onCreateView: ");
+
+
 
 
 
