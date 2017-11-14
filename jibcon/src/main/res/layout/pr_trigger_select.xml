@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -9,56 +10,57 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_margin="8dp"
-        android:textSize="24dp"
+        android:textSize="16dp"
         android:gravity="center"
         android:text="트리거 선택" />
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/test_shadow" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
         android:layout_weight="10">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:weightSum="10"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <SearchView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
 
             <TextView
                 android:id="@+id/populartitle"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:gravity="center"
                 android:layout_weight="1"
-                android:text="popular"
-                android:textSize="30dp" />
+                android:gravity="center"
+                android:background="@drawable/pr_makenew_topandbot_shadow"
+                android:text="Popular"
+                android:textSize="16dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp">
 
                 <Button
                     android:id="@+id/pr_trigger_select_dateandtime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="@color/white"
-                    android:text="date/time" />
+                    android:layout_width="90dp"
+                    android:layout_height="32dp"
 
-                <Button
-                    android:id="@+id/pr_trigger_select_weather"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+
                     android:background="@color/white"
-                    android:text="weather" />
+                    android:textSize="17dp"
+                    android:text="시간" />
 
             </LinearLayout>
 
@@ -68,83 +70,40 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="all services"
-                android:textSize="30dp" />
+                android:text="All services"
+                android:background="@drawable/pr_makenew_topandbot_shadow"
+                android:textSize="16dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="5"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="6dp">
 
                 <Button
                     android:id="@+id/asd1"
+                    android:layout_width="90dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@color/white"
+                    android:textSize="17dp"
+                    android:text="시간" />
+
+                <TextView
+                    android:id="@+id/textView8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="@color/white"
-                    android:text="igut/time" />
+                    android:gravity="center"
+                    android:text="We'll update other trigger options"
+                    android:paddingTop="50dp"
+                    android:textSize="12dp"/>
 
-                <Button
-                    android:id="@+id/button9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="@color/white"
-                    android:text="not" />
-
-                <Button
-                    android:id="@+id/button12"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:layout_margin="4dp"
-                    android:text="prepared" />
-
-                <Button
-                    android:id="@+id/button13"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="@color/white"
-
-                    android:text="yet" />
-
-                <Button
-                    android:id="@+id/button11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="@color/white"
-                    android:text="Button" />
-
-                <Button
-                    android:id="@+id/button10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="@color/white"
-                    android:text="Button" />
-
-                <Button
-                    android:id="@+id/asd2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="@color/white"
-                    android:text="jgut" />
 
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/btn_triggerselect_ok"
-        android:background="@color/colorAccent"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="OK" />
 
 </LinearLayout>

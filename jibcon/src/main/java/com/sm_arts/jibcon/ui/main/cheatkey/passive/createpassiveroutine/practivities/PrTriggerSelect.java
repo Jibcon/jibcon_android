@@ -19,15 +19,6 @@ public class PrTriggerSelect extends BaseActivity {
     String token="default";
     String message="default";
 
-
-    @OnClick(R.id.pr_trigger_select_weather) void godate() {
-        Intent intent = new Intent(this, PrTriggerGeneralWeather.class);
-        NotiData notidata = new NotiData(time,token,message);
-        intent.putExtra("come", notidata);
-        finish();
-        startActivity(intent);
-    }
-
     @OnClick(R.id.pr_trigger_select_dateandtime) void goweather() {
         Intent intent = new Intent(this, PrTriggerGeneralDate.class);
         NotiData notidata = new NotiData(time,token,message);
