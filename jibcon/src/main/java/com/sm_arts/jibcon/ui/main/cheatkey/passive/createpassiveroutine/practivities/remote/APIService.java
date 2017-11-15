@@ -16,8 +16,13 @@ public interface APIService {
 
     @POST("/users/post/prinfo")
     @FormUrlEncoded
-    Call<NotiData> saveNotidata(@Field("time") String time,
-                                @Field("token") String token,
-                                @Field("message") String message);
 
+    Call<NotiData> saveData(@Field("hour") String hour,
+                            @Field("minute") String minute,
+                            @Field("token") String token,
+                            @Field("triggertype") String triggertype,
+                            @Field("actiontype") String actiontype,
+                            @Field("lat") String lat,
+                            @Field("lon") String lon);
 }
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_pr_action_weather_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="날씨"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_pr_action_weather_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:padding="20dp"
+            android:background="@drawable/pr_makenew_topandbot_shadow"
+            android:text="날씨 탭에는 \n다음과 같은 액션들이 있습니다"
+            android:textSize="18dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_pr_action_weather_forecast"
+            android:layout_margin="32dp"
+            android:layout_gravity="center"
+            android:background="@drawable/pr_botshadow"
+            android:gravity="center"
+            android:text="기상예보를 해줘"
+            android:textSize="15dp"
+            android:layout_width="296dp"
+            android:layout_height="40dp">
+        </Button>
+
+        <TextView
+            android:id="@+id/tv_pr_action_weather_wellupdate"
+            android:layout_margin="32dp"
+            android:textSize="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="we'll update other actions" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

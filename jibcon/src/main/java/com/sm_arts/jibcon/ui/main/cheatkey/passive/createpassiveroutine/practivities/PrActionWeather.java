@@ -2,19 +2,22 @@ package com.sm_arts.jibcon.ui.main.cheatkey.passive.createpassiveroutine.practiv
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.EditText;
 
-
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.NotiData;
 import com.sm_arts.jibcon.ui.BaseActivity;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class PrTriggerSelect extends BaseActivity {
+/**
+ * Created by woojinkim on 2017. 11. 15..
+ */
+
+public class PrActionWeather extends BaseActivity {
 
     String hour="";
     String minute="";
@@ -25,18 +28,13 @@ public class PrTriggerSelect extends BaseActivity {
     String lat="";
     String lon="";
 
-    @OnClick(R.id.btn_pr_trigger_select_popular_time) void gototimefrompop() {
-        Intent intent = new Intent(this, PrTriggerTime.class);
-        NotiData notidata = new NotiData(hour, minute, token, "time", actiontype, lat, lon);
+    @OnClick(R.id.btn_pr_action_weather_forecast) void gotoconfrim() {
+        Intent intent = new Intent(this, PrMakeNew.class);
+        lat = "32.5";
+        lon = "32.5";
+        NotiData notidata = new NotiData(hour, minute, token, triggertype, actiontype, lat, lon);
         intent.putExtra("come", notidata);
         finish();
-        startActivity(intent);
-    }
-
-    @OnClick(R.id.btn_pr_trigger_select_all_time) void gototimefromall() {
-        Intent intent = new Intent(this, PrTriggerTime.class);
-        NotiData notidata = new NotiData(hour, minute, token, "time", actiontype, lat, lon);
-        intent.putExtra("come", notidata);
         finish();
         startActivity(intent);
     }
@@ -45,7 +43,7 @@ public class PrTriggerSelect extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pr_trigger_select);
+        setContentView(R.layout.pr_action_weather);
         ButterKnife.bind(this);
 
         Intent intent = getIntent();

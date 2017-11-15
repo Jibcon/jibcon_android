@@ -27,9 +27,14 @@ public class PrConfirm extends BaseActivity {
     private TextView mResponseTv;
     private APIService mAPIService;
 
-    String time="default";
-    String token="default";
-    String message="default";
+    String hour="";
+    String minute="";
+    String token="";
+    String triggertype ="";
+    String actiontype="";
+
+    String lat="";
+    String lon="";;
 
 
     @Override
@@ -41,14 +46,15 @@ public class PrConfirm extends BaseActivity {
         Intent intent = getIntent();
         NotiData notidata = (NotiData)intent.getSerializableExtra("come");
 
-
-        Log.d("findme",""+notidata.time);
-        Log.d("findme",""+notidata.token);
-        Log.d("findme",""+notidata.message);
-
-        time = notidata.time;
+        hour = notidata.hour;
+        minute = notidata.minute;
         token = notidata.token;
-        message = notidata.message;
+
+        triggertype = notidata.triggertype;
+        actiontype = notidata.actiontype;
+
+        lat = notidata.lat;
+        lon = notidata.lon;
 
         Button submitBtn = (Button) findViewById(R.id.pr_confirm_finish);
 
@@ -57,16 +63,21 @@ public class PrConfirm extends BaseActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!TextUtils.isEmpty(time)) {
-                    sendNotidata(time, token, message);
+                if (!TextUtils.isEmpty(hour)) {
+                    sendNotidata(hour, minute, token, triggertype, actiontype, lat, lon);
                 }
             }
         });
 
-        Toast.makeText(this, "time "+time+"\n token : "+token+"\n message :"+message, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "time "+hour+""+minute
+                +"\n token : "+token+"\n trigger, action type :"+triggertype+" and "+actiontype
+                +"\nlat, lon :" +lat+" "+lon, Toast.LENGTH_LONG).show();
     }
-    public void sendNotidata(String time, String token, String message) {
-        mAPIService.saveNotidata(time, token, message).enqueue(new Callback<NotiData>() {
+
+
+    public void sendNotidata(String hour, String minute, String token, String triggertype,
+                             String actiontype, String lat, String lon) {
+        mAPIService.saveData(hour, minute, token, triggertype, actiontype, lat, lon).enqueue(new Callback<NotiData>() {
             @Override
             public void onResponse(Call<NotiData> call, Response<NotiData> response) {
 
@@ -81,6 +92,7 @@ public class PrConfirm extends BaseActivity {
             }
         });
     }
+
 
 
 }

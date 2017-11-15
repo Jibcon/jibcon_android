@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_pr_trigger_time_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="시간"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/tv_pr_trigger_time_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:padding="20dp"
+        android:background="@drawable/pr_botshadow"
+        android:text="시간에 대한 \n세부정보를 설정해 주세요"
+        android:textSize="18dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:layout_margin="32dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_pr_trigger_time_explain_settime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:text="시간을 설정해 주세요"
+                android:textSize="15dp" />
+
+            <Spinner
+                android:id="@+id/spinner_pr_trigger_time_hour"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:entries="@array/spinner_hour"
+                android:textAlignment="center" />
+
+            <Spinner
+                android:id="@+id/spinner_pr_trigger_time_minute"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:entries="@array/spinner_minute"
+                android:textAlignment="center" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_pr_trigger_time_ok"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:text=" 확인 "/>
+
+</LinearLayout>

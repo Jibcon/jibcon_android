@@ -3,126 +3,135 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/pr_action_select_tv"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_margin="8dp"
-        android:textSize="24dp"
-        android:gravity="center"
-        android:text="액 선택" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10">
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_pr_action_select_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:weightSum="10"
-            android:orientation="vertical">
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="액션 선택"
+            android:textSize="16dp" />
 
-            <SearchView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
+        <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/test_shadow" />
 
-            <TextView
-                android:id="@+id/tv_makepr_action_popular"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:text="popular"
-                android:textSize="30dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/pr_action_select_noti"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="@color/white"
-                    android:text="notification" />
-
-                <Button
-                    android:id="@+id/asd123"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="@color/white"
-                    android:text="gmail" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tv_routine_makepr_action_allservices"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="all services"
-                android:textSize="30dp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="5"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/qwe"
+                <TextView
+                    android:id="@+id/tv_pr_action_select_popular"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="@color/white"
-                    android:text="igut/time" />
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/pr_botshadow"
+                    android:gravity="center"
+                    android:text="Popular"
+                    android:textSize="16dp" />
 
-                <Button
-                    android:id="@+id/qwezxc"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="@color/white"
-                    android:text="not" />
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/zxcqw"
+                    <Button
+                        android:id="@+id/btn_pr_action_select_popular_message"
+                        android:layout_width="90dp"
+                        android:layout_height="32dp"
+
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp"
+
+                        android:background="@color/white"
+                        android:text="메세지"
+                        android:textSize="17dp"/>
+
+                    <Button
+                        android:id="@+id/btn_pr_action_select_popular_weather"
+                        android:layout_width="90dp"
+                        android:layout_height="32dp"
+
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp"
+
+                        android:background="@color/white"
+                        android:text="날씨"
+                        android:textSize="17dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_pr_action_select_allservice"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:layout_margin="4dp"
-                    android:text="prepared" />
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/pr_botshadow"
+                    android:gravity="center"
+                    android:text="All services"
+                    android:textSize="16dp" />
 
-                <Button
-                    android:id="@+id/sadqwf"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:background="@color/white"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
 
-                    android:text="yet" />
+                    <Button
+                        android:id="@+id/btn_pr_action_select_all_message"
+                        android:layout_width="90dp"
+                        android:layout_height="32dp"
 
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp"
+
+                        android:background="@color/white"
+                        android:text="메세지"
+                        android:textSize="17dp"/>
+
+                    <Button
+                        android:id="@+id/btn_pr_action_select_all_weather"
+                        android:layout_width="90dp"
+                        android:layout_height="32dp"
+
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp"
+
+                        android:background="@color/white"
+                        android:text="날씨"
+                        android:textSize="17dp" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_pr_action_select_wellupdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="We'll update other trigger options"
+                    android:textSize="12dp" />
 
             </LinearLayout>
+        </ScrollView>
 
-        </LinearLayout>
-    </ScrollView>
-
-    <Button
-        android:id="@+id/btn_actionselect_ok"
-        android:background="@color/colorAccent"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="OK" />
-
-</LinearLayout>
-
+    </LinearLayout>

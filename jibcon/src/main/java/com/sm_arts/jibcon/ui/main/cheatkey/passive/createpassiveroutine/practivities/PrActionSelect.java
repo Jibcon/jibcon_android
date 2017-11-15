@@ -15,18 +15,45 @@ import butterknife.OnClick;
 
 public class PrActionSelect extends BaseActivity {
 
-    String time="default";
-    String token="default";
-    String message="default";
+    String hour="";
+    String minute="";
+    String token="";
+    String triggertype ="";
+    String actiontype="";
 
+    String lat="";
+    String lon="";
 
-    @OnClick(R.id.pr_action_select_noti) void gototrigger() {
-        Intent intent = new Intent(this, PrActionGeneralNoti.class);
-        NotiData notidata = new NotiData(time,token,message);
+    @OnClick(R.id.btn_pr_action_select_popular_message) void gotomessagefrompop() {
+        Intent intent = new Intent(this, PrActionMessage.class);
+        NotiData notidata = new NotiData(hour, minute, token, triggertype, "message", lat, lon);
         intent.putExtra("come", notidata);
         finish();
         startActivity(intent);
     }
+    @OnClick(R.id.btn_pr_action_select_all_message) void gotomessagefromall() {
+        Intent intent = new Intent(this, PrActionMessage.class);
+        NotiData notidata = new NotiData(hour, minute, token, triggertype, "message", lat, lon);
+        intent.putExtra("come", notidata);
+        finish();
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_pr_action_select_popular_weather) void gotoweatherfrompop() {
+        Intent intent = new Intent(this, PrActionWeather.class);
+        NotiData notidata = new NotiData(hour, minute, token, triggertype, "weather", lat, lon);
+        intent.putExtra("come", notidata);
+        finish();
+        startActivity(intent);
+    }
+    @OnClick(R.id.btn_pr_action_select_all_weather) void gotoweatherfromall() {
+        Intent intent = new Intent(this, PrActionWeather.class);
+        NotiData notidata = new NotiData(hour, minute, token, triggertype, "weather", lat, lon);
+        intent.putExtra("come", notidata);
+        finish();
+        startActivity(intent);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +64,14 @@ public class PrActionSelect extends BaseActivity {
         Intent intent = getIntent();
         NotiData notidata = (NotiData)intent.getSerializableExtra("come");
 
-        Log.d("findme",""+notidata.time);
-        Log.d("findme",""+notidata.token);
-        Log.d("findme",""+notidata.message);
-
-        time = notidata.time;
+        hour = notidata.hour;
+        minute = notidata.minute;
         token = notidata.token;
-        message = notidata.message;
+
+        triggertype = notidata.triggertype;
+        actiontype = notidata.actiontype;
+
+        lat = notidata.lat;
+        lon = notidata.lon;
     }
 }

@@ -15,39 +15,45 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class PrActionSpecific extends BaseActivity {
+public class PrActionMessage extends BaseActivity {
 
-    String time="default";
-    String token="default";
-    String message="default";
+    String hour="";
+    String minute="";
+    String token="";
+    String triggertype ="";
+    String actiontype="";
 
+    String lat="";
+    String lon="";
 
-    @OnClick(R.id.pr_action_specific_setnoti) void gotoconfirm() {
-        Intent intent = new Intent(this, PrConfirm.class);
-        message = EtPrActionSpecific.getText().toString();
-        NotiData notidata = new NotiData(time,token,message);
+    @OnClick(R.id.btn_pr_action_message_ok) void gotoconfirm() {
+        Intent intent = new Intent(this, PrMakeNew.class);
+        lat = EtPrActionMessage.getText().toString();
+        NotiData notidata = new NotiData(hour, minute, token, triggertype, actiontype, lat, lon);
         intent.putExtra("come", notidata);
         finish();
         startActivity(intent);
     }
 
-    @BindView(R.id.pr_action_specific_et) EditText EtPrActionSpecific;
+    @BindView(R.id.et_pr_action_message_message) EditText EtPrActionMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pr_action_specific);
+        setContentView(R.layout.pr_action_message);
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
         NotiData notidata = (NotiData)intent.getSerializableExtra("come");
 
-        Log.d("findme",""+notidata.time);
-        Log.d("findme",""+notidata.token);
-        Log.d("findme",""+notidata.message);
-
-        time = notidata.time;
+        hour = notidata.hour;
+        minute = notidata.minute;
         token = notidata.token;
-        message = notidata.message;
+
+        triggertype = notidata.triggertype;
+        actiontype = notidata.actiontype;
+
+        lat = notidata.lat;
+        lon = notidata.lon;
     }
 }

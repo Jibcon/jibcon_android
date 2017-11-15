@@ -21,7 +21,6 @@ import com.sm_arts.jibcon.ui.additional.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.ui.additional.floatingbuttonui.FloatingButtonDeviceActivity;
 import com.sm_arts.jibcon.ui.main.cheatkey.passive.calendar.DatePickerFragment;
 import com.sm_arts.jibcon.ui.main.cheatkey.passive.calendar.TimePickerFragment;
-import com.sm_arts.jibcon.ui.main.cheatkey.passive.createpassiveroutine.MakePrActivity;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
 
 import java.util.ArrayList;
@@ -47,8 +46,6 @@ public class DeviceRoutineMenuFragment extends Fragment implements DeviceMenuVie
     @BindView(R.id.btn_passive_routine_makepr) Button makePrBtn;
     @OnClick(R.id.btn_passive_routine_makepr) void makePr() {
         Log.d("come","on");
-        Intent intent = new Intent(getActivity(), MakePrActivity.class);
-        startActivity(intent);
     }
     //region Fragment role
 

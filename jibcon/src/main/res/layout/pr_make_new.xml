@@ -6,26 +6,28 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/pr_make_new_tv"
+        android:id="@+id/tv_pr_make_new_title"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_margin="8dp"
         android:text="새 루틴 만들기"
         android:gravity="center"
-        android:textSize="24dp" />
+        android:background="@drawable/pr_botshadow"
+        android:textSize="16dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5">
+        android:layout_weight="5"
+        android:background="@drawable/pr_makenew_topandbot_shadow">
 
         <Button
-            android:id="@+id/pr_make_new_trigger"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/btn_pr_make_new_trigger"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
             android:layout_centerInParent="true"
             android:background="@color/white"
+            android:textSize="18dp"
             android:text="트리거 선택 + " />
 
     </RelativeLayout>
@@ -33,24 +35,26 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/white"
         android:layout_weight="5">
 
         <Button
-            android:id="@+id/pr_make_new_action"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:id="@+id/btn_pr_make_new_action"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
             android:background="@color/white"
             android:text="액션 선택 + "
+            android:textSize="18dp"
             android:layout_centerInParent="true"/>
 
     </RelativeLayout>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btn_pr_make_new_ok"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical"></LinearLayout>
-
+        android:background="@color/colorAccent"
+        android:text=" 확인 " />
 
 </LinearLayout>

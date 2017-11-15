@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_pr_action_message_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="메세지"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/tv_pr_action_message_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@drawable/pr_makenew_topandbot_shadow"
+        android:padding="20dp"
+        android:text="메세지를 입력하시면 \n알람으로 보내드립니다"
+        android:textSize="18dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:layout_margin="32dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_pr_action_message_explain_whichmessage"
+                android:layout_width="match_parent"
+                android:layout_height="21dp"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="12dp"
+                android:background="@drawable/pr_botshadow"
+                android:text="어떤 메세지를 보내드릴까요?"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/et_pr_action_message_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"></EditText>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_pr_action_message_ok"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:text=" 확인 " />
+
+</LinearLayout>

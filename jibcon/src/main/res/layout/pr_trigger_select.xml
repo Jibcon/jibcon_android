@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_pr_trigger_select_title"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -33,14 +33,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/populartitle"
+                android:id="@+id/tv_pr_trigger_select_popular"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="@drawable/pr_makenew_topandbot_shadow"
+                android:background="@drawable/pr_botshadow"
                 android:text="Popular"
-                android:textSize="16dp"/>
+                android:textSize="13dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                 android:layout_marginBottom="6dp">
 
                 <Button
-                    android:id="@+id/pr_trigger_select_dateandtime"
+                    android:id="@+id/btn_pr_trigger_select_popular_time"
                     android:layout_width="90dp"
                     android:layout_height="32dp"
 
@@ -65,14 +65,14 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/allservice"
+                android:id="@+id/tv_pr_trigger_select_allservice"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="All services"
-                android:background="@drawable/pr_makenew_topandbot_shadow"
-                android:textSize="16dp" />
+                android:background="@drawable/pr_botshadow"
+                android:textSize="13dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -82,7 +82,7 @@
                 android:layout_marginTop="6dp">
 
                 <Button
-                    android:id="@+id/asd1"
+                    android:id="@+id/btn_pr_trigger_select_all_time"
                     android:layout_width="90dp"
                     android:layout_height="32dp"
                     android:layout_marginTop="20dp"
@@ -92,7 +92,7 @@
                     android:text="시간" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/tv_pr_trigger_select_wellupdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
