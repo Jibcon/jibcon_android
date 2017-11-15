@@ -1,6 +1,7 @@
 package com.sm_arts.jibcon.ui.main.cheatkey.passive.createpassiveroutine.practivities;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,12 +13,20 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.NotiData;
 import com.sm_arts.jibcon.ui.BaseActivity;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.createpassiveroutine.practivities.remote.APIService;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.createpassiveroutine.practivities.remote.ApiUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PrMakeNew extends BaseActivity {
+
+    private static final String TAG = "woojin";
+    private APIService mAPIService;
 
     String hour="";
     String minute="";
@@ -46,6 +55,26 @@ public class PrMakeNew extends BaseActivity {
         startActivity(intent);
     }
 
+    @OnClick(R.id.btn_pr_make_new_ok) void senddata() {
+        sendNotidata(hour, minute, token, triggertype, actiontype, lat, lon);
+    }
+
+    public void sendNotidata(String hour, String minute, String token, String triggertype,
+                             String actiontype, String lat, String lon) {
+        mAPIService.saveData(hour, minute, token, triggertype, actiontype, lat, lon).enqueue(new Callback<NotiData>() {
+            @Override
+            public void onResponse(Call<NotiData> call, Response<NotiData> response) {
+                if(response.isSuccessful()) {
+                    Log.d(TAG, "notidata submitted to API." + response.body());
+                }
+            }
+            @Override
+            public void onFailure(Call<NotiData> call, Throwable t) {
+                Log.e(TAG, "Unable to submit notidata to API."+t.toString());
+            }
+        });
+    }
+
     @BindView(R.id.btn_pr_make_new_trigger)
     Button btnPrMakeNewTrigger;
 
@@ -61,6 +90,7 @@ public class PrMakeNew extends BaseActivity {
         setContentView(R.layout.pr_make_new);
         ButterKnife.bind(this);
 
+        mAPIService = ApiUtils.getAPIService();
         btnPrMakeNewOk.setVisibility(View.GONE);
 
         Intent intent = getIntent();
