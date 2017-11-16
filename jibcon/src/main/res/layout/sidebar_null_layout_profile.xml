@@ -5,19 +5,26 @@
     android:layout_height="wrap_content"
     android:id="@id/nav_view"
     android:gravity="top|center"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:paddingBottom="28dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="28dp">
+    android:paddingTop="50dp">
 
     <ImageView
         android:id="@+id/ImgView_Drawer_UserProfile"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/default_user"/>
+        android:src="@drawable/default_user" />
 
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+        android:layout_gravity="left"
+        android:gravity="center|left"
+        android:layout_marginLeft="15dp">
     <TextView
         android:id="@+id/Txt_Drawer_Username"
         android:layout_width="wrap_content"
@@ -32,5 +39,5 @@
         android:layout_height="wrap_content"
         android:text="android.studio@android.com"
         android:textSize="12dp"/>
-
+</LinearLayout>
 </LinearLayout>

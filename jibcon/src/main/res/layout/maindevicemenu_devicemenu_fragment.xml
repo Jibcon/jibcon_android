@@ -9,10 +9,12 @@
         android:layout_height="match_parent"
         android:id="@+id/swipelayout_menu_deivce">
 
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="246dp"
+        android:layout_height="388.8dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         >
@@ -27,7 +29,6 @@
             />
 
     </ScrollView>
-
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <ImageButton

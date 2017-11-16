@@ -12,7 +12,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,21 +23,20 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetSequence;
-import com.getkeepsafe.taptargetview.TapTargetView;
+import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.BaseActivity;
-import com.sm_arts.jibcon.GlobalApplication;
-import com.sm_arts.jibcon.ui.main.cheatkey.CheatkeyMenuFragment;
-import com.sm_arts.jibcon.ui.main.conshop.ConshopFragment;
-import com.sm_arts.jibcon.ui.main.datacontrol.DataControlFragment;
+import com.sm_arts.jibcon.ui.additional.dialogs.SidebarDialog;
 import com.sm_arts.jibcon.ui.additional.sidebar.AboutJibconActivity;
 import com.sm_arts.jibcon.ui.additional.sidebar.ConnectedDevicesActivity;
 import com.sm_arts.jibcon.ui.additional.sidebar.MyJibconActivity;
 import com.sm_arts.jibcon.ui.additional.sidebar.UserAuthorityActivity;
 import com.sm_arts.jibcon.ui.additional.sidebar.WidgetActivity;
-import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
-import com.sm_arts.jibcon.ui.additional.dialogs.SidebarDialog;
+import com.sm_arts.jibcon.ui.main.cheatkey.CheatkeyMenuFragment;
+import com.sm_arts.jibcon.ui.main.conshop.ConshopFragment;
+import com.sm_arts.jibcon.ui.main.datacontrol.DataControlFragment;
 import com.sm_arts.jibcon.ui.main.devicemenu.fragment.DeviceMenuFragment;
+import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -207,9 +205,9 @@ public class MainActivity extends BaseActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //네비게이션 뷰 풀화면
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        DrawerLayout.LayoutParams params =(DrawerLayout.LayoutParams)navigationView.getLayoutParams();
+       // DisplayMetrics dm = new DisplayMetrics();
+      //  getWindowManager().getDefaultDisplay().getMetrics(dm);
+      //  DrawerLayout.LayoutParams params =(DrawerLayout.LayoutParams)navigationView.getLayoutParams();
 
         mtoSettingBtn = (ImageButton) findViewById(R.id.Btn_Setting);
 
@@ -224,8 +222,8 @@ public class MainActivity extends BaseActivity
             }
         });
 
-        params.width=dm.widthPixels;
-        navigationView.setLayoutParams(params);
+  //      params.width=dm.widthPixels;
+     //   navigationView.setLayoutParams(params);
         //네비게이션 뷰 풀화면
 
         View headerView =navigationView.getHeaderView(0);
