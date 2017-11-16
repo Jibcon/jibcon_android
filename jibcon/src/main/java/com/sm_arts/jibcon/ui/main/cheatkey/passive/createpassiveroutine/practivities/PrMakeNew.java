@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -110,13 +112,16 @@ public class PrMakeNew extends BaseActivity {
                 +"\nlat, lon :" +lat+" "+lon, Toast.LENGTH_LONG).show();
 
         if(!triggertype.equals("default")) {
+            btnPrMakeNewTrigger.setText("");
             btnPrMakeNewTrigger.setBackground(getResources().getDrawable(R.drawable.pr_trigger_time));
         }
 
         if(actiontype.equals("weather")) {
+            btnPrMakeNewAction.setText("");
             btnPrMakeNewAction.setBackground(getResources().getDrawable(R.drawable.pr_action_weather));
         }
         else if(actiontype.equals("message")) {
+            btnPrMakeNewAction.setText("");
             btnPrMakeNewAction.setBackground(getResources().getDrawable(R.drawable.pr_action_notification));
         }
 

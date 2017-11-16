@@ -4,13 +4,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefreshlayout_pr_main_simple"
+        android:layout_width="368dp"
+        android:layout_height="0dp"
+        android:layout_weight="6">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_pr_main_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+        </ScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
     <Button
         android:id="@+id/btn_pr_main_simple_makenew"
-        android:background="@drawable/pr_makenew_topandbot_shadow"
-        android:layout_width="300dp"
-        android:layout_height="72dp"
-        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_margin="20dp"
-        android:textSize="30dp"
-        android:text="+" />
+        android:layout_gravity="center"
+        android:background="@drawable/pr_botshadow"
+        android:text="+"
+        android:textSize="30dp" />
+
 </LinearLayout>
