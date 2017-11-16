@@ -12,6 +12,15 @@ public class User {
     String last_name;
     String first_name;
     String fcm_token;
+    String user_id;
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
 
     public String getFcm_token() {
         return fcm_token;
