@@ -58,6 +58,13 @@ public class MainActivity extends BaseActivity
     @BindView(R.id.btn3) TextView mConshopBtn;
     @BindView(R.id.btn4) TextView mDataControlBtn;
 
+
+    @BindView(R.id.Sidebar_myjibcon) TextView Sidebar_myjibcon;
+    @BindView(R.id.Sidebar_userAuthority) TextView Sidebar_userAuthority;
+    @BindView(R.id.Sidebar_connectedDevices) TextView Sidebar_connectedDevices;
+    @BindView(R.id.Sidebar_widget) TextView Sidebar_widget;
+    @BindView(R.id.Sidebar_aboutJibcon) TextView Sidebar_aboutJibcon;
+
     ImageButton mtoSettingBtn;
 
     int fontColor;
@@ -219,6 +226,46 @@ public class MainActivity extends BaseActivity
 
 //                Intent intent=new Intent(MainActivity.this,SettingActivity.class);
 //                startActivity(intent);
+            }
+        });
+
+        Sidebar_myjibcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), MyJibconActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Sidebar_userAuthority.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), UserAuthorityActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Sidebar_connectedDevices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), ConnectedDevicesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Sidebar_widget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), WidgetActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Sidebar_aboutJibcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), AboutJibconActivity.class);
+                startActivity(intent);
             }
         });
 
