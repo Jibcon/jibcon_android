@@ -6,9 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -18,7 +16,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -55,15 +52,11 @@ public class MainActivity extends BaseActivity
     Fragment mConshopFragment;
     Fragment mDataControlFragment;
     ImageView mUserProfileImage;
-    FrameLayout mFrameLayout;
-    @BindView(R.id.btn1)
-    TextView mDeviceBtn;
-    @BindView(R.id.btn2)
-    TextView mCheatkeyBtn;
-    @BindView(R.id.btn3)
-    TextView mConshopBtn;
-    @BindView(R.id.btn4)
-    TextView mDataControlBtn;
+
+    @BindView(R.id.btn1) TextView mDeviceBtn;
+    @BindView(R.id.btn2) TextView mCheatkeyBtn;
+    @BindView(R.id.btn3) TextView mConshopBtn;
+    @BindView(R.id.btn4) TextView mDataControlBtn;
 
 
     @BindView(R.id.Sidebar_myjibcon) TextView Sidebar_myjibcon;
@@ -79,9 +72,8 @@ public class MainActivity extends BaseActivity
 
     //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
     //속도 너무 느림 ㅠ
-    private class pagerAdapter extends FragmentStatePagerAdapter {
+    private class pagerAdapter extends FragmentStatePagerAdapter{
         private static final String TAG = "pagerAdapter";
-
         public pagerAdapter(android.support.v4.app.FragmentManager fm) {
             super(fm);
         }
@@ -115,82 +107,41 @@ public class MainActivity extends BaseActivity
         public void onClick(View v) {
             int tag = (int) v.getTag();
             setSelectedMainMenuBtn(tag);
-            //mVp.setCurrentItem(tag);
-
-            switchFragment(tag);
-
+            mVp.setCurrentItem(tag);
         }
     };
 
-    public void switchFragment(int tag) {
-        Fragment fragment;
-
-        FragmentManager supportFragmentManager = getSupportFragmentManager();
-//        android.app.FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
-
-        switch (tag) {
-            case 0:
-                fragment = mDeviceFragment;
-                fragmentTransaction.replace(R.id.mainFrame, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-            case 1:
-                fragment = mCheatkeyFragment;
-                fragmentTransaction.replace(R.id.mainFrame, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-            case 2:
-                fragment = mConshopFragment;
-                fragmentTransaction.replace(R.id.mainFrame, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-            case 3:
-                fragment = mDataControlFragment;
-                fragmentTransaction.replace(R.id.mainFrame, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-
-        }
-
-    }
-
-    private void initLayout() {
+    private  void initLayout() {
         mDeviceFragment = new DeviceMenuFragment();
         mDataControlFragment = new DataControlFragment();
         mCheatkeyFragment = new CheatkeyMenuFragment();
         mConshopFragment = new ConshopFragment();
-        mFrameLayout = (FrameLayout) findViewById(R.id.mainFrame);
-        //mVp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
-//
-//        mVp.setOffscreenPageLimit(3);
-//        mVp.setAdapter(new pagerAdapter(getSupportFragmentManager()));
-//
-//        mVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//                Log.d(TAG, "onPageScrolled: "+position);
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//                Log.d(TAG, "onPageSelected: "+position);
-//                setSelectedMainMenuBtn(position);
-//            }
 
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//                Log.d(TAG, "onPageScrollStateChanged: "+state);
-//            }
-//        });
+        mVp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
+
+        mVp.setOffscreenPageLimit(3);
+        mVp.setAdapter(new pagerAdapter(getSupportFragmentManager()));
+
+        mVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                Log.d(TAG, "onPageScrolled: "+position);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Log.d(TAG, "onPageSelected: "+position);
+                setSelectedMainMenuBtn(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                Log.d(TAG, "onPageScrollStateChanged: "+state);
+            }
+        });
 
         setSelectedMainMenuBtn(0);
-//
+
         mDeviceBtn.setTag(0);
         mDeviceBtn.setOnClickListener(movePageListener);
         mCheatkeyBtn.setTag(1);
@@ -199,8 +150,6 @@ public class MainActivity extends BaseActivity
         mConshopBtn.setOnClickListener(movePageListener);
         mDataControlBtn.setTag(3);
         mDataControlBtn.setOnClickListener(movePageListener);
-
-
     }
 
     private void setDefaultMainMenuBtn() {
@@ -212,7 +161,7 @@ public class MainActivity extends BaseActivity
 
     private void setSelectedMainMenuBtn(int position) {
         switch (position) {
-            case 0:
+            case 0 :
                 setDefaultMainMenuBtn();
                 mDeviceBtn.setTextColor(fontColorPressed);
                 break;
@@ -246,7 +195,7 @@ public class MainActivity extends BaseActivity
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        mApp = (GlobalApplication) getApplicationContext();
+        mApp = (GlobalApplication)getApplicationContext();
 
         ActionBarDrawerToggle drawerToggle;
 
@@ -263,15 +212,9 @@ public class MainActivity extends BaseActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //네비게이션 뷰 풀화면
-<<<<<<< HEAD
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        DrawerLayout.LayoutParams params = (DrawerLayout.LayoutParams) navigationView.getLayoutParams();
-=======
        // DisplayMetrics dm = new DisplayMetrics();
       //  getWindowManager().getDefaultDisplay().getMetrics(dm);
       //  DrawerLayout.LayoutParams params =(DrawerLayout.LayoutParams)navigationView.getLayoutParams();
->>>>>>> device_control_renew
 
         mtoSettingBtn = (ImageButton) findViewById(R.id.Btn_Setting);
 
@@ -286,10 +229,6 @@ public class MainActivity extends BaseActivity
             }
         });
 
-<<<<<<< HEAD
-        params.width = dm.widthPixels;
-        navigationView.setLayoutParams(params);
-=======
         Sidebar_myjibcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -332,10 +271,9 @@ public class MainActivity extends BaseActivity
 
   //      params.width=dm.widthPixels;
      //   navigationView.setLayoutParams(params);
->>>>>>> device_control_renew
         //네비게이션 뷰 풀화면
 
-        View headerView = navigationView.getHeaderView(0);
+        View headerView =navigationView.getHeaderView(0);
         TextView userEmail = (TextView) headerView.findViewById(R.id.Txt_Drawer_UserEmail);
         TextView username = (TextView) headerView.findViewById(R.id.Txt_Drawer_Username);
         mUserProfileImage = (ImageView) headerView.findViewById(R.id.ImgView_Drawer_UserProfile);
@@ -353,6 +291,7 @@ public class MainActivity extends BaseActivity
 
         startTapTargetView();
     }
+
 
 
     @Override
@@ -379,20 +318,20 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.Sidebar_myjibcon) {
-            Intent intent = new Intent(getApplicationContext(), MyJibconActivity.class);
+            Intent intent= new Intent(getApplicationContext(), MyJibconActivity.class);
             startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.Sidebar_userAuthority) {
-            Intent intent = new Intent(getApplicationContext(), UserAuthorityActivity.class);
+            Intent intent= new Intent(getApplicationContext(), UserAuthorityActivity.class);
             startActivity(intent);
         } else if (id == R.id.Sidebar_connectedDevices) {
-            Intent intent = new Intent(getApplicationContext(), ConnectedDevicesActivity.class);
+            Intent intent= new Intent(getApplicationContext(), ConnectedDevicesActivity.class);
             startActivity(intent);
         } else if (id == R.id.Sidebar_widget) {
-            Intent intent = new Intent(getApplicationContext(), WidgetActivity.class);
+            Intent intent= new Intent(getApplicationContext(), WidgetActivity.class);
             startActivity(intent);
         } else if (id == R.id.Sidebar_aboutJibcon) {
-            Intent intent = new Intent(getApplicationContext(), AboutJibconActivity.class);
+            Intent intent= new Intent(getApplicationContext(), AboutJibconActivity.class);
             startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -449,11 +388,12 @@ public class MainActivity extends BaseActivity
     }
 
     public void startTapTargetView() {
-        try {
+        try{
             SharedPreferences mPref = getSharedPreferences("isFirst", Activity.MODE_PRIVATE);
 
             Boolean bFirst = mPref.getBoolean("isFirst", false);
-            if (bFirst == false) {
+            if(bFirst == false)
+            {
                 Log.d("CJ : ", "It's first time this App started.");
                 SharedPreferences.Editor editor = mPref.edit();
                 editor.putBoolean("isFirst", true);
@@ -462,11 +402,12 @@ public class MainActivity extends BaseActivity
                 //최초 실행시 필요한 코드를 여기에 작성
                 setTapTargetView(); // 초기 도움말 View
             }
-            if (bFirst == true) {
+            if(bFirst == true)
+            {
                 Log.d("CJ : ", "It isn't first time this App started.");
             }
 
-        } catch (Exception e) {
+        } catch(Exception e) {
 
         }
     }

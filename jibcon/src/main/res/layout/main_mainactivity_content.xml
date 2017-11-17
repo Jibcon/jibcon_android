@@ -11,7 +11,6 @@
     tools:showIn="@layout/main_mainactivity_appbar">
 
 
-<<<<<<< HEAD
     <!--&lt;!&ndash; ViewPager &ndash;&gt;-->
     <!--<android.support.v4.view.ViewPager-->
 
@@ -38,7 +37,7 @@
         android:layout_marginTop="22.8dp"
         android:textSize="19sp"
         android:text=" 남영주님, \n 오늘은 창문을 닫고 \n 외출하는게 어때요?  "/>
->>>>>>> device_control_renew
+
 
     <LinearLayout
         android:id="@+id/bottmStatus"
