@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.routine.viewmodel;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive.viewmodel;
 
 import android.arch.lifecycle.ViewModel;
 import android.databinding.ObservableField;

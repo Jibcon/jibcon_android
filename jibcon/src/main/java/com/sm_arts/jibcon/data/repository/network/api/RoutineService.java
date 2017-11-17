@@ -1,7 +1,9 @@
 package com.sm_arts.jibcon.data.repository.network.api;
 
 import com.sm_arts.jibcon.data.models.api.dto.Routine;
+import com.sm_arts.jibcon.data.models.api.dto.RoutineItem;
 
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -37,4 +39,19 @@ public interface RoutineService {
     @DELETE("/api/routines/{id}/")
     Call<Object> deleteRoutine(@Header("Authorization") String token,
                                @Path("id") String id);
+
+
+    //////////////////////////////////////////////////////////////////
+
+    @POST("/api/timer/getMyTasks")
+    Call<List<HashMap<String,Object>>> getMyTasks(@Header("Authorization") String userId);
+
+    @POST("/api/timer/addTask")
+    Call<Void> addTask(@Body RoutineItem routineItem);
+
+    @DELETE("api/timer/deleteTask")
+    Call<Void> deleteTask(@Header("Authorization") String _id);
+
+    @PUT("api/timer/updateTask")
+    Call<RoutineItem> updateTask(@Body RoutineItem routineItem);
 }

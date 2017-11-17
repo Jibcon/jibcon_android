@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -71,87 +70,12 @@ public class MainActivity extends BaseActivity
     int fontColor;
     int fontColorPressed;
 
-    //각 프래그먼트 정보 바뀌면 갱신에서 담아주기
-    //속도 너무 느림 ㅠ
-    private class pagerAdapter extends FragmentStatePagerAdapter {
-        private static final String TAG = "pagerAdapter";
-
-        public pagerAdapter(android.support.v4.app.FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            switch (position) {
-                case 0:
-                    return mDeviceFragment;
-                case 1:
-                    return mCheatkeyFragment;
-                case 2:
-                    return mConshopFragment;
-                case 3:
-                    return mDataControlFragment;
-                default:
-                    return null;
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return 4;
-        }
-    }
-    /* ↑뷰 페이저(액티비티 슬라이드)↑ */
-
-    /* ↓뷰 페이저(액티비티 슬라이드)↓ */
-    View.OnClickListener movePageListener = new View.OnClickListener() {
+    View.OnClickListener movePageListner = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int tag = (int) v.getTag();
-            setSelectedMainMenuBtn(tag);
-            //mVp.setCurrentItem(tag);
-
-            switchFragment(tag);
-
+            setSelectedMainMenuBtn((int) v.getTag());
         }
     };
-
-    public void switchFragment(int tag) {
-        Fragment fragment;
-
-        FragmentManager supportFragmentManager = getSupportFragmentManager();
-//        android.app.FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
-
-        switch (tag) {
-            case 0:
-                fragment = mDeviceFragment;
-                fragmentTransaction.replace(R.id.mainFrame, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-            case 1:
-                fragment = mCheatkeyFragment;
-                fragmentTransaction.replace(R.id.mainFrame, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-            case 2:
-                fragment = mConshopFragment;
-                fragmentTransaction.replace(R.id.mainFrame, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-            case 3:
-                fragment = mDataControlFragment;
-                fragmentTransaction.replace(R.id.mainFrame, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                break;
-
-        }
-
-    }
 
     private void initLayout() {
         mDeviceFragment = new DeviceMenuFragment();
@@ -159,41 +83,17 @@ public class MainActivity extends BaseActivity
         mCheatkeyFragment = new CheatkeyMenuFragment();
         mConshopFragment = new ConshopFragment();
         mFrameLayout = (FrameLayout) findViewById(R.id.mainFrame);
-        //mVp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
-//
-//        mVp.setOffscreenPageLimit(3);
-//        mVp.setAdapter(new pagerAdapter(getSupportFragmentManager()));
-//
-//        mVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//                Log.d(TAG, "onPageScrolled: "+position);
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//                Log.d(TAG, "onPageSelected: "+position);
-//                setSelectedMainMenuBtn(position);
-//            }
-
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//                Log.d(TAG, "onPageScrollStateChanged: "+state);
-//            }
-//        });
 
         setSelectedMainMenuBtn(0);
-//
-        mDeviceBtn.setTag(0);
-        mDeviceBtn.setOnClickListener(movePageListener);
-        mCheatkeyBtn.setTag(1);
-        mCheatkeyBtn.setOnClickListener(movePageListener);
-        mConshopBtn.setTag(2);
-        mConshopBtn.setOnClickListener(movePageListener);
-        mDataControlBtn.setTag(3);
-        mDataControlBtn.setOnClickListener(movePageListener);
 
+        mDeviceBtn.setTag(0);
+        mDeviceBtn.setOnClickListener(movePageListner);
+        mCheatkeyBtn.setTag(1);
+        mCheatkeyBtn.setOnClickListener(movePageListner);
+        mConshopBtn.setTag(2);
+        mConshopBtn.setOnClickListener(movePageListner);
+        mDataControlBtn.setTag(3);
+        mDataControlBtn.setOnClickListener(movePageListner);
 
     }
 
@@ -205,22 +105,63 @@ public class MainActivity extends BaseActivity
     }
 
     private void setSelectedMainMenuBtn(int position) {
+
         switch (position) {
             case 0:
                 setDefaultMainMenuBtn();
+                changeFragment(position);
                 mDeviceBtn.setTextColor(fontColorPressed);
                 break;
             case 1:
                 setDefaultMainMenuBtn();
+                changeFragment(position);
                 mCheatkeyBtn.setTextColor(fontColorPressed);
                 break;
             case 2:
                 setDefaultMainMenuBtn();
+                changeFragment(position);
                 mConshopBtn.setTextColor(fontColorPressed);
                 break;
             case 3:
                 setDefaultMainMenuBtn();
+                changeFragment(position);
                 mDataControlBtn.setTextColor(fontColorPressed);
+                break;
+        }
+    }
+
+    private void changeFragment(int position) {
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        //        android.app.FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
+        Fragment fragment;
+        switch (position) {
+            case 0:
+                fragment = new DeviceMenuFragment();
+                supportFragmentManager.popBackStack();
+                fragmentTransaction.replace(R.id.mainFrame, fragment);
+                fragmentTransaction.commit();
+                break;
+            case 1:
+                fragment = new CheatkeyMenuFragment();
+
+                supportFragmentManager.popBackStack();
+                fragmentTransaction.replace(R.id.mainFrame, fragment);
+                fragmentTransaction.commit();
+
+                break;
+            case 2:
+                fragment = new ConshopFragment();
+                supportFragmentManager.popBackStack();
+                fragmentTransaction.replace(R.id.mainFrame, fragment);
+                fragmentTransaction.commit();
+
+                break;
+            case 3:
+                fragment = new DataControlFragment();
+                supportFragmentManager.popBackStack();
+                fragmentTransaction.replace(R.id.mainFrame, fragment);
+                fragmentTransaction.commit();
                 break;
         }
     }
@@ -269,8 +210,6 @@ public class MainActivity extends BaseActivity
                 SidebarDialog sidebarDialog = new SidebarDialog(MainActivity.this);
                 sidebarDialog.show();
 
-//                Intent intent=new Intent(MainActivity.this,SettingActivity.class);
-//                startActivity(intent);
             }
         });
 
@@ -344,30 +283,23 @@ public class MainActivity extends BaseActivity
         return true;
     }
 
-//    private void setDefaultImages() {
-//        mDeviceBtn.setImageResource(R.drawable.ic_home_gray_48dp);
-//        mCheatkeyBtn.setImageResource(R.drawable.ic_link_gray_48dp);
-//        mConshopBtn.setImageResource(R.drawable.ic_shopping_cart_gray_48dp);
-//        mDataControlBtn.setImageResource(R.drawable.ic_pie_chart_gray_48dp);
-//    }
-
     public void setTapTargetView() {
         TapTargetSequence mTapTargetSequence = new TapTargetSequence(this)
                 .targets(
                         TapTarget.forView(mDeviceBtn, "디바이스 메뉴", "등록된 디바이스들을 한눈에!\n하나의 창에서 조작해보세요.")
                                 .cancelable(false)
-                                .outerCircleColor(R.color.tutorial_background)
+                                .outerCircleColor(R.color.deep_blue)
                                 .targetRadius(50),
                         TapTarget.forView(mCheatkeyBtn, "치트키 메뉴", "등록된 디바이스들로\n액티브, 패시브 치트키를\n만들어보세요.")
                                 .cancelable(false)
-                                .outerCircleColor(R.color.tutorial_background)
+                                .outerCircleColor(R.color.deep_blue)
                                 .targetRadius(50),
                         TapTarget.forView(mConshopBtn, "콘샾 메뉴", "혁신적 제품들을 만나보세요.")
                                 .cancelable(false)
-                                .outerCircleColor(R.color.tutorial_background)
+                                .outerCircleColor(R.color.deep_blue)
                                 .targetRadius(50),
                         TapTarget.forView(mDataControlBtn, "데이터 메뉴", "낭비되는 전기세부터\n나에게 맞는 온도까지!\n데이터로 알아보세요.")
-                                .outerCircleColor(R.color.tutorial_background)
+                                .outerCircleColor(R.color.deep_blue)
                                 .targetRadius(80))
                 .listener(new TapTargetSequence.Listener() {
                     // This listener will tell us when interesting(tm) events happen in regards

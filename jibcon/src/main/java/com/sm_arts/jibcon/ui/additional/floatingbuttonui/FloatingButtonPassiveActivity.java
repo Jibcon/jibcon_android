@@ -60,6 +60,12 @@ public class FloatingButtonPassiveActivity extends BaseActivity {
 
             }
         });
+        mFabItem1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         fabcontainer.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override

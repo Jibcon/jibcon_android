@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.main.cheatkey.active.CheatkeyActiveFragment;
-import com.sm_arts.jibcon.ui.main.devicemenu.fragment.DeviceRoutineMenuFragment;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.RoutinePassiveFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +31,8 @@ public class CheatkeyMenuFragment extends Fragment{
     @BindView(R.id.btn_active) Button btn_active;
     @BindView(R.id.btn_passive) Button btn_passive;
 
+    Fragment mActiveFragment;
+    Fragment mPassiveFragment;
     public CheatkeyMenuFragment(){}
 
     @Override
@@ -39,17 +41,26 @@ public class CheatkeyMenuFragment extends Fragment{
         RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.maincheatkey_cheatkeymenu_fragment, container, false);
         ButterKnife.bind(this, layout);
 
+        Log.d(TAG, "onCreateView: 1");
+        mActiveFragment = new CheatkeyActiveFragment();
+        mPassiveFragment = new RoutinePassiveFragment();
+
+        Log.d(TAG, "onCreateView: 2");
         mVp = (ViewPager) layout.findViewById(R.id.vp_cheatkey);
 
+        Log.d(TAG, "onCreateView: 3");
         /* ↓Acitve & Passive Button↓ */
 
         mVp.setAdapter(new pagerAdapter(getChildFragmentManager())); // getSupportFragmentManager에서 수정
         mVp.setCurrentItem(0);
 
+        Log.d(TAG, "onCreateView: 4");
         btn_active.setOnClickListener(movePageListener);
         btn_active.setTag(0);
         btn_passive.setOnClickListener(movePageListener);
         btn_passive.setTag(1);
+
+        Log.d(TAG, "onCreateView: 5");
         /* ↑Acitve & Passive Button↑ */
 
         return layout;
@@ -71,23 +82,40 @@ public class CheatkeyMenuFragment extends Fragment{
 
         @Override
         public Fragment getItem(int position) {
-            Log.w("CJ","movePageListener");
-            switch(position) {
-                case 0:
-                    Log.d(TAG, "getItem: CheatkeyActiveFragment");
-                    return new CheatkeyActiveFragment();
-                case 1:
-                    Log.d(TAG, "getItem: ");
-                    return new  DeviceRoutineMenuFragment();
-                default:
-                    return null;
+            Log.w(TAG, "movePageListener");
+
+            if (position == 0) {
+                Log.d(TAG, "getItem: CheatKeyActiveFragment");
+                return mActiveFragment;
+            } else  {
+                Log.d(TAG, "getItem: CheatKeyActiveFragment");
+                return mPassiveFragment;
             }
         }
+
 
         @Override
         public int getCount() {
             return 2;
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d(TAG, "onDestroyView: ");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop: ");
     }
     /* ↑뷰 페이저(액티비티 슬라이드)↑ */
 }

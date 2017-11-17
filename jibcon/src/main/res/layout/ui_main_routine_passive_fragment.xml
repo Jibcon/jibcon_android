@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/passive_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/passive_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+        </ScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <ImageButton
+        android:id="@+id/fab_passive_behind"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:paddingBottom="24dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_add_circle_blue_48dp"
+        />
+
+</RelativeLayout>

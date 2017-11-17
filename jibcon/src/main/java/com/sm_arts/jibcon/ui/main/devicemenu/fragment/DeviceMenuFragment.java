@@ -66,7 +66,9 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         Log.d(TAG, "attachUI: ");
         mFabDeviceBehindBtn = (ImageButton) getView().findViewById(R.id.fab_device_behind);
         mFabDeviceBehindBtn.setOnClickListener(
-                v -> mPresenter.fabDeviceBehindBtnClicked()
+
+                v -> {mPresenter.fabDeviceBehindBtnClicked();
+                }
         );
         // TODO: 8/7/17 REMOVE THIS VIEW.GONE
         /*플로팅 버튼 */
@@ -137,6 +139,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         Log.d(TAG, "gotoFloatingButtonDeviceActivity: ");
         startActivity(new Intent(getActivity().
                 getApplicationContext(), FloatingButtonDeviceActivity.class));
+        getActivity().finish();
     }
 
     @Override
