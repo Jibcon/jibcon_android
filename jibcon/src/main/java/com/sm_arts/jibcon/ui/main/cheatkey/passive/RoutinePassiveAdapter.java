@@ -23,21 +23,21 @@ import java.util.List;
 public class RoutinePassiveAdapter extends RecyclerView.Adapter<RoutinePassiveAdapter.RoutineViewHolder> {
 
     private static final String TAG = "RoutineAdapter";
-    private  List<RoutineItem> mRoutineItems;
+    private List<RoutineItem> mRoutineItems;
     private RoutineItemlistener mDeleteButtonListner;
 
     public RoutinePassiveAdapter(List<RoutineItem> routineItems, RoutineItemlistener mDeleteButtonListner) {
         this.mDeleteButtonListner = mDeleteButtonListner;
         this.mRoutineItems = routineItems;
     }
-    public void setItems(List<RoutineItem> mRoutineItems)
-    {
+
+    public void setItems(List<RoutineItem> mRoutineItems) {
         this.mRoutineItems = mRoutineItems;
         notifyDataSetChanged();
     }
-    public RoutineItem getItemWithPosition(int position)
-    {
-        if(position<0)
+
+    public RoutineItem getItemWithPosition(int position) {
+        if (position < 0)
             return null;
         else
             return mRoutineItems.get(position);
@@ -48,19 +48,21 @@ public class RoutinePassiveAdapter extends RecyclerView.Adapter<RoutinePassiveAd
 
         LinearLayout mLinearLayout;
         CardView mCardView;
-        TextView mTextView;
-        TextView mTextViewData;
+        TextView mRoutineTypeTextView;
+        TextView mDataTextView;
         Button mButtonRoutineDelete;
+        TextView mTimeTextView;
         RoutineItemlistener mRoutineDeleteListener;
 
         public RoutineViewHolder(View itemView, final RoutineItemlistener mRoutineDeleteListener) {
             super(itemView);
 
-            mLinearLayout = (LinearLayout)itemView.findViewById(R.id.routine_item_linear);
+            mLinearLayout = (LinearLayout) itemView.findViewById(R.id.routine_item_linear);
             mCardView = (CardView) itemView.findViewById(R.id.routine_item_cardview);
-            mTextView = (TextView) itemView.findViewById(R.id.routine_item_tv);
-            mTextViewData = (TextView)itemView.findViewById(R.id.routine_item_data_tv);
+            mRoutineTypeTextView = (TextView) itemView.findViewById(R.id.routine_item_tv);
+            mDataTextView = (TextView) itemView.findViewById(R.id.routine_item_data_tv);
             mButtonRoutineDelete = (Button) itemView.findViewById(R.id.btn_routine_delete);
+            mTimeTextView = (TextView) itemView.findViewById(R.id.routine_item_time_tv);
             mButtonRoutineDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -79,17 +81,21 @@ public class RoutinePassiveAdapter extends RecyclerView.Adapter<RoutinePassiveAd
 
     @Override
     public void onBindViewHolder(RoutineViewHolder holder, int position) {
-        TextView textView = holder.mTextView;
+        TextView routineType = holder.mRoutineTypeTextView;
         RoutineItem item = mRoutineItems.get(position);
-        TextView textViewData = holder.mTextViewData;
-        LinkedTreeMap<String,Object> map = item.data;
-        textView.setText(mRoutineItems.get(position).task_type);
-        if(TextUtils.equals("message",item.task_type))
-        {
-           textViewData.setText((String)map.get("text"));
-        }else if(TextUtils.equals("weather",item.task_type))
-        {
-            textViewData.setText((String)map.get("lat")+" "+(String)map.get("lon"));
+        TextView textViewData = holder.mDataTextView;
+        TextView timeTextView = holder.mTimeTextView;
+        LinkedTreeMap<String, Object> map = item.data;
+        routineType.setText(mRoutineItems.get(position).task_type);
+        String time = (String) item.time_id.get("time");
+        String[] timeArray = time.split("_");
+        timeTextView.setText("매일 "+timeArray[0]+"시 "+timeArray[1]+" 분 마다");
+        if (TextUtils.equals("message", item.task_type)) {
+
+            textViewData.setText((String) map.get("text")+" 라고 알려줘");
+        } else if (TextUtils.equals("weather", item.task_type)) {
+            textViewData.setText("날씨를 알려줘");
+            //textViewData.setText((String) map.get("lat") + " " + (String) map.get("lon"));
         }
 
     }

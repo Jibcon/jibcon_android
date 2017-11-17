@@ -47,7 +47,7 @@ public class RoutinePassivePresenter {
                     routineItem.data = (LinkedTreeMap<String, Object>) result.get("data");
                     routineItem._id = (String) result.get("_id");
                     routineItem.task_type = (String) result.get("task_type");
-                    routineItem.time_id = (String) result.get("time_id");
+                    routineItem.time_id = (LinkedTreeMap<String, Object>) result.get("time_id");
                     routineItem.userId = (String) result.get("userId");
                     routineItems.add(routineItem);
                 }
@@ -59,6 +59,8 @@ public class RoutinePassivePresenter {
 
             @Override
             public void onFailure(Call<List<HashMap<String, Object>>> call, Throwable t) {
+                Log.d(TAG, "onFailure: ");
+                t.printStackTrace();
                 mView.onDataDownloadFinished();
             }
         });
@@ -68,7 +70,23 @@ public class RoutinePassivePresenter {
 
         Intent intent = new Intent(activity.getApplicationContext(), FloatingButtonPassiveActivity.class);
         activity.startActivity(intent);
-        activity.finish();
 
+    }
+
+    public void deleteRoutine(RoutineItem routineItem) {
+        RoutineService service = RetrofitClients.getInstance().getService(RoutineService.class);
+        //Call<Void> deleteTask (@Header("Authorization") String _id);
+        Call<Void> c = service.deleteTask(routineItem._id);
+        c.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                getPassiveRoutines();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                mView.onDataDownloadFinished();
+            }
+        });
     }
 }

@@ -20,10 +20,23 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/routine_item_data_tv"
+                android:id="@+id/routine_item_time_tv"
+                android:textSize="32sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+            <TextView
+                android:id="@+id/routine_item_data_tv"
+                android:textSize="24sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
             <Button
+                android:layout_gravity="bottom|right"
                 android:id="@+id/btn_routine_delete"
                 android:text="삭제하기"
                 android:layout_width="wrap_content"

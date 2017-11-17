@@ -8,7 +8,7 @@ import com.google.gson.internal.LinkedTreeMap;
 
 public class RoutineItem {
     public String _id;
-    public String time_id;
+    public LinkedTreeMap<String,Object> time_id;
     public String task_type;
     public String userId;
     public LinkedTreeMap<String,Object> data;

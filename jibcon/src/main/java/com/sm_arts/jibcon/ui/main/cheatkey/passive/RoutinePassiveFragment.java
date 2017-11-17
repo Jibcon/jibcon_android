@@ -51,6 +51,7 @@ public class RoutinePassiveFragment extends Fragment implements RoutinePassiveVi
             @Override
             public void onItemClicked(View v, int position) {
                 RoutineItem routineItem = mRoutinePassiveAdapter.getItemWithPosition(position);
+                mPassiveRoutinePresenter.deleteRoutine(routineItem);
             }
         });
         mPassiveRoutinePresenter = new RoutinePassivePresenter(mRoutinePassiveAdapter, this);
