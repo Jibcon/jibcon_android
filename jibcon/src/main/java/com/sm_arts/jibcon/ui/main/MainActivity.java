@@ -13,7 +13,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -56,26 +55,36 @@ public class MainActivity extends BaseActivity
     Fragment mDataControlFragment;
     ImageView mUserProfileImage;
     FrameLayout mFrameLayout;
-    @BindView(R.id.btn1)
-    TextView mDeviceBtn;
-    @BindView(R.id.btn2)
-    TextView mCheatkeyBtn;
-    @BindView(R.id.btn3)
-    TextView mConshopBtn;
-    @BindView(R.id.btn4)
-    TextView mDataControlBtn;
+
+    @BindView(R.id.btn1) TextView mDeviceBtn;
+    @BindView(R.id.btn2) TextView mCheatkeyBtn;
+    @BindView(R.id.btn3) TextView mConshopBtn;
+    @BindView(R.id.btn4) TextView mDataControlBtn;
+
+
+    @BindView(R.id.Sidebar_myjibcon) TextView Sidebar_myjibcon;
+    @BindView(R.id.Sidebar_userAuthority) TextView Sidebar_userAuthority;
+    @BindView(R.id.Sidebar_connectedDevices) TextView Sidebar_connectedDevices;
+    @BindView(R.id.Sidebar_widget) TextView Sidebar_widget;
+    @BindView(R.id.Sidebar_aboutJibcon) TextView Sidebar_aboutJibcon;
 
     ImageButton mtoSettingBtn;
 
     int fontColor;
     int fontColorPressed;
 
+    /* ↓뷰 페이저(액티비티 슬라이드)↓ */
     View.OnClickListener movePageListner = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            setSelectedMainMenuBtn((int) v.getTag());
+            int tag = (int) v.getTag();
+            setSelectedMainMenuBtn(tag);
+
         }
     };
+
+
+
 
     private void initLayout() {
         mDeviceFragment = new DeviceMenuFragment();
@@ -107,7 +116,7 @@ public class MainActivity extends BaseActivity
     private void setSelectedMainMenuBtn(int position) {
 
         switch (position) {
-            case 0:
+            case 0 :
                 setDefaultMainMenuBtn();
                 changeFragment(position);
                 mDeviceBtn.setTextColor(fontColorPressed);
@@ -181,7 +190,7 @@ public class MainActivity extends BaseActivity
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        mApp = (GlobalApplication) getApplicationContext();
+        mApp = (GlobalApplication)getApplicationContext();
 
         ActionBarDrawerToggle drawerToggle;
 
@@ -198,9 +207,9 @@ public class MainActivity extends BaseActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //네비게이션 뷰 풀화면
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        DrawerLayout.LayoutParams params = (DrawerLayout.LayoutParams) navigationView.getLayoutParams();
+       // DisplayMetrics dm = new DisplayMetrics();
+      //  getWindowManager().getDefaultDisplay().getMetrics(dm);
+      //  DrawerLayout.LayoutParams params =(DrawerLayout.LayoutParams)navigationView.getLayoutParams();
 
         mtoSettingBtn = (ImageButton) findViewById(R.id.Btn_Setting);
 
@@ -213,11 +222,51 @@ public class MainActivity extends BaseActivity
             }
         });
 
-        params.width = dm.widthPixels;
-        navigationView.setLayoutParams(params);
+        Sidebar_myjibcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), MyJibconActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Sidebar_userAuthority.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), UserAuthorityActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Sidebar_connectedDevices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), ConnectedDevicesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Sidebar_widget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), WidgetActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Sidebar_aboutJibcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), AboutJibconActivity.class);
+                startActivity(intent);
+            }
+        });
+
+  //      params.width=dm.widthPixels;
+     //   navigationView.setLayoutParams(params);
         //네비게이션 뷰 풀화면
 
-        View headerView = navigationView.getHeaderView(0);
+        View headerView =navigationView.getHeaderView(0);
         TextView userEmail = (TextView) headerView.findViewById(R.id.Txt_Drawer_UserEmail);
         TextView username = (TextView) headerView.findViewById(R.id.Txt_Drawer_Username);
         mUserProfileImage = (ImageView) headerView.findViewById(R.id.ImgView_Drawer_UserProfile);
@@ -235,6 +284,7 @@ public class MainActivity extends BaseActivity
 
         startTapTargetView();
     }
+
 
 
     @Override
@@ -261,20 +311,20 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.Sidebar_myjibcon) {
-            Intent intent = new Intent(getApplicationContext(), MyJibconActivity.class);
+            Intent intent= new Intent(getApplicationContext(), MyJibconActivity.class);
             startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.Sidebar_userAuthority) {
-            Intent intent = new Intent(getApplicationContext(), UserAuthorityActivity.class);
+            Intent intent= new Intent(getApplicationContext(), UserAuthorityActivity.class);
             startActivity(intent);
         } else if (id == R.id.Sidebar_connectedDevices) {
-            Intent intent = new Intent(getApplicationContext(), ConnectedDevicesActivity.class);
+            Intent intent= new Intent(getApplicationContext(), ConnectedDevicesActivity.class);
             startActivity(intent);
         } else if (id == R.id.Sidebar_widget) {
-            Intent intent = new Intent(getApplicationContext(), WidgetActivity.class);
+            Intent intent= new Intent(getApplicationContext(), WidgetActivity.class);
             startActivity(intent);
         } else if (id == R.id.Sidebar_aboutJibcon) {
-            Intent intent = new Intent(getApplicationContext(), AboutJibconActivity.class);
+            Intent intent= new Intent(getApplicationContext(), AboutJibconActivity.class);
             startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -324,11 +374,12 @@ public class MainActivity extends BaseActivity
     }
 
     public void startTapTargetView() {
-        try {
+        try{
             SharedPreferences mPref = getSharedPreferences("isFirst", Activity.MODE_PRIVATE);
 
             Boolean bFirst = mPref.getBoolean("isFirst", false);
-            if (bFirst == false) {
+            if(bFirst == false)
+            {
                 Log.d("CJ : ", "It's first time this App started.");
                 SharedPreferences.Editor editor = mPref.edit();
                 editor.putBoolean("isFirst", true);
@@ -337,11 +388,12 @@ public class MainActivity extends BaseActivity
                 //최초 실행시 필요한 코드를 여기에 작성
                 setTapTargetView(); // 초기 도움말 View
             }
-            if (bFirst == true) {
+            if(bFirst == true)
+            {
                 Log.d("CJ : ", "It isn't first time this App started.");
             }
 
-        } catch (Exception e) {
+        } catch(Exception e) {
 
         }
     }

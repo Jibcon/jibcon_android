@@ -28,7 +28,7 @@ import java.util.List;
 
 public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     private static final String TAG = "DeviceMenuFragment";
-    private static final int GRID_COLUMN_COUNT = 2;
+    private static final int GRID_COLUMN_COUNT = 1;
 
     private SwipeRefreshLayout mSwiperefreshlayout;
     private RecyclerView mRecyclerView;
@@ -43,6 +43,10 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
 
         Log.d(TAG, "onCreate: ");
         mPresenter = new DeviceMenuPresenter(this);
+
+
+
+
     }
 
     @Override
@@ -183,5 +187,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     }
 
     //endregion
+
+
 
 }

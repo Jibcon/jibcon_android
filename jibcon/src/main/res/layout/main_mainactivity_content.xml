@@ -14,10 +14,10 @@
     <!--&lt;!&ndash; ViewPager &ndash;&gt;-->
     <!--<android.support.v4.view.ViewPager-->
 
-        <!--android:id="@+id/vp"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_above="@+id/bottmStatus">-->
+    <!--android:id="@+id/vp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_above="@+id/bottmStatus">-->
 
     <!--</android.support.v4.view.ViewPager>-->
     <FrameLayout
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottmStatus"
-       >
+        >
 
     </FrameLayout>
 

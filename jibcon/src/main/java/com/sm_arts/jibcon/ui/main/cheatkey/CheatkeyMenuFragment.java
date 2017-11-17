@@ -86,10 +86,10 @@ public class CheatkeyMenuFragment extends Fragment{
 
             if (position == 0) {
                 Log.d(TAG, "getItem: CheatKeyActiveFragment");
-                return mActiveFragment;
+                return new CheatkeyActiveFragment();
             } else  {
                 Log.d(TAG, "getItem: CheatKeyActiveFragment");
-                return mPassiveFragment;
+                return new RoutinePassiveFragment();
             }
         }
 

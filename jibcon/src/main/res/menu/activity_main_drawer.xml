@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single"
-        android:layout_centerInParent="true"
-            >
+    <group android:checkableBehavior="single">
+        <item
+            android:textColorPrimary="@color/colorAccent"
+            android:title="My JIBCON"
+            />
+        <menu>
+        <u></u>
         <item
             android:id="@+id/Sidebar_myjibcon"
-            android:title="내 집콘" />
+            android:title="나의 집콘" />
         <u></u>
         <item
             android:id="@+id/Sidebar_userAuthority"
@@ -18,13 +22,38 @@
         <u></u>
         <item
             android:id="@+id/Sidebar_widget"
-            android:title="설정" />
+            android:title="위젯" />
         <u></u>
         <item
             android:id="@+id/Sidebar_aboutJibcon"
             android:title="About 집콘" />
         <u></u>
+        </menu>
+
     </group>
+
+    <item android:title="MY CONSHOP"
+        android:textColorPrimary="@color/colorAccent"
+        >
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="포인트" />
+            <item
+
+                android:title="장바구니" />
+            <item
+                android:title="주문배송" />
+            <item
+
+                android:title="최근 본 상품" />
+            <item
+                android:title="상품 Q/A " />
+            <item
+                android:title="나의 리뷰" />
+        </menu>
+    </item>
+
 
     <!--<item android:title="Communicate">-->
         <!--<menu>-->
