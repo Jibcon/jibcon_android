@@ -14,10 +14,10 @@
     <!--&lt;!&ndash; ViewPager &ndash;&gt;-->
     <!--<android.support.v4.view.ViewPager-->
 
-        <!--android:id="@+id/vp"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_above="@+id/bottmStatus">-->
+    <!--android:id="@+id/vp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_above="@+id/bottmStatus">-->
 
     <!--</android.support.v4.view.ViewPager>-->
     <FrameLayout
@@ -25,25 +25,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottmStatus"
-       >
+        >
 
     </FrameLayout>
-=======
-
-    <TextView
-        android:layout_width="180dp"
-        android:layout_height="120dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="22.8dp"
-        android:textSize="19sp"
-        android:text=" 남영주님, \n 오늘은 창문을 닫고 \n 외출하는게 어때요?  "/>
-
 
     <LinearLayout
         android:id="@+id/bottmStatus"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:layout_marginTop="170dp"
         android:orientation="horizontal"
         android:background="@color/mainactivity_main_color"
         android:gravity="center"
@@ -103,16 +93,5 @@
             />
 
     </LinearLayout>
-
-    <!-- ViewPager -->
-    <android.support.v4.view.ViewPager
-
-        android:id="@+id/vp"
-        android:layout_width="match_parent"
-        android:layout_height="388.8dp"
-        android:layout_below="@+id/bottmStatus">
-
-    </android.support.v4.view.ViewPager>
-
 
 </RelativeLayout>

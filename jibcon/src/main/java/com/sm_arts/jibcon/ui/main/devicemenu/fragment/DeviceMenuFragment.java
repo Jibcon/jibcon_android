@@ -43,6 +43,10 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
 
         Log.d(TAG, "onCreate: ");
         mPresenter = new DeviceMenuPresenter(this);
+
+
+
+
     }
 
     @Override

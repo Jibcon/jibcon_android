@@ -4,16 +4,72 @@
     android:layout_height="match_parent"
     android:background="@color/mainactivity_main_color">
 
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="72dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="18.8dp"
+        android:textSize="19sp"
+        android:id="@+id/text_main"
+        android:text=" 남영주님, \n 오늘은 창문을 닫고 \n 외출하는게 어때요?  "/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:orientation="horizontal"
+    android:layout_below="@+id/text_main"
+    android:layout_marginLeft="32dp"
+    android:layout_marginTop="17dp"
+    android:id="@+id/locationweather">
+
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="81dp"
+        android:layout_height="17.8dp"
+        android:background="#419bf9"
+        android:gravity="center_vertical"
+        android:text=" 서울시, 성북구"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="9sp" />
+
+    <TextView
+        android:id="@+id/weather"
+        android:layout_width="81dp"
+        android:layout_height="17.8dp"
+        android:layout_below="@+id/text_main"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="7dp"
+        android:text="흐림 | 미세먼지"
+        android:textAlignment="center"
+        android:textColor="#4a4a4a"
+        android:textSize="11sp" />
+
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/text_line"
+        android:layout_width="match_parent"
+        android:layout_height="5.2dp"
+        android:background="#f6f6f6"
+        android:layout_marginTop="15.8dp"
+        android:layout_below="@+id/locationweather"/>
+
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/text_line"
+        android:layout_marginTop="20dp"
         android:id="@+id/swipelayout_menu_deivce">
 
 
     <ScrollView
+
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_marginTop="246dp"
         android:layout_height="388.8dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"

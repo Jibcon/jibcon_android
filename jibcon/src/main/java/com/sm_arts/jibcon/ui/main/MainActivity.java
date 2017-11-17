@@ -6,7 +6,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -16,6 +18,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,6 +55,7 @@ public class MainActivity extends BaseActivity
     Fragment mConshopFragment;
     Fragment mDataControlFragment;
     ImageView mUserProfileImage;
+    FrameLayout mFrameLayout;
 
     @BindView(R.id.btn1) TextView mDeviceBtn;
     @BindView(R.id.btn2) TextView mCheatkeyBtn;
@@ -107,38 +111,78 @@ public class MainActivity extends BaseActivity
         public void onClick(View v) {
             int tag = (int) v.getTag();
             setSelectedMainMenuBtn(tag);
-            mVp.setCurrentItem(tag);
+            switchFragment(tag);
+
         }
     };
 
-    private  void initLayout() {
+
+    public void switchFragment(int tag) {
+        Fragment fragment;
+
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+//        android.app.FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
+
+        switch (tag) {
+            case 0:
+                fragment = mDeviceFragment;
+                fragmentTransaction.replace(R.id.mainFrame, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+            case 1:
+                fragment = mCheatkeyFragment;
+                fragmentTransaction.replace(R.id.mainFrame, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+            case 2:
+                fragment = mConshopFragment;
+                fragmentTransaction.replace(R.id.mainFrame, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+            case 3:
+                fragment = mDataControlFragment;
+                fragmentTransaction.replace(R.id.mainFrame, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                break;
+
+        }
+
+    }
+
+    private void initLayout() {
         mDeviceFragment = new DeviceMenuFragment();
         mDataControlFragment = new DataControlFragment();
         mCheatkeyFragment = new CheatkeyMenuFragment();
         mConshopFragment = new ConshopFragment();
+        mFrameLayout = (FrameLayout) findViewById(R.id.mainFrame);
+        //mVp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
+//
+//        mVp.setOffscreenPageLimit(3);
+//        mVp.setAdapter(new pagerAdapter(getSupportFragmentManager()));
+//
+//        mVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                Log.d(TAG, "onPageScrolled: "+position);
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                Log.d(TAG, "onPageSelected: "+position);
+//                setSelectedMainMenuBtn(position);
+//            }
 
-        mVp = (ViewPager) findViewById(R.id.vp); // activity_main에서 viewpager 객체 생성
-
-        mVp.setOffscreenPageLimit(3);
-        mVp.setAdapter(new pagerAdapter(getSupportFragmentManager()));
-
-        mVp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                Log.d(TAG, "onPageScrolled: "+position);
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                Log.d(TAG, "onPageSelected: "+position);
-                setSelectedMainMenuBtn(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                Log.d(TAG, "onPageScrollStateChanged: "+state);
-            }
-        });
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//                Log.d(TAG, "onPageScrollStateChanged: "+state);
+//            }
+//        });
 
         setSelectedMainMenuBtn(0);
 
