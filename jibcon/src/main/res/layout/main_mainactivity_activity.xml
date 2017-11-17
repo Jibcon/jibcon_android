@@ -15,26 +15,216 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <android.support.design.widget.NavigationView
+
+     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
-        android:layout_width="match_parent"
+        android:layout_width="275dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        android:foregroundGravity="center_vertical"
         app:headerLayout="@layout/sidebar_null_layout_profile"
-        app:menu="@menu/activity_main_drawer"
-        android:background="@color/white">
+         android:background="@color/white">
+      <!--  app:menu="@menu/activity_main_drawer" -->
 
         <ImageButton
             android:background="@color/white"
             android:id="@+id/Btn_Setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_gravity="end"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="18dp"
-            android:src="@drawable/ic_settings_black_24dp" />
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/invalid_name" />
+
+         <LinearLayout
+             android:layout_width="275dp"
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+             android:layout_marginTop="125dp"
+             android:layout_below="@+id/nav_view">
+
+
+             <LinearLayout
+                 android:layout_below="@+id/nav_view"
+                 android:layout_width="275dp"
+                 android:layout_height="610dp"
+                 android:orientation="vertical">
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="5dp"
+                     android:background="#f6f6f6"/>
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="30dp"
+                     android:text="MY JIBCON"
+                     android:textSize="14sp"
+                     android:layout_marginTop="16dp"
+                     android:layout_marginLeft="27dp"
+                     android:textColor="#419bf9"/>
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="0.5dp"
+                     android:background="#d1d1d1"/>
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="25dp"
+                     android:layout_marginLeft="27dp"
+                     android:text="나의 집콘"
+                     android:id="@+id/Sidebar_myjibcon"
+                     android:textSize="13sp"
+                     android:layout_marginTop="17.5dp"
+                     android:textColor="#747474"/>
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="25dp"
+                     android:layout_marginLeft="27dp"
+                     android:id="@+id/Sidebar_userAuthority"
+                     android:text="사용자 권한"
+                     android:textSize="13sp"
+                     android:textColor="#747474"/>
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="25dp"
+                     android:layout_marginLeft="27dp"
+                     android:id="@+id/Sidebar_connectedDevices"
+                     android:text= "연결된 디바이스"
+                     android:textSize="13sp"
+                     android:textColor="#747474"/>
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="25dp"
+                     android:layout_marginLeft="27dp"
+                     android:text="위젯"
+                     android:id="@+id/Sidebar_widget"
+                     android:textSize="13sp"
+                     android:textColor="#747474"/>
+
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="25dp"
+                     android:layout_marginLeft="27dp"
+                     android:text="About 집콘"
+                     android:id="@+id/Sidebar_aboutJibcon"
+                     android:textSize="13sp"
+                     android:textColor="#747474"/>
+
+                 <TextView
+                     android:layout_width="200dp"
+                     android:layout_height="30dp"
+                     android:text="MY CONSHOP"
+                     android:textSize="14sp"
+                     android:layout_marginTop="42dp"
+                     android:layout_marginLeft="27dp"
+                     android:textColor="#419bf9"/>
+
+                 
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="0.5dp"
+                     android:background="#d1d1d1"/>
+
+                 <LinearLayout
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:orientation="horizontal">
+                 <TextView
+                     android:layout_width="133dp"
+                     android:layout_height="25dp"
+                     android:layout_marginLeft="27dp"
+                     android:text="포인트"
+                     android:textSize="13sp"
+                     android:layout_marginTop="17.5dp"
+                     android:textColor="#747474"/>
+
+                     <TextView
+                         android:layout_width="133dp"
+                         android:layout_height="25dp"
+                         android:layout_marginLeft="27dp"
+                         android:text="6,433P "
+                         android:textSize="13sp"
+                         android:layout_marginTop="17.5dp"
+                         android:textColor="#747474"/>
+                 </LinearLayout>
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="25dp"
+                     android:layout_marginLeft="27dp"
+                     android:text="장바구니"
+                     android:textSize="13sp"
+                     android:textColor="#747474"/>
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="25dp"
+                     android:layout_marginLeft="27dp"
+                     android:text= "주문배송"
+                     android:textSize="13sp"
+                     android:textColor="#747474"/>
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="25dp"
+                     android:layout_marginLeft="27dp"
+                     android:text="최근 본 상품"
+                     android:textSize="13sp"
+                     android:textColor="#747474"/>
+
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="25dp"
+                     android:layout_marginLeft="27dp"
+                     android:text="상품 Q/A"
+                     android:textSize="13sp"
+                     android:textColor="#747474"/>
+
+
+                 <TextView
+                     android:layout_width="275dp"
+                     android:layout_height="25dp"
+                     android:layout_marginLeft="27dp"
+                     android:text="나의 리뷰"
+                     android:textSize="13sp"
+                     android:textColor="#747474"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="43dp"
+    android:layout_marginTop="40dp"
+    android:layout_gravity="bottom"
+    android:gravity="center"
+    android:orientation="horizontal">
+                 <Button
+                     android:layout_width="150dp"
+                     android:layout_height="43dp"
+                     android:background="#419bf9"
+                     android:layout_gravity="end"
+                     android:text="정보수정"
+                     android:textColor="#FFFFFF"/>
+
+
+                 <Button
+                     android:layout_width="150dp"
+                     android:layout_height="43dp"
+                     android:background="#419bf9"
+                     android:layout_gravity="end"
+                     android:text="로그아웃"
+                     android:textColor="#FFFFFF"/>
+</LinearLayout>
+
+         </LinearLayout>
+
+         </LinearLayout>
+
     </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

@@ -14,7 +14,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -65,6 +64,13 @@ public class MainActivity extends BaseActivity
     TextView mConshopBtn;
     @BindView(R.id.btn4)
     TextView mDataControlBtn;
+
+
+    @BindView(R.id.Sidebar_myjibcon) TextView Sidebar_myjibcon;
+    @BindView(R.id.Sidebar_userAuthority) TextView Sidebar_userAuthority;
+    @BindView(R.id.Sidebar_connectedDevices) TextView Sidebar_connectedDevices;
+    @BindView(R.id.Sidebar_widget) TextView Sidebar_widget;
+    @BindView(R.id.Sidebar_aboutJibcon) TextView Sidebar_aboutJibcon;
 
     ImageButton mtoSettingBtn;
 
@@ -257,9 +263,15 @@ public class MainActivity extends BaseActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //네비게이션 뷰 풀화면
+<<<<<<< HEAD
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         DrawerLayout.LayoutParams params = (DrawerLayout.LayoutParams) navigationView.getLayoutParams();
+=======
+       // DisplayMetrics dm = new DisplayMetrics();
+      //  getWindowManager().getDefaultDisplay().getMetrics(dm);
+      //  DrawerLayout.LayoutParams params =(DrawerLayout.LayoutParams)navigationView.getLayoutParams();
+>>>>>>> device_control_renew
 
         mtoSettingBtn = (ImageButton) findViewById(R.id.Btn_Setting);
 
@@ -274,8 +286,53 @@ public class MainActivity extends BaseActivity
             }
         });
 
+<<<<<<< HEAD
         params.width = dm.widthPixels;
         navigationView.setLayoutParams(params);
+=======
+        Sidebar_myjibcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), MyJibconActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Sidebar_userAuthority.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), UserAuthorityActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Sidebar_connectedDevices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), ConnectedDevicesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Sidebar_widget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), WidgetActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Sidebar_aboutJibcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), AboutJibconActivity.class);
+                startActivity(intent);
+            }
+        });
+
+  //      params.width=dm.widthPixels;
+     //   navigationView.setLayoutParams(params);
+>>>>>>> device_control_renew
         //네비게이션 뷰 풀화면
 
         View headerView = navigationView.getHeaderView(0);
