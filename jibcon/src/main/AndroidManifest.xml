@@ -139,9 +139,13 @@
         <activity
             android:name=".ui.main.cheatkey.passive.addpassive.MakeNewPassiveActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />
-        <activity android:name=".ui.main.cheatkey.passive.addpassive.SelectTriggerActivity"
-            android:theme="@style/myAppTheme.MainNoActionBar"/>
-        <activity android:name=".ui.main.cheatkey.passive.addpassive.SelectActionActivity"
+        <activity
+            android:name=".ui.main.cheatkey.passive.addpassive.SelectTriggerActivity"
+            android:theme="@style/myAppTheme.MainNoActionBar" />
+        <activity
+            android:name=".ui.main.cheatkey.passive.addpassive.SelectActionActivity"
+            android:theme="@style/myAppTheme.MainNoActionBar" />
+        <activity android:name=".ui.main.cheatkey.passive.addpassive.SelectTriggerTimeActivity"
             android:theme="@style/myAppTheme.MainNoActionBar"></activity>
     </application>
 

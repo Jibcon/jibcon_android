@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.SelectTriggerTimeActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_select_time"
+        style="@style/toolbar_common"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/setting_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="시간 트리거 등록" />
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/tv_selecttrigger_top_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_select_time"
+        android:padding="32dp"
+        android:text="시간에 대한\n세부 설정을 선택해 보세요"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_selecttrigger_time_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_selecttrigger_top_tv"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:text="| TIME"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_selecttime_time_if"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_below="@id/tv_selecttrigger_time_banner"
+        android:paddingLeft="32dp"
+        android:paddingTop="20dp"
+        android:text="매일" />
+
+    <Spinner
+        android:id="@+id/spinner_selecttime"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_below="@id/tv_selecttime_time_if"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"></Spinner>
+
+    <TextView
+        android:layout_below="@id/spinner_selecttime"
+        android:text="시간이 되면 "
+        android:paddingLeft="32dp"
+        android:paddingTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="64dp" />
+
+    <Button
+        android:id="@+id/btn_selecttime_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/deep_blue"
+        android:text="확인"
+        android:textColor="@color/white" />
+</RelativeLayout>
