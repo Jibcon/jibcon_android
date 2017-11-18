@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.SelectActionWeatherActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_select_weather"
+        style="@style/toolbar_common"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/setting_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="날씨 액션 등록" />
+    </android.support.v7.widget.Toolbar>
+    <TextView
+        android:textSize="16sp"
+        android:paddingTop="32dp"
+        android:layout_below="@id/toolbar_select_weather"
+        android:text="날씨 정보를 받을\n지역을 선택해 주세요"
+        android:id="@+id/tv_addpassive_action_weather_banner"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:paddingLeft="32dp"/>
+
+    <EditText
+        android:id="@+id/edittext_addpassive_weather_lat"
+        android:hint="위도 : "
+        android:paddingLeft="32dp"
+        android:paddingTop="32dp"
+        android:layout_below="@id/tv_addpassive_action_weather_banner"
+        android:layout_width="match_parent"
+        android:layout_height="64dp" />
+    <EditText
+        android:id="@+id/edittext_addpassive_weather_lon"
+        android:hint="경도 : "
+        android:paddingLeft="32dp"
+        android:paddingTop="32dp"
+        android:layout_below="@id/edittext_addpassive_weather_lat"
+        android:layout_width="match_parent"
+        android:layout_height="64dp" />
+    <Button
+        android:id="@+id/btn_selectweather_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/deep_blue"
+        android:text="확인"
+        android:textColor="@color/white" />
+</RelativeLayout>

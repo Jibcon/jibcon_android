@@ -27,8 +27,8 @@ public class SelectTriggerTimeActivity extends AppCompatActivity {
     void setTimeOkBtnClicked() {
         String selectedTime = (String) mSpinner.getSelectedItem();
         Intent intent = new Intent();
-        intent.putExtra("SELECTED_DATA",selectedTime);
-        intent.putExtra("SELECTED_MENT","매일 "+selectedTime+" 시간이 되면");
+        intent.putExtra("SELECTED_TRIGGER_DATA",selectedTime);
+        intent.putExtra("SELECTED_TRIGGER_MENT","매일 "+selectedTime+" 시간이 되면");
         setResult(IntentCodeEnum.TIME_RESULT,intent);
         finish();
     }

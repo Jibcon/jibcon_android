@@ -13,4 +13,7 @@ public interface IntentCodeEnum {
     final int TIME_REQUEST = 20;
     final int TIME_RESULT = 21;
 
+    final int WEATHER_REQUEST = 22;
+    final int WEATHER_RESULT = 23;
+
 }

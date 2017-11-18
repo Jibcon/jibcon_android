@@ -3,6 +3,7 @@ package com.sm_arts.jibcon.utils.helper;
 import android.util.Log;
 
 import com.google.gson.internal.LinkedTreeMap;
+import com.sm_arts.jibcon.data.models.api.dto.DeviceMenuWeatherData;
 import com.sm_arts.jibcon.data.repository.network.api.WeatherService;
 import com.sm_arts.jibcon.ui.main.devicemenu.fragment.DeviceMenuView;
 
@@ -22,14 +23,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class WeatherManger {
     private static final String TAG = "WeatherManger";
     private static WeatherManger obj = null;
-    private static WeatherData weatherData;
+    private static DeviceMenuWeatherData deviceMenuWeatherData;
 
-    public static WeatherData getWeatherData() {
-        return weatherData;
+    public static DeviceMenuWeatherData getDeviceMenuWeatherData() {
+        return deviceMenuWeatherData;
     }
 
-    public static void setWeatherData(WeatherData weatherData) {
-        WeatherManger.weatherData = weatherData;
+    public static void setDeviceMenuWeatherData(DeviceMenuWeatherData deviceMenuWeatherData) {
+        WeatherManger.deviceMenuWeatherData = deviceMenuWeatherData;
     }
 
     public static WeatherManger getInstance() {
@@ -61,12 +62,12 @@ public class WeatherManger {
                 LinkedTreeMap<String, Object> temperature = (LinkedTreeMap) item.get("temperature");
                 LinkedTreeMap<String, Object> location = (LinkedTreeMap) item.get("location");
 
-                WeatherData weatherData = new WeatherData();
-                weatherData.location = (String) location.get("city");
-                weatherData.temperature = (String) temperature.get("tc");
-                weatherData.sky = (String) skyInfo.get("name");
-                WeatherManger.setWeatherData(weatherData);
-                mDeviceMenuView.setWeatherInfo(weatherData);
+                DeviceMenuWeatherData deviceMenuWeatherData = new DeviceMenuWeatherData();
+                deviceMenuWeatherData.location = (String) location.get("city");
+                deviceMenuWeatherData.temperature = (String) temperature.get("tc");
+                deviceMenuWeatherData.sky = (String) skyInfo.get("name");
+                WeatherManger.setDeviceMenuWeatherData(deviceMenuWeatherData);
+                mDeviceMenuView.setWeatherInfo(deviceMenuWeatherData);
 
             }
 

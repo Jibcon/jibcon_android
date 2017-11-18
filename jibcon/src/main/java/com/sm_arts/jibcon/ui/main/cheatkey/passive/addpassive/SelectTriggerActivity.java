@@ -39,7 +39,7 @@ public class SelectTriggerActivity extends AppCompatActivity {
         switch (resultCode)
         {
             case IntentCodeEnum.TIME_RESULT :
-                setResult(IntentCodeEnum.TRIGGER_RESULT,data);
+                setResult(IntentCodeEnum.TIME_RESULT,data);
                 finish();
                 break;
 

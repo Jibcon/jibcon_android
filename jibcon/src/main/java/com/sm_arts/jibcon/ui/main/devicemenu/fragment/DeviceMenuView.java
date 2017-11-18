@@ -1,8 +1,8 @@
 package com.sm_arts.jibcon.ui.main.devicemenu.fragment;
 
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
+import com.sm_arts.jibcon.data.models.api.dto.DeviceMenuWeatherData;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
-import com.sm_arts.jibcon.utils.helper.WeatherData;
 
 import java.util.List;
 
@@ -25,5 +25,5 @@ public interface DeviceMenuView {
 
     void showContent(int position, String con);
 
-    void setWeatherInfo(WeatherData weatherData);
+    void setWeatherInfo(DeviceMenuWeatherData deviceMenuWeatherData);
 }
