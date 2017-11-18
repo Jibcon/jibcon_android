@@ -12,12 +12,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.ui.additional.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.ui.additional.floatingbuttonui.FloatingButtonDeviceActivity;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
+import com.sm_arts.jibcon.utils.helper.WeatherData;
+import com.sm_arts.jibcon.utils.helper.WeatherManger;
+import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,37 +33,51 @@ import java.util.List;
 public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     private static final String TAG = "DeviceMenuFragment";
     private static final int GRID_COLUMN_COUNT = 1;
-
     private SwipeRefreshLayout mSwiperefreshlayout;
     private RecyclerView mRecyclerView;
     private DeviceMenuAdapter mAdapter;
     public ImageButton mFabDeviceBehindBtn;
     private DeviceMenuPresenter mPresenter;
+    private TextView mTextViewWeatherRecommend;
+    private TextView mTextViewLocation;
+    private TextView mTextViewSky;
 
     //region Fragment role
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Log.d(TAG, "onCreate: ");
         mPresenter = new DeviceMenuPresenter(this);
-
-
-
-
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         Log.d(TAG, "onViewCreated: ");
         attachUI();
 //        // TODO: 2017-08-04 remove samplelogin
 //        sampleLogin();
+        getCurrentWeather();
         loadData();
     }
 
+    private void getCurrentWeather() {
+        WeatherManger.getCurrentWeather(this);
+        Log.d(TAG, "getCurrentWeather: ");
+//        if(weatherData == null)
+//            getCurrentWeather();
+//        else
+//        {
+
+    }
+
+    public void loadData() {
+        Log.d(TAG, "loadData: ");
+        mPresenter.loadData(deviceItems -> {
+            Log.d(TAG, "loadData: Consumer deviceItems=" + deviceItems.toString());
+            updateRecyclerView(deviceItems);
+        });
+    }
     @Override
     public void onDestroyView() {
         detachUI();
@@ -71,13 +89,16 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         mFabDeviceBehindBtn = (ImageButton) getView().findViewById(R.id.fab_device_behind);
         mFabDeviceBehindBtn.setOnClickListener(
 
-                v -> {mPresenter.fabDeviceBehindBtnClicked();
+                v -> {
+                    mPresenter.fabDeviceBehindBtnClicked();
                 }
         );
         // TODO: 8/7/17 REMOVE THIS VIEW.GONE
         /*플로팅 버튼 */
         //mFabDeviceBehindBtn.setVisibility(View.GONE);
-
+        mTextViewWeatherRecommend = (TextView) getView().findViewById(R.id.tv_main_fragment_weather_recommend);
+        mTextViewSky = (TextView) getView().findViewById(R.id.tv_main_devicefragment_weather_sky);
+        mTextViewLocation = (TextView) getView().findViewById(R.id.tv_main_devicefragment_location);
         mSwiperefreshlayout = (SwipeRefreshLayout) getView().findViewById(R.id.swipelayout_menu_deivce);
         mSwiperefreshlayout.setOnRefreshListener(
                 () -> mPresenter.swipeRefreshed()
@@ -115,13 +136,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    public void loadData() {
-        Log.d(TAG, "loadData: ");
-        mPresenter.loadData(deviceItems -> {
-            Log.d(TAG, "loadData: Consumer deviceItems=" + deviceItems.toString());
-            updateRecyclerView(deviceItems);
-        });
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -143,7 +158,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         Log.d(TAG, "gotoFloatingButtonDeviceActivity: ");
         startActivity(new Intent(getActivity().
                 getApplicationContext(), FloatingButtonDeviceActivity.class));
-        getActivity().finish();
+
     }
 
     @Override
@@ -171,6 +186,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         mAdapter.setDeviceItems(deviceItems);
         mAdapter.notifyDataSetChanged();
     }
+
     @Override
     public void updateDevicesOnOffState() {
         loadData();
@@ -186,8 +202,15 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         mAdapter.showContent(position, con);
     }
 
-    //endregion
+    @Override
+    public void setWeatherInfo(WeatherData weatherData) {
+        Log.d(TAG, "setWeatherInfo() called with: weatherData = [" + weatherData + "]");
+        mTextViewSky.setText(weatherData.sky+" | 현재 온도는 "+weatherData.temperature+" 도입니다");
+        mTextViewWeatherRecommend.setText(JibconLoginManager.getInstance().getUserName() + "님 환영합니다");
+        mTextViewLocation.setText(weatherData.location);
+    }
 
+    //endregion
 
 
 }

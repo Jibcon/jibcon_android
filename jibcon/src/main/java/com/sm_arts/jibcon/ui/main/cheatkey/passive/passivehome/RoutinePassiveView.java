@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.passive;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive.passivehome;
 
 /**
  * Created by admin on 2017-11-17.

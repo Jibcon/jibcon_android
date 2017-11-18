@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.sm_arts.jibcon">
+
     <uses-sdk tools:overrideLibrary="org.lucasr.twowayview, org.lucasr.twowayview.widget, jp.wasabeef.recyclerview" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -27,13 +29,11 @@
             android:value="@string/kakao_app_key" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_places_api"
-            />
+            android:value="@string/google_places_api" />
+
         <activity
             android:name=".ui.main.MainActivity"
-            android:theme="@style/myAppTheme.MainNoActionBar" >
-        </activity>
-
+            android:theme="@style/myAppTheme.MainNoActionBar" />
         <activity
             android:name=".ui.splash.tutorial.IntroActivity"
             android:label="@string/app_name"
@@ -105,41 +105,44 @@
         <activity
             android:name=".ui.BaseActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
-        <activity android:name=".ui.splash.login.KakaoSignupActivity"
-            android:theme="@style/myAppTheme.LoginNoActionBar">
-        </activity>
-
-
+        <activity
+            android:name=".ui.splash.login.KakaoSignupActivity"
+            android:theme="@style/myAppTheme.LoginNoActionBar" />
         <activity
             android:name=".ui.additional.floatingbuttonui.FloatingButtonDeviceActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
-        <activity android:name=".ui.additional.floatingbuttonui.FloatingButtonActiveActivity"
-            android:theme="@style/myAppTheme.NoActionBar"/>
-        <activity android:name=".ui.additional.floatingbuttonui.FloatingButtonPassiveActivity"
-            android:theme="@style/myAppTheme.NoActionBar"></activity>
-
-
-        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"
-            android:label="OAuth2.0 In-app"/>
+        <activity
+            android:name=".ui.additional.floatingbuttonui.FloatingButtonActiveActivity"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.additional.floatingbuttonui.FloatingButtonPassiveActivity"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"
+            android:label="OAuth2.0 In-app" />
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />
-
-        <service
-            android:name=".utils.firebase.FirebaseMessagingService">
+        <service android:name=".utils.firebase.FirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".utils.firebase.FirebaseInstanceIDService">
+        <service android:name=".utils.firebase.FirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-
+        <activity
+            android:name=".ui.main.cheatkey.passive.addpassive.MakeNewPassiveActivity"
+            android:theme="@style/myAppTheme.MainNoActionBar" />
+        <activity android:name=".ui.main.cheatkey.passive.addpassive.SelectTriggerActivity"
+            android:theme="@style/myAppTheme.MainNoActionBar"/>
+        <activity android:name=".ui.main.cheatkey.passive.addpassive.SelectActionActivity"
+            android:theme="@style/myAppTheme.MainNoActionBar"></activity>
     </application>
 
 </manifest>

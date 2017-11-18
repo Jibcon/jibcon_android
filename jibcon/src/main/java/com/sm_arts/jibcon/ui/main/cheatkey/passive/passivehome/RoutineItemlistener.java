@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.passive;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive.passivehome;
 
 import android.view.View;
 

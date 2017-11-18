@@ -3,6 +3,7 @@ package com.sm_arts.jibcon.ui.additional.floatingbuttonui;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.BaseActivity;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.MakeNewPassiveActivity;
 
 public class FloatingButtonPassiveActivity extends BaseActivity {
     private View mFabItem1;
@@ -63,7 +65,9 @@ public class FloatingButtonPassiveActivity extends BaseActivity {
         mFabItem1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getApplicationContext(),MakeNewPassiveActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

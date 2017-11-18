@@ -83,9 +83,6 @@ public class MainActivity extends BaseActivity
         }
     };
 
-
-
-
     private void initLayout() {
         mDeviceFragment = new DeviceMenuFragment();
         mDataControlFragment = new DataControlFragment();
@@ -380,7 +377,7 @@ public class MainActivity extends BaseActivity
             Boolean bFirst = mPref.getBoolean("isFirst", false);
             if(bFirst == false)
             {
-                Log.d("CJ : ", "It's first time this App started.");
+                Log.d(TAG, "It's first time this App started.");
                 SharedPreferences.Editor editor = mPref.edit();
                 editor.putBoolean("isFirst", true);
                 editor.commit();
@@ -390,7 +387,7 @@ public class MainActivity extends BaseActivity
             }
             if(bFirst == true)
             {
-                Log.d("CJ : ", "It isn't first time this App started.");
+                Log.d(TAG, "It isn't first time this App started.");
             }
 
         } catch(Exception e) {

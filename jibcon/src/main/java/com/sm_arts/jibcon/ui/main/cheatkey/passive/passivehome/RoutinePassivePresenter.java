@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.passive;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive.passivehome;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -81,11 +81,13 @@ public class RoutinePassivePresenter {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 getPassiveRoutines();
+                Log.d(TAG, "onResponse: ");
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 mView.onDataDownloadFinished();
+                Log.d(TAG, "onFailure: ");
             }
         });
     }

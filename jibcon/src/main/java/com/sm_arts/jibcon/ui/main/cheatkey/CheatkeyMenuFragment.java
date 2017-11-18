@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.main.cheatkey.active.CheatkeyActiveFragment;
-import com.sm_arts.jibcon.ui.main.cheatkey.passive.RoutinePassiveFragment;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.passivehome.RoutinePassiveFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
