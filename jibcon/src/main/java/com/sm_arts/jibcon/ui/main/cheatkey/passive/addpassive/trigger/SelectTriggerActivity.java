@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.trigger;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.IntentCodeEnum;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -16,7 +17,7 @@ public class SelectTriggerActivity extends AppCompatActivity {
     void onTimeSelected()
     {
         Intent intent = new Intent(getApplicationContext(),SelectTriggerTimeActivity.class);
-        startActivityForResult(intent,IntentCodeEnum.TIME_REQUEST);
+        startActivityForResult(intent, IntentCodeEnum.TIME_REQUEST);
     }
     @OnClick(R.id.btn_selecttrigger_ok)
     void onCheckBtnClicked()

@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.action;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.ActionWeatherData;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.IntentCodeEnum;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

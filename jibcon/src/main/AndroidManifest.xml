@@ -140,15 +140,15 @@
             android:name=".ui.main.cheatkey.passive.addpassive.MakeNewPassiveActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />
         <activity
-            android:name=".ui.main.cheatkey.passive.addpassive.SelectTriggerActivity"
+            android:name=".ui.main.cheatkey.passive.addpassive.trigger.SelectTriggerActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />
         <activity
-            android:name=".ui.main.cheatkey.passive.addpassive.SelectActionActivity"
+            android:name=".ui.main.cheatkey.passive.addpassive.action.SelectActionActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />
         <activity
-            android:name=".ui.main.cheatkey.passive.addpassive.SelectTriggerTimeActivity"
+            android:name=".ui.main.cheatkey.passive.addpassive.trigger.SelectTriggerTimeActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />
-        <activity android:name=".ui.main.cheatkey.passive.addpassive.SelectActionWeatherActivity"
+        <activity android:name=".ui.main.cheatkey.passive.addpassive.action.SelectActionWeatherActivity"
             android:theme="@style/myAppTheme.MainNoActionBar"></activity>
     </application>
 

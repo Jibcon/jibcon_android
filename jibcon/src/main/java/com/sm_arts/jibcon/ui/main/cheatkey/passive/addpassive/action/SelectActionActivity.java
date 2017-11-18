@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.action;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.IntentCodeEnum;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -16,7 +17,7 @@ public class SelectActionActivity extends AppCompatActivity {
     void onTimeSelected()
     {
         Intent intent = new Intent(getApplicationContext(),SelectActionWeatherActivity.class);
-        startActivityForResult(intent,IntentCodeEnum.WEATHER_REQUEST);
+        startActivityForResult(intent, IntentCodeEnum.WEATHER_REQUEST);
     }
     @OnClick(R.id.btn_selectaction_ok)
     void onCheckBtnClicked()

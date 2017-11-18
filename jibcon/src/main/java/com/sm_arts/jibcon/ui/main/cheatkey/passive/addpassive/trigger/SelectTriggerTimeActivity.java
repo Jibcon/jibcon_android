@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive;
+package com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.trigger;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.IntentCodeEnum;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
