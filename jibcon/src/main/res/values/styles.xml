@@ -31,7 +31,6 @@
     <style name="myAppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">true</item>
         <item name="colorPrimary">@color/statusbar_gray</item>
         <item name="colorPrimaryDark">@color/statusbar_gray</item>
     </style>
@@ -44,14 +43,12 @@
     <style name="myAppTheme.JibconNoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">true</item>
         <item name="colorPrimary">@color/tutorial_background</item>
         <item name="colorPrimaryDark">@color/tutorial_background</item>
     </style>
     <style name="myAppTheme.LoginNoActionBar">
         <item name="windowNoTitle">true</item>
         <!--make status bar to transparent-->
-        <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowTranslucentStatus">true</item>>
         <item name="android:statusBarColor">@color/transparent</item>
         <item name="colorPrimaryDark">@color/tutorial_background</item>
@@ -59,7 +56,6 @@
     <style name="myAppTheme.MainNoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">true</item>
         <item name="colorPrimary">@color/mainactivity_main_color</item>
         <item name="colorPrimaryDark">@color/mainactivity_main_color</item>
     </style>
@@ -76,7 +72,7 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parzent="ThemeOverlay.AppCompat.Light" />
 
     <style name="setting_head">
         <item name="android:layout_width">wrap_content</item>
@@ -90,10 +86,6 @@
     <style name="toolbar_common">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">56dp</item>
-        <item name="colorPrimary">@color/mainactivity_main_color</item>
-        <item name="colorPrimaryDark">@color/mainactivity_main_color</item>
-        <item name="android:windowLightStatusBar">true</item>
-
         <item name="android:background">@color/tutorial_background</item>
     </style>
 

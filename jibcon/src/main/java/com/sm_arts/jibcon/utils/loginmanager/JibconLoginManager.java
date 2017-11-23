@@ -81,6 +81,7 @@ public class JibconLoginManager {
         runAftersigninActions();
     }
 
+
     private void runAftersigninActions() {
         Log.d(TAG, "runAftersigninActions: with mAftersigninActions.size = "
                 + mAftersigninActions.size());
@@ -97,6 +98,13 @@ public class JibconLoginManager {
         mAftersigninActions.clear();
     }
 
+    public String getUserId()
+    {
+        if(mUser!=null)
+            return mUser.getUser_id();
+        else
+            return null;
+    }
     public String getUserTokenAsHeader() {
         return "Token " + getUserToken();
     }
