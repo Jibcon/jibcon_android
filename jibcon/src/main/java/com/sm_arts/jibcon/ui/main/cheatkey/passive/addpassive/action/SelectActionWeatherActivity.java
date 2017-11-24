@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,8 +66,11 @@ public class SelectActionWeatherActivity extends AppCompatActivity implements Go
             e.printStackTrace();
         }
     }
-
+    MarkerOptions markerOptions;
     Place place;
+    String currentAddress ="";
+    String currentLatitute ="";
+    String currentLongitute= "";
 
     @OnClick(R.id.btn_selectweather_ok)
     void setOnWeatherBtnOk() {
@@ -75,11 +79,11 @@ public class SelectActionWeatherActivity extends AppCompatActivity implements Go
         ActionWeatherData actionWeatherData = new ActionWeatherData();
 
 
-        actionWeatherData.lat = Double.toString(place.getLatLng().latitude);
-        actionWeatherData.lon = Double.toString(place.getLatLng().longitude);
+        actionWeatherData.lat = currentLatitute;
+        actionWeatherData.lon = currentLongitute;
 
         intent.putExtra("SELECTED_ACTION_DATA", actionWeatherData);
-        intent.putExtra("SELECTED_ACTION_MENT", place.getAddress()+" 의 날씨를 알려줘");
+        intent.putExtra("SELECTED_ACTION_MENT", currentAddress+" 의 날씨를 알려줘");
         // Toast.makeText(getApplicationContext(),"위도 "+actionWeatherData.lat + " 경도 "+actionWeatherData.lon+" 의 날씨를 알려줘",Toast.LENGTH_SHORT).show();
         setResult(IntentCodeEnum.WEATHER_RESULT, intent);
         finish();
@@ -100,6 +104,7 @@ public class SelectActionWeatherActivity extends AppCompatActivity implements Go
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
                 .build();
+        markerOptions = new MarkerOptions();
 
     }
 
@@ -111,14 +116,20 @@ public class SelectActionWeatherActivity extends AppCompatActivity implements Go
 
                 String toastMsg = String.format("Place: %s", place.getName());
                 LatLng currentLocation = new LatLng(place.getLatLng().latitude, place.getLatLng().longitude);
-                MarkerOptions markerOptions = new MarkerOptions();
+                mGoogleMap.clear();
                 markerOptions.position(currentLocation);
+
+                markerOptions.draggable(true);
                 markerOptions.title(place.getName().toString());
                 markerOptions.snippet(place.getAddress().toString());
-                mTextView.setText(place.getAddress()+" 의 날씨를 알려줘");
+                currentAddress =place.getAddress().toString();
+                currentLatitute = Double.toString(place.getLatLng().latitude);
+                currentLongitute = Double.toString(place.getLatLng().longitude);
+                mTextView.setText(currentAddress+" 의 날씨를 알려줘");
                 mGoogleMap.addMarker(markerOptions);
+
                 mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
-                mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
+                mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(17));
                 Toast.makeText(this, toastMsg, Toast.LENGTH_LONG).show();
             }
         }
@@ -146,15 +157,25 @@ public class SelectActionWeatherActivity extends AppCompatActivity implements Go
             address2 = addr.getCountryName() + " " + addr.getPostalCode() + " " + addr.getLocality() + " "
                     + addr.getThoroughfare() + " "
                     + addr.getFeatureName();
+            if(!TextUtils.isEmpty(addr.getCountryName()))
+                currentAddress+=addr.getCountryName()+" ";
+            if(!TextUtils.isEmpty(addr.getPostalCode()))
+                currentAddress+=addr.getPostalCode()+" ";
+            if(!TextUtils.isEmpty(addr.getLocality()))
+                currentAddress+=addr.getLocality()+" ";
+            if(!TextUtils.isEmpty(addr.getThoroughfare()))
+                currentAddress+=addr.getThoroughfare()+" ";
+            if(!TextUtils.isEmpty(addr.getFeatureName()))
+                currentAddress+=addr.getFeatureName()+" ";
+            currentLatitute = Double.toString(mLocation.getLatitude());
+            currentLongitute = Double.toString(mLocation.getLongitude());
             LatLng currentLocation = new LatLng(mLocation.getLatitude(), mLocation.getLongitude());
-            MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(currentLocation);
-            markerOptions.title(address2);
-
+            markerOptions.title(currentAddress);
+            mTextView.setText(currentAddress);
             mGoogleMap.addMarker(markerOptions);
             mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
-            mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
-            Toast.makeText(getApplicationContext(), address2, Toast.LENGTH_SHORT).show();
+            mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(17));
         } catch (IOException e) {
             e.printStackTrace();
         }
