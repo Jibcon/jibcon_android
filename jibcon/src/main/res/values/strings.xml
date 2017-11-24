@@ -10,7 +10,7 @@
     <string name="naver_client_secret">uldOlbBiia</string>
     <!--<string name="google_places_api">AIzaSyACPuDdfYh-OQqkLbeelGAguZ-6fgiwYQI</string>-->
     <!--디버그용-->
-    <string name="google_places_api">AIzaSyDQRvFxVx6XBTmQZ-xfuZunVsNF2V7Kz3A</string>
+    <string name="google_places_api">AIzaSyAPkqMzhyAQu2vxGgbGfYVxww-x-TQ2lrg</string>
     <!--릴리즈용-->
     <string name="intro_text">처음 만나는 스마트 홈</string>
 

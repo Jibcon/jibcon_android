@@ -10,47 +10,47 @@
         android:id="@+id/toolbar_select_weather"
         style="@style/toolbar_common"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <TextView
+            android:id="@+id/tv_cheatket_addpassive_addweatheraction"
             style="@style/setting_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="날씨 액션 등록" />
     </android.support.v7.widget.Toolbar>
-    <TextView
-        android:textSize="16sp"
-        android:paddingTop="32dp"
-        android:layout_below="@id/toolbar_select_weather"
-        android:text="날씨 정보를 받을\n지역을 선택해 주세요"
-        android:id="@+id/tv_addpassive_action_weather_banner"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:paddingLeft="32dp"/>
 
-    <EditText
-        android:id="@+id/edittext_addpassive_weather_lat"
-        android:hint="위도 : "
-        android:paddingLeft="32dp"
-        android:paddingTop="32dp"
-        android:layout_below="@id/tv_addpassive_action_weather_banner"
-        android:layout_width="match_parent"
-        android:layout_height="64dp" />
-    <EditText
-        android:id="@+id/edittext_addpassive_weather_lon"
-        android:hint="경도 : "
-        android:paddingLeft="32dp"
-        android:paddingTop="32dp"
-        android:layout_below="@id/edittext_addpassive_weather_lat"
-        android:layout_width="match_parent"
-        android:layout_height="64dp" />
-    <Button
-        android:id="@+id/btn_selectweather_ok"
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/cheatkey_addpassive_wehatermap_mapview"
+        android:name="com.google.android.gms.maps.Map"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/btn_cheatkey_addpassive_start_place_select"
+        android:layout_below="@id/toolbar_select_weather"
+       ></com.google.android.gms.maps.MapView>
+    <Button
+        android:text="장소 선택"
+        android:layout_above="@+id/tv_cheatkey_addpassive_weatheraction"
+        android:layout_alignParentRight="true"
+        android:id="@+id/btn_cheatkey_addpassive_start_place_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:textColor="@color/white"
         android:background="@color/deep_blue"
         android:text="확인"
-        android:textColor="@color/white" />
+        android:layout_alignParentBottom="true"
+        android:id="@+id/btn_selectweather_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:id="@+id/tv_cheatkey_addpassive_weatheraction"
+        android:layout_above="@id/btn_selectweather_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
