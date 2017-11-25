@@ -6,42 +6,73 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/routine_item_cardview"
+        android:layout_margin="12dp"
+        android:background="@drawable/pr_bot_shadow_blue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/routine_item_linear"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/routine_item_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/routine_item_time_tv"
-                android:textSize="32sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="16dp" />
-            <TextView
-                android:id="@+id/routine_item_data_tv"
-                android:textSize="24sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="16dp" />
+            <LinearLayout
+                android:id="@+id/routine_item_linear"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="7"
+                android:background="@drawable/pr_bot_shadow_blue"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/routine_item_tv"
+                    android:paddingLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="0dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8sp" />
+
+                <TextView
+                    android:id="@+id/routine_item_time_tv"
+                    android:paddingLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8sp" />
+
+                <TextView
+                    android:id="@+id/routine_item_data_tv"
+                    android:paddingLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8sp" />
+
+            </LinearLayout>
+
             <Button
-                android:layout_gravity="bottom|right"
                 android:id="@+id/btn_routine_delete"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:layout_margin="4dp"
                 android:text="삭제하기"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textSize="8sp" />
+
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
+
 </LinearLayout>
