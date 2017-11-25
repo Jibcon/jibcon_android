@@ -28,7 +28,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.data.models.api.dto.ActionWeatherData;
+import com.sm_arts.jibcon.data.models.api.dto.routine.ActionWeatherData;
 import com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.IntentCodeEnum;
 
 import java.io.IOException;

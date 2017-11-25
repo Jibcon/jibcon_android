@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.data.models.api.dto;
+package com.sm_arts.jibcon.data.models.api.dto.routine;
 
 /**
  * Created by jaeyoung on 8/13/17.

@@ -43,7 +43,6 @@ public class FloatingButtonActiveActivity extends BaseActivity {
         });
 
         mFabItem1 = findViewById(R.id.fab_action_1_cheatkey_active);
-        mFabItem1.setVisibility(View.INVISIBLE);
         mFabItem2 = (TextView) findViewById(R.id.Txt_floating_cheatkey_active);
 
         mFab = (ImageButton) findViewById(R.id.fab_cheatkey_active);
@@ -56,8 +55,8 @@ public class FloatingButtonActiveActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 collapseFab();
-                mFabItem1.setVisibility(View.INVISIBLE);
-                mFabItem2.setVisibility(View.INVISIBLE);
+                mFabItem1.setVisibility(View.VISIBLE);
+                mFabItem2.setVisibility(View.VISIBLE);
 
                 finish();
             }

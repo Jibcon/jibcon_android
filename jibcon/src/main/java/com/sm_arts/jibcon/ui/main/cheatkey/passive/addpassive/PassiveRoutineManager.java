@@ -3,8 +3,8 @@ package com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive;
 import android.util.Log;
 
 import com.google.gson.internal.LinkedTreeMap;
-import com.sm_arts.jibcon.data.models.api.dto.ActionWeatherData;
-import com.sm_arts.jibcon.data.models.api.dto.RoutineItem;
+import com.sm_arts.jibcon.data.models.api.dto.routine.ActionWeatherData;
+import com.sm_arts.jibcon.data.models.api.dto.routine.RoutineItem;
 import com.sm_arts.jibcon.data.repository.network.api.RoutineService;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.utils.network.RetrofitClients;

@@ -2,8 +2,7 @@ package com.sm_arts.jibcon.data.repository.helper;
 
 import android.util.Log;
 
-import com.sm_arts.jibcon.data.models.api.dto.Routine;
-import com.sm_arts.jibcon.data.repository.network.api.DeviceService;
+import com.sm_arts.jibcon.data.models.api.dto.routine.Routine;
 import com.sm_arts.jibcon.data.repository.network.api.RoutineService;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.utils.network.RetrofitClients;

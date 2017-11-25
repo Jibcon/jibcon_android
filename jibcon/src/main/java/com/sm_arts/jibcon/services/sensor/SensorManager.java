@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
-import com.sm_arts.jibcon.data.models.api.dto.Routine;
+import com.sm_arts.jibcon.data.models.api.dto.routine.Routine;
 import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
 import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.data.repository.helper.RoutineNetworkHelper;

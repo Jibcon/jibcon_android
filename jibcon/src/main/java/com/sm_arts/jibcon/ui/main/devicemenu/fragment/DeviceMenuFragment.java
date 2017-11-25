@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
-import com.sm_arts.jibcon.data.models.api.dto.DeviceMenuWeatherData;
+import com.sm_arts.jibcon.data.models.api.dto.routine.DeviceMenuWeatherData;
 import com.sm_arts.jibcon.ui.additional.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.ui.additional.floatingbuttonui.FloatingButtonDeviceActivity;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
@@ -85,7 +85,6 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     }
 
     private void attachUI() {
-        Log.d(TAG, "attachUI: ");
         mFabDeviceBehindBtn = (ImageButton) getView().findViewById(R.id.fab_device_behind);
         mFabDeviceBehindBtn.setOnClickListener(
 
@@ -134,6 +133,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), GRID_COLUMN_COUNT);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
     }
 
 
