@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.adddevice.AddDeviceListner;
@@ -70,6 +71,9 @@ public class ProductFragment extends Fragment {
                 if (mMakeDeviceListener != null) {
                     String company = (String) parent.getItemAtPosition(position);
                     mMakeDeviceListener.setDeviceCom(company);
+                    TextView tv = (TextView) parent.getSelectedView();
+                    tv.setText(company);
+                    tv.setTextColor(getResources().getColor(R.color.black_opaque));
                 } else {
                     Log.w(TAG, "onItemSelected: mMakeDeviceListener is null");
                 }
@@ -87,6 +91,9 @@ public class ProductFragment extends Fragment {
                 Log.d(TAG, "mSpinnerDevicetype/onItemSelected: ");
                 String type = (String) parent.getItemAtPosition(position);
                 deviceChoosed(type);
+                TextView tv = (TextView) parent.getSelectedView();
+                tv.setText(type);
+                tv.setTextColor(getResources().getColor(R.color.black_opaque));
             }
 
             @Override
