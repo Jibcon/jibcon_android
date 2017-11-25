@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.additional.floatingbuttonui.FloatingButtonActiveActivity"
-    android:background="@color/transparent"
+    android:background="@android:color/transparent"
     android:id="@+id/fab_container_cheatkey_active">
 
     <TextView
@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_marginBottom="16dp"
         android:visibility="invisible"
-        android:background="@null"
+        android:background="#00ff0000"
         android:layout_height="wrap_content" />
 
     <ImageButton
@@ -36,13 +36,14 @@
         android:id="@+id/fab_cheatkey_active"
         android:layout_width="92dp"
         android:layout_height="92dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_marginBottom="44dp"
         android:background="@null"
         android:contentDescription="@null"
         android:paddingBottom="24dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_add_circle_blue_48dp"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>

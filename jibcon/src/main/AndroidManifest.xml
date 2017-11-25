@@ -60,7 +60,7 @@
             android:theme="@style/myAppTheme.JibconNoActionBar" />
         <activity
             android:name=".ui.adddevice.AddDeviceActivity"
-            android:theme="@style/myAppTheme.JibconNoActionBar" />
+            android:theme="@style/myAppTheme.NoActionBar" />
         <activity
             android:name=".ui.additional.sidebar.ConnectedDevicesActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
@@ -111,13 +111,13 @@
             android:theme="@style/myAppTheme.LoginNoActionBar" />
         <activity
             android:name=".ui.additional.floatingbuttonui.FloatingButtonDeviceActivity"
-            android:theme="@style/myAppTheme.NoActionBar" />
+            android:theme="@style/Transparent"/>
         <activity
             android:name=".ui.additional.floatingbuttonui.FloatingButtonActiveActivity"
-            android:theme="@style/myAppTheme.NoActionBar" />
+            android:theme="@style/Transparent" />
         <activity
             android:name=".ui.additional.floatingbuttonui.FloatingButtonPassiveActivity"
-            android:theme="@style/myAppTheme.NoActionBar" />
+            android:theme="@style/Transparent" />
         <activity
             android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />

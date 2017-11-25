@@ -102,5 +102,6 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
     annotationProcessor 'android.arch.lifecycle:compiler:1.0.0-alpha5'
     compile "com.daimajia.swipelayout:library:1.2.0@aar"
+
 }
 apply plugin: 'com.google.gms.google-services'
