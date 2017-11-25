@@ -85,7 +85,6 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     }
 
     private void attachUI() {
-        Log.d(TAG, "attachUI: ");
         mFabDeviceBehindBtn = (ImageButton) getView().findViewById(R.id.fab_device_behind);
         mFabDeviceBehindBtn.setOnClickListener(
 
@@ -134,6 +133,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), GRID_COLUMN_COUNT);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
     }
 
 

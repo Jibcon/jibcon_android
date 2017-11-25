@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.daimajia.swipe.SwipeLayout;
 
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.viewholder.DeviceMenuViewHolder;
@@ -26,6 +27,11 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
     private CustomItemClickListener mDeviceItemIvClickedListener;
     private CustomItemClickListener mSubscribeIvClickedListener;
     private CustomItemClickListener mThreedotIvClickedListener;
+
+    private static final int TYPE_HEADER = 0;
+    private static final int TYPE_ITEM = 1;
+
+
 
     public DeviceMenuAdapter(List<DeviceItem> deviceItems,
                              CustomItemClickListener deviceItemIvClickedListener,
@@ -51,6 +57,10 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
                 .inflate(R.layout.maindevicemenu_devicemenu_item,
                         parent, false);
 
+        SwipeLayout item = (SwipeLayout) deviceMenuView.findViewById(R.id.swipe_item);
+        item.setShowMode(SwipeLayout.ShowMode.PullOut);
+        item.addDrag(SwipeLayout.DragEdge.Left, item.findViewById(R.id.bottom_wrapper));
+        item.addDrag(SwipeLayout.DragEdge.Right, item.findViewById(R.id.bottom_wrapper_2));
         final DeviceMenuViewHolder deviceMenuViewHolder =
                 new DeviceMenuViewHolder(deviceMenuView,
                         mDeviceItemIvClickedListener,
@@ -59,6 +69,7 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
 
         return deviceMenuViewHolder;
     }
+
 
 
 

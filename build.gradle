@@ -6,7 +6,7 @@ buildscript {
         jcenter() // editted on Web by chanjoo
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.google.gms:google-services:3.1.1'
         classpath 'me.tatarka:gradle-retrolambda:3.2.2'
 
