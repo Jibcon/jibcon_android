@@ -10,72 +10,71 @@
     android:gravity="center">
 
     <android.support.v7.widget.CardView
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginBottom="12dp"
-        android:layout_marginTop="12dp"
-        card:cardCornerRadius="9dp">
+        android:id="@+id/cardview_routine_active_menu"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/pr_bot_shadow_blue">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:weightSum="4">
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:paddingTop="8dp"
-                android:layout_weight="1"
-                android:background="#FFFFFF"
-                android:gravity="right">
-
-                <ImageButton
-                    android:id="@+id/btn_active_cheatkey_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/option" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:id="@+id/routine_item_linear"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="2"
-                android:background="#FFFFFF"
-                android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
-
-                <ImageView
-                    android:id="@+id/img_active_cheatkey"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/blank" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center">
+                android:layout_weight="7"
+                android:background="@drawable/pr_bot_shadow_blue"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/active_cheatkey_name"
+                    android:id="@+id/tv_routine_active_action1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="CheatKey"
-                    android:textColor="@color/default_text_color"
-                    android:textSize="12dp"
-                    android:textStyle="bold"/>
+                    android:paddingLeft="20dp"
+                    android:textSize="0dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8sp" />
+
+                <TextView
+                    android:id="@+id/tv_routine_active_action2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8sp" />
+
+                <TextView
+                    android:id="@+id/tv_routine_active_action3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="12sp" />
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btn_routine_active_delete"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:text="삭제하기"
+                android:textSize="8sp" />
 
         </LinearLayout>
 
