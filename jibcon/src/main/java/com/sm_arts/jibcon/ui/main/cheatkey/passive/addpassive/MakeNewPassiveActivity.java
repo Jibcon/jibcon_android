@@ -7,7 +7,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.data.models.api.dto.ActionWeatherData;
+import com.sm_arts.jibcon.data.models.api.dto.routine.ActionWeatherData;
 import com.sm_arts.jibcon.ui.BaseActivity;
 import com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.action.SelectActionActivity;
 import com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive.trigger.SelectTriggerActivity;

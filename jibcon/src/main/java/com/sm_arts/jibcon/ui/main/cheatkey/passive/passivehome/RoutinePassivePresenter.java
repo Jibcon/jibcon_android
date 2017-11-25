@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.google.gson.internal.LinkedTreeMap;
-import com.sm_arts.jibcon.data.models.api.dto.RoutineItem;
+import com.sm_arts.jibcon.data.models.api.dto.routine.RoutineItem;
 import com.sm_arts.jibcon.data.repository.network.api.RoutineService;
 import com.sm_arts.jibcon.ui.additional.floatingbuttonui.FloatingButtonPassiveActivity;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.data.models.api.dto.RoutineItem;
+import com.sm_arts.jibcon.data.models.api.dto.routine.RoutineItem;
 
 import java.util.ArrayList;
 import java.util.List;

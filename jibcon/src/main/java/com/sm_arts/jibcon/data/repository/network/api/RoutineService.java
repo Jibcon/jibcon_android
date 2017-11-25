@@ -1,7 +1,7 @@
 package com.sm_arts.jibcon.data.repository.network.api;
 
-import com.sm_arts.jibcon.data.models.api.dto.Routine;
-import com.sm_arts.jibcon.data.models.api.dto.RoutineItem;
+import com.sm_arts.jibcon.data.models.api.dto.routine.Routine;
+import com.sm_arts.jibcon.data.models.api.dto.routine.RoutineItem;
 
 import java.util.HashMap;
 import java.util.List;

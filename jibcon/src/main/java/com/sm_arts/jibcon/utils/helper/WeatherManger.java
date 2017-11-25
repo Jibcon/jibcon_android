@@ -3,7 +3,7 @@ package com.sm_arts.jibcon.utils.helper;
 import android.util.Log;
 
 import com.google.gson.internal.LinkedTreeMap;
-import com.sm_arts.jibcon.data.models.api.dto.DeviceMenuWeatherData;
+import com.sm_arts.jibcon.data.models.api.dto.routine.DeviceMenuWeatherData;
 import com.sm_arts.jibcon.data.repository.network.api.WeatherService;
 import com.sm_arts.jibcon.ui.main.devicemenu.fragment.DeviceMenuView;
 

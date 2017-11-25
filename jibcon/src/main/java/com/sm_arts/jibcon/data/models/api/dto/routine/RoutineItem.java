@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.data.models.api.dto;
+package com.sm_arts.jibcon.data.models.api.dto.routine;
 
 import com.google.gson.internal.LinkedTreeMap;
 

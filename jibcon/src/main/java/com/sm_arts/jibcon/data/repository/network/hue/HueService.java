@@ -1,13 +1,17 @@
 package com.sm_arts.jibcon.data.repository.network.hue;
 
-import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
+import com.sm_arts.jibcon.data.models.api.dto.hue.ConnectionReq;
+import com.sm_arts.jibcon.data.models.api.dto.hue.ConnectionRes;
+import com.sm_arts.jibcon.data.models.api.dto.hue.Hub;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Header;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
@@ -20,7 +24,16 @@ public interface HueService {
     Call<List<HueResponse>> putDevice(@Path("auth") String auth,
                                      @Path("id") String id,
                                      @Body HueCi body);
-
+    @GET("/api/nupnp")
+    Call<List<Hub>> getInternalAddress();
+    @POST("/api")
+    Call<List<ConnectionRes>> getHueUserName(@Body ConnectionReq devicetype);
+    @GET("/api/{username}/lights")
+    Call<HashMap<String,Object>> getLights(@Path("username") String username);
+    @PUT("/api/{username}/lights/{ID}/state")
+    Call<List<ConnectionRes>> changeBulbState(@Path("username") String username,
+                                              @Path("ID") String ID,
+                                              @Body ConnectionReq onOffState);
     public class HueCi {
         public boolean on;
 
