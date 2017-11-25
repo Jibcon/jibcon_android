@@ -51,7 +51,7 @@ public class CheatkeyActiveFragment extends android.support.v4.app.Fragment {
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.active_cardview);
         mRecyclerView.setHasFixedSize(true);
 
-        mLayoutManager = new GridLayoutManager(mContext, 2); // RecyclerView로 GridView 구현
+        mLayoutManager = new GridLayoutManager(mContext, 1); // RecyclerView로 GridView 구현
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mActiveCheatkeyDataset = new ArrayList<>();
@@ -62,30 +62,6 @@ public class CheatkeyActiveFragment extends android.support.v4.app.Fragment {
         // cardview #1
         mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
                 R.drawable.blank,"출근"
-        ));
-        // cardview #2
-        mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.drawable.blank, "퇴근"
-                ));
-        // cardview #3
-        mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.drawable.blank, "굿나잇"
-        ));
-        // cardview #4
-        mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.drawable.blank, "출장 & 휴가"
-        ));
-        // cardview #5
-        mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.drawable.blank, "등교"
-        ));
-        // cardview #6
-        mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.drawable.blank, "아침 기상"
-                ));
-        // cardview #7
-        mActiveCheatkeyDataset.add(new ActiveCheatkeyData(
-                R.drawable.blank, "현호 재울 때"
         ));
 
 

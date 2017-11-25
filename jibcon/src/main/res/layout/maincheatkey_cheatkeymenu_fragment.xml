@@ -21,8 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:orientation="horizontal"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp">
+            android:paddingTop="4dp">
             <!--Active-->
             <Button
                 android:id="@+id/btn_active"
