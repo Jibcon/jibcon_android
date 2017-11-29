@@ -1,6 +1,7 @@
 package com.sm_arts.jibcon.ui.adddevice.product;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -37,7 +38,8 @@ public class ProductFragment extends Fragment {
     Spinner mSpinnerDevicetype;
     @BindView(R.id.btnNext)
     Button mBtnNext;
-
+    String type;
+    String company;
     private Unbinder mUnbinder;
     private AddDeviceListner mMakeDeviceListener;
 
@@ -61,7 +63,14 @@ public class ProductFragment extends Fragment {
         mSpinnerDevicetype.setAdapter(devicetypeSpinnerAdapter);
 
         mBtnNext.setOnClickListener(
-                (v) -> mMakeDeviceListener.nextPage(this)
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(),AddPhilipsHueActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+                }
         );
 
         mSpinnerDevicecompany.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -69,7 +78,7 @@ public class ProductFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "mSpinnerDevicecompany/onItemSelected: ");
                 if (mMakeDeviceListener != null) {
-                    String company = (String) parent.getItemAtPosition(position);
+                    company = (String) parent.getItemAtPosition(position);
                     mMakeDeviceListener.setDeviceCom(company);
                     TextView tv = (TextView) parent.getSelectedView();
                     tv.setText(company);
@@ -89,7 +98,7 @@ public class ProductFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "mSpinnerDevicetype/onItemSelected: ");
-                String type = (String) parent.getItemAtPosition(position);
+                type = (String) parent.getItemAtPosition(position);
                 deviceChoosed(type);
                 TextView tv = (TextView) parent.getSelectedView();
                 tv.setText(type);
@@ -143,7 +152,7 @@ public class ProductFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        LinearLayout layout = (LinearLayout)inflater.inflate(R.layout.adddevice_product_fragment, container, false);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.adddevice_product_fragment, container, false);
 
         mUnbinder = ButterKnife.bind(this, layout);
         initLayout();

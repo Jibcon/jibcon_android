@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".GlobalApplication"
@@ -54,10 +54,10 @@
             android:theme="@style/myAppTheme.LoginNoActionBar" />
         <activity
             android:name=".ui.splash.makecon.MakeconStartActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.MainNoActionBar" />
         <activity
             android:name=".ui.splash.makecon.MakeconMainActivity"
-            android:theme="@style/myAppTheme.JibconNoActionBar" />
+            android:theme="@style/myAppTheme.MainNoActionBar" />
         <activity
             android:name=".ui.adddevice.AddDeviceActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
@@ -77,11 +77,12 @@
             android:name=".ui.additional.sidebar.UserAuthorityActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
+
             android:name=".ui.splash.getothercon.GetOtherConActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.MainNoActionBar" />
         <activity
             android:name=".ui.splash.getothercon.GetOtherConEndActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.MainNoActionBar" />
         <activity
             android:name=".ui.additional.setting.SettingActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
@@ -111,7 +112,7 @@
             android:theme="@style/myAppTheme.LoginNoActionBar" />
         <activity
             android:name=".ui.additional.floatingbuttonui.FloatingButtonDeviceActivity"
-            android:theme="@style/Transparent"/>
+            android:theme="@style/Transparent" />
         <activity
             android:name=".ui.additional.floatingbuttonui.FloatingButtonActiveActivity"
             android:theme="@style/Transparent" />
@@ -149,7 +150,10 @@
         <activity
             android:name=".ui.main.cheatkey.passive.addpassive.trigger.SelectTriggerTimeActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />
-        <activity android:name=".ui.main.cheatkey.passive.addpassive.action.SelectActionWeatherActivity"
+        <activity
+            android:name=".ui.main.cheatkey.passive.addpassive.action.SelectActionWeatherActivity"
+            android:theme="@style/myAppTheme.MainNoActionBar" />
+        <activity android:name=".ui.adddevice.product.AddPhilipsHueActivity"
             android:theme="@style/myAppTheme.MainNoActionBar"></activity>
     </application>
 

@@ -45,6 +45,7 @@
         <item>집소개 수정</item>
         <item>주거 환경</item>
         <item>주소 설정</item>
+        <item>새 집콘 만들기</item>
     </string-array>
 
     <string-array name="sidebar_connecteddevices_array">

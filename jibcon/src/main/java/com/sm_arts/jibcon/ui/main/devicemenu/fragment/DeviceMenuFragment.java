@@ -64,10 +64,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     private void getCurrentWeather() {
         WeatherManger.getCurrentWeather(this);
         Log.d(TAG, "getCurrentWeather: ");
-//        if(weatherData == null)
-//            getCurrentWeather();
-//        else
-//        {
+
 
     }
 

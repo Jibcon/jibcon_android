@@ -9,6 +9,9 @@ import com.sm_arts.jibcon.data.repository.network.mobius.MobiusAeService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCntService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusSubService;
+import com.sm_arts.jibcon.ui.adddevice.Hue_Internal;
+import com.sm_arts.jibcon.ui.adddevice.Hue_Server;
+import com.sm_arts.jibcon.ui.adddevice.InternalAddressService;
 
 import java.util.HashMap;
 
@@ -32,6 +35,14 @@ public class UrlUtils {
 //        String apiUrl = BuildConfig.DEBUG ?
 //                "http://192.168.1.120:8000/" :
 //                "http://192.168.1.120:8000/";
+
+        String InternalServices = "https://www.meethue.com";
+
+        String ServerServices = "http://52.79.180.194:5050";
+
+        urls.put(Hue_Server.class.getName(), ServerServices);
+        urls.put(InternalAddressService.class.getName(), InternalServices);
+        urls.put(Hue_Internal.class.getName(),InternalServices);
         urls.put(UserService.class.getName(), nodeApiUrl);
         urls.put(DeviceService.class.getName(), nodeApiUrl);
         urls.put(RoutineService.class.getName(), nodeApiUrl);
@@ -48,7 +59,7 @@ public class UrlUtils {
         urls.put(HueService.class.getName(), hueUrl);
     }
 
-
+    public static void setUrls(String key, String body){urls.put(key,body);}
     public static String getUrlWithClassName(String clsName) {
         return urls.get(clsName);
     }

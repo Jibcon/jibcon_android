@@ -7,14 +7,12 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
+import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.ui.BaseActivity;
-import com.sm_arts.jibcon.ui.adddevice.progress.ProgressFragment;
 import com.sm_arts.jibcon.ui.adddevice.product.ProductFragment;
-import com.sm_arts.jibcon.ui.adddevice.wifi.WifiFragment;
 import com.sm_arts.jibcon.ui.main.MainActivity;
-import com.sm_arts.jibcon.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,11 +99,6 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
         setContentView(R.layout.adddevice_adddevice_activity);
         mFragments.add(new ProductFragment());
 
-        WifiFragment wifiFragment = new WifiFragment();
-        mFragments.add(wifiFragment);
-        mWifiFragmentIdx = mFragments.indexOf(wifiFragment);
-
-        mFragments.add(new ProgressFragment());
         mDeviceItem = new DeviceItem();
 
         goFirstPage();

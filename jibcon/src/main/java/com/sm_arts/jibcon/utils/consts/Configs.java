@@ -51,14 +51,10 @@ public interface Configs {
         );
 
         List<String> DEVICECOM_CHOICES = Arrays.asList(
-                "smArts",
                 "Philips"
         );
 
         List<String> DEVICETYPE_CHOICES = Arrays.asList(
-                "bulb",
-                "ultrasensor",
-                "humiditysensor",
                 "hue-bulb"
         );
 

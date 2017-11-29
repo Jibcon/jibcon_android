@@ -9,4 +9,5 @@ public interface DeviceType {
     String LIGHTBULB = "1";
     String FAN = "2";
     String REFRIGERATOR = "3";
+    String PHILIPS_HUE = "4";
 }

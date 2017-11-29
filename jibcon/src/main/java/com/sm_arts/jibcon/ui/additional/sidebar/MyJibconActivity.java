@@ -1,5 +1,6 @@
 package com.sm_arts.jibcon.ui.additional.sidebar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.BaseActivity;
+import com.sm_arts.jibcon.ui.splash.makecon.MakeconMainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,7 +37,23 @@ public class MyJibconActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 String settingClickedItem = (String) mSidebarMyJibconLv.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(),settingClickedItem,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), settingClickedItem, Toast.LENGTH_LONG).show();
+                switch (position)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        Intent intent = new Intent(getApplicationContext(), MakeconMainActivity.class);
+                        startActivity(intent);
+                        finish();
+                        break;
+                    default:
+                        break;
+                }
             }
         });
     }
