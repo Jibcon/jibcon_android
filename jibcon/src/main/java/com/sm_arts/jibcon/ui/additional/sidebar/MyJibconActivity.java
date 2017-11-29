@@ -51,6 +51,8 @@ public class MyJibconActivity extends BaseActivity {
                         startActivity(intent);
                         finish();
                         break;
+                    case 4 :
+                        break;
                     default:
                         break;
                 }

@@ -32,6 +32,8 @@
         android:layout_below="@id/toolbar_select_weather"
        ></com.google.android.gms.maps.MapView>
     <Button
+        android:textColor="@color/white"
+        android:background="@color/deep_blue"
         android:text="장소 선택"
         android:layout_above="@+id/tv_cheatkey_addpassive_weatheraction"
         android:layout_alignParentRight="true"

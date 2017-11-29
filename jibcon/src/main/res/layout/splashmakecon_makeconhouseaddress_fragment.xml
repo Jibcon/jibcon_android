@@ -1,82 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF">
+    android:background="#FFF"
+    android:orientation="vertical">
 
-    <include
-        layout="@layout/splashmakecon_makeconmainactivity_content"
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_select_address"
+        style="@style/toolbar_common"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/tv_splash_makecon_address"
+            style="@style/setting_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="집 주소 등록" />
+    </android.support.v7.widget.Toolbar>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/splash_makecon_houseaddress_mapview"
+        android:layout_above="@+id/makeconhouseaddress_fragemnt_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_select_address"
+        android:layout_alignParentStart="true"></com.google.android.gms.maps.MapView>
+
 
     <LinearLayout
+        android:id="@+id/makeconhouseaddress_fragemnt_bottom"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp" />
-        <!--<fragment-->
-            <!--android:id="@+id/google_map"-->
-            <!--android:layout_width="321dp"-->
-            <!--android:layout_height="250dp"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--class="com.google.android.gms.maps.MapFragment" />-->
-
-        <TextView
-            android:id="@+id/txt_place_name"
-            android:text="주소를 입력해주세요"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/txt_place_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:text="우리집 주소는..."
-            android:textSize="16dp"/>
+        <Button
+            android:id="@+id/btn_start_place_picker"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_gravity=""
+            android:layout_marginRight="20dp"
+            android:background="@color/deep_blue"
+            android:text="지도에서 찾기"
+            android:textColor="@color/white" />
 
 
-        <LinearLayout
-            android:id="@+id/makeconhouseaddress_fragemnt_bottom"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:gravity="center"
-            android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_splash_makecon_houseaddress_ok"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
 
-            <Button
-                android:id="@+id/btn_start_place_picker"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:layout_gravity=""
-                android:layout_marginRight="20dp"
-                android:background="@color/light_blue"
-                android:text="지도에서 찾기"
-                android:textColor="@color/white" />
-
-
-            <Button
-                android:id="@+id/Btn_makeCon3_1"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-
-                android:layout_marginLeft="20dp"
-                android:background="@color/colorPrimary"
-                android:text="완 료"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
-        </LinearLayout>
-
-
+            android:layout_marginLeft="20dp"
+            android:background="@color/deep_blue"
+            android:text="완 료"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
     </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

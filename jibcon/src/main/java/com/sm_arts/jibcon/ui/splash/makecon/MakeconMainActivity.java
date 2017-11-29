@@ -19,19 +19,16 @@ public class MakeconMainActivity extends BaseActivity implements HouseInfoListen
     Fragment mMakecon2;
     Fragment mMakecon3;
     Fragment mMakecon4;
-
     HouseInfo mHouseInfo;
-
-
     @Override
     public void makeHouseInfo() {
         mHouseInfo = new HouseInfo();
-
-        mHouseInfo.setHouseIntro(this.mHouseintro);
-        mHouseInfo.setHouseLocation(this.mHouselocation);
-        mHouseInfo.setHouseName(this.mHousename);
-        mHouseInfo.setHouseType(this.mHousetype);
-        mHouseInfo.setUserName(this.mUsername);
+//
+//        mHouseInfo.setHouseIntro(this.mHouseintro);
+//        mHouseInfo.setHouseLocation(this.mHouselocation);
+//        mHouseInfo.setHouseName(this.mHousename);
+//        mHouseInfo.setHouseType(this.mHousetype);
+//        mHouseInfo.setUserName(this.mUsername);
 
         // TODO: 2017-04-1 서버로 집콘 정보 보내기
     }
@@ -54,7 +51,7 @@ public class MakeconMainActivity extends BaseActivity implements HouseInfoListen
     @Override
     public void getHouseType(String housetype) {
         this.mHousetype = housetype;
-        }
+    }
 
     @Override
     public void getHouseLocation(String houselocation) {
@@ -69,17 +66,17 @@ public class MakeconMainActivity extends BaseActivity implements HouseInfoListen
         }
 
         switch (this.mFragmentNum % 4) {
-            case 0 :
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon1).commit();
+            case 0:
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0, mMakecon1).commit();
                 break;
             case 1:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon2).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0, mMakecon2).commit();
                 break;
             case 2:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon3).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0, mMakecon3).commit();
                 break;
             case 3:
-                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon4).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0, mMakecon4).commit();
                 break;
         }
     }
@@ -93,7 +90,7 @@ public class MakeconMainActivity extends BaseActivity implements HouseInfoListen
         mMakecon2 = new MakeconHousetypeFragment();
         mMakecon3 = new MakeconHouseaddressFragment();
         mMakecon4 = new MakeconEndFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0,mMakecon1).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.Frame_makecon0, mMakecon1).commit();
 
     }
 

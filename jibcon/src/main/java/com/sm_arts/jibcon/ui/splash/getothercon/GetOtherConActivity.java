@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.BaseActivity;
-import com.sm_arts.jibcon.ui.splash.makecon.MakeconStartActivity;
 
 import java.util.ArrayList;
 
@@ -64,15 +63,6 @@ public class GetOtherConActivity extends BaseActivity {
             }
         });
 
-        mBtnGoBack = (ImageButton) findViewById(R.id.btn_goback);
-        mBtnGoBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GetOtherConActivity.this, MakeconStartActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         mBarNameTv = (TextView) findViewById(R.id.bar_name);
         mBarNameTv.setText("초대 목록"); // sorry for hard-coding...

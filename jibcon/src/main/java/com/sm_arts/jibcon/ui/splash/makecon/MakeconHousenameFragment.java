@@ -20,20 +20,21 @@ import com.sm_arts.jibcon.R;
  */
 
 public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
-    HouseInfoListener mHouseInfoListener;
-    String mHousename;
-    String mUsername;
-    String mHouseintro;
-    Button mNext;
-    ImageButton mBefore;
-    TextView mBarName;
+    private static final String TAG = "MakeconHousenameFragment";
+    private HouseInfoListener mHouseInfoListener;
+    private String mHousename;
+    private String mUsername;
+    private String mHouseintro;
+    private Button mNext;
+    private ImageButton mBefore;
+    private TextView mBarName;
 
-    LinearLayout mLinearLayout;
-    EditText mEditHousename;
-    EditText mEditUsername;
-    EditText mEditHouseintro;
-    Activity mActivity;
-    int mFragmentNum;
+    private LinearLayout mLinearLayout;
+    private EditText mEditHousename;
+    private EditText mEditUsername;
+    private EditText mEditHouseintro;
+    private Activity mActivity;
+    private int mFragmentNum;
 
 
 
@@ -43,7 +44,6 @@ public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
         mEditUsername = (EditText) mLinearLayout.findViewById(R.id.EditTxt_makecon1_2);
         mEditHouseintro = (EditText) mLinearLayout.findViewById(R.id.EditTxt_makecon1_3);
         mFragmentNum = 0;
-        mBefore = (ImageButton) mLinearLayout.findViewById(R.id.btn_goback);
         mBarName = (TextView) mLinearLayout.findViewById(R.id.bar_name);
     }
 
@@ -72,12 +72,6 @@ public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
         mUsername = mEditUsername.getText().toString();
 
 
-        mBefore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mHouseInfoListener.getFragmentNum(-1);
-            }
-        });
 
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override

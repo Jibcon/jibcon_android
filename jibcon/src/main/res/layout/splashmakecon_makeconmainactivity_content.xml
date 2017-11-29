@@ -4,17 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/btn_goback"
-        android:layout_width="40dp"
-        android:layout_height="60dp"
-        android:layout_gravity="left"
-        android:layout_marginLeft="8dp"
-        android:layout_weight="1"
-        android:background="@null"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_arrow_back_black_48dp" />
-
     <TextView
         android:id="@+id/bar_name"
         android:layout_width="match_parent"
@@ -25,14 +14,5 @@
         android:textColor="@color/default_text_color"
         android:textSize="16dp"
         android:textStyle="bold" />
-
-    <ImageButton
-        android:layout_width="40dp"
-        android:layout_height="60dp"
-        android:layout_gravity="left"
-        android:layout_marginRight="8dp"
-        android:layout_weight="1"
-        android:background="@null"
-        android:scaleType="centerInside" />
 
 </LinearLayout>

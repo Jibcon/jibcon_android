@@ -53,7 +53,6 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
         };
 
         ListView listView = (ListView) mLinearLayout.findViewById(R.id.list_place);
-        mBefore = (ImageButton) mLinearLayout.findViewById(R.id.btn_goback);
         mNext = (Button) mLinearLayout.findViewById(R.id.Btn_makeCon2_1);
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
                 getActivity(),
@@ -98,12 +97,7 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
 
        // initLayout();
 
-        mBefore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mHouseInfoListener.getFragmentNum(-1);
-            }
-        });
+
 
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
