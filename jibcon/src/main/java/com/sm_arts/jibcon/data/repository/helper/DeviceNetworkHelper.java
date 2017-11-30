@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.data.repository.network.api.DeviceService;
+import com.sm_arts.jibcon.utils.housemanager.JibconHouseManager;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
@@ -41,8 +42,12 @@ public class DeviceNetworkHelper {
     }
 
     public void getDevices(final Consumer<List<DeviceItem>> finished) {
+        //must be deleted
+        if(JibconHouseManager.getInstance().getmCurrentHouse() == null)
+            return;
+        //must be deleted
         Call<List<DeviceItem>> call = service.getDevices(
-                JibconLoginManager.getInstance().getUserTokenAsHeader());
+                JibconHouseManager.getInstance().getmCurrentHouse().house_id);
         call.enqueue(new Callback<List<DeviceItem>>() {
             @Override
             public void onResponse(Call<List<DeviceItem>> call, Response<List<DeviceItem>> response) {

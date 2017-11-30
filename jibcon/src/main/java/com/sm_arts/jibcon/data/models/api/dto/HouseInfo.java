@@ -1,5 +1,7 @@
 package com.sm_arts.jibcon.data.models.api.dto;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by admin on 2017-04-08.
  */
@@ -12,10 +14,13 @@ public class HouseInfo {
 //    -HouseUsers : UserInfo의 ArrayList 한 공간의 사용자 그룹
 //    -Houseintro: 집콘 소개
 
+    @SerializedName("_id")
+    public String house_id;
+
     public String houseMaster;
     public String houseName;
     public String houseType;
     public String houseAddress;
-    
+    //public List<HashMap<String,Object>> deviceList;
 
 }

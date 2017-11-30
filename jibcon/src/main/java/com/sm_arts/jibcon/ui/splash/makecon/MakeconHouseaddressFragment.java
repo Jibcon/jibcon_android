@@ -62,7 +62,7 @@ public class MakeconHouseaddressFragment extends android.support.v4.app.Fragment
     private Place place;
     private GoogleMap mGoogleMap;
     private List<Address> address;
-    private String currentAddress;
+    private String currentAddress="";
     private String currentLatitute;
     private String currentLongitute;
     private String address2;
@@ -196,7 +196,9 @@ public class MakeconHouseaddressFragment extends android.support.v4.app.Fragment
         mButtonOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mHouseInfoListener.getFragmentNum(1);
+
+                mHouseInfoListener.setFragmentNum(1);
+                mHouseInfoListener.setHouseLocation(currentAddress);
 
             }
         });

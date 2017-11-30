@@ -23,6 +23,7 @@ import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.data.models.api.dto.User;
 import com.sm_arts.jibcon.data.models.api.dto.UserInfo;
+import com.sm_arts.jibcon.data.repository.helper.HouseNetworkManager;
 import com.sm_arts.jibcon.data.repository.helper.network.UserNetworkImpl;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
 import com.sm_arts.jibcon.ui.splash.makecon.MakeconStartActivity;
@@ -68,7 +69,8 @@ public class JibconLoginManager {
         }
         return mInstance;
     }
-
+    public String getCurrentHouseId(){return mUser.getCurrentHouseId();}
+    public void setCurrentHouseIdOnSucess(String currentHouseId){mUser.setCurrentHouseId(currentHouseId);}
 
 
     public User getCurrentUser() {
@@ -240,6 +242,7 @@ public class JibconLoginManager {
                                         .setUserOnSuccess(response.body());
                                 Log.d(TAG, "onResponse: " + "success");
                                 updateFcmToken();
+                                getCurrentHouse();
                                 try {
                                     action.run();
                                 } catch (Exception e) {
@@ -357,6 +360,7 @@ public class JibconLoginManager {
                 JibconLoginManager.getInstance().setUserOnSuccess(response.body());
                 SharedPreferenceHelper.saveSharedPreference(PREF_NAME, PREF_LOGINTYPE, PREF_TYPE_KAKAO);
                 updateFcmToken();
+                getCurrentHouse();
                 try {
                     action.run();
                 } catch (Exception e) {
@@ -424,5 +428,8 @@ public class JibconLoginManager {
 
     public String getUserFcmToken() {
         return mUser.getFcm_token();
+    }
+    public void getCurrentHouse(){
+        HouseNetworkManager.getInstance().getCurrentHouse();
     }
 }

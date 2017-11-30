@@ -4,8 +4,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.ui.BaseActivity;
 import com.sm_arts.jibcon.data.models.api.dto.HouseInfo;
+import com.sm_arts.jibcon.data.repository.helper.HouseNetworkManager;
+import com.sm_arts.jibcon.ui.BaseActivity;
 
 public class MakeconMainActivity extends BaseActivity implements HouseInfoListener {
     String mHousename;
@@ -24,42 +25,41 @@ public class MakeconMainActivity extends BaseActivity implements HouseInfoListen
     public void makeHouseInfo() {
         mHouseInfo = new HouseInfo();
 //
-//        mHouseInfo.setHouseIntro(this.mHouseintro);
-//        mHouseInfo.setHouseLocation(this.mHouselocation);
-//        mHouseInfo.setHouseName(this.mHousename);
-//        mHouseInfo.setHouseType(this.mHousetype);
-//        mHouseInfo.setUserName(this.mUsername);
+        mHouseInfo.houseName = mHousename;
+        mHouseInfo.houseAddress = mHouselocation;
+        mHouseInfo.houseType = mHousetype;
+        HouseNetworkManager.getInstance().addHouse(mHouseInfo);
 
         // TODO: 2017-04-1 서버로 집콘 정보 보내기
     }
 
     @Override
-    public void getHouseName(String housename) {
+    public void setHouseName(String housename) {
         this.mHousename = housename;
     }
 
     @Override
-    public void getUserName(String username) {
+    public void setUserName(String username) {
         this.mUsername = username;
     }
 
     @Override
-    public void getHouseIntro(String houseintro) {
+    public void setHouseIntro(String houseintro) {
         this.mHouseintro = houseintro;
     }
 
     @Override
-    public void getHouseType(String housetype) {
+    public void setHouseType(String housetype) {
         this.mHousetype = housetype;
     }
 
     @Override
-    public void getHouseLocation(String houselocation) {
+    public void setHouseLocation(String houselocation) {
         this.mHouselocation = houselocation;
     }
 
     @Override
-    public void getFragmentNum(int fragmentNum) {
+    public void setFragmentNum(int fragmentNum) {
         this.mFragmentNum += fragmentNum;
         if (this.mFragmentNum < 0) {
             this.mFragmentNum = 0;

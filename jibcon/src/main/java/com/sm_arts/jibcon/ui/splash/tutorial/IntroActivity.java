@@ -14,16 +14,16 @@ import android.util.Log;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
-import com.sm_arts.jibcon.ui.BaseActivity;
 import com.sm_arts.jibcon.GlobalApplication;
-import com.sm_arts.jibcon.ui.splash.login.LoginActivity;
-import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
+import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.User;
 import com.sm_arts.jibcon.data.models.api.dto.UserInfo;
-import com.sm_arts.jibcon.ui.main.MainActivity;
-import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
+import com.sm_arts.jibcon.ui.BaseActivity;
+import com.sm_arts.jibcon.ui.main.MainActivity;
+import com.sm_arts.jibcon.ui.splash.login.LoginActivity;
 import com.sm_arts.jibcon.utils.helper.SharedPreferenceHelper;
+import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import java.security.MessageDigest;
@@ -71,6 +71,7 @@ public class IntroActivity extends BaseActivity {
                         public void onResponse(Call<User> call, Response<User> response) {
                             if (response.isSuccessful()) {
                                 JibconLoginManager.getInstance().setUserOnSuccess(response.body());
+                                JibconLoginManager.getInstance().getCurrentHouse();
                                 Log.d(TAG, "onResponse: "+"Success");
 
                                 SharedPreferenceHelper.saveSharedPreference("pref","LOGINTYPE","FACEBOOK");

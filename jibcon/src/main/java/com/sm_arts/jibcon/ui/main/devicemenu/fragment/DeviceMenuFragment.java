@@ -20,7 +20,8 @@ import com.sm_arts.jibcon.data.models.api.dto.routine.DeviceMenuWeatherData;
 import com.sm_arts.jibcon.ui.additional.dialogs.DeviceDialog;
 import com.sm_arts.jibcon.ui.additional.floatingbuttonui.FloatingButtonDeviceActivity;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
-import com.sm_arts.jibcon.utils.helper.WeatherManger;
+import com.sm_arts.jibcon.utils.helper.WeatherHelper;
+import com.sm_arts.jibcon.utils.housemanager.JibconHouseManager;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 
 import java.util.ArrayList;
@@ -62,7 +63,7 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     }
 
     private void getCurrentWeather() {
-        WeatherManger.getCurrentWeather(this);
+        WeatherHelper.getCurrentWeather(this);
         Log.d(TAG, "getCurrentWeather: ");
 
 
@@ -203,7 +204,8 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     public void setWeatherInfo(DeviceMenuWeatherData deviceMenuWeatherData) {
         Log.d(TAG, "setWeatherInfo() called with: deviceMenuWeatherData = [" + deviceMenuWeatherData + "]");
         mTextViewSky.setText(deviceMenuWeatherData.sky+" | 현재 온도는 "+ deviceMenuWeatherData.temperature+" 도입니다");
-        mTextViewWeatherRecommend.setText(JibconLoginManager.getInstance().getUserName() + "님 환영합니다");
+        mTextViewWeatherRecommend.setText(JibconLoginManager.getInstance().getUserName() + "님 환영합니다"
+                                        +" "+ JibconHouseManager.getInstance().getmCurrentHouse().houseName);
         mTextViewLocation.setText(deviceMenuWeatherData.location);
     }
 

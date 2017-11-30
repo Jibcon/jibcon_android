@@ -20,9 +20,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by admin on 2017-11-18.
  */
 
-public class WeatherManger {
-    private static final String TAG = "WeatherManger";
-    private static WeatherManger obj = null;
+public class WeatherHelper {
+    private static final String TAG = "WeatherHelper";
+    private static WeatherHelper obj = null;
     private static DeviceMenuWeatherData deviceMenuWeatherData;
 
     public static DeviceMenuWeatherData getDeviceMenuWeatherData() {
@@ -30,12 +30,12 @@ public class WeatherManger {
     }
 
     public static void setDeviceMenuWeatherData(DeviceMenuWeatherData deviceMenuWeatherData) {
-        WeatherManger.deviceMenuWeatherData = deviceMenuWeatherData;
+        WeatherHelper.deviceMenuWeatherData = deviceMenuWeatherData;
     }
 
-    public static WeatherManger getInstance() {
+    public static WeatherHelper getInstance() {
         if (obj == null)
-            obj = new WeatherManger();
+            obj = new WeatherHelper();
         return obj;
     }
 
@@ -66,7 +66,7 @@ public class WeatherManger {
                 deviceMenuWeatherData.location = (String) location.get("city");
                 deviceMenuWeatherData.temperature = (String) temperature.get("tc");
                 deviceMenuWeatherData.sky = (String) skyInfo.get("name");
-                WeatherManger.setDeviceMenuWeatherData(deviceMenuWeatherData);
+                WeatherHelper.setDeviceMenuWeatherData(deviceMenuWeatherData);
                 mDeviceMenuView.setWeatherInfo(deviceMenuWeatherData);
 
             }

@@ -1,6 +1,7 @@
 package com.sm_arts.jibcon.ui.splash.makecon;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.ui.splash.tutorial.IntroActivity;
 
 /**
  * Created by admin on 2017-04-12.
@@ -37,6 +39,8 @@ public class MakeconEndFragment extends android.support.v4.app.Fragment {
                 //asynktask로 houseinfo 보낸 뒤 보내고 성공하면 MainActivity로, 보내는중엔 집콘 최적화화면만
                 mHouseInfoListener.makeHouseInfo();
                 //todo 서버로 집정보 보내기
+                Intent intent = new Intent(getActivity(), IntroActivity.class);
+                startActivity(intent);
                 getActivity().finish();
             }
         };

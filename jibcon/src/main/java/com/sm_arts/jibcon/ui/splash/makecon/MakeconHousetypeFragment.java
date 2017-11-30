@@ -72,23 +72,23 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
                 switch (position) {
                     case 0 :
                         Toast.makeText(getActivity().getApplicationContext(), "전원 주택", Toast.LENGTH_SHORT).show();
-                        mHouseInfoListener.getHouseType("house");
+                        mHouseInfoListener.setHouseType("house");
                         break;
                     case 1:
                         Toast.makeText(getActivity().getApplicationContext(), "아파트", Toast.LENGTH_SHORT).show();
-                        mHouseInfoListener.getHouseType("apart");
+                        mHouseInfoListener.setHouseType("apart");
                         break;
                     case 2:
                         Toast.makeText(getActivity().getApplicationContext(), "오피스텔", Toast.LENGTH_SHORT).show();
-                        mHouseInfoListener.getHouseType("officetel");
+                        mHouseInfoListener.setHouseType("officetel");
                         break;
                     case 3:
                         Toast.makeText(getActivity().getApplicationContext(), "빌라", Toast.LENGTH_SHORT).show();
-                        mHouseInfoListener.getHouseType("villa");
+                        mHouseInfoListener.setHouseType("villa");
                         break;
                     case 4:
                         Toast.makeText(getActivity().getApplicationContext(), "기숙사", Toast.LENGTH_SHORT).show();
-                        mHouseInfoListener.getHouseType("dorm");
+                        mHouseInfoListener.setHouseType("dorm");
                         break;
                 }
             }
@@ -102,7 +102,7 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mHouseInfoListener.getFragmentNum(1);
+                mHouseInfoListener.setFragmentNum(1);
 //                Intent intent = new Intent(getActivity().getApplicationContext(), MakeconHouseaddressFragment.class);
 //                startActivity(intent);
             }

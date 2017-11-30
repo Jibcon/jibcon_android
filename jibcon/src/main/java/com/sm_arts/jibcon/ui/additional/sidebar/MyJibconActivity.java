@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.BaseActivity;
+import com.sm_arts.jibcon.ui.additional.dialogs.HouseChangeDialog;
 import com.sm_arts.jibcon.ui.splash.makecon.MakeconMainActivity;
 
 import butterknife.BindView;
@@ -17,8 +18,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MyJibconActivity extends BaseActivity {
-    @BindView(R.id.lv_my_jibcon) ListView mSidebarMyJibconLv;
-    @OnClick(R.id.imageview_sidebar_myjibcon) void imageview_sidebar_myjibcon() {
+    @BindView(R.id.lv_my_jibcon)
+    ListView mSidebarMyJibconLv;
+
+    @OnClick(R.id.imageview_sidebar_myjibcon)
+    void imageview_sidebar_myjibcon() {
         finish();
     }
 
@@ -30,7 +34,7 @@ public class MyJibconActivity extends BaseActivity {
 
         final String[] myjibconOptionList = getResources().getStringArray(R.array.sidebar_myjibcon_option_array);
 
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, myjibconOptionList);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myjibconOptionList);
         mSidebarMyJibconLv.setAdapter(adapter);
 
         mSidebarMyJibconLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -38,8 +42,7 @@ public class MyJibconActivity extends BaseActivity {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 String settingClickedItem = (String) mSidebarMyJibconLv.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(), settingClickedItem, Toast.LENGTH_LONG).show();
-                switch (position)
-                {
+                switch (position) {
                     case 0:
                         break;
                     case 1:
@@ -51,7 +54,10 @@ public class MyJibconActivity extends BaseActivity {
                         startActivity(intent);
                         finish();
                         break;
-                    case 4 :
+                    case 4:
+                        HouseChangeDialog houseChangeDialog = new HouseChangeDialog(MyJibconActivity.this);
+                        houseChangeDialog.show();
+
                         break;
                     default:
                         break;

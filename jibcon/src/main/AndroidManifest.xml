@@ -5,6 +5,7 @@
 
     <uses-sdk tools:overrideLibrary="org.lucasr.twowayview, org.lucasr.twowayview.widget, jp.wasabeef.recyclerview" />
 
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -18,6 +19,7 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
+        android:debuggable="true"
         android:theme="@style/AppTheme">
 
         <!-- For Google Maps -->
@@ -153,8 +155,6 @@
         <activity
             android:name=".ui.main.cheatkey.passive.addpassive.action.SelectActionWeatherActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />
-        <activity android:name=".ui.adddevice.product.AddPhilipsHueActivity"
-            android:theme="@style/myAppTheme.MainNoActionBar"></activity>
     </application>
 
 </manifest>

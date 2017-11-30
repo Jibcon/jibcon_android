@@ -1,7 +1,8 @@
 package com.sm_arts.jibcon.ui.adddevice;
 
-import android.net.wifi.ScanResult;
 import android.support.v4.app.Fragment;
+
+import java.util.HashMap;
 
 
 /**
@@ -14,6 +15,7 @@ public interface AddDeviceListner {
     void setRoomName(String roomName);
     void setAeName(String aeName);
     void setCntName(String setCntName);
+    void setData(HashMap<String,Object> data);
 
     void nextPage(Fragment fragment);
 

@@ -81,11 +81,11 @@ public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
                 mHouseintro = mEditHouseintro.getText().toString();
                 mUsername = mEditUsername.getText().toString();
 
-                //  ((mHouseInfoListener)mActivity).getHouseName(mHousename);
-                mHouseInfoListener.getHouseIntro(mHouseintro);
-                mHouseInfoListener.getHouseName(mHousename);
-                mHouseInfoListener.getUserName(mUsername);
-                mHouseInfoListener.getFragmentNum(1);
+                //  ((mHouseInfoListener)mActivity).setHouseName(mHousename);
+                mHouseInfoListener.setHouseIntro(mHouseintro);
+                mHouseInfoListener.setHouseName(mHousename);
+                mHouseInfoListener.setUserName(mUsername);
+                mHouseInfoListener.setFragmentNum(1);
 
 //                Intent intent = new Intent(getActivity().getApplicationContext(), MakeconHousetypeFragment.class);
 //                startActivity(intent);

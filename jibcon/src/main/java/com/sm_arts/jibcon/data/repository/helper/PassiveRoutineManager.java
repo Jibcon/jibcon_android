@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.main.cheatkey.passive.addpassive;
+package com.sm_arts.jibcon.data.repository.helper;
 
 import android.util.Log;
 

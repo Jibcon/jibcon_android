@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.additional.setting.SettingActivity;
-import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 import com.sm_arts.jibcon.utils.helper.ToastHelper;
+import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 
 /**
  * Created by admin on 2017-07-19.

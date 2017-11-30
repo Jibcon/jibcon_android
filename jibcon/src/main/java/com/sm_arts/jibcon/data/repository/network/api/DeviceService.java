@@ -7,7 +7,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
-import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -25,8 +24,8 @@ public interface DeviceService {
     Call<DeviceItem> postDevice(@Header("Authorization") String token,
                                @Body DeviceItem deviceItem);
 
-    @GET("/api/devices/")
-    Call<List<DeviceItem>> getDevices(@Header("Authorization")String token);
+    @POST("/api/getDevices/")
+    Call<List<DeviceItem>> getDevices(@Header("Authorization")String house_id);
 
     @PUT("/api/devices/{id}}")
     Call<DeviceItem> putDevice(@Header("Authorization") String token,

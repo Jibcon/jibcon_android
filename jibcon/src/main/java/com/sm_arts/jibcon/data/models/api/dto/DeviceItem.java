@@ -2,6 +2,8 @@ package com.sm_arts.jibcon.data.models.api.dto;
 
 import com.sm_arts.jibcon.utils.consts.MqttTopicUtils;
 
+import java.util.HashMap;
+
 /**
  * Created by admin on 2017-04-06.
  */
@@ -18,6 +20,7 @@ public class DeviceItem {
     private String aeName;
     private String cntName;
     private String content;
+    private HashMap<String,Object> data;
 
     public DeviceItem() {
     }
@@ -118,6 +121,22 @@ public class DeviceItem {
 
     public void setUser(String user_id) {
         this.user_id = user_id;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public HashMap<String, Object> getData() {
+        return data;
+    }
+
+    public void setData(HashMap<String, Object> data) {
+        this.data = data;
     }
 
     @Override

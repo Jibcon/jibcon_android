@@ -2,6 +2,7 @@ package com.sm_arts.jibcon.utils.consts;
 
 import com.sm_arts.jibcon.BuildConfig;
 import com.sm_arts.jibcon.data.repository.network.api.DeviceService;
+import com.sm_arts.jibcon.data.repository.network.api.HouseService;
 import com.sm_arts.jibcon.data.repository.network.api.RoutineService;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
 import com.sm_arts.jibcon.data.repository.network.hue.HueService;
@@ -46,7 +47,7 @@ public class UrlUtils {
         urls.put(UserService.class.getName(), nodeApiUrl);
         urls.put(DeviceService.class.getName(), nodeApiUrl);
         urls.put(RoutineService.class.getName(), nodeApiUrl);
-
+        urls.put(HouseService.class.getName(),nodeApiUrl);
         String mobiusUrl =
                 "http://" + Configs.Mobius.HOST + ":" + Configs.Mobius.PORT + "/";
         urls.put(MobiusCiService.class.getName(), mobiusUrl);

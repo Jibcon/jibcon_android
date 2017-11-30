@@ -1,7 +1,6 @@
 package com.sm_arts.jibcon.ui.adddevice.product;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -63,14 +62,7 @@ public class ProductFragment extends Fragment {
         mSpinnerDevicetype.setAdapter(devicetypeSpinnerAdapter);
 
         mBtnNext.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(getContext(),AddPhilipsHueActivity.class);
-                        startActivity(intent);
-                        getActivity().finish();
-                    }
-                }
+         v -> mMakeDeviceListener.nextPage(this)
         );
 
         mSpinnerDevicecompany.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

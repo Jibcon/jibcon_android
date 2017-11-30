@@ -5,11 +5,11 @@ package com.sm_arts.jibcon.ui.splash.makecon;
  */
 
 public interface HouseInfoListener {
-    void getHouseName(String housename);
-    void getUserName(String username);
-    void getHouseIntro(String houseintro);
-    void getHouseType(String housetype);
-    void getHouseLocation(String houselocation);
-    void getFragmentNum(int fragmentNum);
+    void setHouseName(String housename);
+    void setUserName(String username);
+    void setHouseIntro(String houseintro);
+    void setHouseType(String housetype);
+    void setHouseLocation(String houselocation);
+    void setFragmentNum(int fragmentNum);
     void makeHouseInfo();
 }

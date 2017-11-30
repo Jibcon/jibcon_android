@@ -1,18 +1,32 @@
 package com.sm_arts.jibcon.data.models.api.dto;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by admin on 2017-04-10.
  */
 
 public class User {
     String email;
+    @SerializedName("_id")
+    String user_id;
+    String social_id;
     //String username;
     String token;
     UserInfo userinfo;
     String last_name;
     String first_name;
     String fcm_token;
-    String user_id;
+    String currentHouse;
+
+    public String getCurrentHouseId() {
+        return currentHouse;
+    }
+
+    public void setCurrentHouseId(String currentHouseId) {
+        this.currentHouse = currentHouseId;
+    }
+
 
     public String getUser_id() {
         return user_id;

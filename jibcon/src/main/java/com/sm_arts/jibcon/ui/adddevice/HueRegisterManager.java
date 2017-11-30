@@ -4,11 +4,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.data.models.api.dto.hue.ConnectionReq;
 import com.sm_arts.jibcon.data.models.api.dto.hue.ConnectionRes;
 import com.sm_arts.jibcon.utils.consts.UrlUtils;
+import com.sm_arts.jibcon.utils.network.GsonUtils;
 import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import java.util.ArrayList;
@@ -18,6 +20,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by admin on 2017-11-12.
@@ -25,8 +29,8 @@ import retrofit2.Response;
 
 public class HueRegisterManager {
     private static HashMap<String, HueBulb> bulbMap;
-    public static String internalAddress;
-    public static String internalUsername;
+    public String internalAddress = "http://";
+    public String internalUsername;
 
     private static final String TAG = HueRegisterManager.class.getName();
     public static HueRegisterManager obj = null;
@@ -45,7 +49,7 @@ public class HueRegisterManager {
     }
 
 
-    public static void getInternalAddress() {
+    public void getInternalAddress() {
 
         InternalAddressService service = RetrofitClients.getInstance().getService(InternalAddressService.class);
         Call<List<Hub>> c = service.getInternalAddress();
@@ -63,10 +67,9 @@ public class HueRegisterManager {
                 }
                 Log.d(TAG, "onResponse: " + response.body().get(0).internalipaddress);
                 UrlUtils.setUrls("internalAddress", response.body().get(0).internalipaddress);
-                internalAddress = response.body().get(0).internalipaddress;
-                UrlUtils.setUrls(Hue_Internal.class.getName(),response.body().get(0).internalipaddress);
-//                GlobalApplication.internalAddress = response.body().get(0).internalipaddress;
-//                Toast.makeText(GlobalApplication.getGlobalApplicationContext(), "Success : " + response.body().get(0).internalipaddress, Toast.LENGTH_SHORT).show();
+                internalAddress +=response.body().get(0).internalipaddress;
+
+                getInternalUsername();
 
             }
 
@@ -79,8 +82,14 @@ public class HueRegisterManager {
         });
     }
 
-    public static void getInternalUsername() {
-        Hue_Internal service = RetrofitClients.getInstance().getService(Hue_Internal.class);
+    public  void getInternalUsername() {
+        Retrofit client = new Retrofit.Builder()
+                .baseUrl(internalAddress)
+
+                // mentoring
+                .addConverterFactory(GsonConverterFactory.create(GsonUtils.getGson()))
+                .build();
+        Hue_Internal service = client.create(Hue_Internal.class);
 
         Call<List<ConnectionRes>> c = service.getHueUserName(new ConnectionReq("my_hue_app"));
         c.enqueue(new Callback<List<ConnectionRes>>() {
@@ -100,6 +109,7 @@ public class HueRegisterManager {
                     internalUsername = response.body().get(0).success.username;
 
                     Toast.makeText(GlobalApplication.getGlobalApplicationContext(), "Success" + response.body().get(0).success.username, Toast.LENGTH_SHORT).show();
+                    getLights();
                 }
 
             }
@@ -114,8 +124,14 @@ public class HueRegisterManager {
     }
 
 
-    public static void getLights() {
-        Hue_Internal service = RetrofitClients.getInstance().getService(Hue_Internal.class);
+    public  void getLights() {
+        Retrofit client = new Retrofit.Builder()
+                .baseUrl(internalAddress)
+                .addConverterFactory(GsonConverterFactory.create(new Gson()))
+                .build();
+        Hue_Internal service = client.create(Hue_Internal.class);
+
+
         Call<HashMap<String, Object>> c = service.getLights(internalUsername);
         c.enqueue(new Callback<HashMap<String, Object>>() {
             @Override
