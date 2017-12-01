@@ -85,7 +85,7 @@
             android:gravity="center"
             android:text="제품별 다른 설명"
             android:textColor="@color/default_text_color"
-            android:textSize="24dp"/>
+            android:textSize="24dp" />
 
 
         <Button

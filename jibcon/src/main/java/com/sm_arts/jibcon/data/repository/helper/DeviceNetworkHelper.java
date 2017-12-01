@@ -80,7 +80,7 @@ public class DeviceNetworkHelper {
     public void deleteDevice(DeviceItem deviceItem, final Consumer<Void> finished){
         Log.d(TAG, "deleteDevice: ");
         Call<String> call = service.deleteDevice(
-                JibconLoginManager.getInstance().getUserTokenAsHeader(),
+                JibconLoginManager.getInstance().getUserId(),
                 deviceItem.getId()
         );
         call.enqueue(new Callback<String>() {
@@ -99,7 +99,7 @@ public class DeviceNetworkHelper {
 
     public void postDevice(DeviceItem deviceItem, final Consumer<DeviceItem> finished) {
         Call<DeviceItem> call = service.postDevice(
-                JibconLoginManager.getInstance().getUserTokenAsHeader(),
+                JibconLoginManager.getInstance().getUserId(),
                 deviceItem
         );
 

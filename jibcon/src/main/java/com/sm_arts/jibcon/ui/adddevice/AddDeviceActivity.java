@@ -7,16 +7,18 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
+import com.google.gson.internal.LinkedTreeMap;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.ui.BaseActivity;
 import com.sm_arts.jibcon.ui.adddevice.product.AddPhilipsHueFragment;
 import com.sm_arts.jibcon.ui.adddevice.product.ProductFragment;
+import com.sm_arts.jibcon.ui.adddevice.product.ProgressFragment;
 import com.sm_arts.jibcon.ui.main.MainActivity;
+import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class AddDeviceActivity extends BaseActivity implements AddDeviceListner {
@@ -31,9 +33,10 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
                 (deviceItem) -> {
                     if (deviceItem == null) {
                         Log.d(TAG, "sendDevice: failed to send device. device = " + mDeviceItem.toString());
-                        goFirstPage();
+                        //goFirstPage();
 
                     } else {
+                        Log.d(TAG, "sendDevice: success to send device");
                         Handler handler = new Handler();
                         handler.postDelayed(
                                 () -> {
@@ -47,22 +50,30 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
 
     private void goPage(int i) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frame_adddevice, mFragments.get(i)).commit();
+                .replace(R.id.frame_adddevice, mFragments.get(i),mFragments.getClass().getName()).commit();
     }
 
     @Override
     public void nextPage(@NonNull final Fragment fragment) {
         final int page = mFragments.indexOf(fragment);
         if (page == (mFragments.size() - 1)) {
+
             // last page
+
         } else if (page == (mFragments.size() - 2)) {
             // last-1 page
             sendDevice();
+
         }
 
         final int nextPage = (page + 1) % mFragments.size();
 
         goPage(nextPage);
+    }
+
+    @Override
+    public void setData(LinkedTreeMap<String, Object> data) {
+        mDeviceItem.setData(data);
     }
 
     @Override
@@ -95,10 +106,12 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
         mDeviceItem.setCntName(cntName);
     }
 
+
     @Override
-    public void setData(HashMap<String, Object> data) {
-        mDeviceItem.setData(data);
+    public void setUserId(String userId) {
+        mDeviceItem.setUser(JibconLoginManager.getInstance().getUserId());
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +119,7 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
         setContentView(R.layout.adddevice_adddevice_activity);
         mFragments.add(new ProductFragment());
         mFragments.add(new AddPhilipsHueFragment());
+        mFragments.add(new ProgressFragment());
         mDeviceItem = new DeviceItem();
 
         goFirstPage();
@@ -114,6 +128,7 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
     private void goFirstPage() {
         goPage(0);
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

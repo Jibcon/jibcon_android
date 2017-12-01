@@ -27,7 +27,7 @@ class DeviceMenuPresenter {
     public DeviceMenuPresenter(DeviceMenuView view) {
         Log.d(TAG, "DeviceMenuPresenter: ");
         mView = view;
-        attachMqttListener();
+        //attachMqttListener();
     }
 
     private void attachMqttListener() {

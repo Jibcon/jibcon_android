@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="240dp" android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_adddevice_hueregister_dialog"-->
+        <!--android:text="링크 버튼을 눌러주세요"-->
+        <!--android:textSize="20sp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="40dp" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btn_adddevice_hueregister_dialog"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_below="@id/tv_adddevice_hueregister_dialog"-->
+        <!--android:text="확인"-->
+        <!--android:background="@color/deep_blue"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+</RelativeLayout>

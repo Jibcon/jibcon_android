@@ -19,6 +19,8 @@ import android.widget.TextView;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.adddevice.AddDeviceListner;
 import com.sm_arts.jibcon.utils.consts.Configs;
+import com.sm_arts.jibcon.utils.housemanager.JibconHouseManager;
+import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -72,6 +74,7 @@ public class ProductFragment extends Fragment {
                 if (mMakeDeviceListener != null) {
                     company = (String) parent.getItemAtPosition(position);
                     mMakeDeviceListener.setDeviceCom(company);
+                    parent.getSelectedView();
                     TextView tv = (TextView) parent.getSelectedView();
                     tv.setText(company);
                     tv.setTextColor(getResources().getColor(R.color.black_opaque));
@@ -113,14 +116,17 @@ public class ProductFragment extends Fragment {
                     mMakeDeviceListener.setDeviceName(
                             Configs.DEVICES_SUPPORTABLE.DEVICENAME_CHOCIED.get(i)
                     );
-                    mMakeDeviceListener.setAeName(
-                            Configs.DEVICES_SUPPORTABLE.AENAME_CHOICES.get(i)
-                    );
-                    mMakeDeviceListener.setCntName(
-                            Configs.DEVICES_SUPPORTABLE.CNTNAME_CHOICES.get(i)
+//                    mMakeDeviceListener.setAeName(
+//                            Configs.DEVICES_SUPPORTABLE.AENAME_CHOICES.get(i)
+//                    );
+//                    mMakeDeviceListener.setCntName(
+//                            Configs.DEVICES_SUPPORTABLE.CNTNAME_CHOICES.get(i)
+//                    );
+                    mMakeDeviceListener.setUserId(
+                            JibconLoginManager.getInstance().getUserId()
                     );
                     // TODO: 8/9/17 REPLACE ROOMNAMESTUB
-                    mMakeDeviceListener.setRoomName("거실");
+                    mMakeDeviceListener.setRoomName(JibconHouseManager.getInstance().getmCurrentHouse().houseName);
                     break;
                 }
             }
@@ -155,6 +161,6 @@ public class ProductFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mUnbinder.unbind();
+        //mUnbinder.unbind();
     }
 }

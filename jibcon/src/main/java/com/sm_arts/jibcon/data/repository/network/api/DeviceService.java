@@ -20,8 +20,8 @@ public interface DeviceService {
 
 
 
-    @POST("/api/devices/")
-    Call<DeviceItem> postDevice(@Header("Authorization") String token,
+    @POST("/api/addDevice/")
+    Call<DeviceItem> postDevice(@Header("Authorization") String user_id,
                                @Body DeviceItem deviceItem);
 
     @POST("/api/getDevices/")

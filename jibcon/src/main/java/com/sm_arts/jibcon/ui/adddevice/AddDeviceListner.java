@@ -2,7 +2,7 @@ package com.sm_arts.jibcon.ui.adddevice;
 
 import android.support.v4.app.Fragment;
 
-import java.util.HashMap;
+import com.google.gson.internal.LinkedTreeMap;
 
 
 /**
@@ -15,10 +15,12 @@ public interface AddDeviceListner {
     void setRoomName(String roomName);
     void setAeName(String aeName);
     void setCntName(String setCntName);
-    void setData(HashMap<String,Object> data);
+    void setData(LinkedTreeMap<String,Object> data);
 
     void nextPage(Fragment fragment);
 
     void setDeviceType(String type);
+
+    void setUserId(String userId);
 }
 
