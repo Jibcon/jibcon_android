@@ -124,7 +124,18 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
                 (v, position) -> {
                     Log.d(TAG, "onItemClick: position=[" + position + "]");
                     mPresenter.threedotIvClicked(position);
+                },
+                (v, position) -> {
+                    Log.d(TAG, "initializeRecyclerView() called");
+                    DeviceItem item = mAdapter.getItemWithPosition(position);
+                    mPresenter.offButtonClicked(item);
+                },
+                (v, position) -> {
+                    Log.d(TAG, "initializeRecyclerView() called");
+                    DeviceItem item = mAdapter.getItemWithPosition(position);
+                    mPresenter.onButtonClicked(item);
                 }
+
         );
 
 

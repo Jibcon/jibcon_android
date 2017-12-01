@@ -6,12 +6,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.daimajia.swipe.SwipeLayout;
+import android.widget.ImageView;
 
+import com.daimajia.swipe.SwipeLayout;
+import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.viewholder.DeviceMenuViewHolder;
 import com.sm_arts.jibcon.utils.helper.CustomItemClickListener;
-import com.sm_arts.jibcon.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,9 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
     private CustomItemClickListener mSubscribeIvClickedListener;
     private CustomItemClickListener mThreedotIvClickedListener;
 
+    private CustomItemClickListener mOffButtonClickedListener;
+    private CustomItemClickListener mOnButtonClickedListener;
+
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
 
@@ -36,12 +40,16 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
     public DeviceMenuAdapter(List<DeviceItem> deviceItems,
                              CustomItemClickListener deviceItemIvClickedListener,
                              CustomItemClickListener subscribeIvClickedListener,
-                             CustomItemClickListener threedotIvClicked) {
+                             CustomItemClickListener threedotIvClicked,
+                             CustomItemClickListener offButtonClickedListner,
+                             CustomItemClickListener onButtonClickedListner) {
 //        Log.d(TAG, "DeviceMenuAdapter: ");
         this.mDeviceItems = deviceItems;
         this.mDeviceItemIvClickedListener = deviceItemIvClickedListener;
         this.mSubscribeIvClickedListener = subscribeIvClickedListener;
         this.mThreedotIvClickedListener = threedotIvClicked;
+        this.mOffButtonClickedListener = offButtonClickedListner;
+        this.mOnButtonClickedListener = onButtonClickedListner;
     }
 
     public void setDeviceItems(List<DeviceItem> mDeviceItems) {
@@ -59,13 +67,20 @@ public class DeviceMenuAdapter extends RecyclerView.Adapter<DeviceMenuViewHolder
 
         SwipeLayout item = (SwipeLayout) deviceMenuView.findViewById(R.id.swipe_item);
         item.setShowMode(SwipeLayout.ShowMode.PullOut);
-        item.addDrag(SwipeLayout.DragEdge.Left, item.findViewById(R.id.bottom_wrapper));
-        item.addDrag(SwipeLayout.DragEdge.Right, item.findViewById(R.id.bottom_wrapper_2));
+        item.addDrag(SwipeLayout.DragEdge.Left, item.findViewById(R.id.linear_devicemenu_off));
+        item.addDrag(SwipeLayout.DragEdge.Right, item.findViewById(R.id.linear_devicemenu_on));
+
+
+        ImageView imageViewOff = (ImageView) deviceMenuView.findViewById(R.id.imgview_devicemenu_off);
+        ImageView imageViewOn = (ImageView) deviceMenuView.findViewById(R.id.imgview_devicemenu_on);
+
         final DeviceMenuViewHolder deviceMenuViewHolder =
                 new DeviceMenuViewHolder(deviceMenuView,
                         mDeviceItemIvClickedListener,
                         mSubscribeIvClickedListener,
-                        mThreedotIvClickedListener);
+                        mThreedotIvClickedListener,
+                        mOffButtonClickedListener,
+                        mOnButtonClickedListener);
 
         return deviceMenuViewHolder;
     }

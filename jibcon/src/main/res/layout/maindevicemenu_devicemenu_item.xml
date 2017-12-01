@@ -12,13 +12,13 @@
     android:id="@+id/swipe_item">
 
     <LinearLayout
-        android:id="@+id/bottom_wrapper"
+        android:id="@+id/linear_devicemenu_off"
         android:layout_width="61dp"
         android:layout_height="71dp"
         android:tag="Bottom1">
 
         <ImageView
-            android:id="@+id/img_budget"
+            android:id="@+id/imgview_devicemenu_off"
             android:layout_width="61dp"
             android:layout_height="71dp"
             android:src="@drawable/add_devicelist_off" />
@@ -26,13 +26,13 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/bottom_wrapper_2"
+        android:id="@+id/linear_devicemenu_on"
         android:layout_width="61dp"
         android:layout_height="71dp"
         android:tag="Bottom4">
 
         <ImageView
-            android:id="@+id/edit"
+            android:id="@+id/imgview_devicemenu_on"
             android:layout_width="61dp"
             android:layout_height="71dp"
             android:src="@drawable/add_devicelist_on" />

@@ -26,6 +26,7 @@ import com.sm_arts.jibcon.ui.adddevice.AddDeviceListner;
 import com.sm_arts.jibcon.ui.adddevice.ConvertUtils;
 import com.sm_arts.jibcon.ui.adddevice.Hub;
 import com.sm_arts.jibcon.ui.adddevice.HueBulb;
+import com.sm_arts.jibcon.ui.adddevice.HueControlManager;
 import com.sm_arts.jibcon.ui.adddevice.Hue_Internal;
 import com.sm_arts.jibcon.ui.adddevice.InternalAddressService;
 import com.sm_arts.jibcon.ui.additional.dialogs.HueRegisterDialog;
@@ -53,9 +54,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AddPhilipsHueFragment extends Fragment implements HueDialogListner{
     private AddDeviceListner mMakeDeviceListener;
     private Unbinder mUnbinder;
-    private static HashMap<String, HueBulb> bulbMap;
-    public String internalAddress = "http://";
-    public String internalUsername;
+    private static HashMap<String, LinkedTreeMap<String,Object>> bulbMap;
+
     private static final String TAG = "AddPhilipsHueFragment";
     private Button mButtonNext;
     private ListView mListView;
@@ -94,10 +94,11 @@ public class AddPhilipsHueFragment extends Fragment implements HueDialogListner{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 view.setBackgroundColor(getResources().getColor(R.color.deep_blue));
                 String hueName = mLightNames.get(position);
-                HueBulb hueBulb = bulbMap.get(hueName);
+                LinkedTreeMap<String,Object> data = bulbMap.get(hueName);
+
                 mMakeDeviceListener.setUserId(JibconLoginManager.getInstance().getUserId());
-                mMakeDeviceListener.setDeviceName(hueBulb.name);
-                mMakeDeviceListener.setData(hueBulb.state);
+                mMakeDeviceListener.setDeviceName(hueName);
+                mMakeDeviceListener.setData(data);
                 mMakeDeviceListener.setDeviceCom("Philips");
             }
         });
@@ -139,7 +140,8 @@ public class AddPhilipsHueFragment extends Fragment implements HueDialogListner{
                 }
                 Log.d(TAG, "onResponse: " + response.body().get(0).internalipaddress);
                 UrlUtils.setUrls("internalAddress", response.body().get(0).internalipaddress);
-                internalAddress +=response.body().get(0).internalipaddress;
+                HueControlManager.internalAddress = "http://";
+                HueControlManager.internalAddress +=response.body().get(0).internalipaddress;
 
                 getInternalUsername();
 
@@ -157,7 +159,7 @@ public class AddPhilipsHueFragment extends Fragment implements HueDialogListner{
 
     public void getInternalUsername() {
         Retrofit client = new Retrofit.Builder()
-                .baseUrl(internalAddress)
+                .baseUrl(HueControlManager.internalAddress)
 
                 // mentoring
                 .addConverterFactory(GsonConverterFactory.create(GsonUtils.getGson()))
@@ -183,7 +185,8 @@ public class AddPhilipsHueFragment extends Fragment implements HueDialogListner{
 
                 } else {
                     Log.d(TAG, "onResponse: " + response.body().get(0).success.username);
-                    internalUsername = response.body().get(0).success.username;
+                    HueControlManager.internalUsername ="";
+                    HueControlManager.internalUsername = response.body().get(0).success.username;
 
                     Toast.makeText(GlobalApplication.getGlobalApplicationContext(), "Success" + response.body().get(0).success.username, Toast.LENGTH_SHORT).show();
                     getLights();
@@ -203,11 +206,11 @@ public class AddPhilipsHueFragment extends Fragment implements HueDialogListner{
 
     public void getLights() {
         Retrofit client = new Retrofit.Builder()
-                .baseUrl(internalAddress)
+                .baseUrl(HueControlManager.internalAddress)
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .build();
         Hue_Internal service = client.create(Hue_Internal.class);
-        Call<HashMap<String, Object>> c = service.getLights(internalUsername);
+        Call<HashMap<String, Object>> c = service.getLights(HueControlManager.internalUsername);
         c.enqueue(new Callback<HashMap<String, Object>>() {
             @Override
             public void onResponse(Call<HashMap<String, Object>> call, Response<HashMap<String, Object>> response) {
@@ -219,7 +222,12 @@ public class AddPhilipsHueFragment extends Fragment implements HueDialogListner{
                     Log.d(TAG, "onResponse: item=" + item.toString());
                     HueBulb hueBulb = ConvertUtils.convertHueBulb((LinkedTreeMap<String, Object>) item);
                     hueBulb.ID = key;
-                    bulbMap.put(hueBulb.name, hueBulb);
+                    ((LinkedTreeMap<String, Object>) item).put("internalAddress",HueControlManager.internalAddress);
+                    ((LinkedTreeMap<String, Object>) item).put("internalUsername",HueControlManager.internalUsername);
+                    LinkedTreeMap<String,Object> data = new LinkedTreeMap<String, Object>();
+
+                    data.put(key,item);
+                    bulbMap.put(hueBulb.name, data);
                     mLightNames.add(hueBulb.name);
                 }
                 mAdapter.notifyDataSetChanged();

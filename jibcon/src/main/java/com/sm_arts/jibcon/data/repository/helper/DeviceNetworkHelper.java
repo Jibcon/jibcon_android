@@ -99,7 +99,7 @@ public class DeviceNetworkHelper {
 
     public void postDevice(DeviceItem deviceItem, final Consumer<DeviceItem> finished) {
         Call<DeviceItem> call = service.postDevice(
-                JibconLoginManager.getInstance().getUserId(),
+                JibconHouseManager.getInstance().getmCurrentHouse().house_id,
                 deviceItem
         );
 

@@ -19,6 +19,7 @@ import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class AddDeviceActivity extends BaseActivity implements AddDeviceListner {
@@ -50,7 +51,7 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
 
     private void goPage(int i) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frame_adddevice, mFragments.get(i),mFragments.getClass().getName()).commit();
+                .replace(R.id.frame_adddevice, mFragments.get(i), mFragments.getClass().getName()).commit();
     }
 
     @Override

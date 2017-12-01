@@ -36,13 +36,21 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.iv_devicemenuviewholder_onoff)
     ImageView mIvDeviceOnOff;
 
+    @BindView(R.id.imgview_devicemenu_off)
+    ImageView mButtonOff;
+    @BindView(R.id.imgview_devicemenu_on)
+    ImageView mButtonOn;
+
+
     private final View mMotherView;
     private CardView mCardView;
 
     public DeviceMenuViewHolder(View itemView,
                                 CustomItemClickListener deviceItemIvClickedListener,
                                 CustomItemClickListener subscribeIvClickedListener,
-                                CustomItemClickListener threedotIvClickedListener) {
+                                CustomItemClickListener threedotIvClickedListener,
+                                CustomItemClickListener offButtonClickedListner,
+                                CustomItemClickListener onButtonClickedListner) {
         super(itemView);
 
         ButterKnife.bind(this, itemView);
@@ -66,6 +74,14 @@ public class DeviceMenuViewHolder extends RecyclerView.ViewHolder {
                         deviceItemIvClickedListener.onItemClick(v,
                                 getAdapterPosition())
         );
+
+        mButtonOff.setOnClickListener(v -> {
+            offButtonClickedListner.onItemClick(v, getAdapterPosition());
+        });
+        mButtonOn.setOnClickListener(v -> {
+            onButtonClickedListner.onItemClick(v, getAdapterPosition());
+        });
+
     }
 
     public void configureWith(DeviceItem deviceItem) {

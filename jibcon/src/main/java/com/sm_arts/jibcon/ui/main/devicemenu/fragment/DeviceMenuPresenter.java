@@ -6,6 +6,7 @@ import com.sm_arts.jibcon.data.models.api.dto.DeviceItem;
 import com.sm_arts.jibcon.data.models.mobius.MqttSurCon;
 import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.services.actuator.ActuatorManager;
+import com.sm_arts.jibcon.ui.adddevice.HueControlManager;
 import com.sm_arts.jibcon.ui.main.devicemenu.adapter.DeviceMenuAdapter;
 import com.sm_arts.jibcon.utils.mobius.MobiusManager;
 import com.sm_arts.jibcon.utils.mqtt.MqttManager;
@@ -117,7 +118,7 @@ class DeviceMenuPresenter {
 //                    () -> setItemdeviceSubscriptionState(item, false));
         } else {
             MobiusManager.getInstance().addSubscription(item);
-            setItemdeviceSubscriptionState(item,true);
+            setItemdeviceSubscriptionState(item, true);
 
 //            MqttManager.getInstance().addSubscriptionSur(item,
 //                    () -> setItemdeviceSubscriptionState(item, true));
@@ -131,6 +132,22 @@ class DeviceMenuPresenter {
 
     private void updateItem(DeviceItem item) {
         DeviceNetworkHelper.getInstance().putDevice(item, deviceItem -> mView.updateDevicesOnOffState());
+    }
+
+    public void offButtonClicked(DeviceItem item) {
+        Log.d(TAG, "offButtonClicked() called with: item = [" + item.toString() + "]");
+
+        HueControlManager.changeBulbState(item.getData(), false);
+        item.setDeviceOnOffState(false);
+        updateItem(item);
+    }
+
+    public void onButtonClicked(DeviceItem item) {
+        Log.d(TAG, "onButtonClicked() called with: item = [" + item.toString() + "]");
+
+        HueControlManager.changeBulbState(item.getData(), true);
+        item.setDeviceOnOffState(true);
+        updateItem(item);
     }
 
     //endregion
