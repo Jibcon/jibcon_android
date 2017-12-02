@@ -454,8 +454,9 @@ public class JibconLoginManager {
                     }
                 } else {
                     Intent intent = new Intent(GlobalApplication.getGlobalApplicationContext(),MakeconStartActivity.class);
-
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     GlobalApplication.getGlobalApplicationContext().startActivity(intent);
+
                 }
 
                 Log.d(TAG, "onResponse: ");

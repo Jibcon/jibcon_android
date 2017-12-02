@@ -77,16 +77,17 @@ public class IntroActivity extends BaseActivity {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
                             if (response.isSuccessful()) {
-                                JibconLoginManager.getInstance().setUserOnSuccess(response.body());
-                                JibconLoginManager.getInstance().getCurrentHouse(() -> gotoMainActivity());
                                 Log.d(TAG, "onResponse: " + "Success");
 
                                 SharedPreferenceHelper.saveSharedPreference("pref", "LOGINTYPE", "FACEBOOK");
-                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                // prepare deviceItems
-                                startActivity(intent);
+                                JibconLoginManager.getInstance().setUserOnSuccess(response.body());
+                                JibconLoginManager.getInstance().getCurrentHouse(() -> gotoMainActivity());
 
-                                finish();
+//                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                                // prepare deviceItems
+//                                startActivity(intent);
+//
+//                                finish();
                             } else {
 
                             }
