@@ -25,7 +25,8 @@ public class KaKaoSDKAdpater extends KakaoAdapter {
             @Override
             public AuthType[] getAuthTypes() {
                 return new AuthType[] {
-                        AuthType.KAKAO_LOGIN_ALL
+                        //AuthType.KAKAO_LOGIN_ALL
+                        AuthType.KAKAO_ACCOUNT
                 };
             }
             // 로그인시 인증받을 타입을 지정한다. 지정하지 않을 시 가능한 모든 옵션이 지정된다.

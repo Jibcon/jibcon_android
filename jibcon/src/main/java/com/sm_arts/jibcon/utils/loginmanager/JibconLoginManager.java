@@ -138,7 +138,10 @@ public class JibconLoginManager {
 
     public String getUserName() {
         if (mUser != null) {
-            return mUser.getLast_name() + mUser.getFirst_name();
+            if (TextUtils.isEmpty(mUser.getLast_name()))
+                return mUser.getUserinfo().getFull_name();
+            else
+                return mUser.getLast_name() + mUser.getFirst_name();
         } else {
             return null;
         }
@@ -366,11 +369,7 @@ public class JibconLoginManager {
                 SharedPreferenceHelper.saveSharedPreference(PREF_NAME, PREF_LOGINTYPE, PREF_TYPE_KAKAO);
                 updateFcmToken();
                 getCurrentHouse(action);
-                try {
-                    action.run();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+
             }
 
             @Override
@@ -445,15 +444,13 @@ public class JibconLoginManager {
                 if (response.isSuccessful()) {
                     result = response.body();
                     JibconHouseManager.getInstance().setmCurrentHouse(result);
-                    try{
+                    try {
                         action.run();
-                    }
-                    catch (Exception e)
-                    {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 } else {
-                    Intent intent = new Intent(GlobalApplication.getGlobalApplicationContext(),MakeconStartActivity.class);
+                    Intent intent = new Intent(GlobalApplication.getGlobalApplicationContext(), MakeconStartActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     GlobalApplication.getGlobalApplicationContext().startActivity(intent);
 

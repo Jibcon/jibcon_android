@@ -1,7 +1,10 @@
 <resources>
 
     <string name="app_name">jibcon</string>
-    <string name="kakao_app_key"> b7098b8b9fbec51fc6116d5c51946e5e</string>
+    <string name="kakao_app_key">b7098b8b9fbec51fc6116d5c51946e5e</string>
+    <string name="kakao_scheme">kakaob7098b8b9fbec51fc6116d5c51946e5e</string>
+    <string name="kakaolink_host">kakaolink</string>
+    
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="facebook_app_id">440498979632151</string>

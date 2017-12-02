@@ -101,7 +101,7 @@ public class LoginActivity extends BaseActivity {
 
         mKakaoCallback = new SessionCallback();                  // 이 두개의 함수 중요함
         Session.getCurrentSession().addCallback(mKakaoCallback);
-
+        Session.getCurrentSession().checkAndImplicitOpen();
 
     }
 
@@ -147,16 +147,16 @@ public class LoginActivity extends BaseActivity {
     private class SessionCallback implements ISessionCallback {
         @Override
         public void onSessionOpened() {
-            Log.d("testing","LoginActivity_onSessionOpened()");
+            Log.d(TAG,"LoginActivity_onSessionOpened()");
 
             redirectSignupActivity();  // 세션 연결성공 시 redirectSignupActivity() 호출
         }
 
         @Override
         public void onSessionOpenFailed(KakaoException exception) {
-            Log.d("testing","LoginActivity_onSessionOpenFailed"+exception);
+            Log.d(TAG,"LoginActivity_onSessionOpenFailed"+exception);
             exception.printStackTrace();
-            Log.d("testing","LoginActivity_onSessionOpenFailed()");
+            Log.d(TAG,"LoginActivity_onSessionOpenFailed()");
             if(exception != null) {
                 Logger.e(exception);
             }
