@@ -21,14 +21,16 @@ import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.sm_arts.jibcon.GlobalApplication;
+import com.sm_arts.jibcon.data.models.api.dto.HouseInfo;
 import com.sm_arts.jibcon.data.models.api.dto.User;
 import com.sm_arts.jibcon.data.models.api.dto.UserInfo;
-import com.sm_arts.jibcon.data.repository.helper.HouseNetworkManager;
 import com.sm_arts.jibcon.data.repository.helper.network.UserNetworkImpl;
+import com.sm_arts.jibcon.data.repository.network.api.HouseService;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
 import com.sm_arts.jibcon.ui.splash.makecon.MakeconStartActivity;
 import com.sm_arts.jibcon.ui.splash.tutorial.IntroActivity;
 import com.sm_arts.jibcon.utils.helper.SharedPreferenceHelper;
+import com.sm_arts.jibcon.utils.housemanager.JibconHouseManager;
 import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
 import org.json.JSONObject;
@@ -69,8 +71,14 @@ public class JibconLoginManager {
         }
         return mInstance;
     }
-    public String getCurrentHouseId(){return mUser.getCurrentHouseId();}
-    public void setCurrentHouseIdOnSucess(String currentHouseId){mUser.setCurrentHouseId(currentHouseId);}
+
+    public String getCurrentHouseId() {
+        return mUser.getCurrentHouseId();
+    }
+
+    public void setCurrentHouseIdOnSucess(String currentHouseId) {
+        mUser.setCurrentHouseId(currentHouseId);
+    }
 
 
     public User getCurrentUser() {
@@ -100,13 +108,13 @@ public class JibconLoginManager {
         mAftersigninActions.clear();
     }
 
-    public String getUserId()
-    {
-        if(mUser!=null)
+    public String getUserId() {
+        if (mUser != null)
             return mUser.getUser_id();
         else
             return null;
     }
+
     public String getUserTokenAsHeader() {
         return "Token " + getUserToken();
     }
@@ -202,6 +210,7 @@ public class JibconLoginManager {
         FacebookCallback<LoginResult> mFacebookCallback = new FacebookCallback<LoginResult>() {
             String userEmail;
             String name;
+
             @Override
             public void onSuccess(LoginResult loginResult) {
                 //유저 정보 받아오기
@@ -242,12 +251,8 @@ public class JibconLoginManager {
                                         .setUserOnSuccess(response.body());
                                 Log.d(TAG, "onResponse: " + "success");
                                 updateFcmToken();
-                                getCurrentHouse();
-                                try {
-                                    action.run();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
+                                getCurrentHouse(action);
+
                             } else {
                                 Log.w(TAG, "makeFacebookLoginManager/onResponse: failed to signin with usreinfo");
                             }
@@ -281,7 +286,7 @@ public class JibconLoginManager {
     public void updateFcmToken() {
 
         String fcm_token = FirebaseInstanceId.getInstance().getToken();
-        if(fcm_token == null)
+        if (fcm_token == null)
             return;
 
         Log.d(TAG, "onCreate: FirebaseToken : " + fcm_token);
@@ -298,13 +303,13 @@ public class JibconLoginManager {
             public void onResponse(Call<User> call, Response<User> response) {
                 JibconLoginManager.getInstance().setUserOnSuccess(response.body());
 
-                Log.d(TAG, "onResponse: "+"fcm 등록 성공");
+                Log.d(TAG, "onResponse: " + "fcm 등록 성공");
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 t.printStackTrace();
-                Log.d(TAG, "onResponse: "+"fcm 등록 실패");
+                Log.d(TAG, "onResponse: " + "fcm 등록 실패");
             }
         });
     }
@@ -360,7 +365,7 @@ public class JibconLoginManager {
                 JibconLoginManager.getInstance().setUserOnSuccess(response.body());
                 SharedPreferenceHelper.saveSharedPreference(PREF_NAME, PREF_LOGINTYPE, PREF_TYPE_KAKAO);
                 updateFcmToken();
-                getCurrentHouse();
+                getCurrentHouse(action);
                 try {
                     action.run();
                 } catch (Exception e) {
@@ -429,7 +434,40 @@ public class JibconLoginManager {
     public String getUserFcmToken() {
         return mUser.getFcm_token();
     }
-    public void getCurrentHouse(){
-        HouseNetworkManager.getInstance().getCurrentHouse();
+
+    public void getCurrentHouse(Action action) {
+        HouseService service = RetrofitClients.getInstance().getService(HouseService.class);
+        Call<HouseInfo> c = service.getCurrentHouse(JibconLoginManager.getInstance().getCurrentHouseId());
+        c.enqueue(new Callback<HouseInfo>() {
+            @Override
+            public void onResponse(Call<HouseInfo> call, Response<HouseInfo> response) {
+                HouseInfo result = null;
+                if (response.isSuccessful()) {
+                    result = response.body();
+                    JibconHouseManager.getInstance().setmCurrentHouse(result);
+                    try{
+                        action.run();
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Intent intent = new Intent(GlobalApplication.getGlobalApplicationContext(),MakeconStartActivity.class);
+
+                    GlobalApplication.getGlobalApplicationContext().startActivity(intent);
+                }
+
+                Log.d(TAG, "onResponse: ");
+            }
+
+            @Override
+            public void onFailure(Call<HouseInfo> call, Throwable t) {
+                t.printStackTrace();
+                Log.d(TAG, "onFailure: ");
+            }
+        });
+
     }
+
 }

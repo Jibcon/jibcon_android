@@ -25,7 +25,7 @@ public class ConshopFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.mainconshop_conshop_fragment, container, false);
-        String url = "http://smarts.asuscomm.com/";
+        String url = "http://smarts.asuscomm.com/wordpress/";
         ButterKnife.bind(this, view);
         mWebView.loadUrl(url);
         mWebView.setWebViewClient(new WebViewClient());

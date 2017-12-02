@@ -39,7 +39,14 @@ public class IntroActivity extends BaseActivity {
     private final String TAG = "jibcon/" + getClass().getSimpleName();
     private Handler mHandler;
     GlobalApplication mApplication;
-    private CallbackManager mCallbackManager= null;
+    private CallbackManager mCallbackManager = null;
+
+
+    private void gotoMainActivity() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
     Runnable mRunnable = new Runnable() {
         @Override
@@ -49,7 +56,7 @@ public class IntroActivity extends BaseActivity {
             mCallbackManager = CallbackManager.Factory.create();
             final AccessToken accesstoken = AccessToken.getCurrentAccessToken();
 
-            if(accesstoken != null && accesstoken.isExpired()) { //accesstoken만료기간 60일
+            if (accesstoken != null && accesstoken.isExpired()) { //accesstoken만료기간 60일
                 //만료되면 로그인창으로
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
@@ -57,7 +64,7 @@ public class IntroActivity extends BaseActivity {
             }
 
             //기존에 로그인된 상태 체크하기
-            if(accesstoken != null) {
+            if (accesstoken != null) {
                 //intro->login success->main
                 accesstoken.getToken();
 
@@ -71,10 +78,10 @@ public class IntroActivity extends BaseActivity {
                         public void onResponse(Call<User> call, Response<User> response) {
                             if (response.isSuccessful()) {
                                 JibconLoginManager.getInstance().setUserOnSuccess(response.body());
-                                JibconLoginManager.getInstance().getCurrentHouse();
-                                Log.d(TAG, "onResponse: "+"Success");
+                                JibconLoginManager.getInstance().getCurrentHouse(() -> gotoMainActivity());
+                                Log.d(TAG, "onResponse: " + "Success");
 
-                                SharedPreferenceHelper.saveSharedPreference("pref","LOGINTYPE","FACEBOOK");
+                                SharedPreferenceHelper.saveSharedPreference("pref", "LOGINTYPE", "FACEBOOK");
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 // prepare deviceItems
                                 startActivity(intent);
@@ -85,6 +92,7 @@ public class IntroActivity extends BaseActivity {
                             }
                         }
 
+
                         @Override
                         public void onFailure(Call<User> call, Throwable t) {
 
@@ -93,8 +101,7 @@ public class IntroActivity extends BaseActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
-            else {//intro->login success->tutorial
+            } else {//intro->login success->tutorial
                 Intent intent = new Intent(getApplicationContext(), TutorialMainActivity.class);
                 startActivity(intent);
                 finish();
@@ -118,8 +125,8 @@ public class IntroActivity extends BaseActivity {
         checkUserLogin();
 
     }
-    private  void checkUserLogin()
-    {
+
+    private void checkUserLogin() {
         String currentToken;
         //getShared
         //이미 로그인된 유저먼 MainActivity로 redirect!
@@ -136,7 +143,7 @@ public class IntroActivity extends BaseActivity {
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d("LoginTest","onActivityResult");
+        Log.d("LoginTest", "onActivityResult");
 
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
@@ -145,7 +152,7 @@ public class IntroActivity extends BaseActivity {
     private void hideActionBar() {
         ActionBar actionBar = getSupportActionBar();
 
-        if(actionBar != null){
+        if (actionBar != null) {
             actionBar.hide();
         }
     }
@@ -169,9 +176,9 @@ public class IntroActivity extends BaseActivity {
             try {
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
-                String hashKey= android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
+                String hashKey = android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
                 //카카오톡 안드로이드 플랫폼 키해시에 들어갈 키 정보 알아내기
-                Log.d("testing",hashKey);
+                Log.d("testing", hashKey);
 
                 return android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
             } catch (NoSuchAlgorithmException e) {
@@ -181,9 +188,9 @@ public class IntroActivity extends BaseActivity {
         return null;
     }
 
-    private  void itemSetup() {
+    private void itemSetup() {
         //Global Application 에 담을 정보 초기 setup;
-        mApplication = (GlobalApplication)getApplicationContext();
+        mApplication = (GlobalApplication) getApplicationContext();
     }
 
 }

@@ -215,8 +215,9 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     public void setWeatherInfo(DeviceMenuWeatherData deviceMenuWeatherData) {
         Log.d(TAG, "setWeatherInfo() called with: deviceMenuWeatherData = [" + deviceMenuWeatherData + "]");
         mTextViewSky.setText(deviceMenuWeatherData.sky+" | 현재 온도는 "+ deviceMenuWeatherData.temperature+" 도입니다");
-        mTextViewWeatherRecommend.setText(JibconLoginManager.getInstance().getUserName() + "님 환영합니다"
-                                        +" "+ JibconHouseManager.getInstance().getmCurrentHouse().houseName);
+        mTextViewWeatherRecommend.setText(JibconLoginManager.getInstance().getUserName() + "님 환영합니다");
+        if(JibconHouseManager.getInstance().getmCurrentHouse()!=null)
+            mTextViewWeatherRecommend.setText(mTextViewWeatherRecommend.getText().toString()+" "+JibconHouseManager.getInstance().getmCurrentHouse().houseName);
         mTextViewLocation.setText(deviceMenuWeatherData.location);
     }
 
