@@ -84,7 +84,7 @@ public class LoginActivity extends BaseActivity {
         mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
         mOAuthLoginButton.setOnClickListener(
                 v -> {
-                    SharedPreferenceHelper.saveSharedPreference("pref","LOGINTYPE","NAVER");
+                    SharedPreferenceHelper.saveSharedPreference("pref", "LOGINTYPE", "NAVER");
                     GlobalApplication.getNaverOAuthLogin().startOauthLoginActivity(LoginActivity.this, mOAuthLoginHandler);
                 }
         );
@@ -95,9 +95,9 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void kakaoSetup() {
-        if (!Session.getCurrentSession().isClosed()) {
-            redirectSignupActivity();
-        }
+//        if (!Session.getCurrentSession().isClosed()) {
+//            redirectSignupActivity();
+//        }
 
         mKakaoCallback = new SessionCallback();                  // 이 두개의 함수 중요함
         Session.getCurrentSession().addCallback(mKakaoCallback);
@@ -123,7 +123,8 @@ public class LoginActivity extends BaseActivity {
     private void gotoMainActivity() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
-        finish();    }
+        finish();
+    }
 
     private void gotoMakeConStartActivity() {
         Intent intent = new Intent(getApplicationContext(), MakeconStartActivity.class);
@@ -137,6 +138,7 @@ public class LoginActivity extends BaseActivity {
         super.onStop();
         mAccessTokenTracker.stopTracking();
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -147,17 +149,17 @@ public class LoginActivity extends BaseActivity {
     private class SessionCallback implements ISessionCallback {
         @Override
         public void onSessionOpened() {
-            Log.d(TAG,"LoginActivity_onSessionOpened()");
+            Log.d(TAG, "LoginActivity_onSessionOpened()");
 
             redirectSignupActivity();  // 세션 연결성공 시 redirectSignupActivity() 호출
         }
 
         @Override
         public void onSessionOpenFailed(KakaoException exception) {
-            Log.d(TAG,"LoginActivity_onSessionOpenFailed"+exception);
+            Log.d(TAG, "LoginActivity_onSessionOpenFailed" + exception);
             exception.printStackTrace();
-            Log.d(TAG,"LoginActivity_onSessionOpenFailed()");
-            if(exception != null) {
+            Log.d(TAG, "LoginActivity_onSessionOpenFailed()");
+            if (exception != null) {
                 Logger.e(exception);
             }
             setContentView(R.layout.splashlogin_login_activity); // 세션 연결이 실패했을때
@@ -165,7 +167,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     protected void redirectSignupActivity() {       //세션 연결 성공 시 SignupActivity로 넘김
-        Log.d("testing","LoginActivity_redirectSignupActivity()");
+        Log.d("testing", "LoginActivity_redirectSignupActivity()");
 
         final Intent intent = new Intent(this, KakaoSignupActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
