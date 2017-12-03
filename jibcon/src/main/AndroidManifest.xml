@@ -79,6 +79,18 @@
             android:name=".ui.additional.sidebar.UserAuthorityActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
+            android:name=".ui.additional.sidebar.DeleteHomeActivity"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.additional.sidebar.HomeEnvActivity"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.additional.sidebar.HomeSettingActivity"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.additional.sidebar.SetAddressActivity"
+            android:theme="@style/myAppTheme.NoActionBar" />
+        <activity
 
             android:name=".ui.splash.getothercon.GetOtherConActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />

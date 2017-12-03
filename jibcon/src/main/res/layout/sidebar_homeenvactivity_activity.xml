@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF"
     android:orientation="vertical"
@@ -33,13 +33,13 @@
                 android:dividerHeight="1.7dp"
                 android:listSelector="@color/wallet_holo_blue_light"
                 android:orientation="vertical"
-                android:textColor="@color/color_text" />
+                android:textColor="#000000" />
         </LinearLayout>
 
 
 
 
-        </LinearLayout>
+    </LinearLayout>
 
 
 
@@ -52,7 +52,7 @@
         android:layout_height="47dp"
         android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
-        android:text="확  인"
+        android:text="수  정"
         android:textColor="@color/white"
         android:textSize="16dp" />
 

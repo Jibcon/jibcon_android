@@ -25,6 +25,9 @@
 
     <color name="default_text_color">#262626</color>
     <!--좌메뉴 상단 색 #404040 -> style toolbar_common에서 설정-->
+    <color name="default_text_color2">#d1d1d1</color>
+
+
 
     <!--Tutorial Activity-->
     <color name="tutorial_button_background">#2192fc</color>

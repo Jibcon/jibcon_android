@@ -10,8 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +23,7 @@ import com.sm_arts.jibcon.R;
 
 public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
 
-    LinearLayout mLinearLayout;
+    RelativeLayout mLinearLayout;
     Button mNext;
     ImageButton mBefore;
     TextView mBarName;
@@ -45,7 +45,7 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.splashmakecon_makeconhousetype_fragment,container,false);
+        mLinearLayout = (RelativeLayout) inflater.inflate(R.layout.splashmakecon_makeconhousetype_fragment,container,false);
       
         // 공간 리스트
         final String[] list_place = {

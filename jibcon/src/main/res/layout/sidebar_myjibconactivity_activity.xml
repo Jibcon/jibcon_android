@@ -8,23 +8,42 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_setting"
         style="@style/toolbar_common"
-        app:popupTheme="@style/AppTheme.PopupOverlay">
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        android:layout_height="76dp">
 
         <ImageView
             android:id="@+id/imageview_sidebar_myjibcon"
-            android:layout_height="match_parent"
-            android:layout_width="40dp"
-            android:src="@mipmap/arrow_back_white" />
+            android:layout_height="20dp"
+            android:layout_width="20dp"
+
+            android:src="@drawable/sidebar_back" />
 
         <TextView
             style="@style/setting_head"
-            android:text="내 집콘" />
+            android:textSize="17sp"
+            android:textColor="#4a4a4a"
+            android:text="나의 집콘" />
 
     </android.support.v7.widget.Toolbar>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5.2dp"
+        android:background="#f6f6f6"
+        />
+
 
     <ListView
         android:id="@+id/lv_my_jibcon"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="300dp"
+        android:divider="@color/default_text_color2"
+        android:dividerHeight="1.4dp"
+        android:orientation="vertical"
+        android:textSize = "14sp"
+        android:duplicateParentState="true"
+        android:textColor="@color/color_text"
+        android:gravity="center_horizontal"/>
 
 </LinearLayout>

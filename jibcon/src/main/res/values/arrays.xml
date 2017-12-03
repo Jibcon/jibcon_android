@@ -42,11 +42,27 @@
     </string-array>
 
     <string-array name="sidebar_myjibcon_option_array">
-        <item>집소개 수정</item>
-        <item>주거 환경</item>
-        <item>주소 설정</item>
-        <item>새 집콘 만들기</item>
-        <item>집 바꾸기</item>
+        <item> <![CDATA["•"]]> 새 집콘 만들기 </item>
+        <item> <![CDATA["•"]]>  집 이름 설정 변경</item>
+        <item> <![CDATA["•"]]>  주거 환경 변경</item>
+        <item> <![CDATA["•"]]>  주소 설정 변경</item>
+        <item><![CDATA["•"]]>  집 삭제</item>
+    </string-array>
+
+    <string-array name="sidebar_myjibcon_delete_array">
+        <item> 더 이상 스마트홈을 사용하지 않아서 </item>
+        <item> 더 나은 앱을 발견해서</item>
+        <item> 앱이 불편해서 </item>
+        <item> 이사 가서 </item>
+        <item> 기타 (이유를 적어주세요)</item>
+    </string-array>
+
+    <string-array name="sidebar_myjibcon_env_array">
+        <item> 전원 주택 </item>
+        <item> 아파트</item>
+        <item> 오피스텔 </item>
+        <item> 빌라 </item>
+        <item> 기숙사</item>
     </string-array>
 
     <string-array name="sidebar_connecteddevices_array">

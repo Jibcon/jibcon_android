@@ -130,7 +130,7 @@
         android:layout_height="50dp"
         android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
-        android:text="확  인"
+        android:text="수  정"
         android:textColor="@color/white"
         android:textSize="16dp" />
 </RelativeLayout>

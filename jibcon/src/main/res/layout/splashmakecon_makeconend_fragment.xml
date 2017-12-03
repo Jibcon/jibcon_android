@@ -17,8 +17,8 @@
         android:textColor="@color/white"/>
     <ImageView
         android:src="@drawable/makecon_finish"
-        android:layout_width="260dp"
-        android:layout_height="260dp"
+        android:layout_width="156dp"
+        android:layout_height="107dp"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="40dp"
         android:layout_gravity="center"

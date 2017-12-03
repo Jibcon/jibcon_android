@@ -74,13 +74,14 @@
 
             <ImageView
                 android:id="@+id/iv_devicemenuviewholder_option"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="17dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/maindevicemenu_recycleritem_option"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/under_point"
                 card:layout_constraintRight_toRightOf="parent"
-                card:layout_constraintTop_toTopOf="parent" />
+                card:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="279dp" />
 
             <TextView
                 android:id="@+id/tv_devicemenuviewholder_devicename"
@@ -88,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="8dp"
-                android:gravity="center_vertical"
+                android:gravity="center|right"
                 android:text="Air conditioner"
                 android:textSize="12dp"
                 android:textStyle="bold"
@@ -97,10 +98,11 @@
 
             <ImageView
                 android:id="@+id/iv_devicemenuviewholder_subscribe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="13dp"
+                android:layout_marginTop="40dp"
+                android:background="#FFFFFF"
                 android:src="@drawable/maindevicemenu_recycleritem_notificationsnone24dp"
                 card:layout_constraintRight_toRightOf="parent"
                 card:layout_constraintTop_toBottomOf="@+id/iv_devicemenuviewholder_option" />
@@ -119,8 +121,8 @@
                 android:id="@+id/tv_devicemenuviewholder_status"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="-35dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text=""
