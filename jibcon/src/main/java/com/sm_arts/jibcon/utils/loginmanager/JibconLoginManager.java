@@ -352,9 +352,10 @@ public class JibconLoginManager {
         }
 
         Intent intent = new Intent(context.getApplicationContext(), IntroActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
 
-        ((Activity) context).finish();
+        ((Activity)context).finish();
     }
 
     public void loginWithKakao(String accessToken, Action action) {

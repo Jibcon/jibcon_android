@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sm_arts.jibcon.ui.additional.sidebar.housermember.HouseMembersActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_additional_sidebar_housemember"
+        style="@style/toolbar_common"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+
+        <TextView
+            style="@style/setting_head"
+            android:text="집에 등록된 유저 목록" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_below="@id/toolbar_additional_sidebar_housemember"
+        android:id="@+id/swipelayout_housemembers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_additional_sidebar_housemembers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

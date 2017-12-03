@@ -10,8 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +23,7 @@ import com.sm_arts.jibcon.R;
 
 public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
 
-    LinearLayout mLinearLayout;
+    RelativeLayout mRelativelayout;
     Button mNext;
     ImageButton mBefore;
     TextView mBarName;
@@ -45,22 +45,22 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mLinearLayout = (LinearLayout) inflater.inflate(R.layout.splashmakecon_makeconhousetype_fragment,container,false);
+        mRelativelayout = (RelativeLayout) inflater.inflate(R.layout.splashmakecon_makeconhousetype_fragment,container,false);
       
         // 공간 리스트
         final String[] list_place = {
                 "전원 주택", "아파트", "오피스텔", "빌라", "기숙사"
         };
 
-        ListView listView = (ListView) mLinearLayout.findViewById(R.id.list_place);
-        mNext = (Button) mLinearLayout.findViewById(R.id.Btn_makeCon2_1);
+        ListView listView = (ListView) mRelativelayout.findViewById(R.id.list_place);
+        mNext = (Button) mRelativelayout.findViewById(R.id.Btn_makeCon2_1);
         ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
                 getActivity(),
                 android.R.layout.simple_list_item_1,
                 list_place
         );
 
-        mBarName = (TextView) mLinearLayout.findViewById(R.id.bar_name);
+        mBarName = (TextView) mRelativelayout.findViewById(R.id.bar_name);
 
         listView.setAdapter(listViewAdapter);
 
@@ -110,6 +110,6 @@ public class MakeconHousetypeFragment extends android.support.v4.app.Fragment {
 
         mBarName.setText("집 유형"); // sorry for hard-coding
 
-        return mLinearLayout;
+        return mRelativelayout;
     }
 }

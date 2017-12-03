@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
      android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -24,37 +24,42 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="198dp"
-                android:layout_height="162dp"
-                android:src="@drawable/blank"/>
 
             <ListView
                 android:id="@+id/list_place"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="220dp"
                 android:layout_gravity="start"
                 android:orientation="vertical"
                 android:divider="@color/default_text_color"
                 android:dividerHeight="0.25dp"/>
         </LinearLayout>
 
+        <TextView
+            android:textSize="16sp"
+            android:text="집 유형을 선택해 주세요"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <LinearLayout
             android:layout_weight="3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-            <Button
-                android:id="@+id/Btn_makeCon2_1"
-                android:layout_width="240dp"
-                android:layout_height="40dp"
-                android:background="@color/colorPrimary"
-                android:text="다음"
-                android:textColor="@color/white"
-                android:textSize="16dp"/>
+
         </LinearLayout>
 
     </LinearLayout>
 
+    <Button
 
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:id="@+id/Btn_makeCon2_1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/deep_blue"
+        android:text="다음"
+        android:textColor="@color/white"
+        android:textSize="16dp"/>
+</RelativeLayout>

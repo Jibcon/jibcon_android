@@ -34,7 +34,7 @@
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:layout_gravity="center"
-            android:src="@drawable/blank"
+            android:src="@drawable/jibcon_logo"
             android:layout_width="280dp"
             android:layout_height="280dp"
             android:scaleType="centerInside"
@@ -71,27 +71,6 @@
             android:textSize="16dp"
             android:textColor="@color/default_text_color"/>
 
-        <Button
-            android:id="@+id/Btn_getOtherCon"
-            android:layout_width="260dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:background="@color/colorAccent"
-            android:text="다른 집콘 초대받기"
-            android:textSize="16dp"
-            android:textColor="@color/white"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:gravity="center"
-            android:text="가족들이 사용하는 집콘을 같이 쓸 수 있어요"
-            android:textSize="16dp"
-            android:textColor="@color/default_text_color" />
 
     </LinearLayout>
 

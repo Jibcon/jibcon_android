@@ -5,7 +5,6 @@
 
     <uses-sdk tools:overrideLibrary="org.lucasr.twowayview, org.lucasr.twowayview.widget, jp.wasabeef.recyclerview" />
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -73,12 +72,22 @@
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
             android:name=".ui.additional.sidebar.MyJibconActivity"
-            android:theme="@style/myAppTheme.NoActionBar" />
+            android:theme="@style/myAppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="@string/kakaolink_host"
+                    android:scheme="@string/kakao_scheme" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.additional.sidebar.UserAuthorityActivity"
             android:theme="@style/myAppTheme.NoActionBar" />
         <activity
-
             android:name=".ui.splash.getothercon.GetOtherConActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />
         <activity
@@ -154,6 +163,8 @@
         <activity
             android:name=".ui.main.cheatkey.passive.addpassive.action.SelectActionWeatherActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />
+        <activity android:name=".ui.additional.sidebar.housermember.HouseMembersActivity"
+            android:theme="@style/myAppTheme.MainNoActionBar"></activity>
     </application>
 
 </manifest>

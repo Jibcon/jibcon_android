@@ -11,7 +11,6 @@ import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCntService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusSubService;
 import com.sm_arts.jibcon.ui.adddevice.Hue_Internal;
-import com.sm_arts.jibcon.ui.adddevice.Hue_Server;
 import com.sm_arts.jibcon.ui.adddevice.InternalAddressService;
 
 import java.util.HashMap;
@@ -39,9 +38,7 @@ public class UrlUtils {
 
         String InternalServices = "https://www.meethue.com";
 
-        String ServerServices = "http://52.79.180.194:5050";
 
-        urls.put(Hue_Server.class.getName(), ServerServices);
         urls.put(InternalAddressService.class.getName(), InternalServices);
         urls.put(Hue_Internal.class.getName(),InternalServices);
         urls.put(UserService.class.getName(), nodeApiUrl);

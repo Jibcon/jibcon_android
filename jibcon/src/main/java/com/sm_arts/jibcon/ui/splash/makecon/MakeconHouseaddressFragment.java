@@ -151,7 +151,12 @@ public class MakeconHouseaddressFragment extends android.support.v4.app.Fragment
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mGoogleMap = googleMap;
-
+        LatLng currentLocation = new LatLng(37.56, 126.97);
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(currentLocation);
+        mGoogleMap.addMarker(markerOptions);
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
+        mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(13));
     }
 
     @Override

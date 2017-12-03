@@ -28,16 +28,15 @@ import com.getkeepsafe.taptargetview.TapTargetSequence;
 import com.sm_arts.jibcon.GlobalApplication;
 import com.sm_arts.jibcon.R;
 import com.sm_arts.jibcon.ui.BaseActivity;
-import com.sm_arts.jibcon.ui.additional.dialogs.SidebarDialog;
 import com.sm_arts.jibcon.ui.additional.sidebar.AboutJibconActivity;
 import com.sm_arts.jibcon.ui.additional.sidebar.ConnectedDevicesActivity;
 import com.sm_arts.jibcon.ui.additional.sidebar.MyJibconActivity;
-import com.sm_arts.jibcon.ui.additional.sidebar.UserAuthorityActivity;
 import com.sm_arts.jibcon.ui.additional.sidebar.WidgetActivity;
 import com.sm_arts.jibcon.ui.main.cheatkey.CheatkeyMenuFragment;
 import com.sm_arts.jibcon.ui.main.conshop.ConshopFragment;
 import com.sm_arts.jibcon.ui.main.datacontrol.DataControlFragment;
 import com.sm_arts.jibcon.ui.main.devicemenu.fragment.DeviceMenuFragment;
+import com.sm_arts.jibcon.utils.housemanager.JibconHouseManager;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 
 import butterknife.BindView;
@@ -63,7 +62,6 @@ public class MainActivity extends BaseActivity
 
 
     @BindView(R.id.Sidebar_myjibcon) TextView Sidebar_myjibcon;
-    @BindView(R.id.Sidebar_userAuthority) TextView Sidebar_userAuthority;
     @BindView(R.id.Sidebar_connectedDevices) TextView Sidebar_connectedDevices;
     @BindView(R.id.Sidebar_widget) TextView Sidebar_widget;
     @BindView(R.id.Sidebar_aboutJibcon) TextView Sidebar_aboutJibcon;
@@ -195,6 +193,18 @@ public class MainActivity extends BaseActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
+        TextView textViewMyjibcon = (TextView) drawer.findViewById(R.id.tv_drawlayout_MY_JIBCON);
+        TextView textViewLogout = (TextView) drawer.findViewById(R.id.tv_drawlayout_logout);
+        textViewLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JibconLoginManager.getInstance().logout(MainActivity.this);
+            }
+        });
+
+        if(JibconHouseManager.getInstance().getmCurrentHouse()!=null)
+            textViewMyjibcon.setText(textViewMyjibcon.getText()+" "+JibconHouseManager.getInstance().getmCurrentHouse().houseName);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -208,16 +218,6 @@ public class MainActivity extends BaseActivity
       //  getWindowManager().getDefaultDisplay().getMetrics(dm);
       //  DrawerLayout.LayoutParams params =(DrawerLayout.LayoutParams)navigationView.getLayoutParams();
 
-        mtoSettingBtn = (ImageButton) findViewById(R.id.Btn_Setting);
-
-        mtoSettingBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SidebarDialog sidebarDialog = new SidebarDialog(MainActivity.this);
-                sidebarDialog.show();
-
-            }
-        });
 
         Sidebar_myjibcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -227,13 +227,6 @@ public class MainActivity extends BaseActivity
             }
         });
 
-        Sidebar_userAuthority.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(getApplicationContext(), UserAuthorityActivity.class);
-                startActivity(intent);
-            }
-        });
 
         Sidebar_connectedDevices.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -311,9 +304,6 @@ public class MainActivity extends BaseActivity
             Intent intent= new Intent(getApplicationContext(), MyJibconActivity.class);
             startActivity(intent);
             // Handle the camera action
-        } else if (id == R.id.Sidebar_userAuthority) {
-            Intent intent= new Intent(getApplicationContext(), UserAuthorityActivity.class);
-            startActivity(intent);
         } else if (id == R.id.Sidebar_connectedDevices) {
             Intent intent= new Intent(getApplicationContext(), ConnectedDevicesActivity.class);
             startActivity(intent);

@@ -12,10 +12,7 @@
             android:id="@+id/Sidebar_myjibcon"
             android:title="나의 집콘" />
         <u></u>
-        <item
-            android:id="@+id/Sidebar_userAuthority"
-            android:title="사용자 권한" />
-        <u></u>
+
         <item
             android:id="@+id/Sidebar_connectedDevices"
             android:title="연결된 디바이스" />

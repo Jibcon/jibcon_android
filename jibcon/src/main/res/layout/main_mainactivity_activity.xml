@@ -25,29 +25,23 @@
         app:headerLayout="@layout/sidebar_null_layout_profile">
         <!--  app:menu="@menu/activity_main_drawer" -->
 
-        <ImageButton
-            android:id="@+id/Btn_Setting"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="end"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="60dp"
-            android:background="@color/white"
-            android:src="@drawable/invalid_name" />
 
-        <LinearLayout
+
+        <RelativeLayout
             android:layout_width="275dp"
             android:layout_height="match_parent"
             android:layout_below="@+id/nav_view"
             android:layout_marginTop="125dp"
-            android:orientation="vertical">
+            >
 
 
             <LinearLayout
+
                 android:layout_width="275dp"
-                android:layout_height="610dp"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/nav_view"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_above="@+id/linear_bottomview">
 
                 <TextView
                     android:layout_width="275dp"
@@ -55,14 +49,14 @@
                     android:background="#f6f6f6" />
 
                 <TextView
-
+                    android:id="@+id/tv_drawlayout_MY_JIBCON"
                     android:layout_width="275dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="27dp"
                     android:layout_marginTop="16dp"
                     android:text="MY JIBCON"
                     android:textColor="#419bf9"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="275dp"
@@ -77,16 +71,8 @@
                     android:layout_marginTop="17.5dp"
                     android:text="나의 집콘"
                     android:textColor="#747474"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/Sidebar_userAuthority"
-                    android:layout_width="275dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="27dp"
-                    android:text="사용자 권한"
-                    android:textColor="#747474"
-                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/Sidebar_connectedDevices"
@@ -95,7 +81,7 @@
                     android:layout_marginLeft="27dp"
                     android:text="연결된 디바이스"
                     android:textColor="#747474"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/Sidebar_widget"
@@ -104,7 +90,7 @@
                     android:layout_marginLeft="27dp"
                     android:text="위젯"
                     android:textColor="#747474"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
 
 
                 <TextView
@@ -114,7 +100,7 @@
                     android:layout_marginLeft="27dp"
                     android:text="About 집콘"
                     android:textColor="#747474"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="200dp"
@@ -123,7 +109,7 @@
                     android:layout_marginTop="42dp"
                     android:text="MY CONSHOP"
                     android:textColor="#419bf9"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
 
                 <TextView
@@ -143,7 +129,7 @@
                         android:layout_marginTop="17.5dp"
                         android:text="포인트"
                         android:textColor="#747474"
-                        android:textSize="13sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="133dp"
@@ -152,7 +138,7 @@
                         android:layout_marginTop="17.5dp"
                         android:text="6,433P "
                         android:textColor="#747474"
-                        android:textSize="13sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <TextView
@@ -161,7 +147,7 @@
                     android:layout_marginLeft="27dp"
                     android:text="장바구니"
                     android:textColor="#747474"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="275dp"
@@ -169,7 +155,7 @@
                     android:layout_marginLeft="27dp"
                     android:text="주문배송"
                     android:textColor="#747474"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="275dp"
@@ -177,7 +163,7 @@
                     android:layout_marginLeft="27dp"
                     android:text="최근 본 상품"
                     android:textColor="#747474"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
 
 
                 <TextView
@@ -186,7 +172,7 @@
                     android:layout_marginLeft="27dp"
                     android:text="상품 Q/A"
                     android:textColor="#747474"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
 
 
                 <TextView
@@ -195,37 +181,41 @@
                     android:layout_marginLeft="27dp"
                     android:text="나의 리뷰"
                     android:textColor="#747474"
-                    android:textSize="13sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="43dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginTop="40dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:layout_width="150dp"
-                        android:layout_height="43dp"
-                        android:layout_gravity="end"
-                        android:background="#419bf9"
-                        android:text="정보수정"
-                        android:textColor="#FFFFFF" />
+                    android:textSize="14sp"
+                    />
 
 
-                    <Button
-                        android:layout_width="150dp"
-                        android:layout_height="43dp"
-                        android:layout_gravity="end"
-                        android:background="#419bf9"
-                        android:text="로그아웃"
-                        android:textColor="#FFFFFF" />
-                </LinearLayout>
 
             </LinearLayout>
+            <LinearLayout
+                android:id="@id/linear_bottomview"
 
-        </LinearLayout>
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="end"
+                    android:background="#419bf9"
+                    android:text="정보수정"
+                    android:textColor="#FFFFFF" />
+                <Button
+
+                    android:id="@+id/tv_drawlayout_logout"
+                    android:layout_width="150dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="end"
+                    android:background="#419bf9"
+                    android:text="로그아웃"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </android.support.design.widget.NavigationView>
 

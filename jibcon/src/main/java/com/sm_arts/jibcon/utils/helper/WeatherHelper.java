@@ -46,7 +46,7 @@ public class WeatherHelper {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         WeatherService weatherService = retrofit.create(WeatherService.class);
-        Call<HashMap<String, Object>> c = weatherService.getWeather("6f4249ae-dadf-3c5c-a4a1-25f1894c1b41",
+        Call<HashMap<String, Object>> c = weatherService.getWeather("0663ab3f-3aa2-35dd-9e37-b6d4e40a3ec3",
                 "37.5639",
                 "126.9823",
                 "1");

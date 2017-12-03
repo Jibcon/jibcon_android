@@ -47,6 +47,8 @@
         <item>주소 설정</item>
         <item>새 집콘 만들기</item>
         <item>집 바꾸기</item>
+        <item>집 초대하기</item>
+        <item>집에 등록된 사용자 보기</item>
     </string-array>
 
     <string-array name="sidebar_connecteddevices_array">

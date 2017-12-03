@@ -54,6 +54,7 @@ public class RoutinePassiveFragment extends Fragment implements RoutinePassiveVi
                 mPassiveRoutinePresenter.deleteRoutine(routineItem);
             }
         });
+
         mPassiveRoutinePresenter = new RoutinePassivePresenter(mRoutinePassiveAdapter, this);
         mFabPassiveBehindBtn = (ImageButton) root.findViewById(R.id.fab_passive_behind);
         Log.d(TAG, "onCreateView: ");

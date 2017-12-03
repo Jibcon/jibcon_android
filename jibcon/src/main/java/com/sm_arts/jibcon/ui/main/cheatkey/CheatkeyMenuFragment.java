@@ -8,14 +8,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.sm_arts.jibcon.R;
-import com.sm_arts.jibcon.ui.main.cheatkey.active.CheatkeyActiveFragment;
 import com.sm_arts.jibcon.ui.main.cheatkey.passive.passivehome.RoutinePassiveFragment;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -28,8 +25,8 @@ public class CheatkeyMenuFragment extends Fragment{
     // Viewpager
     ViewPager mVp;
 
-    @BindView(R.id.btn_active) Button btn_active;
-    @BindView(R.id.btn_passive) Button btn_passive;
+//    @BindView(R.id.btn_active) Button btn_active;
+//    @BindView(R.id.btn_passive) Button btn_passive;
 
     Fragment mActiveFragment;
     Fragment mPassiveFragment;
@@ -42,7 +39,7 @@ public class CheatkeyMenuFragment extends Fragment{
         ButterKnife.bind(this, layout);
 
         Log.d(TAG, "onCreateView: 1");
-        mActiveFragment = new CheatkeyActiveFragment();
+        //mActiveFragment = new CheatkeyActiveFragment();
         mPassiveFragment = new RoutinePassiveFragment();
 
         Log.d(TAG, "onCreateView: 2");
@@ -53,16 +50,16 @@ public class CheatkeyMenuFragment extends Fragment{
 
         mVp.setAdapter(new pagerAdapter(getChildFragmentManager())); // getSupportFragmentManager에서 수정
         mVp.setCurrentItem(0);
-        btn_active.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_blue));
-        btn_passive.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_gray));
+//        btn_active.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_blue));
+//        btn_passive.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_gray));
 
         Log.d(TAG, "onCreateView: 4");
-        btn_active.setOnClickListener(movePageListener);
-        btn_active.setTag(0);
-
-
-        btn_passive.setOnClickListener(movePageListener);
-        btn_passive.setTag(1);
+//        btn_active.setOnClickListener(movePageListener);
+//        btn_active.setTag(0);
+//
+//
+//        btn_passive.setOnClickListener(movePageListener);
+//        btn_passive.setTag(1);
         Log.d(TAG, "onCreateView: 5");
         /* ↑Acitve & Passive Button↑ */
 
@@ -75,13 +72,13 @@ public class CheatkeyMenuFragment extends Fragment{
             @Override
             public void onPageSelected(int position) {
                 Log.d(TAG, "onPageSelected: "+position);
-                if(position==0) {
-                    btn_active.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_blue));
-                    btn_passive.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_gray));
-                } else {
-                    btn_active.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_gray));
-                    btn_passive.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_blue));
-                }
+//                if(position==0) {
+//                    btn_active.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_blue));
+//                    btn_passive.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_gray));
+//                } else {
+//                    btn_active.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_gray));
+//                    btn_passive.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_blue));
+//                }
             }
 
             @Override
@@ -98,15 +95,15 @@ public class CheatkeyMenuFragment extends Fragment{
         public void onClick(View v){
             int tag = (int) v.getTag();
             Log.d(TAG, "onClick: asd");
-            if(tag==0) {
-                btn_active.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_blue));
-                btn_passive.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_gray));
-                Log.d("asd","doingactive");
-            } else  {
-                btn_active.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_gray));
-                btn_passive.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_blue));
-                Log.d("asd","doingpassive");
-            }
+//            if(tag==0) {
+//                btn_active.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_blue));
+//                btn_passive.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_gray));
+//                Log.d("asd","doingactive");
+//            } else  {
+//                btn_active.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_gray));
+//                btn_passive.setBackground(getResources().getDrawable(R.drawable.pr_bot_shadow_blue));
+//                Log.d("asd","doingpassive");
+//            }
 
             mVp.setCurrentItem(tag);
 
@@ -126,19 +123,20 @@ public class CheatkeyMenuFragment extends Fragment{
         public Fragment getItem(int position) {
             Log.w(TAG, "movePageListener");
             Log.d(TAG, "getItem: asdasd");
-            if (position == 0) {
-                Log.d(TAG, "getItem: CheatKeyActiveFragment");
-                return new CheatkeyActiveFragment();
-            } else  {
-                Log.d(TAG, "getItem: CheatKeyActiveFragment");
-                return new RoutinePassiveFragment();
-            }
+//            if (position == 0) {
+//                Log.d(TAG, "getItem: CheatKeyActiveFragment");
+//                return new CheatkeyActiveFragment();
+//            } else  {
+//                Log.d(TAG, "getItem: CheatKeyActiveFragment");
+//                return new RoutinePassiveFragment();
+//            }
+            return new RoutinePassiveFragment();
         }
 
 
         @Override
         public int getCount() {
-            return 2;
+            return 1;
         }
     }
 

@@ -43,34 +43,6 @@ public class RoutinePassiveAdapter extends RecyclerView.Adapter<RoutinePassiveAd
             return mRoutineItems.get(position);
     }
 
-    public static class RoutineViewHolder extends RecyclerView.ViewHolder {
-
-
-        LinearLayout mLinearLayout;
-        CardView mCardView;
-        TextView mRoutineTypeTextView;
-        TextView mDataTextView;
-        Button mButtonRoutineDelete;
-        TextView mTimeTextView;
-        RoutineItemlistener mRoutineDeleteListener;
-
-        public RoutineViewHolder(View itemView, final RoutineItemlistener mRoutineDeleteListener) {
-            super(itemView);
-
-            mLinearLayout = (LinearLayout) itemView.findViewById(R.id.routine_item_linear);
-            mCardView = (CardView) itemView.findViewById(R.id.routine_item_cardview);
-            mRoutineTypeTextView = (TextView) itemView.findViewById(R.id.routine_item_tv);
-            mDataTextView = (TextView) itemView.findViewById(R.id.routine_item_data_tv);
-            mButtonRoutineDelete = (Button) itemView.findViewById(R.id.btn_routine_delete);
-            mTimeTextView = (TextView) itemView.findViewById(R.id.routine_item_time_tv);
-            mButtonRoutineDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    mRoutineDeleteListener.onItemClicked(v, getAdapterPosition());
-                }
-            });
-        }
-    }
 
     @Override
     public RoutineViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -103,5 +75,35 @@ public class RoutinePassiveAdapter extends RecyclerView.Adapter<RoutinePassiveAd
     @Override
     public int getItemCount() {
         return mRoutineItems.size();
+    }
+
+
+    public static class RoutineViewHolder extends RecyclerView.ViewHolder {
+
+
+        LinearLayout mLinearLayout;
+        CardView mCardView;
+        TextView mRoutineTypeTextView;
+        TextView mDataTextView;
+        Button mButtonRoutineDelete;
+        TextView mTimeTextView;
+        RoutineItemlistener mRoutineDeleteListener;
+
+        public RoutineViewHolder(View itemView, final RoutineItemlistener mRoutineDeleteListener) {
+            super(itemView);
+
+            mLinearLayout = (LinearLayout) itemView.findViewById(R.id.routine_item_linear);
+            mCardView = (CardView) itemView.findViewById(R.id.routine_item_cardview);
+            mRoutineTypeTextView = (TextView) itemView.findViewById(R.id.routine_item_tv);
+            mDataTextView = (TextView) itemView.findViewById(R.id.routine_item_data_tv);
+            mButtonRoutineDelete = (Button) itemView.findViewById(R.id.btn_routine_delete);
+            mTimeTextView = (TextView) itemView.findViewById(R.id.routine_item_time_tv);
+            mButtonRoutineDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mRoutineDeleteListener.onItemClicked(v, getAdapterPosition());
+                }
+            });
+        }
     }
 }

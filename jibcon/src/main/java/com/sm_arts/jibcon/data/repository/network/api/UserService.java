@@ -1,10 +1,15 @@
 package com.sm_arts.jibcon.data.repository.network.api;
 
+import com.sm_arts.jibcon.data.models.api.dto.Invitation;
 import com.sm_arts.jibcon.data.models.api.dto.User;
 import com.sm_arts.jibcon.data.models.api.dto.UserInfo;
 
+import java.util.List;
+
+import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -27,4 +32,9 @@ public interface UserService {
     retrofit2.Call<User> updateFcmToken(@Path("token") String token,
                                         @Path("fcm_token") String fcm_token);
 
+    @POST("api/invitation/makeInvitation")
+    Call<String> makeInvitation(@Body Invitation invitation);
+
+    @POST("api/house/getHouseMembers")
+    Call<List<User>> getHouseMembers(@Header("authorization") String house_id);
 }

@@ -3,10 +3,9 @@ package com.sm_arts.jibcon.ui.splash.makecon;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.sm_arts.jibcon.ui.BaseActivity;
-import com.sm_arts.jibcon.ui.splash.getothercon.GetOtherConActivity;
-import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.ui.BaseActivity;
+import com.sm_arts.jibcon.ui.main.MainActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -19,12 +18,6 @@ public class MakeconStartActivity extends BaseActivity {
         finish();
     }
 
-    @OnClick(R.id.Btn_getOtherCon) void Btn_getOtherCon() {
-        //집콘 초대받기
-        Intent intent = new Intent(getApplicationContext(), GetOtherConActivity.class);
-        startActivity(intent);
-        finish();
-    }
 
     @OnClick(R.id.makeconstart_skip) void makeconstart_skip() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
