@@ -84,6 +84,8 @@ public class AddPhilipsHueFragment extends Fragment implements HueDialogListner{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.adddevice_addphilps_activity, container, false);
         mButtonNext = (Button)layout.findViewById(R.id.btn_adddevice_addphilips_ok);
+        mButtonNext.setClickable(false);
+
         mListView= (ListView) layout.findViewById(R.id.listview_adddevice_addphilips);
         mLightNames = new ArrayList<>();
 
@@ -231,6 +233,7 @@ public class AddPhilipsHueFragment extends Fragment implements HueDialogListner{
                     mLightNames.add(hueBulb.name);
                 }
                 mAdapter.notifyDataSetChanged();
+                mButtonNext.setClickable(true);
 
             }
 

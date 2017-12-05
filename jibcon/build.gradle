@@ -17,7 +17,7 @@ android {
         versionName "1.1"
         multiDexEnabled true // For multidex error
         versionCode 1
-        versionName "3.0"
+        versionName "4.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 

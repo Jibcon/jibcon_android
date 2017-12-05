@@ -24,24 +24,16 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/sidebar_null_layout_profile">
         <!--  app:menu="@menu/activity_main_drawer" -->
-
-
-
         <RelativeLayout
             android:layout_width="275dp"
             android:layout_height="match_parent"
-            android:layout_below="@+id/nav_view"
-            android:layout_marginTop="125dp"
-            >
-
-
+            android:layout_marginTop="125dp">
             <LinearLayout
 
                 android:layout_width="275dp"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/nav_view"
-                android:orientation="vertical"
-                android:layout_above="@+id/linear_bottomview">
+                android:layout_above="@+id/linear_bottomview"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="275dp"
@@ -181,18 +173,17 @@
                     android:layout_marginLeft="27dp"
                     android:text="나의 리뷰"
                     android:textColor="#747474"
-                    android:textSize="14sp"
-                    />
-
+                    android:textSize="14sp" />
 
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@id/linear_bottomview"
 
-                android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
+                android:layout_alignParentBottom="true"
                 android:layout_gravity="bottom"
                 android:gravity="center"
                 android:orientation="horizontal">
@@ -204,6 +195,7 @@
                     android:background="#419bf9"
                     android:text="정보수정"
                     android:textColor="#FFFFFF" />
+
                 <Button
 
                     android:id="@+id/tv_drawlayout_logout"

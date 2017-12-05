@@ -108,16 +108,16 @@ public class LoginActivity extends BaseActivity {
 
     private void initSampleSignInBtn() {
         Log.d(TAG, "initSampleSignInBtn: ");
-        findViewById(R.id.btnSampleSignIn).setOnClickListener(
-                v -> {
-                    Log.d(TAG, "initSampleSignInBtn: btnSampleSignIn clicked");
-                    JibconLoginManager.getInstance().loginWithSampleUser(
-//                            this::gotoMakeConStartActivity
-                            //// TODO: 2017-08-07 교체하기 
-                            this::gotoMainActivity
-                    );
-                }
-        );
+//        findViewById(R.id.btnSampleSignIn).setOnClickListener(
+//                v -> {
+//                    Log.d(TAG, "initSampleSignInBtn: btnSampleSignIn clicked");
+//                    JibconLoginManager.getInstance().loginWithSampleUser(
+////                            this::gotoMakeConStartActivity
+//                            //// TODO: 2017-08-07 교체하기
+//                            this::gotoMainActivity
+//                    );
+//                }
+//        );
     }
 
     private void gotoMainActivity() {
