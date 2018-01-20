@@ -79,15 +79,6 @@ public class LoginActivity extends BaseActivity {
 
         mOAuthLoginHandler = JibconLoginManager.getInstance()
                 .getNaverOAuthLoginHandler(LoginActivity.this);
-        mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.btn_naver_login);
-
-        mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
-        mOAuthLoginButton.setOnClickListener(
-                v -> {
-                    SharedPreferenceHelper.saveSharedPreference("pref", "LOGINTYPE", "NAVER");
-                    GlobalApplication.getNaverOAuthLogin().startOauthLoginActivity(LoginActivity.this, mOAuthLoginHandler);
-                }
-        );
 
         facebookLoginSetup();
         initSampleSignInBtn();

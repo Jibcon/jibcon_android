@@ -54,13 +54,13 @@
         <item name="windowNoTitle">true</item>
         <!--make status bar to transparent-->
         <item name="android:windowTranslucentStatus">true</item>>
-        <item name="android:statusBarColor">@color/transparent</item>
+        <!--<item name="android:statusBarColor">@color/transparent</item>-->
         <item name="colorPrimaryDark">@color/tutorial_background</item>
     </style>
     <style name="myAppTheme.MainNoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <!--<item name="android:windowLightStatusBar">true</item>-->
         <item name="colorPrimary">@color/mainactivity_main_color</item>
         <item name="colorPrimaryDark">@color/mainactivity_main_color</item>
     </style>
