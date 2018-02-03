@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/ImgView_Drawer_UserProfile"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:src="@drawable/default_user" />
 

@@ -37,7 +37,7 @@ public class GlobalApplication extends MultiDexApplication {
         sObj = this;
         KakaoSDK.init(new KaKaoSDKAdpater());
         initTypekit();
-        initMobius();
+        //initMobius();
         JibconLoginManager.getInstance().addOnSigninAction(
                 this::initSensorManager
         );
@@ -68,14 +68,14 @@ public class GlobalApplication extends MultiDexApplication {
 
     private void initMobius() {
         Log.d(TAG, "initMobius: ");
-        MobiusNetworkHelper.getInstance().createAe(
-                createAe -> {
-                    MobiusNetworkHelper.getInstance().retrieveAe(
-                            retrieveAe -> {
-                            }
-                    );
-                }
-        );
+//        MobiusNetworkHelper.getInstance().createAe(
+//                createAe -> {
+//                    MobiusNetworkHelper.getInstance().retrieveAe(
+//                            retrieveAe -> {
+//                            }
+//                    );
+//                }
+//        );
 
 
     }

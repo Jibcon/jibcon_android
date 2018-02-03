@@ -57,7 +57,7 @@ public class MainActivity extends BaseActivity
 
     @BindView(R.id.btn1) TextView mDeviceBtn;
     @BindView(R.id.btn2) TextView mCheatkeyBtn;
-    @BindView(R.id.btn3) TextView mConshopBtn;
+    //@BindView(R.id.btn3) TextView mConshopBtn;
     @BindView(R.id.btn4) TextView mDataControlBtn;
 
 
@@ -94,9 +94,9 @@ public class MainActivity extends BaseActivity
         mDeviceBtn.setOnClickListener(movePageListner);
         mCheatkeyBtn.setTag(1);
         mCheatkeyBtn.setOnClickListener(movePageListner);
-        mConshopBtn.setTag(2);
-        mConshopBtn.setOnClickListener(movePageListner);
-        mDataControlBtn.setTag(3);
+        //mConshopBtn.setTag(2);
+        //mConshopBtn.setOnClickListener(movePageListner);
+        mDataControlBtn.setTag(2);
         mDataControlBtn.setOnClickListener(movePageListner);
 
     }
@@ -104,7 +104,7 @@ public class MainActivity extends BaseActivity
     private void setDefaultMainMenuBtn() {
         mDeviceBtn.setTextColor(fontColor);
         mCheatkeyBtn.setTextColor(fontColor);
-        mConshopBtn.setTextColor(fontColor);
+        //mConshopBtn.setTextColor(fontColor);
         mDataControlBtn.setTextColor(fontColor);
     }
 
@@ -124,13 +124,9 @@ public class MainActivity extends BaseActivity
             case 2:
                 setDefaultMainMenuBtn();
                 changeFragment(position);
-                mConshopBtn.setTextColor(fontColorPressed);
-                break;
-            case 3:
-                setDefaultMainMenuBtn();
-                changeFragment(position);
                 mDataControlBtn.setTextColor(fontColorPressed);
                 break;
+
         }
     }
 
@@ -155,18 +151,13 @@ public class MainActivity extends BaseActivity
 
                 break;
             case 2:
-                fragment = new ConshopFragment();
+                fragment = new DataControlFragment();
                 supportFragmentManager.popBackStack();
                 fragmentTransaction.replace(R.id.mainFrame, fragment);
                 fragmentTransaction.commit();
 
                 break;
-            case 3:
-                fragment = new DataControlFragment();
-                supportFragmentManager.popBackStack();
-                fragmentTransaction.replace(R.id.mainFrame, fragment);
-                fragmentTransaction.commit();
-                break;
+
         }
     }
 
@@ -331,13 +322,13 @@ public class MainActivity extends BaseActivity
                                 .cancelable(false)
                                 .outerCircleColor(R.color.deep_blue)
                                 .targetRadius(50),
-                        TapTarget.forView(mConshopBtn, "콘샾 메뉴", "혁신적 제품들을 만나보세요.")
-                                .cancelable(false)
-                                .outerCircleColor(R.color.deep_blue)
-                                .targetRadius(50),
+//                        TapTarget.forView(mConshopBtn, "콘샾 메뉴", "혁신적 제품들을 만나보세요.")
+//                                .cancelable(false)
+//                                .outerCircleColor(R.color.deep_blue)
+//                                .targetRadius(50),
                         TapTarget.forView(mDataControlBtn, "데이터 메뉴", "낭비되는 전기세부터\n나에게 맞는 온도까지!\n데이터로 알아보세요.")
                                 .outerCircleColor(R.color.deep_blue)
-                                .targetRadius(80))
+                                .targetRadius(50))
                 .listener(new TapTargetSequence.Listener() {
                     // This listener will tell us when interesting(tm) events happen in regards
                     // to the sequence

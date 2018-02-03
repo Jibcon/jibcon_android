@@ -24,6 +24,7 @@ import com.sm_arts.jibcon.utils.helper.WeatherHelper;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -213,13 +214,23 @@ public class DeviceMenuFragment extends Fragment implements DeviceMenuView {
     @Override
     public void setWeatherInfo(DeviceMenuWeatherData deviceMenuWeatherData) {
         Log.d(TAG, "setWeatherInfo() called with: deviceMenuWeatherData = [" + deviceMenuWeatherData + "]");
+
+        HashMap<String,String> weatherMap = new HashMap<>();
+        String[] index = getResources().getStringArray(R.array.weather_code_index);
+        String[] data = getResources().getStringArray(R.array.weather_code_data);
+
+        for(int i=0;i<index.length;i++)
+        {
+            weatherMap.put(index[i],data[i]);
+        }
+        mTextViewWeatherRecommend.setText(JibconLoginManager.getInstance().getUserName() + "님 환영합니다\n");
+
+        if(weatherMap.get(deviceMenuWeatherData.weatherCode)!=null)//이미 정의된 날씨코드-관련문장이 없을 경우에만 수행
+            mTextViewWeatherRecommend.setText("\n"+mTextViewWeatherRecommend.getText().toString()+weatherMap.get(deviceMenuWeatherData.weatherCode));
+
         mTextViewSky.setText(deviceMenuWeatherData.sky+" | 현재 온도는 "+ deviceMenuWeatherData.temperature+" 도입니다");
 
-        mTextViewWeatherRecommend.setText(JibconLoginManager.getInstance().getUserName() + "님 환영합니다");
         mTextViewLocation.setText(deviceMenuWeatherData.location);
     }
-
     //endregion
-
-
 }

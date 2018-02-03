@@ -1,37 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    android:background="@color/white">
-
-
-    <ListView
-        android:id="@+id/lv_data_control"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"/>
-
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/main_datacontrol_swipelayout"
+    >
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView6"
-                android:adjustViewBounds="true"
+            <LinearLayout
+                android:padding="16dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/data_temp" />
+                android:layout_height="wrap_content">
+                <!--<TextView-->
+                    <!--android:id="@+id/main_datacontrol_day_tv"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textSize="18sp"-->
+                    <!--android:text="DAY"-->
+                    <!--/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/main_datacontrol_hour_tv"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="HOUR"-->
+                    <!--android:textSize="18sp"-->
+                    <!--/>-->
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+            </View>
+            <com.github.mikephil.charting.charts.LineChart
+
+                android:id="@+id/main_datacontrol_temperatureChart_lineChart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+            </com.github.mikephil.charting.charts.LineChart>
+            <com.github.mikephil.charting.charts.LineChart
+
+                android:id="@+id/main_datacontrol_humidityChart_lineChart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+            </com.github.mikephil.charting.charts.LineChart>
         </LinearLayout>
+
+
     </ScrollView>
 
-</RelativeLayout>
+
+
+
+</android.support.v4.widget.SwipeRefreshLayout>

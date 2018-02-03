@@ -49,7 +49,7 @@ public class UserInfo {
 //        UserEmailProfile = userEmailProfile;
 //    }
 
-    String type;
+    String type;//facebook, kakao
     String token;
     String full_name;
     String pic_url;

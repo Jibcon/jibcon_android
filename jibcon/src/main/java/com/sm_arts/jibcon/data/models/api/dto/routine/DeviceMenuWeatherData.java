@@ -8,5 +8,6 @@ public class DeviceMenuWeatherData {
     public String sky;
     public String temperature;
     public String location;
+    public String weatherCode;
 
 }
