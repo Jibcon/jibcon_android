@@ -17,6 +17,9 @@
     <dimen name="tutorial_subdescription_topmargin">8.67dp</dimen>
     <dimen name="tutorial_subdescription_bottommargin">40.67dp</dimen>
 
+    <!--makecon activity-->
+    <dimen name="splashmakecon_button_width">200dp</dimen>
+
     <!--Main/DeviceMenu Fragment-->
     <dimen name="maindevicemenuadapter_width">148.5dp</dimen>
     <dimen name="maindevicemenuadapter_height">107.5dp</dimen>

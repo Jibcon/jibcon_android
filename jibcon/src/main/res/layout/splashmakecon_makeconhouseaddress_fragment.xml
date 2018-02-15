@@ -5,7 +5,6 @@
     android:background="#FFF"
     android:orientation="vertical">
 
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_select_address"
         style="@style/toolbar_common"
@@ -21,6 +20,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="집 주소 등록" />
+
     </android.support.v7.widget.Toolbar>
 
     <com.google.android.gms.maps.MapView
@@ -29,8 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar_select_address"
-        android:layout_alignParentStart="true"></com.google.android.gms.maps.MapView>
-
+        android:layout_alignParentStart="true"
+        />
 
     <LinearLayout
         android:id="@+id/makeconhouseaddress_fragemnt_bottom"
@@ -38,9 +38,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <Button
             android:id="@+id/btn_start_place_picker"
@@ -48,22 +50,19 @@
             android:layout_height="40dp"
             android:layout_gravity=""
             android:layout_marginRight="20dp"
-            android:background="@color/deep_blue"
+            android:background="@drawable/corner_round2_btn"
             android:text="지도에서 찾기"
-            android:textColor="@color/white" />
-
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/btn_splash_makecon_houseaddress_ok"
             android:layout_width="120dp"
             android:layout_height="40dp"
-
             android:layout_marginLeft="20dp"
-            android:background="@color/deep_blue"
+            android:background="@drawable/corner_round2_btn"
             android:text="완 료"
             android:textColor="@color/white"
-            android:textSize="16dp" />
+            android:textSize="16dp"/>
     </LinearLayout>
-
 
 </RelativeLayout>
