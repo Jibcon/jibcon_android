@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="집 이름을 입력해 주세요 / 16자 이하"
-                android:maxLength="@dimen/splashmakecon_house_name_maxLength"
+                android:maxLength="16"
                 android:textSize="16dp"
                 android:textColor="@android:color/black"/>
         </LinearLayout>

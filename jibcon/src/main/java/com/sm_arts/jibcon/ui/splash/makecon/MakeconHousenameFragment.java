@@ -39,7 +39,7 @@ public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
 
     private void initLayout() {
         mNext = (Button) mRelativelayout.findViewById(R.id.Btn_makeCon1_1);
-        mEditHousename = (EditText) mRelativelayout.findViewById(R.id.EditTxt_makecon1_1);
+        mEditHousename = mRelativelayout.findViewById(R.id.EditTxt_makecon1_1);
         mFragmentNum = 0;
         mBarName = (TextView) mRelativelayout.findViewById(R.id.bar_name);
     }
@@ -65,9 +65,6 @@ public class MakeconHousenameFragment extends android.support.v4.app.Fragment {
         initLayout();
 
         mHousename = mEditHousename.getText().toString();
-
-
-
 
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
