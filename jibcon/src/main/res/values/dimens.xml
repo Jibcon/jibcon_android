@@ -19,6 +19,7 @@
 
     <!--makecon activity-->
     <dimen name="splashmakecon_button_width">200dp</dimen>
+    <dimen name="splashmakecon_house_name_maxLength">16</dimen>
 
     <!--Main/DeviceMenu Fragment-->
     <dimen name="maindevicemenuadapter_width">148.5dp</dimen>

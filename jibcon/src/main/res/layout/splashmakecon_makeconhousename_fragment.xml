@@ -38,7 +38,8 @@
                 android:id="@+id/EditTxt_makecon1_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="(집 이름을 입력해 주세요)"
+                android:hint="집 이름을 입력해 주세요 / 16자 이하"
+                android:maxLength="@dimen/splashmakecon_house_name_maxLength"
                 android:textSize="16dp"
                 android:textColor="@android:color/black"/>
         </LinearLayout>
