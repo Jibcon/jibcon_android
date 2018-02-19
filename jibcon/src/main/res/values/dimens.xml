@@ -34,5 +34,5 @@
     <dimen name="maindevicemenuadapter_paddingend">22dp</dimen>
 
     <dimen name="maindevicemenu_floating_button_size">84dp</dimen>
-    <dimen name="maindevicemenu_floating_button_padding">12dp</dimen>
+    <dimen name="maindevicemenu_floating_button_padding">16dp</dimen>
 </resources>
