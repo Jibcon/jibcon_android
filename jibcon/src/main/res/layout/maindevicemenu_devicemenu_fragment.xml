@@ -5,7 +5,6 @@
     android:background="@color/mainactivity_main_color"
     >
 
-
     <TextView
         android:id="@+id/tv_main_fragment_weather_recommend"
         android:layout_width="300dp"
@@ -63,7 +62,6 @@
         android:background="#f6f6f6"
         />
 
-
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipelayout_menu_deivce"
         android:layout_width="match_parent"
@@ -73,7 +71,6 @@
         >
 
         <ScrollView
-
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="388.8dp"

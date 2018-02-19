@@ -58,7 +58,7 @@
             android:paddingRight="16dp"
             android:background="@drawable/corner_round2_btn"
             android:text="나의 집콘 만들기"
-            android:textSize="16dp"
+            android:textSize="@dimen/splashmakecon_button_text_size"
             android:textColor="@color/white"
             />
 

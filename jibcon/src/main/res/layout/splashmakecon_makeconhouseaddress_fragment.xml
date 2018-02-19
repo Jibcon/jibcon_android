@@ -46,23 +46,27 @@
 
         <Button
             android:id="@+id/btn_start_place_picker"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
+            android:layout_width="128dp"
+            android:layout_height="@dimen/splashmakecon_button_height"
             android:layout_gravity=""
             android:layout_marginRight="20dp"
             android:background="@drawable/corner_round2_btn"
             android:text="지도에서 찾기"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="@dimen/splashmakecon_button_text_size"
+            />
 
         <Button
             android:id="@+id/btn_splash_makecon_houseaddress_ok"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
+            android:layout_width="128dp"
+            android:layout_height="@dimen/splashmakecon_button_height"
             android:layout_marginLeft="20dp"
             android:background="@drawable/corner_round2_btn"
             android:text="완 료"
             android:textColor="@color/white"
-            android:textSize="16dp"/>
+            android:textSize="@dimen/splashmakecon_button_text_size"
+            />
+
     </LinearLayout>
 
 </RelativeLayout>
