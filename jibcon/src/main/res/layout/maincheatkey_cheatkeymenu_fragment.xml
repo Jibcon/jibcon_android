@@ -13,47 +13,8 @@
         android:orientation="vertical"
         tools:context="com.sm_arts.jibcon.Cheatkey"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-
-        <!-- 상단 메뉴 버튼 -->
-        <LinearLayout
-            android:id="@+id/layout"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:orientation="horizontal"
-            android:paddingTop="4dp">
-            <!--Active-->
-            <!--<Button-->
-                <!--android:id="@+id/btn_active"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:background="@null"-->
-                <!--android:text="Active"-->
-                <!--android:textSize="12dp"-->
-                <!--android:textStyle="bold"/>-->
-            <!--&lt;!&ndash;Passive&ndash;&gt;-->
-            <!--<Button-->
-                <!--android:id="@+id/btn_passive"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:background="@null"-->
-                <!--android:text="Passive"-->
-                <!--android:textSize="12dp"-->
-                <!--android:textStyle="bold"/>-->
-            <TextView
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:textSize="16sp"
-                android:gravity="center"
-                android:text="루틴"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-
-
-        </LinearLayout>
+        android:layout_alignParentStart="true"
+        >
 
         <!-- ViewPager -->
         <android.support.v4.view.ViewPager
@@ -62,8 +23,8 @@
             android:background="#f6f6f6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/layout"/>
-
+            android:layout_below="@+id/layout"
+            />
 
     </LinearLayout>
 

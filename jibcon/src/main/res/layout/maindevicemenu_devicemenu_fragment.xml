@@ -102,7 +102,7 @@
         android:layout_alignParentRight="true"
         android:background="@null"
         android:contentDescription="@null"
-        android:paddingBottom="24dp"
+        android:padding="@dimen/maindevicemenu_floating_button_padding"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_add_circle_blue_48dp"
         />
