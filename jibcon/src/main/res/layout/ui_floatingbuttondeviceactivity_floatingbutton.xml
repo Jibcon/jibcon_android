@@ -9,45 +9,63 @@
     android:id="@+id/fab_container_device"
     >
 
-        <TextView
-            android:id="@+id/Txt_floating_device"
-            android:text="기기 추가하기"
-            android:layout_toLeftOf="@+id/fab_action_1_device"
-            android:layout_alignBottom="@id/fab_action_1_device"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:visibility="invisible"
-            android:background="#00ff0000"
             android:layout_height="wrap_content"
-            />
-
-        <ImageButton
-            android:id="@id/fab_action_1_device"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_above="@+id/fab_device"
-            android:layout_alignParentRight="true"
-            android:layout_alignRight="@id/fab_device"
-            android:layout_marginRight="16dp"
-            android:contentDescription="@null"
-            android:visibility="invisible"
-            android:background="@null"
-            android:src="@drawable/ic_add_circle_white_48dp"
-            />
-
-        <ImageButton
-            android:id="@id/fab_device"
-            android:layout_width="@dimen/maindevicemenu_floating_button_size"
-            android:layout_height="@dimen/maindevicemenu_floating_button_size"
-            android:layout_marginBottom="44dp"
-            android:padding="@dimen/maindevicemenu_floating_button_padding"
-            android:background="@null"
-            android:contentDescription="@null"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_add_circle_blue_48dp"
-            android:visibility="visible"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            />
+            android:orientation="horizontal"
+            >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/maindevicemenu_floating_button_padding"
+                    >
+
+                        <TextView
+                            android:id="@+id/Txt_floating_device"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="invisible"
+                            android:background="@null"
+                            android:text="기기 추가하기"
+                            />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/fab_action_1_device"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:visibility="invisible"
+                            android:background="@null"
+                            android:src="@drawable/ic_add_circle_white_48dp"
+                            />
+
+                        <ImageButton
+                            android:id="@+id/fab_device"
+                            android:layout_width="@dimen/maindevicemenu_floating_button_size"
+                            android:layout_height="@dimen/maindevicemenu_floating_button_size"
+                            android:layout_marginBottom="44dp"
+                            android:padding="@dimen/maindevicemenu_floating_button_padding"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_add_circle_blue_48dp"
+                            android:visibility="visible"
+                            />
+
+                </LinearLayout>
+
+        </LinearLayout>
 
 </RelativeLayout>
