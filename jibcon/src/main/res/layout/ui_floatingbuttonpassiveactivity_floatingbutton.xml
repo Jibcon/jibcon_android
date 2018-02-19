@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.additional.floatingbuttonui.FloatingButtonPassiveActivity"
     android:background="#00ff0000"
-    android:id="@+id/fab_container_cheatkey_passive">
+    android:id="@+id/fab_container_cheatkey_passive"
+    >
 
     <TextView
         android:id="@+id/Txt_floating_cheatkey_passive"
@@ -17,7 +18,8 @@
         android:layout_marginBottom="16dp"
         android:visibility="invisible"
         android:background="#00ff0000"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
 
     <ImageButton
         android:id="@id/fab_action_1_cheatkey_passive"
@@ -30,12 +32,13 @@
         android:contentDescription="@null"
         android:visibility="invisible"
         android:background="@null"
-        android:src="@drawable/ic_add_circle_white_48dp" />
+        android:src="@drawable/ic_add_circle_white_48dp"
+        />
 
     <ImageButton
         android:id="@+id/fab_cheatkey_passive"
-        android:layout_width="92dp"
-        android:layout_height="92dp"
+        android:layout_width="@dimen/maindevicemenu_floating_button_size"
+        android:layout_height="@dimen/maindevicemenu_floating_button_size"
         android:layout_marginBottom="44dp"
         android:background="@null"
         android:contentDescription="@null"
@@ -44,6 +47,7 @@
         android:src="@drawable/ic_add_circle_blue_48dp"
         android:visibility="visible"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        />
 
 </RelativeLayout>

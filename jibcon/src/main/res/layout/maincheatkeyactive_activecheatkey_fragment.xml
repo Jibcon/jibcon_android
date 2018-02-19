@@ -5,19 +5,21 @@
     android:paddingLeft="12dp"
     android:paddingRight="12dp"
     android:orientation="vertical"
-    android:background="#f6f6f6">
+    android:background="#f6f6f6"
+    >
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/active_cardview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="16dp"
-        android:layout_gravity="top" />
+        android:layout_gravity="top"
+        />
 
     <ImageButton
         android:id="@+id/fab_cheatkey_active_behind"
-        android:layout_width="92dp"
-        android:layout_height="92dp"
+        android:layout_width="@dimen/maindevicemenu_floating_button_size"
+        android:layout_height="@dimen/maindevicemenu_floating_button_size"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:background="@null"
@@ -25,6 +27,7 @@
         android:paddingBottom="24dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_add_circle_blue_48dp"
-        android:visibility="visible" />
+        android:visibility="visible"
+        />
 
 </RelativeLayout>

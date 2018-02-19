@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mainactivity_main_color">
+    android:background="@color/mainactivity_main_color"
+    >
 
 
     <TextView
@@ -12,7 +13,8 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="18.8dp"
         android:text=" "
-        android:textSize="19sp" />
+        android:textSize="19sp"
+        />
 
     <LinearLayout
         android:id="@+id/linearlayout_top_parent"
@@ -22,7 +24,8 @@
         android:layout_marginTop="17dp"
         android:orientation="horizontal"
         android:layout_below="@+id/tv_main_fragment_weather_recommend"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        >
 
 
         <TextView
@@ -34,7 +37,8 @@
             android:text=" "
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="9sp" />
+            android:textSize="9sp"
+            />
 
         <TextView
             android:id="@+id/tv_main_devicefragment_weather_sky"
@@ -45,7 +49,8 @@
             android:gravity="left"
             android:text=""
             android:textColor="#4a4a4a"
-            android:textSize="11sp" />
+            android:textSize="11sp"
+            />
 
     </LinearLayout>
 
@@ -55,7 +60,8 @@
         android:layout_height="5.2dp"
         android:layout_below="@+id/linearlayout_top_parent"
         android:layout_marginTop="15.8dp"
-        android:background="#f6f6f6" />
+        android:background="#f6f6f6"
+        />
 
 
     <android.support.v4.widget.SwipeRefreshLayout
@@ -63,8 +69,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/text_line"
-        android:layout_marginTop="20dp">
-
+        android:layout_marginTop="20dp"
+        >
 
         <ScrollView
 
@@ -72,7 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="388.8dp"
             android:paddingLeft="12dp"
-            android:paddingRight="12dp">
+            android:paddingRight="12dp"
+            >
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/deviceRecyclerView"
@@ -80,21 +87,24 @@
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 android:scrollbarStyle="outsideOverlay"
-                android:scrollbars="vertical" />
+                android:scrollbars="vertical"
+                />
 
         </ScrollView>
+
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <ImageButton
         android:id="@+id/fab_device_behind"
-        android:layout_width="92dp"
-        android:layout_height="92dp"
+        android:layout_width="@dimen/maindevicemenu_floating_button_size"
+        android:layout_height="@dimen/maindevicemenu_floating_button_size"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:background="@null"
         android:contentDescription="@null"
         android:paddingBottom="24dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_add_circle_blue_48dp" />
+        android:src="@drawable/ic_add_circle_blue_48dp"
+        />
 
 </RelativeLayout>
