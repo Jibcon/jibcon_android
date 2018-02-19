@@ -318,7 +318,7 @@ public class MainActivity extends BaseActivity
                                 .cancelable(false)
                                 .outerCircleColor(R.color.deep_blue)
                                 .targetRadius(50),
-                        TapTarget.forView(mCheatkeyBtn, "치트키 메뉴", "등록된 디바이스들로\n액티브, 패시브 치트키를\n만들어보세요.")
+                        TapTarget.forView(mCheatkeyBtn, "루틴 메뉴", "등록된 디바이스들로\n액티브, 패시브 루틴을\n만들어보세요.")
                                 .cancelable(false)
                                 .outerCircleColor(R.color.deep_blue)
                                 .targetRadius(50),
