@@ -26,27 +26,27 @@ public class MakeconEndFragment extends android.support.v4.app.Fragment {
         mHouseInfoListener = (HouseInfoListener)context;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.splashmakecon_makeconend_fragment,container,false);
-
-        Handler handler;
-        handler = new Handler();
-
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                //asynktask로 houseinfo 보낸 뒤 보내고 성공하면 MainActivity로, 보내는중엔 집콘 최적화화면만
-                mHouseInfoListener.makeHouseInfo();
-                //todo 서버로 집정보 보내기
-                Intent intent = new Intent(getActivity(), IntroActivity.class);
-                startActivity(intent);
-                getActivity().finish();
-            }
-        };
-
-        handler.postDelayed(runnable,1500);
-
-        return mLinearLayout;
-    }
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        mLinearLayout = (LinearLayout)inflater.inflate(R.layout.splashmakecon_makeconend_fragment,container,false);
+//
+//        Handler handler;
+//        handler = new Handler();
+//
+//        Runnable runnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                //asynktask로 houseinfo 보낸 뒤 보내고 성공하면 MainActivity로, 보내는중엔 집콘 최적화화면만
+//                mHouseInfoListener.makeHouseInfo();
+//                //todo 서버로 집정보 보내기
+//                Intent intent = new Intent(getActivity(), IntroActivity.class);
+//                startActivity(intent);
+//                getActivity().finish();
+//            }
+//        };
+//
+//        handler.postDelayed(runnable,1500);
+//
+//        return mLinearLayout;
+//    }
 }
