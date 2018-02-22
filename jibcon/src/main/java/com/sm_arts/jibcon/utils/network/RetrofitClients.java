@@ -34,6 +34,7 @@ public class RetrofitClients {
                     .baseUrl(UrlUtils.getUrlWithClassName(type.getName()))
 
                     // mentoring
+                    .addConverterFactory(new ToStringConverterFactory())
                     .addConverterFactory(GsonConverterFactory.create(GsonUtils.getGson()))
                     .build();
 
