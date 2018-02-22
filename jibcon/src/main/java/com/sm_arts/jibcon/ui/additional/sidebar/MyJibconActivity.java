@@ -106,7 +106,7 @@ public class MyJibconActivity extends BaseActivity {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 Log.d(TAG, "onResponse() called with: call = [" + call + "], response = [" + response + "]");
-                shareKakako(response.body());
+                shareKakao(response.body());
             }
 
             @Override
@@ -116,7 +116,7 @@ public class MyJibconActivity extends BaseActivity {
         });
     }
 
-    private void shareKakako(String url) {
+    private void shareKakao(String url) {
         try{
 
             final KakaoLink kakaoLink = KakaoLink.getKakaoLink(this);
