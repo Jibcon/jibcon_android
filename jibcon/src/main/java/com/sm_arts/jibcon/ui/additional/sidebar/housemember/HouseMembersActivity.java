@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.additional.sidebar.housermember;
+package com.sm_arts.jibcon.ui.additional.sidebar.housemember;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;

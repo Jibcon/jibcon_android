@@ -167,8 +167,8 @@
         <activity
             android:name=".ui.main.cheatkey.passive.addpassive.action.SelectActionWeatherActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />
-        <!--<activity android:name=".ui.additional.sidebar.housermember.HouseMembersActivity"-->
-            <!--android:theme="@style/myAppTheme.MainNoActionBar"></activity>-->
+        <activity android:name=".ui.additional.sidebar.housemember.HouseMembersActivity"
+            android:theme="@style/myAppTheme.MainNoActionBar"/>
     </application>
 
 </manifest>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sm_arts.jibcon.ui.additional.sidebar.housermember.HouseMembersActivity">
+    tools:context="com.sm_arts.jibcon.ui.additional.sidebar.housemember.HouseMembersActivity">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_additional_sidebar_housemember"
         style="@style/toolbar_common"
