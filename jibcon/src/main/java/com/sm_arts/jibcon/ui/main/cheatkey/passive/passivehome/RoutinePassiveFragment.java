@@ -35,9 +35,9 @@ public class RoutinePassiveFragment extends Fragment implements RoutinePassiveVi
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.ui_main_routine_passive_fragment, container, false);
-
         initLayout(root);
         Log.d(TAG, "onCreateView: ");
+        mPassiveRoutinePresenter = new RoutinePassivePresenter(mRoutinePassiveAdapter, this);
         mPassiveRoutinePresenter.getPassiveRoutines();
         return root;
 
@@ -55,10 +55,8 @@ public class RoutinePassiveFragment extends Fragment implements RoutinePassiveVi
             }
         });
 
-        mPassiveRoutinePresenter = new RoutinePassivePresenter(mRoutinePassiveAdapter, this);
         mFabPassiveBehindBtn = (ImageButton) root.findViewById(R.id.fab_passive_behind);
         Log.d(TAG, "onCreateView: ");
-        mPassiveRoutinePresenter.getPassiveRoutines();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mRoutinePassiveAdapter);
         mRecyclerView.setHasFixedSize(true);

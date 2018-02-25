@@ -98,12 +98,15 @@
 
         <Button
             android:id="@+id/Btn_setting_askenrollcompany_ask"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/splashmakecon_button_width"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/corner_round2_btn"
             android:textColor="@color/white"
-            android:text="문의하기" />
+            android:text="문의하기"
+            android:textSize="@dimen/splashmakecon_button_text_size"
+            android:layout_gravity="center"
+            />
 
     </LinearLayout>
 

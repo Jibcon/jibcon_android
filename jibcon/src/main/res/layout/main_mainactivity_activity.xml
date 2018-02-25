@@ -94,88 +94,6 @@
                     android:textColor="#747474"
                     android:textSize="14sp" />
 
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="27dp"
-                    android:layout_marginTop="42dp"
-                    android:text="MY CONSHOP"
-                    android:textColor="#419bf9"
-                    android:textSize="16sp" />
-
-
-                <TextView
-                    android:layout_width="275dp"
-                    android:layout_height="0.5dp"
-                    android:background="#d1d1d1" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="133dp"
-                        android:layout_height="25dp"
-                        android:layout_marginLeft="27dp"
-                        android:layout_marginTop="17.5dp"
-                        android:text="포인트"
-                        android:textColor="#747474"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="133dp"
-                        android:layout_height="25dp"
-                        android:layout_marginLeft="27dp"
-                        android:layout_marginTop="17.5dp"
-                        android:text="6,433P "
-                        android:textColor="#747474"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="275dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="27dp"
-                    android:text="장바구니"
-                    android:textColor="#747474"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="275dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="27dp"
-                    android:text="주문배송"
-                    android:textColor="#747474"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="275dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="27dp"
-                    android:text="최근 본 상품"
-                    android:textColor="#747474"
-                    android:textSize="14sp" />
-
-
-                <TextView
-                    android:layout_width="275dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="27dp"
-                    android:text="상품 Q/A"
-                    android:textColor="#747474"
-                    android:textSize="14sp" />
-
-
-                <TextView
-                    android:layout_width="275dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="27dp"
-                    android:text="나의 리뷰"
-                    android:textColor="#747474"
-                    android:textSize="14sp" />
-
-
             </LinearLayout>
 
             <LinearLayout
@@ -189,17 +107,9 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:layout_width="150dp"
-                    android:layout_height="43dp"
-                    android:layout_gravity="end"
-                    android:background="#419bf9"
-                    android:text="정보수정"
-                    android:textColor="#FFFFFF" />
-
-                <Button
 
                     android:id="@+id/tv_drawlayout_logout"
-                    android:layout_width="150dp"
+                    android:layout_width="match_parent"
                     android:layout_height="43dp"
                     android:layout_gravity="end"
                     android:background="#419bf9"

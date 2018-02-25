@@ -23,7 +23,7 @@ public class SensorManager {
     private static final String TAG = "SensorManager";
 
     private static SensorManager sInstance;
-    private final Observable<MqttSurCon> mMqttSurConObservable;
+//    private final Observable<MqttSurCon> mMqttSurConObservable;
     private CompositeDisposable mDisposables = new CompositeDisposable();
 
     public static void init() {
@@ -43,14 +43,14 @@ public class SensorManager {
     }
 
     private SensorManager() {
-        MqttManager.init();
-        mMqttSurConObservable = MqttManager.getInstance().asObservable();
+//        MqttManager.init();
+//        mMqttSurConObservable = MqttManager.getInstance().asObservable();
 
-        mDisposables.add(
-                mMqttSurConObservable.subscribe(
-                        (surCon) -> Log.d(TAG, "SensorManager: surCon=" + surCon.toString())
-                )
-        );
+//        mDisposables.add(
+//                mMqttSurConObservable.subscribe(
+//                        (surCon) -> Log.d(TAG, "SensorManager: surCon=" + surCon.toString())
+//                )
+//        );
 
         initRoutines();
     }

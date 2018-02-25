@@ -8,6 +8,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -34,6 +35,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.sm_arts.jibcon.R;
+import com.sm_arts.jibcon.ui.splash.tutorial.IntroActivity;
 
 import java.io.IOException;
 import java.util.List;
@@ -95,7 +97,8 @@ public class MakeconHouseaddressFragment extends android.support.v4.app.Fragment
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -171,11 +174,7 @@ public class MakeconHouseaddressFragment extends android.support.v4.app.Fragment
     public void onAttach(Context context) {
         super.onAttach(context);
         mHouseInfoListener = (HouseInfoListener) context;
-
-
     }
-
-
 
     @Nullable
     @Override
@@ -202,8 +201,25 @@ public class MakeconHouseaddressFragment extends android.support.v4.app.Fragment
             @Override
             public void onClick(View v) {
 
-                mHouseInfoListener.setFragmentNum(1);
+//                mHouseInfoListener.setFragmentNum(1);
                 mHouseInfoListener.setHouseLocation(currentAddress);
+
+                Handler handler;
+                handler = new Handler();
+
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        //asynktask로 houseinfo 보낸 뒤 보내고 성공하면 MainActivity로, 보내는중엔 집콘 최적화화면만
+                        mHouseInfoListener.makeHouseInfo();
+                        //todo 서버로 집정보 보내기
+                        Intent intent = new Intent(getActivity(), IntroActivity.class);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+                };
+
+                handler.postDelayed(runnable,1500);
 
             }
         });

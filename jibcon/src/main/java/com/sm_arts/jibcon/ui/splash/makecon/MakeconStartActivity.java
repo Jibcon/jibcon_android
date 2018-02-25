@@ -18,7 +18,6 @@ public class MakeconStartActivity extends BaseActivity {
         finish();
     }
 
-
     @OnClick(R.id.makeconstart_skip) void makeconstart_skip() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 

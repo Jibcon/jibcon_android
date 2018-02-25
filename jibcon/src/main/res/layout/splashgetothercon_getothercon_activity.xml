@@ -34,10 +34,10 @@
 
             <Button
                 android:id="@+id/btn_gotoMain"
-                android:layout_width="240dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/splashmakecon_button_width"
+                android:layout_height="@dimen/splashmakecon_button_height"
                 android:layout_gravity="bottom|center"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/corner_round2_btn"
                 android:text="완 료"
                 android:textSize="16dp"
                 android:textColor="@color/white" />

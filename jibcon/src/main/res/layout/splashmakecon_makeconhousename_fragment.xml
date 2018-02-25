@@ -38,35 +38,31 @@
                 android:id="@+id/EditTxt_makecon1_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="(집 이름을 입력해 주세요)"
+                android:hint="집 이름을 입력해 주세요 / 16자 이하"
+                android:maxLength="16"
                 android:textSize="16dp"
                 android:textColor="@android:color/black"/>
-
-
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_weight="3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
-
-        </LinearLayout>
+            android:gravity="center"
+            />
 
     </LinearLayout>
 
-
     <Button
-
         android:layout_alignParentBottom="true"
         android:id="@+id/Btn_makeCon1_1"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/deep_blue"
-        android:layout_marginTop="16dp"
-        android:text="다음"
+        android:layout_width="@dimen/splashmakecon_button_width"
+        android:layout_height="@dimen/splashmakecon_button_height"
+        android:background="@drawable/corner_round2_btn"
+        android:layout_marginBottom="@dimen/splashmakecon_button_marginBottom"
+        android:layout_centerHorizontal="true"
+        android:text="다 음"
         android:textColor="@color/white"
-        android:textSize="16dp"/>
+        android:textSize="@dimen/splashmakecon_button_text_size"/>
 
 </RelativeLayout>

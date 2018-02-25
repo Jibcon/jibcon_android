@@ -98,16 +98,22 @@
                     android:text="We'll update other trigger options"
                     android:textSize="12dp" />
 
-
             </LinearLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
     <Button
         android:id="@+id/btn_selecttrigger_ok"
-        android:text="확인"
-        android:background="@color/deep_blue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="확 인"
+        android:textColor="@color/white"
+        android:textSize="@dimen/splashmakecon_button_text_size"
+        android:background="@drawable/corner_round2_btn"
+        android:layout_width="@dimen/splashmakecon_button_width"
+        android:layout_height="@dimen/splashmakecon_button_height"
+        android:layout_marginBottom="@dimen/splashmakecon_button_marginBottom"
+        android:layout_gravity="center"
+        />
+
 </LinearLayout>

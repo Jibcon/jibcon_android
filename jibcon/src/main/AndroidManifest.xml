@@ -38,10 +38,10 @@
         <activity
             android:name=".ui.splash.tutorial.IntroActivity"
             android:label="@string/app_name"
-            android:theme="@style/myAppTheme.IntroNoActionBar">
+            android:theme="@style/myAppTheme.IntroNoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -51,7 +51,11 @@
         <activity
             android:name=".ui.splash.login.LoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/myAppTheme.LoginNoActionBar" />
+            android:theme="@style/myAppTheme.LoginNoActionBar"
+            >
+
+        </activity>
+
         <activity
             android:name=".ui.splash.makecon.MakeconStartActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />
@@ -163,8 +167,8 @@
         <activity
             android:name=".ui.main.cheatkey.passive.addpassive.action.SelectActionWeatherActivity"
             android:theme="@style/myAppTheme.MainNoActionBar" />
-        <activity android:name=".ui.additional.sidebar.housermember.HouseMembersActivity"
-            android:theme="@style/myAppTheme.MainNoActionBar"></activity>
+        <activity android:name=".ui.additional.sidebar.housemember.HouseMembersActivity"
+            android:theme="@style/myAppTheme.MainNoActionBar"/>
     </application>
 
 </manifest>

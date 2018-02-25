@@ -20,15 +20,6 @@
         android:gravity="center"
         android:layout_weight="0.5">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="처음이신가요?"
-            android:textSize="16dp"
-            android:textColor="@color/default_text_color" />
-
         <ImageButton
             android:id="@+id/makeconstart_skip"
             android:paddingTop="16dp"
@@ -39,6 +30,15 @@
             android:layout_height="280dp"
             android:scaleType="centerInside"
             android:background="#00ff0000"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="처음이신가요?"
+            android:textSize="16dp"
+            android:textColor="@color/default_text_color" />
 
     </LinearLayout>
 
@@ -51,15 +51,16 @@
 
         <Button
             android:id="@+id/Btn_makeMyCon"
-            android:layout_width="260dp"
+            android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/corner_round2_btn"
             android:text="나의 집콘 만들기"
-            android:textSize="16dp"
-            android:textColor="@color/white"/>
+            android:textSize="@dimen/splashmakecon_button_text_size"
+            android:textColor="@color/white"
+            />
 
         <TextView
             android:layout_width="match_parent"

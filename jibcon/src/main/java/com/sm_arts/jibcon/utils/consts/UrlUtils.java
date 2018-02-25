@@ -5,6 +5,7 @@ import com.sm_arts.jibcon.data.repository.network.api.DeviceService;
 import com.sm_arts.jibcon.data.repository.network.api.HouseService;
 import com.sm_arts.jibcon.data.repository.network.api.RoutineService;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
+import com.sm_arts.jibcon.data.repository.network.api.WeatherService;
 import com.sm_arts.jibcon.data.repository.network.hue.HueService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusAeService;
 import com.sm_arts.jibcon.data.repository.network.mobius.MobiusCiService;
@@ -30,8 +31,8 @@ public class UrlUtils {
                 "http://52.79.142.130/";
 
         String nodeApiUrl = BuildConfig.DEBUG ?
-                "http://52.79.180.194:8080/" :
-                "http://52.79.180.194:8080/";
+                "http://52.79.109.13:8000/" :
+                "http://52.79.109.13:8000/";
 //        String apiUrl = BuildConfig.DEBUG ?
 //                "http://192.168.1.120:8000/" :
 //                "http://192.168.1.120:8000/";
@@ -45,6 +46,7 @@ public class UrlUtils {
         urls.put(DeviceService.class.getName(), nodeApiUrl);
         urls.put(RoutineService.class.getName(), nodeApiUrl);
         urls.put(HouseService.class.getName(),nodeApiUrl);
+        urls.put(WeatherService.class.getName(),nodeApiUrl);
         String mobiusUrl =
                 "http://" + Configs.Mobius.HOST + ":" + Configs.Mobius.PORT + "/";
         urls.put(MobiusCiService.class.getName(), mobiusUrl);

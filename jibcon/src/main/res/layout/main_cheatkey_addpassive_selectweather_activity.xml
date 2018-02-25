@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        >
 
         <TextView
             android:id="@+id/tv_cheatket_addpassive_addweatheraction"
@@ -20,7 +21,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="날씨 액션 등록" />
+            android:text="날씨 액션 등록"
+            />
+
     </android.support.v7.widget.Toolbar>
 
     <com.google.android.gms.maps.MapView
@@ -30,29 +33,39 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_cheatkey_addpassive_start_place_select"
         android:layout_below="@id/toolbar_select_weather"
-       ></com.google.android.gms.maps.MapView>
+        />
+
     <Button
         android:textColor="@color/white"
-        android:background="@color/deep_blue"
+        android:background="@drawable/corner_round2_btn"
         android:text="장소 선택"
         android:layout_above="@+id/tv_cheatkey_addpassive_weatheraction"
         android:layout_alignParentRight="true"
         android:id="@+id/btn_cheatkey_addpassive_start_place_select"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="@dimen/splashmakecon_button_height"
+        />
+
     <Button
+        android:background="@drawable/corner_round2_btn"
+        android:text="확 인"
         android:textColor="@color/white"
-        android:background="@color/deep_blue"
-        android:text="확인"
+        android:textSize="@dimen/splashmakecon_button_text_size"
+        android:layout_marginBottom="@dimen/splashmakecon_button_marginBottom"
         android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
         android:id="@+id/btn_selectweather_ok"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="@dimen/splashmakecon_button_width"
+        android:layout_height="@dimen/splashmakecon_button_height"
+        />
+
     <TextView
         android:padding="16dp"
         android:textSize="16sp"
         android:id="@+id/tv_cheatkey_addpassive_weatheraction"
         android:layout_above="@id/btn_selectweather_ok"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
+
 </RelativeLayout>

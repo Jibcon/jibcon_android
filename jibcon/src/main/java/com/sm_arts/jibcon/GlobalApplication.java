@@ -11,7 +11,7 @@ import com.sm_arts.jibcon.data.repository.helper.MobiusNetworkHelper;
 import com.sm_arts.jibcon.services.sensor.SensorManager;
 import com.sm_arts.jibcon.ui.splash.login.KaKaoSDKAdpater;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
-import com.tsengvn.typekit.Typekit;
+//import com.tsengvn.typekit.Typekit;
 
 import java.lang.ref.WeakReference;
 
@@ -37,27 +37,28 @@ public class GlobalApplication extends MultiDexApplication {
         sObj = this;
         KakaoSDK.init(new KaKaoSDKAdpater());
         initTypekit();
-        initMobius();
+        //initMobius();
         JibconLoginManager.getInstance().addOnSigninAction(
                 this::initSensorManager
         );
 
         // TODO: 8/11/17 remove
-        JibconLoginManager.getInstance().loginWithSampleUser(
-                () -> {
-                }
-        );
+//        JibconLoginManager.getInstance().loginWithSampleUser(
+//                () -> {
+//                }
+//        );
 
         String token = FirebaseInstanceId.getInstance().getToken();
         Log.d(TAG, "onCreate: FirebaseToken : "+token);
     }
 
     private void initTypekit() {
+
         Log.d(TAG, "initTypekit: ");
-        Typekit.getInstance()
-                .addBold(Typekit.createFromAsset(this, "fonts/NanumSquareExtraBold.ttf"))
-                .addNormal(Typekit.createFromAsset(this, "fonts/NanumSquareRegular.ttf"))
-                .addCustom1(Typekit.createFromAsset(this, "fonts/NanumSquareLight.ttf"));
+//        Typekit.getInstance()
+//                .addBold(Typekit.createFromAsset(this, "fonts/NanumSquareExtraBold.ttf"))
+//                .addNormal(Typekit.createFromAsset(this, "fonts/NanumSquareRegular.ttf"))
+//                .addCustom1(Typekit.createFromAsset(this, "fonts/NanumSquareLight.ttf"));
     }
 
     private void initSensorManager() {
@@ -67,14 +68,14 @@ public class GlobalApplication extends MultiDexApplication {
 
     private void initMobius() {
         Log.d(TAG, "initMobius: ");
-        MobiusNetworkHelper.getInstance().createAe(
-                createAe -> {
-                    MobiusNetworkHelper.getInstance().retrieveAe(
-                            retrieveAe -> {
-                            }
-                    );
-                }
-        );
+//        MobiusNetworkHelper.getInstance().createAe(
+//                createAe -> {
+//                    MobiusNetworkHelper.getInstance().retrieveAe(
+//                            retrieveAe -> {
+//                            }
+//                    );
+//                }
+//        );
 
 
     }

@@ -16,7 +16,7 @@ import com.sm_arts.jibcon.data.models.api.dto.Invitation;
 import com.sm_arts.jibcon.data.repository.network.api.UserService;
 import com.sm_arts.jibcon.ui.BaseActivity;
 import com.sm_arts.jibcon.ui.additional.dialogs.HouseChangeDialog;
-import com.sm_arts.jibcon.ui.additional.sidebar.housermember.HouseMembersActivity;
+import com.sm_arts.jibcon.ui.additional.sidebar.housemember.HouseMembersActivity;
 import com.sm_arts.jibcon.ui.splash.makecon.MakeconMainActivity;
 import com.sm_arts.jibcon.utils.housemanager.JibconHouseManager;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
@@ -106,7 +106,7 @@ public class MyJibconActivity extends BaseActivity {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 Log.d(TAG, "onResponse() called with: call = [" + call + "], response = [" + response + "]");
-                shareKakako(response.body());
+                shareKakao(response.body());
             }
 
             @Override
@@ -116,7 +116,7 @@ public class MyJibconActivity extends BaseActivity {
         });
     }
 
-    private void shareKakako(String url) {
+    private void shareKakao(String url) {
         try{
 
             final KakaoLink kakaoLink = KakaoLink.getKakaoLink(this);

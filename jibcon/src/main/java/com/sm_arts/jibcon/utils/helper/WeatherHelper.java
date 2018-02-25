@@ -3,10 +3,13 @@ package com.sm_arts.jibcon.utils.helper;
 import android.util.Log;
 
 import com.google.gson.internal.LinkedTreeMap;
+import com.sm_arts.jibcon.data.models.api.dto.WeatherDataDto;
 import com.sm_arts.jibcon.data.models.api.dto.routine.DeviceMenuWeatherData;
 import com.sm_arts.jibcon.data.repository.network.api.WeatherService;
 import com.sm_arts.jibcon.ui.main.devicemenu.fragment.DeviceMenuView;
+import com.sm_arts.jibcon.utils.network.RetrofitClients;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -38,44 +41,40 @@ public class WeatherHelper {
             obj = new WeatherHelper();
         return obj;
     }
-
     public static void getCurrentWeather(DeviceMenuView mDeviceMenuView) {
         Log.d(TAG, "getCurrentWeather: ");
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://apis.skplanetx.com/gweather/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        WeatherService weatherService = retrofit.create(WeatherService.class);
-        Call<HashMap<String, Object>> c = weatherService.getWeather("0663ab3f-3aa2-35dd-9e37-b6d4e40a3ec3",
-                "37.5639",
-                "126.9823",
-                "1");
-        c.enqueue(new Callback<HashMap<String, Object>>() {
+        WeatherService weatherService = RetrofitClients.getInstance().getService(WeatherService.class);
+        // TODO: 2018. 1. 31. 현재 위치 위도경도를 하드코딩값이 아니라 MAP api로 받은 값으로 넣을것
+        Call<LinkedTreeMap<String,Object>> c = weatherService.getWeatherData(new WeatherDataDto("37.5639","126.9823","Seoul"));
+
+        c.enqueue(new Callback<LinkedTreeMap<String, Object>>() {
             @Override
-            public void onResponse(Call<HashMap<String, Object>> call, Response<HashMap<String, Object>> response) {
-                if(!response.isSuccessful())
-                    return;
-                LinkedTreeMap<String, Object> body = (LinkedTreeMap<String, Object>) response.body().get("gweather");
-                List<LinkedTreeMap<String, Object>> current = (List) body.get("current");
-                LinkedTreeMap<String, Object> item = current.get(0);
-                LinkedTreeMap<String, Object> skyInfo = (LinkedTreeMap) item.get("sky");
-                LinkedTreeMap<String, Object> temperature = (LinkedTreeMap) item.get("temperature");
-                LinkedTreeMap<String, Object> location = (LinkedTreeMap) item.get("location");
+            public void onResponse(Call<LinkedTreeMap<String, Object>> call, Response<LinkedTreeMap<String, Object>> response) {
+
+                LinkedTreeMap<String, Object> body = (LinkedTreeMap<String, Object>) response.body();
+                ArrayList<LinkedTreeMap<String,Object>> weatherDataList = (ArrayList<LinkedTreeMap<String,Object>>)body.get("data");
+
+                String city = ((String)body.get("city"));
+                String skyStatus = (String)((LinkedTreeMap<String,Object>)weatherDataList.get(0).get("sky")).get("name");
+                String temperature = (String)((LinkedTreeMap<String,Object>)weatherDataList.get(0).get("temperature")).get("tc");
+                String weatherCode = (String)((LinkedTreeMap<String,Object>)weatherDataList.get(0).get("sky")).get("code");
 
                 DeviceMenuWeatherData deviceMenuWeatherData = new DeviceMenuWeatherData();
-                deviceMenuWeatherData.location = (String) location.get("city");
-                deviceMenuWeatherData.temperature = (String) temperature.get("tc");
-                deviceMenuWeatherData.sky = (String) skyInfo.get("name");
+                deviceMenuWeatherData.location = city;
+                deviceMenuWeatherData.temperature =temperature;
+                deviceMenuWeatherData.sky = skyStatus;
+                deviceMenuWeatherData.weatherCode = weatherCode;
                 WeatherHelper.setDeviceMenuWeatherData(deviceMenuWeatherData);
                 mDeviceMenuView.setWeatherInfo(deviceMenuWeatherData);
 
+
             }
 
             @Override
-            public void onFailure(Call<HashMap<String, Object>> call, Throwable t) {
-                Log.d(TAG, "onFailure: ");
-                t.printStackTrace();
+            public void onFailure(Call<LinkedTreeMap<String, Object>> call, Throwable t) {
+
             }
         });
+
     }
 }

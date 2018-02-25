@@ -102,7 +102,7 @@ public class IntroActivity extends BaseActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            } else {//intro->login success->tutorial
+            } else {//intro->login success->tutorialr
                 Intent intent = new Intent(getApplicationContext(), TutorialMainActivity.class);
                 startActivity(intent);
                 finish();
@@ -169,29 +169,29 @@ public class IntroActivity extends BaseActivity {
     }
 
 
-    public static String getKeyHash(Context context) {
-        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
-        if (packageInfo == null)
-            return null;
-        for (Signature signature : packageInfo.signatures) {
-            try {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                String hashKey = android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
-                //카카오톡 안드로이드 플랫폼 키해시에 들어갈 키 정보 알아내기
-                Log.d("testing", hashKey);
-
-                return android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
-            } catch (NoSuchAlgorithmException e) {
-                Log.d("testing", "Unable to get MessageDigest. signature=" + signature, e);
-            }
-        }
-        return null;
-    }
+//    public static String getKeyHash(Context context) {
+//        PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);
+//        if (packageInfo == null)
+//            return null;
+//        for (Signature signature : packageInfo.signatures) {
+//            try {
+//                MessageDigest md = MessageDigest.getInstance("SHA");
+//                md.update(signature.toByteArray());
+//                String hashKey = android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
+//                //카카오톡 안드로이드 플랫폼 키해시에 들어갈 키 정보 알아내기
+//                Log.d("testing", hashKey);
+//
+//                return android.util.Base64.encodeToString(md.digest(), android.util.Base64.NO_WRAP);
+//            } catch (NoSuchAlgorithmException e) {
+//                Log.d("testing", "Unable to get MessageDigest. signature=" + signature, e);
+//            }
+//        }
+//        return null;
+//    }
 
     private void itemSetup() {
         //Global Application 에 담을 정보 초기 setup;
-        mApplication = (GlobalApplication) getApplicationContext();
+        mApplication = (GlobalApplication) GlobalApplication.getGlobalApplicationContext();
     }
 
 }

@@ -21,23 +21,23 @@
 
     <string name="tutorial_description_1">스<b>마트홈 기기</b>를 등록하세요</string>
     <string name="tutorial_description_2"><b>나의 루틴</b>을 등록해두세요</string>
-    <string name="tutorial_description_3"><b>혁신적 제품</b>들을 만나보세요</string>
+    <!--<string name="tutorial_description_3"><b>혁신적 제품</b>들을 만나보세요</string>-->
     <string name="tutorial_description_4"><b>나의 그래프</b>를 확인해보세요</string>
     <string-array name="tutorial_description_array">
         <item>@string/tutorial_description_1</item>
         <item>@string/tutorial_description_2</item>
-        <item>@string/tutorial_description_3</item>
+        <!--<item>@string/tutorial_description_3</item>-->
         <item>@string/tutorial_description_4</item>
     </string-array>
 
     <string name="tutorial_subdescription_1">어떠한 기기든 빠르게 연결하고\n 쉽게 간편하게 사용해보세요.</string>
     <string name="tutorial_subdescription_2">한번만 등록해두면 신경쓰지 않아도\n 알아서 척척해냅니다.</string>
-    <string name="tutorial_subdescription_3">콘샾에서 당신에게 맞는 제품을\n 가장 저렴하게 만나볼 수 있습니다</string>
+    <!--<string name="tutorial_subdescription_3">콘샾에서 당신에게 맞는 제품을\n 가장 저렴하게 만나볼 수 있습니다</string>-->
     <string name="tutorial_subdescription_4">낭비되는 전기세부터\n 나에게 맞는 온도까지! 데이터로 알아보세요</string>
     <string-array name="tutorial_subdescription_array">
         <item>@string/tutorial_subdescription_1</item>
         <item>@string/tutorial_subdescription_2</item>
-        <item>@string/tutorial_subdescription_3</item>
+        <!--<item>@string/tutorial_subdescription_3</item>-->
         <item>@string/tutorial_subdescription_4</item>
     </string-array>
 
@@ -48,4 +48,119 @@
 
     <string name="title_activity_main">Ahotbrew.com TimePicker</string>
     <string name="pick_time">Open Time Picker</string>
+
+    <string-array name="weather_code_index">
+
+        <item name="200">200</item>
+        <item name="201">201</item>
+        <item name="202">202</item>
+        <item name="210">210</item>
+        <item name="211">211</item>
+        <item name="212">212</item>
+        <item name="221">221</item>
+        <item name="230">230</item>
+        <item name="500">500</item>
+        <item name="501">501</item>
+        <item name="503">503</item>
+        <item name="502">502</item>
+        <item name="504">504</item>
+        <item name="511">511</item>
+        <item name="521">521</item>
+        <item name="522">522</item>
+        <item name="531">531</item>
+        <item name="600">600</item>
+        <item name="601">601</item>
+        <item name="611">611</item>
+        <item name="612">612</item>
+        <item name="615">615</item>
+        <item name="616">616</item>
+        <item name="620">620</item>
+        <item name="621">621</item>
+        <item name="602">602</item>
+        <item name="622">622</item>
+        <item name="701">701</item>
+        <item name="721">721</item>
+        <item name="741">741</item>
+        <item name="731">731</item>
+        <item name="751">751</item>
+        <item name="761">761</item>
+        <item name="804">804</item>
+        <item name="900">900</item>
+        <item name="901">901</item>
+        <item name="902">902</item>
+        <item name="906">906</item>
+
+        <item name="903">903</item>
+
+        <item name="904">904</item>
+        <item name="800">800</item>
+        <item name="801">801</item>
+        <item name="802">802</item>
+        <item name="803">803</item>
+
+    </string-array>
+
+    <string-array name="weather_code_data">
+        <item name="weather_code_200">오늘 하늘은 많이 사나워요 천둥 번개 조심하세요</item>
+        <item name="weather_code_201">오늘 하늘은 많이 사나워요 천둥 번개 조심하세요</item>
+        <item name="weather_code_202">오늘 하늘은 많이 사나워요 천둥 번개 조심하세요</item>
+        <item name="weather_code_210">오늘 하늘은 많이 사나워요 천둥 번개 조심하세요</item>
+        <item name="weather_code_211">오늘 하늘은 많이 사나워요 천둥 번개 조심하세요</item>
+        <item name="weather_code_212">오늘 하늘은 많이 사나워요 천둥 번개 조심하세요</item>
+        <item name="weather_code_221">오늘 하늘은 많이 사나워요 천둥 번개 조심하세요</item>
+        <item name="weather_code_230">오늘 하늘은 많이 사나워요 천둥 번개 조심하세요</item>
+
+        <item name="weather_code_500">비가 올지 모르니 우산을 챙기세요</item>
+        <item name="weather_code_501">비가 올지 모르니 우산을 챙기세요</item>
+        <item name="weather_code_503">비가 많이 내려요 빗길 조심하세요</item>
+        <item name="weather_code_502">비가 많이 내려요 빗길 조심하세요</item>
+        <item name="weather_code_504">비가 많이 내려요 빗길 조심하세요</item>
+        <item name="weather_code_511">비가 많이 내려요 빗길 조심하세요</item>
+        <item name="weather_code_521">소나기가 내려요 우산을 꼭 챙기세요</item>
+        <item name="weather_code_522">소나기가 내려요 우산을 꼭 챙기세요</item>
+        <item name="weather_code_531">소나기가 내려요 우산을 꼭 채기세요</item>
+
+        <item name="weather_code_600">눈이 올지도 몰라요! 밖을 내다봐요</item>
+        <item name="weather_code_601">오늘은 눈이 펑펑 내리는 날이에요</item>
+        <item name="weather_code_611">진눈깨비가 비처럼 내리는 날이에요</item>
+        <item name="weather_code_612">진눈깨비가 비처럼 내리는 날이에요</item>
+        <item name="weather_code_615">진눈깨비가 비처럼 내리는 날이에요</item>
+        <item name="weather_code_616">진눈깨비가 비처럼 내리는 날이에요</item>
+        <item name="weather_code_620">진눈깨비가 비처럼 내리는 날이에요</item>
+        <item name="weather_code_621">진눈깨비가 비처럼 내리는 날이에요</item>
+
+
+        <item name="weather_code_602">많은 눈이 내려요 눈길 조심하세요</item>
+        <item name="weather_code_622">많은 눈이 내려요 눈길 조심하세요</item>
+
+
+        <item name="weather_code_701">안개가 끼는 날씨, 안전 운전하세요</item>
+        <item name="weather_code_721">안개가 끼는 날씨, 안전 운전하세요</item>
+        <item name="weather_code_741">안개가 끼는 날씨, 안전 운전하세요</item>
+
+
+        <item name="weather_code_731">온 세상이 뿌옇게 보여요 황사 주의하세요</item>
+        <item name="weather_code_751">온 세상이 뿌옇게 보여요 황사 주의하세요</item>
+
+        <item name="weather_code_761">미세먼지 있는 날 마스크 꼭 하고 나가세요</item>
+
+        <item name="weather_code_804">구름이 많은 날씨에요</item>
+
+        <item name="weather_code_900">외출은 추천하지 않아요 태풍이 올 수 있거든요</item>
+        <item name="weather_code_901">강한 바람을 동반한 태풍이 예상돼요. 조심하세요</item>
+        <item name="weather_code_902">강한 바람을 동반한 태풍이 예상돼요 조심하세요</item>
+
+        <item name="weather_code_906">우박이 내리는 날씨 우산 꼭 챙기세요</item>
+        <item name="weather_code_903">오늘은 따듯하게 입고 나가야 해요</item>
+
+        <item name="weather_code_904">정말 더운 날이에요 그렇죠?</item>
+
+        <item name="weather_code_800">구름 한 점없는 맑은 날이에요</item>
+        <item name="weather_code_801">가끔씩은 하늘도 보자구요 저 이쁜 구름을 봐요</item>
+        <item name="weather_code_802">가끔씩은 하늘도 보자구요 저 이쁜 구름을 봐요</item>
+        <item name="weather_code_803">가끔씩은 하늘도 보자구요 저 이쁜 구름을 봐요</item>
+
+
+    </string-array>
+
 </resources>

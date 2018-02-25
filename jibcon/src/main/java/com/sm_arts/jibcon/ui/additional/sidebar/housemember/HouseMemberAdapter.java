@@ -1,4 +1,4 @@
-package com.sm_arts.jibcon.ui.additional.sidebar.housermember;
+package com.sm_arts.jibcon.ui.additional.sidebar.housemember;
 
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
