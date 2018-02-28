@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="305dp"
@@ -48,12 +46,11 @@
         android:background="@color/white"
         android:gravity="center"
         android:layout_gravity="center"
-
         android:paddingBottom="@dimen/maindevicemenuadapter_paddingbottom"
         android:paddingEnd="@dimen/maindevicemenuadapter_paddingend"
         android:paddingStart="@dimen/maindevicemenuadapter_paddingstart"
         android:paddingTop="@dimen/maindevicemenuadapter_paddingtop"
-        card:cardCornerRadius="0.5dp">
+        app:cardCornerRadius="0.5dp">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -70,8 +67,8 @@
                 android:gravity="center_vertical"
                 android:text="Living Room"
                 android:textSize="8dp"
-                card:layout_constraintLeft_toLeftOf="parent"
-                card:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/iv_devicemenuviewholder_option"
@@ -80,8 +77,8 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/maindevicemenu_recycleritem_more_vert"
-                card:layout_constraintRight_toRightOf="parent"
-                card:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_devicemenuviewholder_devicename"
@@ -93,8 +90,8 @@
                 android:text="Air conditioner"
                 android:textSize="12dp"
                 android:textStyle="bold"
-                card:layout_constraintLeft_toLeftOf="parent"
-                card:layout_constraintTop_toBottomOf="@+id/tv_devicemenuviewholder_placename" />
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_devicemenuviewholder_placename" />
 
             <ImageView
                 android:id="@+id/iv_devicemenuviewholder_subscribe"
@@ -102,9 +99,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="13dp"
-                android:srcCompat="@drawable/maindevicemenu_recycleritem_notificationsnone24dp"
-                card:layout_constraintRight_toRightOf="parent"
-                card:layout_constraintTop_toBottomOf="@+id/iv_devicemenuviewholder_option" />
+                app:srcCompat="@drawable/maindevicemenu_recycleritem_notificationsnone24dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_devicemenuviewholder_option" />
 
             <ImageView
                 android:id="@+id/iv_devicemenuviewholder_icon"
@@ -113,8 +110,8 @@
                 android:layout_marginRight="9dp"
                 android:layout_marginTop="8dp"
                 android:src="@drawable/maindevicemenu_recycleritem_monitor"
-                card:layout_constraintRight_toRightOf="parent"
-                card:layout_constraintTop_toBottomOf="@+id/iv_devicemenuviewholder_subscribe" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_devicemenuviewholder_subscribe" />
 
             <TextView
                 android:id="@+id/tv_devicemenuviewholder_status"
@@ -125,17 +122,16 @@
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text=""
-                card:layout_constraintBottom_toBottomOf="parent"
-                card:layout_constraintRight_toRightOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
 
             <ImageView
                 android:id="@+id/iv_devicemenuviewholder_onoff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="65dp"
-                card:layout_constraintBottom_toBottomOf="parent"
-                card:srcCompat="@drawable/maindevicemenu_recycleritem_backgroundoff"
-                tools:layout_editor_absoluteX="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:srcCompat="@drawable/maindevicemenu_recycleritem_backgroundoff"
                 />
 
         </android.support.constraint.ConstraintLayout>
