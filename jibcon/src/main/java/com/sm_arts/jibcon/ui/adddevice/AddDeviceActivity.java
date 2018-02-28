@@ -14,12 +14,10 @@ import com.sm_arts.jibcon.data.repository.helper.DeviceNetworkHelper;
 import com.sm_arts.jibcon.ui.BaseActivity;
 import com.sm_arts.jibcon.ui.adddevice.product.AddPhilipsHueFragment;
 import com.sm_arts.jibcon.ui.adddevice.product.ProductFragment;
-import com.sm_arts.jibcon.ui.adddevice.product.ProgressFragment;
 import com.sm_arts.jibcon.ui.main.MainActivity;
 import com.sm_arts.jibcon.utils.loginmanager.JibconLoginManager;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class AddDeviceActivity extends BaseActivity implements AddDeviceListner {
@@ -120,7 +118,6 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
         setContentView(R.layout.adddevice_adddevice_activity);
         mFragments.add(new ProductFragment());
         mFragments.add(new AddPhilipsHueFragment());
-        mFragments.add(new ProgressFragment());
         mDeviceItem = new DeviceItem();
 
         goFirstPage();

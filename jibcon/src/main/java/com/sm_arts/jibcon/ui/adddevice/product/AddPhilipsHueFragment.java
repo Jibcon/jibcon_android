@@ -112,7 +112,6 @@ public class AddPhilipsHueFragment extends Fragment implements HueDialogListner{
     }
 
     private void initLayout() {
-
         mButtonNext.setOnClickListener(v -> mMakeDeviceListener.nextPage(this));
     }
 
