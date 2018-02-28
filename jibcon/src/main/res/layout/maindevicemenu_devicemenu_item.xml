@@ -3,6 +3,7 @@
 <com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="305dp"
     android:layout_height="72dp"
@@ -78,7 +79,7 @@
                 android:layout_height="20dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/maindevicemenu_recycleritem_option"
+                android:src="@drawable/maindevicemenu_recycleritem_more_vert"
                 card:layout_constraintRight_toRightOf="parent"
                 card:layout_constraintTop_toTopOf="parent" />
 
@@ -101,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="13dp"
-                android:src="@drawable/maindevicemenu_recycleritem_notificationsnone24dp"
+                android:srcCompat="@drawable/maindevicemenu_recycleritem_notificationsnone24dp"
                 card:layout_constraintRight_toRightOf="parent"
                 card:layout_constraintTop_toBottomOf="@+id/iv_devicemenuviewholder_option" />
 
@@ -134,7 +135,8 @@
                 android:layout_marginBottom="65dp"
                 card:layout_constraintBottom_toBottomOf="parent"
                 card:srcCompat="@drawable/maindevicemenu_recycleritem_backgroundoff"
-                tools:layout_editor_absoluteX="0dp" />
+                tools:layout_editor_absoluteX="0dp"
+                />
 
         </android.support.constraint.ConstraintLayout>
 
