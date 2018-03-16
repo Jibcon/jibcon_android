@@ -18,26 +18,18 @@
 
         <TextView
             style="@style/setting_head"
-            android:text="About Jibcon" />
+            android:text="About Jibcon"
+            android:textSize="24dp"
+            />
 
     </android.support.v7.widget.Toolbar>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_gravity="center"
-        android:layout_width="150dp"
-        android:layout_height="180dp"
-        app:srcCompat="@drawable/jibcon_logo_en" />
-
-    <TextView
-        android:layout_marginTop="40dp"
-        android:id="@+id/textView4"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="하드웨어와 소프트웨어의\n경계가 사라진 세상\n\n우리가 만들어갑니다"
-        android:textAlignment="center"
-        android:textColor="@color/deep_blue"
-        android:textSize="20dp" />
+    <WebView
+        android:id="@+id/about_jibcon_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        />
 
 </LinearLayout>
