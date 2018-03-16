@@ -54,8 +54,8 @@
     <FrameLayout
         android:layout_width="280dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
-        fb:layout_constraintBottom_toTopOf="@+id/btnSampleSignIn"
+        android:layout_marginBottom="60dp"
+        fb:layout_constraintBottom_toTopOf="@+id/activity_login"
         android:layout_marginRight="8dp"
         fb:layout_constraintRight_toRightOf="@+id/videoView"
         android:layout_marginLeft="8dp"
@@ -123,25 +123,5 @@
             android:textStyle="bold" />
 
     </FrameLayout>
-
-    <!--Sample Login Button-->
-    <Button
-        android:id="@+id/btnSampleSignIn"
-        android:layout_width="280dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="64dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@color/tutorial_button_background"
-        android:text="@string/login_sample_btn"
-        android:textColor="@color/white"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        fb:layout_constraintBottom_toBottomOf="parent"
-        fb:layout_constraintHorizontal_bias="0.504"
-        fb:layout_constraintLeft_toLeftOf="parent"
-        fb:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
