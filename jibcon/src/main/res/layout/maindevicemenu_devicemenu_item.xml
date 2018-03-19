@@ -101,12 +101,11 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="200dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/iv_devicemenuviewholder_icon"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/tv_devicemenuviewholder_devicename"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/maindevicemenu_recycleritem_notificationsnone24dp" />
 

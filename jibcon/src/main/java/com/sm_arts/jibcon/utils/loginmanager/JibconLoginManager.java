@@ -141,7 +141,7 @@ public class JibconLoginManager {
             if (TextUtils.isEmpty(mUser.getLast_name()))
                 return mUser.getUserinfo().getFull_name();
             else
-                return mUser.getLast_name() + mUser.getFirst_name();
+                return mUser.getLast_name() + " " + mUser.getFirst_name();
         } else {
             return null;
         }
