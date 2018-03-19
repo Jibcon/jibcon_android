@@ -55,11 +55,11 @@ public class AddDeviceActivity extends BaseActivity implements AddDeviceListner 
     @Override
     public void nextPage(@NonNull final Fragment fragment) {
         final int page = mFragments.indexOf(fragment);
-        if (page == (mFragments.size() - 1)) {
+        if (page == (mFragments.size())) {
 
             // last page
 
-        } else if (page == (mFragments.size() - 2)) {
+        } else if (page == (mFragments.size() - 1)) {
             // last-1 page
             sendDevice();
 
