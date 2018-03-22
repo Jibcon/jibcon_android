@@ -31,11 +31,11 @@ public class UrlUtils {
                 "http://52.79.142.130/";
 
         String nodeApiUrl = BuildConfig.DEBUG ?
-                "http://52.79.109.13:8000/" :
+                "http://52.79.109.13:8000/" : // 우리 서버 주소로 바꾸기
                 "http://52.79.109.13:8000/";
-//        String apiUrl = BuildConfig.DEBUG ?
-//                "http://192.168.1.120:8000/" :
-//                "http://192.168.1.120:8000/";
+//        String nodeApiUrl = BuildConfig.DEBUG ?
+//                "http://smarts.asuscomm.com:8000/" :
+//                "http://smarts.asuscomm.com:8000/";
 
         String InternalServices = "https://www.meethue.com";
 

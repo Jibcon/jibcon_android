@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/tv_main_fragment_weather_recommend"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="72dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="18.8dp"
